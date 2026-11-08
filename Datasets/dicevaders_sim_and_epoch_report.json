@@ -1,0 +1,354 @@
+{
+  "status": "ok",
+  "pipeline": "MiroFish × Strands-Agents Dicevaders Playtest Simulator & Local MLX / V100 Continuous Trainer",
+  "timestamp_utc": "2026-11-07T11:06:24Z",
+  "topic": "Dicevaders (Steam 3917700) Budge/Chrono Dice-Grid Resonance + Aesthetic Juice + 12-Master Card Game Engine",
+  "dicevaders_1000_match_monte_carlo_telemetry": {
+    "subject_id": "Dicevaders_Steam_3917700_Budge_Chrono_3x3_Tactical_Hybrid",
+    "simulated_matches": 1000,
+    "first_player_win_rate_pct": 49.9,
+    "target_first_player_win_rate_pct": "50.0% ± 2.5%",
+    "first_player_win_rate_deviation_pct": 0.1,
+    "first_player_balance_within_target": true,
+    "avg_budge_chrono_combo_chain_length": 3.654,
+    "target_combo_chain_length": ">= 3.2 cascades/turn",
+    "combo_chain_meets_target": true,
+    "agency_vs_luck_index_pct": 97.07,
+    "bad_rolls_encountered": 1739,
+    "bad_rolls_recovered_via_budge_chrono": 1688,
+    "target_agency_vs_luck_pct": ">= 88.0%",
+    "agency_meets_target": true,
+    "aesthetic_dopamine_pace_score": 94.46,
+    "target_aesthetic_dopamine_score": ">= 90.0 / 100",
+    "aesthetic_dopamine_meets_target": true,
+    "average_match_turns": 4.92,
+    "resonance_trigger_distribution": {
+      "pair": 3275,
+      "triple": 4819,
+      "quadruple": 1247,
+      "pentad_or_grid_sweep": 322
+    },
+    "all_targets_passed": true
+  },
+  "mirofish_market_telemetry": {
+    "simulated_ticks": 1000,
+    "simulated_win_rate_pct": 53.4,
+    "target_equilibrium_win_rate_pct": 52.5,
+    "balance_deviation_pct": 0.9,
+    "average_match_turns": 6.17,
+    "mirofish_collector_Clearing_price_usd": 9.58,
+    "mirofish_community_sentiment_score": 80.14,
+    "aesthetic_appeal_index": 94.3
+  },
+  "illustration_shader_synthesis": {
+    "normalized_weights": {
+      "toru_nakayama": 0.3,
+      "ryo_hirata": 0.25,
+      "akihiko_yoshida": 0.25,
+      "yoji_shinkawa": 0.2
+    },
+    "contributing_masters": [
+      "Toru Nakayama (Mega Man Zero 1-4 / ZX / Dragon Marked for Death) (30%)",
+      "Ryo Hirata (Advance Wars 1/2/Dual Strike/Days of Ruin & Fire Emblem GBA) (25%)",
+      "Akihiko Yoshida (FFT / Tactics Ogre / FFTA Judges / NieR) (25%)",
+      "Yoji Shinkawa (Metal Gear Solid 1-5 / Zone of the Enders) (20%)"
+    ],
+    "blended_shader_vector": {
+      "outline": 1.578,
+      "crosshatch": 0.439,
+      "bloom": 0.352,
+      "saturation": 1.082,
+      "bevel": 0.761
+    },
+    "trellis2_ovoxel_pbr": {
+      "roughness_bias": 0.658,
+      "metallic_bias": 0.495,
+      "emissive_bloom": 0.352
+    }
+  },
+  "apple_silicon_jevmlx_evaluation": {
+    "device": "Apple A18 Pro Metal GPU (Device(gpu, 0))",
+    "model": "fast (mlx-community/Qwen2.5-3B-Instruct-4bit)",
+    "mlx_jev_judge": {
+      "proposition": "The Dicevaders 3x3 Card-Dice Hybrid satisfies all four competitive balance, combo chain, player agency, and aesthetic dopamine gating criteria for longitudinal V100 QLoRA + Hinton KD training.",
+      "verdict": true,
+      "probability": 0.9632,
+      "probability_margin": 0.9265
+    },
+    "mlx_jev_rate": {
+      "scale": [
+        "poor_imbalanced",
+        "mediocre_luck_dependent",
+        "solid_playable",
+        "high_agency_balanced",
+        "masterpiece_tactical_resonance"
+      ],
+      "level": "solid_playable",
+      "probability": 0.8242,
+      "probability_margin": 0.7302,
+      "expected_score_normalized": 0.5326
+    }
+  },
+  "strands_4node_llm_panel": [
+    {
+      "agent_id": "strand_master_art_director",
+      "persona": "12-Master Visual & Shader Aesthetics Director",
+      "node_id": "node30_rtx4080",
+      "model": "pxg-lumenforge:12b-tutor",
+      "elapsed_ms": 3094.52,
+      "tok_s": 61.3,
+      "critique": "**[STRAND_MASTER_ART_DIRECTOR_FEEDBACK_LOG]**\n**Asset ID:** Dicevaders (Steam 3917700) | **Engine Context:** 12-Master Card Game Engine\n\n### **CRITIQUE REPORT**\n\n**Silhouette Readability:**\nThe fusion of Nakayama’s sharp, angular \"Zero\" aesthetics and Yoshida’s textured elegance creates a high-contrast silhouette. However, the \"Dice-Grid Resonance\" effect risks visual noise; ensure the dice geometry maintains distinct edges against the grid lines to prevent \"blobbing\" during rapid animations.\n\n**12-Master Style Fidelity:**\nThe blend is sophisticated. Nakayama provides the kinetic edge, Yoshida",
+      "ok": true
+    },
+    {
+      "agent_id": "strand_meta_tactician",
+      "persona": "Competitive 3x3 Tactical Meta & Balance Simulator",
+      "node_id": "node116_v100",
+      "model": "pxg-lumenforge:1.5b-qlora",
+      "elapsed_ms": 965.58,
+      "tok_s": 187.2,
+      "critique": "1. **Positional Balance**: The dicevaders are positioned in a 3x3 grid, and their moves are influenced by the dicevaders' positions. The dicevaders' moves are balanced by the dicevaders' positions, which means that the dicevectors are evenly distributed in the grid. This balance ensures that the dicevectors do not create any skewness in the grid, which would otherwise affect the overall balance of the game.\n\n2. **Towers of Hanoi**: The dicevectors are arranged in a specific order, which is required to solve the towers of Hanoi problem. The towers of Hanoi problem is a classic problem in computer science, and it requires the use of three poles and a set",
+      "ok": true
+    },
+    {
+      "agent_id": "strand_mirofish_economist",
+      "persona": "MiroFish Agent-Based Market & Collector Demand Forecaster",
+      "node_id": "node22_rtx2070",
+      "model": "pxg-lumenforge:7b-tutor",
+      "elapsed_ms": 2836.93,
+      "tok_s": 58.6,
+      "critique": "### Actionable Bullet Points:\n- **Focus on Niche Marketing:** Leverage the unique blend of styles and mechanics to target fans of retro-style games and complex card gameplay.\n- **Enhance Visual Appeal:** Adjust shader vectors slightly to increase \"outline\" and \"bevel\" for a more defined, appealing look that can attract visual enthusiasts.\n- **Community Engagement:** Create engaging content and events around the game's aesthetic and mechanics to boost community virality and collector interest.\n\n### Numeric Rating: 78/100\n\nThis rating accounts for the balanced mix of styles, promising win rate, and positive sentiment, but suggests room for improvement in marketing and visual enhancement.",
+      "ok": true
+    },
+    {
+      "agent_id": "strand_onboarding_ux_critic",
+      "persona": "Player Cognitive Load & Environmental Readability Critic",
+      "node_id": "node127_m1max_64gb",
+      "model": "pxg-lumenforge:7b-tutor",
+      "elapsed_ms": 5012.02,
+      "tok_s": 32.3,
+      "critique": "### Evaluation of Dicevaders (Steam 3917700) Budge/Chrono Dice-Grid Resonance + Aesthetic Juice + 12-Master Card Game Engine\n\n#### Visual Hierarchy & Instant Board-State Comprehension:\n- **Card and Terrain Design:** The card design is visually appealing but could benefit from clearer icons and labels to enhance immediate understanding.\n- **Terrain Layout:** The dice-grid resonance adds depth, but the layout can be more intuitive with better spacing and color coding for different terrains.\n\n#### Onboarding Clarity:\n- **Introduction Sequence:** The onboarding sequence is engaging but lacks a clear step-by-step guide. Players might benefit from a tutorial that highlights key mechanics.\n- **Rules",
+      "ok": true
+    }
+  ],
+  "longitudinal_corpus_sync": {
+    "local_corpus": {
+      "corpus_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/longitudinal_9_masters_full_corpus.jsonl",
+      "record_id": "dicevaders_3917700_budge_chrono_1000mc_synthesis",
+      "appended_new": true,
+      "total_records": 662
+    },
+    "v100_scp_sync": {
+      "ok": true,
+      "command": "scp -q /Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/longitudinal_9_masters_full_corpus.jsonl v100:/mnt/models/forge/datasets/longitudinal_9_masters_full_corpus.jsonl",
+      "destination": "v100:/mnt/models/forge/datasets/longitudinal_9_masters_full_corpus.jsonl",
+      "returncode": 0,
+      "stderr": "",
+      "elapsed_ms": 1431.85
+    }
+  },
+  "v100_5epoch_30step_qlora_kd_refinement": {
+    "command": "/Users/frederickamina/.local/bin/pxg-gamedev-harness refine Dicevaders (Steam 3917700) Budge/Chrono Dice-Grid Resonance + Aesthetic Juice + 12-Master Card Game Engine --epochs 5 --steps 6",
+    "epochs_requested": 5,
+    "steps_per_epoch_requested": 6,
+    "total_steps_requested": 30,
+    "harness_returncode": 0,
+    "harness_stdout_preview": "=== Live V100 QLoRA + Hinton Knowledge Distillation (T=2.0) Model Refinement (27382.0 ms) ===\nSession ID       : refine-1794049431\nTopic            : Dicevaders (Steam 3917700) Budge/Chrono Dice-Grid Resonance + Aesthetic Juice + 12-Master Card Game Engine\nStudent Model    : Qwen/Qwen2.5-Math-1.5B-Instruct (continual_chained_adapter)\nTeacher Node     : node127_m1max_64gb (pxg-lumenforge:7b-tutor) + node22_rtx2070 (pxg-lumenforge:7b-tutor) + node30_rtx4080 (pxg-lumenforge:12b-tutor) (3-Node Ensemble)\nEpochs / Steps   : 5 epoch(s) | 30 total gradient steps | 6 longitudinal dataset records fused\nCE Loss Reduction: 4.14870 -> 3.84908 (-7.22%)\nTotal KD Loss    : 3.35158 -> 3.12360 | Peak V100 VRAM: 10795.6 MB\n  * [Epoch 1]: CE 4.14870 -> 4.04837 (Mean CE: 4.08709, End KD: 3.44125, LR: 0.0001385)\n  * [Epoch 2]: CE 4.04182 -> 3.99947 (Mean CE: 4.02378, End KD: 3.25429, LR: 0.0001085)\n  * [Epoch 3]: CE 3.99134 -> 3.93756 (Mean CE: 3.96582, End KD: 3.17795, LR: 0.0000715)\n  * [Epoch 4]: CE 3.92628 -> 3.88226 (Mean CE: 3.90280, End KD: 3.14935, LR: 0.0000415)\n  * [Epoch 5]: CE 3.87515 -> 3.84908 (Mean CE: 3.86176, End KD: 3.12360, LR: 0.0000300)\nSoup Engine Gate : HEALTHY (Zero Layers: 0, No",
+    "harness_stderr": "",
+    "v100_refinement_telemetry": {
+      "status": "ok",
+      "session_id": "refine-1794049462",
+      "pipeline": "Sovereign 4-Node Multi-Teacher Live QLoRA + Hinton KD Continual Model Refiner",
+      "continual_mode": "continual_chained_adapter",
+      "timestamp_utc": "2026-11-07T11:04:53Z",
+      "topic": "Dicevaders (Steam 3917700) Budge/Chrono Dice-Grid Resonance + Aesthetic Juice + 12-Master Card Game Engine",
+      "domain": "dicevaders_budge_chrono_12master_engine",
+      "teacher_source": "node127_m1max_64gb (pxg-lumenforge:7b-tutor) + node22_rtx2070 (pxg-lumenforge:7b-tutor) + node30_rtx4080 (pxg-lumenforge:12b-tutor)",
+      "teacher_synthesis": {
+        "teacher_node": "node127_m1max_64gb (pxg-lumenforge:7b-tutor) + node22_rtx2070 (pxg-lumenforge:7b-tutor) + node30_rtx4080 (pxg-lumenforge:12b-tutor)",
+        "teacher_model": "3-Node Ensemble",
+        "synthesis_ms": 4268.45
+      },
+      "teacher_synthesis_ms": 4268.45,
+      "base_model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+      "student_base_model": "Qwen/Qwen2.5-Math-1.5B-Instruct (continual_chained_adapter)",
+      "source_adapter": "/mnt/models/forge/checkpoints/pxg-live-refined-qlora/final_adapter",
+      "refined_adapter_dir": "/mnt/models/forge/checkpoints/pxg-live-refined-qlora/final_adapter",
+      "adapter_dir": "/mnt/models/forge/checkpoints/pxg-live-refined-qlora/final_adapter",
+      "training_metrics": {
+        "epochs": 5,
+        "steps_per_epoch": 6,
+        "steps": 30,
+        "dataset_records_fused": 6,
+        "learning_rate": 0.00015,
+        "hinton_kd_temperature": 2.0,
+        "hinton_kd_alpha": 0.25,
+        "initial_ce_loss": 3.81101,
+        "final_ce_loss": 3.5089,
+        "ce_loss_reduction_pct": 7.93,
+        "initial_total_loss": 3.12082,
+        "final_total_loss": 2.89739,
+        "initial_total_kd_loss": 3.12082,
+        "final_total_kd_loss": 2.89739,
+        "epoch_summaries": [
+          {
+            "epoch": 1,
+            "steps_in_epoch": 6,
+            "start_ce_loss": 3.81101,
+            "end_ce_loss": 3.73593,
+            "mean_ce_loss": 3.76985,
+            "end_total_kd_loss": 3.1282,
+            "lr_end": 0.0001385
+          },
+          {
+            "epoch": 2,
+            "steps_in_epoch": 6,
+            "start_ce_loss": 3.72793,
+            "end_ce_loss": 3.6612,
+            "mean_ce_loss": 3.69416,
+            "end_total_kd_loss": 2.99235,
+            "lr_end": 0.0001085
+          },
+          {
+            "epoch": 3,
+            "steps_in_epoch": 6,
+            "start_ce_loss": 3.65147,
+            "end_ce_loss": 3.59419,
+            "mean_ce_loss": 3.62247,
+            "end_total_kd_loss": 2.94655,
+            "lr_end": 7.15e-05
+          },
+          {
+            "epoch": 4,
+            "steps_in_epoch": 6,
+            "start_ce_loss": 3.58304,
+            "end_ce_loss": 3.54014,
+            "mean_ce_loss": 3.56033,
+            "end_total_kd_loss": 2.91485,
+            "lr_end": 4.15e-05
+          },
+          {
+            "epoch": 5,
+            "steps_in_epoch": 6,
+            "start_ce_loss": 3.5327,
+            "end_ce_loss": 3.5089,
+            "mean_ce_loss": 3.52018,
+            "end_total_kd_loss": 2.89739,
+            "lr_end": 3e-05
+          }
+        ],
+        "loss_trajectory": [
+          3.12082,
+          3.65575,
+          3.37263,
+          3.23095,
+          3.16605,
+          3.1282,
+          3.08998,
+          3.06857,
+          3.04212,
+          3.02319,
+          3.0101,
+          2.99235,
+          2.98136,
+          2.97186,
+          2.96533,
+          2.95687,
+          2.95454,
+          2.94655,
+          2.94067,
+          2.93637,
+          2.92869,
+          2.92353,
+          2.92007,
+          2.91485,
+          2.91308,
+          2.90728,
+          2.90325,
+          2.90077,
+          2.8988,
+          2.89739
+        ],
+        "ce_trajectory": [
+          3.81101,
+          3.79261,
+          3.7752,
+          3.75851,
+          3.74586,
+          3.73593,
+          3.72793,
+          3.71513,
+          3.70067,
+          3.68781,
+          3.67219,
+          3.6612,
+          3.65147,
+          3.63886,
+          3.62823,
+          3.61622,
+          3.60582,
+          3.59419,
+          3.58304,
+          3.57219,
+          3.56376,
+          3.55522,
+          3.54764,
+          3.54014,
+          3.5327,
+          3.52697,
+          3.52167,
+          3.51748,
+          3.51334,
+          3.5089
+        ],
+        "kl_trajectory": [
+          1.05024,
+          3.24515,
+          2.16493,
+          1.64828,
+          1.42663,
+          1.30501,
+          1.17614,
+          1.12888,
+          1.06644,
+          1.02933,
+          1.02381,
+          0.9858,
+          0.97103,
+          0.97084,
+          0.9766,
+          0.97882,
+          1.00069,
+          1.00364,
+          1.01355,
+          1.02892,
+          1.02347,
+          1.02846,
+          1.03737,
+          1.03899,
+          1.05421,
+          1.04819,
+          1.04798,
+          1.05062,
+          1.0552,
+          1.06286
+        ],
+        "v100_train_time_ms": 17505.18,
+        "training_elapsed_ms": 27471.01,
+        "v100_peak_vram_mb": 10795.61,
+        "v100_vram_peak_mb": 10795.61
+      },
+      "soup_engine_audit": {
+        "verdict": "HEALTHY",
+        "tensor_count": 0,
+        "zero_layers": 0,
+        "non_finite": false
+      },
+      "provenance_hmac_sha256": "c6056e9ba8e49e861b556bfc0aaa85da4f8337003c08eea707b9aa7faca087d5",
+      "total_wall_ms": 27471.01
+    },
+    "elapsed_ms": 61209.4
+  },
+  "provenance_hmac_sha256": "1be014ad0fa9236396c823e4ccfc2e4027e1af899629a8873deaac7b57056056",
+  "total_wall_ms": 6473.85
+}

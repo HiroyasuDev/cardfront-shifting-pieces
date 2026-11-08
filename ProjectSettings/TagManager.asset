@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - StaccsCardCube
+  - TacticalBoardSlot
+  - TelegraphOverlay
+  - SolidEyeHud
+  - JudgeLawBanner
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - TacticalBoard3x3
+  - StaccsIsoCube
+  - TelegraphLayer
+  - SolidEyePopCel
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: GroundTelegraph
+    uniqueID: 101
+    locked: 0
+  - name: StaccsTower
+    uniqueID: 102
+    locked: 0
+  - name: SolidEyeCutIn
+    uniqueID: 103
+    locked: 0

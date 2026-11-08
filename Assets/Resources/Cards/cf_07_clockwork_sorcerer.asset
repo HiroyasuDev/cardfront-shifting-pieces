@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6399a062aa6f2ad138a1a711f791905, type: 3}
+  m_Name: cf_07_clockwork_sorcerer
+  m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
+  id: cf_07_clockwork_sorcerer
+  title: "Clockwork Sorcerer"
+  codeName: "Temporal Enigma"
+  baseStats:
+    up: 4
+    down: 8
+    left: 7
+    right: 5
+  themes: 65
+  specialAbility: 7
+  specialAbilityDescription: "Once per game, reverse the directional strength values (Up<->Down, Left<->Right) of adjacent cards for 1 turn."
+  synergyRequiredTheme: 64
+  synergyAllSidesBonus: 3
+  synergyName: "Steampunk Mastery"
+  evolvesToCardId: ""
+  cardArt: {fileID: 21300000, guid: d98c5a1478a6c99f1676b60d90411c32, type: 3}

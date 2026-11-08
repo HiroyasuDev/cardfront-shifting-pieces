@@ -1,0 +1,281 @@
+{
+  "status": "ok",
+  "pipeline": "Shifting Pieces × CardFront: Cradle of Echoes × CardCraft Longitudinal Corpus Builder (801 Records) & Multi-Agent Coordination Hub",
+  "timestamp_utc": "2026-11-07T11:26:27Z",
+  "manuscripts_read_count": 7,
+  "manuscripts_summary": {
+    "shifting_pieces_complete_novel_txt": {
+      "filename": "Shifting_Pieces_Complete_Novel.txt",
+      "bytes": 66064,
+      "extracted_chars": 65138,
+      "sha256": "be6aa3553c593602"
+    },
+    "story_bible_docx": {
+      "filename": "Story Bible.docx",
+      "bytes": 10798,
+      "extracted_chars": 3713,
+      "sha256": "f80cce710b7c063e"
+    },
+    "visual_character_sheet_docx": {
+      "filename": "Visual Character Sheet – Shifting Pieces.docx",
+      "bytes": 9473,
+      "extracted_chars": 2471,
+      "sha256": "099919c275f75e3e"
+    },
+    "chapter_puzzle_integration_map_docx": {
+      "filename": "Chapter-by-Chapter Puzzle Integration Map – Shifting Pieces.docx",
+      "bytes": 9685,
+      "extracted_chars": 2625,
+      "sha256": "d88840ad4527a3cc"
+    },
+    "cardfront_cradle_of_echoes_docx": {
+      "filename": "CardFront_Cradle_of_Echoes.docx",
+      "bytes": 12793,
+      "extracted_chars": 8667,
+      "sha256": "b0f6e043865f47cc"
+    },
+    "shifting_pieces_cover_palettes_docx": {
+      "filename": "Shifting_Pieces_Cover_Color_Palettes.docx",
+      "bytes": 329357,
+      "extracted_chars": 3137,
+      "sha256": "3c3158d9082dd868"
+    },
+    "cardcraft_docx": {
+      "filename": "CardCraft.docx",
+      "bytes": 305499,
+      "extracted_chars": 3745,
+      "sha256": "0ef8138303cc87e2"
+    }
+  },
+  "corpus_expansion": {
+    "previous_corpus_records": 721,
+    "new_shifting_pieces_cardfront_records_appended": 80,
+    "pillar_records_count": 60,
+    "chapter_encounter_records_count": 20,
+    "total_corpus_records": 801,
+    "dataset_paths": [
+      "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/longitudinal_9_masters_full_corpus.jsonl",
+      "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/longitudinal_12_masters_concept_and_gamedesign_corpus.jsonl"
+    ]
+  },
+  "coordination_hub": {
+    "coordination_hub_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/ANTIGRAVITY_SWARM_COORDINATION_HUB.json",
+    "ncm_status": {
+      "key": "antigravity_cli_152_shifting_pieces_cardfront_hub",
+      "store_path": "/Users/frederickamina/.prime/agent/harness/ncm_store.json",
+      "updated_at": "2026-11-07T11:26:27Z",
+      "total_keys": 27
+    }
+  },
+  "v100_scp_sync": {
+    "ok": true,
+    "command": "scp -q /Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/longitudinal_9_masters_full_corpus.jsonl v100:/mnt/models/forge/datasets/longitudinal_9_masters_full_corpus.jsonl",
+    "destination": "v100:/mnt/models/forge/datasets/longitudinal_9_masters_full_corpus.jsonl",
+    "returncode": 0,
+    "stderr": "",
+    "elapsed_ms": 1678.54
+  },
+  "v100_5epoch_30step_refinement": {
+    "command": "/Users/frederickamina/.local/bin/pxg-gamedev-harness refine Shifting Pieces Manuscript (Kai, Aiko Red Scarf #D12D3A, Mnemosyne, LUNA) x CardFront: Cradle of Echoes x CardCraft Internal Card/Mesh/Concept Generator (801 Records) --epochs 5 --steps 6",
+    "epochs_requested": 5,
+    "steps_per_epoch_requested": 6,
+    "total_steps_requested": 30,
+    "harness_returncode": 0,
+    "harness_stdout_preview": "=== Live V100 QLoRA + Hinton Knowledge Distillation (T=2.0) Model Refinement (31157.6 ms) ===\nSession ID       : refine-1794050718\nTopic            : Shifting Pieces Manuscript (Kai, Aiko Red Scarf #D12D3A, Mnemosyne, LUNA) x CardFront: Cradle of Echoes x CardCraft Internal Card/Mesh/Concept Generator (801 Records)\nStudent Model    : Qwen/Qwen2.5-Math-1.5B-Instruct (continual_chained_adapter)\nTeacher Node     : node127_m1max_64gb (pxg-lumenforge:7b-tutor) + node22_rtx2070 (pxg-lumenforge:7b-tutor) + node30_rtx4080 (pxg-lumenforge:12b-tutor) (3-Node Ensemble)\nEpochs / Steps   : 5 epoch(s) | 30 total gradient steps | 6 longitudinal dataset records fused\nCE Loss Reduction: 4.20220 -> 3.86033 (-8.14%)\nTotal KD Loss    : 3.49814 -> 3.18181 | Peak V100 VRAM: 10795.6 MB\n  * [Epoch 1]: CE 4.20220 -> 4.10201 (Mean CE: 4.14644, End KD: 3.41580, LR: 0.0001385)\n  * [Epoch 2]: CE 4.09152 -> 4.02517 (Mean CE: 4.06173, End KD: 3.30145, LR: 0.0001085)\n  * [Epoch 3]: CE 4.01073 -> 3.95611 (Mean CE: 3.98396, End KD: 3.23992, LR: 0.0000715)\n  * [Epoch 4]: CE 3.94613 -> 3.89715 (Mean CE: 3.92100, End KD: 3.20248, LR: 0.0000415)\n  * [Epoch 5]: CE 3.89076 -> 3.86033 (Mean CE: 3.87556, End KD: 3.18181, LR: 0.0000300)\nSoup Engine Gate : HEALTHY (Zero Layers: 0, Non-Finite: false)\nSaved Adapter    : /mnt/models/forge/checkpoints/pxg-live-refined-qlora/final_adapter\nProvenance HMAC  : 2100340abd867a0385b73fd181265e33e94cb515c09cadd08ae8d8803a40241b",
+    "harness_stderr": "",
+    "v100_refinement_telemetry": {
+      "status": "ok",
+      "session_id": "refine-1794050753",
+      "pipeline": "Sovereign 4-Node Multi-Teacher Live QLoRA + Hinton KD Continual Model Refiner",
+      "continual_mode": "continual_chained_adapter",
+      "timestamp_utc": "2026-11-07T11:26:26Z",
+      "topic": "Shifting Pieces Manuscript (Kai, Aiko Red Scarf #D12D3A, Mnemosyne, LUNA) x CardFront: Cradle of Echoes x CardCraft Internal Card/Mesh/Concept Generator (801 Records)",
+      "domain": "shifting_pieces_cardfront_cardcraft_801_corpus",
+      "teacher_source": "node127_m1max_64gb (pxg-lumenforge:7b-tutor) + node22_rtx2070 (pxg-lumenforge:7b-tutor) + node30_rtx4080 (pxg-lumenforge:12b-tutor)",
+      "teacher_synthesis": {
+        "teacher_node": "node127_m1max_64gb (pxg-lumenforge:7b-tutor) + node22_rtx2070 (pxg-lumenforge:7b-tutor) + node30_rtx4080 (pxg-lumenforge:12b-tutor)",
+        "teacher_model": "3-Node Ensemble",
+        "synthesis_ms": 4420.08
+      },
+      "teacher_synthesis_ms": 4420.08,
+      "base_model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+      "student_base_model": "Qwen/Qwen2.5-Math-1.5B-Instruct (continual_chained_adapter)",
+      "source_adapter": "/mnt/models/forge/checkpoints/pxg-live-refined-qlora/final_adapter",
+      "refined_adapter_dir": "/mnt/models/forge/checkpoints/pxg-live-refined-qlora/final_adapter",
+      "adapter_dir": "/mnt/models/forge/checkpoints/pxg-live-refined-qlora/final_adapter",
+      "training_metrics": {
+        "epochs": 5,
+        "steps_per_epoch": 6,
+        "steps": 30,
+        "dataset_records_fused": 6,
+        "learning_rate": 0.00015,
+        "hinton_kd_temperature": 2.0,
+        "hinton_kd_alpha": 0.25,
+        "initial_ce_loss": 4.00417,
+        "final_ce_loss": 3.77509,
+        "ce_loss_reduction_pct": 5.72,
+        "initial_total_loss": 3.28523,
+        "final_total_loss": 3.11321,
+        "initial_total_kd_loss": 3.28523,
+        "final_total_kd_loss": 3.11321,
+        "epoch_summaries": [
+          {
+            "epoch": 1,
+            "steps_in_epoch": 6,
+            "start_ce_loss": 4.00417,
+            "end_ce_loss": 3.93472,
+            "mean_ce_loss": 3.96719,
+            "end_total_kd_loss": 3.4339,
+            "lr_end": 0.0001385
+          },
+          {
+            "epoch": 2,
+            "steps_in_epoch": 6,
+            "start_ce_loss": 3.92868,
+            "end_ce_loss": 3.89832,
+            "mean_ce_loss": 3.91675,
+            "end_total_kd_loss": 3.21461,
+            "lr_end": 0.0001085
+          },
+          {
+            "epoch": 3,
+            "steps_in_epoch": 6,
+            "start_ce_loss": 3.8894,
+            "end_ce_loss": 3.8426,
+            "mean_ce_loss": 3.86679,
+            "end_total_kd_loss": 3.16403,
+            "lr_end": 7.15e-05
+          },
+          {
+            "epoch": 4,
+            "steps_in_epoch": 6,
+            "start_ce_loss": 3.83318,
+            "end_ce_loss": 3.80178,
+            "mean_ce_loss": 3.81623,
+            "end_total_kd_loss": 3.13423,
+            "lr_end": 4.15e-05
+          },
+          {
+            "epoch": 5,
+            "steps_in_epoch": 6,
+            "start_ce_loss": 3.79582,
+            "end_ce_loss": 3.77509,
+            "mean_ce_loss": 3.7855,
+            "end_total_kd_loss": 3.11321,
+            "lr_end": 3e-05
+          }
+        ],
+        "loss_trajectory": [
+          3.28523,
+          4.50543,
+          3.94259,
+          3.68162,
+          3.52861,
+          3.4339,
+          3.3748,
+          3.31455,
+          3.30144,
+          3.26308,
+          3.23282,
+          3.21461,
+          3.21224,
+          3.20661,
+          3.18631,
+          3.17456,
+          3.16642,
+          3.16403,
+          3.15857,
+          3.15506,
+          3.14975,
+          3.14346,
+          3.14212,
+          3.13423,
+          3.12569,
+          3.12412,
+          3.12137,
+          3.11662,
+          3.11352,
+          3.11321
+        ],
+        "ce_trajectory": [
+          4.00417,
+          3.98602,
+          3.97462,
+          3.96064,
+          3.94297,
+          3.93472,
+          3.92868,
+          3.92723,
+          3.92227,
+          3.91666,
+          3.90737,
+          3.89832,
+          3.8894,
+          3.88037,
+          3.87403,
+          3.86187,
+          3.85246,
+          3.8426,
+          3.83318,
+          3.8259,
+          3.81905,
+          3.81237,
+          3.80508,
+          3.80178,
+          3.79582,
+          3.79159,
+          3.7874,
+          3.78335,
+          3.77973,
+          3.77509
+        ],
+        "kl_trajectory": [
+          1.12839,
+          6.06365,
+          3.84649,
+          2.84456,
+          2.28554,
+          1.93143,
+          1.71315,
+          1.47653,
+          1.43896,
+          1.30235,
+          1.20918,
+          1.16348,
+          1.18075,
+          1.18535,
+          1.12317,
+          1.11264,
+          1.1083,
+          1.12831,
+          1.13472,
+          1.14256,
+          1.14185,
+          1.13672,
+          1.15324,
+          1.1316,
+          1.1153,
+          1.1217,
+          1.1233,
+          1.11641,
+          1.11487,
+          1.12757
+        ],
+        "v100_train_time_ms": 19352.4,
+        "training_elapsed_ms": 29176.04,
+        "v100_peak_vram_mb": 10797.11,
+        "v100_vram_peak_mb": 10797.11
+      },
+      "soup_engine_audit": {
+        "verdict": "HEALTHY",
+        "tensor_count": 0,
+        "zero_layers": 0,
+        "non_finite": false
+      },
+      "provenance_hmac_sha256": "6e51c459a2e09090baa825a9e4d51e93469e0b73cefeb1db0517ee20f4158f1f",
+      "total_wall_ms": 29176.04
+    },
+    "elapsed_ms": 67379.3
+  },
+  "elapsed_ms": 69115.54
+}

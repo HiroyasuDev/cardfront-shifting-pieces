@@ -1,0 +1,42 @@
+{
+  "status": "VERIFIED_10_OF_10",
+  "atlas_guid": "58e81fd6e87d70eb2dabb2069167dd7b",
+  "cards_checked": 42,
+  "cards_bound_to_master_atlas": 42,
+  "legacy_placeholder_guid_count": 0,
+  "variants_generated": 5,
+  "variants": [
+    {
+      "file": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Variants/CardFront/variant_01_standard.asset",
+      "id": "standard",
+      "guid": "916dac01cee48c8238bdd1ee022215f1",
+      "cost_factor": 1
+    },
+    {
+      "file": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Variants/CardFront/variant_02_okitsu_sepia_relief.asset",
+      "id": "okitsu_sepia_relief",
+      "guid": "43024ab25fb628d2ba7307efd2f5f8bb",
+      "cost_factor": 2
+    },
+    {
+      "file": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Variants/CardFront/variant_03_sumi_crimson_ink.asset",
+      "id": "sumi_crimson_ink",
+      "guid": "d378ad3759b0ed250a29bcc240973441",
+      "cost_factor": 3
+    },
+    {
+      "file": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Variants/CardFront/variant_04_celestial_prismatic_foil.asset",
+      "id": "celestial_prismatic_foil",
+      "guid": "bce01ad8f612100ccad0a4cadc79e1dd",
+      "cost_factor": 4
+    },
+    {
+      "file": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Variants/CardFront/variant_05_rigged_3d_totem.asset",
+      "id": "rigged_3d_totem",
+      "guid": "062a8d747e7729a771db6ad499410020",
+      "cost_factor": 5
+    }
+  ],
+  "ip_scrub_rules_applied": 65,
+  "playable_html_upgraded": true
+}

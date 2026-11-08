@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6399a062aa6f2ad138a1a711f791905, type: 3}
+  m_Name: s1_18_void_stalker
+  m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
+  id: s1_18_void_stalker
+  title: "Void Stalker"
+  codeName: "Umbral Phantom"
+  baseStats:
+    up: 6
+    down: 4
+    left: 9
+    right: 5
+  themes: 40
+  specialAbility: 4
+  specialAbilityDescription: "Once per game, this unit becomes immune to capture for 1 full turn."
+  synergyRequiredTheme: 8
+  synergyAllSidesBonus: 2
+  synergyName: "Void Shroud"
+  evolvesToCardId: ""
+  cardArt: {fileID: 21300000, guid: bbdfc7102b0e5a6c397bae2dd7535f90, type: 3}

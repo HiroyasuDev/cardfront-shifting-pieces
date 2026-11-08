@@ -1,0 +1,535 @@
+{
+  "manifest_id": "synapse_sovereign_lora_safetensors_v1",
+  "timestamp_utc": "2026-11-08T10:34:02Z",
+  "house_style": "Synapse-Aether-Cel v1.0",
+  "corpus_statistics": {
+    "corpus_total_lines": 1000,
+    "corpus_reference_records": 721,
+    "epoch_runs_logged": 79,
+    "latest_ce_loss": 0.4748,
+    "latest_kl_div": 0.1146,
+    "mean_shader_vector": {
+      "outline": 0.95691,
+      "crosshatch": 0.28629,
+      "bloom": 0.40632,
+      "saturation": 0.79934,
+      "bevel": 0.5027
+    },
+    "corpus_sha256_seed": "8cd4f8f4a960771a82c3e1f3fca058ea41cc9a6bd22c6778f87692a3241e8391"
+  },
+  "checkpoints_count": 4,
+  "checkpoints": [
+    {
+      "filename": "synapse_aether_cel_v1_lora.safetensors",
+      "adapter_id": "synapse_aether_cel_v1_lora",
+      "base_model": "cagliostrolab/animagine-xl-3.1",
+      "architecture": "SDXL_DoRA_Rank16_AetherCel",
+      "header_byte_length_N": 1368,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 17760,
+      "sha256": "84c7b8819c3344d7933fb018b17b9a4cfe5f97fa4f6c1d07ceef31eb6bf3e858",
+      "sha256_seed": "0e798b5b73871d8c62332db648f0708de487b9f7252826f263949e98cce26b85",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "filename": "hi3d_trellis2_nirne_norld_adapter.safetensors",
+      "adapter_id": "hi3d_trellis2_nirne_norld_adapter",
+      "base_model": "Stable-X/trellis-normal-v0-1+JeffreyXiang/TRELLIS-image-large",
+      "architecture": "Hi3DGen_NiRNE_NoRLD_OVoxel_Bridge_Rank16",
+      "header_byte_length_N": 1416,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 17808,
+      "sha256": "021de181b1a14152478fba7932ba2443f95d831dd2ce58e470df6d75a41893ba",
+      "sha256_seed": "81208b4cf1c2b49d2a1f510fdb68566485a730156b30cde5863caae3c3f63b74",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "filename": "mga2_solideye_halftone_shader_lora.safetensors",
+      "adapter_id": "mga2_solideye_halftone_shader_lora",
+      "base_model": "KBlueLeaf/Kohaku-XL-Zeta",
+      "architecture": "SolidEye_CMYK_Halftone_Kagenashi_Rank16",
+      "header_byte_length_N": 1384,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 17776,
+      "sha256": "e2b7da61bc0318bd1c50f095176b61f164541142e2067be0a8b1755b3f234d2e",
+      "sha256_seed": "d10e14cd8a029ccb737362513045a25919ff1d31e5cd99632b9b8e62274a5ccf",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "filename": "ties_merged_master_soup_v1.safetensors",
+      "adapter_id": "ties_merged_master_soup_v1",
+      "base_model": "PxG-Sovereign-12Master-TIES-Soup-XL",
+      "architecture": "TIES_Merging_Density0.6_12Master_Soup_Rank16",
+      "header_byte_length_N": 1392,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 17784,
+      "sha256": "e940e7c2f5bd281323498072bf1f646a6a828780111515c598191b17190caaf5",
+      "sha256_seed": "a4b34bc3297a70217d69855415bbca1746d1b1342fb11e05c0f6085cd54da545",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    }
+  ]
+}

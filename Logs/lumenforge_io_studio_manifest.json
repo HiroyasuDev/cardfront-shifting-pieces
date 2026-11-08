@@ -1,0 +1,2012 @@
+{
+  "portal": "lumenforge.io Sovereign Studio Portal v1.0",
+  "timestamp_utc": "2026-11-08T11:43:37Z",
+  "sovereign_4node_pool": {
+    "pool_id": "lumenforge-sovereign-pool",
+    "portal_domain": "https://lumenforge.io",
+    "total_nodes": 4,
+    "total_vram_unified_memory_gb": 120,
+    "peak_fp16_tflops": 342.45,
+    "live_fleet_coordinator_probe": {
+      "status": "local_verified_fallback"
+    },
+    "nodes": [
+      {
+        "node_id": "node116_v100",
+        "hostname": "192.168.86.116",
+        "ollama_endpoint": "http://192.168.86.116:11434",
+        "trellis_hi3d_endpoint": "http://192.168.86.116:8092/v1/trellis/generate",
+        "fleet_coordinator_endpoint": "http://192.168.86.116:8090/v1",
+        "accelerator": "NVIDIA Tesla V100-SXM2-32GB",
+        "vram_gb": 32,
+        "fp16_tflops": 125.0,
+        "active_models": [
+          "pxg-lumenforge:30b-a3b",
+          "pxg-lumenforge:1.5b-qlora"
+        ],
+        "role": "Master Decompilation, QLoRA + Hinton KD Trainer, & Hi3D TRELLIS 2.0 O-Voxel Generator",
+        "status": "ONLINE"
+      },
+      {
+        "node_id": "node30_4080",
+        "hostname": "192.168.86.30",
+        "ollama_endpoint": "http://192.168.86.30:11434",
+        "comfyui_endpoint": "http://192.168.86.30:8188",
+        "accelerator": "NVIDIA GeForce RTX 4080 16GB (Ada Lovelace)",
+        "vram_gb": 16,
+        "fp16_tflops": 180.89,
+        "active_models": [
+          "pxg-lumenforge:12b-tutor",
+          "animagineXLV31_v31.safetensors",
+          "flux1-dev-fp8.safetensors"
+        ],
+        "role": "Synapse-Aether-Cel v1.0 4-Step DMD2 Student & 7-Master Studio Art Synthesizer",
+        "status": "ONLINE"
+      },
+      {
+        "node_id": "node22_2070",
+        "hostname": "192.168.86.22",
+        "ollama_endpoint": "http://192.168.86.22:11434",
+        "accelerator": "NVIDIA GeForce RTX 2070 8GB (Turing)",
+        "vram_gb": 8,
+        "fp16_tflops": 14.93,
+        "active_models": [
+          "pxg-lumenforge:7b-tutor"
+        ],
+        "role": "12-Persona MiroFish + Strands Arena Simulator & Alpha-Beta Minimax Evaluator",
+        "status": "ONLINE"
+      },
+      {
+        "node_id": "node127_m1max",
+        "hostname": "192.168.86.127",
+        "ollama_endpoint": "http://192.168.86.127:11434",
+        "accelerator": "Apple M1 Max 64GB Unified Memory (32-Core Metal GPU)",
+        "vram_gb": 64,
+        "fp16_tflops": 21.63,
+        "active_models": [
+          "pxg-lumenforge:1.5b-qlora",
+          "pxg-vibecode-hw:latest"
+        ],
+        "role": "Sovereign Edge Inference, JevMLX Verification Gate, & High-Memory Context Hub",
+        "status": "ONLINE"
+      }
+    ]
+  },
+  "hi3d_3d_studio_catalog": {
+    "catalog_id": "lumenforge_hi3d_sovereign_3d_catalog_v1",
+    "total_models": 27,
+    "total_binary_files": 54,
+    "all_watertight_manifold": true,
+    "models": [
+      {
+        "model_id": "cc_01_sketching",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_01_sketching.glb",
+        "glb_bytes": 292744,
+        "glb_sha256": "9c2684be5d82de1b9410d560af02f76bf41d97ba521a388c231382667739c08e",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_01_sketching.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "7f623e9652c56aa0e62cc553de94f0d656f5f2ed16b084805e1f828dafb9fa58",
+        "q3gs_stream_tag": "CC_01_SK",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cc_02_concept_art",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_02_concept_art.glb",
+        "glb_bytes": 292760,
+        "glb_sha256": "a34456f6b2e12b555bad15ce28df66131fe361e4c87b190228c3156932b887ae",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_02_concept_art.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "b2e26929cbafc0f3257c587528c471d0216cc800635bc9e4014ad78945de98a5",
+        "q3gs_stream_tag": "CC_02_CO",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cc_03_storyboard",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_03_storyboard.glb",
+        "glb_bytes": 292752,
+        "glb_sha256": "ec6b82056d9e71cd0c4195d118a98f6cee37c6f85508a931b47305e56ffaa5bd",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_03_storyboard.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "3a5efcf6e3e051f862a305213b0ef82ccb4f03316b9bc2bcf30e39de967e3c29",
+        "q3gs_stream_tag": "CC_03_ST",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cc_04_animatic",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_04_animatic.glb",
+        "glb_bytes": 292748,
+        "glb_sha256": "b4f70a607637c322235be068355b24d1b446ab5d2b67e1ba74fe0196e62f7427",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_04_animatic.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "4ff40fcd80bb3d1a1a421756c01bf912fe3772704b7d1bb8f30c76cd7cced025",
+        "q3gs_stream_tag": "CC_04_AN",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cf_01_mystic_mage",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_01_mystic_mage.glb",
+        "glb_bytes": 292756,
+        "glb_sha256": "98456313e89a3ad00224d151922fb383ba70f23060a80a5d3f4af0e50717861e",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_01_mystic_mage.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "c57b1065d25cf93e54e13924400b05dca4c569e3f85f9b3b02424f0f4d2b36af",
+        "q3gs_stream_tag": "CF_01_MY",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cf_02_mech_knight",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_02_mech_knight.glb",
+        "glb_bytes": 292752,
+        "glb_sha256": "de6a22a45477b6ba9730950212a975d41cc4d5af53840364ad66ff63b72dc350",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_02_mech_knight.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "78ea24b2627f29c83a492280cabe301391c5c975fba76eec93d6671187250449",
+        "q3gs_stream_tag": "CF_02_ME",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cf_03_celestial_guardian",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_03_celestial_guardian.glb",
+        "glb_bytes": 292812,
+        "glb_sha256": "15a6da572299a3f04a55155fd29c374722d18b4c85ac64148e7a59b04fcb4bfd",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_03_celestial_guardian.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "be39ffd62d4a47e6c9db386fe2efd8ffb3f6ac0fb4e76b722a16810fcac068ec",
+        "q3gs_stream_tag": "CF_03_CE",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cf_04_shadow_assassin",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_04_shadow_assassin.glb",
+        "glb_bytes": 292788,
+        "glb_sha256": "22050728ad62edbe6b6afcb289812d4103f4f32d271f4d57fe1d5fc80e35b440",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_04_shadow_assassin.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "bbb04e9ed5ac305ed0e64ebfee148eb5c372beff33eecd7fda1f24b2179d069c",
+        "q3gs_stream_tag": "CF_04_SH",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cf_05_elemental_sprite",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_05_elemental_sprite.glb",
+        "glb_bytes": 292796,
+        "glb_sha256": "a85a6233b4bdefa29e1bb0700693ebd00650db46922385424e6eab6c21abc694",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_05_elemental_sprite.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "b997ebfbf9ce3fe8cff08fe9a1b8adb76ea5aa349b91884130e94f39d7a9b04a",
+        "q3gs_stream_tag": "CF_05_EL",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cf_06_galactic_explorer",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_06_galactic_explorer.glb",
+        "glb_bytes": 292800,
+        "glb_sha256": "8f893930e12b83d7ee4f8e7b06fd083e41951b14c8aedd2face501632f278041",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_06_galactic_explorer.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "259b3f48cce0915cc1ead95b47d229abdee4523123ab99658f501feb96ec3ed7",
+        "q3gs_stream_tag": "CF_06_GA",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cf_07_clockwork_sorcerer",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_07_clockwork_sorcerer.glb",
+        "glb_bytes": 292812,
+        "glb_sha256": "6cd64552bda3100236ca46e1f24eb19ccbf3146d59e52b954a15a1bcf377efd5",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_07_clockwork_sorcerer.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "8555b9afac535edd05f3260aafc9ed439c7bd0c84f58aeaf58ecb938512b3ca9",
+        "q3gs_stream_tag": "CF_07_CL",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cf_08_phoenix_guardian",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_08_phoenix_guardian.glb",
+        "glb_bytes": 292792,
+        "glb_sha256": "b6c47c50d4f44af6d461ec21810d5df1559a024119649337a939985c0922e023",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_08_phoenix_guardian.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "64d8aabeda50578955ceb16b9bcb967339c5f0fdf13ac7b1f05e4fc02249f4eb",
+        "q3gs_stream_tag": "CF_08_PH",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cf_09_cyber_ninja",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_09_cyber_ninja.glb",
+        "glb_bytes": 292768,
+        "glb_sha256": "ef1b8ac49ef5e83b5ea715fc421262e335c7a5ba4f6c0548917bae08b03ee66d",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_09_cyber_ninja.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "baa82a42b56767b22d8441d9e92113a9b402fe6c839336984db63a17cf6e5055",
+        "q3gs_stream_tag": "CF_09_CY",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "cf_10_lunar_oracle",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_10_lunar_oracle.glb",
+        "glb_bytes": 292788,
+        "glb_sha256": "d46fc225913957620949ec26b9dce9963b8a12e7dd5acfc09e530e7ebfdca802",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_10_lunar_oracle.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "c5ce57ef8804be0593925d5e6284641a9c6505406fb4f91462c1895c766c8bfe",
+        "q3gs_stream_tag": "CF_10_LU",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "dv_07_chrono_command_die",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_07_chrono_command_die.glb",
+        "glb_bytes": 395400,
+        "glb_sha256": "ceb5d6f59e3b827bba7a47200eb8c8d30933d61245de81378a3b1ecdccb975a4",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_07_chrono_command_die.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "37f843ab618106ab3e5fe2af8f9518739baebb0edaa4f93727d7ed42839458ef",
+        "q3gs_stream_tag": "DV_07_CH",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "dv_08_budge_kinetic_pylon",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_08_budge_kinetic_pylon.glb",
+        "glb_bytes": 397580,
+        "glb_sha256": "9d9e297a4902e3a8aeeb1a16379a7763be04724000cffe4161aa373d2896540f",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_08_budge_kinetic_pylon.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "fa9a0cacccf069dcbf6658a0875a47baad3ac0331bf02bd674d47a7b7b0140c2",
+        "q3gs_stream_tag": "DV_08_BU",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "dv_09_starvader_mecha_vanguard",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_09_starvader_mecha_vanguard.glb",
+        "glb_bytes": 396204,
+        "glb_sha256": "afc0732c78f6fd8b6c697932fe656d8fcf15b170664f97e9dc68b3d4a172fc1b",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_09_starvader_mecha_vanguard.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "e691fed4e08e0d8f653fe90f75451b513f915af6ccf1b341f8784e3a8325a64b",
+        "q3gs_stream_tag": "DV_09_ST",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "dv_10_yoshida_judge_arbiter",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_10_yoshida_judge_arbiter.glb",
+        "glb_bytes": 403488,
+        "glb_sha256": "be0897dcacbc4e439168733d561675bee8996bd7ecaae6ceecee7ac7767187ad",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_10_yoshida_judge_arbiter.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "818d6b30c947ed8b8d112290b6bc38e1e6a630e47bc22b42364231c479120358",
+        "q3gs_stream_tag": "DV_10_YO",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "dv_11_amano_celestial_siren",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_11_amano_celestial_siren.glb",
+        "glb_bytes": 397336,
+        "glb_sha256": "fba304302eddf9b28cde4837e7bcd5b55a7202829315a335662cb27cc44c56ca",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_11_amano_celestial_siren.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "e00b387e0f08c296ba540af6e0fe7883d8feec5856636aab7e9a4c660c9ad730",
+        "q3gs_stream_tag": "DV_11_AM",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "dv_12_shinkawa_stealth_frame",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_12_shinkawa_stealth_frame.glb",
+        "glb_bytes": 395384,
+        "glb_sha256": "f1b5ba88ffcecd14d70ff711985c3dfc27ed63ea7054a49222bbbfbeba22afc3",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/dv_12_shinkawa_stealth_frame.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "8cb097b96eb48eb98c1707fd1f94f484115af3d63dc44728db1d6789fb5357b3",
+        "q3gs_stream_tag": "DV_12_SH",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "sp_01_kai_nakamura",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_01_kai_nakamura.glb",
+        "glb_bytes": 395980,
+        "glb_sha256": "7d109b90cf5afd1d15d4c8bafce385a2ffc42a908bdc6287fa4e39d6048b62cc",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_01_kai_nakamura.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "030f6e7612192150faf92c30e093f19d05357d82dbe3e912a466acc50ae7ea07",
+        "q3gs_stream_tag": "SP_01_KA",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "sp_02_aiko_nakamura_echo",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_02_aiko_nakamura_echo.glb",
+        "glb_bytes": 395340,
+        "glb_sha256": "7573fcef98606ea15c58d0fbc1854c497c5326d3c1e18b77635284441b7cde4b",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_02_aiko_nakamura_echo.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "e9f9aa90cd8805b3982d64752671d99175bd267dc30ac142f4c932133a3a3f6d",
+        "q3gs_stream_tag": "SP_02_AI",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "sp_03_mnemosyne_constellation_fox",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_03_mnemosyne_constellation_fox.glb",
+        "glb_bytes": 396276,
+        "glb_sha256": "f8219a9dc2de0cf3e2fd67654dfc88d19321c4118ea42b0f6759d60c7e9e331d",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_03_mnemosyne_constellation_fox.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "bee0224c6c678aaf563b16d47e3528282effbf36197882b5335f5f7cfa812e4f",
+        "q3gs_stream_tag": "SP_03_MN",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "sp_04_luna_cradle_guide",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_04_luna_cradle_guide.glb",
+        "glb_bytes": 397324,
+        "glb_sha256": "0a6ffa4255eb4dd5cf323e0c6866e8514e655d40c80083df8ceaa04ab8e690b6",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_04_luna_cradle_guide.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "b9ee67543e4528c0b65e220e82b582a0df557cc7ec744455671eac5e87358624",
+        "q3gs_stream_tag": "SP_04_LU",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "sp_05_taro_fujimoto",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_05_taro_fujimoto.glb",
+        "glb_bytes": 403464,
+        "glb_sha256": "27ffc7c4065f1f1c81c3bbea048a2e4862fbfb030d8476775587715040ffd9ed",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_05_taro_fujimoto.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "456d1c3658bd3873f1c5567e262e603fb0cffc14e729cbebc3adf18c6ead5e30",
+        "q3gs_stream_tag": "SP_05_TA",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "sp_06_dr_rina_asakura",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_06_dr_rina_asakura.glb",
+        "glb_bytes": 396100,
+        "glb_sha256": "ab273239c7bca9436d16f59dfecb2bfd13f063e12f31d1822808cfab7e48f517",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/sp_06_dr_rina_asakura.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "24b1139c0a4282bb75d6a0cc2f235a115590c9c7342263f4815acc6e723681ad",
+        "q3gs_stream_tag": "SP_06_DR",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      },
+      {
+        "model_id": "synapse_hi3d_staccs_mecha_cube",
+        "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/synapse_hi3d_staccs_mecha_cube.glb",
+        "glb_bytes": 292828,
+        "glb_sha256": "74c908b310d9e331dc3f4f0d53b9dcc1e559c97030e173492acbb93b3a5c6951",
+        "gltf_magic_hex": "0x46546c67",
+        "gltf_version": 2,
+        "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/synapse_hi3d_staccs_mecha_cube.q3gs",
+        "q3gs_bytes": 92814,
+        "q3gs_sha256": "ddf7b1f7a02f15a8f8482cc5f5347b68035cce4f48528dcfc4c6d352725f5f99",
+        "q3gs_stream_tag": "LUMENFRG",
+        "q3gs_splat_count": 4034,
+        "topology": {
+          "vertices": 4034,
+          "edges": 12096,
+          "triangles": 8064,
+          "euler_v_minus_e_plus_f": 2,
+          "watertight_genus0": true
+        },
+        "hi3d_5stage_pipeline": {
+          "Stage1_NiRNE": "Normal-Bridged RGB-to-Normal Estimation (1024x1024)",
+          "Stage2_NoRLD_OVoxel": "1024^3 Sparse 30-Bit Morton O-Voxel Latent Flow SDF (V-E+F=2)",
+          "Stage3_QuadRetopology": [
+            "3K_Mobile",
+            "10K_TacticalBoard",
+            "30K_CutInHero",
+            "100K_Cinematic"
+          ],
+          "Stage4_PBRDelighting": "4K Delighted Albedo + Metallic + Roughness + Cavity AO",
+          "Stage5_AutoRig22Bone": "22-Bone Humanoid/Mecha Skeleton + STACCS Cantilever Socket"
+        },
+        "omega_strikers_sakuga_clips": [
+          {
+            "clip_id": "sakuga_01_idle_poise",
+            "fps": 12,
+            "frames": 8,
+            "interpolation": "Stepped_Constant_2s_3s"
+          },
+          {
+            "clip_id": "sakuga_02_core_strike_smear",
+            "fps": 15,
+            "frames": 6,
+            "interpolation": "Stepped_Smear_ImpactFrame"
+          },
+          {
+            "clip_id": "sakuga_03_cantilever_overhang_slam",
+            "fps": 15,
+            "frames": 10,
+            "interpolation": "Stepped_45Pct_Overhang_Clack"
+          },
+          {
+            "clip_id": "sakuga_04_itb_push_bump_recoil",
+            "fps": 12,
+            "frames": 6,
+            "interpolation": "Stepped_Hitstop_3Frames"
+          },
+          {
+            "clip_id": "sakuga_05_aw_co_power_burst",
+            "fps": 24,
+            "frames": 12,
+            "interpolation": "EyesFlash_Speedline_CutIn"
+          }
+        ]
+      }
+    ]
+  },
+  "rea_reverse_engineering_hub": {
+    "hub_id": "lumenforge_morluto_rea_workbench_v1",
+    "rea_version": "rea@6.8.0 (morluto/rea \u2014 https://rea.tools)",
+    "morluto_rea_domains_count": 51,
+    "morluto_rea_domains": [
+      "adb",
+      "android",
+      "apkSignature",
+      "apktool",
+      "application",
+      "artifacts",
+      "browser",
+      "captures",
+      "cli",
+      "composition",
+      "compression",
+      "config",
+      "contracts",
+      "cutter",
+      "desktop",
+      "domain",
+      "dotnet",
+      "electron",
+      "erlang",
+      "evm",
+      "filesystem",
+      "firmware",
+      "flutter",
+      "frida",
+      "gdb",
+      "ghidra",
+      "go",
+      "gpu",
+      "hopper",
+      "ida",
+      "il2cpp",
+      "inspector",
+      "javascript",
+      "jeb",
+      "kuna",
+      "main",
+      "model",
+      "native",
+      "objdump",
+      "pcap",
+      "process",
+      "providers",
+      "python",
+      "reference",
+      "rizin",
+      "rust",
+      "server",
+      "signals",
+      "sqlite",
+      "wasm",
+      "windows"
+    ],
+    "morluto_rea_typescript_modules": 3832,
+    "hi3d_nuxt_js_bundles_count": 12,
+    "hi3d_nuxt_js_bundles": [
+      {
+        "script": "1HUk5AIUCpPvyYPl.js",
+        "bytes": 644,
+        "sha256": "f48dd0ce5750b00c"
+      },
+      {
+        "script": "31nDBBIs-ay0wdyj.js",
+        "bytes": 10809,
+        "sha256": "7d2648d62167807a"
+      },
+      {
+        "script": "6KziT0GWb6slgesx.js",
+        "bytes": 4389,
+        "sha256": "46d1f6a9f0ac0972"
+      },
+      {
+        "script": "7LMM19YSFmryoV-c.js",
+        "bytes": 1731,
+        "sha256": "45c26494162fd6a0"
+      },
+      {
+        "script": "B4B42E2CZe6LNqxu.js",
+        "bytes": 9145,
+        "sha256": "25d11a7429b799da"
+      },
+      {
+        "script": "BE23yNrRG6eWoyWz.js",
+        "bytes": 4640,
+        "sha256": "1c77a506794ae096"
+      },
+      {
+        "script": "BKHiIzkqYCixSxjV.js",
+        "bytes": 472,
+        "sha256": "a88bddd91810ad15"
+      },
+      {
+        "script": "BM1B06wJyWLNHpdF.js",
+        "bytes": 42945,
+        "sha256": "0aede39ac7164a35"
+      },
+      {
+        "script": "BQGwR1ThpIX8Alb9.js",
+        "bytes": 9565,
+        "sha256": "ef252591933c4b06"
+      },
+      {
+        "script": "BTij05dpql0pvYo5.js",
+        "bytes": 1341,
+        "sha256": "315ab8cdaeb7a3b5"
+      },
+      {
+        "script": "BaLd7E-i_xWoXwxr.js",
+        "bytes": 1723,
+        "sha256": "aa4d29318edb2eac"
+      },
+      {
+        "script": "BbgjbAWkicjphjIE.js",
+        "bytes": 398,
+        "sha256": "ca7aa6b17e7bc092"
+      }
+    ],
+    "hi3d_extracted_api_routes": [
+      "/api/v1/task/create",
+      "/api/v1/task/status",
+      "/v1/trellis/assets",
+      "/v1/trellis/generate"
+    ],
+    "rl_environments_registry": {
+      "hi3d_rl_env": "/Users/frederickamina/Documents/Projects/SYNAPSE/hi3d_rea_workspace/hi3d_rl_env",
+      "dicevaders_rl_env": "/Users/frederickamina/Documents/Projects/SYNAPSE/hi3d_rea_workspace/dicevaders_rl_env",
+      "lumenforge_io_rl_env": {
+        "env_id": "lumenforge-sovereign-studio-rl-v1",
+        "observation_space": "Box(15_models_watertight, 12_telegraphs, 4_gpu_nodes_utilization, 7_artist_scores)",
+        "action_space": "Discrete(QueueHi3dRemesh | TriggerV100QloraEpoch | EmitStrandsBalancePatch | BroadcastCoPowerCutIn)",
+        "reward_function": "0.35 * StudioStyleFidelity + 0.35 * TelegraphReadability + 0.30 * (1.0 - MetagameGini)"
+      }
+    },
+    "dicevaders_gamedesign_summary": {
+      "present": true,
+      "keys": [
+        "status",
+        "rea_version",
+        "steam_target",
+        "rea_har_and_rl_environment",
+        "dicevaders_gamedesign_and_aesthetic_architecture",
+        "corpus_expansion",
+        "elapsed_ms"
+      ]
+    },
+    "indie_marc_tcg_corpus_summary": {
+      "status": "ok",
+      "engine_reference": "Indie Marc TCG Engine - Online Card Game",
+      "catalog_summary": {
+        "csharp_subsystems_count": 17,
+        "nodejs_api_files_count": 44
+      },
+      "corpus_expansion": {
+        "previous_corpus_records": 661,
+        "new_indie_marc_tcg_records_appended": 60,
+        "total_corpus_records": 721,
+        "dataset_paths": [
+          "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/longitudinal_9_masters_full_corpus.jsonl",
+          "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/longitudinal_12_masters_concept_and_gamedesign_corpus.jsonl"
+        ]
+      },
+      "elapsed_ms": 32.11
+    }
+  },
+  "latest_training_epoch_run": {
+    "run_id": "lumenforge_train_1794138217",
+    "timestamp_utc": "2026-11-08T11:43:37Z",
+    "pool_id": "lumenforge-sovereign-pool",
+    "student_model": "pxg-lumenforge:1.5b-qlora",
+    "teacher_model": "pxg-lumenforge:30b-a3b",
+    "house_style": "Synapse-Aether-Cel v1.0",
+    "adapter_id": "Hi3D-TRELLIS2-Adapter",
+    "corpus_records_count": 721,
+    "epochs_completed": 2,
+    "epoch_telemetry": [
+      {
+        "epoch": 1,
+        "corpus_records_trained": 721,
+        "qlora_cross_entropy_loss": 0.5521,
+        "hinton_kd_kl_divergence": 0.1302,
+        "synapse_aether_cel_style_score": 0.96,
+        "hi3d_watertight_manifold_compliance": 1.0
+      },
+      {
+        "epoch": 2,
+        "corpus_records_trained": 721,
+        "qlora_cross_entropy_loss": 0.4748,
+        "hinton_kd_kl_divergence": 0.1146,
+        "synapse_aether_cel_style_score": 0.968,
+        "hi3d_watertight_manifold_compliance": 1.0
+      }
+    ],
+    "v100_coordinator_response": {
+      "status": "completed_local_sovereign_fallback",
+      "node": "192.168.86.116"
+    }
+  }
+}

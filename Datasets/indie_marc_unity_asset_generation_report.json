@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED_10_OF_10",
+  "elapsed_ms": 23.77,
+  "counts": {
+    "cards_generated": 42,
+    "abilities_generated": 24,
+    "decks_generated": 4,
+    "packs_generated": 2,
+    "chapters_generated": 19,
+    "total_asset_files": 91
+  },
+  "directories": {
+    "cards": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Cards/CardFront",
+    "abilities": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Abilities/CardFront",
+    "decks": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Decks/CardFront",
+    "packs": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Packs/CardFront",
+    "campaigns": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Campaigns/ShiftingPieces",
+    "campaign_json": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/shifting_pieces_19_chapter_campaign.json"
+  }
+}

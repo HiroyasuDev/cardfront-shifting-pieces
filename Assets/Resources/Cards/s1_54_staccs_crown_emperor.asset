@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6399a062aa6f2ad138a1a711f791905, type: 3}
+  m_Name: s1_54_staccs_crown_emperor
+  m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
+  id: s1_54_staccs_crown_emperor
+  title: "STACCS Crown Emperor"
+  codeName: "Z-Level 5 Sovereign"
+  baseStats:
+    up: 9
+    down: 7
+    left: 7
+    right: 6
+  themes: 34
+  specialAbility: 2
+  specialAbilityDescription: "When this unit captures an opponent card, immediately make a bonus placement this turn."
+  synergyRequiredTheme: 32
+  synergyAllSidesBonus: 3
+  synergyName: "Cantilever Slam"
+  evolvesToCardId: ""
+  cardArt: {fileID: 21300000, guid: 02df9ebee39528afdfe919a7cb68d474, type: 3}

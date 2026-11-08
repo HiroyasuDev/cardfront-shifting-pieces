@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6399a062aa6f2ad138a1a711f791905, type: 3}
+  m_Name: s1_19_verdant_colossus
+  m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
+  id: s1_19_verdant_colossus
+  title: "Verdant Colossus"
+  codeName: "Ancient Rootguard"
+  baseStats:
+    up: 7
+    down: 9
+    left: 5
+    right: 4
+  themes: 16
+  specialAbility: 5
+  specialAbilityDescription: "Once per game after capturing an adjacent card, swap base stats with the captured card."
+  synergyRequiredTheme: 16
+  synergyAllSidesBonus: 3
+  synergyName: "Rooted Bastion"
+  evolvesToCardId: ""
+  cardArt: {fileID: 21300000, guid: 2abd6c705de7090b3c0315c1a7ee3549, type: 3}

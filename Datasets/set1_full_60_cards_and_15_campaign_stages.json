@@ -1,0 +1,3255 @@
+{
+  "schema_version": "1.0.0",
+  "engine": "Synapse.TcgEngine.Core",
+  "factions": {
+    "Tech": {
+      "short_id": "Tech",
+      "full_id": "Aether-Tech",
+      "commander_id": "co_max_vanguard",
+      "totema_id": "totema_ark_machina",
+      "signature_mechanic": "MGA Equip-Link Barrage & Charge Tempo"
+    },
+    "Magic": {
+      "short_id": "Magic",
+      "full_id": "Chrono-Arcana",
+      "commander_id": "co_sonja_chronos",
+      "totema_id": "totema_mateus_chrono",
+      "signature_mechanic": "Temporal Rift Stat Reversal & Cross-Grid Teleport"
+    },
+    "Divine": {
+      "short_id": "Divine",
+      "full_id": "Solaris-Divine",
+      "commander_id": "co_rachel_solaris",
+      "totema_id": "totema_ultima_seraph",
+      "signature_mechanic": "STACCS 3D Vertical Elevation & Power Grid Aegis"
+    },
+    "Stealth": {
+      "short_id": "Stealth",
+      "full_id": "Umbra-Stealth",
+      "commander_id": "co_grit_umbra",
+      "totema_id": "totema_adrammelech_shade",
+      "signature_mechanic": "MGA 90-Degree Vision Cone Ambush (-2 COST, 1.5x DMG)"
+    },
+    "Artisan": {
+      "short_id": "Artisan",
+      "full_id": "CardCraft-Studio",
+      "commander_id": "co_kanbei_atelier",
+      "totema_id": "totema_exodus_artisan",
+      "signature_mechanic": "Confidence Point (CP) Evolution & Cel/Halftone Brush Aura"
+    }
+  },
+  "set1_full_60_roster": [
+    {
+      "card_id": "cf_01_mystic_mage",
+      "id": "cf_01_mystic_mage",
+      "name": "Mystic Mage",
+      "title": "Mystic Mage",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Legendary",
+      "stats": {
+        "up": 5,
+        "right": 6,
+        "down": 7,
+        "left": 3
+      },
+      "up": 5,
+      "right": 6,
+      "down": 7,
+      "left": 3,
+      "mga_cost": 8,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "Teleport",
+      "ability_desc": "Once per game, relocate Mystic Mage to any empty grid tile and trigger orthogonal captures.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_cf_01_mystic_mage",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cf_02_mech_knight",
+      "id": "cf_02_mech_knight",
+      "name": "Mech Knight",
+      "title": "Mech Knight",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 8,
+        "right": 5,
+        "down": 4,
+        "left": 6
+      },
+      "up": 8,
+      "right": 5,
+      "down": 4,
+      "left": 6,
+      "mga_cost": 10,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "Charge",
+      "ability_desc": "On orthogonal capture, immediately grant a bonus card deployment if the grid has an empty cell.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_cf_02_mech_knight",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cf_03_celestial_guardian",
+      "id": "cf_03_celestial_guardian",
+      "name": "Celestial Guardian",
+      "title": "Celestial Guardian",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Legendary",
+      "stats": {
+        "up": 6,
+        "right": 7,
+        "down": 9,
+        "left": 4
+      },
+      "up": 6,
+      "right": 7,
+      "down": 9,
+      "left": 4,
+      "mga_cost": 12,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "HealingAura",
+      "ability_desc": "Grant +1 permanent directional armor to all orthogonally adjacent allied stacks.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_cf_03_celestial_guardian",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cf_04_shadow_assassin",
+      "id": "cf_04_shadow_assassin",
+      "name": "Shadow Assassin",
+      "title": "Shadow Assassin",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 7,
+        "right": 4,
+        "down": 5,
+        "left": 8
+      },
+      "up": 7,
+      "right": 4,
+      "down": 5,
+      "left": 8,
+      "mga_cost": 6,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "Vanish",
+      "ability_desc": "Enter optical camouflage for 1 turn, becoming completely immune to enemy captures and telegraphs.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_cf_04_shadow_assassin",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cf_05_elemental_sprite",
+      "id": "cf_05_elemental_sprite",
+      "name": "Elemental Sprite",
+      "title": "Elemental Sprite",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 3,
+        "right": 9,
+        "down": 4,
+        "left": 6
+      },
+      "up": 3,
+      "right": 9,
+      "down": 4,
+      "left": 6,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "ElementalBurst",
+      "ability_desc": "Swap directional stat profiles with an orthogonally adjacent card for surprise flank captures.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_cf_05_elemental_sprite",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cf_06_galactic_explorer",
+      "id": "cf_06_galactic_explorer",
+      "name": "Galactic Explorer",
+      "title": "Galactic Explorer",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 7,
+        "right": 8,
+        "down": 6,
+        "left": 5
+      },
+      "up": 7,
+      "right": 8,
+      "down": 6,
+      "left": 5,
+      "mga_cost": 9,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "WarpDrive",
+      "ability_desc": "Slide 1 orthogonal step into an empty cell and re-trigger directional combat.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_cf_06_galactic_explorer",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cf_07_clockwork_sorcerer",
+      "id": "cf_07_clockwork_sorcerer",
+      "name": "Clockwork Sorcerer",
+      "title": "Clockwork Sorcerer",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Legendary",
+      "stats": {
+        "up": 4,
+        "right": 5,
+        "down": 8,
+        "left": 7
+      },
+      "up": 4,
+      "right": 5,
+      "down": 8,
+      "left": 7,
+      "mga_cost": 11,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "TemporalRift",
+      "ability_desc": "Invert Up<->Down and Left<->Right stats on all orthogonally adjacent stacks for 1 turn.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_cf_07_clockwork_sorcerer",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cf_08_phoenix_guardian",
+      "id": "cf_08_phoenix_guardian",
+      "name": "Phoenix Guardian",
+      "title": "Phoenix Guardian",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Legendary",
+      "stats": {
+        "up": 9,
+        "right": 4,
+        "down": 7,
+        "left": 6
+      },
+      "up": 9,
+      "right": 4,
+      "down": 7,
+      "left": 6,
+      "mga_cost": 14,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "Rebirth",
+      "ability_desc": "When captured for the first time, return to original owner's hand with +1 all-sides fire aura.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_cf_08_phoenix_guardian",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cf_09_cyber_ninja",
+      "id": "cf_09_cyber_ninja",
+      "name": "Digital Shadow",
+      "title": "Digital Shadow",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 6,
+        "right": 7,
+        "down": 5,
+        "left": 8
+      },
+      "up": 6,
+      "right": 7,
+      "down": 5,
+      "left": 8,
+      "mga_cost": 6,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "TechnoStealth",
+      "ability_desc": "Immune to enemy capture while orthogonally adjacent to any Aether-Tech or Umbra-Stealth ally.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_cf_09_cyber_ninja",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cf_10_lunar_oracle",
+      "id": "cf_10_lunar_oracle",
+      "name": "Lunar Oracle",
+      "title": "Lunar Oracle",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Legendary",
+      "stats": {
+        "up": 7,
+        "right": 9,
+        "down": 6,
+        "left": 4
+      },
+      "up": 7,
+      "right": 9,
+      "down": 6,
+      "left": 4,
+      "mga_cost": 10,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "MoonlightBlessing",
+      "ability_desc": "Gain +1 to all directional stats during nighttime stages or when adjacent to a Solaris-Divine ally.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_cf_10_lunar_oracle",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cc_01_sketching",
+      "id": "cc_01_sketching",
+      "name": "Sketching",
+      "title": "Sketching",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 4,
+        "right": 5,
+        "down": 5,
+        "left": 6
+      },
+      "up": 4,
+      "right": 5,
+      "down": 5,
+      "left": 6,
+      "mga_cost": 4,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "IdeationDraft",
+      "ability_desc": "Generate +10 Confidence Points (CP) on deployment; evolves into Concept Art at 30 CP.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_cc_01_sketching",
+      "evolves_to": "cc_02_concept_art"
+    },
+    {
+      "card_id": "cc_02_concept_art",
+      "id": "cc_02_concept_art",
+      "name": "Concept Art",
+      "title": "Concept Art",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 6,
+        "right": 7,
+        "down": 7,
+        "left": 8
+      },
+      "up": 6,
+      "right": 7,
+      "down": 7,
+      "left": 8,
+      "mga_cost": 6,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "KeyartProjection",
+      "ability_desc": "Project a 2.5px ink silhouette barrier that boosts adjacent Artisan stacks by +2.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_cc_02_concept_art",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "cc_03_storyboard",
+      "id": "cc_03_storyboard",
+      "name": "Storyboard",
+      "title": "Storyboard",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 5,
+        "right": 6,
+        "down": 6,
+        "left": 5
+      },
+      "up": 5,
+      "right": 6,
+      "down": 6,
+      "left": 5,
+      "mga_cost": 4,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "SequencedPanels",
+      "ability_desc": "Reduce next MGA card COST by -2 ticks and preview enemy telegraph trajectories; evolves into Animatic.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_cc_03_storyboard",
+      "evolves_to": "cc_04_animatic"
+    },
+    {
+      "card_id": "cc_04_animatic",
+      "id": "cc_04_animatic",
+      "name": "Animatic",
+      "title": "Animatic",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 7,
+        "right": 8,
+        "down": 8,
+        "left": 7
+      },
+      "up": 7,
+      "right": 8,
+      "down": 8,
+      "left": 7,
+      "mga_cost": 7,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "WarpDrive",
+      "ability_desc": "Step-quantized On-Twos (12fps) dash that shifts an adjacent unit 1 tile and triggers Link.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_cc_04_animatic",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_15_aether_vanguard",
+      "id": "s1_15_aether_vanguard",
+      "name": "Aether Vanguard",
+      "title": "Aether Vanguard",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 6,
+        "right": 6,
+        "down": 5,
+        "left": 5
+      },
+      "up": 6,
+      "right": 6,
+      "down": 5,
+      "left": 5,
+      "mga_cost": 6,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "AetherShieldWall",
+      "ability_desc": "Absorb 1 telegraphed hazard hit without shedding underlying STACCS support layers.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_15_aether_vanguard",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_16_railgun_dragoon",
+      "id": "s1_16_railgun_dragoon",
+      "name": "Railgun Dragoon",
+      "title": "Railgun Dragoon",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 8,
+        "right": 7,
+        "down": 4,
+        "left": 5
+      },
+      "up": 8,
+      "right": 7,
+      "down": 4,
+      "left": 5,
+      "mga_cost": 9,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "LinePiercingSlug",
+      "ability_desc": "Push target orthogonal enemy 1 tile backward along the firing vector; deals +2 collision damage.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_16_railgun_dragoon",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_17_servo_bastion_mk2",
+      "id": "s1_17_servo_bastion_mk2",
+      "name": "Servo Bastion Mk.II",
+      "title": "Servo Bastion Mk.II",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 5,
+        "right": 5,
+        "down": 8,
+        "left": 6
+      },
+      "up": 5,
+      "right": 5,
+      "down": 8,
+      "left": 6,
+      "mga_cost": 7,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "HydraulicBrace",
+      "ability_desc": "Cannot be displaced by enemy Into the Breach push or pull telegraphs; grants +1 terrain defense star.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_17_servo_bastion_mk2",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_18_orbital_relay_drone",
+      "id": "s1_18_orbital_relay_drone",
+      "name": "Orbital Relay Drone",
+      "title": "Orbital Relay Drone",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 4,
+        "right": 7,
+        "down": 4,
+        "left": 7
+      },
+      "up": 4,
+      "right": 7,
+      "down": 4,
+      "left": 7,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "TelemetryUplink",
+      "ability_desc": "When mounted in an MGA Equip slot, all Aether-Tech Effect cards trigger an automatic +4 Link salvo.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_18_orbital_relay_drone",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_19_plasma_halberdier",
+      "id": "s1_19_plasma_halberdier",
+      "name": "Plasma Halberdier",
+      "title": "Plasma Halberdier",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 7,
+        "right": 6,
+        "down": 6,
+        "left": 5
+      },
+      "up": 7,
+      "right": 6,
+      "down": 6,
+      "left": 5,
+      "mga_cost": 8,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "CleavingArc",
+      "ability_desc": "Deals +2 bonus directional capture power against enemies on lower STACCS elevation.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_19_plasma_halberdier",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_20_chronos_hover_tank",
+      "id": "s1_20_chronos_hover_tank",
+      "name": "Chronos Hover Tank",
+      "title": "Chronos Hover Tank",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 8,
+        "right": 8,
+        "down": 6,
+        "left": 6
+      },
+      "up": 8,
+      "right": 8,
+      "down": 6,
+      "left": 6,
+      "mga_cost": 12,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "OverdriveTreads",
+      "ability_desc": "Ignores rough terrain movement penalties in MGA Move mode and knocks back frontal targets.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_20_chronos_hover_tank",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_21_nanoforge_engineer",
+      "id": "s1_21_nanoforge_engineer",
+      "name": "Nanoforge Engineer",
+      "title": "Nanoforge Engineer",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 5,
+        "right": 6,
+        "down": 6,
+        "left": 5
+      },
+      "up": 5,
+      "right": 6,
+      "down": 6,
+      "left": 5,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "GridCapacitorRepair",
+      "ability_desc": "Restore +1 bar to the civilian Power Grid when deployed adjacent to a Power Pylon tile.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_21_nanoforge_engineer",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_22_tesla_siege_walker",
+      "id": "s1_22_tesla_siege_walker",
+      "name": "Tesla Siege Walker",
+      "title": "Tesla Siege Walker",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 9,
+        "right": 6,
+        "down": 7,
+        "left": 5
+      },
+      "up": 9,
+      "right": 6,
+      "down": 7,
+      "left": 5,
+      "mga_cost": 13,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "ChainArcDischarge",
+      "ability_desc": "Arcs electric capture pressure across two connected enemy stacks simultaneously.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_22_tesla_siege_walker",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_23_valkyrie_interceptor",
+      "id": "s1_23_valkyrie_interceptor",
+      "name": "Valkyrie Interceptor",
+      "title": "Valkyrie Interceptor",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 7,
+        "right": 8,
+        "down": 5,
+        "left": 6
+      },
+      "up": 7,
+      "right": 8,
+      "down": 5,
+      "left": 6,
+      "mga_cost": 8,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "VectorThruster",
+      "ability_desc": "May rotate defender facing 90 degrees after play, exposing enemy rear blind spots.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_23_valkyrie_interceptor",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_24_rex_metal_colossus",
+      "id": "s1_24_rex_metal_colossus",
+      "name": "REX Metal Colossus",
+      "title": "REX Metal Colossus",
+      "faction": "Aether-Tech",
+      "faction_short": "Tech",
+      "faction_full": "Aether-Tech",
+      "themes": [
+        "Tech",
+        "Aether-Tech"
+      ],
+      "rarity": "Legendary",
+      "stats": {
+        "up": 10,
+        "right": 8,
+        "down": 8,
+        "left": 7
+      },
+      "up": 10,
+      "right": 8,
+      "down": 8,
+      "left": 7,
+      "mga_cost": 18,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "RailCannonOmega",
+      "ability_desc": "Unleashes a long-range nuclear rail strike across an entire row or column and charges +2 CO Stars.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_24_rex_metal_colossus",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_25_astral_scholar",
+      "id": "s1_25_astral_scholar",
+      "name": "Astral Scholar",
+      "title": "Astral Scholar",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 5,
+        "right": 6,
+        "down": 6,
+        "left": 4
+      },
+      "up": 5,
+      "right": 6,
+      "down": 6,
+      "left": 4,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "RuneInscription",
+      "ability_desc": "Gain +1 FFTA Judge Point (JP) on play if obeying the active stage Judge Law.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_25_astral_scholar",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_26_void_weaver",
+      "id": "s1_26_void_weaver",
+      "name": "Void Weaver",
+      "title": "Void Weaver",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 6,
+        "right": 8,
+        "down": 5,
+        "left": 7
+      },
+      "up": 6,
+      "right": 8,
+      "down": 5,
+      "left": 7,
+      "mga_cost": 8,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "GravityWellPull",
+      "ability_desc": "Pulls an enemy stack 1 tile toward Void Weaver, redirecting its telegraphed strike into empty space.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_26_void_weaver",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_27_pendulum_alchemist",
+      "id": "s1_27_pendulum_alchemist",
+      "name": "Pendulum Alchemist",
+      "title": "Pendulum Alchemist",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 6,
+        "right": 5,
+        "down": 7,
+        "left": 4
+      },
+      "up": 6,
+      "right": 5,
+      "down": 7,
+      "left": 4,
+      "mga_cost": 6,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "EquivalenceTransmute",
+      "ability_desc": "Equalizes the highest and lowest directional stats on target adjacent unit for 1 turn.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_27_pendulum_alchemist",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_28_rift_archon",
+      "id": "s1_28_rift_archon",
+      "name": "Rift Archon",
+      "title": "Rift Archon",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 8,
+        "right": 7,
+        "down": 8,
+        "left": 5
+      },
+      "up": 8,
+      "right": 7,
+      "down": 8,
+      "left": 5,
+      "mga_cost": 11,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "PhaseSwap",
+      "ability_desc": "Swap board positions between any two allied stacks on the grid without adding MGA Move COST.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_28_rift_archon",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_29_spellblade_duelist",
+      "id": "s1_29_spellblade_duelist",
+      "name": "Spellblade Duelist",
+      "title": "Spellblade Duelist",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 7,
+        "right": 7,
+        "down": 5,
+        "left": 6
+      },
+      "up": 7,
+      "right": 7,
+      "down": 5,
+      "left": 6,
+      "mga_cost": 7,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "ArcaneRiposte",
+      "ability_desc": "Counter-attacks for +2 directional stat bonus when attacked from the front 90-degree cone.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_29_spellblade_duelist",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_30_starlight_diviner",
+      "id": "s1_30_starlight_diviner",
+      "name": "Starlight Diviner",
+      "title": "Starlight Diviner",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 4,
+        "right": 6,
+        "down": 6,
+        "left": 6
+      },
+      "up": 4,
+      "right": 6,
+      "down": 6,
+      "left": 6,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "ForesightLens",
+      "ability_desc": "Reveals hidden enemy MGA Equip slots and reduces allied Link execution COST to 0.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_30_starlight_diviner",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_31_aeon_hourglass_mage",
+      "id": "s1_31_aeon_hourglass_mage",
+      "name": "Aeon Hourglass Mage",
+      "title": "Aeon Hourglass Mage",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 7,
+        "right": 8,
+        "down": 9,
+        "left": 5
+      },
+      "up": 7,
+      "right": 8,
+      "down": 9,
+      "left": 5,
+      "mga_cost": 12,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "CostClockRewind",
+      "ability_desc": "Subtracts -4 ticks from the active unit's MGA COST clock, enabling back-to-back tactical turns.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_31_aeon_hourglass_mage",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_32_grimoire_sentinel",
+      "id": "s1_32_grimoire_sentinel",
+      "name": "Grimoire Sentinel",
+      "title": "Grimoire Sentinel",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 6,
+        "right": 5,
+        "down": 8,
+        "left": 7
+      },
+      "up": 6,
+      "right": 5,
+      "down": 8,
+      "left": 7,
+      "mga_cost": 8,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "WardOfIvalice",
+      "ability_desc": "Projects an arcane ward that nullifies the next enemy status reversal or displacement.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_32_grimoire_sentinel",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_33_chronos_grand_magus",
+      "id": "s1_33_chronos_grand_magus",
+      "name": "Chronos Grand Magus",
+      "title": "Chronos Grand Magus",
+      "faction": "Chrono-Arcana",
+      "faction_short": "Magic",
+      "faction_full": "Chrono-Arcana",
+      "themes": [
+        "Magic",
+        "Chrono-Arcana"
+      ],
+      "rarity": "Legendary",
+      "stats": {
+        "up": 9,
+        "right": 9,
+        "down": 8,
+        "left": 7
+      },
+      "up": 9,
+      "right": 9,
+      "down": 8,
+      "left": 7,
+      "mga_cost": 16,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "MateusTimeStop",
+      "ability_desc": "Freezes enemy MGA COST clocks for 1 round and triggers a full-board Temporal Rift inversion.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_33_chronos_grand_magus",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_34_dawn_templar",
+      "id": "s1_34_dawn_templar",
+      "name": "Dawn Templar",
+      "title": "Dawn Templar",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 6,
+        "right": 5,
+        "down": 7,
+        "left": 5
+      },
+      "up": 6,
+      "right": 5,
+      "down": 7,
+      "left": 5,
+      "mga_cost": 6,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "SunlitBulwark",
+      "ability_desc": "Grants +1 support bonus when stacked beneath any Solaris-Divine hero.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_34_dawn_templar",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_35_seraphic_lancer",
+      "id": "s1_35_seraphic_lancer",
+      "name": "Seraphic Lancer",
+      "title": "Seraphic Lancer",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 8,
+        "right": 6,
+        "down": 6,
+        "left": 5
+      },
+      "up": 8,
+      "right": 6,
+      "down": 6,
+      "left": 5,
+      "mga_cost": 8,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "SkywardDive",
+      "ability_desc": "Ignores elevation penalties and gains +2 Up/Down stats when stacked at Z-height >= 2.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_35_seraphic_lancer",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_36_aegis_hierophant",
+      "id": "s1_36_aegis_hierophant",
+      "name": "Aegis Hierophant",
+      "title": "Aegis Hierophant",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 5,
+        "right": 6,
+        "down": 7,
+        "left": 5
+      },
+      "up": 5,
+      "right": 6,
+      "down": 7,
+      "left": 5,
+      "mga_cost": 6,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "SanctuaryBell",
+      "ability_desc": "Shields adjacent civilian Power Grid buildings from 1 telegraphed artillery impact.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_36_aegis_hierophant",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_37_radiant_valkyrie",
+      "id": "s1_37_radiant_valkyrie",
+      "name": "Radiant Valkyrie",
+      "title": "Radiant Valkyrie",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 8,
+        "right": 8,
+        "down": 7,
+        "left": 6
+      },
+      "up": 8,
+      "right": 8,
+      "down": 7,
+      "left": 6,
+      "mga_cost": 11,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "HaloAscension",
+      "ability_desc": "Elevates an allied stack by +1 virtual STACCS height level and restores 1 shed armor layer.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_37_radiant_valkyrie",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_38_solaris_inquisitor",
+      "id": "s1_38_solaris_inquisitor",
+      "name": "Solaris Inquisitor",
+      "title": "Solaris Inquisitor",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 7,
+        "right": 7,
+        "down": 6,
+        "left": 6
+      },
+      "up": 7,
+      "right": 7,
+      "down": 6,
+      "left": 6,
+      "mga_cost": 8,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "LawEnforcer",
+      "ability_desc": "Deals +3 capture power against enemy units that violated the stage FFTA Judge Law.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_38_solaris_inquisitor",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_39_eclipse_paladin",
+      "id": "s1_39_eclipse_paladin",
+      "name": "Eclipse Paladin",
+      "title": "Eclipse Paladin",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 7,
+        "right": 6,
+        "down": 9,
+        "left": 7
+      },
+      "up": 7,
+      "right": 6,
+      "down": 9,
+      "left": 7,
+      "mga_cost": 12,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "TwinCorona",
+      "ability_desc": "Combines Solar and Lunar alignment, triggering both HealingAura and MoonlightBlessing.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_39_eclipse_paladin",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_40_choir_chronicle_bard",
+      "id": "s1_40_choir_chronicle_bard",
+      "name": "Choir Chronicle Bard",
+      "title": "Choir Chronicle Bard",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 4,
+        "right": 6,
+        "down": 5,
+        "left": 6
+      },
+      "up": 4,
+      "right": 6,
+      "down": 5,
+      "left": 6,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "HymnOfValiance",
+      "ability_desc": "Charges +1.0 Advance Wars CO Star for the player's Commander on deployment.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_40_choir_chronicle_bard",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_41_archangel_judicator",
+      "id": "s1_41_archangel_judicator",
+      "name": "Archangel Judicator",
+      "title": "Archangel Judicator",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Legendary",
+      "stats": {
+        "up": 9,
+        "right": 8,
+        "down": 9,
+        "left": 7
+      },
+      "up": 9,
+      "right": 8,
+      "down": 9,
+      "left": 7,
+      "mga_cost": 16,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "UltimaVerdict",
+      "ability_desc": "Unleashes FFTA Totema Ultima across a 3x3 cross, adding +3 stats to allies and pushing foes.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_41_archangel_judicator",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_42_sunforge_colossus",
+      "id": "s1_42_sunforge_colossus",
+      "name": "Sunforge Colossus",
+      "title": "Sunforge Colossus",
+      "faction": "Solaris-Divine",
+      "faction_short": "Divine",
+      "faction_full": "Solaris-Divine",
+      "themes": [
+        "Divine",
+        "Solaris-Divine"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 8,
+        "right": 5,
+        "down": 8,
+        "left": 5
+      },
+      "up": 8,
+      "right": 5,
+      "down": 8,
+      "left": 5,
+      "mga_cost": 9,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "PillarOfDawn",
+      "ability_desc": "Forms a height-3 spire that blocks enemy line-of-sight vision cones across its tile.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_42_sunforge_colossus",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_43_whisper_infiltrator",
+      "id": "s1_43_whisper_infiltrator",
+      "name": "Whisper Infiltrator",
+      "title": "Whisper Infiltrator",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 6,
+        "right": 5,
+        "down": 4,
+        "left": 7
+      },
+      "up": 6,
+      "right": 5,
+      "down": 4,
+      "left": 7,
+      "mga_cost": 4,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "SilentFootstep",
+      "ability_desc": "Moving with this card adds only +3 MGA COST and never triggers enemy Caution vision alerts.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_43_whisper_infiltrator",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_44_kunoichi_mirage",
+      "id": "s1_44_kunoichi_mirage",
+      "name": "Kunoichi Mirage",
+      "title": "Kunoichi Mirage",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 7,
+        "right": 6,
+        "down": 5,
+        "left": 8
+      },
+      "up": 7,
+      "right": 6,
+      "down": 5,
+      "left": 8,
+      "mga_cost": 6,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "PaperDecoy",
+      "ability_desc": "Leaves a holographic decoy on the previous tile that absorbs 1 enemy telegraphed strike.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_44_kunoichi_mirage",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_45_optic_camo_sniper",
+      "id": "s1_45_optic_camo_sniper",
+      "name": "Optic Camo Sniper",
+      "title": "Optic Camo Sniper",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 8,
+        "right": 4,
+        "down": 4,
+        "left": 9
+      },
+      "up": 8,
+      "right": 4,
+      "down": 4,
+      "left": 9,
+      "mga_cost": 7,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "BlindspotHeadshot",
+      "ability_desc": "When attacking from outside the target's 90-degree vision cone, gain +3 attack and -2 COST.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_45_optic_camo_sniper",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_46_smoke_veil_saboteur",
+      "id": "s1_46_smoke_veil_saboteur",
+      "name": "Smoke Veil Saboteur",
+      "title": "Smoke Veil Saboteur",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 5,
+        "right": 6,
+        "down": 5,
+        "left": 6
+      },
+      "up": 5,
+      "right": 6,
+      "down": 5,
+      "left": 6,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "ChaffGrenade",
+      "ability_desc": "Scramble enemy radar on target tile, disabling their MGA Equip Link chains for 1 turn.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_46_smoke_veil_saboteur",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_47_phantom_cqc_operative",
+      "id": "s1_47_phantom_cqc_operative",
+      "name": "Phantom CQC Operative",
+      "title": "Phantom CQC Operative",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 8,
+        "right": 7,
+        "down": 6,
+        "left": 8
+      },
+      "up": 8,
+      "right": 7,
+      "down": 6,
+      "left": 8,
+      "mga_cost": 8,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "NojiriCqcThrow",
+      "ability_desc": "Throws an adjacent enemy 1 tile into a laser grid or another enemy stack for double push damage.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_47_phantom_cqc_operative",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_48_nightshade_stalker",
+      "id": "s1_48_nightshade_stalker",
+      "name": "Nightshade Stalker",
+      "title": "Nightshade Stalker",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 6,
+        "right": 6,
+        "down": 4,
+        "left": 6
+      },
+      "up": 6,
+      "right": 6,
+      "down": 4,
+      "left": 6,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "CornerPeek",
+      "ability_desc": "Gains +2 Left and Right directional stats when positioned adjacent to a wall or height-3 stack.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_48_nightshade_stalker",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_49_zero_pulse_hacker",
+      "id": "s1_49_zero_pulse_hacker",
+      "name": "Zero Pulse Hacker",
+      "title": "Zero Pulse Hacker",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 5,
+        "right": 8,
+        "down": 5,
+        "left": 7
+      },
+      "up": 5,
+      "right": 8,
+      "down": 5,
+      "left": 7,
+      "mga_cost": 6,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "LogicBombInject",
+      "ability_desc": "Adds +4 COST delay ticks to an adjacent enemy unit's turn clock.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_49_zero_pulse_hacker",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_50_obsidian_ronin",
+      "id": "s1_50_obsidian_ronin",
+      "name": "Obsidian Ronin",
+      "title": "Obsidian Ronin",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 9,
+        "right": 6,
+        "down": 5,
+        "left": 8
+      },
+      "up": 9,
+      "right": 6,
+      "down": 5,
+      "left": 8,
+      "mga_cost": 9,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "IaijutsuBackstab",
+      "ability_desc": "Guaranteed capture when striking an enemy rear facing (1.50x FFTA rear multiplier + MGA ambush).",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_50_obsidian_ronin",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_51_eclipse_wire_agent",
+      "id": "s1_51_eclipse_wire_agent",
+      "name": "Eclipse Wire Agent",
+      "title": "Eclipse Wire Agent",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 5,
+        "right": 7,
+        "down": 4,
+        "left": 6
+      },
+      "up": 5,
+      "right": 7,
+      "down": 4,
+      "left": 6,
+      "mga_cost": 4,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "ZipwireExtraction",
+      "ability_desc": "Instantly extracts an allied unit on the MGA extraction tile for +50 bonus campaign score.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_51_eclipse_wire_agent",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_52_viper_solid_eye_prime",
+      "id": "s1_52_viper_solid_eye_prime",
+      "name": "Viper Solid Eye Prime",
+      "title": "Viper Solid Eye Prime",
+      "faction": "Umbra-Stealth",
+      "faction_short": "Stealth",
+      "faction_full": "Umbra-Stealth",
+      "themes": [
+        "Stealth",
+        "Umbra-Stealth"
+      ],
+      "rarity": "Legendary",
+      "stats": {
+        "up": 9,
+        "right": 8,
+        "down": 7,
+        "left": 10
+      },
+      "up": 9,
+      "right": 8,
+      "down": 7,
+      "left": 10,
+      "mga_cost": 14,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "SolidEyeTacticalOverride",
+      "ability_desc": "Activates MGA2 Solid Eye Pop-Art HUD: all Stealth allies gain 1.5x ambush power from any flank.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_52_viper_solid_eye_prime",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_53_ink_brush_calligrapher",
+      "id": "s1_53_ink_brush_calligrapher",
+      "name": "Ink Brush Calligrapher",
+      "title": "Ink Brush Calligrapher",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 5,
+        "right": 6,
+        "down": 5,
+        "left": 6
+      },
+      "up": 5,
+      "right": 6,
+      "down": 5,
+      "left": 6,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "ShinkawaSumiStroke",
+      "ability_desc": "Draws a heavy 3.2px sumi-e ink line across an adjacent tile, granting +1 defense star.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_53_ink_brush_calligrapher",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_54_halftone_pop_stylist",
+      "id": "s1_54_halftone_pop_stylist",
+      "name": "Halftone Pop Stylist",
+      "title": "Halftone Pop Stylist",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 6,
+        "right": 8,
+        "down": 6,
+        "left": 7
+      },
+      "up": 6,
+      "right": 8,
+      "down": 6,
+      "left": 7,
+      "mga_cost": 7,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "BenDayBurst",
+      "ability_desc": "Applies MGA2 Ben-Day halftone contrast to an allied stack, boosting its Link damage by +3.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_54_halftone_pop_stylist",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_55_sakuga_key_animator",
+      "id": "s1_55_sakuga_key_animator",
+      "name": "Sakuga Key Animator",
+      "title": "Sakuga Key Animator",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 8,
+        "right": 8,
+        "down": 6,
+        "left": 7
+      },
+      "up": 8,
+      "right": 8,
+      "down": 6,
+      "left": 7,
+      "mga_cost": 10,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "OnOnesImpactFrame",
+      "ability_desc": "Triggers a Studio Trigger 24fps On-Ones impact flash that stuns an enemy telegraph for 1 turn.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_55_sakuga_key_animator",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_56_parchment_cartographer",
+      "id": "s1_56_parchment_cartographer",
+      "name": "Parchment Cartographer",
+      "title": "Parchment Cartographer",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 4,
+        "right": 5,
+        "down": 7,
+        "left": 6
+      },
+      "up": 4,
+      "right": 5,
+      "down": 7,
+      "left": 6,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "IvaliceTopography",
+      "ability_desc": "Upgrades a normal grid cell into a 3-star Citadel terrain tile for the remainder of the stage.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_56_parchment_cartographer",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_57_voxel_sculptor_hi3d",
+      "id": "s1_57_voxel_sculptor_hi3d",
+      "name": "Voxel Sculptor Hi3D",
+      "title": "Voxel Sculptor Hi3D",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Rare",
+      "stats": {
+        "up": 7,
+        "right": 6,
+        "down": 8,
+        "left": 6
+      },
+      "up": 7,
+      "right": 6,
+      "down": 8,
+      "left": 6,
+      "mga_cost": 8,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "ManifoldExtrusion",
+      "ability_desc": "Extrudes a watertight Euler X=2 support cube beneath an allied unit (+1 Z-height and +1 all stats).",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_57_voxel_sculptor_hi3d",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_58_palette_harmonizer",
+      "id": "s1_58_palette_harmonizer",
+      "name": "Palette Harmonizer",
+      "title": "Palette Harmonizer",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Common",
+      "stats": {
+        "up": 5,
+        "right": 7,
+        "down": 5,
+        "left": 6
+      },
+      "up": 5,
+      "right": 7,
+      "down": 5,
+      "left": 6,
+      "mga_cost": 5,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "ChromaticResonance",
+      "ability_desc": "Counts as matching every faction theme for adjacent synergy and MGA Equip-Link chains.",
+      "staccs_height_bias": 1,
+      "hi3d_model_id": "hi3d_s1_58_palette_harmonizer",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_59_atelier_master_director",
+      "id": "s1_59_atelier_master_director",
+      "name": "Atelier Master Director",
+      "title": "Atelier Master Director",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Epic",
+      "stats": {
+        "up": 8,
+        "right": 9,
+        "down": 7,
+        "left": 8
+      },
+      "up": 8,
+      "right": 9,
+      "down": 7,
+      "left": 8,
+      "mga_cost": 13,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "GreenlightProduction",
+      "ability_desc": "Immediately evolves all Tier-1 CardCraft cards on the board and awards +25 Confidence Points.",
+      "staccs_height_bias": 2,
+      "hi3d_model_id": "hi3d_s1_59_atelier_master_director",
+      "evolves_to": ""
+    },
+    {
+      "card_id": "s1_60_omega_chronos_prime",
+      "id": "s1_60_omega_chronos_prime",
+      "name": "Omega Chronos Prime",
+      "title": "Omega Chronos Prime",
+      "faction": "CardCraft-Studio",
+      "faction_short": "Artisan",
+      "faction_full": "CardCraft-Studio",
+      "themes": [
+        "Artisan",
+        "CardCraft-Studio"
+      ],
+      "rarity": "Legendary",
+      "stats": {
+        "up": 10,
+        "right": 9,
+        "down": 9,
+        "left": 10
+      },
+      "up": 10,
+      "right": 9,
+      "down": 9,
+      "left": 10,
+      "mga_cost": 20,
+      "mga_modes": [
+        "Effect",
+        "Move",
+        "Equip",
+        "Link"
+      ],
+      "ability_id": "SovereignMasterpiece",
+      "ability_desc": "Ultimate Set 1 Capstone: unites all 5 Factions, triggers Super CO Power, and restores +2 Power Grid bars.",
+      "staccs_height_bias": 3,
+      "hi3d_model_id": "hi3d_s1_60_omega_chronos_prime",
+      "evolves_to": ""
+    }
+  ],
+  "campaign_15_stages": [
+    {
+      "stage_number": 1,
+      "act_number": 1,
+      "stage_in_act": 1,
+      "stage_id": "stage_01_aether_rail_depot",
+      "short_id": "stage_01",
+      "act_stage_code": "act1_stage1",
+      "title": "Act I-1: Aether Rail Depot Breach",
+      "biome": "Industrial_Railyard",
+      "faction_focus": "Aether-Tech",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 8,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "telegraph_count_per_wave": 2
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_lash_mechanized",
+        "co_power_name": "Terrain Tactics",
+        "super_co_power_name": "Prime Tactics",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 3
+      },
+      "ffta_judge_law": {
+        "law_id": "law_01_no_high_cost_over_16",
+        "forbidden_action": "CostOver16",
+        "recommended_action": "Aether-Tech Equip",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 85
+      },
+      "enemy_deck_ids": [
+        "cf_02_mech_knight",
+        "s1_15_aether_vanguard",
+        "s1_16_railgun_dragoon",
+        "s1_17_servo_bastion_mk2",
+        "s1_18_orbital_relay_drone"
+      ]
+    },
+    {
+      "stage_number": 2,
+      "act_number": 1,
+      "stage_in_act": 2,
+      "stage_id": "stage_02_capacitor_spire_defense",
+      "short_id": "stage_02",
+      "act_stage_code": "act1_stage2",
+      "title": "Act I-2: Capacitor Spire Defense",
+      "biome": "High_Voltage_Spire",
+      "faction_focus": "Aether-Tech",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 8,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "telegraph_count_per_wave": 2
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_hawke_black_wave",
+        "co_power_name": "Black Wave",
+        "super_co_power_name": "Black Storm",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 2
+      },
+      "ffta_judge_law": {
+        "law_id": "law_02_preserve_power_grid",
+        "forbidden_action": "CivilianGridDamage",
+        "recommended_action": "PushDisplacement",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          6
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 90
+      },
+      "enemy_deck_ids": [
+        "cf_06_galactic_explorer",
+        "s1_19_plasma_halberdier",
+        "s1_20_chronos_hover_tank",
+        "s1_21_nanoforge_engineer",
+        "s1_22_tesla_siege_walker"
+      ]
+    },
+    {
+      "stage_number": 3,
+      "act_number": 1,
+      "stage_in_act": 3,
+      "stage_id": "stage_03_rex_foundry_showdown",
+      "short_id": "stage_03",
+      "act_stage_code": "act1_stage3",
+      "title": "Act I-3: REX Foundry Showdown",
+      "biome": "Molten_Mecha_Foundry",
+      "faction_focus": "Aether-Tech",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 9,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "telegraph_count_per_wave": 2
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_sturm_meteor",
+        "co_power_name": "Meteor Strike",
+        "super_co_power_name": "Super Meteor Strike",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 3
+      },
+      "ffta_judge_law": {
+        "law_id": "law_03_mandatory_equip_link",
+        "forbidden_action": "ZeroEquipPlay",
+        "recommended_action": "LinkChain",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 95
+      },
+      "enemy_deck_ids": [
+        "cf_02_mech_knight",
+        "s1_20_chronos_hover_tank",
+        "s1_22_tesla_siege_walker",
+        "s1_23_valkyrie_interceptor",
+        "s1_24_rex_metal_colossus"
+      ]
+    },
+    {
+      "stage_number": 4,
+      "act_number": 2,
+      "stage_in_act": 1,
+      "stage_id": "stage_04_clockwork_astrolabe",
+      "short_id": "stage_04",
+      "act_stage_code": "act2_stage1",
+      "title": "Act II-1: Clockwork Astrolabe",
+      "biome": "Chrono_Observatory",
+      "faction_focus": "Chrono-Arcana",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 8,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            6,
+            4
+          ]
+        ],
+        "telegraph_count_per_wave": 3
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_sonja_chronos",
+        "co_power_name": "Enhanced Vision",
+        "super_co_power_name": "Counter Break",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 3
+      },
+      "ffta_judge_law": {
+        "law_id": "law_04_no_frontal_assault",
+        "forbidden_action": "Frontal90ConeAttack",
+        "recommended_action": "TemporalRiftOrFlank",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          5
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 85
+      },
+      "enemy_deck_ids": [
+        "cf_01_mystic_mage",
+        "cf_05_elemental_sprite",
+        "s1_25_astral_scholar",
+        "s1_26_void_weaver",
+        "s1_27_pendulum_alchemist"
+      ]
+    },
+    {
+      "stage_number": 5,
+      "act_number": 2,
+      "stage_in_act": 2,
+      "stage_id": "stage_05_pendulum_rift_bridge",
+      "short_id": "stage_05",
+      "act_stage_code": "act2_stage2",
+      "title": "Act II-2: Pendulum Rift Bridge",
+      "biome": "Suspended_Aether_Bridge",
+      "faction_focus": "Chrono-Arcana",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 8,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "telegraph_count_per_wave": 3
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_olaf_blizzard",
+        "co_power_name": "Blizzard",
+        "super_co_power_name": "Winter Fury",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 2
+      },
+      "ffta_judge_law": {
+        "law_id": "law_05_minimum_z_height_2",
+        "forbidden_action": "SoloUnstackedTopCapture",
+        "recommended_action": "VerticalStacking",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 90
+      },
+      "enemy_deck_ids": [
+        "cf_07_clockwork_sorcerer",
+        "s1_28_rift_archon",
+        "s1_29_spellblade_duelist",
+        "s1_30_starlight_diviner",
+        "s1_31_aeon_hourglass_mage"
+      ]
+    },
+    {
+      "stage_number": 6,
+      "act_number": 2,
+      "stage_in_act": 3,
+      "stage_id": "stage_06_mateus_sanctum_nexus",
+      "short_id": "stage_06",
+      "act_stage_code": "act2_stage3",
+      "title": "Act II-3: Mateus Sanctum Nexus",
+      "biome": "Temporal_Vortex_Sanctum",
+      "faction_focus": "Chrono-Arcana",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 9,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            1,
+            4
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            6,
+            3
+          ]
+        ],
+        "telegraph_count_per_wave": 3
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_kanbei_samurai",
+        "co_power_name": "Morale Boost",
+        "super_co_power_name": "Samurai Spirit",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 3
+      },
+      "ffta_judge_law": {
+        "law_id": "law_06_arcane_combo_mandate",
+        "forbidden_action": "ZeroJPCombo",
+        "recommended_action": "MythrilCombo",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 95
+      },
+      "enemy_deck_ids": [
+        "cf_01_mystic_mage",
+        "cf_07_clockwork_sorcerer",
+        "s1_31_aeon_hourglass_mage",
+        "s1_32_grimoire_sentinel",
+        "s1_33_chronos_grand_magus"
+      ]
+    },
+    {
+      "stage_number": 7,
+      "act_number": 3,
+      "stage_in_act": 1,
+      "stage_id": "stage_07_solaris_sky_bastion",
+      "short_id": "stage_07",
+      "act_stage_code": "act3_stage1",
+      "title": "Act III-1: Solaris Sky Bastion",
+      "biome": "Floating_Marble_Citadel",
+      "faction_focus": "Solaris-Divine",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 9,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        "telegraph_count_per_wave": 3
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_rachel_covering_fire",
+        "co_power_name": "Lucky Lass",
+        "super_co_power_name": "Covering Fire",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 3
+      },
+      "ffta_judge_law": {
+        "law_id": "law_07_protect_allied_stacks",
+        "forbidden_action": "SacrificeSupportLayer",
+        "recommended_action": "HealingAura",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          6
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 85
+      },
+      "enemy_deck_ids": [
+        "cf_03_celestial_guardian",
+        "s1_34_dawn_templar",
+        "s1_35_seraphic_lancer",
+        "s1_36_aegis_hierophant",
+        "s1_40_choir_chronicle_bard"
+      ]
+    },
+    {
+      "stage_number": 8,
+      "act_number": 3,
+      "stage_in_act": 2,
+      "stage_id": "stage_08_lunar_eclipse_cathedral",
+      "short_id": "stage_08",
+      "act_stage_code": "act3_stage2",
+      "title": "Act III-2: Lunar Eclipse Cathedral",
+      "biome": "Nocturnal_Cathedral",
+      "faction_focus": "Solaris-Divine",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 9,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "telegraph_count_per_wave": 3
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_drake_tsunami",
+        "co_power_name": "Tsunami",
+        "super_co_power_name": "Typhoon",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 2
+      },
+      "ffta_judge_law": {
+        "law_id": "law_08_nocturnal_blessing",
+        "forbidden_action": "DaytimeFlare",
+        "recommended_action": "MoonlightBlessing",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 90
+      },
+      "enemy_deck_ids": [
+        "cf_10_lunar_oracle",
+        "s1_37_radiant_valkyrie",
+        "s1_38_solaris_inquisitor",
+        "s1_39_eclipse_paladin",
+        "s1_42_sunforge_colossus"
+      ]
+    },
+    {
+      "stage_number": 9,
+      "act_number": 3,
+      "stage_in_act": 3,
+      "stage_id": "stage_09_ultima_seraph_throne",
+      "short_id": "stage_09",
+      "act_stage_code": "act3_stage3",
+      "title": "Act III-3: Ultima Seraph Throne",
+      "biome": "Apex_Empyrean_Throne",
+      "faction_focus": "Solaris-Divine",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 10,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "telegraph_count_per_wave": 3
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_eagle_lightning",
+        "co_power_name": "Lightning Drive",
+        "super_co_power_name": "Lightning Strike",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 3
+      },
+      "ffta_judge_law": {
+        "law_id": "law_09_totema_summon_honor",
+        "forbidden_action": "UnlinkedSoloStrike",
+        "recommended_action": "TotemaSummon",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 95
+      },
+      "enemy_deck_ids": [
+        "cf_03_celestial_guardian",
+        "cf_08_phoenix_guardian",
+        "cf_10_lunar_oracle",
+        "s1_39_eclipse_paladin",
+        "s1_41_archangel_judicator"
+      ]
+    },
+    {
+      "stage_number": 10,
+      "act_number": 4,
+      "stage_in_act": 1,
+      "stage_id": "stage_10_shadow_comms_infiltration",
+      "short_id": "stage_10",
+      "act_stage_code": "act4_stage1",
+      "title": "Act IV-1: Shadow Comms Infiltration",
+      "biome": "Subzero_Helipad_Base",
+      "faction_focus": "Umbra-Stealth",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 8,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            2
+          ]
+        ],
+        "telegraph_count_per_wave": 4
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_grit_snipe",
+        "co_power_name": "Snipe Attack",
+        "super_co_power_name": "Super Snipe",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 3
+      },
+      "ffta_judge_law": {
+        "law_id": "law_10_zero_vision_cone_alerts",
+        "forbidden_action": "TriggerVisionAlert",
+        "recommended_action": "StealthAmbush90Cone",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 75
+      },
+      "enemy_deck_ids": [
+        "cf_04_shadow_assassin",
+        "s1_43_whisper_infiltrator",
+        "s1_44_kunoichi_mirage",
+        "s1_46_smoke_veil_saboteur",
+        "s1_48_nightshade_stalker"
+      ]
+    },
+    {
+      "stage_number": 11,
+      "act_number": 4,
+      "stage_in_act": 2,
+      "stage_id": "stage_11_laser_corridor_cqc",
+      "short_id": "stage_11",
+      "act_stage_code": "act4_stage2",
+      "title": "Act IV-2: Laser Corridor CQC",
+      "biome": "Security_Laser_Vault",
+      "faction_focus": "Umbra-Stealth",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 8,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "telegraph_count_per_wave": 4
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_jess_resupply",
+        "co_power_name": "Turbo Charge",
+        "super_co_power_name": "Overdrive",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 2
+      },
+      "ffta_judge_law": {
+        "law_id": "law_11_cqc_displacement_only",
+        "forbidden_action": "StaticTrades",
+        "recommended_action": "NojiriCqcKnockback",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          5
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 80
+      },
+      "enemy_deck_ids": [
+        "cf_09_cyber_ninja",
+        "s1_45_optic_camo_sniper",
+        "s1_47_phantom_cqc_operative",
+        "s1_49_zero_pulse_hacker",
+        "s1_51_eclipse_wire_agent"
+      ]
+    },
+    {
+      "stage_number": 12,
+      "act_number": 4,
+      "stage_in_act": 3,
+      "stage_id": "stage_12_solid_eye_hangar_extraction",
+      "short_id": "stage_12",
+      "act_stage_code": "act4_stage3",
+      "title": "Act IV-3: Solid Eye Hangar Extraction",
+      "biome": "Underground_Mecha_Hangar",
+      "faction_focus": "Umbra-Stealth",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 9,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            1,
+            6
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            1
+          ]
+        ],
+        "telegraph_count_per_wave": 4
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_adder_sideslip",
+        "co_power_name": "Sideslip",
+        "super_co_power_name": "Sidewinder",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 3
+      },
+      "ffta_judge_law": {
+        "law_id": "law_12_low_cost_stealth_tempo",
+        "forbidden_action": "CostAbove14",
+        "recommended_action": "Sub8CostAmbush",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 85
+      },
+      "enemy_deck_ids": [
+        "cf_04_shadow_assassin",
+        "cf_09_cyber_ninja",
+        "s1_47_phantom_cqc_operative",
+        "s1_50_obsidian_ronin",
+        "s1_52_viper_solid_eye_prime"
+      ]
+    },
+    {
+      "stage_number": 13,
+      "act_number": 5,
+      "stage_in_act": 1,
+      "stage_id": "stage_13_sumi_parchment_atelier",
+      "short_id": "stage_13",
+      "act_stage_code": "act5_stage1",
+      "title": "Act V-1: Sumi Parchment Atelier",
+      "biome": "Ivalice_Ink_Atelier",
+      "faction_focus": "CardCraft-Studio",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 9,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        "telegraph_count_per_wave": 4
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_sami_double_time",
+        "co_power_name": "Double Time",
+        "super_co_power_name": "Victory March",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 3
+      },
+      "ffta_judge_law": {
+        "law_id": "law_13_creative_cp_evolution",
+        "forbidden_action": "UnevolvedTier1",
+        "recommended_action": "EvolveCardCraft",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 90
+      },
+      "enemy_deck_ids": [
+        "cc_01_sketching",
+        "cc_02_concept_art",
+        "s1_53_ink_brush_calligrapher",
+        "s1_56_parchment_cartographer",
+        "s1_58_palette_harmonizer"
+      ]
+    },
+    {
+      "stage_number": 14,
+      "act_number": 5,
+      "stage_in_act": 2,
+      "stage_id": "stage_14_sakuga_halftone_arena",
+      "short_id": "stage_14",
+      "act_stage_code": "act5_stage2",
+      "title": "Act V-2: Sakuga Halftone Arena",
+      "biome": "Trigger_PopCel_Colosseum",
+      "faction_focus": "CardCraft-Studio",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 9,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "telegraph_count_per_wave": 4
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_max_blast",
+        "co_power_name": "Max Force",
+        "super_co_power_name": "Max Blast",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 2
+      },
+      "ffta_judge_law": {
+        "law_id": "law_14_on_ones_sakuga_link",
+        "forbidden_action": "UnlinkedEffect",
+        "recommended_action": "HalftoneLinkChain",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 95
+      },
+      "enemy_deck_ids": [
+        "cc_03_storyboard",
+        "cc_04_animatic",
+        "s1_54_halftone_pop_stylist",
+        "s1_55_sakuga_key_animator",
+        "s1_57_voxel_sculptor_hi3d"
+      ]
+    },
+    {
+      "stage_number": 15,
+      "act_number": 5,
+      "stage_in_act": 3,
+      "stage_id": "stage_15_omega_chronos_sovereign_nexus",
+      "short_id": "stage_15",
+      "act_stage_code": "act5_stage3",
+      "title": "Act V-3: Omega Chronos Sovereign Finale",
+      "biome": "Sovereign_LumenForge_Nexus",
+      "faction_focus": "CardCraft-Studio",
+      "itb_power_grid": {
+        "grid_dimensions": [
+          8,
+          8
+        ],
+        "initial_power_bars": 10,
+        "max_power_bars": 10,
+        "civilian_buildings": [
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "telegraph_count_per_wave": 4
+      },
+      "aw_commander": {
+        "enemy_commander_id": "co_von_bolt_ex_machina",
+        "co_power_name": "Lightning Bolt",
+        "super_co_power_name": "Ex Machina",
+        "co_stars_required": 3,
+        "super_co_stars_required": 6,
+        "default_terrain_stars": 3
+      },
+      "ffta_judge_law": {
+        "law_id": "law_15_five_faction_grand_harmony",
+        "forbidden_action": "SingleFactionMonoculture",
+        "recommended_action": "FiveFactionGrandSynergy",
+        "jp_reward_on_obey": 2,
+        "yellow_card_cost_penalty": 3
+      },
+      "mga_stealth_ops": {
+        "extraction_tile": [
+          7,
+          7
+        ],
+        "vision_cone_angle_deg": 90,
+        "stealth_ambush_multiplier": 1.5,
+        "stealth_cost_reduction": 2,
+        "max_mga_cost_budget": 100
+      },
+      "enemy_deck_ids": [
+        "s1_24_rex_metal_colossus",
+        "s1_33_chronos_grand_magus",
+        "s1_41_archangel_judicator",
+        "s1_52_viper_solid_eye_prime",
+        "s1_60_omega_chronos_prime"
+      ]
+    }
+  ]
+}

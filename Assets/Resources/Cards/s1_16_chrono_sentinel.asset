@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6399a062aa6f2ad138a1a711f791905, type: 3}
+  m_Name: s1_16_chrono_sentinel
+  m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
+  id: s1_16_chrono_sentinel
+  title: "Chrono Sentinel"
+  codeName: "brass Pendulum"
+  baseStats:
+    up: 5
+    down: 8
+    left: 6
+    right: 5
+  themes: 66
+  specialAbility: 7
+  specialAbilityDescription: "Once per game, reverse the directional strength values (Up<->Down, Left<->Right) of adjacent cards for 1 turn."
+  synergyRequiredTheme: 64
+  synergyAllSidesBonus: 2
+  synergyName: "Gearwork Lock"
+  evolvesToCardId: ""
+  cardArt: {fileID: 21300000, guid: b8f29b9e4b115926ec4eb99091eea8e3, type: 3}

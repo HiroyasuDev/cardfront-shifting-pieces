@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6399a062aa6f2ad138a1a711f791905, type: 3}
+  m_Name: s1_33_cogwheel_artificer
+  m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
+  id: s1_33_cogwheel_artificer
+  title: "Cogwheel Artificer"
+  codeName: "Mainspring Savant"
+  baseStats:
+    up: 5
+    down: 6
+    left: 8
+    right: 6
+  themes: 1088
+  specialAbility: 7
+  specialAbilityDescription: "Once per game, reverse the directional strength values (Up<->Down, Left<->Right) of adjacent cards for 1 turn."
+  synergyRequiredTheme: 64
+  synergyAllSidesBonus: 2
+  synergyName: "Escapement Pulse"
+  evolvesToCardId: ""
+  cardArt: {fileID: 21300000, guid: 2abd6c705de7090b3c0315c1a7ee3549, type: 3}

@@ -1,0 +1,1821 @@
+{
+  "campaign_id": "shifting_pieces_19_chapter_campaign",
+  "title": "Shifting Pieces × CardFront: Cradle of Echoes × Dicevaders 19-Chapter Campaign",
+  "author": "Hiroyasu (Binh C. Phan) | Studio PxG",
+  "engine_target": "Indie Marc TCG Engine (Unity 2022.3 LTS / Unity 6) + WebPlayable HTML5 Canvas",
+  "total_chapters": 19,
+  "acts_summary": [
+    {
+      "act": 1,
+      "title": "ACT I — Awakening the System (Chapters 1–6)",
+      "palette": "Palette A: Monochrome + Red Scarf (#0B0B0C / #D12D3A)",
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "act": 2,
+      "title": "ACT II — Fractured Memories (Chapters 7–15)",
+      "palette": "Palette C: Ocean & Lantern (#0A2230 / #FFB648) & Palette B (#0A1020 / #2EE6D3)",
+      "chapters": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "act": 3,
+      "title": "ACT III — Collapse and Choice (Chapters 16–19 & Epilogue)",
+      "palette": "Palette B & Golden Fox Finale (#0A1020 / #8A5BFF / #FFB648)",
+      "chapters": [
+        16,
+        17,
+        18,
+        19
+      ]
+    }
+  ],
+  "luna_station_of_awakening_genesis": {
+    "choices": [
+      {
+        "id": "sword_aggression",
+        "name": "Sword of Conviction (Aggression)",
+        "tarot_persona": "18. The Warrior / 2. The Master",
+        "bonus": "+2 Attack on North/East edges, +1 starting Budge token, crimson slash VFX"
+      },
+      {
+        "id": "shield_defense",
+        "name": "Shield of Sanctuary (Defense)",
+        "tarot_persona": "3. The Guardian / 7. The Healer",
+        "bonus": "+2 Defense on South/West edges, Prevent Flip shield on first card, emerald barrier VFX"
+      },
+      {
+        "id": "staff_control",
+        "name": "Staff of Eternity (Control)",
+        "tarot_persona": "8. The Strategist / 20. The Architect",
+        "bonus": "+2 starting Chrono Reroll tokens, +1 Budge token, neon cyan/violet glyph VFX"
+      }
+    ]
+  },
+  "dicevaders_grid_rules": {
+    "dice_count": 5,
+    "column_pip_mapping": {
+      "col_0": [
+        1,
+        2
+      ],
+      "col_1": [
+        3,
+        4
+      ],
+      "col_2": [
+        5,
+        6
+      ]
+    },
+    "resonance_multipliers": {
+      "Single": 1.0,
+      "Pair": 1.5,
+      "TwoPair": 1.85,
+      "Triple": 2.25,
+      "StraightOverdrive": 2.75,
+      "Quadruple": 3.5
+    },
+    "juice_physics": {
+      "damping_ratio_zeta": 0.42,
+      "natural_frequency_omega_n_rad_s": 30.0,
+      "cascade_stagger_ms": 55,
+      "hit_stop_freeze_ms": 48,
+      "harmonic_pitch_shift_semitones_per_cascade": 1.5
+    }
+  },
+  "chapters": [
+    {
+      "chapter": 1,
+      "asset_name": "chapter_01_fragments_of_dust",
+      "title": "Ch 01: Fragments of Dust (Disconnected in Okitsu)",
+      "act": "ACT I — Awakening the System",
+      "setting": "Kai's Cluttered Seawall Apartment, Coastal Okitsu",
+      "palette_id": "Palette_A_Monochrome_Red_Scarf",
+      "primary_hex": "#0B0B0C",
+      "accent_hex": "#D12D3A",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_luna_cradle_of_echoes",
+      "ai_level": 2,
+      "reward_xp": 150,
+      "reward_coins": 200,
+      "reward_card": "sp_01_kai_nakamura",
+      "boss_disruptor": {
+        "name": "Static Isolation Shadow & Autonomous Courier Drone",
+        "rule": "Corner tiles start with +1 Static Armor; using a Dicevaders Budge (±1 pip) rotates the central Rubik Cube node and grants +1 Attack to Column 1.",
+        "locked_column": -1,
+        "hazard_tiles": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Tactile Rubik Cube Orientation & Beta Handshake",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "dv_10_budge_quantum_drone",
+            "nesw": [
+              5,
+              6,
+              6,
+              5
+            ]
+          },
+          {
+            "row": 1,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_05_taro_fujimoto",
+            "nesw": [
+              7,
+              7,
+              8,
+              6
+            ]
+          },
+          {
+            "row": 2,
+            "col": 2,
+            "owner": "player",
+            "card_id": "ce_04_aiko_lacquered_puzzle_box",
+            "nesw": [
+              6,
+              7,
+              6,
+              6
+            ]
+          }
+        ],
+        "target_resonance": "Pair (1.50x)",
+        "solution_hint": "Use Budge (+1) on any die to match a Pair (1.50x), then deploy Kai Nakamura at (2,1) below Taro to flip the center tile (North 8 + Pair > South 8)."
+      },
+      "dialogue": [
+        {
+          "speaker": "Taro Fujimoto (Intercom)",
+          "line": "Kai? I left warm curry and green tea by the door. The rain's coming in off the Okitsu seawall—don't stay locked in all week."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "Three months since Aiko vanished, and every puzzle in this room is already solved... except the headset she left on my desk."
+        },
+        {
+          "speaker": "Mnemosyne Terminal",
+          "line": "[ENCRYPTED HANDSHAKE VERIFIED] Welcome to Mnemosyne. A game of memory. Designed just for you."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_01_fragments_of_dust.asset",
+      "unity_asset_guid": "4bd5f239c3a3a6e0b1d54e0e2df4def0"
+    },
+    {
+      "chapter": 2,
+      "asset_name": "chapter_02_residual_code",
+      "title": "Ch 02: Residual Code (Aiko's Lacquered Puzzle Box)",
+      "act": "ACT I — Awakening the System",
+      "setting": "Okitsu VR Cafe & Aiko's 13th Birthday Hologram",
+      "palette_id": "Palette_A_Monochrome_Red_Scarf",
+      "primary_hex": "#0B0B0C",
+      "accent_hex": "#FFB648",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_luna_cradle_of_echoes",
+      "ai_level": 3,
+      "reward_xp": 180,
+      "reward_coins": 220,
+      "reward_card": "ce_04_aiko_lacquered_puzzle_box",
+      "boss_disruptor": {
+        "name": "Taro Fujimoto (Friendly VR Cafe Sparring Anchor)",
+        "rule": "Unsealing Aiko's Birthday Box via a Pair (1.50x) roll buffs North and East edges of all friendly cards by +2 for the turn.",
+        "locked_column": -1,
+        "hazard_tiles": []
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "4-Directional Interlocking Latch Alignment",
+        "initial_board": [
+          {
+            "row": 1,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "dv_07_vanguard_pip12_striker",
+            "nesw": [
+              6,
+              5,
+              5,
+              6
+            ]
+          },
+          {
+            "row": 1,
+            "col": 2,
+            "owner": "ai",
+            "card_id": "sp_05_taro_fujimoto",
+            "nesw": [
+              7,
+              7,
+              8,
+              6
+            ]
+          },
+          {
+            "row": 0,
+            "col": 1,
+            "owner": "player",
+            "card_id": "ce_04_aiko_lacquered_puzzle_box",
+            "nesw": [
+              6,
+              8,
+              6,
+              6
+            ]
+          }
+        ],
+        "target_resonance": "Pair (1.50x)",
+        "solution_hint": "Place Kai Nakamura at center (1,1) after triggering a Pair so West 7+1 > East 5 and East 8 > West 6 in a double birthday-box unsealing."
+      },
+      "dialogue": [
+        {
+          "speaker": "Aiko Nakamura (Hologram)",
+          "line": "Happy thirteenth birthday, Kai! Remember the rule: you're only allowed to open this box when you're ready to be honest with yourself."
+        },
+        {
+          "speaker": "Taro Fujimoto",
+          "line": "That neural tree etched into your visor isn't standard commercial firmware, Kai. Whatever Aiko built before she disappeared, it's waking up."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "The latch sequence matches our cliffside hex hike. She didn't leave a goodbye note—she left coordinates."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_02_residual_code.asset",
+      "unity_asset_guid": "7aec06c302a603feadb36bbed361e40e"
+    },
+    {
+      "chapter": 3,
+      "asset_name": "chapter_03_invitation_to_mnemosyne",
+      "title": "Ch 03: Invitation to Mnemosyne (Station of Awakening)",
+      "act": "ACT I — Awakening the System",
+      "setting": "Mnemosyne Phosphorescent Threshold & LUNA's Glass Plane",
+      "palette_id": "Palette_B_Cyber_Blues_Neon_Violet",
+      "primary_hex": "#0A1020",
+      "accent_hex": "#2EE6D3",
+      "player_deck": "deck_luna_cradle_of_echoes",
+      "ai_deck": "deck_twelve_masters_sovereign",
+      "ai_level": 3,
+      "reward_xp": 200,
+      "reward_coins": 250,
+      "reward_card": "sp_04_luna_cradle_guide",
+      "boss_disruptor": {
+        "name": "LUNA & The Gatekeeper Glyph Sentinel",
+        "rule": "Shifting UI Glyphs rotate N/E/S/W stats clockwise unless stabilized by spending 1 Chrono Reroll or selecting a Station of Awakening Tarot.",
+        "locked_column": -1,
+        "hazard_tiles": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Non-Euclidean Stained-Glass Tarot & Glyph Alignment",
+        "initial_board": [
+          {
+            "row": 1,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_04_luna_cradle_guide",
+            "nesw": [
+              8,
+              8,
+              8,
+              8
+            ]
+          },
+          {
+            "row": 2,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "mc_09_makoto_yabe_neo_arcadia_sentinel",
+            "nesw": [
+              7,
+              7,
+              7,
+              7
+            ]
+          },
+          {
+            "row": 0,
+            "col": 2,
+            "owner": "player",
+            "card_id": "sp_03_mnemosyne_constellation_fox",
+            "nesw": [
+              7,
+              8,
+              9,
+              8
+            ]
+          }
+        ],
+        "target_resonance": "Triple (2.25x)",
+        "solution_hint": "Select LUNA's Tarot of Conviction or Eternity, use Chrono Reroll to align Pips 3-4 on Column 1, and capture the center glass threshold."
+      },
+      "dialogue": [
+        {
+          "speaker": "LUNA (Cradle of Echoes)",
+          "line": "Step onto the glass floor of Nocturna, seeker. Three tarot archetypes orbit your awakening: the Sword of Conviction, the Shield of Sanctuary, and the Staff of Eternity."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "The glyphs stop spinning when I slow my breathing. Brute force scrambles the lock—emotional calm aligns the stained glass."
+        },
+        {
+          "speaker": "LUNA (Cradle of Echoes)",
+          "line": "Your 95% Persona Seal is bound to The Strategist and The Architect. Enter the Memory Architecture System."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_03_invitation_to_mnemosyne.asset",
+      "unity_asset_guid": "9878cf3d8062fc2a6e6c59300aee26dc"
+    },
+    {
+      "chapter": 4,
+      "asset_name": "chapter_04_the_first_level",
+      "title": "Ch 04: The First Level (Cliffside Red Scarf Reveal)",
+      "act": "ACT I — Awakening the System",
+      "setting": "Floating Glass-Tile Horizon -> Okitsu Coastal Cliffside",
+      "palette_id": "Palette_A_Monochrome_Red_Scarf",
+      "primary_hex": "#0B0B0C",
+      "accent_hex": "#D12D3A",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_twelve_masters_sovereign",
+      "ai_level": 4,
+      "reward_xp": 220,
+      "reward_coins": 280,
+      "reward_card": "ce_05_neural_etched_vr_headset",
+      "boss_disruptor": {
+        "name": "Fractal Pattern Construct",
+        "rule": "Symmetric card placements across Center Tile (1,1) trigger an automatic Red Scarf (#D12D3A) diagonal glitch cut (-2 DEF to enemy corners).",
+        "locked_column": -1,
+        "hazard_tiles": [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Order from Chaos Kinetic Hex Pattern",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_02_aiko_nakamura_echo",
+            "nesw": [
+              9,
+              7,
+              8,
+              9
+            ]
+          },
+          {
+            "row": 1,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "mc_01_ryoma_ito_marche_paladin",
+            "nesw": [
+              7,
+              8,
+              6,
+              7
+            ]
+          },
+          {
+            "row": 2,
+            "col": 2,
+            "owner": "player",
+            "card_id": "sp_05_taro_fujimoto",
+            "nesw": [
+              7,
+              7,
+              8,
+              6
+            ]
+          }
+        ],
+        "target_resonance": "Pair (1.50x)",
+        "solution_hint": "Deploy Kai Nakamura at (1,1) with Budge (+1) on Column 1 (Pips 3-4) so North 8+2 > Aiko's South 8, reconstructing the cliffside memory."
+      },
+      "dialogue": [
+        {
+          "speaker": "Mnemosyne",
+          "line": "CHAMBER 01: ORDER FROM CHAOS. Align the floating stone and glass vectors above the starless sea."
+        },
+        {
+          "speaker": "Aiko Nakamura (Memory Echo)",
+          "line": "Look at the waves below the seawall, Kai. Even when the tide looks chaotic, there's a rhythm underneath. You found the pattern."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "Her crimson scarf (#D12D3A)... the wind off the cliff felt completely real. That wasn't a pre-rendered cutscene—she's inside the code."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_04_the_first_level.asset",
+      "unity_asset_guid": "7fc23df0d76f8df47f0f5a62e042af1f"
+    },
+    {
+      "chapter": 5,
+      "asset_name": "chapter_05_flicker",
+      "title": "Ch 05: Flicker (Rain-Slicked Lantern Alley)",
+      "act": "ACT I — Awakening the System",
+      "setting": "Rainy Paper-Lantern Alley (Simulation Layer 2)",
+      "palette_id": "Palette_A_Monochrome_Red_Scarf",
+      "primary_hex": "#0B0B0C",
+      "accent_hex": "#D12D3A",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_dicevaders_chrono_armada",
+      "ai_level": 4,
+      "reward_xp": 250,
+      "reward_coins": 300,
+      "reward_card": "mc_01_ryoma_ito_marche_paladin",
+      "boss_disruptor": {
+        "name": "Flickering Silhouette of Aiko",
+        "rule": "Enemy cards on Column 0 start cloaked in Flicker Stealth; matching an exact die pip to their row index strips Stealth and grants +2 East/West.",
+        "locked_column": 0,
+        "hazard_tiles": [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Symbol Flicker Frequency Decoding",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "mc_10_yoji_shinkawa_jehuty_frame",
+            "nesw": [
+              9,
+              8,
+              7,
+              8
+            ]
+          },
+          {
+            "row": 1,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_03_mnemosyne_constellation_fox",
+            "nesw": [
+              7,
+              8,
+              9,
+              8
+            ]
+          },
+          {
+            "row": 1,
+            "col": 2,
+            "owner": "player",
+            "card_id": "sp_05_taro_fujimoto",
+            "nesw": [
+              7,
+              7,
+              8,
+              6
+            ]
+          }
+        ],
+        "target_resonance": "Triple (2.25x)",
+        "solution_hint": "Use Budge (±1) to unlock Column 0 (Pips 1-2) and strip Flicker Stealth from Sumi-e Ink's Jehuty Frame, then capture Constellation Fox from (2,1)."
+      },
+      "dialogue": [
+        {
+          "speaker": "Kai Nakamura",
+          "line": "The neon kanji on the wet pavement are flickering at 42 Hz—the exact clock frequency of Aiko's neural compiler."
+        },
+        {
+          "speaker": "Taro Fujimoto (Voiceover)",
+          "line": "Promise me you won't chase a ghost so deep you forget how to breathe air, Kai."
+        },
+        {
+          "speaker": "Aiko Nakamura (Flicker Echo)",
+          "line": "Follow the red thread through the static, little brother... before the sector overwrites."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_05_flicker.asset",
+      "unity_asset_guid": "be942af3f4a00360d101cccc6fd735e2"
+    },
+    {
+      "chapter": 6,
+      "asset_name": "chapter_06_phantom_signals",
+      "title": "Ch 06: Phantom Signals & Memory Bloom",
+      "act": "ACT I — Awakening the System",
+      "setting": "Bioluminescent Memory Bloom Conservatory",
+      "palette_id": "Palette_B_Cyber_Blues_Neon_Violet",
+      "primary_hex": "#0A1020",
+      "accent_hex": "#2EE6D3",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_luna_cradle_of_echoes",
+      "ai_level": 5,
+      "reward_xp": 300,
+      "reward_coins": 350,
+      "reward_card": "sp_02_aiko_nakamura_echo",
+      "boss_disruptor": {
+        "name": "Harmonic Resonance Weaver",
+        "rule": "Acoustic Resonance: Triggering dice cascades in ascending pip order (Col 0 -> Col 1 -> Col 2) shifts harmonic pitch +1.5 semitones and grants +2 Omni-Edge.",
+        "locked_column": -1,
+        "hazard_tiles": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Spatial Sound Mapping & Two-Way Voice Bloom",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_04_luna_cradle_guide",
+            "nesw": [
+              8,
+              8,
+              8,
+              8
+            ]
+          },
+          {
+            "row": 1,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_02_aiko_nakamura_echo",
+            "nesw": [
+              9,
+              7,
+              8,
+              9
+            ]
+          },
+          {
+            "row": 2,
+            "col": 1,
+            "owner": "player",
+            "card_id": "sp_03_mnemosyne_constellation_fox",
+            "nesw": [
+              7,
+              8,
+              9,
+              8
+            ]
+          }
+        ],
+        "target_resonance": "Straight Overdrive (2.75x)",
+        "solution_hint": "Form a Straight Overdrive or Triple on the Dice Row and place Kai Nakamura at (1,2) so Constellation Fox synergy flips Aiko's Echo at (1,1)."
+      },
+      "dialogue": [
+        {
+          "speaker": "Kai Nakamura",
+          "line": "Wind chimes from grandmother's porch, the Okitsu rail crossing, the surf against the breakwater... each sound maps to a shadow game Aiko taught me."
+        },
+        {
+          "speaker": "Aiko Nakamura (Live Two-Way Signal)",
+          "line": "You remembered the chime sequence, Kai... You actually found me."
+        },
+        {
+          "speaker": "Mnemosyne",
+          "line": "[ACT I COMPLETE — MEMORY BLOOM UNLOCKED] Card Acquired: Aiko Nakamura, Red Scarf Echo (#D12D3A)."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_06_phantom_signals.asset",
+      "unity_asset_guid": "bd7bd74593ac2ee790401a95d87ea6d4"
+    },
+    {
+      "chapter": 7,
+      "asset_name": "chapter_07_memory_theatre",
+      "title": "Ch 07: Memory Theatre (Summer Festival Lanterns)",
+      "act": "ACT II — Fractured Memories",
+      "setting": "Mnemosyne Grand Amphitheatre of Floating Lanterns (#FFB648)",
+      "palette_id": "Palette_C_Ocean_And_Lantern",
+      "primary_hex": "#0A2230",
+      "accent_hex": "#FFB648",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_twelve_masters_sovereign",
+      "ai_level": 5,
+      "reward_xp": 320,
+      "reward_coins": 380,
+      "reward_card": "ce_06_memory_theatre_stage_lantern",
+      "boss_disruptor": {
+        "name": "The Stage Director Archon (Joy Index)",
+        "rule": "Completing a 3-card horizontal row ordered by Emotional Weight (Nostalgia -> Grief -> Acceptance) ignites a 2.25x Triple Lantern Cascade.",
+        "locked_column": -1,
+        "hazard_tiles": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Emotional Sequence Reconstruction (Memory Theatre)",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "mc_03_hideo_minaba_skyfarer_archon",
+            "nesw": [
+              6,
+              8,
+              8,
+              7
+            ]
+          },
+          {
+            "row": 0,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_03_mnemosyne_constellation_fox",
+            "nesw": [
+              7,
+              8,
+              9,
+              8
+            ]
+          },
+          {
+            "row": 2,
+            "col": 2,
+            "owner": "player",
+            "card_id": "sp_02_aiko_nakamura_echo",
+            "nesw": [
+              9,
+              7,
+              8,
+              9
+            ]
+          }
+        ],
+        "target_resonance": "Triple (2.25x)",
+        "solution_hint": "Deploy Memory Theatre Lantern or Kai at (1,1) and activate Column 1 (Pips 3-4) with Triple Resonance to sweep the top stage row."
+      },
+      "dialogue": [
+        {
+          "speaker": "Mnemosyne",
+          "line": "ACT II: FRACTURED MEMORIES. Chronology is a cage; arrange these festival lanterns by the weight they left on your heart."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "Paper lanterns (#FFB648) rising over the deep ocean (#0A2230)... Aiko held my hand when I lost sight of grandmother in the crowd."
+        },
+        {
+          "speaker": "Aiko Nakamura (Echo)",
+          "line": "Joy hurts the sharpest when you look back at it from the dark, Kai. Don't look away."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_07_memory_theatre.asset",
+      "unity_asset_guid": "07bb38904d8c9efb286ae42783203bef"
+    },
+    {
+      "chapter": 8,
+      "asset_name": "chapter_08_artifacts",
+      "title": "Ch 08: Artifacts (Kitchen Table Contradiction)",
+      "act": "ACT II — Fractured Memories",
+      "setting": "Nakamura Family Kitchen Table Dual-Memory Split",
+      "palette_id": "Palette_A_Monochrome_Red_Scarf",
+      "primary_hex": "#0B0B0C",
+      "accent_hex": "#7A8B99",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_luna_cradle_of_echoes",
+      "ai_level": 6,
+      "reward_xp": 350,
+      "reward_coins": 400,
+      "reward_card": "ce_07_kitchen_table_porcelain_cup",
+      "boss_disruptor": {
+        "name": "Synthetic Nostalgia Curator (Regret Index)",
+        "rule": "Decoy memory cards display inflated stats (+2) until inspected with FlickerPatternDecode or a Budge (±1) shift, which exposes their true -2 vulnerability.",
+        "locked_column": 1,
+        "hazard_tiles": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Compare & Contrast True vs. Altered Domestic Artifacts",
+        "initial_board": [
+          {
+            "row": 1,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "mc_06_hiroshi_minagawa_diorama_warden",
+            "nesw": [
+              8,
+              9,
+              9,
+              7
+            ]
+          },
+          {
+            "row": 1,
+            "col": 2,
+            "owner": "ai",
+            "card_id": "mc_06_hiroshi_minagawa_diorama_warden",
+            "nesw": [
+              4,
+              5,
+              7,
+              5
+            ]
+          },
+          {
+            "row": 2,
+            "col": 1,
+            "owner": "player",
+            "card_id": "sp_01_kai_nakamura",
+            "nesw": [
+              8,
+              8,
+              6,
+              7
+            ]
+          }
+        ],
+        "target_resonance": "Pair (1.50x)",
+        "solution_hint": "Expose the falsified kitchen table memory at (1,0) using Budge, then place Aiko's Echo at (1,1) to overwrite the synthetic calm."
+      },
+      "dialogue": [
+        {
+          "speaker": "Kai Nakamura",
+          "line": "Wait. In this replay, Father is smiling and the porcelain teacup isn't cracked. Why did Mnemosyne edit out the shouting match?"
+        },
+        {
+          "speaker": "Aiko Nakamura (Echo)",
+          "line": "The system tries to anesthetize regret so test subjects stay compliant. If we want the truth, we have to choose the cracked cup."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "I don't want a painless lie. Restore the unedited memory!"
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_08_artifacts.asset",
+      "unity_asset_guid": "82ad2e2a5b247dcae4d3ff640cfaf0ee"
+    },
+    {
+      "chapter": 9,
+      "asset_name": "chapter_09_recalibration",
+      "title": "Ch 09: Recalibration (VR Cafe Confrontation)",
+      "act": "ACT II — Fractured Memories",
+      "setting": "Okitsu VR Cafe Backroom / Neural Recalibration Core",
+      "palette_id": "Palette_B_Cyber_Blues_Neon_Violet",
+      "primary_hex": "#1B2338",
+      "accent_hex": "#2EE6D3",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_dicevaders_chrono_armada",
+      "ai_level": 6,
+      "reward_xp": 380,
+      "reward_coins": 420,
+      "reward_card": "sp_05_taro_fujimoto",
+      "boss_disruptor": {
+        "name": "Taro's Grounding Anchor Projection (Anger Index)",
+        "rule": "Attaching an Emotion Tag (Anger #D12D3A / Trust #2EE6D3) via Budge boosts a friendly card's weakest directional side by +3.",
+        "locked_column": -1,
+        "hazard_tiles": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Drag-and-Drop Emotional Resonance Tagging",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_05_taro_fujimoto",
+            "nesw": [
+              8,
+              8,
+              9,
+              7
+            ]
+          },
+          {
+            "row": 1,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "dv_04_pilot_roxy_mecha_gunner",
+            "nesw": [
+              7,
+              8,
+              8,
+              6
+            ]
+          },
+          {
+            "row": 2,
+            "col": 0,
+            "owner": "player",
+            "card_id": "sp_02_aiko_nakamura_echo",
+            "nesw": [
+              9,
+              7,
+              8,
+              9
+            ]
+          }
+        ],
+        "target_resonance": "Triple (2.25x)",
+        "solution_hint": "Tag Phoenix/Zero at (1,2) with #D12D3A Anger and harmonize with Kai at (2,1) to reconcile Taro's warning without breaking your bond."
+      },
+      "dialogue": [
+        {
+          "speaker": "Taro Fujimoto",
+          "line": "Look at your hands, Kai! Your pulse spikes every time you unplug. You're treating the real world like a loading screen!"
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "You think I want to be stuck here?! If I stop solving the grid, Aiko's consciousness fragments for good!"
+        },
+        {
+          "speaker": "Taro Fujimoto",
+          "line": "Then let me anchor the external diagnostics from the VR Cafe. You don't have to carry the whole server dome alone."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_09_recalibration.asset",
+      "unity_asset_guid": "5743fc49ff35d6455d1a8df2570f66d9"
+    },
+    {
+      "chapter": 10,
+      "asset_name": "chapter_10_displacement",
+      "title": "Ch 10: Displacement (Refractive Mirror Match)",
+      "act": "ACT II — Fractured Memories",
+      "setting": "Refractive Glass Corridor & Rain-Drenched Okitsu Station",
+      "palette_id": "Palette_B_Cyber_Blues_Neon_Violet",
+      "primary_hex": "#0A1020",
+      "accent_hex": "#8A5BFF",
+      "player_deck": "deck_luna_cradle_of_echoes",
+      "ai_deck": "deck_kai_red_scarf_echo",
+      "ai_level": 7,
+      "reward_xp": 400,
+      "reward_coins": 450,
+      "reward_card": "mc_11_kazuma_kaneko_demi_fiend_archon",
+      "boss_disruptor": {
+        "name": "Doppelganger Kai — Refractive Echo (Guilt Index)",
+        "rule": "Mirror Displacement: North/South and East/West values invert on Center Column 1 unless locked by a Pair (1.50x) or Triple (2.25x) die roll.",
+        "locked_column": 1,
+        "hazard_tiles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Refractive Mirror Pose & Guilt Synchronization",
+        "initial_board": [
+          {
+            "row": 1,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "sp_01_kai_nakamura",
+            "nesw": [
+              8,
+              8,
+              6,
+              7
+            ]
+          },
+          {
+            "row": 1,
+            "col": 2,
+            "owner": "ai",
+            "card_id": "mc_10_yoji_shinkawa_jehuty_frame",
+            "nesw": [
+              9,
+              8,
+              7,
+              8
+            ]
+          },
+          {
+            "row": 2,
+            "col": 1,
+            "owner": "player",
+            "card_id": "sp_05_taro_fujimoto",
+            "nesw": [
+              7,
+              7,
+              8,
+              6
+            ]
+          }
+        ],
+        "target_resonance": "Pair (1.50x)",
+        "solution_hint": "Lock a Pair on the Dice Row to stabilize Column 1's mirror inversion, then play Kai at (1,1) with Budge (+1) to shatter the guilt reflection."
+      },
+      "dialogue": [
+        {
+          "speaker": "Doppelganger Kai (Mirror)",
+          "line": "Why didn't you walk her to the research lab that rainy morning at Okitsu Station? You were too busy staring at a Rubik's cube."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "I edited that morning out of my own memory... I told myself I was at school, but I was standing right on the platform."
+        },
+        {
+          "speaker": "LUNA",
+          "line": "Guilt acknowledged is no longer a trapdoor. The mirror stabilizes."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_10_displacement.asset",
+      "unity_asset_guid": "b73f5adb8aa53d7e3a5f7b849522f26b"
+    },
+    {
+      "chapter": 11,
+      "asset_name": "chapter_11_the_shadow_maze",
+      "title": "Ch 11: The Shadow Maze (Rooftop Stargazing)",
+      "act": "ACT II — Fractured Memories",
+      "setting": "Chiaroscuro Shadow Labyrinth & Okitsu Bay Rooftop",
+      "palette_id": "Palette_C_Ocean_And_Lantern",
+      "primary_hex": "#0A2230",
+      "accent_hex": "#FFB648",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_twelve_masters_sovereign",
+      "ai_level": 7,
+      "reward_xp": 440,
+      "reward_coins": 480,
+      "reward_card": "ce_08_shadow_maze_chiaroscuro_lamp",
+      "boss_disruptor": {
+        "name": "Umbral Constellation Fox (Loss Index)",
+        "rule": "Light-source cards project beams across orthogonal columns; using Budge (±1 pip) aligns shadow angles to flip entire columns at once.",
+        "locked_column": 2,
+        "hazard_tiles": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Spatial Logic via Light & Shadow Projection",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "sp_02_aiko_nakamura_echo",
+            "nesw": [
+              9,
+              7,
+              8,
+              9
+            ]
+          },
+          {
+            "row": 1,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_03_mnemosyne_constellation_fox",
+            "nesw": [
+              7,
+              8,
+              9,
+              8
+            ]
+          },
+          {
+            "row": 0,
+            "col": 2,
+            "owner": "player",
+            "card_id": "sp_04_luna_cradle_guide",
+            "nesw": [
+              8,
+              8,
+              8,
+              8
+            ]
+          }
+        ],
+        "target_resonance": "Triple (2.25x)",
+        "solution_hint": "Cast a diagonal shadow line from LUNA (0,2) through center (1,1) using Budge (+1) on Pips 5-6 to illuminate Aiko's rooftop constellation."
+      },
+      "dialogue": [
+        {
+          "speaker": "Aiko Nakamura (Memory)",
+          "line": "When the house got too loud after Mom and Dad split up, we'd climb onto the roof and connect five amber stars into a fox."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "If I rotate the suspended debris by one degree—just a single ±1 Budge—the shadow on the far wall forms the Constellation Fox!"
+        },
+        {
+          "speaker": "Mnemosyne",
+          "line": "SHADOW MAZE SOLVED. Warning: Sub-stratum audio anomaly detected."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_11_the_shadow_maze.asset",
+      "unity_asset_guid": "48a1adc75892c26301130a35acc6266c"
+    },
+    {
+      "chapter": 12,
+      "asset_name": "chapter_12_echo_ai",
+      "title": "Ch 12: Echo AI (Dual-Voice Waveform Sync)",
+      "act": "ACT II — Fractured Memories",
+      "setting": "Degrading Sub-Stratum Acoustic Core",
+      "palette_id": "Palette_B_Cyber_Blues_Neon_Violet",
+      "primary_hex": "#0A1020",
+      "accent_hex": "#2EE6D3",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_dicevaders_chrono_armada",
+      "ai_level": 7,
+      "reward_xp": 480,
+      "reward_coins": 520,
+      "reward_card": "dv_06_pilot_noel_chrono_keeper",
+      "boss_disruptor": {
+        "name": "Fragmented Echo AI (Dual-Voice Anomaly)",
+        "rule": "Dual-Waveform Sync: Rolling Two Pair (1.85x) or Triple (2.25x) synchronizes the two fractured Aiko voices, granting +2 to all sides and +1 Chrono.",
+        "locked_column": -1,
+        "hazard_tiles": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Dual-Track Distorted Audio Log Synchronization",
+        "initial_board": [
+          {
+            "row": 1,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "sp_02_aiko_nakamura_echo",
+            "nesw": [
+              9,
+              8,
+              8,
+              9
+            ]
+          },
+          {
+            "row": 1,
+            "col": 2,
+            "owner": "ai",
+            "card_id": "sp_06_dr_rina_asakura",
+            "nesw": [
+              9,
+              8,
+              9,
+              6
+            ]
+          },
+          {
+            "row": 0,
+            "col": 1,
+            "owner": "player",
+            "card_id": "sp_03_mnemosyne_constellation_fox",
+            "nesw": [
+              7,
+              8,
+              9,
+              8
+            ]
+          }
+        ],
+        "target_resonance": "Two Pair (1.85x)",
+        "solution_hint": "Deploy Aiko's Echo at (1,1) after locking Two Pair on the Dice Row to synchronize the dual waveforms and repel Dr. Asakura's perimeter probe."
+      },
+      "dialogue": [
+        {
+          "speaker": "Echo AI (Distorted Track B)",
+          "line": "Kai—don't—complete the final compiler—Rina Asakura is waiting on the outside to harvest the core!"
+        },
+        {
+          "speaker": "Aiko Nakamura (Track A)",
+          "line": "Two recordings of my voice overlapping out of phase... Synchronize the peaks, Kai!"
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "Got it! Both waveforms locked in phase—wait, someone just breached Sector 09 from the corporate intranet!"
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_12_echo_ai.asset",
+      "unity_asset_guid": "3fda985e2cb7ce118ca365fe826307a2"
+    },
+    {
+      "chapter": 13,
+      "asset_name": "chapter_13_system_update",
+      "title": "Ch 13: System Update (Asakura Firewall Intrusion)",
+      "act": "ACT II — Fractured Memories",
+      "setting": "Corrupted Firewall Sector 09 (Dr. Asakura's Breach)",
+      "palette_id": "Palette_A_Monochrome_Red_Scarf",
+      "primary_hex": "#0B0B0C",
+      "accent_hex": "#D12D3A",
+      "player_deck": "deck_dicevaders_chrono_armada",
+      "ai_deck": "deck_twelve_masters_sovereign",
+      "ai_level": 8,
+      "reward_xp": 520,
+      "reward_coins": 560,
+      "reward_card": "sp_06_dr_rina_asakura",
+      "boss_disruptor": {
+        "name": "Dr. Rina Asakura's Extraction Daemon",
+        "rule": "Hostile System Update: Locks Column 2 (Pips 5-6) with a Corporate Firewall. Spending 1 Chrono Reroll purges the lock and recovers +2 Budge.",
+        "locked_column": 2,
+        "hazard_tiles": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Corrupted File-Maze Navigation & Journal Retrieval",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 2,
+            "owner": "ai",
+            "card_id": "sp_06_dr_rina_asakura",
+            "nesw": [
+              9,
+              8,
+              9,
+              6
+            ]
+          },
+          {
+            "row": 1,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "dv_04_pilot_roxy_mecha_gunner",
+            "nesw": [
+              7,
+              8,
+              8,
+              6
+            ]
+          },
+          {
+            "row": 2,
+            "col": 0,
+            "owner": "player",
+            "card_id": "sp_01_kai_nakamura",
+            "nesw": [
+              8,
+              8,
+              6,
+              7
+            ]
+          }
+        ],
+        "target_resonance": "Triple (2.25x)",
+        "solution_hint": "Press Chrono Reroll to purge Dr. Asakura's Column 2 lock, then strike (0,2) from (0,1) with Omega Zero or Kai boosted by Triple Resonance."
+      },
+      "dialogue": [
+        {
+          "speaker": "Dr. Rina Asakura",
+          "line": "Impressive neural plasticity, Kai Nakamura. Your sister's MAS architecture was languishing in dormant sectors until your grief indexed it for us."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "Aiko isn't your corporate intellectual property! You're tearing the memory sectors apart!"
+        },
+        {
+          "speaker": "Aiko Nakamura (Echo)",
+          "line": "Grab Encrypted Journal [Log: A-09] from the center node, Kai! Don't let her daemon quarantine it!"
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_13_system_update.asset",
+      "unity_asset_guid": "45a59689ab6f8a565c74a9c244f8afbd"
+    },
+    {
+      "chapter": 14,
+      "asset_name": "chapter_14_reconciliation_loop",
+      "title": "Ch 14: Reconciliation Loop (The Unspoken Truth)",
+      "act": "ACT II — Fractured Memories",
+      "setting": "Infinite Recursive Hallway of the Final Argument",
+      "palette_id": "Palette_A_Monochrome_Red_Scarf",
+      "primary_hex": "#0B0B0C",
+      "accent_hex": "#F2F2F2",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_luna_cradle_of_echoes",
+      "ai_level": 8,
+      "reward_xp": 560,
+      "reward_coins": 600,
+      "reward_card": "ce_11_chrono_temporal_anchor_spell",
+      "boss_disruptor": {
+        "name": "The Unspoken Guilt Time-Loop",
+        "rule": "Recursive Loop: Unmodified Single rolls lose -1 ATK; using Chrono Reroll or playing an Honest Confession card in Center Tile (1,1) breaks the loop and grants +3 Omni-Edge.",
+        "locked_column": -1,
+        "hazard_tiles": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Truth-Gated Recursive Dialogue & Chrono Lock",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_02_aiko_nakamura_echo",
+            "nesw": [
+              9,
+              7,
+              8,
+              9
+            ]
+          },
+          {
+            "row": 2,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_01_kai_nakamura",
+            "nesw": [
+              8,
+              8,
+              6,
+              7
+            ]
+          },
+          {
+            "row": 1,
+            "col": 0,
+            "owner": "player",
+            "card_id": "sp_05_taro_fujimoto",
+            "nesw": [
+              7,
+              7,
+              8,
+              6
+            ]
+          }
+        ],
+        "target_resonance": "Straight Overdrive (2.75x)",
+        "solution_hint": "Trigger Chrono Reroll to break the recursive hallway reset, then place Kai or Reconciliation Key at Center (1,1) to embrace both truth and grief."
+      },
+      "dialogue": [
+        {
+          "speaker": "Memory Replay (Loop #14)",
+          "line": "'I'm fine, Aiko! Go to your lab!' — [TIMELINE RESET: DEFENSIVE LIE DETECTED]."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "Every time I repeat what I actually said that night, the corridor resets. The lock isn't asking for what happened—it's asking for what I hid."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "I was terrified you were leaving me behind, Aiko! I was angry, and I was scared, and I never got to say I'm sorry!"
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_14_reconciliation_loop.asset",
+      "unity_asset_guid": "c332fe6238f94d786e238a3977912f3a"
+    },
+    {
+      "chapter": 15,
+      "asset_name": "chapter_15_the_core_fracture",
+      "title": "Ch 15: The Core Fracture & The Unchosen Memory",
+      "act": "ACT II — Fractured Memories",
+      "setting": "Collapsing Coastal Research Lab -> Quiet Rooftop Starlight",
+      "palette_id": "Palette_C_Ocean_And_Lantern",
+      "primary_hex": "#0A2230",
+      "accent_hex": "#FFB648",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_twelve_masters_sovereign",
+      "ai_level": 8,
+      "reward_xp": 600,
+      "reward_coins": 650,
+      "reward_card": "sp_03_mnemosyne_constellation_fox",
+      "boss_disruptor": {
+        "name": "Core Tectonic Fracture & Extraction Surge",
+        "rule": "Stability Collapse Blitz: Completing a diagonal 3-card bridge across (0,0)-(1,1)-(2,2) stabilizes the shattering lab and unlocks the Rooftop Fox 2.75x bonus.",
+        "locked_column": 0,
+        "hazard_tiles": [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "High-Velocity Memory Shard Diagonal Bridging",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 2,
+            "owner": "ai",
+            "card_id": "sp_06_dr_rina_asakura",
+            "nesw": [
+              9,
+              8,
+              9,
+              6
+            ]
+          },
+          {
+            "row": 2,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "mc_07_isamu_kamikokuryo_strahl_admiral",
+            "nesw": [
+              8,
+              8,
+              8,
+              7
+            ]
+          },
+          {
+            "row": 0,
+            "col": 0,
+            "owner": "player",
+            "card_id": "sp_03_mnemosyne_constellation_fox",
+            "nesw": [
+              7,
+              8,
+              9,
+              8
+            ]
+          }
+        ],
+        "target_resonance": "Triple (2.25x)",
+        "solution_hint": "Bridge (1,1) and (2,2) with Kai and Aiko's Echo while firing a Triple Resonance cascade to unlock the Interlude: The Unchosen Memory."
+      },
+      "dialogue": [
+        {
+          "speaker": "Dr. Rina Asakura",
+          "line": "Core containment at 18%. Sever the brother's neural link and extract the Mnemosyne kernel now!"
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "The lab floor is shattering into void polygons—if I bridge the diagonal shards, I can shield Aiko's core!"
+        },
+        {
+          "speaker": "Aiko Nakamura (Interlude: The Unchosen Memory)",
+          "line": "Before the fall... remember the quiet rooftop night when we didn't solve anything at all? We just watched the Constellation Fox (#FFB648) until dawn."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_15_the_core_fracture.asset",
+      "unity_asset_guid": "8565fc3dcd9df114c17cc926f4f91fdd"
+    },
+    {
+      "chapter": 16,
+      "asset_name": "chapter_16_awakening",
+      "title": "Ch 16: Awakening (Ocean of Broken Data Shards)",
+      "act": "ACT III — Collapse and Choice",
+      "setting": "Dream-Ocean Void (#0A1020) of Floating Hex Debris (#2EE6D3)",
+      "palette_id": "Palette_B_Cyber_Blues_Neon_Violet",
+      "primary_hex": "#0A1020",
+      "accent_hex": "#8A5BFF",
+      "player_deck": "deck_luna_cradle_of_echoes",
+      "ai_deck": "deck_dicevaders_chrono_armada",
+      "ai_level": 9,
+      "reward_xp": 650,
+      "reward_coins": 700,
+      "reward_card": "mc_12_terada_suzuki_ikaruga_phoenix",
+      "boss_disruptor": {
+        "name": "Entropy Static Leviathan",
+        "rule": "Violet Static Void: Cold unbudged dice drift off-target; using at least 1 Budge or Chrono per turn stabilizes the hexagonal stepping stones (+2 All Sides).",
+        "locked_column": 1,
+        "hazard_tiles": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Emotion-Guided Hexagonal Debris Stepping Stones",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "dv_09_overdrive_pip56_dreadnought",
+            "nesw": [
+              7,
+              9,
+              9,
+              6
+            ]
+          },
+          {
+            "row": 2,
+            "col": 2,
+            "owner": "ai",
+            "card_id": "dv_12_starvaders_omega_carrier",
+            "nesw": [
+              9,
+              9,
+              10,
+              9
+            ]
+          },
+          {
+            "row": 1,
+            "col": 0,
+            "owner": "player",
+            "card_id": "sp_05_taro_fujimoto",
+            "nesw": [
+              7,
+              7,
+              8,
+              6
+            ]
+          }
+        ],
+        "target_resonance": "Quadruple (3.50x)",
+        "solution_hint": "Use Budge (±1) and Chrono Reroll to forge a Triple or Quadruple (3.50x) on the Dice Row, bridging center tile (1,1) across the violet static ocean."
+      },
+      "dialogue": [
+        {
+          "speaker": "Kai Nakamura",
+          "line": "ACT III. The simulated town is gone—just an endless ocean of violet static (#8A5BFF) and broken hexagonal data shards."
+        },
+        {
+          "speaker": "Taro Fujimoto (External Comms)",
+          "line": "Kai, I'm reading your bio-telemetry from the cafe! Stop calculating the tiles like an algorithm—feel where Aiko's red scarf thread is pulling!"
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "When I trust emotional intuition instead of cold math, the hex platforms lock beneath my feet. The Hall of Selves is just ahead."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_16_awakening.asset",
+      "unity_asset_guid": "de339f014191968a52e0a4d5bf765a30"
+    },
+    {
+      "chapter": 17,
+      "asset_name": "chapter_17_the_hall_of_selves",
+      "title": "Ch 17: The Hall of Selves (Four Doors of Denial)",
+      "act": "ACT III — Collapse and Choice",
+      "setting": "Liquid-Metal Corridor of Four Unlabeled Doors",
+      "palette_id": "Palette_B_Cyber_Blues_Neon_Violet",
+      "primary_hex": "#0A1020",
+      "accent_hex": "#EAF2FF",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_twelve_masters_sovereign",
+      "ai_level": 9,
+      "reward_xp": 750,
+      "reward_coins": 800,
+      "reward_card": "mc_02_akihiko_yoshida_judge_master",
+      "boss_disruptor": {
+        "name": "The Four Fractured Selves (Indifference, Anger, Fear, Mirror Kai)",
+        "rule": "Four-Door Gauntlet: The 4 orthogonal edge slots ((0,1) Anger, (1,2) Indifference, (2,1) Apathy, (1,0) Fear) guard the center mirror. Placing a card at Center (1,1) with Triple/Quadruple Resonance flips all 4 doors simultaneously!",
+        "locked_column": -1,
+        "hazard_tiles": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "4-Door Self-Integration Cross Capture",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "mc_05_toru_nakayama_crimson_zero",
+            "nesw": [
+              9,
+              9,
+              7,
+              7
+            ]
+          },
+          {
+            "row": 1,
+            "col": 2,
+            "owner": "ai",
+            "card_id": "mc_01_ryoma_ito_marche_paladin",
+            "nesw": [
+              7,
+              8,
+              6,
+              7
+            ]
+          },
+          {
+            "row": 2,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "mc_10_yoji_shinkawa_jehuty_frame",
+            "nesw": [
+              7,
+              8,
+              7,
+              8
+            ]
+          },
+          {
+            "row": 1,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "mc_04_ryo_hirata_orange_star_co",
+            "nesw": [
+              8,
+              7,
+              7,
+              7
+            ]
+          }
+        ],
+        "target_resonance": "Quadruple (3.50x)",
+        "solution_hint": "Align a Triple (2.25x) or Quadruple (3.50x) on the Dice Row, then deploy Kai Nakamura at Center (1,1) to flip all four orthogonal doors in a single 48ms hit-stop burst!"
+      },
+      "dialogue": [
+        {
+          "speaker": "Fractured Selves (Doors I–IV)",
+          "line": "Door I: Indifference ('Nothing matters'). Door II: Anger ('She abandoned us'). Door III: Fear ('What if we're empty without her?'). Door IV: Mirror Kai walking away forever."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "You aren't enemies I have to delete. You're all parts of me that tried to survive losing her."
+        },
+        {
+          "speaker": "Mnemosyne",
+          "line": "[FOURFOLD SELF INTEGRATED] The center mirror shatters beneath the Constellation Fox. The Sanctum of the Memory Architect opens."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_17_the_hall_of_selves.asset",
+      "unity_asset_guid": "57e39ffc604fa03a5748c9a4179b3bbd"
+    },
+    {
+      "chapter": 18,
+      "asset_name": "chapter_18_the_memory_architect",
+      "title": "Ch 18: The Memory Architect (Logs A-09, A-14, A-21)",
+      "act": "ACT III — Collapse and Choice",
+      "setting": "Jasmine-Scented Neural Compiler Sanctum",
+      "palette_id": "Palette_A_Monochrome_Red_Scarf",
+      "primary_hex": "#0B0B0C",
+      "accent_hex": "#D12D3A",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_luna_cradle_of_echoes",
+      "ai_level": 10,
+      "reward_xp": 850,
+      "reward_coins": 900,
+      "reward_card": "ce_09_encrypted_journal_log_a21",
+      "boss_disruptor": {
+        "name": "Aiko Nakamura, The Memory Architect (Living Mosaic)",
+        "rule": "Compiler Log Synthesis: Aligning all 3 Columns (Col 0 + Col 1 + Col 2) or triggering a Quadruple (3.50x) unseals Logs A-09, A-14, and A-21, granting permanent +3 Omni-Edge.",
+        "locked_column": -1,
+        "hazard_tiles": []
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Compiler Log Alignment ([Log: A-09], [Log: A-14], [Log: A-21])",
+        "initial_board": [
+          {
+            "row": 1,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_02_aiko_nakamura_echo",
+            "nesw": [
+              9,
+              8,
+              8,
+              9
+            ]
+          },
+          {
+            "row": 0,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "sp_03_mnemosyne_constellation_fox",
+            "nesw": [
+              7,
+              8,
+              9,
+              8
+            ]
+          },
+          {
+            "row": 0,
+            "col": 2,
+            "owner": "player",
+            "card_id": "sp_04_luna_cradle_guide",
+            "nesw": [
+              8,
+              8,
+              8,
+              8
+            ]
+          }
+        ],
+        "target_resonance": "Quadruple (3.50x)",
+        "solution_hint": "Flank Aiko at (1,1) with Kai Nakamura and Compiler Log [A-21] while firing a Quadruple (3.50x) resonance to complete the living mosaic."
+      },
+      "dialogue": [
+        {
+          "speaker": "Aiko Nakamura, The Memory Architect",
+          "line": "Welcome to the compiler, Kai. Every puzzle you solved across Mnemosyne wove another thread of my scattered neural imprint back together."
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "Log A-09, Log A-14, Log A-21... You didn't vanish by accident. You uploaded your own neural pattern into the MAS core to shield the beta subjects from corporate corruption!"
+        },
+        {
+          "speaker": "Aiko Nakamura, The Memory Architect",
+          "line": "[Log: A-21] 'Even if I'm only an echo of code and crimson thread... maybe he'll remember how it felt to be loved. That's enough.'"
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_18_the_memory_architect.asset",
+      "unity_asset_guid": "4ddfb0dd89cca9d5984eab84a6ebdae2"
+    },
+    {
+      "chapter": 19,
+      "asset_name": "chapter_19_the_shifting_truth",
+      "title": "Ch 19: The Shifting Truth (Convergence & Triad Choice)",
+      "act": "ACT III — Finale & Epilogue (A Living Puzzle)",
+      "setting": "The Pulsing Mnemosyne Core Lattice -> Okitsu Seawall Dawn",
+      "palette_id": "Palette_C_Ocean_And_Lantern",
+      "primary_hex": "#0A2230",
+      "accent_hex": "#FFB648",
+      "player_deck": "deck_kai_red_scarf_echo",
+      "ai_deck": "deck_twelve_masters_sovereign",
+      "ai_level": 10,
+      "reward_xp": 1500,
+      "reward_coins": 2000,
+      "reward_card": "ce_12_living_puzzle_golden_fox_tile",
+      "boss_disruptor": {
+        "name": "Dr. Rina Asakura & The Unstable Mnemosyne Core (3-Phase Finale)",
+        "rule": "Phase 1: Counter Asakura's Column Locks with Chrono Rerolls. Phase 2: Complete the 9-Slot Circular Mosaic. Phase 3: Execute the Final Triad Choice (MERGE / PRESERVE / DESTROY) with a 3.50x Quadruple Resonance cascade!",
+        "locked_column": 1,
+        "hazard_tiles": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      "mnemosyne_puzzle_grid": {
+        "puzzle_type": "Ethical Debate Counter-Flips + 9-Slot Circular Mosaic + Triad Gate Choice",
+        "initial_board": [
+          {
+            "row": 0,
+            "col": 1,
+            "owner": "ai",
+            "card_id": "sp_06_dr_rina_asakura",
+            "nesw": [
+              9,
+              8,
+              9,
+              6
+            ]
+          },
+          {
+            "row": 1,
+            "col": 0,
+            "owner": "ai",
+            "card_id": "mc_02_akihiko_yoshida_judge_master",
+            "nesw": [
+              9,
+              8,
+              9,
+              8
+            ]
+          },
+          {
+            "row": 1,
+            "col": 2,
+            "owner": "ai",
+            "card_id": "dv_12_starvaders_omega_carrier",
+            "nesw": [
+              9,
+              9,
+              10,
+              9
+            ]
+          },
+          {
+            "row": 2,
+            "col": 1,
+            "owner": "player",
+            "card_id": "sp_02_aiko_nakamura_echo",
+            "nesw": [
+              9,
+              8,
+              8,
+              9
+            ]
+          }
+        ],
+        "target_resonance": "Quadruple (3.50x)",
+        "solution_hint": "Purge Column 1 with Chrono, align all 5 dice into a Quadruple (3.50x) or Straight Overdrive via Budge, and deploy The Living Puzzle: Golden Fox Tile at Center (1,1) to choose MERGE, PRESERVE, or DESTROY."
+      },
+      "dialogue": [
+        {
+          "speaker": "Dr. Rina Asakura",
+          "line": "She is a finite simulation, Kai! Let the corporation archive her kernel, or the entire Mnemosyne lattice will collapse under its own emotional recursion!"
+        },
+        {
+          "speaker": "Kai Nakamura",
+          "line": "Memory isn't property you lock in a vault, Dr. Asakura—and grief isn't a bug to be patched out. Look at Log A-21 and the Rooftop Constellation: connection is what makes us real!"
+        },
+        {
+          "speaker": "Aiko Nakamura & LUNA",
+          "line": "The Three Gates stand open before you, Kai: [GATE I: MERGE — Integrate Our Consciousness], [GATE II: PRESERVE — Seal the Sanctuary Archive], [GATE III: COLLAPSE & CARRY FORWARD — Awaken in Okitsu with the Golden Fox Tile (#FFB648)]."
+        },
+        {
+          "speaker": "Epilogue — A Living Puzzle",
+          "line": "Morning sunlight warms the Okitsu VR Cafe. On the counter beside Taro's espresso machine rests a single warm golden tile etched with the Constellation Fox—and a new generation of students learning that every life is a living puzzle."
+        }
+      ],
+      "unity_asset_path": "Assets/TcgEngine/Resources/Campaigns/ShiftingPieces/chapter_19_the_shifting_truth.asset",
+      "unity_asset_guid": "8458636e67673ddd4ba52306af0181ec"
+    }
+  ]
+}

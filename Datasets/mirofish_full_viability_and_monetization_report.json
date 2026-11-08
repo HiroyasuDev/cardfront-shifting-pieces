@@ -1,0 +1,246 @@
+{
+  "report_id": "synapse_mirofish_full_viability_and_monetization_report_2026",
+  "generated_at_utc": "2026-11-08T09:58:57Z",
+  "execution_time_ms": 40.42,
+  "csharp_runtime_consolidation": {
+    "runtime_synchronized": true,
+    "cardfront_unified_runtime_sha256": "4af89cd6be579c43e5fc4415dbce12c9472195ec5adaaad1f189e2362439799b",
+    "cardfront_unified_runtime_bytes": 30505,
+    "tcg_engine_unpacked_hooked_files": [
+      "Assets/TcgEngine/Scripts/CardFront/CardFrontUnifiedRuntime.cs",
+      "Assets/TcgEngine/Scripts/GameLogic/Slot.cs",
+      "Assets/TcgEngine/Scripts/GameLogic/Game.cs",
+      "Assets/TcgEngine/Scripts/GameLogic/GameAction.cs",
+      "Assets/TcgEngine/Scripts/GameLogic/GameLogic.cs",
+      "Assets/TcgEngine/Scripts/Data/CardData.cs"
+    ]
+  },
+  "cohort_retention_simulation": {
+    "total_simulated_players": 1000,
+    "cohorts": [
+      {
+        "cohort_id": "cohort_a_story_jrpg",
+        "name": "Cohort A: Story / JRPG Fans (Shifting Pieces / Persona / Kingdom Hearts)",
+        "weight": 0.35,
+        "player_count": 350,
+        "d1_retention_kitchen_sink": 0.38,
+        "d1_retention_progressive_ch1_3": 0.82,
+        "d7_retention_progressive": 0.64,
+        "d30_retention_progressive": 0.41,
+        "avg_board_read_seconds_kitchen_sink": 6.4,
+        "avg_board_read_seconds_streamlined": 2.1,
+        "base_game_price_usd": 19.99,
+        "atelier_commission_attach_rate": 0.22,
+        "soundtrack_artbook_attach_rate": 0.28,
+        "act_expansion_attach_rate": 0.38
+      },
+      {
+        "cohort_id": "cohort_b_tactical_roguelite",
+        "name": "Cohort B: Tactical Roguelite / Deckbuilder Fans (Slay the Spire / Balatro / Dicevaders)",
+        "weight": 0.4,
+        "player_count": 400,
+        "d1_retention_kitchen_sink": 0.36,
+        "d1_retention_progressive_ch1_3": 0.79,
+        "d7_retention_progressive": 0.61,
+        "d30_retention_progressive": 0.39,
+        "avg_board_read_seconds_kitchen_sink": 5.8,
+        "avg_board_read_seconds_streamlined": 2.2,
+        "base_game_price_usd": 19.99,
+        "atelier_commission_attach_rate": 0.18,
+        "soundtrack_artbook_attach_rate": 0.12,
+        "act_expansion_attach_rate": 0.45
+      },
+      {
+        "cohort_id": "cohort_c_collector_whales",
+        "name": "Cohort C: Collector Whales & Aesthetic Completionists (Atelier / Foil / 3D Totems)",
+        "weight": 0.15,
+        "player_count": 150,
+        "d1_retention_kitchen_sink": 0.34,
+        "d1_retention_progressive_ch1_3": 0.76,
+        "d7_retention_progressive": 0.62,
+        "d30_retention_progressive": 0.46,
+        "avg_board_read_seconds_kitchen_sink": 6.7,
+        "avg_board_read_seconds_streamlined": 2.4,
+        "base_game_price_usd": 19.99,
+        "atelier_commission_attach_rate": 0.68,
+        "soundtrack_artbook_attach_rate": 0.52,
+        "act_expansion_attach_rate": 0.6
+      },
+      {
+        "cohort_id": "cohort_d_competitive_minmaxers",
+        "name": "Cohort D: Competitive Min-Maxers & Theorycrafters (Echo Ghost Ladder / Judge Laws)",
+        "weight": 0.1,
+        "player_count": 100,
+        "d1_retention_kitchen_sink": 0.32,
+        "d1_retention_progressive_ch1_3": 0.67,
+        "d7_retention_progressive": 0.55,
+        "d30_retention_progressive": 0.38,
+        "avg_board_read_seconds_kitchen_sink": 5.2,
+        "avg_board_read_seconds_streamlined": 1.9,
+        "base_game_price_usd": 19.99,
+        "atelier_commission_attach_rate": 0.25,
+        "soundtrack_artbook_attach_rate": 0.1,
+        "act_expansion_attach_rate": 0.5
+      }
+    ],
+    "blended_retention_metrics": {
+      "d1_retention_unstreamlined_kitchen_sink_pct": 36.0,
+      "d1_retention_progressive_ch1_to_3_pct": 78.4,
+      "d1_retention_absolute_lift_pct": 42.4,
+      "d7_retention_progressive_pct": 61.6,
+      "d30_retention_progressive_pct": 40.6,
+      "avg_board_read_seconds_unstreamlined": 6.08,
+      "avg_board_read_seconds_streamlined": 2.17,
+      "sub_3_second_board_read_verified": true
+    },
+    "chapter_progressive_unlock_schedule": {
+      "chapters_1_to_3": "Pure 3x3 Directional Grid + 5-Dice Row (Budge/Chrono) \u2014 Zero Judge Laws, Zero Constellation Clutter",
+      "chapters_4_to_9": "Unlocks Mnemosyne Constellation Nodes & Memory Fragment Resonances",
+      "chapters_10_to_19": "Unlocks Okitsu Judge Laws, Boss Column Disruptors & Act III Triad Choice (MERGE / PRESERVE / DESTROY)"
+    }
+  },
+  "match_and_p2w_simulation": {
+    "matches_simulated": 1000,
+    "tactical_exchange_trials": 10000,
+    "total_turns_simulated": 8499,
+    "avg_turns_per_match": 8.5,
+    "avg_match_duration_minutes": 8.4,
+    "avg_resonance_multiplier": 2.096,
+    "total_budge_actions": 6090,
+    "total_chrono_rerolls": 256,
+    "total_3x3_directional_captures": 12702,
+    "dice_resonance_distribution": {
+      "HighDie": 5,
+      "Pair": 2086,
+      "TwoPair": 2384,
+      "ThreeOfAKind": 2074,
+      "SmallStraight": 671,
+      "FullHouse": 705,
+      "LargeStraight": 85,
+      "Quadruple": 456,
+      "Pentad": 33
+    },
+    "pay_to_win_statistical_audit": {
+      "paid_sovereign_style_variant_win_rate_pct": 50.02,
+      "free_base_deck_win_rate_pct": 49.98,
+      "win_rate_paid_cosmetic_vs_free_base": "50.02% vs. 49.98%",
+      "combat_stat_pay_to_win_delta_pct": 0.0,
+      "two_sided_z_statistic": 0.04,
+      "p_value": 0.9681,
+      "null_hypothesis_no_p2w_accepted": true,
+      "high_contrast_silhouette_lock_verified": true,
+      "onboarding_90min_monetization_silence_verified": true
+    },
+    "echo_ghost_pvp_verification": {
+      "ghost_matches_simulated": 1000,
+      "hmac_sha256_receipts_verified": 1000,
+      "avg_matchmaking_wait_seconds": 0.0,
+      "concurrent_users_required_for_instant_match": 0,
+      "dedicated_relay_ccu_cost_usd": 0.0
+    }
+  },
+  "financial_and_pnl_model": {
+    "steam_gross_to_net_waterfall_multiplier": 0.3722,
+    "traditional_capex_breakdown": {
+      "concept_art_and_20_card_illustrations_usd": 18000,
+      "rigged_3d_glb_models_27_assets_usd": 32400,
+      "custom_unity_netcode_and_ai_engineering_usd": 24000,
+      "audio_sfx_and_mastering_usd": 7500,
+      "cloud_gpu_training_and_qa_usd": 6150,
+      "total_traditional_capex_usd": 88050
+    },
+    "sovereign_capex_breakdown": {
+      "steam_direct_app_fee_usd": 100,
+      "apple_developer_annual_fee_usd": 99,
+      "indie_marc_tcg_engine_and_tooling_usd": 190,
+      "local_4node_electricity_and_v100_training_usd": 450,
+      "domain_storage_and_launch_marketing_seed_usd": 1250,
+      "total_sovereign_capex_usd": 2089
+    },
+    "capex_reduction_pct": 97.63,
+    "break_even_units_at_launch_arpu": 289,
+    "net_revenue_per_launch_unit_usd": 7.23,
+    "ltv_4_layer_architecture": {
+      "layer_1_base_game_shifting_pieces_act1_to_3_usd": 19.99,
+      "layer_2_supporter_atelier_dlc_and_ost_attach_contribution_usd": 2.15,
+      "layer_3_mnemosyne_memory_atelier_commission_sku_price_usd": 9.49,
+      "layer_3_atelier_blended_ltv_contribution_usd": 2.46,
+      "layer_4_future_act_expansion_blended_ltv_contribution_usd": 1.9,
+      "blended_36m_gross_ltv_per_player_usd": 26.5,
+      "blended_12m_gross_arpu_per_player_usd": 23.12
+    },
+    "cloud_server_opex_comparison": {
+      "traditional_ccu_relay_monthly_usd": 150.0,
+      "echo_ghost_async_api_monthly_usd": 30.0,
+      "cloud_server_opex_reduction_pct": 80.0
+    },
+    "pnl_scenarios_12m_and_36m": {
+      "bear_case": {
+        "scenario": "Bear Case (Organic Cult Niche \u2014 2,500 Y1 / 4,200 3Y Units)",
+        "12_month": {
+          "units_sold": 2500,
+          "blended_gross_arpu_usd": 19.43,
+          "gross_bookings_usd": 48575.0,
+          "net_steam_receipts_usd": 18079.61,
+          "sovereign_capex_usd": 2089,
+          "echo_ghost_server_and_marketing_opex_usd": 860.0,
+          "net_profit_ebitda_usd": 15130.61
+        },
+        "36_month": {
+          "units_sold": 4200,
+          "blended_gross_ltv_usd": 22.4,
+          "gross_bookings_usd": 94080.0,
+          "net_steam_receipts_usd": 35016.58,
+          "sovereign_capex_usd": 2089,
+          "echo_ghost_server_and_marketing_opex_usd": 2280.0,
+          "net_profit_ebitda_usd": 30647.58,
+          "sovereign_capex_roi_pct": 1467.1
+        }
+      },
+      "base_case": {
+        "scenario": "Base Case (Target Indie Breakout \u2014 15,000 Y1 / 28,500 3Y Units)",
+        "12_month": {
+          "units_sold": 15000,
+          "blended_gross_arpu_usd": 23.12,
+          "gross_bookings_usd": 346800.0,
+          "net_steam_receipts_usd": 129078.96,
+          "sovereign_capex_usd": 2089,
+          "echo_ghost_server_and_marketing_opex_usd": 2860.0,
+          "net_profit_ebitda_usd": 124129.96
+        },
+        "36_month": {
+          "units_sold": 28500,
+          "blended_gross_ltv_usd": 26.5,
+          "gross_bookings_usd": 755250.0,
+          "net_steam_receipts_usd": 281104.05,
+          "sovereign_capex_usd": 2089,
+          "echo_ghost_server_and_marketing_opex_usd": 7080.0,
+          "net_profit_ebitda_usd": 271935.05,
+          "sovereign_capex_roi_pct": 13017.5
+        }
+      },
+      "bull_case": {
+        "scenario": "Bull Case (Genre Hit / Streamer Viral \u2014 75,000 Y1 / 160,000 3Y Units)",
+        "12_month": {
+          "units_sold": 75000,
+          "blended_gross_arpu_usd": 24.8,
+          "gross_bookings_usd": 1860000.0,
+          "net_steam_receipts_usd": 692292.0,
+          "sovereign_capex_usd": 2089,
+          "echo_ghost_server_and_marketing_opex_usd": 8860.0,
+          "net_profit_ebitda_usd": 681343.0
+        },
+        "36_month": {
+          "units_sold": 160000,
+          "blended_gross_ltv_usd": 26.5,
+          "gross_bookings_usd": 4240000.0,
+          "net_steam_receipts_usd": 1578128.0,
+          "sovereign_capex_usd": 2089,
+          "echo_ghost_server_and_marketing_opex_usd": 23080.0,
+          "net_profit_ebitda_usd": 1552959.0,
+          "sovereign_capex_roi_pct": 74339.8
+        }
+      }
+    }
+  }
+}

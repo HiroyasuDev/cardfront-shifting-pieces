@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6399a062aa6f2ad138a1a711f791905, type: 3}
+  m_Name: cc_02_concept_art
+  m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
+  id: cc_02_concept_art
+  title: "Concept Art"
+  codeName: "Ideation Tier 2"
+  baseStats:
+    up: 6
+    down: 7
+    left: 8
+    right: 7
+  themes: 1025
+  specialAbility: 0
+  specialAbilityDescription: "Creative Portfolio Card: Evolves after repeated match mastery."
+  synergyRequiredTheme: 1024
+  synergyAllSidesBonus: 2
+  synergyName: "Portfolio Mastery"
+  evolvesToCardId: ""
+  cardArt: {fileID: 21300000, guid: 02df9ebee39528afdfe919a7cb68d474, type: 3}

@@ -1,0 +1,580 @@
+{
+  "manifest_id": "synapse_hi3d_rea_full_roster_v1",
+  "timestamp_utc": "2026-11-08T11:45:24Z",
+  "total_models_verified": 15,
+  "total_binary_3d_files_on_disk": 30,
+  "unique_glb_sha256_count": 15,
+  "unique_q3gs_sha256_count": 15,
+  "all_watertight_euler_v_minus_e_plus_f_eq_2": true,
+  "morluto_rea_subsystem_inventory": {
+    "present": true,
+    "repo_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/morluto-rea-re",
+    "domains_count": 51,
+    "domains": [
+      "adb",
+      "android",
+      "apkSignature",
+      "apktool",
+      "application",
+      "artifacts",
+      "browser",
+      "captures",
+      "cli",
+      "composition",
+      "compression",
+      "config",
+      "contracts",
+      "cutter",
+      "desktop",
+      "domain",
+      "dotnet",
+      "electron",
+      "erlang",
+      "evm",
+      "filesystem",
+      "firmware",
+      "flutter",
+      "frida",
+      "gdb",
+      "ghidra",
+      "go",
+      "gpu",
+      "hopper",
+      "ida",
+      "il2cpp",
+      "inspector",
+      "javascript",
+      "jeb",
+      "kuna",
+      "main",
+      "model",
+      "native",
+      "objdump",
+      "pcap",
+      "process",
+      "providers",
+      "python",
+      "reference",
+      "rizin",
+      "rust",
+      "server",
+      "signals",
+      "sqlite",
+      "wasm",
+      "windows"
+    ],
+    "typescript_modules_count": 3832
+  },
+  "models": [
+    {
+      "model_id": "synapse_hi3d_staccs_mecha_cube",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/synapse_hi3d_staccs_mecha_cube.glb",
+      "glb_size_bytes": 292828,
+      "glb_sha256": "74c908b310d9e331dc3f4f0d53b9dcc1e559c97030e173492acbb93b3a5c6951",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/synapse_hi3d_staccs_mecha_cube.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "ddf7b1f7a02f15a8f8482cc5f5347b68035cce4f48528dcfc4c6d352725f5f99",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "LUMENFRG",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292828,
+        "json_chunk_bytes": 2400,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cf_01_mystic_mage",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_01_mystic_mage.glb",
+      "glb_size_bytes": 292756,
+      "glb_sha256": "98456313e89a3ad00224d151922fb383ba70f23060a80a5d3f4af0e50717861e",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_01_mystic_mage.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "c57b1065d25cf93e54e13924400b05dca4c569e3f85f9b3b02424f0f4d2b36af",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CF_01_MY",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292756,
+        "json_chunk_bytes": 2328,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cf_02_mech_knight",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_02_mech_knight.glb",
+      "glb_size_bytes": 292752,
+      "glb_sha256": "de6a22a45477b6ba9730950212a975d41cc4d5af53840364ad66ff63b72dc350",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_02_mech_knight.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "78ea24b2627f29c83a492280cabe301391c5c975fba76eec93d6671187250449",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CF_02_ME",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292752,
+        "json_chunk_bytes": 2324,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cf_03_celestial_guardian",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_03_celestial_guardian.glb",
+      "glb_size_bytes": 292812,
+      "glb_sha256": "15a6da572299a3f04a55155fd29c374722d18b4c85ac64148e7a59b04fcb4bfd",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_03_celestial_guardian.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "be39ffd62d4a47e6c9db386fe2efd8ffb3f6ac0fb4e76b722a16810fcac068ec",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CF_03_CE",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292812,
+        "json_chunk_bytes": 2384,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cf_04_shadow_assassin",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_04_shadow_assassin.glb",
+      "glb_size_bytes": 292788,
+      "glb_sha256": "22050728ad62edbe6b6afcb289812d4103f4f32d271f4d57fe1d5fc80e35b440",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_04_shadow_assassin.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "bbb04e9ed5ac305ed0e64ebfee148eb5c372beff33eecd7fda1f24b2179d069c",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CF_04_SH",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292788,
+        "json_chunk_bytes": 2360,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cf_05_elemental_sprite",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_05_elemental_sprite.glb",
+      "glb_size_bytes": 292796,
+      "glb_sha256": "a85a6233b4bdefa29e1bb0700693ebd00650db46922385424e6eab6c21abc694",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_05_elemental_sprite.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "b997ebfbf9ce3fe8cff08fe9a1b8adb76ea5aa349b91884130e94f39d7a9b04a",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CF_05_EL",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292796,
+        "json_chunk_bytes": 2368,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cf_06_galactic_explorer",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_06_galactic_explorer.glb",
+      "glb_size_bytes": 292800,
+      "glb_sha256": "8f893930e12b83d7ee4f8e7b06fd083e41951b14c8aedd2face501632f278041",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_06_galactic_explorer.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "259b3f48cce0915cc1ead95b47d229abdee4523123ab99658f501feb96ec3ed7",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CF_06_GA",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292800,
+        "json_chunk_bytes": 2372,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cf_07_clockwork_sorcerer",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_07_clockwork_sorcerer.glb",
+      "glb_size_bytes": 292812,
+      "glb_sha256": "6cd64552bda3100236ca46e1f24eb19ccbf3146d59e52b954a15a1bcf377efd5",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_07_clockwork_sorcerer.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "8555b9afac535edd05f3260aafc9ed439c7bd0c84f58aeaf58ecb938512b3ca9",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CF_07_CL",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292812,
+        "json_chunk_bytes": 2384,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cf_08_phoenix_guardian",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_08_phoenix_guardian.glb",
+      "glb_size_bytes": 292792,
+      "glb_sha256": "b6c47c50d4f44af6d461ec21810d5df1559a024119649337a939985c0922e023",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_08_phoenix_guardian.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "64d8aabeda50578955ceb16b9bcb967339c5f0fdf13ac7b1f05e4fc02249f4eb",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CF_08_PH",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292792,
+        "json_chunk_bytes": 2364,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cf_09_cyber_ninja",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_09_cyber_ninja.glb",
+      "glb_size_bytes": 292768,
+      "glb_sha256": "ef1b8ac49ef5e83b5ea715fc421262e335c7a5ba4f6c0548917bae08b03ee66d",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_09_cyber_ninja.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "baa82a42b56767b22d8441d9e92113a9b402fe6c839336984db63a17cf6e5055",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CF_09_CY",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292768,
+        "json_chunk_bytes": 2340,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cf_10_lunar_oracle",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_10_lunar_oracle.glb",
+      "glb_size_bytes": 292788,
+      "glb_sha256": "d46fc225913957620949ec26b9dce9963b8a12e7dd5acfc09e530e7ebfdca802",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_10_lunar_oracle.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "c5ce57ef8804be0593925d5e6284641a9c6505406fb4f91462c1895c766c8bfe",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CF_10_LU",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292788,
+        "json_chunk_bytes": 2360,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cc_01_sketching",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_01_sketching.glb",
+      "glb_size_bytes": 292744,
+      "glb_sha256": "9c2684be5d82de1b9410d560af02f76bf41d97ba521a388c231382667739c08e",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_01_sketching.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "7f623e9652c56aa0e62cc553de94f0d656f5f2ed16b084805e1f828dafb9fa58",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CC_01_SK",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292744,
+        "json_chunk_bytes": 2316,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cc_02_concept_art",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_02_concept_art.glb",
+      "glb_size_bytes": 292760,
+      "glb_sha256": "a34456f6b2e12b555bad15ce28df66131fe361e4c87b190228c3156932b887ae",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_02_concept_art.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "b2e26929cbafc0f3257c587528c471d0216cc800635bc9e4014ad78945de98a5",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CC_02_CO",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292760,
+        "json_chunk_bytes": 2332,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cc_03_storyboard",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_03_storyboard.glb",
+      "glb_size_bytes": 292752,
+      "glb_sha256": "ec6b82056d9e71cd0c4195d118a98f6cee37c6f85508a931b47305e56ffaa5bd",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_03_storyboard.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "3a5efcf6e3e051f862a305213b0ef82ccb4f03316b9bc2bcf30e39de967e3c29",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CC_03_ST",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292752,
+        "json_chunk_bytes": 2324,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    },
+    {
+      "model_id": "cc_04_animatic",
+      "glb_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_04_animatic.glb",
+      "glb_size_bytes": 292748,
+      "glb_sha256": "b4f70a607637c322235be068355b24d1b446ab5d2b67e1ba74fe0196e62f7427",
+      "q3gs_file": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cc_04_animatic.q3gs",
+      "q3gs_size_bytes": 92814,
+      "q3gs_sha256": "4ff40fcd80bb3d1a1a421756c01bf912fe3772704b7d1bb8f30c76cd7cced025",
+      "q3gs_header_magic": "Q3GS",
+      "q3gs_splat_count": 4034,
+      "q3gs_domain_tag": "CC_04_AN",
+      "gltf_header": {
+        "magic_hex": "0x46546c67",
+        "version": 2,
+        "total_length": 292748,
+        "json_chunk_bytes": 2320,
+        "bin_chunk_bytes": 290400
+      },
+      "topology_audit": {
+        "vertices_V": 4034,
+        "edges_E": 12096,
+        "triangles_F": 8064,
+        "quads_Q": 4032,
+        "euler_characteristic_V_minus_E_plus_F": 2,
+        "is_watertight_genus0_manifold": true
+      },
+      "hi3d_stages_verified": [
+        "Stage1_NiRNE_NormalBridge",
+        "Stage2_NoRLD_LatentFlowSDF_Watertight",
+        "Stage3_QuadRetopo_PBRDelight",
+        "Stage4_UniRig_22Bone_IsometricSpring"
+      ],
+      "rea_binary_audit_status": "PASS"
+    }
+  ]
+}

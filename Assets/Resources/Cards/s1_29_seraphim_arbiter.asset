@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6399a062aa6f2ad138a1a711f791905, type: 3}
+  m_Name: s1_29_seraphim_arbiter
+  m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
+  id: s1_29_seraphim_arbiter
+  title: "Seraphim Arbiter"
+  codeName: "High Judge of Ivalice"
+  baseStats:
+    up: 7
+    down: 8
+    left: 6
+    right: 7
+  themes: 5
+  specialAbility: 3
+  specialAbilityDescription: "At the end of your turn, restore +1 permanent strength to all sides of adjacent friendly cards."
+  synergyRequiredTheme: 4
+  synergyAllSidesBonus: 3
+  synergyName: "Sacred Decree"
+  evolvesToCardId: ""
+  cardArt: {fileID: 21300000, guid: 5b268a3e8012b6c9071f008e4db7e4c8, type: 3}

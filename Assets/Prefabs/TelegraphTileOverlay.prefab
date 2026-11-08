@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &200000
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400100}
+  - component: {fileID: 11400101}
+  m_Layer: 8
+  m_Name: TelegraphTileOverlay
+  m_TagString: TelegraphOverlay
+  m_IsActive: 1
+--- !u!4 &400100
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 200000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400101}
+  - {fileID: 400102}
+  - {fileID: 400103}
+  m_Father: {fileID: 0}
+--- !u!1 &200001
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400101}
+  - component: {fileID: 2300101}
+  m_Layer: 8
+  m_Name: Layer1_GroundDiamondAndHazardStripe
+  m_TagString: TelegraphOverlay
+  m_IsActive: 1
+--- !u!4 &400101
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 200001}
+  serializedVersion: 2
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400100}
+--- !u!23 &2300101
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 200001}
+  m_Enabled: 1
+--- !u!1 &200002
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400102}
+  - component: {fileID: 2300102}
+  m_Layer: 8
+  m_Name: Layer2_FftaFacingRingAndItbPushVector
+  m_TagString: TelegraphOverlay
+  m_IsActive: 1
+--- !u!4 &400102
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 200002}
+  serializedVersion: 2
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400100}
+--- !u!23 &2300102
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 200002}
+  m_Enabled: 1
+--- !u!1 &200003
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400103}
+  - component: {fileID: 2300103}
+  m_Layer: 8
+  m_Name: Layer3_AwCrosshairForecastPillAndJudgeLaw
+  m_TagString: TelegraphOverlay
+  m_IsActive: 1
+--- !u!4 &400103
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 200003}
+  serializedVersion: 2
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400100}
+--- !u!23 &2300103
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 200003}
+  m_Enabled: 1
+--- !u!114 &11400101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 200000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c1a53eec30ff613d5a8c6063ab1bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Synapse.TcgEngine.Visuals.SynapseMultitudeTelegraphAnimator

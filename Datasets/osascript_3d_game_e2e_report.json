@@ -1,0 +1,105 @@
+{
+  "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
+  "timestamp": "2026-11-08T11:46:52.273Z",
+  "steps": [
+    {
+      "step": "Initial Stage Load",
+      "stage": "Eclipse Void Blade",
+      "handCount": 5,
+      "imagesChecked": 6,
+      "telegraphSVGsRendered": 6
+    },
+    {
+      "step": "Turn 1 Deploy",
+      "cardPlayed": "h_seraph",
+      "telegraph": "Trigger Cross-Star",
+      "socket": [
+        0,
+        0
+      ],
+      "immediateCaptures": 1,
+      "scoreAfterTurn": {
+        "player": 2,
+        "boss": 1
+      }
+    },
+    {
+      "step": "Tactical Slide (1x Free/Turn)",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ]
+    },
+    {
+      "step": "Turn 2 Deploy",
+      "cardPlayed": "h_archangel",
+      "telegraph": "Solar Cross Lance",
+      "socket": [
+        1,
+        2
+      ],
+      "immediateCaptures": 1,
+      "scoreAfterTurn": {
+        "player": 3,
+        "boss": 2
+      }
+    },
+    {
+      "step": "Turn 3 Deploy",
+      "cardPlayed": "h_kai",
+      "telegraph": "Solid Eye Target Lock",
+      "socket": [
+        1,
+        1
+      ],
+      "immediateCaptures": 1,
+      "scoreAfterTurn": {
+        "player": 5,
+        "boss": 2
+      }
+    },
+    {
+      "step": "Turn 4 Deploy",
+      "cardPlayed": "h_arbiter",
+      "telegraph": "Ivalice Law Seal",
+      "socket": [
+        2,
+        1
+      ],
+      "immediateCaptures": 1,
+      "scoreAfterTurn": {
+        "player": 7,
+        "boss": 2
+      }
+    }
+  ],
+  "imagesChecked": 10,
+  "allImagesLoaded": true,
+  "imageDimensionsVerified": true,
+  "singletonVerified": true,
+  "duplicateCardsFound": 0,
+  "telegraphSVGsRendered": 10,
+  "cameraModesTested": [
+    "12,0",
+    "16,-5",
+    "0,0",
+    "5,0"
+  ],
+  "diceActionsTested": [
+    "nudgeColDie(0)",
+    "rerollAllDice()"
+  ],
+  "turnsPlayed": 4,
+  "capturesTriggered": 4,
+  "tacticalSlideTested": true,
+  "modalDisplayed": true,
+  "finalScore": {
+    "player": 7,
+    "boss": 2
+  },
+  "outcome": "VICTORY"
+}

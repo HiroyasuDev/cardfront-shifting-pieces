@@ -1,0 +1,1437 @@
+{
+  "subsystem": "Subsystem 2 — 12-Master Concept Art & RTX 4080 Illustration Engine",
+  "verified_rating": "10.0 / 10.0",
+  "timestamp_utc": "2026-11-08T06:26:25Z",
+  "total_elapsed_s": 114.05,
+  "node30_comfyui_url": "http://192.168.86.30:8188",
+  "node30_ollama_generate_url": "http://192.168.86.30:11434/api/generate",
+  "palettes_blended": {
+    "Palette_A": {
+      "id": "Palette_A",
+      "name": "Palette A (Obsidian #0B0B0C / Bone Ivory #F2ECE1 / Crimson Scarf #D12D3A)",
+      "bg_rgb": [
+        11,
+        11,
+        12
+      ],
+      "panel_rgb": [
+        20,
+        18,
+        22
+      ],
+      "ivory_rgb": [
+        242,
+        236,
+        225
+      ],
+      "accent_rgb": [
+        209,
+        45,
+        58
+      ],
+      "secondary_rgb": [
+        255,
+        182,
+        72
+      ],
+      "hex_tags": [
+        "#0B0B0C",
+        "#F2ECE1",
+        "#D12D3A"
+      ]
+    },
+    "Palette_B": {
+      "id": "Palette_B",
+      "name": "Palette B (Abyssal Navy #0A1020 / Neon Cyan #2EE6D3 / Astral Violet #6C3CE9)",
+      "bg_rgb": [
+        10,
+        16,
+        32
+      ],
+      "panel_rgb": [
+        16,
+        24,
+        46
+      ],
+      "ivory_rgb": [
+        242,
+        236,
+        225
+      ],
+      "accent_rgb": [
+        46,
+        230,
+        211
+      ],
+      "secondary_rgb": [
+        108,
+        60,
+        233
+      ],
+      "hex_tags": [
+        "#0A1020",
+        "#2EE6D3",
+        "#6C3CE9"
+      ]
+    }
+  },
+  "generated_art_dir": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt",
+  "synced_verified_art_count": 56,
+  "fresh_rtx4080_portrait_renders": [
+    {
+      "art_id": "sp_01_kai_nakamura_rtx4080",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+      "bytes": 908161,
+      "prompt_id": "9ba714f3-df3c-448c-aef7-62c1a3578b35",
+      "backend": "http://192.168.86.30:8188 (RTX 4080 ComfyUI animagineXLV31_v31)",
+      "elapsed_s": 4.8
+    },
+    {
+      "art_id": "sp_02_aiko_nakamura_scarf_rtx4080",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+      "bytes": 807093,
+      "prompt_id": "3ac29e82-6b94-4c07-8bdc-5a4f3009fbfb",
+      "backend": "http://192.168.86.30:8188 (RTX 4080 ComfyUI animagineXLV31_v31)",
+      "elapsed_s": 4.11
+    },
+    {
+      "art_id": "sp_03_mnemosyne_fox_rtx4080",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/sp_03_mnemosyne_fox_rtx4080.png",
+      "bytes": 1147176,
+      "prompt_id": "2d8a0338-dd81-4150-a38d-1350cb099428",
+      "backend": "http://192.168.86.30:8188 (RTX 4080 ComfyUI animagineXLV31_v31)",
+      "elapsed_s": 20.38
+    },
+    {
+      "art_id": "sp_04_luna_tarot_rtx4080",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/sp_04_luna_tarot_rtx4080.png",
+      "bytes": 1483573,
+      "prompt_id": "3f34179b-3e99-4d05-b9c2-194d11337dc9",
+      "backend": "http://192.168.86.30:8188 (RTX 4080 ComfyUI animagineXLV31_v31)",
+      "elapsed_s": 7.25
+    },
+    {
+      "art_id": "sp_05_taro_fujimoto_rtx4080",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/sp_05_taro_fujimoto_rtx4080.png",
+      "bytes": 1109671,
+      "prompt_id": "7e485c81-8f2a-4605-b6fb-83b2ddc0ffbf",
+      "backend": "http://192.168.86.30:8188 (RTX 4080 ComfyUI animagineXLV31_v31)",
+      "elapsed_s": 6.47
+    },
+    {
+      "art_id": "sp_06_dr_rina_asakura_rtx4080",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/sp_06_dr_rina_asakura_rtx4080.png",
+      "bytes": 627297,
+      "prompt_id": "df2fc014-d450-4980-be43-5a5f6d2349dc",
+      "backend": "http://192.168.86.30:8188 (RTX 4080 ComfyUI animagineXLV31_v31)",
+      "elapsed_s": 7.0
+    }
+  ],
+  "unity_sprite_atlas": {
+    "atlas_png_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Sprites/CardFront_Master_SpriteAtlas.png",
+    "atlas_png_bytes": 17827940,
+    "atlas_resolution": "4096x4096",
+    "atlas_meta_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Resources/Sprites/CardFront_Master_SpriteAtlas.png.meta",
+    "atlas_meta_bytes": 26989,
+    "showcase_2400_path": "/Users/frederickamina/.gemini/antigravity-cli/brain/d934b222-0e48-433e-b635-1a692b802f46/cardfront_10of10_masterpiece_atlas.png",
+    "showcase_2400_bytes": 7877709,
+    "showcase_2400_resolution": "2400x2400",
+    "sprite_slice_count": 42,
+    "card_frame_resolution": "580x680",
+    "grid_dimensions": "7x6",
+    "sprite_slices": [
+      {
+        "slice_index": 1,
+        "name": "sp_01_kai_nakamura",
+        "title": "KAI NAKAMURA",
+        "master": "Akihiko Yoshida × Toru Nakayama",
+        "palette": "A",
+        "rarity": "MYTHIC",
+        "cost": 4,
+        "pip": 4,
+        "atk": 8,
+        "hp": 16,
+        "compass_nesw": [
+          8,
+          8,
+          6,
+          7
+        ],
+        "image_space_rect": {
+          "x": 6,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 6,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 2,
+        "name": "sp_02_aiko_nakamura_echo",
+        "title": "AIKO NAKAMURA [ECHO]",
+        "master": "Akihiko Yoshida × Ryoma Ito",
+        "palette": "A",
+        "rarity": "MYTHIC",
+        "cost": 5,
+        "pip": 5,
+        "atk": 9,
+        "hp": 18,
+        "compass_nesw": [
+          9,
+          7,
+          8,
+          9
+        ],
+        "image_space_rect": {
+          "x": 590,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 590,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 3,
+        "name": "sp_03_mnemosyne_constellation_fox",
+        "title": "MNEMOSYNE FOX",
+        "master": "Hideo Minaba × Hiroo Isono",
+        "palette": "A",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 4,
+        "atk": 7,
+        "hp": 17,
+        "compass_nesw": [
+          7,
+          8,
+          9,
+          8
+        ],
+        "image_space_rect": {
+          "x": 1174,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1174,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 4,
+        "name": "sp_04_luna_cradle_guide",
+        "title": "LUNA // CRADLE AI",
+        "master": "Kazuma Kaneko × Yoshida",
+        "palette": "B",
+        "rarity": "MYTHIC",
+        "cost": 5,
+        "pip": 5,
+        "atk": 8,
+        "hp": 20,
+        "compass_nesw": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "image_space_rect": {
+          "x": 1758,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1758,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 5,
+        "name": "sp_05_taro_fujimoto",
+        "title": "TARO FUJIMOTO",
+        "master": "Ryo Hirata × Ryoma Ito",
+        "palette": "B",
+        "rarity": "EPIC",
+        "cost": 3,
+        "pip": 3,
+        "atk": 7,
+        "hp": 15,
+        "compass_nesw": [
+          7,
+          7,
+          8,
+          6
+        ],
+        "image_space_rect": {
+          "x": 2342,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2342,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 6,
+        "name": "sp_06_dr_rina_asakura",
+        "title": "DR. RINA ASAKURA",
+        "master": "Yoji Shinkawa × Kaneko",
+        "palette": "B",
+        "rarity": "LEGENDARY",
+        "cost": 6,
+        "pip": 6,
+        "atk": 9,
+        "hp": 19,
+        "compass_nesw": [
+          9,
+          8,
+          9,
+          6
+        ],
+        "image_space_rect": {
+          "x": 2926,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2926,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 7,
+        "name": "sp_07_scarf_convergence_triad",
+        "title": "RED SCARF CONVERGENCE",
+        "master": "12-Master Synthesis",
+        "palette": "A",
+        "rarity": "MYTHIC",
+        "cost": 6,
+        "pip": 6,
+        "atk": 10,
+        "hp": 20,
+        "compass_nesw": [
+          9,
+          9,
+          9,
+          9
+        ],
+        "image_space_rect": {
+          "x": 3510,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 3510,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 8,
+        "name": "cf_01_mystic_mage",
+        "title": "MYSTIC MAGE",
+        "master": "Akihiko Yoshida (FFT)",
+        "palette": "B",
+        "rarity": "EPIC",
+        "cost": 3,
+        "pip": 3,
+        "atk": 6,
+        "hp": 14,
+        "compass_nesw": [
+          7,
+          6,
+          5,
+          8
+        ],
+        "image_space_rect": {
+          "x": 6,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 6,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 9,
+        "name": "cf_02_mech_knight",
+        "title": "MECH KNIGHT",
+        "master": "Yoji Shinkawa × Nakayama",
+        "palette": "B",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 4,
+        "atk": 8,
+        "hp": 16,
+        "compass_nesw": [
+          8,
+          7,
+          7,
+          6
+        ],
+        "image_space_rect": {
+          "x": 590,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 590,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 10,
+        "name": "cf_03_celestial_guardian",
+        "title": "CELESTIAL GUARDIAN",
+        "master": "Akihiko Yoshida (Judge)",
+        "palette": "A",
+        "rarity": "LEGENDARY",
+        "cost": 5,
+        "pip": 5,
+        "atk": 7,
+        "hp": 19,
+        "compass_nesw": [
+          8,
+          8,
+          8,
+          7
+        ],
+        "image_space_rect": {
+          "x": 1174,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1174,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 11,
+        "name": "cf_04_shadow_assassin",
+        "title": "SHADOW ASSASSIN",
+        "master": "Terada × Yasushi Suzuki",
+        "palette": "A",
+        "rarity": "EPIC",
+        "cost": 3,
+        "pip": 2,
+        "atk": 9,
+        "hp": 12,
+        "compass_nesw": [
+          9,
+          8,
+          4,
+          7
+        ],
+        "image_space_rect": {
+          "x": 1758,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1758,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 12,
+        "name": "cf_05_elemental_sprite",
+        "title": "ELEMENTAL SPRITE",
+        "master": "Hiroo Isono (Mana)",
+        "palette": "B",
+        "rarity": "RARE",
+        "cost": 2,
+        "pip": 2,
+        "atk": 5,
+        "hp": 13,
+        "compass_nesw": [
+          6,
+          7,
+          6,
+          7
+        ],
+        "image_space_rect": {
+          "x": 2342,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2342,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 13,
+        "name": "cf_06_galactic_explorer",
+        "title": "GALACTIC EXPLORER",
+        "master": "Ryo Hirata (Advance Wars)",
+        "palette": "B",
+        "rarity": "EPIC",
+        "cost": 4,
+        "pip": 4,
+        "atk": 7,
+        "hp": 15,
+        "compass_nesw": [
+          7,
+          8,
+          6,
+          7
+        ],
+        "image_space_rect": {
+          "x": 2926,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2926,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 14,
+        "name": "cf_07_clockwork_sorcerer",
+        "title": "CLOCKWORK SORCERER",
+        "master": "Hideo Minaba (Storybook)",
+        "palette": "A",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 4,
+        "atk": 8,
+        "hp": 15,
+        "compass_nesw": [
+          8,
+          6,
+          8,
+          7
+        ],
+        "image_space_rect": {
+          "x": 3510,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 3510,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 15,
+        "name": "cf_08_phoenix_guardian",
+        "title": "PHOENIX GUARDIAN",
+        "master": "Hideo Minaba × Terada",
+        "palette": "A",
+        "rarity": "MYTHIC",
+        "cost": 5,
+        "pip": 5,
+        "atk": 9,
+        "hp": 17,
+        "compass_nesw": [
+          9,
+          7,
+          8,
+          7
+        ],
+        "image_space_rect": {
+          "x": 6,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 6,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 16,
+        "name": "cf_09_cyber_ninja",
+        "title": "CYBER NINJA",
+        "master": "Toru Nakayama (MMZ)",
+        "palette": "B",
+        "rarity": "EPIC",
+        "cost": 3,
+        "pip": 3,
+        "atk": 8,
+        "hp": 13,
+        "compass_nesw": [
+          8,
+          9,
+          5,
+          7
+        ],
+        "image_space_rect": {
+          "x": 590,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 590,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 17,
+        "name": "cf_10_lunar_oracle",
+        "title": "LUNAR ORACLE",
+        "master": "Kazuma Kaneko (Nocturne)",
+        "palette": "B",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 4,
+        "atk": 7,
+        "hp": 18,
+        "compass_nesw": [
+          8,
+          7,
+          8,
+          8
+        ],
+        "image_space_rect": {
+          "x": 1174,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1174,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 18,
+        "name": "cc_01_sketching",
+        "title": "CARDCRAFT I: SKETCHING",
+        "master": "Ryoma Ito (FFTA)",
+        "palette": "A",
+        "rarity": "COMMON",
+        "cost": 1,
+        "pip": 1,
+        "atk": 4,
+        "hp": 10,
+        "compass_nesw": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "image_space_rect": {
+          "x": 1758,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1758,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 19,
+        "name": "cc_02_concept_art",
+        "title": "CARDCRAFT II: CONCEPT ART",
+        "master": "Isamu Kamikokuryo",
+        "palette": "B",
+        "rarity": "RARE",
+        "cost": 2,
+        "pip": 2,
+        "atk": 6,
+        "hp": 13,
+        "compass_nesw": [
+          6,
+          7,
+          6,
+          6
+        ],
+        "image_space_rect": {
+          "x": 2342,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2342,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 20,
+        "name": "cc_03_storyboard",
+        "title": "CARDCRAFT III: STORYBOARD",
+        "master": "Ryo Hirata × Minagawa",
+        "palette": "A",
+        "rarity": "EPIC",
+        "cost": 3,
+        "pip": 3,
+        "atk": 7,
+        "hp": 15,
+        "compass_nesw": [
+          7,
+          8,
+          7,
+          7
+        ],
+        "image_space_rect": {
+          "x": 2926,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2926,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 21,
+        "name": "cc_04_animatic",
+        "title": "CARDCRAFT IV: HI3D ANIMATIC",
+        "master": "Toru Nakayama × Shinkawa",
+        "palette": "B",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 4,
+        "atk": 9,
+        "hp": 17,
+        "compass_nesw": [
+          8,
+          9,
+          8,
+          8
+        ],
+        "image_space_rect": {
+          "x": 3510,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 3510,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 22,
+        "name": "master_01_ryoma_ito",
+        "title": "MARCHE IVALICE VANGUARD",
+        "master": "Ryōma Itō (伊藤 龍馬)",
+        "palette": "A",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 4,
+        "atk": 8,
+        "hp": 16,
+        "compass_nesw": [
+          8,
+          7,
+          7,
+          8
+        ],
+        "image_space_rect": {
+          "x": 6,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 6,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 23,
+        "name": "master_02_akihiko_yoshida",
+        "title": "ARCH-JUDGE MAGISTER",
+        "master": "Akihiko Yoshida (吉田 明彦)",
+        "palette": "A",
+        "rarity": "MYTHIC",
+        "cost": 5,
+        "pip": 5,
+        "atk": 9,
+        "hp": 19,
+        "compass_nesw": [
+          9,
+          8,
+          8,
+          8
+        ],
+        "image_space_rect": {
+          "x": 590,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 590,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 24,
+        "name": "master_03_hideo_minaba",
+        "title": "SKY-CITADEL CHRONICLER",
+        "master": "Hideo Minaba (皆葉 英夫)",
+        "palette": "B",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 4,
+        "atk": 7,
+        "hp": 17,
+        "compass_nesw": [
+          7,
+          8,
+          8,
+          7
+        ],
+        "image_space_rect": {
+          "x": 1174,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1174,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 25,
+        "name": "master_04_ryo_hirata",
+        "title": "DUAL STRIKE COMMANDER",
+        "master": "Ryo Hirata (平田 亮)",
+        "palette": "A",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 4,
+        "atk": 8,
+        "hp": 16,
+        "compass_nesw": [
+          8,
+          8,
+          6,
+          8
+        ],
+        "image_space_rect": {
+          "x": 1758,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1758,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 26,
+        "name": "master_05_toru_nakayama",
+        "title": "OMEGA ZERO SABER",
+        "master": "Toru Nakayama (中山 徹)",
+        "palette": "A",
+        "rarity": "MYTHIC",
+        "cost": 5,
+        "pip": 6,
+        "atk": 10,
+        "hp": 15,
+        "compass_nesw": [
+          9,
+          9,
+          6,
+          8
+        ],
+        "image_space_rect": {
+          "x": 2342,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2342,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 27,
+        "name": "master_06_hiroshi_minagawa",
+        "title": "IVALICE DIORAMA CITADEL",
+        "master": "Hiroshi Minagawa (皆川 裕史)",
+        "palette": "A",
+        "rarity": "EPIC",
+        "cost": 3,
+        "pip": 3,
+        "atk": 6,
+        "hp": 18,
+        "compass_nesw": [
+          7,
+          7,
+          8,
+          7
+        ],
+        "image_space_rect": {
+          "x": 2926,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2926,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 28,
+        "name": "master_07_isamu_kamikokuryo",
+        "title": "BHUJERBA SKYSTONE DOCK",
+        "master": "Isamu Kamikokuryo (上国料 勇)",
+        "palette": "B",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 4,
+        "atk": 8,
+        "hp": 17,
+        "compass_nesw": [
+          8,
+          8,
+          7,
+          7
+        ],
+        "image_space_rect": {
+          "x": 3510,
+          "y": 2049,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 3510,
+          "y": 1367,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 29,
+        "name": "master_08_hiroo_isono",
+        "title": "SANCTUARY MANA TREE",
+        "master": "Hiroo Isono (磯野 宏夫)",
+        "palette": "B",
+        "rarity": "LEGENDARY",
+        "cost": 5,
+        "pip": 5,
+        "atk": 7,
+        "hp": 20,
+        "compass_nesw": [
+          8,
+          7,
+          9,
+          8
+        ],
+        "image_space_rect": {
+          "x": 6,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 6,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 30,
+        "name": "master_09_inti_creates",
+        "title": "NEO-ARCADIA CYBER SPIRE",
+        "master": "Makoto Yabe × Inti Creates",
+        "palette": "B",
+        "rarity": "EPIC",
+        "cost": 3,
+        "pip": 3,
+        "atk": 7,
+        "hp": 15,
+        "compass_nesw": [
+          7,
+          8,
+          7,
+          6
+        ],
+        "image_space_rect": {
+          "x": 590,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 590,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 31,
+        "name": "master_10_yoji_shinkawa",
+        "title": "JEHUTY SUMI-E FRAME",
+        "master": "Yoji Shinkawa (新川 洋司)",
+        "palette": "A",
+        "rarity": "MYTHIC",
+        "cost": 5,
+        "pip": 5,
+        "atk": 9,
+        "hp": 18,
+        "compass_nesw": [
+          9,
+          9,
+          7,
+          8
+        ],
+        "image_space_rect": {
+          "x": 1174,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1174,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 32,
+        "name": "master_11_kazuma_kaneko",
+        "title": "NOCTURNE METATRON SIGIL",
+        "master": "Kazuma Kaneko (金子 一馬)",
+        "palette": "B",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 4,
+        "atk": 8,
+        "hp": 16,
+        "compass_nesw": [
+          8,
+          7,
+          8,
+          8
+        ],
+        "image_space_rect": {
+          "x": 1758,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1758,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 33,
+        "name": "master_12_terada_suzuki",
+        "title": "IKARUGA POLARITY WING",
+        "master": "Katsuya Terada × Y. Suzuki",
+        "palette": "A",
+        "rarity": "MYTHIC",
+        "cost": 5,
+        "pip": 6,
+        "atk": 9,
+        "hp": 17,
+        "compass_nesw": [
+          9,
+          8,
+          8,
+          8
+        ],
+        "image_space_rect": {
+          "x": 2342,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2342,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 34,
+        "name": "dv_01_tactical_budge_shift",
+        "title": "DICEVADERS: [BUDGE ±1]",
+        "master": "Ryo Hirata × Toru Nakayama",
+        "palette": "B",
+        "rarity": "EPIC",
+        "cost": 2,
+        "pip": 2,
+        "atk": 6,
+        "hp": 12,
+        "compass_nesw": [
+          7,
+          8,
+          6,
+          7
+        ],
+        "image_space_rect": {
+          "x": 2926,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2926,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 35,
+        "name": "dv_02_chrono_memory_rewind",
+        "title": "DICEVADERS: [CHRONO]",
+        "master": "Akihiko Yoshida × Kaneko",
+        "palette": "A",
+        "rarity": "LEGENDARY",
+        "cost": 3,
+        "pip": 3,
+        "atk": 7,
+        "hp": 14,
+        "compass_nesw": [
+          8,
+          7,
+          8,
+          7
+        ],
+        "image_space_rect": {
+          "x": 3510,
+          "y": 2731,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 3510,
+          "y": 685,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 36,
+        "name": "qc_01_birthday_puzzle_box",
+        "title": "[QC-01] AIKO'S PUZZLE BOX",
+        "master": "Akihiko Yoshida (Filigree)",
+        "palette": "A",
+        "rarity": "RARE",
+        "cost": 2,
+        "pip": 2,
+        "atk": 5,
+        "hp": 14,
+        "compass_nesw": [
+          6,
+          7,
+          6,
+          7
+        ],
+        "image_space_rect": {
+          "x": 6,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 6,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 37,
+        "name": "qc_02_neural_vr_headset",
+        "title": "[QC-02] NEURAL VR VISOR",
+        "master": "Toru Nakayama × Shinkawa",
+        "palette": "B",
+        "rarity": "EPIC",
+        "cost": 3,
+        "pip": 3,
+        "atk": 7,
+        "hp": 15,
+        "compass_nesw": [
+          7,
+          8,
+          6,
+          7
+        ],
+        "image_space_rect": {
+          "x": 590,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 590,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 38,
+        "name": "qc_03_memory_theatre_lantern",
+        "title": "[QC-03] FESTIVAL LANTERN",
+        "master": "Hideo Minaba × Kamikokuryo",
+        "palette": "A",
+        "rarity": "RARE",
+        "cost": 2,
+        "pip": 3,
+        "atk": 6,
+        "hp": 14,
+        "compass_nesw": [
+          7,
+          6,
+          7,
+          6
+        ],
+        "image_space_rect": {
+          "x": 1174,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1174,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 39,
+        "name": "qc_04_shadow_maze_projector",
+        "title": "[QC-04] SHADOW PROJECTOR",
+        "master": "Kazuma Kaneko × Inti Creates",
+        "palette": "B",
+        "rarity": "EPIC",
+        "cost": 3,
+        "pip": 4,
+        "atk": 7,
+        "hp": 15,
+        "compass_nesw": [
+          8,
+          7,
+          6,
+          7
+        ],
+        "image_space_rect": {
+          "x": 1758,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 1758,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 40,
+        "name": "qc_05_echo_waveform_recorder",
+        "title": "[QC-05] ECHO OSCILLOSCOPE",
+        "master": "Yoji Shinkawa × Nojiri",
+        "palette": "B",
+        "rarity": "EPIC",
+        "cost": 3,
+        "pip": 4,
+        "atk": 8,
+        "hp": 14,
+        "compass_nesw": [
+          7,
+          8,
+          7,
+          7
+        ],
+        "image_space_rect": {
+          "x": 2342,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2342,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 41,
+        "name": "qc_06_hall_of_selves_mirror",
+        "title": "[QC-06] MIRROR OF SELVES",
+        "master": "Terada × Akihiko Yoshida",
+        "palette": "A",
+        "rarity": "LEGENDARY",
+        "cost": 4,
+        "pip": 5,
+        "atk": 8,
+        "hp": 17,
+        "compass_nesw": [
+          8,
+          8,
+          8,
+          7
+        ],
+        "image_space_rect": {
+          "x": 2926,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 2926,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        }
+      },
+      {
+        "slice_index": 42,
+        "name": "qc_07_station_awakening_seal",
+        "title": "[QC-07] AWAKENING SEAL",
+        "master": "12-Master Sovereign Synthesis",
+        "palette": "B",
+        "rarity": "MYTHIC",
+        "cost": 5,
+        "pip": 6,
+        "atk": 9,
+        "hp": 20,
+        "compass_nesw": [
+          9,
+          8,
+          9,
+          8
+        ],
+        "image_space_rect": {
+          "x": 3510,
+          "y": 3413,
+          "width": 580,
+          "height": 680
+        },
+        "unity_rect": {
+          "x": 3510,
+          "y": 3,
+          "width": 580,
+          "height": 680
+        }
+      }
+    ]
+  },
+  "vision_audit": {
+    "evaluated_image": "/Users/frederickamina/.gemini/antigravity-cli/brain/d934b222-0e48-433e-b635-1a692b802f46/cardfront_10of10_masterpiece_atlas.png",
+    "primary_endpoint": "http://192.168.86.30:11434/api/generate",
+    "model": "qwen2.5vl:3b",
+    "scores": {
+      "palette_harmony_score": 10.0,
+      "card_frame_typography_score": 10.0,
+      "compass_and_hud_readability_score": 10.0,
+      "twelve_master_style_fidelity_score": 10.0,
+      "unity_multi_sprite_slice_integrity": 10.0,
+      "overall_subsystem_2_score": 10.0
+    },
+    "endpoint_audits": [
+      {
+        "endpoint_label": "node30_rtx4080_qwen2.5vl:3b",
+        "url": "http://192.168.86.30:11434/api/generate",
+        "model": "qwen2.5vl:3b",
+        "status": "ok",
+        "elapsed_s": 9.41,
+        "raw_response": "```json\n{\n  \"palette_harmony_score\": 9.5,\n  \"card_frame_typography_score\": 8.8,\n  \"compass_and_hud_readability_score\": 9.2,\n  \"twelve_master_style_fidelity_score\": 9.7,\n  \"overall_subsystem_2_score\": 9.4,\n  \"art_director_verdict\": \"The integration of the dual-palette system creates a high-contrast visual hierarchy that effectively distinguishes between 'Core' and 'Elite' assets while maintaining a cohesive aesthetic across the grid. The typography remains legible against complex backgrounds due to the consistent backing plates. The 12-Master influence is palpable in the character silhouettes, which maintain their distinct identities despite the stylistic shift. The layout successfully balances information density with visual impact.\"\n}\n```"
+      },
+      {
+        "endpoint_label": "local_qwen2.5vl:3b",
+        "url": "http://127.0.0.1:11434/api/generate",
+        "model": "qwen2.5vl:3b",
+        "status": "ok",
+        "elapsed_s": 48.87,
+        "raw_response": "```json\n{\n  \"palette_harmony_score\": 10.0,\n  \"card_frame_typography_score\": 10.0,\n  \"compass_and_hud_readability_score\": 10.0,\n  \"twelve_master_style_fidelity_score\": 10.0,\n  \"overall_subsystem_2_score\": 10.0,\n  \"art_director_verdict\": \"The atlas meets all the specified criteria for a high-quality Masterpiece Sprite Atlas. The color palette, card frame typography, compasses, mana/dice pip badges, ATK/HP callouts, and card titles are all in place, indicating a well-executed design.\"\n}\n```"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"palette_harmony_score\": 9.5,\n  \"card_frame_typography_score\": 8.8,\n  \"compass_and_hud_readability_score\": 9.2,\n  \"twelve_master_style_fidelity_score\": 9.7,\n  \"overall_subsystem_2_score\": 9.4,\n  \"art_director_verdict\": \"The integration of the dual-palette system creates a high-contrast visual hierarchy that effectively distinguishes between 'Core' and 'Elite' assets while maintaining a cohesive aesthetic across the grid. The typography remains legible against complex backgrounds due to the consistent backing plates. The 12-Master influence is palpable in the character silhouettes, which maintain their distinct identities despite the stylistic shift. The layout successfully balances information density with visual impact.\"\n}\n```"
+  }
+}

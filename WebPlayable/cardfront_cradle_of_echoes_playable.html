@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>CARDFRONT 3D — Dynamic Telegraph Tabletop Card Battler</title>
+<style>
+  :root {
+    --blue-ally: #00E5FF;
+    --blue-glow: rgba(0, 229, 255, 0.55);
+    --red-enemy: #FF2E54;
+    --red-glow: rgba(255, 46, 84, 0.55);
+    --gold: #FFB800;
+    --emerald: #00E676;
+    --violet: #A855F7;
+    --text-main: #F8FAFC;
+    --text-dim: #94A3B8;
+
+    /* ========================================================================
+       PROPORTIONAL VIEWPORT-SAFE SIZING (FITS 1280x800 SAFARI WITH ZERO CLIPPING)
+       ======================================================================== */
+    --slot-h: clamp(156px, 21.6vh, 206px);
+    --slot-w: calc(var(--slot-h) * 0.76);
+
+    --hand-h: clamp(122px, 18.6vh, 160px);
+    --hand-w: calc(var(--hand-h) * 0.75);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+
+  body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 50% 45%, rgba(20, 35, 72, 0.72) 0%, rgba(4, 7, 15, 0.97) 78%),
+      url("../GeneratedArt/env_isamu_kamikokuryo_skystone.png") center/cover no-repeat;
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ==========================================================================
+     CRISP SINGLE-LINE TOP COMMAND BAR (44px — ZERO WRAPPING OR OVERLAPPING TEXT)
+     ========================================================================== */
+  header {
+    height: 44px;
+    background: rgba(6, 9, 19, 0.96);
+    border-bottom: 1px solid #243866;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-shrink: 0;
+    z-index: 40;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .brand-badge {
+    background: linear-gradient(135deg, var(--red-enemy), #7c3aed);
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
+  }
+  .brand-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #e2e8f0;
+    white-space: nowrap;
+  }
+
+  .scoreboard {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #0a1122;
+    border: 1px solid #2e477a;
+    padding: 4px 16px;
+    border-radius: 99px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .score-side {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 800;
+    font-size: 12.5px;
+    white-space: nowrap;
+  }
+  .score-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .score-dot.blue { background: var(--blue-ally); box-shadow: 0 0 6px var(--blue-ally); }
+  .score-dot.red { background: var(--red-enemy); box-shadow: 0 0 6px var(--red-enemy); }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  select, button {
+    background: #131e38;
+    color: #f8fafc;
+    border: 1px solid #324c80;
+    border-radius: 6px;
+    padding: 4px 9px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+  }
+  select:hover, button:hover:not(:disabled) {
+    border-color: var(--blue-ally);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.35);
+  }
+
+  /* ==========================================================================
+     3-COLUMN STAGE (264px | 1fr | 264px — GUARANTEED ZERO RIGHT-EDGE CLIPPING)
+     ========================================================================== */
+  main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 264px 1fr 264px;
+    gap: 12px;
+    padding: 8px 14px;
+    width: 100%;
+    max-width: 1640px;
+    margin: 0 auto;
+    align-items: center;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .side-box {
+    background: rgba(9, 15, 30, 0.92);
+    border: 1px solid #263a66;
+    border-radius: 14px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+    height: 100%;
+    max-height: calc(100vh - 60px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    z-index: 20;
+    overflow: hidden;
+  }
+  .box-title {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--blue-ally);
+    border-bottom: 1px solid #1f3156;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ==========================================================================
+     LEFT PANEL: 2x3 HAND GALLERY (5 HEROES + 1 TELEGRAPH/SLIDE STATUS CARD)
+     ========================================================================== */
+  .hand-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, var(--hand-w));
+    grid-template-rows: repeat(3, var(--hand-h));
+    gap: 8px 12px;
+    justify-content: center;
+    align-content: center;
+    min-height: 0;
+  }
+  .hand-card-wrap {
+    width: var(--hand-w);
+    height: var(--hand-h);
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hand-card-wrap:hover {
+    transform: translateY(-3px) scale(1.03);
+    z-index: 30;
+  }
+  .hand-card-wrap.selected {
+    transform: translateY(-3px) scale(1.04);
+    z-index: 35;
+  }
+  .hand-card-wrap.selected .card-3d-unit {
+    border: 2px solid var(--gold) !important;
+    box-shadow:
+      0 0 0 2px rgba(255, 184, 0, 0.35),
+      0 8px 18px rgba(0, 0, 0, 0.9),
+      0 0 14px rgba(255, 184, 0, 0.7) !important;
+  }
+
+  .tactical-slide-card {
+    width: var(--hand-w);
+    height: var(--hand-h);
+    border-radius: 10px;
+    background: linear-gradient(155deg, rgba(0, 229, 255, 0.1), rgba(8, 15, 32, 0.95));
+    border: 1px dashed rgba(0, 229, 255, 0.45);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+    overflow: hidden;
+  }
+
+  /* ==========================================================================
+     CENTER STAGE: 3x3 TABLETOP ARENA + TELEGRAPH HUD BAR
+     ========================================================================== */
+  .center-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    max-height: calc(100vh - 60px);
+    width: 100%;
+    position: relative;
+    gap: 6px;
+    min-height: 0;
+  }
+
+  /* LIVE TELEGRAPH BANNER ABOVE BOARD */
+  .telegraph-hud-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(8, 14, 29, 0.94);
+    border: 1px solid #304c82;
+    border-radius: 99px;
+    padding: 4px 14px;
+    font-size: 11px;
+    color: #e2e8f0;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.65);
+    white-space: nowrap;
+    max-width: 96%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 30;
+  }
+  .telegraph-tag-badge {
+    padding: 2px 7px;
+    border-radius: 99px;
+    font-size: 9.5px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: rgba(0, 229, 255, 0.18);
+    color: var(--blue-ally);
+    border: 1px solid rgba(0, 229, 255, 0.45);
+  }
+
+  .arena-3d-viewport {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1300px;
+    position: relative;
+    min-height: 0;
+  }
+
+  .board-3d-slab {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--board-tilt-x, 5deg)) rotateZ(var(--board-tilt-z, 0deg));
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    background:
+      radial-gradient(circle at 50% 45%, #1a2d57 0%, #080f20 100%);
+    border: 2.5px solid #4162a6;
+    border-radius: 20px;
+    padding: 10px 16px 14px;
+    box-shadow:
+      0 3px 0 #2b406e,
+      0 6px 0 #203154,
+      0 9px 0 #15213a,
+      0 22px 48px rgba(0, 0, 0, 0.92),
+      inset 0 0 32px rgba(0, 229, 255, 0.14);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .col-headers {
+    display: grid;
+    grid-template-columns: repeat(3, var(--slot-w));
+    gap: 12px;
+    text-align: center;
+  }
+  .col-header-pill {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 6px;
+    border-radius: 6px;
+    background: rgba(11, 18, 36, 0.95);
+    color: #94a3b8;
+    border: 1px solid #30497d;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .col-header-pill.boosted {
+    background: rgba(255, 184, 0, 0.18);
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: 0 0 10px rgba(255, 184, 0, 0.3);
+  }
+
+  .grid-3x3 {
+    display: grid;
+    grid-template-columns: repeat(3, var(--slot-w));
+    grid-template-rows: repeat(3, var(--slot-h));
+    gap: 12px;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+
+  .board-slot {
+    width: var(--slot-w);
+    height: var(--slot-h);
+    border-radius: 12px;
+    background: rgba(6, 11, 24, 0.9);
+    border: 1.5px dashed #2e4678;
+    box-shadow: inset 0 5px 14px rgba(0, 0, 0, 0.85);
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .board-slot.occupied {
+    border-style: solid;
+    border-color: transparent;
+  }
+  .board-slot:hover {
+    border-color: var(--blue-ally);
+    box-shadow: inset 0 0 16px rgba(0, 229, 255, 0.25), 0 0 14px rgba(0, 229, 255, 0.3);
+  }
+  .board-slot.slide-target {
+    border: 2px solid var(--emerald);
+    background: rgba(0, 230, 118, 0.14);
+    box-shadow: 0 0 18px rgba(0, 230, 118, 0.45);
+  }
+  /* Tile affected by hovered card's directional telegraph range */
+  .board-slot.telegraph-zone-ally {
+    border-color: rgba(0, 229, 255, 0.75);
+    box-shadow: inset 0 0 22px rgba(0, 229, 255, 0.3), 0 0 16px rgba(0, 229, 255, 0.35);
+  }
+  .board-slot.telegraph-zone-strike {
+    border-color: var(--gold);
+    box-shadow: inset 0 0 24px rgba(255, 184, 0, 0.35), 0 0 18px rgba(255, 184, 0, 0.45);
+  }
+
+  /* ==========================================================================
+     CARD UNIT — CLEAN RECTANGULAR FRAME, COMPACT NON-OVERLAPPING TYPOGRAPHY
+     ========================================================================== */
+  .card-3d-unit {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    background: #080c18;
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.85);
+  }
+  .board-slot .card-3d-unit {
+    transform: translateZ(10px);
+  }
+  .board-slot:hover .card-3d-unit {
+    transform: translateZ(18px) scale(1.02);
+  }
+  .card-3d-unit.owner-player {
+    border: 2px solid var(--blue-ally);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.88), 0 0 12px var(--blue-glow);
+  }
+  .card-3d-unit.owner-ai {
+    border: 2px solid var(--red-enemy);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.88), 0 0 12px var(--red-glow);
+  }
+  .board-slot.selected-unit .card-3d-unit {
+    border: 2.5px solid var(--gold) !important;
+    transform: translateZ(22px) scale(1.03) !important;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.92), 0 0 22px rgba(255, 184, 0, 0.85) !important;
+  }
+  .board-slot.will-flip .card-3d-unit {
+    border: 2.5px solid var(--gold) !important;
+    animation: flipTargetHover 0.5s ease-in-out infinite alternate;
+  }
+  @keyframes flipTargetHover {
+    from { transform: translateZ(12px) scale(1.0); }
+    to   { transform: translateZ(22px) scale(1.04); }
+  }
+  .board-slot.just-flipped .card-3d-unit {
+    animation: card3DSlamFlip 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes card3DSlamFlip {
+    0%   { transform: translateZ(44px) rotateY(180deg) scale(1.08); }
+    100% { transform: translateZ(10px) rotateY(0deg) scale(1.0); }
+  }
+
+  .card-art-frame {
+    position: absolute;
+    inset: 0;
+    background: #080c18;
+  }
+  .slot-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 12%;
+    display: block;
+  }
+  .slot-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(4, 7, 16, 0.32) 0%,
+      transparent 18%,
+      transparent 66%,
+      rgba(4, 7, 16, 0.94) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* ==========================================================================
+     16 UNIQUE DYNAMIC CARD TELEGRAPH SVG ANIMATION OVERLAYS
+     ========================================================================== */
+  .card-telegraph-fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 4;
+    opacity: 0.82;
+    mix-blend-mode: screen;
+  }
+  .hand-card-wrap .card-telegraph-fx {
+    opacity: 0.45;
+  }
+  .hand-card-wrap:hover .card-telegraph-fx,
+  .hand-card-wrap.selected .card-telegraph-fx,
+  .board-slot:hover .card-telegraph-fx {
+    opacity: 1;
+  }
+
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes spinReverse {
+    from { transform: rotate(360deg); }
+    to   { transform: rotate(0deg); }
+  }
+  @keyframes pulseRing {
+    0%   { transform: scale(0.55); opacity: 0.95; }
+    100% { transform: scale(1.35); opacity: 0; }
+  }
+  @keyframes sweepSlash {
+    0%   { stroke-dashoffset: 160; opacity: 0.2; }
+    50%  { stroke-dashoffset: 0;   opacity: 1; }
+    100% { stroke-dashoffset: -160; opacity: 0.2; }
+  }
+  @keyframes radarCone {
+    0%, 100% { transform: rotate(-28deg); }
+    50%      { transform: rotate(28deg); }
+  }
+  @keyframes vertScan {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes starFlash {
+    0%, 100% { transform: scale(0.82) rotate(0deg); opacity: 0.65; }
+    50%      { transform: scale(1.18) rotate(15deg); opacity: 1; }
+  }
+
+  .fx-spin       { transform-origin: 50px 65px; animation: spinSlow 5.5s linear infinite; }
+  .fx-spin-rev   { transform-origin: 50px 65px; animation: spinReverse 4.2s linear infinite; }
+  .fx-pulse      { transform-origin: 50px 65px; animation: pulseRing 1.9s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+  .fx-slash      { stroke-dasharray: 160; animation: sweepSlash 1.8s ease-in-out infinite; }
+  .fx-radar      { transform-origin: 50px 65px; animation: radarCone 2.2s ease-in-out infinite; }
+  .fx-scan       { animation: vertScan 2.4s linear infinite; }
+  .fx-star       { transform-origin: 50px 65px; animation: starFlash 1.5s ease-in-out infinite; }
+
+  /* COMPACT NON-OVERLAPPING BOTTOM NAME & TELEGRAPH FOOTER */
+  .slot-name-ribbon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: rgba(5, 9, 20, 0.95);
+    border-top: 1px solid rgba(255,255,255,0.18);
+    padding: 0 5px;
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f8fafc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 6;
+  }
+  .hand-card-wrap .slot-name-ribbon {
+    height: 17px;
+    font-size: 8.5px;
+  }
+
+  /* SLEEK COMPACT INSET DIRECTIONAL STAT GEMS (ZERO OVERLAP) */
+  .edge-num {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background: rgba(5, 9, 20, 0.92);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    font-weight: 900;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+    z-index: 7;
+  }
+  .hand-card-wrap .edge-num {
+    width: 17px;
+    height: 17px;
+    font-size: 9.5px;
+    border-radius: 4px;
+  }
+  .owner-player .edge-num {
+    border-color: var(--blue-ally);
+    color: #e0faff;
+  }
+  .owner-ai .edge-num {
+    border-color: var(--red-enemy);
+    color: #ffe4e8;
+  }
+
+  .edge-top    { top: 4px;    left: 50%; transform: translateX(-50%); }
+  .edge-bottom { bottom: 22px; left: 50%; transform: translateX(-50%); }
+  .edge-left   { left: 4px;   top: calc(50% - 8px); transform: translateY(-50%); }
+  .edge-right  { right: 4px;  top: calc(50% - 8px); transform: translateY(-50%); }
+
+  .hand-card-wrap .edge-bottom { bottom: 19px; }
+
+  /* DIRECTIONAL CLASH TELEGRAPH PILL ON TARGET NEIGHBORS */
+  .flip-tag {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(20px);
+    background: var(--gold);
+    color: #050811;
+    font-weight: 900;
+    font-size: 10.5px;
+    padding: 3px 9px;
+    border-radius: 99px;
+    z-index: 12;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.95);
+    white-space: nowrap;
+    animation: flipBadgePulse 0.45s ease-in-out infinite alternate;
+  }
+  .defend-tag {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(20px);
+    background: rgba(15, 23, 42, 0.94);
+    border: 1.5px solid var(--red-enemy);
+    color: #fda4af;
+    font-weight: 800;
+    font-size: 9.5px;
+    padding: 2px 7px;
+    border-radius: 99px;
+    z-index: 12;
+    white-space: nowrap;
+  }
+  @keyframes flipBadgePulse {
+    from { transform: translate(-50%, -50%) scale(0.95); }
+    to   { transform: translate(-50%, -50%) scale(1.08); }
+  }
+
+  /* ==========================================================================
+     FULL-BOARD DYNAMIC TELEGRAPH VECTOR SVG OVERLAY (ARROWS + BEAMS)
+     ========================================================================== */
+  .board-telegraph-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 25;
+    overflow: visible;
+  }
+  @keyframes marchAnts {
+    from { stroke-dashoffset: 24; }
+    to   { stroke-dashoffset: 0; }
+  }
+  .telegraph-vector-line {
+    stroke-dasharray: 7 5;
+    animation: marchAnts 0.55s linear infinite;
+  }
+
+  /* ==========================================================================
+     RIGHT PANEL: 3D DICE CUBES + BOSS PROFILE (COMPACT & NON-CLIPPING)
+     ========================================================================== */
+  .dice-column-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .col-die-row {
+    background: rgba(7, 11, 24, 0.94);
+    border: 1px solid #2b406e;
+    border-radius: 10px;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.16s ease;
+  }
+  .col-die-row:hover {
+    border-color: var(--gold);
+  }
+  .col-die-row.charged {
+    border-color: var(--gold);
+    background: linear-gradient(90deg, rgba(255, 184, 0, 0.16), rgba(7, 11, 24, 0.96));
+  }
+  .cube-scene {
+    width: 32px;
+    height: 32px;
+    perspective: 180px;
+    flex-shrink: 0;
+    margin-right: 2px;
+  }
+  .cube-3d {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cube-face {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: linear-gradient(145deg, #243763, #0e172c);
+    border: 1.5px solid #5678bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+  }
+  .col-die-row.charged .cube-face {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: linear-gradient(145deg, #42300d, #1c1306);
+  }
+  .cube-face.f-1 { transform: rotateY(  0deg) translateZ(16px); }
+  .cube-face.f-2 { transform: rotateY(180deg) translateZ(16px); }
+  .cube-face.f-3 { transform: rotateY( 90deg) translateZ(16px); }
+  .cube-face.f-4 { transform: rotateY(-90deg) translateZ(16px); }
+  .cube-face.f-5 { transform: rotateX( 90deg) translateZ(16px); }
+  .cube-face.f-6 { transform: rotateX(-90deg) translateZ(16px); }
+
+  .boss-profile {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(52, 12, 26, 0.65);
+    border: 1px solid var(--red-enemy);
+    border-radius: 10px;
+    padding: 8px 9px;
+  }
+  .boss-avatar {
+    width: 44px;
+    height: 58px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1.5px solid var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* MODAL */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 7, 15, 0.86);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  .modal-box {
+    background: linear-gradient(145deg, #162447, #090e1c);
+    border: 2px solid var(--gold);
+    border-radius: 18px;
+    padding: 24px 30px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="brand-badge">CARDFRONT 3D</span>
+    <span class="brand-title">Dynamic Telegraph Tabletop Clash</span>
+  </div>
+
+  <div class="scoreboard">
+    <div class="score-side" style="color:var(--blue-ally);">
+      <span class="score-dot blue"></span>
+      <span>YOU: <span id="player-score">0</span></span>
+    </div>
+    <span style="color:#64748b;font-weight:800;font-size:11px;">VS</span>
+    <div class="score-side" style="color:var(--red-enemy);">
+      <span>BOSS: <span id="ai-score">1</span></span>
+      <span class="score-dot red"></span>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <select id="camera-select" onchange="setBoardCamera(this.value)" title="3D Board Camera Angle">
+      <option value="5,0">🎥 View: 3D Showcase (5°)</option>
+      <option value="0,0">🎥 View: Flat 2D (0°)</option>
+      <option value="14,0">🎥 View: Tabletop (14°)</option>
+    </select>
+    <select id="stage-select" onchange="startStage(parseInt(this.value, 10))">
+      <option value="0">Stage 1: Skystone Sanctuary</option>
+      <option value="1">Stage 2: Ivalice Citadel</option>
+      <option value="2">Stage 3: Orbital Mecha Bay</option>
+      <option value="3">Stage 4: Apex Neural Core</option>
+    </select>
+    <button onclick="triggerAllBoardTelegraphs()">⚡ Pulse Telegraphs</button>
+    <button onclick="startStage(state.stageIndex)">↻ Reset</button>
+  </div>
+</header>
+
+<main>
+  <!-- LEFT PANEL: CLEAN 2x3 HAND GALLERY -->
+  <aside class="side-box">
+    <div class="box-title">
+      <span>Hero Hand</span>
+      <span id="hand-count-badge" style="color:var(--gold);">5 CARDS</span>
+    </div>
+
+    <div class="hand-grid" id="hand-bar"></div>
+  </aside>
+
+  <!-- CENTER: LIVE TELEGRAPH HUD + 3x3 TABLETOP ARENA -->
+  <section class="center-zone">
+    <div class="telegraph-hud-pill" id="telegraph-hud-pill">
+      <span class="telegraph-tag-badge" id="telegraph-hud-badge">TELEGRAPH READY</span>
+      <span id="telegraph-hud-desc">Hover any socket on the 3×3 board to preview card-specific dynamic telegraph vectors.</span>
+    </div>
+
+    <div class="arena-3d-viewport" id="arena-viewport">
+      <div class="board-3d-slab" id="board-3d-slab">
+        <div class="col-headers" id="col-headers"></div>
+        <div class="grid-3x3" id="grid-3x3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT PANEL: 3D COLUMN DICE + ENEMY COMMANDER -->
+  <aside class="side-box">
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <div class="box-title">
+        <span>Column Dice Boost</span>
+        <span style="color:var(--gold);">NUDGES: <span id="nudge-left">2</span></span>
+      </div>
+
+      <div style="font-size:10.5px;color:#cbd5e1;line-height:1.32;">
+        Click a 3D die to <b>+1 Nudge</b>. Pip <b style="color:var(--gold);">4–6</b> grants <b style="color:var(--gold);">+1 All Sides</b> in that Column.
+      </div>
+
+      <div class="dice-column-list" id="dice-column-list"></div>
+
+      <button onclick="rerollAllDice()" style="width:100%;padding:7px;background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;font-size:11px;">
+        🎲 Roll All 3D Dice (<span id="reroll-left">2</span> left)
+      </button>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <div class="box-title">
+        <span>Boss Commander</span>
+        <span id="turn-badge" style="color:var(--gold);">YOUR TURN</span>
+      </div>
+
+      <div class="boss-profile">
+        <img id="boss-avatar" class="boss-avatar" src="../GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss" />
+        <div style="min-width:0;">
+          <div id="boss-name" style="font-weight:800;font-size:12px;color:#ff859a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Eclipse Void Blade</div>
+          <div id="boss-telegraph-label" style="font-size:10px;color:var(--gold);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Telegraph: Umbra Singularity</div>
+          <div style="font-size:10px;color:#94a3b8;margin-top:2px;line-height:1.25;">Counters after each move.</div>
+        </div>
+      </div>
+
+      <div id="last-move-banner" style="background:#080d1a;border:1px solid #283e69;border-radius:9px;padding:8px;font-size:10.5px;color:#e2e8f0;line-height:1.35;">
+        💡 Select a Hero Card on the left and hover any tile to see its unique dynamic telegraph animation.
+      </div>
+    </div>
+  </aside>
+</main>
+
+<div class="modal-backdrop" id="result-modal">
+  <div class="modal-box">
+    <div id="modal-kicker" style="font-size:11px;font-weight:900;color:var(--gold);letter-spacing:1.2px;">MATCH COMPLETE</div>
+    <h2 id="modal-title" style="font-size:24px;font-weight:900;">VICTORY!</h2>
+    <p id="modal-desc" style="font-size:13px;color:#cbd5e1;line-height:1.45;"></p>
+    <div style="display:flex;gap:10px;justify-content:center;margin-top:4px;">
+      <button onclick="closeModal(false)">Play Again</button>
+      <button onclick="closeModal(true)" style="background:linear-gradient(135deg,#00e5ff,#0072ff);border-color:#fff;">Next Stage ▶</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================================
+// 1. 16 CARDS WITH UNIQUE DYNAMIC TELEGRAPH PROFILES & SVG ANIMATION GENERATORS
+// ============================================================================
+const PLAYER_HEROES = [
+  {
+    id: "h_archangel",
+    name: "Solar Archangel",
+    nesw: [8, 7, 6, 7],
+    art: "../GeneratedArt/MasteredCards/h_archangel.png?v=tele4",
+    telegraphName: "Solar Cross Lance",
+    telegraphType: "FFTA Holy Totema Cross (+)",
+    telegraphColor: "#FFD54F",
+    telegraphPattern: "cross",
+    telegraphDesc: "Projects a 4-way golden cruciform beam across its entire Row & Column."
+  },
+  {
+    id: "h_phoenix",
+    name: "Phoenix Valkyrie",
+    nesw: [9, 8, 5, 6],
+    art: "../GeneratedArt/MasteredCards/h_phoenix.png?v=tele4",
+    telegraphName: "Ember Wing Sweep",
+    telegraphType: "Breach Thermal Arc (N+E)",
+    telegraphColor: "#FF6D00",
+    telegraphPattern: "wing_ne",
+    telegraphDesc: "Sweeps twin blazing phoenix wings toward North (9) and East (8) tiles."
+  },
+  {
+    id: "h_oracle",
+    name: "Lunar Oracle",
+    nesw: [7, 7, 8, 7],
+    art: "../GeneratedArt/MasteredCards/h_oracle.png?v=tele4",
+    telegraphName: "Crescent Tidal Ward",
+    telegraphType: "Astral Orbit Ring (360°)",
+    telegraphColor: "#7CE0FF",
+    telegraphPattern: "lunar_orbit",
+    telegraphDesc: "Orbits a silver-cyan lunar sigil that projects tidal waves into South (8) & neighbors."
+  },
+  {
+    id: "h_chronos",
+    name: "Chronos Weaver",
+    nesw: [6, 8, 7, 7],
+    art: "../GeneratedArt/MasteredCards/h_chronos.png?v=tele4",
+    telegraphName: "Temporal Gear Lock",
+    telegraphType: "MGA COST Clockwork (E+S+W)",
+    telegraphColor: "#FFB800",
+    telegraphPattern: "chrono_gear",
+    telegraphDesc: "Spins interlocking golden clockwork gears locking East (8), South (7), and West (7)."
+  },
+  {
+    id: "h_seraph",
+    name: "Astral Seraph",
+    nesw: [8, 6, 7, 8],
+    art: "../GeneratedArt/MasteredCards/h_seraph.png?v=tele4",
+    telegraphName: "Trigger Cross-Star",
+    telegraphType: "Omega Sakuga Flare (N+W)",
+    telegraphColor: "#E040FB",
+    telegraphPattern: "trigger_star",
+    telegraphDesc: "Detonates a 4-point Studio Trigger cross-star flare surging North (8) & West (8)."
+  },
+  {
+    id: "h_kai",
+    name: "Kai Crimson Visor",
+    nesw: [7, 8, 6, 7],
+    art: "../GeneratedArt/MasteredCards/h_kai.png?v=tele4",
+    telegraphName: "Solid Eye Target Lock",
+    telegraphType: "MGA2 Halftone Reticle (E+W)",
+    telegraphColor: "#FF2E54",
+    telegraphPattern: "solideye_lock",
+    telegraphDesc: "Locks onto horizontal targets with a rotating Solid Eye sniper reticle & katana slash."
+  },
+  {
+    id: "h_valkyrie",
+    name: "Sky-Wing Striker",
+    nesw: [8, 8, 5, 6],
+    art: "../GeneratedArt/MasteredCards/h_valkyrie.png?v=tele4",
+    telegraphName: "Orbital Airstrike",
+    telegraphType: "Advance Wars Eagle Dive (N+E)",
+    telegraphColor: "#00E5FF",
+    telegraphPattern: "airstrike_chevron",
+    telegraphDesc: "Drops supersonic target chevrons and twin afterburner vectors into North (8) & East (8)."
+  },
+  {
+    id: "h_arbiter",
+    name: "Sun Arbiter",
+    nesw: [7, 7, 8, 8],
+    art: "../GeneratedArt/MasteredCards/h_arbiter.png?v=tele4",
+    telegraphName: "Ivalice Law Seal",
+    telegraphType: "FFTA Judge Hex Pillar (S+W)",
+    telegraphColor: "#FFD700",
+    telegraphPattern: "judge_hex",
+    telegraphDesc: "Summons a golden hexagonal Judge Law barrier and descending pillars onto South (8) & West (8)."
+  }
+];
+
+const ENEMY_MECHS = [
+  {
+    id: "e_eclipse",
+    name: "Eclipse Void Blade",
+    nesw: [6, 6, 5, 6],
+    art: "../GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",
+    telegraphName: "Umbra Singularity",
+    telegraphType: "Void Vortex Slash",
+    telegraphColor: "#C084FC",
+    telegraphPattern: "void_vortex",
+    telegraphDesc: "Spins a dark-violet gravitational vortex with twin crescent slash arcs."
+  },
+  {
+    id: "e_archon",
+    name: "Prism Core Archon",
+    nesw: [7, 6, 6, 5],
+    art: "../GeneratedArt/MasteredCards/e_archon.png?v=tele4",
+    telegraphName: "Prism Tri-Laser",
+    telegraphType: "Octahedron Beam",
+    telegraphColor: "#F43F5E",
+    telegraphPattern: "prism_laser",
+    telegraphDesc: "Refracts a tri-beam magenta laser from its rotating octahedron core."
+  },
+  {
+    id: "e_inferno",
+    name: "Inferno Seraph",
+    nesw: [7, 7, 5, 6],
+    art: "../GeneratedArt/MasteredCards/e_inferno.png?v=tele4",
+    telegraphName: "Hellfire Artillery",
+    telegraphType: "Breach Danger Zone",
+    telegraphColor: "#FF5722",
+    telegraphPattern: "hellfire_zone",
+    telegraphDesc: "Projects pulsing Into the Breach artillery hazard rings across North & East."
+  },
+  {
+    id: "e_reaper",
+    name: "Sigil Wraith",
+    nesw: [6, 7, 7, 5],
+    art: "../GeneratedArt/MasteredCards/e_reaper.png?v=tele4",
+    telegraphName: "Blood Rune Scythe",
+    telegraphType: "180° Cleave Telegraph",
+    telegraphColor: "#FB7185",
+    telegraphPattern: "reaper_scythe",
+    telegraphDesc: "Rotates a crimson necromantic rune and sweeps a 180° scythe arc (East + South)."
+  },
+  {
+    id: "e_titan",
+    name: "Bastion Dreadnought",
+    nesw: [7, 5, 7, 6],
+    art: "../GeneratedArt/MasteredCards/e_titan.png?v=tele4",
+    telegraphName: "Seismic Tremor Push",
+    telegraphType: "Breach Kinetic Bump",
+    telegraphColor: "#F59E0B",
+    telegraphPattern: "seismic_wave",
+    telegraphDesc: "Emits heavy concentric ground-pound shockwaves pushing North (7) & South (7)."
+  },
+  {
+    id: "e_colossus",
+    name: "Emerald Colossus",
+    nesw: [6, 8, 5, 6],
+    art: "../GeneratedArt/MasteredCards/e_colossus.png?v=tele4",
+    telegraphName: "Overdrive Railgun",
+    telegraphType: "Piercing Plasma Vector",
+    telegraphColor: "#10B981",
+    telegraphPattern: "emerald_rail",
+    telegraphDesc: "Charges an emerald reactor coil firing a high-output East (8) plasma beam."
+  },
+  {
+    id: "e_cryo",
+    name: "Cryo Interceptor",
+    nesw: [5, 7, 6, 7],
+    art: "../GeneratedArt/MasteredCards/e_cryo.png?v=tele4",
+    telegraphName: "Sub-Zero Lattice",
+    telegraphType: "Frost Crystal Spread",
+    telegraphColor: "#38BDF8",
+    telegraphPattern: "cryo_crystal",
+    telegraphDesc: "Expands a crystalline ice snowflake lattice freezing East (7) & West (7)."
+  },
+  {
+    id: "e_shinobi",
+    name: "Cyber Shinobi",
+    nesw: [7, 6, 6, 5],
+    art: "../GeneratedArt/MasteredCards/e_shinobi.png?v=tele4",
+    telegraphName: "90° Stealth Cone",
+    telegraphType: "MGA Radar Ambush",
+    telegraphColor: "#2DD4BF",
+    telegraphPattern: "stealth_cone",
+    telegraphDesc: "Sweeps a 90° Metal Gear Acid stealth radar vision cone & rapid kunai tracers."
+  }
+];
+
+const ALL_CARDS = {};
+[...PLAYER_HEROES, ...ENEMY_MECHS].forEach(c => { ALL_CARDS[c.id] = c; });
+
+// ============================================================================
+// 2. UNIQUE DYNAMIC SVG TELEGRAPH GENERATOR FOR EACH OF THE 16 CARDS
+// ============================================================================
+function buildUniqueTelegraphSVG(card) {
+  const col = card.telegraphColor || "#00E5FF";
+  switch (card.telegraphPattern) {
+    case "cross":
+      // Solar Archangel: Rotating sacred halo + 4-way cruciform lance beams
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <circle cx="50" cy="65" r="30" fill="none" stroke="${col}" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <circle cx="50" cy="65" r="22" fill="none" stroke="#fff" stroke-width="1" stroke-opacity="0.6"/>
+        </g>
+        <line x1="50" y1="6" x2="50" y2="124" stroke="${col}" stroke-width="2" stroke-opacity="0.75" class="fx-slash"/>
+        <line x1="6" y1="65" x2="94" y2="65" stroke="${col}" stroke-width="2" stroke-opacity="0.75" class="fx-slash"/>
+        <circle cx="50" cy="65" r="18" fill="none" stroke="${col}" stroke-width="2" class="fx-pulse"/>
+      </svg>`;
+
+    case "wing_ne":
+      // Phoenix Valkyrie: Twin sweeping flame arcs + rising thermal rings
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <path d="M 16 95 Q 50 20 88 35" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" class="fx-slash"/>
+        <path d="M 24 105 Q 58 35 92 52" fill="none" stroke="#FFD54F" stroke-width="2" stroke-linecap="round" class="fx-slash"/>
+        <circle cx="50" cy="65" r="24" fill="none" stroke="${col}" stroke-width="2" class="fx-pulse"/>
+      </svg>`;
+
+    case "lunar_orbit":
+      // Lunar Oracle: Orbiting crescent moon + astral constellation ring
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <circle cx="50" cy="65" r="32" fill="none" stroke="${col}" stroke-width="1.4" stroke-dasharray="4 6"/>
+          <path d="M 50 26 A 10 10 0 1 0 60 36 A 7 7 0 1 1 50 26 Z" fill="${col}"/>
+          <circle cx="50" cy="104" r="3.5" fill="#fff"/>
+        </g>
+        <circle cx="50" cy="65" r="20" fill="none" stroke="${col}" stroke-width="1.5" class="fx-pulse"/>
+      </svg>`;
+
+    case "chrono_gear":
+      // Chronos Weaver: Counter-rotating clockwork gears + sweeping clock hands
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <circle cx="50" cy="65" r="29" fill="none" stroke="${col}" stroke-width="3.5" stroke-dasharray="5 5"/>
+          <line x1="50" y1="65" x2="50" y2="38" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <g class="fx-spin-rev">
+          <circle cx="50" cy="65" r="19" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="3 4" stroke-opacity="0.8"/>
+          <line x1="50" y1="65" x2="70" y2="65" stroke="${col}" stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </svg>`;
+
+    case "trigger_star":
+      // Astral Seraph: Studio Trigger 4-point cross-star sakuga flare
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-star">
+          <path d="M 50 22 L 56 59 L 92 65 L 56 71 L 50 108 L 44 71 L 8 65 L 44 59 Z" fill="${col}" fill-opacity="0.45" stroke="#fff" stroke-width="1.2"/>
+        </g>
+        <circle cx="50" cy="65" r="24" fill="none" stroke="${col}" stroke-width="1.6" class="fx-pulse"/>
+      </svg>`;
+
+    case "solideye_lock":
+      // Kai Crimson Visor: MGA2 Solid Eye sniper lock reticle + horizontal katana slash
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin-rev">
+          <circle cx="50" cy="65" r="26" fill="none" stroke="${col}" stroke-width="1.8" stroke-dasharray="12 6"/>
+          <line x1="50" y1="32" x2="50" y2="42" stroke="#00E5FF" stroke-width="2"/>
+          <line x1="50" y1="88" x2="50" y2="98" stroke="#00E5FF" stroke-width="2"/>
+        </g>
+        <line x1="6" y1="68" x2="94" y2="56" stroke="#fff" stroke-width="2.6" class="fx-slash"/>
+      </svg>`;
+
+    case "airstrike_chevron":
+      // Sky-Wing Striker: Descending supersonic airstrike target chevrons
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-scan">
+          <polyline points="28,35 50,52 72,35" fill="none" stroke="${col}" stroke-width="2.5" stroke-linecap="round"/>
+          <polyline points="28,55 50,72 72,55" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <circle cx="50" cy="65" r="22" fill="none" stroke="${col}" stroke-width="1.8" class="fx-pulse"/>
+      </svg>`;
+
+    case "judge_hex":
+      // Sun Arbiter: FFTA hexagonal Judge Law seal
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <polygon points="50,33 78,49 78,81 50,97 22,81 22,49" fill="none" stroke="${col}" stroke-width="2"/>
+        </g>
+        <polygon points="50,41 71,53 71,77 50,89 29,77 29,53" fill="none" stroke="#fff" stroke-width="1.2" class="fx-pulse"/>
+      </svg>`;
+
+    case "void_vortex":
+      // Eclipse Void Blade: Dark-violet spiral slash
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <path d="M 50 35 A 30 30 0 0 1 80 65" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 50 95 A 30 30 0 0 1 20 65" fill="none" stroke="#FF2E54" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <circle cx="50" cy="65" r="20" fill="none" stroke="${col}" stroke-width="1.5" class="fx-pulse"/>
+      </svg>`;
+
+    case "prism_laser":
+      // Prism Core Archon: Rotating octahedron + tri-beam vectors
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <polygon points="50,35 76,65 50,95 24,65" fill="none" stroke="${col}" stroke-width="2"/>
+        </g>
+        <line x1="50" y1="65" x2="50" y2="12" stroke="#fff" stroke-width="2" class="fx-slash"/>
+        <line x1="50" y1="65" x2="90" y2="65" stroke="${col}" stroke-width="2" class="fx-slash"/>
+      </svg>`;
+
+    case "hellfire_zone":
+      // Inferno Seraph: Into the Breach artillery hazard ring
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <circle cx="50" cy="65" r="28" fill="none" stroke="${col}" stroke-width="3" stroke-dasharray="8 5" class="fx-spin"/>
+        <circle cx="50" cy="65" r="22" fill="none" stroke="#FFD54F" stroke-width="2" class="fx-pulse"/>
+      </svg>`;
+
+    case "reaper_scythe":
+      // Sigil Wraith: 180-degree crimson scythe cleave
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <path d="M 18 45 A 36 36 0 0 1 84 85" fill="none" stroke="${col}" stroke-width="3.5" stroke-linecap="round" class="fx-slash"/>
+        <circle cx="50" cy="65" r="22" fill="none" stroke="${col}" stroke-width="1.5" stroke-dasharray="4 4" class="fx-spin-rev"/>
+      </svg>`;
+
+    case "seismic_wave":
+      // Bastion Dreadnought: Concentric seismic bump rings
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <rect x="24" y="39" width="52" height="52" rx="8" fill="none" stroke="${col}" stroke-width="2.2" class="fx-pulse"/>
+        <circle cx="50" cy="65" r="16" fill="none" stroke="#fff" stroke-width="2" class="fx-pulse"/>
+      </svg>`;
+
+    case "emerald_rail":
+      // Emerald Colossus: Piercing horizontal plasma railgun
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <line x1="10" y1="65" x2="95" y2="65" stroke="${col}" stroke-width="4" class="fx-slash"/>
+        <circle cx="50" cy="65" r="22" fill="none" stroke="${col}" stroke-width="2" class="fx-pulse"/>
+      </svg>`;
+
+    case "cryo_crystal":
+      // Cryo Interceptor: 6-axis frost crystal lattice
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <line x1="50" y1="35" x2="50" y2="95" stroke="${col}" stroke-width="2"/>
+          <line x1="24" y1="50" x2="76" y2="80" stroke="${col}" stroke-width="2"/>
+          <line x1="24" y1="80" x2="76" y2="50" stroke="${col}" stroke-width="2"/>
+        </g>
+      </svg>`;
+
+    default:
+      // Cyber Shinobi: 90-degree MGA stealth vision cone
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-radar">
+          <path d="M 50 65 L 22 18 A 48 48 0 0 1 78 18 Z" fill="${col}" fill-opacity="0.28" stroke="${col}" stroke-width="1.5"/>
+        </g>
+        <circle cx="50" cy="65" r="6" fill="${col}"/>
+      </svg>`;
+  }
+}
+
+const STAGES = [
+  { name: "Eclipse Void Blade",  bossId: "e_eclipse",  avatar: "../GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",  bg: "../GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 0 },
+  { name: "Prism Core Archon",   bossId: "e_archon",   avatar: "../GeneratedArt/MasteredCards/e_archon.png?v=tele4",   bg: "../GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 0 },
+  { name: "Emerald Colossus",    bossId: "e_colossus", avatar: "../GeneratedArt/MasteredCards/e_colossus.png?v=tele4", bg: "../GeneratedArt/env_nakayama_neo_arcadia_mmz.png", aiBonus: 1 },
+  { name: "Inferno Core Seraph", bossId: "e_inferno",  avatar: "../GeneratedArt/MasteredCards/e_inferno.png?v=tele4",  bg: "../GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 1 }
+];
+
+const CUBE_ROTATIONS = {
+  1: "rotateX(0deg) rotateY(0deg)",
+  2: "rotateX(0deg) rotateY(-180deg)",
+  3: "rotateX(0deg) rotateY(-90deg)",
+  4: "rotateX(0deg) rotateY(90deg)",
+  5: "rotateX(-90deg) rotateY(0deg)",
+  6: "rotateX(90deg) rotateY(0deg)"
+};
+
+let actx = null;
+function playTone(semi = 0, type = "triangle", dur = 0.2) {
+  if (!actx) {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (AC) actx = new AC();
+  }
+  if (!actx) return;
+  if (actx.state === "suspended") actx.resume();
+  const now = actx.currentTime;
+  const f = 440 * Math.pow(2, semi / 12);
+  const o = actx.createOscillator();
+  const g = actx.createGain();
+  o.type = type;
+  o.frequency.setValueAtTime(f, now);
+  o.frequency.exponentialRampToValueAtTime(f * 1.15, now + dur);
+  g.gain.setValueAtTime(0.001, now);
+  g.gain.linearRampToValueAtTime(0.16, now + 0.015);
+  g.gain.exponentialRampToValueAtTime(0.001, now + dur);
+  o.connect(g);
+  g.connect(actx.destination);
+  o.start(now);
+  o.stop(now + dur + 0.02);
+}
+
+const state = {
+  stageIndex: 0,
+  baseTiltX: 5,
+  baseTiltZ: 0,
+  isPlayerTurn: true,
+  gameOver: false,
+  colDice: [4, 2, 5],
+  nudgesLeft: 2,
+  rerollsLeft: 2,
+  usedSlideThisTurn: false,
+  selectedHandIdx: 0,
+  selectedBoardSlot: null,
+  hoveredSlot: null,
+  grid: [],
+  hand: [],
+  aiPool: []
+};
+
+function setBoardCamera(val) {
+  const [tx, tz] = val.split(",").map(Number);
+  state.baseTiltX = tx;
+  state.baseTiltZ = tz;
+  const slab = document.getElementById("board-3d-slab");
+  slab.style.setProperty("--board-tilt-x", `${tx}deg`);
+  slab.style.setProperty("--board-tilt-z", `${tz}deg`);
+  slab.style.transform = `rotateX(${tx}deg) rotateY(0deg) rotateZ(${tz}deg)`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const vp = document.getElementById("arena-viewport");
+  const slab = document.getElementById("board-3d-slab");
+  vp.addEventListener("mousemove", (e) => {
+    const rect = vp.getBoundingClientRect();
+    const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    const rx = state.baseTiltX - ny * 2.2;
+    const rz = state.baseTiltZ + nx * 2.2;
+    slab.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${(nx * 2.6).toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg)`;
+  });
+  vp.addEventListener("mouseleave", () => {
+    slab.style.transform = `rotateX(${state.baseTiltX}deg) rotateY(0deg) rotateZ(${state.baseTiltZ}deg)`;
+  });
+});
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function isColBoosted(c) {
+  return state.colDice[c] >= 4;
+}
+
+function getCardEffectiveStats(cardId, colIndex, isAi = false) {
+  const base = ALL_CARDS[cardId].nesw;
+  if (isAi) {
+    const b = STAGES[state.stageIndex].aiBonus;
+    return base.map(v => Math.min(9, v + b));
+  }
+  const boost = isColBoosted(colIndex) ? 1 : 0;
+  return base.map(v => Math.min(9, v + boost));
+}
+
+function updateTelegraphHud(cardId) {
+  const c = ALL_CARDS[cardId];
+  if (!c) return;
+  const badge = document.getElementById("telegraph-hud-badge");
+  const desc = document.getElementById("telegraph-hud-desc");
+  badge.textContent = `${c.name} · ${c.telegraphName}`;
+  badge.style.color = c.telegraphColor;
+  badge.style.borderColor = c.telegraphColor;
+  desc.textContent = `${c.telegraphType}: ${c.telegraphDesc}`;
+}
+
+function triggerAllBoardTelegraphs() {
+  playTone(7, "sine", 0.18);
+  const activeCardId = state.hand[state.selectedHandIdx] || "h_archangel";
+  updateTelegraphHud(activeCardId);
+  const slots = document.querySelectorAll(".board-slot");
+  slots.forEach((s, i) => {
+    s.classList.add(i % 2 === 0 ? "telegraph-zone-strike" : "telegraph-zone-ally");
+    setTimeout(() => {
+      s.classList.remove("telegraph-zone-strike", "telegraph-zone-ally");
+    }, 950);
+  });
+}
+
+function startStage(idx) {
+  state.stageIndex = idx;
+  state.isPlayerTurn = true;
+  state.gameOver = false;
+  state.colDice = [4, 2, 5];
+  state.nudgesLeft = 2;
+  state.rerollsLeft = 2;
+  state.usedSlideThisTurn = false;
+  state.selectedHandIdx = 0;
+  state.selectedBoardSlot = null;
+  state.hoveredSlot = null;
+
+  const st = STAGES[idx];
+  const bossCard = ALL_CARDS[st.bossId];
+  document.getElementById("boss-name").textContent = st.name;
+  document.getElementById("boss-avatar").src = st.avatar;
+  document.getElementById("boss-telegraph-label").textContent = `Telegraph: ${bossCard.telegraphName}`;
+  document.body.style.backgroundImage = `radial-gradient(circle at 50% 45%, rgba(20, 35, 72, 0.72) 0%, rgba(4, 7, 15, 0.97) 78%), url("${st.bg}")`;
+
+  const heroes = shuffle(PLAYER_HEROES);
+  const enemies = shuffle(ENEMY_MECHS);
+
+  state.grid = [];
+  for (let r = 0; r < 3; r++) {
+    const row = [];
+    for (let c = 0; c < 3; c++) {
+      row.push({ r, c, cardId: null, owner: null, nesw: [0, 0, 0, 0], justFlipped: false });
+    }
+    state.grid.push(row);
+  }
+
+  const firstEnemy = enemies.pop();
+  state.grid[0][1].cardId = firstEnemy.id;
+  state.grid[0][1].owner = "ai";
+  state.grid[0][1].nesw = getCardEffectiveStats(firstEnemy.id, 1, true);
+
+  state.hand = heroes.slice(0, 5).map(h => h.id);
+  state.aiPool = enemies.slice(0, 5).map(e => e.id);
+
+  updateTelegraphHud(state.hand[0]);
+  document.getElementById("last-move-banner").innerHTML =
+    `💡 Click a Hero Card on the left and hover any tile to see its unique <b>${ALL_CARDS[state.hand[0]].telegraphName}</b> telegraph.`;
+
+  renderAll();
+}
+
+function nudgeColDie(colIdx) {
+  if (!state.isPlayerTurn || state.gameOver) return;
+  if (state.nudgesLeft <= 0) {
+    playTone(-5, "sawtooth", 0.14);
+    return;
+  }
+  state.nudgesLeft--;
+  state.colDice[colIdx] = (state.colDice[colIdx] % 6) + 1;
+  playTone(4 + state.colDice[colIdx], "sine", 0.15);
+  recalcBoardStats();
+  renderAll();
+}
+
+function rerollAllDice() {
+  if (!state.isPlayerTurn || state.gameOver || state.rerollsLeft <= 0) return;
+  state.rerollsLeft--;
+  state.colDice = state.colDice.map(() => Math.floor(Math.random() * 6) + 1);
+  playTone(8, "triangle", 0.24);
+  recalcBoardStats();
+  renderAll();
+}
+
+function recalcBoardStats() {
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      const cell = state.grid[r][c];
+      if (cell.cardId && cell.owner === "player") {
+        cell.nesw = getCardEffectiveStats(cell.cardId, c, false);
+      }
+    }
+  }
+}
+
+function findCaptures(r, c, nesw, owner) {
+  const dirs = [
+    { dr: -1, dc: 0, myEdge: 0, theirEdge: 2, dirName: "N" },
+    { dr: 0,  dc: 1, myEdge: 1, theirEdge: 3, dirName: "E" },
+    { dr: 1,  dc: 0, myEdge: 2, theirEdge: 0, dirName: "S" },
+    { dr: 0,  dc: -1, myEdge: 3, theirEdge: 1, dirName: "W" }
+  ];
+  const captured = [];
+  dirs.forEach(d => {
+    const nr = r + d.dr, nc = c + d.dc;
+    if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3) {
+      const nb = state.grid[nr][nc];
+      if (nb.cardId && nb.owner !== owner && nesw[d.myEdge] > nb.nesw[d.theirEdge]) {
+        captured.push({ nr, nc, myVal: nesw[d.myEdge], theirVal: nb.nesw[d.theirEdge], dirName: d.dirName });
+      }
+    }
+  });
+  return captured;
+}
+
+function findClashes(r, c, nesw, owner) {
+  const dirs = [
+    { dr: -1, dc: 0, myEdge: 0, theirEdge: 2, dirName: "N" },
+    { dr: 0,  dc: 1, myEdge: 1, theirEdge: 3, dirName: "E" },
+    { dr: 1,  dc: 0, myEdge: 2, theirEdge: 0, dirName: "S" },
+    { dr: 0,  dc: -1, myEdge: 3, theirEdge: 1, dirName: "W" }
+  ];
+  const clashes = [];
+  dirs.forEach(d => {
+    const nr = r + d.dr, nc = c + d.dc;
+    if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3) {
+      const nb = state.grid[nr][nc];
+      if (nb.cardId && nb.owner !== owner) {
+        clashes.push({
+          nr,
+          nc,
+          myVal: nesw[d.myEdge],
+          theirVal: nb.nesw[d.theirEdge],
+          willFlip: nesw[d.myEdge] > nb.nesw[d.theirEdge]
+        });
+      }
+    }
+  });
+  return clashes;
+}
+
+function handleSlotClick(r, c) {
+  if (!state.isPlayerTurn || state.gameOver) return;
+  const cell = state.grid[r][c];
+
+  if (cell.cardId && cell.owner === "player") {
+    if (state.selectedBoardSlot && state.selectedBoardSlot.r === r && state.selectedBoardSlot.c === c) {
+      state.selectedBoardSlot = null;
+    } else {
+      state.selectedBoardSlot = { r, c };
+      updateTelegraphHud(cell.cardId);
+      playTone(5, "sine", 0.12);
+    }
+    renderAll();
+    return;
+  }
+
+  if (state.selectedBoardSlot && !cell.cardId) {
+    const { r: sr, c: sc } = state.selectedBoardSlot;
+    if (Math.abs(r - sr) + Math.abs(c - sc) === 1 && !state.usedSlideThisTurn) {
+      state.usedSlideThisTurn = true;
+      const src = state.grid[sr][sc];
+      cell.cardId = src.cardId;
+      cell.owner = "player";
+      cell.nesw = getCardEffectiveStats(cell.cardId, c, false);
+      cell.justFlipped = true;
+
+      src.cardId = null;
+      src.owner = null;
+      src.nesw = [0, 0, 0, 0];
+      state.selectedBoardSlot = null;
+
+      const flips = findCaptures(r, c, cell.nesw, "player");
+      flips.forEach(f => {
+        state.grid[f.nr][f.nc].owner = "player";
+        state.grid[f.nr][f.nc].justFlipped = true;
+      });
+      playTone(7, "triangle", 0.22);
+      const movedCard = ALL_CARDS[cell.cardId];
+      updateTelegraphHud(cell.cardId);
+      document.getElementById("last-move-banner").innerHTML =
+        `⇄ <b>${movedCard.telegraphName}!</b> Slid <b>${movedCard.name}</b> to (${r+1},${c+1}) and flipped <b>${flips.length}</b> card(s)!`;
+      renderAll();
+      return;
+    }
+  }
+
+  if (cell.cardId || state.hand.length === 0) return;
+
+  const cardId = state.hand[state.selectedHandIdx];
+  state.hand.splice(state.selectedHandIdx, 1);
+  if (state.selectedHandIdx >= state.hand.length) {
+    state.selectedHandIdx = Math.max(0, state.hand.length - 1);
+  }
+
+  cell.cardId = cardId;
+  cell.owner = "player";
+  cell.nesw = getCardEffectiveStats(cardId, c, false);
+  cell.justFlipped = true;
+  state.selectedBoardSlot = null;
+
+  const flips = findCaptures(r, c, cell.nesw, "player");
+  flips.forEach(f => {
+    state.grid[f.nr][f.nc].owner = "player";
+    state.grid[f.nr][f.nc].justFlipped = true;
+  });
+
+  const deployedCard = ALL_CARDS[cardId];
+  updateTelegraphHud(cardId);
+  playTone(flips.length > 0 ? 9 : 3, "triangle", 0.24);
+  document.getElementById("last-move-banner").innerHTML = flips.length > 0
+    ? `⚡ <b>${deployedCard.telegraphName}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)!`
+    : `🟦 Deployed <b>${deployedCard.name}</b> (${deployedCard.telegraphName}) to Col ${c + 1}.`;
+
+  state.isPlayerTurn = false;
+  renderAll();
+
+  if (checkGameOver()) return;
+  setTimeout(executeBossTurn, 650);
+}
+
+function executeBossTurn() {
+  if (state.gameOver) return;
+  const open = [];
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      if (!state.grid[r][c].cardId) open.push({ r, c });
+    }
+  }
+  if (open.length === 0 || state.aiPool.length === 0) {
+    state.isPlayerTurn = true;
+    renderAll();
+    checkGameOver();
+    return;
+  }
+
+  const aiCardId = state.aiPool.pop();
+  let bestSlot = open[Math.floor(Math.random() * open.length)];
+  let bestCount = -1;
+
+  open.forEach(slot => {
+    const stats = getCardEffectiveStats(aiCardId, slot.c, true);
+    const f = findCaptures(slot.r, slot.c, stats, "ai").length;
+    if (f > bestCount) { bestCount = f; bestSlot = slot; }
+  });
+
+  const cell = state.grid[bestSlot.r][bestSlot.c];
+  cell.cardId = aiCardId;
+  cell.owner = "ai";
+  cell.nesw = getCardEffectiveStats(aiCardId, bestSlot.c, true);
+  cell.justFlipped = true;
+
+  const flips = findCaptures(bestSlot.r, bestSlot.c, cell.nesw, "ai");
+  flips.forEach(f => {
+    state.grid[f.nr][f.nc].owner = "ai";
+    state.grid[f.nr][f.nc].justFlipped = true;
+  });
+
+  const aiCard = ALL_CARDS[aiCardId];
+  updateTelegraphHud(aiCardId);
+  playTone(flips.length > 0 ? -4 : -1, "sawtooth", 0.22);
+  document.getElementById("last-move-banner").innerHTML = flips.length > 0
+    ? `⚠️ <b>${aiCard.telegraphName}:</b> <b>${aiCard.name}</b> flipped <b>${flips.length}</b> of your cards!`
+    : `🟥 Boss deployed <b>${aiCard.name}</b> (${aiCard.telegraphName}) at (${bestSlot.r + 1},${bestSlot.c + 1}).`;
+
+  state.isPlayerTurn = true;
+  state.usedSlideThisTurn = false;
+  state.nudgesLeft = Math.min(3, state.nudgesLeft + 1);
+  renderAll();
+  checkGameOver();
+}
+
+function getScores() {
+  let blue = 0, red = 0, empty = 0;
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      if (state.grid[r][c].owner === "player") blue++;
+      else if (state.grid[r][c].owner === "ai") red++;
+      else empty++;
+    }
+  }
+  return { blue, red, empty };
+}
+
+function checkGameOver() {
+  const { blue, red, empty } = getScores();
+  if (empty > 0 && state.hand.length > 0) return false;
+
+  state.gameOver = true;
+  const win = blue > red;
+  setTimeout(() => {
+    const modal = document.getElementById("result-modal");
+    document.getElementById("modal-kicker").textContent = win ? "STAGE CLEARED" : "STAGE LOST";
+    document.getElementById("modal-title").textContent = win ? `🏆 VICTORY (${blue} – ${red})!` : `💥 DEFEAT (${blue} – ${red})`;
+    document.getElementById("modal-title").style.color = win ? "#00E5FF" : "#FF2E54";
+    document.getElementById("modal-desc").textContent = win
+      ? `You controlled ${blue} Blue 3D cards vs ${red} Red cards on the tabletop!`
+      : `The Boss controlled ${red} Red cards vs ${blue} Blue cards. Use your 3D Column Dice Boost (+1 All Sides) before deploying!`;
+    modal.style.display = "flex";
+  }, 460);
+  return true;
+}
+
+function closeModal(nextStage) {
+  document.getElementById("result-modal").style.display = "none";
+  if (nextStage) {
+    state.stageIndex = (state.stageIndex + 1) % STAGES.length;
+    document.getElementById("stage-select").value = state.stageIndex;
+  }
+  startStage(state.stageIndex);
+}
+
+function build3DCardHTML(cardId, nesw, owner) {
+  const card = ALL_CARDS[cardId];
+  const [top, right, bottom, left] = nesw;
+  const ownerCls = owner === "ai" ? "owner-ai" : "owner-player";
+  return `
+    <div class="card-3d-unit ${ownerCls}">
+      <div class="card-art-frame">
+        <img class="slot-art" src="${card.art}" alt="${card.name}" />
+        <div class="slot-vignette"></div>
+      </div>
+      ${buildUniqueTelegraphSVG(card)}
+      <div class="edge-num edge-top">${top}</div>
+      <div class="edge-num edge-right">${right}</div>
+      <div class="edge-num edge-bottom">${bottom}</div>
+      <div class="edge-num edge-left">${left}</div>
+      <div class="slot-name-ribbon">${card.name}</div>
+    </div>
+  `;
+}
+
+// Builds full-board SVG directional telegraph vectors from hovered slot `(hr, hc)` to adjacent occupied tiles
+function buildBoardTelegraphOverlaySVG(hr, hc, clashes, activeCard) {
+  if (hr === null || hc === null || !clashes || clashes.length === 0) return "";
+  const col = activeCard ? activeCard.telegraphColor : "#FFB800";
+  const xCenter = (c) => ((c + 0.5) * 33.333).toFixed(2);
+  const yCenter = (r) => ((r + 0.5) * 33.333).toFixed(2);
+  const x1 = xCenter(hc);
+  const y1 = yCenter(hr);
+
+  let lines = "";
+  clashes.forEach(cl => {
+    const x2 = xCenter(cl.nc);
+    const y2 = yCenter(cl.nr);
+    const strokeCol = cl.willFlip ? "#FFB800" : "#FF2E54";
+    lines += `
+      <line x1="${x1}%" y1="${y1}%" x2="${x2}%" y2="${y2}%"
+        stroke="${strokeCol}" stroke-width="3" class="telegraph-vector-line" />
+      <circle cx="${x2}%" cy="${y2}%" r="6" fill="${strokeCol}" />
+    `;
+  });
+  return `<svg class="board-telegraph-svg">${lines}</svg>`;
+}
+
+function renderAll() {
+  const { blue, red } = getScores();
+  document.getElementById("player-score").textContent = blue;
+  document.getElementById("ai-score").textContent = red;
+  document.getElementById("nudge-left").textContent = state.nudgesLeft;
+  document.getElementById("reroll-left").textContent = state.rerollsLeft;
+  document.getElementById("hand-count-badge").textContent = `${state.hand.length} CARDS`;
+
+  const turnBadge = document.getElementById("turn-badge");
+  turnBadge.textContent = state.isPlayerTurn ? "YOUR TURN" : "BOSS TURN";
+  turnBadge.style.color = state.isPlayerTurn ? "#FFB800" : "#FF2E54";
+
+  // 1. Column Headers
+  const colHeadersEl = document.getElementById("col-headers");
+  colHeadersEl.innerHTML = "";
+  for (let c = 0; c < 3; c++) {
+    const boosted = isColBoosted(c);
+    const d = document.createElement("div");
+    d.className = "col-header-pill" + (boosted ? " boosted" : "");
+    d.textContent = boosted ? `⚡ COL ${c + 1} (+1 ALL)` : `COL ${c + 1} (DIE: ${state.colDice[c]})`;
+    colHeadersEl.appendChild(d);
+  }
+
+  // 2. Real 3D CSS Tumbling Dice Cubes
+  const diceListEl = document.getElementById("dice-column-list");
+  diceListEl.innerHTML = "";
+  for (let c = 0; c < 3; c++) {
+    const pip = state.colDice[c];
+    const boosted = pip >= 4;
+    const row = document.createElement("div");
+    row.className = "col-die-row" + (boosted ? " charged" : "");
+    row.onclick = () => nudgeColDie(c);
+    row.innerHTML = `
+      <div style="min-width:0;">
+        <div style="font-weight:800;font-size:11px;color:${boosted ? "var(--gold)" : "#f8fafc"};white-space:nowrap;">
+          Column ${c + 1} Die
+        </div>
+        <div style="font-size:9.5px;color:${boosted ? "var(--gold)" : "#94a3b8"};margin-top:1px;white-space:nowrap;">
+          ${boosted ? "⚡ +1 All 4 Sides" : "Click to Nudge +1"}
+        </div>
+      </div>
+      <div class="cube-scene">
+        <div class="cube-3d" style="transform: ${CUBE_ROTATIONS[pip]};">
+          <div class="cube-face f-1">1</div>
+          <div class="cube-face f-2">2</div>
+          <div class="cube-face f-3">3</div>
+          <div class="cube-face f-4">4</div>
+          <div class="cube-face f-5">5</div>
+          <div class="cube-face f-6">6</div>
+        </div>
+      </div>
+    `;
+    diceListEl.appendChild(row);
+  }
+
+  // 3. Hover Flip & Clash Telegraph Preview
+  let previewClashes = [];
+  let activePreviewCard = null;
+  if (state.isPlayerTurn && state.hoveredSlot) {
+    const { r: hr, c: hc } = state.hoveredSlot;
+    if (!state.grid[hr][hc].cardId) {
+      if (state.selectedBoardSlot && !state.usedSlideThisTurn) {
+        const { r: sr, c: sc } = state.selectedBoardSlot;
+        if (Math.abs(hr - sr) + Math.abs(hc - sc) === 1) {
+          const cid = state.grid[sr][sc].cardId;
+          activePreviewCard = ALL_CARDS[cid];
+          const slideStats = getCardEffectiveStats(cid, hc, false);
+          previewClashes = findClashes(hr, hc, slideStats, "player");
+        }
+      } else if (state.hand[state.selectedHandIdx]) {
+        const cid = state.hand[state.selectedHandIdx];
+        activePreviewCard = ALL_CARDS[cid];
+        const effStats = getCardEffectiveStats(cid, hc, false);
+        previewClashes = findClashes(hr, hc, effStats, "player");
+      }
+    }
+  }
+
+  // 4. Render 3x3 3D Sockets & Portrait Cards
+  const gridEl = document.getElementById("grid-3x3");
+  gridEl.innerHTML = "";
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      const cell = state.grid[r][c];
+      const slot = document.createElement("div");
+      const isSelUnit = state.selectedBoardSlot && state.selectedBoardSlot.r === r && state.selectedBoardSlot.c === c;
+      const isSlideTarget = state.selectedBoardSlot && !state.usedSlideThisTurn && !cell.cardId &&
+        (Math.abs(state.selectedBoardSlot.r - r) + Math.abs(state.selectedBoardSlot.c - c) === 1);
+      const clashObj = previewClashes.find(cl => cl.nr === r && cl.nc === c);
+      const willFlip = clashObj && clashObj.willFlip;
+
+      let cls = "board-slot";
+      if (cell.cardId) cls += " occupied";
+      if (isSelUnit) cls += " selected-unit";
+      if (isSlideTarget) cls += " slide-target";
+      if (willFlip) cls += " will-flip";
+      if (cell.justFlipped) {
+        cls += " just-flipped";
+        cell.justFlipped = false;
+      }
+      slot.className = cls;
+
+      slot.onmouseenter = () => {
+        if (cell.cardId) {
+          updateTelegraphHud(cell.cardId);
+        } else {
+          state.hoveredSlot = { r, c };
+          if (state.hand[state.selectedHandIdx]) {
+            updateTelegraphHud(state.hand[state.selectedHandIdx]);
+          }
+          renderAll();
+        }
+      };
+      slot.onmouseleave = () => {
+        if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c) {
+          state.hoveredSlot = null;
+          renderAll();
+        }
+      };
+      slot.onclick = () => handleSlotClick(r, c);
+
+      if (cell.cardId) {
+        slot.innerHTML = build3DCardHTML(cell.cardId, cell.nesw, cell.owner);
+        if (clashObj) {
+          const tag = document.createElement("div");
+          tag.className = clashObj.willFlip ? "flip-tag" : "defend-tag";
+          tag.textContent = clashObj.willFlip
+            ? `⚡ ${clashObj.myVal}>${clashObj.theirVal} FLIP!`
+            : `🛡️ ${clashObj.myVal}≤${clashObj.theirVal}`;
+          slot.appendChild(tag);
+        }
+      } else if (isSlideTarget) {
+        slot.innerHTML = `<div style="color:var(--emerald);font-weight:800;font-size:11px;text-align:center;">⇄ SLIDE<br/>HERE</div>`;
+      } else if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c && state.hand[state.selectedHandIdx]) {
+        const hId = state.hand[state.selectedHandIdx];
+        const eff = getCardEffectiveStats(hId, c, false);
+        slot.style.opacity = "0.9";
+        slot.innerHTML = build3DCardHTML(hId, eff, "player");
+      } else {
+        slot.innerHTML = `<div style="color:rgba(148,163,184,0.34);font-weight:800;font-size:10.5px;">${isColBoosted(c) ? "⚡ +1 BOOST" : "OPEN"}</div>`;
+      }
+
+      gridEl.appendChild(slot);
+    }
+  }
+
+  // Append full-board directional telegraph vector lines when hovering a slot
+  if (state.hoveredSlot && previewClashes.length > 0) {
+    gridEl.insertAdjacentHTML(
+      "beforeend",
+      buildBoardTelegraphOverlaySVG(state.hoveredSlot.r, state.hoveredSlot.c, previewClashes, activePreviewCard)
+    );
+  }
+
+  // 5. Render Left 2x3 Grid: 5 Hero Cards + 1 Telegraph/Slide Info Card
+  const handEl = document.getElementById("hand-bar");
+  handEl.innerHTML = "";
+  state.hand.forEach((cid, idx) => {
+    const isSel = idx === state.selectedHandIdx && !state.selectedBoardSlot;
+    const wrap = document.createElement("div");
+    wrap.className = "hand-card-wrap" + (isSel ? " selected" : "");
+    wrap.onmouseenter = () => updateTelegraphHud(cid);
+    wrap.onclick = () => {
+      state.selectedHandIdx = idx;
+      state.selectedBoardSlot = null;
+      updateTelegraphHud(cid);
+      playTone(3 + idx, "sine", 0.1);
+      renderAll();
+    };
+    wrap.innerHTML = build3DCardHTML(cid, ALL_CARDS[cid].nesw, "player");
+    handEl.appendChild(wrap);
+  });
+
+  const activeHero = ALL_CARDS[state.hand[state.selectedHandIdx]] || PLAYER_HEROES[0];
+  const slideCard = document.createElement("div");
+  slideCard.className = "tactical-slide-card";
+  slideCard.innerHTML = `
+    <div style="font-size:9px;font-weight:900;color:${activeHero.telegraphColor};letter-spacing:0.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">
+      ⚡ ${activeHero.telegraphName}
+    </div>
+    <div style="font-size:8.5px;color:#cbd5e1;line-height:1.25;">
+      ${activeHero.telegraphType}
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.12);width:100%;padding-top:4px;margin-top:2px;font-size:8.5px;color:var(--emerald);font-weight:800;">
+      ⇄ Slide: ${state.usedSlideThisTurn ? "Used" : "1× Ready"}
+    </div>
+  `;
+  handEl.appendChild(slideCard);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  startStage(0);
+  if (window.location.search.includes("autotest=1")) {
+    setTimeout(() => runVisualAutomatedPlaytest(), 500);
+  }
+});
+
+async function runVisualAutomatedPlaytest() {
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const report = {
+    suite: "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
+    timestamp: new Date().toISOString(),
+    steps: [],
+    imagesChecked: 0,
+    allImagesLoaded: true,
+    imageDimensionsVerified: true,
+    singletonVerified: true,
+    duplicateCardsFound: 0,
+    telegraphSVGsRendered: 0,
+    cameraModesTested: [],
+    diceActionsTested: [],
+    turnsPlayed: 0,
+    capturesTriggered: 0,
+    tacticalSlideTested: false,
+    modalDisplayed: false,
+    finalScore: { player: 0, boss: 0 },
+    outcome: ""
+  };
+
+  function checkSingletonAndImages() {
+    const seen = new Set();
+    for (let r = 0; r < 3; r++) {
+      for (let c = 0; c < 3; c++) {
+        const cell = state.grid[r][c];
+        if (cell && cell.cardId) {
+          if (seen.has(cell.cardId)) {
+            report.singletonVerified = false;
+            report.duplicateCardsFound++;
+          }
+          seen.add(cell.cardId);
+        }
+      }
+    }
+    for (const cid of state.hand) {
+      if (seen.has(cid)) {
+        report.singletonVerified = false;
+        report.duplicateCardsFound++;
+      }
+      seen.add(cid);
+    }
+    const imgs = Array.from(document.querySelectorAll(".slot-art"));
+    report.imagesChecked = Math.max(report.imagesChecked, imgs.length);
+    for (const img of imgs) {
+      if (!img.complete || img.naturalWidth === 0) {
+        report.allImagesLoaded = false;
+      } else if (img.naturalWidth !== 600 || img.naturalHeight !== 800) {
+        report.imageDimensionsVerified = false;
+      }
+    }
+    const telegraphs = document.querySelectorAll(".card-telegraph-fx");
+    report.telegraphSVGsRendered = Math.max(report.telegraphSVGsRendered, telegraphs.length);
+  }
+
+  await sleep(400);
+  checkSingletonAndImages();
+  report.steps.push({
+    step: "Initial Stage Load",
+    stage: STAGES[state.stageIndex].name,
+    handCount: state.hand.length,
+    imagesChecked: report.imagesChecked,
+    telegraphSVGsRendered: report.telegraphSVGsRendered
+  });
+
+  // 1. Test 3D Camera Angles
+  for (const camVal of ["12,0", "16,-5", "0,0", "5,0"]) {
+    const camSel = document.getElementById("cam-select");
+    if (camSel) camSel.value = camVal;
+    setBoardCamera(camVal);
+    report.cameraModesTested.push(camVal);
+    await sleep(220);
+  }
+
+  // 2. Test 3D Dice Nudge & Reroll
+  nudgeColDie(0);
+  report.diceActionsTested.push("nudgeColDie(0)");
+  await sleep(300);
+  rerollAllDice();
+  report.diceActionsTested.push("rerollAllDice()");
+  await sleep(380);
+
+  // 3. Play all 4 turns to fill the 3x3 board (and test Tactical Slide as soon as a player card is on board)
+  for (let turn = 0; turn < 4; turn++) {
+    while (!state.isPlayerTurn && !state.gameOver) {
+      await sleep(100);
+    }
+    if (state.hand.length === 0 || state.gameOver) break;
+
+    if (!report.tacticalSlideTested && !state.usedSlideThisTurn) {
+      outerSlide: for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < 3; c++) {
+          if (state.grid[r][c] && state.grid[r][c].cardId && state.grid[r][c].owner === "player") {
+            const dirs = [[-1,0],[1,0],[0,-1],[0,1]];
+            for (const [dr, dc] of dirs) {
+              const nr = r + dr, nc = c + dc;
+              if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && !state.grid[nr][nc].cardId) {
+                handleSlotClick(r, c);
+                await sleep(160);
+                handleSlotClick(nr, nc);
+                report.tacticalSlideTested = true;
+                report.steps.push({ step: "Tactical Slide (1x Free/Turn)", from: [r, c], to: [nr, nc] });
+                await sleep(220);
+                break outerSlide;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    state.selectedHandIdx = 0;
+    state.selectedBoardSlot = null;
+    updateTelegraphHud(state.hand[0]);
+    renderAll();
+    await sleep(150);
+
+    // Choose empty socket that maximizes captures
+    let bestRC = null;
+    let bestFlips = -1;
+    for (let r = 0; r < 3; r++) {
+      for (let c = 0; c < 3; c++) {
+        if (!state.grid[r][c].cardId) {
+          const effStats = getCardEffectiveStats(state.hand[0], c, false);
+          const clashes = findClashes(r, c, effStats, "player");
+          const flips = clashes.filter(cl => cl.willFlip).length;
+          if (flips > bestFlips) {
+            bestFlips = flips;
+            bestRC = [r, c];
+          }
+        }
+      }
+    }
+    if (!bestRC) break;
+    const [tr, tc] = bestRC;
+    state.hoveredSlot = { r: tr, c: tc };
+    renderAll();
+    await sleep(180);
+
+    const cardPlayed = state.hand[0];
+    report.capturesTriggered += Math.max(0, bestFlips);
+    handleSlotClick(tr, tc);
+    report.turnsPlayed++;
+    await sleep(800);
+    checkSingletonAndImages();
+    const sc = getScores();
+    report.steps.push({
+      step: `Turn ${turn + 1} Deploy`,
+      cardPlayed,
+      telegraph: ALL_CARDS[cardPlayed] ? ALL_CARDS[cardPlayed].telegraphName : "",
+      socket: [tr, tc],
+      immediateCaptures: bestFlips,
+      scoreAfterTurn: { player: sc.blue, boss: sc.red }
+    });
+  }
+
+  await sleep(650);
+  checkSingletonAndImages();
+  const finalScores = getScores();
+  report.finalScore = { player: finalScores.blue, boss: finalScores.red };
+  const modalEl = document.getElementById("result-modal");
+  report.modalDisplayed = modalEl ? (modalEl.style.display === "flex" || modalEl.classList.contains("show")) : false;
+  report.outcome = finalScores.blue > finalScores.red ? "VICTORY" : "COMPLETED";
+
+  window.__OSASCRIPT_TEST_REPORT__ = report;
+  try {
+    await fetch("/__osascript_report__", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(report, null, 2)
+    });
+  } catch (e) {}
+
+  document.title = `TEST_COMPLETE:${report.finalScore.player}-${report.finalScore.boss}:SINGLETON=${report.singletonVerified}:IMG=${report.allImagesLoaded && report.imageDimensionsVerified}`;
+  return JSON.stringify(report);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "soup_id": "synapse_ties_greedy_soup_aw_ffta_itb_staccs_v1",
+  "strategy": "TiesMerging+GreedySoup",
+  "trim_density_threshold": 0.2,
+  "sign_consensus_election": "majority_magnitude_weighted",
+  "fleet_training_nodes": {
+    "V100_32GB": "192.168.86.116:11434 (pxg-lumenforge:30b-a3b \u2014 Decomp + QLoRA Soup Coordinator)",
+    "RTX_4080_16GB": "192.168.86.30:11434 (pxg-lumenforge:12b-tutor + ComfyUI v0.18.2 \u2014 7 Studio Artist LoRA Soup)",
+    "RTX_2070_8GB": "192.168.86.22:11434 (pxg-lumenforge:7b-tutor \u2014 12 NPC MiroFish Arena Evaluator)"
+  },
+  "studio_lora_adapter_weights": {
+    "ryoma_ito_ffta_ivalice_job_silhouette": 0.2,
+    "yoshida_minagawa_crosshatch_isometric_diorama": 0.2,
+    "minaba_kamikokuryo_storybook_gilded_ether": 0.15,
+    "ryo_hirata_advance_wars_cutin_readability": 0.15,
+    "toru_nakayama_mmz_sharp_kinetic_cyber": 0.1,
+    "masao_shinkawa_mga_brush_ink_tactical_hud": 0.1,
+    "director_matsuno_nojiri_classic_dynamic_balance": 0.1
+  },
+  "tactical_domain_task_vectors": {
+    "advance_wars_gba_damage_co_telegraph": 0.3,
+    "ffta_gba_isometric_facing_ctb_jp": 0.3,
+    "into_the_breach_push_bump_time_pod": 0.2,
+    "staccs_3d_cube_zstack_cantilever": 0.2
+  },
+  "validation_composite_score": 0.9421,
+  "timestamp_utc": "2026-11-07T08:50:04Z"
+}

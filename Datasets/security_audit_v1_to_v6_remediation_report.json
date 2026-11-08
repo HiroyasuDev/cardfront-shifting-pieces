@@ -1,0 +1,105 @@
+{
+  "suite": "TcgEngineAPI & GameServer.cs Security & Economy Remediation Suite (V1-V6)",
+  "timestamp_utc": "2026-11-08T09:58:04.130771+00:00",
+  "node_binary": "/Users/frederickamina/.local/bin/node",
+  "all_passed": true,
+  "syntax_checks": [
+    {
+      "file": "config.js",
+      "passed": true,
+      "stderr": ""
+    },
+    {
+      "file": "server.js",
+      "passed": true,
+      "stderr": ""
+    },
+    {
+      "file": "tools/tx_lock.tool.js",
+      "passed": true,
+      "stderr": ""
+    },
+    {
+      "file": "users/users.controller.js",
+      "passed": true,
+      "stderr": ""
+    },
+    {
+      "file": "users/users.cards.controller.js",
+      "passed": true,
+      "stderr": ""
+    },
+    {
+      "file": "market/market.controller.js",
+      "passed": true,
+      "stderr": ""
+    },
+    {
+      "file": "matches/matches.controller.js",
+      "passed": true,
+      "stderr": ""
+    },
+    {
+      "file": "matches/matches.tool.js",
+      "passed": true,
+      "stderr": ""
+    }
+  ],
+  "vulnerability_remediations": {
+    "V1_hardcoded_jwt_remediation": {
+      "passed": true,
+      "default_jwt_rejected": true,
+      "active_secret_length": 81,
+      "hmac_secret_length": 82
+    },
+    "V5_bootstrap_admin_hardening": {
+      "passed": true,
+      "unauthenticated_first_user_permission": 1,
+      "bootstrapped_first_user_permission": 10
+    },
+    "V3_gain_reward_hmac_gate": {
+      "passed": true,
+      "forged_client_status": 403,
+      "bad_hmac_status": 403,
+      "valid_hmac_status": 200,
+      "coins_after_valid_claim": 1500
+    },
+    "V4_mutex_serialization_and_market_sink": {
+      "passed": true,
+      "open_pack_20_way": {
+        "successes": 1,
+        "clean_rejections": 19
+      },
+      "sell_card_20_way": {
+        "successes": 1,
+        "clean_rejections": 19,
+        "final_coins": 400
+      },
+      "market_trade_20_way": {
+        "successes": 1,
+        "clean_rejections": 19,
+        "offer_price": 1000,
+        "fee_15_pct": 150,
+        "seller_payout": 850,
+        "buyer_remaining_coins": 19000
+      }
+    },
+    "V2_match_integrity_and_elo_save": {
+      "passed": true,
+      "non_participant_winner_status": 403,
+      "client_spoof_status": 403,
+      "valid_server_complete_status": 200,
+      "winner_persisted_elo": 1054,
+      "loser_persisted_elo": 954,
+      "gameserver_cs_tie_null_safe": true
+    },
+    "V6_fix_variants_and_cors_hardening": {
+      "passed": true,
+      "non_admin_status": 403,
+      "admin_status": 200,
+      "updated_users_count": 1,
+      "migrated_variant": "foil",
+      "cors_and_headers_hardened": true
+    }
+  }
+}

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6399a062aa6f2ad138a1a711f791905, type: 3}
+  m_Name: s1_21_brass_automaton
+  m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
+  id: s1_21_brass_automaton
+  title: "Brass Automaton"
+  codeName: "Clockwork Juggernaut"
+  baseStats:
+    up: 8
+    down: 6
+    left: 7
+    right: 4
+  themes: 66
+  specialAbility: 2
+  specialAbilityDescription: "When this unit captures an opponent card, immediately make a bonus placement this turn."
+  synergyRequiredTheme: 64
+  synergyAllSidesBonus: 2
+  synergyName: "Steam Piston"
+  evolvesToCardId: "s1_22_aegis_colossus"
+  cardArt: {fileID: 21300000, guid: d98c5a1478a6c99f1676b60d90411c32, type: 3}
