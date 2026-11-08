@@ -1,0 +1,306 @@
+[
+  {
+    "id": "ai_save_ship.1",
+    "skill": "disciplines/game-ai",
+    "rule": "Dedicated Boss AI decision entrypoint exists in the Web playable runtime",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md:57-67",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "function\\s+executeBossTurn\\s*\\("
+    },
+    "expect": ">=1 match",
+    "observed": "1 match (line 1757)",
+    "status": "PASS",
+    "priority": "P0",
+    "remediation": "Keep dedicated Boss turn execution entrypoint."
+  },
+  {
+    "id": "ai_save_ship.2",
+    "skill": "disciplines/ai-behavior-trees-utility-ai",
+    "rule": "Boss AI should evaluate all candidate cards in state.aiPool rather than blindly popping the last card before scoring",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:45-57",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "const\\s+cardId\\s*=\\s*state\\.aiPool\\.pop\\(\\)"
+    },
+    "expect": "0 matches",
+    "observed": "1 match (line 1762 blindly pops state.aiPool.pop() before evaluating board sockets)",
+    "status": "FAIL",
+    "priority": "P1",
+    "remediation": "Evaluate all candidate (cardId, slot) pairs in state.aiPool using selectBossUtilityAction() in boss_ai_utility.js."
+  },
+  {
+    "id": "ai_save_ship.3",
+    "skill": "disciplines/ai-behavior-trees-utility-ai",
+    "rule": "Boss AI should score multi-factor normalized 0..1 response curves (flips, edge exposure, topology, boosted column denial, 1-ply counter-flip resistance) with IAUS compensation",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:126-139",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "cEdgeSafety|cCounterResistance|compensate\\("
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches in live HTML (only scores flips.length integer; random tie-break on line 1766 is overwritten on first iteration when flips.length === 0)",
+    "status": "FAIL",
+    "priority": "P1",
+    "remediation": "Integrate boss_ai_utility.js (5 normalized response curves + IAUS compensation + 1-ply lookahead)."
+  },
+  {
+    "id": "ai_save_ship.4",
+    "skill": "disciplines/ai-behavior-trees-utility-ai",
+    "rule": "Utility AI prototype implements normalized response curves and IAUS makeup compensation (Curves.compensate) in boss_ai_utility.js",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:126-135",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "Datasets/mirofish_gameplay/skills_ai_save_ship/boss_ai_utility.js",
+      "regex": "compensate\\(product,\\s*count\\)"
+    },
+    "expect": ">=1 match",
+    "observed": "1 match (boss_ai_utility.js:54)",
+    "status": "PASS",
+    "priority": "P0",
+    "remediation": "None required; IAUS makeup compensation verified in boss_ai_utility.js:54-59."
+  },
+  {
+    "id": "ai_save_ship.5",
+    "skill": "disciplines/ai-behavior-trees-utility-ai",
+    "rule": "Utility AI Grandmaster tier achieves >= 2.0x relative win-rate uplift over the current greedy Boss AI against a Greedy Player across 2,000 simulated matches",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:75-83",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/mirofish_gameplay/skills_ai_save_ship/raw/ai_benchmark.json",
+      "expression": "(data['greedy']['grandmaster']['overallBossWinRate'] / data['greedy']['greedy_current']['overallBossWinRate']) >= 2.0"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P0",
+    "remediation": "Grandmaster Utility AI achieves 15.95% overall win rate vs 6.65% baseline (2.40x uplift across 2,000 matches)."
+  },
+  {
+    "id": "ai_save_ship.6",
+    "skill": "disciplines/ai-behavior-trees-utility-ai",
+    "rule": "Utility AI Grandmaster tier achieves >= 25% win rate on Stage 4 (Apex Neural Core) against a Greedy Player",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:75-83",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/mirofish_gameplay/skills_ai_save_ship/raw/ai_benchmark.json",
+      "expression": "data['greedy']['grandmaster']['byStage'][3]['bossWinRate'] >= 0.25"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P0",
+    "remediation": "Grandmaster Utility AI achieves 30.4% win rate on Stage 4 (up from 13.6% baseline) against a Greedy Player."
+  },
+  {
+    "id": "ai_save_ship.7",
+    "skill": "disciplines/game-ai",
+    "rule": "Utility AI Grandmaster tier achieves >= 60% overall win rate against a Random Player across 2,000 matches",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md:57-67",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/mirofish_gameplay/skills_ai_save_ship/raw/ai_benchmark.json",
+      "expression": "data['random']['grandmaster']['overallBossWinRate'] >= 0.60"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P1",
+    "remediation": "Grandmaster Utility AI achieves 65.0% overall win rate (85.6% on Stage 4) vs Random Player."
+  },
+  {
+    "id": "ai_save_ship.8",
+    "skill": "disciplines/game-ai",
+    "rule": "Difficulty tiers (Apprentice, Tactician, Grandmaster) scale monotonically in Boss win rate",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md:57-67",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/mirofish_gameplay/skills_ai_save_ship/raw/ai_benchmark.json",
+      "expression": "data['greedy']['apprentice']['overallBossWinRate'] < data['greedy']['tactician']['overallBossWinRate'] < data['greedy']['grandmaster']['overallBossWinRate']"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P1",
+    "remediation": "All 3 difficulty tiers (Apprentice 3.5%, Tactician 10.9%, Grandmaster 15.95%) scale monotonically."
+  },
+  {
+    "id": "ai_save_ship.9",
+    "skill": "disciplines/save-systems",
+    "rule": "Web playable must persist campaign progress (stageIdx, Wins, Losses) to localStorage across page reloads",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/save-systems/SKILL.md:27-35",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "Object.keys(window.localStorage).length > 0"
+    },
+    "expect": "true",
+    "observed": false,
+    "status": "FAIL",
+    "priority": "P1",
+    "remediation": "Persist stageIdx, Wins, Losses, and unlocked cards to localStorage with a versioned JSON schema."
+  },
+  {
+    "id": "ai_save_ship.10",
+    "skill": "disciplines/save-systems",
+    "rule": "Unity EchoGhostSnapshot save payload must include an explicit integer schema version field (`public int version = 1;`) from day one",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/save-systems/SKILL.md:45-64",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "regex": "public\\s+int\\s+version\\b"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches in EchoGhostSnapshot (lines 462-470 lack a schema version integer field)",
+    "status": "FAIL",
+    "priority": "P1",
+    "remediation": "Add `public int version = 1;` to EchoGhostSnapshot and a sequential migration function `Migrate(raw)`."
+  },
+  {
+    "id": "ai_save_ship.11",
+    "skill": "disciplines/save-systems",
+    "rule": "Unity EchoGhostPvPManager implements HMAC-SHA256 receipt signing (`HMACSHA256`) for snapshot integrity verification",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/save-systems/SKILL.md:173-177",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "regex": "HMACSHA256"
+    },
+    "expect": ">=1 match",
+    "observed": "1 match (line 569 in GenerateActionLogHmacReceipt)",
+    "status": "PASS",
+    "priority": "P1",
+    "remediation": "Keep HMAC-SHA256 receipt generation for EchoGhostSnapshot integrity checks."
+  },
+  {
+    "id": "ai_save_ship.12",
+    "skill": "disciplines/save-systems",
+    "rule": "Authoritative PvP HMAC secret key must not be hardcoded in client source (`DefaultReceiptSecret`)",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/save-systems/SKILL.md:175",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "regex": "DefaultReceiptSecret\\s*=\\s*\"CARDFRONT_"
+    },
+    "expect": "0 matches",
+    "observed": "1 match at line 475 (`DefaultReceiptSecret = \"CARDFRONT_ECHO_GHOST_SOVEREIGN_HMAC_KEY_2026\"`)",
+    "status": "FAIL",
+    "priority": "P1",
+    "remediation": "Move authoritative PvP receipt verification secret to server environment variables; treat client checksum as non-authoritative corruption detection."
+  },
+  {
+    "id": "ai_save_ship.13",
+    "skill": "disciplines/save-systems",
+    "rule": "Save writes must use atomic temp-file replacement (`.tmp` -> `.bak` -> target) to prevent half-written corrupt saves",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/save-systems/SKILL.md:97-130",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "regex": "\\.tmp|File\\.Replace|File\\.Move"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches (EchoGhostSnapshot is serialized via JsonUtility.ToJson without atomic .tmp -> .bak -> target file replacement)",
+    "status": "FAIL",
+    "priority": "P1",
+    "remediation": "Write snapshot JSON to `.tmp`, flush to disk, rotate existing save to `.bak`, and atomically rename to target path."
+  },
+  {
+    "id": "ai_save_ship.14",
+    "skill": "workflows/prototype-fast",
+    "rule": "Card stats and stage configurations are externalized into top-level declarative data tables (`ALL_CARDS` and `STAGES`)",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/prototype-fast/SKILL.md:62-66",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "typeof ALL_CARDS === 'object' && Object.keys(ALL_CARDS).length === 16 && Array.isArray(STAGES) && STAGES.length === 4"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P1",
+    "remediation": "None required; ALL_CARDS (16) and STAGES (4) are cleanly externalized in declarative tables."
+  },
+  {
+    "id": "ai_save_ship.15",
+    "skill": "workflows/prototype-fast",
+    "rule": "Production shippable HTML should not embed automated test harnesses (`runVisualAutomatedPlaytest` / `runDragDropTest`) inline",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/prototype-fast/SKILL.md:88-92",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "function\\s+runVisualAutomatedPlaytest\\s*\\("
+    },
+    "expect": "0 matches",
+    "observed": "1 match at line 2489 (250+ lines of ?autotest=1 and ?dragtest=1 harness code embedded in shippable HTML)",
+    "status": "FAIL",
+    "priority": "P2",
+    "remediation": "Extract automated test harnesses into external Playwright test scripts before shipping."
+  },
+  {
+    "id": "ai_save_ship.16",
+    "skill": "workflows/itch-publish",
+    "rule": "itch.io HTML5 zip root must contain an entry file named `index.html`",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/itch-publish/SKILL.md:129",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "command": "test -f WebPlayable/index.html && echo true || echo false"
+    },
+    "expect": "true",
+    "observed": "false",
+    "status": "FAIL",
+    "priority": "P0",
+    "remediation": "Output build entry file as `index.html` at the root of the itch.io HTML5 zip archive."
+  },
+  {
+    "id": "ai_save_ship.17",
+    "skill": "workflows/itch-publish",
+    "rule": "itch.io HTML5 builds must not use parent-directory asset traversal (`../GeneratedArt/`) that escapes the zip root",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/itch-publish/SKILL.md:132",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "\\.\\./GeneratedArt/"
+    },
+    "expect": "0 matches",
+    "observed": "23 matches (lines 40, 931, 968-1140, 1307-1310 use `../GeneratedArt/...`, which 404s when WebPlayable/ is zipped for itch.io)",
+    "status": "FAIL",
+    "priority": "P0",
+    "remediation": "Copy GeneratedArt/ inside the web distribution root and rewrite paths to `./GeneratedArt/...`."
+  },
+  {
+    "id": "ai_save_ship.18",
+    "skill": "workflows/steam-publish",
+    "rule": "SteamPipe `app_build_*.vdf` and `depot_build_*.vdf` manifests with debug symbol exclusions (`*.pdb`, `*DoNotShip*`) must exist before Steam release",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/steam-publish/SKILL.md:110-163",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "command": "find . -maxdepth 3 -name 'app_build*.vdf' | grep -q . && echo true || echo false"
+    },
+    "expect": "true",
+    "observed": "false",
+    "status": "FAIL",
+    "priority": "P2",
+    "remediation": "Create SteamPipe `app_build_<appid>.vdf` and `depot_build_<depotid>.vdf` manifests with FileExclusion rules for `*.pdb`, `*.burst.debug*`, and `*DoNotShip*`."
+  }
+]

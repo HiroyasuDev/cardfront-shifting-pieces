@@ -1,0 +1,1339 @@
+[
+  {
+    "viewport": "1024x768",
+    "hits": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          1
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "DIV.grid-3x3"
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "DIV.grid-3x3"
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "DIV.grid-3x3"
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "DIV.board-3d-slab"
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "DIV.board-3d-slab"
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "DIV.board-3d-slab"
+      }
+    ],
+    "clicks": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            2
+          ]
+        ]
+      }
+    ],
+    "clickToPlaceOk": "8/8",
+    "layoutShiftOnHover": [
+      {
+        "hud": 123,
+        "hudPx": 914,
+        "asideLeft": 1218,
+        "asideVisiblePx": 0,
+        "gridLeft": 543
+      },
+      {
+        "hud": 98,
+        "hudPx": 825,
+        "asideLeft": 1129,
+        "asideVisiblePx": 0,
+        "gridLeft": 499
+      },
+      {
+        "hud": 112,
+        "hudPx": 906,
+        "asideLeft": 1210,
+        "asideVisiblePx": 0,
+        "gridLeft": 539
+      },
+      {
+        "hud": 115,
+        "hudPx": 910,
+        "asideLeft": 1214,
+        "asideVisiblePx": 0,
+        "gridLeft": 541
+      }
+    ],
+    "gridLeftRangePx": 44,
+    "asideLeftRangePx": 89
+  },
+  {
+    "viewport": "1280x720",
+    "hits": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          1
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "center": "DIV.grid-3x3",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "center": "DIV.grid-3x3",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "center": "DIV.grid-3x3",
+        "tl": "OK",
+        "br": "OK"
+      }
+    ],
+    "clicks": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            2
+          ]
+        ]
+      }
+    ],
+    "clickToPlaceOk": "8/8",
+    "layoutShiftOnHover": [
+      {
+        "hud": 123,
+        "hudPx": 914,
+        "asideLeft": 1218,
+        "asideVisiblePx": 62,
+        "gridLeft": 555
+      },
+      {
+        "hud": 96,
+        "hudPx": 798,
+        "asideLeft": 1102,
+        "asideVisiblePx": 178,
+        "gridLeft": 497
+      },
+      {
+        "hud": 98,
+        "hudPx": 825,
+        "asideLeft": 1129,
+        "asideVisiblePx": 151,
+        "gridLeft": 510
+      },
+      {
+        "hud": 119,
+        "hudPx": 917,
+        "asideLeft": 1221,
+        "asideVisiblePx": 59,
+        "gridLeft": 556
+      }
+    ],
+    "gridLeftRangePx": 59,
+    "asideLeftRangePx": 119
+  },
+  {
+    "viewport": "1280x800",
+    "hits": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          1
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "center": "OK",
+        "tl": "DIV.board-3d-slab",
+        "br": "DIV.grid-3x3"
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "center": "OK",
+        "tl": "DIV.board-3d-slab",
+        "br": "DIV.grid-3x3"
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "center": "OK",
+        "tl": "DIV.board-3d-slab",
+        "br": "DIV.grid-3x3"
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      }
+    ],
+    "clicks": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            2
+          ]
+        ]
+      }
+    ],
+    "clickToPlaceOk": "8/8",
+    "layoutShiftOnHover": [
+      {
+        "hud": 115,
+        "hudPx": 910,
+        "asideLeft": 1214,
+        "asideVisiblePx": 66,
+        "gridLeft": 533
+      },
+      {
+        "hud": 119,
+        "hudPx": 917,
+        "asideLeft": 1221,
+        "asideVisiblePx": 59,
+        "gridLeft": 537
+      },
+      {
+        "hud": 123,
+        "hudPx": 914,
+        "asideLeft": 1218,
+        "asideVisiblePx": 62,
+        "gridLeft": 535
+      },
+      {
+        "hud": 112,
+        "hudPx": 906,
+        "asideLeft": 1210,
+        "asideVisiblePx": 70,
+        "gridLeft": 531
+      }
+    ],
+    "gridLeftRangePx": 6,
+    "asideLeftRangePx": 11
+  },
+  {
+    "viewport": "1440x900",
+    "hits": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          1
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      }
+    ],
+    "clicks": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "ok": false,
+        "placedAt": []
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "ok": false,
+        "placedAt": []
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "ok": false,
+        "placedAt": []
+      }
+    ],
+    "clickToPlaceOk": "5/8",
+    "layoutShiftOnHover": [
+      {
+        "hud": 119,
+        "hudPx": 917,
+        "asideLeft": 1221,
+        "asideVisiblePx": 219,
+        "gridLeft": 510
+      },
+      {
+        "hud": 98,
+        "hudPx": 825,
+        "asideLeft": 1162,
+        "asideVisiblePx": 264,
+        "gridLeft": 481
+      },
+      {
+        "hud": 112,
+        "hudPx": 906,
+        "asideLeft": 1210,
+        "asideVisiblePx": 230,
+        "gridLeft": 505
+      },
+      {
+        "hud": 123,
+        "hudPx": 914,
+        "asideLeft": 1218,
+        "asideVisiblePx": 222,
+        "gridLeft": 509
+      },
+      {
+        "hud": 96,
+        "hudPx": 798,
+        "asideLeft": 1162,
+        "asideVisiblePx": 264,
+        "gridLeft": 481
+      }
+    ],
+    "gridLeftRangePx": 29,
+    "asideLeftRangePx": 59
+  },
+  {
+    "viewport": "1920x1080",
+    "hits": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          1
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "center": "DIV.grid-3x3",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "center": "DIV.grid-3x3",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "center": "DIV.grid-3x3",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "center": "OK",
+        "tl": "DIV.grid-3x3",
+        "br": "OK"
+      }
+    ],
+    "clicks": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            2
+          ]
+        ]
+      }
+    ],
+    "clickToPlaceOk": "8/8",
+    "layoutShiftOnHover": [
+      {
+        "hud": 123,
+        "hudPx": 914,
+        "asideLeft": 1502,
+        "asideVisiblePx": 264,
+        "gridLeft": 707
+      },
+      {
+        "hud": 98,
+        "hudPx": 825,
+        "asideLeft": 1502,
+        "asideVisiblePx": 264,
+        "gridLeft": 707
+      },
+      {
+        "hud": 96,
+        "hudPx": 798,
+        "asideLeft": 1502,
+        "asideVisiblePx": 264,
+        "gridLeft": 707
+      },
+      {
+        "hud": 119,
+        "hudPx": 917,
+        "asideLeft": 1502,
+        "asideVisiblePx": 264,
+        "gridLeft": 707
+      }
+    ],
+    "gridLeftRangePx": 0,
+    "asideLeftRangePx": 0
+  },
+  {
+    "viewport": "1180x820",
+    "hits": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          1
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "center": "OK",
+        "tl": "DIV.board-3d-slab",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "center": "OK",
+        "tl": "DIV.board-3d-slab",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "center": "OK",
+        "tl": "DIV.board-3d-slab",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "center": "OK",
+        "tl": "OK",
+        "br": "OK"
+      }
+    ],
+    "clicks": [
+      {
+        "tile": [
+          0,
+          0
+        ],
+        "ok": false,
+        "placedAt": []
+      },
+      {
+        "tile": [
+          0,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          1,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          0
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          1
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "tile": [
+          2,
+          2
+        ],
+        "ok": true,
+        "placedAt": [
+          [
+            2,
+            2
+          ]
+        ]
+      }
+    ],
+    "clickToPlaceOk": "7/8",
+    "layoutShiftOnHover": [
+      {
+        "hud": 98,
+        "hudPx": 825,
+        "asideLeft": 1129,
+        "asideVisiblePx": 51,
+        "gridLeft": 485
+      },
+      {
+        "hud": 112,
+        "hudPx": 842,
+        "asideLeft": 1146,
+        "asideVisiblePx": 34,
+        "gridLeft": 494
+      },
+      {
+        "hud": 112,
+        "hudPx": 906,
+        "asideLeft": 1210,
+        "asideVisiblePx": 0,
+        "gridLeft": 526
+      },
+      {
+        "hud": 107,
+        "hudPx": 854,
+        "asideLeft": 1158,
+        "asideVisiblePx": 22,
+        "gridLeft": 500
+      }
+    ],
+    "gridLeftRangePx": 41,
+    "asideLeftRangePx": 81
+  }
+]

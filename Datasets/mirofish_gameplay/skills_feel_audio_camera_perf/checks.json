@@ -1,0 +1,324 @@
+[
+  {
+    "id": "feel_audio_camera_perf.1",
+    "skill": "disciplines/game-feel",
+    "rule": "Quadratic trauma shake: screen shake amplitude must equal trauma * trauma so small hits are subtle and multi-captures punch",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md:66, 81",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "const\\s+shake\\s*=\\s*trauma\\s*\\*\\s*trauma"
+    },
+    "expect": ">=1 match",
+    "observed": "1 match (line 1396)",
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "feel_audio_camera_perf.2",
+    "skill": "disciplines/game-feel",
+    "rule": "Smooth sampled sine/noise shake: camera shake must use continuous trigonometric/noise functions rather than per-frame Math.random() static",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md:83-86, 144",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "Math\\.sin\\(state\\.noiseTime\\s*\\*\\s*1\\.7\\)"
+    },
+    "expect": ">=1 match",
+    "observed": "1 match (line 1398)",
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "feel_audio_camera_perf.3",
+    "skill": "disciplines/game-feel",
+    "rule": "Hit-stop real-time recovery: triggerHitStop(80) must activate immediately and clear after ~80ms wall-clock time",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md:92-114",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "(async () => { triggerHitStop(60); const on = state.hitStopActive === true; await new Promise(r => setTimeout(r, 90)); const off = state.hitStopActive === false; return on && off; })()"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "feel_audio_camera_perf.4",
+    "skill": "disciplines/game-feel",
+    "rule": "Unity hit-stop must use WaitForSecondsRealtime so low Time.timeScale never stalls recovery",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md:109-113, 146-148",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/SynapseGameDevSkillsHarness.cs",
+      "regex": "new\\s+WaitForSecondsRealtime\\("
+    },
+    "expect": ">=1 match",
+    "observed": "1 match (line 87)",
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "feel_audio_camera_perf.5",
+    "skill": "disciplines/game-feel",
+    "rule": "Overlapping hit-stops in WebPlayable must guard timer restore with a sequence ID so an earlier hit-stop cannot cut a newer one short",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md:97-105, 150-151",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "hitStopId|hitStopSeq|clearTimeout\\(.*hitStop"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "feel_audio_camera_perf.6",
+    "skill": "disciplines/game-feel",
+    "rule": "Consistent importance tiers: Boss captures in executeBossTurn and Tactical Slide captures should also trigger proportional trauma/feedback",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md:56-57, 131-138",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "addTrauma\\("
+    },
+    "expect": ">=3 call sites (hand deploy, slide capture, boss capture)",
+    "observed": "2 call sites (both inside hand deploy at lines 1741 and 1743; 0 in slide or boss turn)",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "feel_audio_camera_perf.7",
+    "skill": "disciplines/game-feel",
+    "rule": "Accessibility option: provide a Reduce Screen Shake / prefers-reduced-motion check before applying trauma shake and brightness flash",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md:157-158",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "prefers-reduced-motion|reduceShake|reduceScreenShake"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "feel_audio_camera_perf.8",
+    "skill": "disciplines/audio-design",
+    "rule": "Bus routing: WebAudio synthesis should route through a dedicated GainNode bus and DynamicsCompressorNode limiter rather than directly to actx.destination",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/audio-design/SKILL.md:33-39, 162-167",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "createDynamicsCompressor|masterBus|sfxBus"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches (connects directly to actx.destination at line 1341)",
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "feel_audio_camera_perf.9",
+    "skill": "disciplines/audio-design",
+    "rule": "Unity AudioSource routing: procedural audio sources must assign an AudioMixerGroup rather than leaving outputAudioMixerGroup null",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/audio-design/SKILL.md:80-81, 164-165",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Audio/SynapseProceduralAudioDirector.cs",
+      "regex": "outputAudioMixerGroup"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "feel_audio_camera_perf.10",
+    "skill": "disciplines/audio-design",
+    "rule": "SFX variation: repeated UI/card sound effects should apply small random pitch/volume offsets to avoid robotic repetition",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/audio-design/SKILL.md:48-49, 114-130",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "function\\s+playTone[\\s\\S]{0,400}(?:Math\\.random|seededRng)"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "feel_audio_camera_perf.11",
+    "skill": "disciplines/audio-design",
+    "rule": "Escalating combo audio: Unity procedural audio director scales capture fanfare arpeggio notes with captured card count (1..4)",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/audio-design/SKILL.md:45-47",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Audio/SynapseProceduralAudioDirector.cs",
+      "regex": "GetOrBuildCaptureFlipFanfare\\(int\\s+capturesCount\\)"
+    },
+    "expect": ">=1 match",
+    "observed": "1 match (line 172)",
+    "status": "PASS",
+    "priority": "P2"
+  },
+  {
+    "id": "feel_audio_camera_perf.12",
+    "skill": "disciplines/camera-systems",
+    "rule": "3D board camera presets: setBoardCamera must update --board-tilt-x, --board-tilt-z, and rotateX/rotateZ on #board-3d-slab",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/camera-systems/SKILL.md:46-47",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "(() => { setBoardCamera('14,0'); const t = document.getElementById('board-3d-slab').style.transform; setBoardCamera('5,0'); return t.includes('rotateX(14deg)'); })()"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P2"
+  },
+  {
+    "id": "feel_audio_camera_perf.13",
+    "skill": "disciplines/camera-systems",
+    "rule": "Frame-rate-independent smoothing: dragTick ghost follow and board parallax should use dt-scaled exponential decay 1 - Math.exp(-rate * dt) instead of fixed per-frame lerp constants",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/camera-systems/SKILL.md:38-40, 73-80, 131-132",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "Math\\.exp\\("
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches (dragTick uses fixed 0.22 / 0.42 / 0.2 per-frame multipliers at lines 2271-2295)",
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "feel_audio_camera_perf.14",
+    "skill": "disciplines/camera-systems",
+    "rule": "Camera selector DOM ID consistency: runVisualAutomatedPlaytest must reference the existing #camera-select element rather than a non-existent #cam-select ID",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/camera-systems/SKILL.md:52",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "getElementById\\(\"cam-select\"\\)"
+    },
+    "expect": "0 matches (element ID is camera-select at line 863)",
+    "observed": "1 match (line 2557)",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "feel_audio_camera_perf.15",
+    "skill": "disciplines/camera-systems",
+    "rule": "Additive shake composition: camera shake offset on #arena-viewport is separated from 3D camera rotation on #board-3d-slab so follow and shake never fight",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/camera-systems/SKILL.md:117-127, 145-146",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "document.getElementById('arena-viewport').contains(document.getElementById('board-3d-slab')) && document.getElementById('arena-viewport') !== document.getElementById('board-3d-slab')"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P2"
+  },
+  {
+    "id": "feel_audio_camera_perf.16",
+    "skill": "disciplines/performance-optimization",
+    "rule": "Frame-time budget: p95 frame time across 60 rAF frames under active trauma shake and SVG animations must stay <= 20.0 ms (60 FPS target = 16.67 ms)",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/performance-optimization/SKILL.md:62-70",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_cardgame_ui_input/scripts/run_playwright_audits.js",
+      "json_file": "Datasets/mirofish_gameplay/skills_feel_audio_camera_perf/raw/playwright_feel_perf_audit.json",
+      "expression": "data['deepProbes']['domChurnAndPerf']['p95FrameMs']"
+    },
+    "expect": "<=20.0",
+    "observed": 16.8,
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "feel_audio_camera_perf.17",
+    "skill": "disciplines/performance-optimization",
+    "rule": "DOM node pooling vs innerHTML thrash: renderAll() should update existing slot/card DOM nodes in place rather than allocating >100 new DOM nodes across 20 hover renders",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/performance-optimization/SKILL.md:88-102, 146-149",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_cardgame_ui_input/scripts/run_playwright_audits.js",
+      "json_file": "Datasets/mirofish_gameplay/skills_feel_audio_camera_perf/raw/playwright_feel_perf_audit.json",
+      "expression": "data['deepProbes']['domChurnAndPerf']['addedNodesPer20Renders']"
+    },
+    "expect": "<=50",
+    "observed": 504,
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "feel_audio_camera_perf.18",
+    "skill": "disciplines/performance-optimization",
+    "rule": "Unity object pooling: SynapsePool<T> and SwapBuffer<T> provide zero-allocation object reuse for AI lookahead and resolve queues",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/performance-optimization/SKILL.md:88-102",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Tools/SynapseMemoryPool.cs",
+      "regex": "public\\s+sealed\\s+class\\s+SynapsePool<T>"
+    },
+    "expect": ">=1 match",
+    "observed": "1 match (line 9)",
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "feel_audio_camera_perf.19",
+    "skill": "disciplines/performance-optimization",
+    "rule": "Avoid LINQ in hot simulation/AI paths: Unity AI and game-logic scripts should not import System.Linq",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/performance-optimization/SKILL.md:125-128, 148",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/AI/SynapseMiroStrandsSimulationEngine.cs",
+      "regex": "using\\s+System\\.Linq;"
+    },
+    "expect": "0 matches",
+    "observed": "1 match (line 3)",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "feel_audio_camera_perf.20",
+    "skill": "disciplines/performance-optimization",
+    "rule": "Stop idle rAF loops: startGameFeelTraumaLoop should sleep when state.trauma === 0 rather than scheduling requestAnimationFrame 60 times/sec unconditionally",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/performance-optimization/SKILL.md:48-50",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "if\\s*\\(state\\.trauma\\s*>\\s*0[\\s\\S]{0,450}\\}\\s*requestAnimationFrame\\(step\\);"
+    },
+    "expect": "0 matches (only schedule rAF while state.trauma > 0)",
+    "observed": "1 match (lines 1393-1405 schedule requestAnimationFrame(step) unconditionally outside the if block)",
+    "status": "FAIL",
+    "priority": "P2"
+  }
+]

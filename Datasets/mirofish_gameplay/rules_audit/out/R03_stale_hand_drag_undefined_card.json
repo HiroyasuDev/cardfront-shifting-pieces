@@ -1,0 +1,179 @@
+{
+  "id": "R03_stale_hand_drag_undefined_card",
+  "title": "Stale hand-drag drop after keyboard deploy corrupts board",
+  "reproduced": true,
+  "checks": [
+    {
+      "name": "drag ghost is active with hand card #5",
+      "ok": true
+    },
+    {
+      "name": "Enter deployed a card mid-drag and ended the turn",
+      "ok": true,
+      "detail": {
+        "hand": 4,
+        "centre": {
+          "id": "h_valkyrie",
+          "owner": "player",
+          "nesw": [
+            8,
+            8,
+            5,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "name": "boss moved; player turn again; ghost still alive",
+      "ok": true
+    },
+    {
+      "name": "TypeError thrown by getCardEffectiveStats(undefined)",
+      "ok": true,
+      "detail": [
+        "Cannot read properties of undefined (reading 'nesw')"
+      ]
+    },
+    {
+      "name": "target cell now has cardId=undefined but owner='player' (phantom)",
+      "ok": true,
+      "detail": {
+        "id": "<undefined>",
+        "owner": "player",
+        "nesw": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "getScores counts the phantom as an extra Blue point",
+      "ok": true,
+      "detail": {
+        "scoresBlue": 2,
+        "realBlueCards": 1
+      }
+    },
+    {
+      "name": "player still holds the turn after the exception (turn never ended)",
+      "ok": true
+    },
+    {
+      "name": "after the next render the scoreboard shows the inflated Blue score",
+      "ok": true,
+      "detail": {
+        "you": "2",
+        "boss": "2"
+      }
+    }
+  ],
+  "notes": {
+    "startHand": [
+      "h_seraph",
+      "h_archangel",
+      "h_chronos",
+      "h_phoenix",
+      "h_valkyrie"
+    ],
+    "endSnapshot": {
+      "stageIndex": 0,
+      "isPlayerTurn": true,
+      "gameOver": false,
+      "nudgesLeft": 3,
+      "rerollsLeft": 2,
+      "usedSlide": false,
+      "colDice": [
+        4,
+        2,
+        5
+      ],
+      "hand": [
+        "h_seraph",
+        "h_archangel",
+        "h_chronos",
+        "h_phoenix"
+      ],
+      "aiPool": [
+        "e_titan",
+        "e_eclipse",
+        "e_reaper",
+        "e_cryo"
+      ],
+      "selectedHandIdx": 3,
+      "selectedBoardSlot": null,
+      "grid": [
+        [
+          {
+            "id": "e_colossus",
+            "owner": "ai",
+            "nesw": [
+              6,
+              8,
+              5,
+              6
+            ]
+          },
+          {
+            "id": "e_inferno",
+            "owner": "ai",
+            "nesw": [
+              7,
+              7,
+              5,
+              6
+            ]
+          },
+          {
+            "id": "<undefined>",
+            "owner": "player",
+            "nesw": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          null,
+          {
+            "id": "h_valkyrie",
+            "owner": "player",
+            "nesw": [
+              8,
+              8,
+              5,
+              6
+            ]
+          },
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ]
+      ],
+      "scores": {
+        "blue": 2,
+        "red": 2,
+        "empty": 5
+      },
+      "domScore": {
+        "you": "2",
+        "boss": "2"
+      },
+      "turnBadge": "YOUR TURN",
+      "modalShown": false,
+      "modalTitle": "VICTORY!",
+      "ghost": false
+    }
+  },
+  "pageErrors": [
+    "Cannot read properties of undefined (reading 'nesw')"
+  ],
+  "ranAt": "2026-11-08T12:05:41.233Z"
+}

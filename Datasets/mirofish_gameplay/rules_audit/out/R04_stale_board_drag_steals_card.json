@@ -1,0 +1,373 @@
+{
+  "id": "R04_stale_board_drag_steals_card",
+  "title": "Stale slide-drag moves & converts a boss-captured card",
+  "reproduced": true,
+  "checks": [
+    {
+      "name": "setup: phoenix (1,0) is Blue with S edge 5",
+      "ok": true,
+      "detail": {
+        "id": "h_phoenix",
+        "owner": "player",
+        "nesw": [
+          9,
+          8,
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "name": "slide drag active, selectedBoardSlot=(1,0)",
+      "ok": true
+    },
+    {
+      "name": "Enter deployed oracle at (2,2) mid-drag",
+      "ok": true,
+      "detail": {
+        "id": "h_oracle",
+        "owner": "player",
+        "nesw": [
+          8,
+          8,
+          9,
+          8
+        ]
+      }
+    },
+    {
+      "name": "boss (titan N7 > phoenix S5) captured the dragged phoenix",
+      "ok": true,
+      "detail": {
+        "p": {
+          "id": "h_phoenix",
+          "owner": "ai",
+          "nesw": [
+            9,
+            8,
+            5,
+            6
+          ]
+        },
+        "titan": {
+          "id": "e_titan",
+          "owner": "ai",
+          "nesw": [
+            7,
+            5,
+            7,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "name": "boss-owned phoenix was slid to (0,0) and is now Blue",
+      "ok": true,
+      "detail": {
+        "10": null,
+        "00": {
+          "id": "h_phoenix",
+          "owner": "player",
+          "nesw": [
+            9,
+            8,
+            5,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "name": "score swung: stolen phoenix (+1/-1) plus a slide capture it then made",
+      "ok": true,
+      "detail": {
+        "before": {
+          "blueBefore": 3,
+          "redBefore": 5
+        },
+        "after": {
+          "blue": 5,
+          "red": 3,
+          "empty": 1
+        }
+      }
+    },
+    {
+      "name": "B: dropping the (already deployed) dragged card places a different hand card instead",
+      "ok": true,
+      "detail": {
+        "dragged": "h_seraph",
+        "placed": {
+          "id": "h_arbiter",
+          "owner": "player",
+          "nesw": [
+            8,
+            8,
+            9,
+            9
+          ]
+        }
+      }
+    },
+    {
+      "name": "B: hand 5 -> 3 (turn-2 deploy happened, but with a card the player never dragged)",
+      "ok": true,
+      "detail": {
+        "hand": 3
+      }
+    }
+  ],
+  "notes": {
+    "snapshots": {
+      "e2": {
+        "stageIndex": 0,
+        "isPlayerTurn": true,
+        "gameOver": false,
+        "nudgesLeft": 3,
+        "rerollsLeft": 2,
+        "usedSlide": false,
+        "colDice": [
+          1,
+          2,
+          5
+        ],
+        "hand": [
+          "h_kai",
+          "h_seraph",
+          "h_chronos"
+        ],
+        "aiPool": [],
+        "selectedHandIdx": 0,
+        "selectedBoardSlot": null,
+        "grid": [
+          [
+            null,
+            {
+              "id": "e_eclipse",
+              "owner": "ai",
+              "nesw": [
+                6,
+                6,
+                5,
+                6
+              ]
+            },
+            {
+              "id": "e_cryo",
+              "owner": "ai",
+              "nesw": [
+                5,
+                7,
+                6,
+                7
+              ]
+            }
+          ],
+          [
+            {
+              "id": "h_phoenix",
+              "owner": "ai",
+              "nesw": [
+                9,
+                8,
+                5,
+                6
+              ]
+            },
+            {
+              "id": "e_archon",
+              "owner": "ai",
+              "nesw": [
+                7,
+                6,
+                6,
+                5
+              ]
+            },
+            {
+              "id": "e_shinobi",
+              "owner": "player",
+              "nesw": [
+                7,
+                6,
+                6,
+                5
+              ]
+            }
+          ],
+          [
+            {
+              "id": "e_titan",
+              "owner": "ai",
+              "nesw": [
+                7,
+                5,
+                7,
+                6
+              ]
+            },
+            {
+              "id": "e_reaper",
+              "owner": "player",
+              "nesw": [
+                6,
+                7,
+                7,
+                5
+              ]
+            },
+            {
+              "id": "h_oracle",
+              "owner": "player",
+              "nesw": [
+                8,
+                8,
+                9,
+                8
+              ]
+            }
+          ]
+        ],
+        "scores": {
+          "blue": 3,
+          "red": 5,
+          "empty": 1
+        },
+        "domScore": {
+          "you": "3",
+          "boss": "5"
+        },
+        "turnBadge": "YOUR TURN",
+        "modalShown": false,
+        "modalTitle": "VICTORY!",
+        "ghost": true
+      },
+      "e3": {
+        "stageIndex": 0,
+        "isPlayerTurn": true,
+        "gameOver": false,
+        "nudgesLeft": 3,
+        "rerollsLeft": 2,
+        "usedSlide": true,
+        "colDice": [
+          1,
+          2,
+          5
+        ],
+        "hand": [
+          "h_kai",
+          "h_seraph",
+          "h_chronos"
+        ],
+        "aiPool": [],
+        "selectedHandIdx": 0,
+        "selectedBoardSlot": null,
+        "grid": [
+          [
+            {
+              "id": "h_phoenix",
+              "owner": "player",
+              "nesw": [
+                9,
+                8,
+                5,
+                6
+              ]
+            },
+            {
+              "id": "e_eclipse",
+              "owner": "player",
+              "nesw": [
+                6,
+                6,
+                5,
+                6
+              ]
+            },
+            {
+              "id": "e_cryo",
+              "owner": "ai",
+              "nesw": [
+                5,
+                7,
+                6,
+                7
+              ]
+            }
+          ],
+          [
+            null,
+            {
+              "id": "e_archon",
+              "owner": "ai",
+              "nesw": [
+                7,
+                6,
+                6,
+                5
+              ]
+            },
+            {
+              "id": "e_shinobi",
+              "owner": "player",
+              "nesw": [
+                7,
+                6,
+                6,
+                5
+              ]
+            }
+          ],
+          [
+            {
+              "id": "e_titan",
+              "owner": "ai",
+              "nesw": [
+                7,
+                5,
+                7,
+                6
+              ]
+            },
+            {
+              "id": "e_reaper",
+              "owner": "player",
+              "nesw": [
+                6,
+                7,
+                7,
+                5
+              ]
+            },
+            {
+              "id": "h_oracle",
+              "owner": "player",
+              "nesw": [
+                8,
+                8,
+                9,
+                8
+              ]
+            }
+          ]
+        ],
+        "scores": {
+          "blue": 5,
+          "red": 3,
+          "empty": 1
+        },
+        "domScore": {
+          "you": "5",
+          "boss": "3"
+        },
+        "turnBadge": "YOUR TURN",
+        "modalShown": false,
+        "modalTitle": "VICTORY!",
+        "ghost": false
+      }
+    }
+  },
+  "pageErrors": [],
+  "ranAt": "2026-11-08T12:06:38.497Z"
+}

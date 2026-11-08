@@ -1,0 +1,354 @@
+[
+  {
+    "id": "cardgame_ui_input.1",
+    "skill": "genres/card-game",
+    "rule": "Single-Zone Invariant: every active card UID lives in at most one zone (hand, board, aiPool) with zero duplicates",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md:34",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "(() => { const h = state.hand; const b = state.grid.flat().filter(c => c.cardId).map(c => c.cardId); const a = state.aiPool; const all = [...h, ...b, ...a]; return all.length === 11 && new Set(all).size === 11; })()"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P0"
+  },
+  {
+    "id": "cardgame_ui_input.2",
+    "skill": "genres/card-game",
+    "rule": "Shuffle fairness: Fisher-Yates shuffle must use inclusive upper bound (i + 1) to avoid off-by-one permutation bias",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md:118-120",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "Math\\.floor\\((?:Math\\.random|seededRng)\\(\\)\\s*\\*\\s*\\(i\\s*\\+\\s*1\\)\\)"
+    },
+    "expect": ">=1 match",
+    "observed": "1 match (line 1502)",
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.3",
+    "skill": "genres/card-game",
+    "rule": "Seeded RNG: shuffle and dice rolls must use a seeded PRNG instance rather than unseeded global Math.random() so runs are replayable",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md:115-117",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "Math\\.random\\(\\)"
+    },
+    "expect": "0 matches",
+    "observed": "3 matches (lines 1502, 1608, 1773)",
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.4",
+    "skill": "genres/card-game",
+    "rule": "Card data completeness: all 16 cards in ALL_CARDS must define id, name, 4-element nesw array, art path, and telegraph spec",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md:33",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "Object.keys(ALL_CARDS).length === 16 && Object.values(ALL_CARDS).every(c => c.id && c.name && Array.isArray(c.nesw) && c.nesw.length === 4 && c.art && c.telegraphPattern)"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.5",
+    "skill": "genres/card-game",
+    "rule": "Atomic play commit: playing a card removes it from state.hand, places it on state.grid, and flips captured neighbors in one transaction",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md:81-88",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "(() => { startStage(0); const cid = state.hand[0]; handleSlotClick(0, 0); const ok = state.grid[0][0].cardId === cid && state.hand.length === 4 && !state.hand.includes(cid); startStage(0); return ok; })()"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P0"
+  },
+  {
+    "id": "cardgame_ui_input.6",
+    "skill": "genres/card-game",
+    "rule": "Unity C# 3x3 capture evaluation must compare against neighbor's effective boosted directional stats, not raw unboosted CardData.dir_*",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md:38",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "regex": "result\\.effective_(north|east|south|west)\\s*>\\s*neighbor\\.CardData\\.dir_(south|west|north|east)"
+    },
+    "expect": "0 matches",
+    "observed": "4 matches (lines 370, 373, 376, 379)",
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.7",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Responsive layout at 1280x800: right-hand Boss & Dice side-box must stay inside the 1280px viewport even after hovering a board slot",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md:35-40",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "(() => { updateTelegraphHud('h_archangel'); const r = document.querySelector('main > aside:last-of-type').getBoundingClientRect(); return Math.round(r.right) <= window.innerWidth; })()"
+    },
+    "expect": "true",
+    "observed": false,
+    "status": "FAIL",
+    "priority": "P0"
+  },
+  {
+    "id": "cardgame_ui_input.8",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "CSS Grid min-width guard: .center-zone must declare min-width: 0 so nowrap telegraph text cannot blow out the 1fr column",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md:35-37",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "window.getComputedStyle(document.querySelector('.center-zone')).minWidth === '0px'"
+    },
+    "expect": "true",
+    "observed": false,
+    "status": "FAIL",
+    "priority": "P0"
+  },
+  {
+    "id": "cardgame_ui_input.9",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Responsive aspect-ratio policy: WebPlayable CSS should include @media breakpoints so narrow/mobile viewports do not clip the board off-screen",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md:132-133",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "@media\\s*\\("
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.10",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Safe-area inset: WebPlayable CSS should respect env(safe-area-inset-*) for notched displays",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md:41-42",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "safe-area-inset"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "cardgame_ui_input.11",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Typography legibility floor: minimum computed font-size across visible UI text should be >= 12px (and >= 18px for primary HUD per XAG 101)",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md:139-141",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "Math.min(...Array.from(document.querySelectorAll('header *, main *')).filter(el => el.children.length === 0 && el.textContent.trim().length > 0).map(el => parseFloat(getComputedStyle(el).fontSize)))"
+    },
+    "expect": ">=12",
+    "observed": 8.5,
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.12",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Keyboard focus navigation: pressing keys 1..5 selects the corresponding Hero card in state.hand",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md:43-44",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "(() => { window.dispatchEvent(new KeyboardEvent('keydown', { key: '4' })); const ok = state.selectedHandIdx === 3; window.dispatchEvent(new KeyboardEvent('keydown', { key: '1' })); return ok; })()"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.13",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Keyboard focus highlight: moving state.focusedSlotIndex via Arrow keys must apply a dedicated visible focus class on the focused .board-slot even when the mouse is elsewhere",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md:43-44",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "focusedSlotIndex.*classList|focused-slot"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches (focusedSlotIndex only sets state.hoveredSlot which clears on mouseleave)",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "cardgame_ui_input.14",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Modal focus management: opening #result-modal should focus its primary action button and support Escape/Enter dismissal",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md:45-46, 106",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "result-modal.*\\.focus\\(\\)|closeModal.*Escape"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "cardgame_ui_input.15",
+    "skill": "disciplines/input-systems",
+    "rule": "Actions over raw keys: input handling should map physical inputs through a named action binding table rather than inline e.key string checks",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/input-systems/SKILL.md:36-37, 176-177",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "e\\.key\\s*===\\s*\"(ArrowUp|w|W|Enter|r|R)\""
+    },
+    "expect": "0 matches (use named action map)",
+    "observed": "6 matches in handleHarnessKeyDown (lines 1425-1436)",
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.16",
+    "skill": "disciplines/input-systems",
+    "rule": "Physical key bindings: keyboard WASD navigation should inspect e.code (KeyW/KeyA/KeyS/KeyD) so AZERTY/Dvorak layouts preserve spatial direction",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/input-systems/SKILL.md:166-169, 186-188",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "e\\.code\\s*===\\s*\"Key[WASD]\""
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.17",
+    "skill": "disciplines/input-systems",
+    "rule": "Discrete edge vs held key repeat: keydown handler for discrete actions (deploy, reroll, pulse) must ignore key auto-repeat (!e.repeat)",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/input-systems/SKILL.md:38-39, 134",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "e\\.repeat"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "cardgame_ui_input.18",
+    "skill": "disciplines/input-systems",
+    "rule": "Multi-device gamepad support: poll navigator.getGamepads() or support gamepad D-pad/face buttons alongside keyboard and pointer",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/input-systems/SKILL.md:38-39",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "getGamepads"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "cardgame_ui_input.19",
+    "skill": "disciplines/input-systems",
+    "rule": "Pointer drag-and-drop hysteresis & Escape cancel: drag engine must enforce a movement threshold (>= 4px) before starting drag and cancel cleanly on Escape/blur",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/input-systems/SKILL.md:42-45",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "typeof DRAG_THRESHOLD_PX === 'number' && DRAG_THRESHOLD_PX >= 4 && typeof returnGhostHome === 'function'"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.20",
+    "skill": "unity/unity-scriptableobjects",
+    "rule": "ScriptableObject runtime state must use [NonSerialized] fields reset in OnEnable so Play-mode mutations do not persist to disk",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md:72-81, 110-113",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/SynapseGameDevSkillsHarness.cs",
+      "regex": "\\[NonSerialized\\]\\s*public\\s+float\\s+RuntimeValue"
+    },
+    "expect": ">=1 match",
+    "observed": "1 match (line 21)",
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.21",
+    "skill": "unity/unity-scriptableobjects",
+    "rule": "Disabled Domain Reload safety: ScriptableObject runtime variables must also reset on EditorApplication.playModeStateChanged or SubsystemRegistration",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md:81-95, 115-120",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/SynapseGameDevSkillsHarness.cs",
+      "regex": "playModeStateChanged|RuntimeInitializeLoadType\\.SubsystemRegistration"
+    },
+    "expect": ">=1 match",
+    "observed": "0 matches",
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "cardgame_ui_input.22",
+    "skill": "unity/unity-scriptableobjects",
+    "rule": "Authoring config as ScriptableObject assets: SovereignStyleVariantDescriptor table should live in ScriptableObject assets rather than a hardcoded static array",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md:29-35",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "regex": "private\\s+static\\s+readonly\\s+SovereignStyleVariantDescriptor\\[\\]\\s+s_sovereignStyles"
+    },
+    "expect": "0 matches (use ScriptableObject asset registry)",
+    "observed": "1 match (line 609)",
+    "status": "FAIL",
+    "priority": "P2"
+  }
+]

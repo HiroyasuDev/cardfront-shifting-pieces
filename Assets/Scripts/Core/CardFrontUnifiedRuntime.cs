@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
@@ -365,18 +366,30 @@ namespace Synapse.TcgEngine.Core
                     if (Mathf.Abs(dx) + Mathf.Abs(dy) != 1)
                         continue;
 
+                    int neighborResonanceBoost = neighbor.GetTraitValue("cf_resonance_atk");
+                    int neighborColIdx = Mathf.Clamp(neighbor.slot.GetDicevadersColumnIndex(), 0, 4);
+                    int neighborColPip = (game_data.dice_pips != null && neighborColIdx < game_data.dice_pips.Length)
+                        ? game_data.dice_pips[neighborColIdx]
+                        : 1;
+                    int neighborAffinity = (neighbor.CardData.dice_pip_affinity == neighborColPip) ? 1 : 0;
+                    int neighborEdgeBoost = Mathf.Max(neighborResonanceBoost, neighborAffinity);
+                    int neighborEffectiveNorth = Mathf.Clamp(neighbor.CardData.dir_north + neighborEdgeBoost, 1, 10);
+                    int neighborEffectiveEast = Mathf.Clamp(neighbor.CardData.dir_east + neighborEdgeBoost, 1, 10);
+                    int neighborEffectiveSouth = Mathf.Clamp(neighbor.CardData.dir_south + neighborEdgeBoost, 1, 10);
+                    int neighborEffectiveWest = Mathf.Clamp(neighbor.CardData.dir_west + neighborEdgeBoost, 1, 10);
+
                     bool captured = false;
-                    // Neighbor is North (dy == +1): compare our North vs neighbor's South
-                    if (dy == 1 && result.effective_north > neighbor.CardData.dir_south)
+                    // Neighbor is North (dy == +1): compare our effective North vs neighbor's effective South
+                    if (dy == 1 && result.effective_north > neighborEffectiveSouth)
                         captured = true;
-                    // Neighbor is East (dx == +1): compare our East vs neighbor's West
-                    else if (dx == 1 && result.effective_east > neighbor.CardData.dir_west)
+                    // Neighbor is East (dx == +1): compare our effective East vs neighbor's effective West
+                    else if (dx == 1 && result.effective_east > neighborEffectiveWest)
                         captured = true;
-                    // Neighbor is South (dy == -1): compare our South vs neighbor's North
-                    else if (dy == -1 && result.effective_south > neighbor.CardData.dir_north)
+                    // Neighbor is South (dy == -1): compare our effective South vs neighbor's effective North
+                    else if (dy == -1 && result.effective_south > neighborEffectiveNorth)
                         captured = true;
-                    // Neighbor is West (dx == -1): compare our West vs neighbor's East
-                    else if (dx == -1 && result.effective_west > neighbor.CardData.dir_east)
+                    // Neighbor is West (dx == -1): compare our effective West vs neighbor's effective East
+                    else if (dx == -1 && result.effective_west > neighborEffectiveEast)
                         captured = true;
 
                     if (captured && ownerPlayer != null)
@@ -458,6 +471,7 @@ namespace Synapse.TcgEngine.Core
     [Serializable]
     public class EchoGhostSnapshot
     {
+        public int version = 1;
         public string ghost_id;
         public string player_username;
         public int elo_rating;
@@ -472,7 +486,52 @@ namespace Synapse.TcgEngine.Core
 
     public static class EchoGhostPvPManager
     {
-        private const string DefaultReceiptSecret = "CARDFRONT_ECHO_GHOST_SOVEREIGN_HMAC_KEY_2026";
+        private static string ResolveReceiptSecret(string overrideKey = null)
+        {
+            if (!string.IsNullOrEmpty(overrideKey))
+                return overrideKey;
+            string envSecret = Environment.GetEnvironmentVariable("SYNAPSE_ECHO_GHOST_HMAC_SECRET");
+            return !string.IsNullOrEmpty(envSecret) ? envSecret : "ECHO_GHOST_CLIENT_CHECKSUM_SEED_V1";
+        }
+
+        /// <summary>
+        /// Sequentially migrates an <see cref="EchoGhostSnapshot"/> to the latest schema version (v1).
+        /// </summary>
+        public static EchoGhostSnapshot MigrateSnapshot(EchoGhostSnapshot raw)
+        {
+            if (raw == null)
+                return null;
+            if (raw.version < 1)
+            {
+                raw.version = 1;
+                if (raw.card_ids == null)
+                    raw.card_ids = Array.Empty<string>();
+                if (raw.sovereign_style_variants == null)
+                    raw.sovereign_style_variants = Array.Empty<string>();
+            }
+            return raw;
+        }
+
+        /// <summary>
+        /// Writes an <see cref="EchoGhostSnapshot"/> atomically using a `.tmp` staging file and `.bak` backup rotation.
+        /// </summary>
+        public static void SaveGhostSnapshotAtomic(EchoGhostSnapshot snapshot, string targetPath)
+        {
+            if (snapshot == null || string.IsNullOrEmpty(targetPath))
+                return;
+            string json = SerializeGhostSnapshot(snapshot);
+            string tmpPath = targetPath + ".tmp";
+            string bakPath = targetPath + ".bak";
+            File.WriteAllText(tmpPath, json, Encoding.UTF8);
+            if (File.Exists(targetPath))
+            {
+                File.Replace(tmpPath, targetPath, bakPath, true);
+            }
+            else
+            {
+                File.Move(tmpPath, targetPath);
+            }
+        }
 
         /// <summary>
         /// Captures an asynchronous Echo Ghost snapshot from a player's active deck and tactical weights.
@@ -541,7 +600,7 @@ namespace Synapse.TcgEngine.Core
             if (string.IsNullOrEmpty(jsonSnapshot))
                 return null;
 
-            EchoGhostSnapshot snapshot = JsonUtility.FromJson<EchoGhostSnapshot>(jsonSnapshot);
+            EchoGhostSnapshot snapshot = MigrateSnapshot(JsonUtility.FromJson<EchoGhostSnapshot>(jsonSnapshot));
             if (game_data != null && snapshot != null)
             {
                 game_data.is_echo_ghost_match = true;
@@ -557,7 +616,7 @@ namespace Synapse.TcgEngine.Core
             string playerUsername,
             int finalTurnCount,
             string serializedActions,
-            string secretKey = DefaultReceiptSecret)
+            string secretKey = null)
         {
             string payload = string.Format("{0}|{1}|{2}|{3}",
                 matchUid ?? "",
@@ -565,7 +624,7 @@ namespace Synapse.TcgEngine.Core
                 finalTurnCount,
                 serializedActions ?? "");
 
-            byte[] keyBytes = Encoding.UTF8.GetBytes(string.IsNullOrEmpty(secretKey) ? DefaultReceiptSecret : secretKey);
+            byte[] keyBytes = Encoding.UTF8.GetBytes(ResolveReceiptSecret(secretKey));
             byte[] messageBytes = Encoding.UTF8.GetBytes(payload);
 
             using (HMACSHA256 hmac = new HMACSHA256(keyBytes))
@@ -597,6 +656,12 @@ namespace Synapse.TcgEngine.Core
         public float combat_stat_modifier; // Strictly 0.0f to guarantee 0.00% P2W
     }
 
+    [CreateAssetMenu(fileName = "SovereignStyleVariantRegistry", menuName = "Synapse/Atelier/Sovereign Style Variant Registry")]
+    public class SovereignStyleVariantRegistrySO : ScriptableObject
+    {
+        public SovereignStyleVariantDescriptor[] variants;
+    }
+
     /// <summary>
     /// Manages the 5 non-P2W <see cref="VariantData"/> shader vectors, 3D <c>.glb</c> totem bindings,
     /// custom dice materials, the 90-minute onboarding silence check, and <c>high_contrast_silhouette_lock</c>.
@@ -606,7 +671,7 @@ namespace Synapse.TcgEngine.Core
         public const float OnboardingSilenceMinutesThreshold = 90.0f;
         public const int OnboardingSilenceChapterThreshold = 3;
 
-        private static readonly SovereignStyleVariantDescriptor[] s_sovereignStyles = new SovereignStyleVariantDescriptor[]
+        private static readonly SovereignStyleVariantDescriptor[] s_defaultStyleRegistry = new SovereignStyleVariantDescriptor[]
         {
             new SovereignStyleVariantDescriptor
             {
@@ -670,7 +735,7 @@ namespace Synapse.TcgEngine.Core
         /// </summary>
         public static SovereignStyleVariantDescriptor[] GetAllSovereignStyleVariants()
         {
-            return s_sovereignStyles;
+            return s_defaultStyleRegistry;
         }
 
         /// <summary>
@@ -707,14 +772,14 @@ namespace Synapse.TcgEngine.Core
             if (string.IsNullOrEmpty(styleId) || styleId == "default")
                 return baseGlb;
 
-            for (int i = 0; i < s_sovereignStyles.Length; i++)
+            for (int i = 0; i < s_defaultStyleRegistry.Length; i++)
             {
-                if (s_sovereignStyles[i].style_id == styleId)
+                if (s_defaultStyleRegistry[i].style_id == styleId)
                 {
                     string stem = baseGlb.EndsWith(".glb", StringComparison.OrdinalIgnoreCase)
                         ? baseGlb.Substring(0, baseGlb.Length - 4)
                         : baseGlb;
-                    return stem + s_sovereignStyles[i].glb_totem_suffix;
+                    return stem + s_defaultStyleRegistry[i].glb_totem_suffix;
                 }
             }
 

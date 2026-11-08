@@ -1,0 +1,679 @@
+{
+  "keyboardOnlyGame": {
+    "turns": [
+      {
+        "card": "h_arbiter",
+        "tile": [
+          0,
+          0
+        ],
+        "placed": true
+      },
+      {
+        "card": "h_seraph",
+        "tile": [
+          1,
+          2
+        ],
+        "placed": true
+      },
+      {
+        "card": "h_chronos",
+        "tile": [
+          2,
+          0
+        ],
+        "placed": true
+      },
+      {
+        "card": "h_kai",
+        "tile": [
+          2,
+          1
+        ],
+        "placed": true
+      }
+    ],
+    "allPlacedByKeyboard": true,
+    "gameCompleted": true,
+    "modalTitle": "🏆 VICTORY (7 – 2)!",
+    "tabPressesToReachNextStage": 7,
+    "tabStopsFromBodyInModal": [
+      {
+        "tag": "SELECT",
+        "text": "🎥 View: 3D Showcase (5°) 🎥 View: Flat ",
+        "id": "camera-select",
+        "inModal": false
+      },
+      {
+        "tag": "SELECT",
+        "text": "Stage 1: Skystone Sanctuary Stage 2: Iva",
+        "id": "stage-select",
+        "inModal": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "⚡ Pulse Telegraphs",
+        "id": "",
+        "inModal": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "↻ Reset",
+        "id": "",
+        "inModal": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "🎲 Roll All 3D Dice (2 left)",
+        "id": "",
+        "inModal": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Play Again",
+        "id": "",
+        "inModal": true
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Next Stage ▶",
+        "id": "",
+        "inModal": true
+      }
+    ],
+    "modalAutoFocused": false,
+    "nextStageLoadedByKeyboard": true,
+    "notes": "Keys: 1-5 select hand card, arrows/WASD move board focus, Enter/Space place, R reroll, P pulse (handleHarnessKeyDown L1409-1445). No key for column-die nudge; Tactical Slide via Enter on own card then Enter on adjacent tile."
+  },
+  "tabOrder": {
+    "stops": [
+      {
+        "tag": "SELECT",
+        "text": "🎥 View: 3D Showcase (5°) 🎥 View: F",
+        "outlineStyle": "auto",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(248, 250, 252)",
+        "focusVisible": true,
+        "boxShadow": "none"
+      },
+      {
+        "tag": "SELECT",
+        "text": "Stage 1: Skystone Sanctuary Stage 2:",
+        "outlineStyle": "auto",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(248, 250, 252)",
+        "focusVisible": true,
+        "boxShadow": "none"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "⚡ Pulse Telegraphs",
+        "outlineStyle": "auto",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(248, 250, 252)",
+        "focusVisible": true,
+        "boxShadow": "none"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "↻ Reset",
+        "outlineStyle": "auto",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(248, 250, 252)",
+        "focusVisible": true,
+        "boxShadow": "none"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "🎲 Roll All 3D Dice (2 left)",
+        "outlineStyle": "auto",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(248, 250, 252)",
+        "focusVisible": true,
+        "boxShadow": "none"
+      },
+      {
+        "tag": "BODY",
+        "text": "CARDFRONT 3D Dynamic Telegraph Table",
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(248, 250, 252)",
+        "focusVisible": false,
+        "boxShadow": "none"
+      }
+    ],
+    "focusableDiceRows": 0,
+    "focusableHandCards": 0,
+    "focusableSlots": 0,
+    "ariaLiveRegions": 0,
+    "rolesOnBoard": 0,
+    "modalRoleDialog": false,
+    "imgAltSample": [
+      "Lunar Oracle",
+      "Kai Crimson Visor",
+      "Sun Arbiter"
+    ],
+    "htmlLang": "en",
+    "stopsWithVisibleOutline": 5,
+    "totalStops": 6
+  },
+  "boardFocusIndicator": {
+    "note": "pixel diff of these screenshots computed in a11y_analyze.py",
+    "slotClassesAfterNav": [
+      "board-slot hover-preview",
+      "board-slot occupied will-flip",
+      "board-slot",
+      "board-slot",
+      "board-slot",
+      "board-slot",
+      "board-slot",
+      "board-slot",
+      "board-slot"
+    ],
+    "hasDedicatedFocusClass": false
+  },
+  "enterOnFocusedResetButton": {
+    "activeElement": "Reset button",
+    "cardPlacedInstead": true,
+    "handBefore": [
+      "h_oracle",
+      "h_archangel",
+      "h_seraph",
+      "h_chronos",
+      "h_valkyrie"
+    ],
+    "handAfter": [
+      "h_archangel",
+      "h_seraph",
+      "h_chronos",
+      "h_valkyrie"
+    ],
+    "pass": false
+  },
+  "spaceOnFocusedRerollButton": {
+    "rerollsBefore": 2,
+    "rerollsAfter": 2,
+    "cardPlaced": true,
+    "pass": false
+  },
+  "arrowOnFocusedStageSelect": {
+    "stageAfter": 0,
+    "selectValue": "0",
+    "boardFocusMoved": true
+  },
+  "colorOnlyOwnership": {
+    "screenshots": {
+      "none": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t5_cvd_none.png",
+      "achromatopsia": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t5_cvd_achromatopsia.png",
+      "protanopia": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t5_cvd_protanopia.png",
+      "deuteranopia": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t5_cvd_deuteranopia.png",
+      "tritanopia": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t5_cvd_tritanopia.png"
+    },
+    "owners": {
+      "differingProps": {
+        "borderTopColor": [
+          "rgb(0, 229, 255)",
+          "rgb(255, 46, 84)"
+        ],
+        "boxShadow": [
+          "rgba(0, 0, 0, 0.88) 0px 6px 16px 0px, rgba(0, 229, 255, 0.55) 0px 0px 12px 0px",
+          "rgba(0, 0, 0, 0.88) 0px 6px 16px 0px, rgba(255, 46, 84, 0.55) 0px 0px 12px 0px"
+        ],
+        "edge.borderTopColor": [
+          "rgb(0, 229, 255)",
+          "rgb(255, 46, 84)"
+        ],
+        "edge.color": [
+          "rgb(224, 250, 255)",
+          "rgb(255, 228, 232)"
+        ]
+      },
+      "playerTextNoDigits": "Sun Arbiter",
+      "aiTextNoDigits": "Bastion Dreadnought",
+      "playerRect": [
+        495.60650634765625,
+        186.2686309814453,
+        130.470703125,
+        167.60032653808594
+      ],
+      "aiRect": [
+        639.211669921875,
+        186.2686309814453,
+        129.57666015625,
+        167.60032653808594
+      ],
+      "slabOrigin": [
+        472.329833984375,
+        142.94656372070312
+      ],
+      "dpr": 1,
+      "hasNonColorOwnerCue": false
+    }
+  },
+  "contrast": [
+    {
+      "name": "brand badge",
+      "text": "CARDFRONT 3D",
+      "color": "rgb(248, 250, 252)",
+      "bg": "rgb(255,46,84)",
+      "bgApprox": true,
+      "fontSize": 10,
+      "fontWeight": 900,
+      "ratio": 3.48,
+      "AA": false
+    },
+    {
+      "name": "harness pill",
+      "text": "🎯 91-SKILL HARNESS ACTIVE",
+      "color": "rgb(52, 211, 153)",
+      "bg": "rgb(8,41,40)",
+      "bgApprox": true,
+      "fontSize": 9.5,
+      "fontWeight": 800,
+      "ratio": 8.02,
+      "AA": true
+    },
+    {
+      "name": "YOU score",
+      "text": "YOU: 0",
+      "color": "rgb(0, 229, 255)",
+      "bg": "rgb(10,17,34)",
+      "bgApprox": false,
+      "fontSize": 12.5,
+      "fontWeight": 800,
+      "ratio": 12.23,
+      "AA": true
+    },
+    {
+      "name": "VS",
+      "text": "VS",
+      "color": "rgb(100, 116, 139)",
+      "bg": "rgb(10,17,34)",
+      "bgApprox": false,
+      "fontSize": 11,
+      "fontWeight": 800,
+      "ratio": 3.95,
+      "AA": false
+    },
+    {
+      "name": "BOSS score",
+      "text": "BOSS: 1",
+      "color": "rgb(255, 46, 84)",
+      "bg": "rgb(10,17,34)",
+      "bgApprox": false,
+      "fontSize": 12.5,
+      "fontWeight": 800,
+      "ratio": 5.17,
+      "AA": true
+    },
+    {
+      "name": "box-title (Hero Hand)",
+      "text": "Hero Hand",
+      "color": "rgb(0, 229, 255)",
+      "bg": "rgb(10,16,32)",
+      "bgApprox": true,
+      "fontSize": 10,
+      "fontWeight": 800,
+      "ratio": 12.33,
+      "AA": true
+    },
+    {
+      "name": "hand-count badge (gold)",
+      "text": "5 CARDS",
+      "color": "rgb(255, 184, 0)",
+      "bg": "rgb(10,16,32)",
+      "bgApprox": true,
+      "fontSize": 10,
+      "fontWeight": 800,
+      "ratio": 10.94,
+      "AA": true
+    },
+    {
+      "name": "telegraph HUD desc",
+      "text": "MGA COST Clockwork (E+S+W): Spins interl",
+      "color": "rgb(226, 232, 240)",
+      "bg": "rgb(8,15,31)",
+      "bgApprox": true,
+      "fontSize": 11,
+      "fontWeight": 400,
+      "ratio": 15.52,
+      "AA": true
+    },
+    {
+      "name": "telegraph HUD badge",
+      "text": "Chronos Weaver · Temporal Gear Lock",
+      "color": "rgb(255, 184, 0)",
+      "bg": "rgb(7,53,71)",
+      "bgApprox": true,
+      "fontSize": 9.5,
+      "fontWeight": 900,
+      "ratio": 7.49,
+      "AA": true
+    },
+    {
+      "name": "col header (not boosted)",
+      "text": "COL 2 (DIE: 2)",
+      "color": "rgb(148, 163, 184)",
+      "bg": "rgb(12,19,39)",
+      "bgApprox": true,
+      "fontSize": 10,
+      "fontWeight": 800,
+      "ratio": 7.19,
+      "AA": true
+    },
+    {
+      "name": "col header (boosted)",
+      "text": "⚡ COL 1 (+1 ALL)",
+      "color": "rgb(255, 184, 0)",
+      "bg": "rgb(67,70,71)",
+      "bgApprox": true,
+      "fontSize": 10,
+      "fontWeight": 800,
+      "ratio": 5.48,
+      "AA": true
+    },
+    {
+      "name": "OPEN tile label",
+      "text": "⚡ +1 BOOST",
+      "color": "rgba(148, 163, 184, 0.34)",
+      "bg": "rgb(8,14,30)",
+      "bgApprox": true,
+      "fontSize": 10.5,
+      "fontWeight": 800,
+      "ratio": 1.87,
+      "AA": false
+    },
+    {
+      "name": "edge number (AI card)",
+      "text": "6",
+      "color": "rgb(255, 228, 232)",
+      "bg": "rgb(5,9,20)",
+      "bgApprox": false,
+      "fontSize": 11,
+      "fontWeight": 900,
+      "ratio": 16.57,
+      "AA": true
+    },
+    {
+      "name": "name ribbon (board)",
+      "text": "Sigil Wraith",
+      "color": "rgb(248, 250, 252)",
+      "bg": "rgb(5,9,20)",
+      "bgApprox": false,
+      "fontSize": 9.5,
+      "fontWeight": 800,
+      "ratio": 19,
+      "AA": true
+    },
+    {
+      "name": "name ribbon (hand)",
+      "text": "Chronos Weaver",
+      "color": "rgb(248, 250, 252)",
+      "bg": "rgb(5,9,20)",
+      "bgApprox": false,
+      "fontSize": 8.5,
+      "fontWeight": 800,
+      "ratio": 19,
+      "AA": true
+    },
+    {
+      "name": "edge number (hand)",
+      "text": "6",
+      "color": "rgb(224, 250, 255)",
+      "bg": "rgb(5,9,20)",
+      "bgApprox": false,
+      "fontSize": 9.5,
+      "fontWeight": 900,
+      "ratio": 18.24,
+      "AA": true
+    },
+    {
+      "name": "slide card title",
+      "text": "⚡ Temporal Gear Lock",
+      "color": "rgb(255, 184, 0)",
+      "bg": "rgb(9,37,54)",
+      "bgApprox": true,
+      "fontSize": 9,
+      "fontWeight": 900,
+      "ratio": 9.08,
+      "AA": true
+    },
+    {
+      "name": "slide card type",
+      "text": "MGA COST Clockwork (E+S+W)",
+      "color": "rgb(203, 213, 225)",
+      "bg": "rgb(9,37,54)",
+      "bgApprox": true,
+      "fontSize": 8.5,
+      "fontWeight": 400,
+      "ratio": 10.61,
+      "AA": true
+    },
+    {
+      "name": "slide status",
+      "text": "⇄ Slide: 1× Ready",
+      "color": "rgb(0, 230, 118)",
+      "bg": "rgb(9,37,54)",
+      "bgApprox": true,
+      "fontSize": 8.5,
+      "fontWeight": 800,
+      "ratio": 9.44,
+      "AA": true
+    },
+    {
+      "name": "dice help text",
+      "text": "Click a 3D die to +1 Nudge. Pip 4–6 gran",
+      "color": "rgb(203, 213, 225)",
+      "bg": "rgb(10,16,32)",
+      "bgApprox": true,
+      "fontSize": 10.5,
+      "fontWeight": 400,
+      "ratio": 12.77,
+      "AA": true
+    },
+    {
+      "name": "die row label",
+      "text": "Column 1 Die",
+      "color": "rgb(255, 184, 0)",
+      "bg": "rgb(49,43,27)",
+      "bgApprox": true,
+      "fontSize": 11,
+      "fontWeight": 800,
+      "ratio": 8.13,
+      "AA": true
+    },
+    {
+      "name": "die row hint (uncharged)",
+      "text": "Click to Nudge +1",
+      "color": "rgb(148, 163, 184)",
+      "bg": "rgb(7,11,24)",
+      "bgApprox": true,
+      "fontSize": 9.5,
+      "fontWeight": 400,
+      "ratio": 7.64,
+      "AA": true
+    },
+    {
+      "name": "die row hint (charged)",
+      "text": "⚡ +1 All 4 Sides",
+      "color": "rgb(255, 184, 0)",
+      "bg": "rgb(49,43,27)",
+      "bgApprox": true,
+      "fontSize": 9.5,
+      "fontWeight": 400,
+      "ratio": 8.13,
+      "AA": true
+    },
+    {
+      "name": "NUDGES label",
+      "text": "NUDGES: 2",
+      "color": "rgb(255, 184, 0)",
+      "bg": "rgb(10,16,32)",
+      "bgApprox": true,
+      "fontSize": 10,
+      "fontWeight": 800,
+      "ratio": 10.94,
+      "AA": true
+    },
+    {
+      "name": "turn badge",
+      "text": "YOUR TURN",
+      "color": "rgb(255, 184, 0)",
+      "bg": "rgb(10,16,32)",
+      "bgApprox": true,
+      "fontSize": 10,
+      "fontWeight": 800,
+      "ratio": 10.94,
+      "AA": true
+    },
+    {
+      "name": "boss name",
+      "text": "Eclipse Void Blade",
+      "color": "rgb(255, 133, 154)",
+      "bg": "rgb(37,13,28)",
+      "bgApprox": true,
+      "fontSize": 12,
+      "fontWeight": 800,
+      "ratio": 7.85,
+      "AA": true
+    },
+    {
+      "name": "boss telegraph label",
+      "text": "Telegraph: Umbra Singularity",
+      "color": "rgb(255, 184, 0)",
+      "bg": "rgb(37,13,28)",
+      "bgApprox": true,
+      "fontSize": 10,
+      "fontWeight": 400,
+      "ratio": 10.48,
+      "AA": true
+    },
+    {
+      "name": "'Counters after each move.'",
+      "text": "Counters after each move.",
+      "color": "rgb(148, 163, 184)",
+      "bg": "rgb(37,13,28)",
+      "bgApprox": true,
+      "fontSize": 10,
+      "fontWeight": 400,
+      "ratio": 7.09,
+      "AA": true
+    },
+    {
+      "name": "last-move banner",
+      "text": "💡 Drag a Hero Card onto any open tile (",
+      "color": "rgb(226, 232, 240)",
+      "bg": "rgb(8,13,26)",
+      "bgApprox": false,
+      "fontSize": 10.5,
+      "fontWeight": 400,
+      "ratio": 15.73,
+      "AA": true
+    },
+    {
+      "name": "Reset button",
+      "text": "↻ Reset",
+      "color": "rgb(248, 250, 252)",
+      "bg": "rgb(19,30,56)",
+      "bgApprox": false,
+      "fontSize": 11,
+      "fontWeight": 700,
+      "ratio": 15.8,
+      "AA": true
+    },
+    {
+      "name": "Roll dice button",
+      "text": "🎲 Roll All 3D Dice (2 left)",
+      "color": "rgb(248, 250, 252)",
+      "bg": "rgb(109,40,217)",
+      "bgApprox": true,
+      "fontSize": 11,
+      "fontWeight": 700,
+      "ratio": 6.79,
+      "AA": true
+    }
+  ],
+  "smallFonts": {
+    "census": {
+      "10.0px": {
+        "count": 13,
+        "samples": [
+          "CARDFRONT 3D",
+          "Hero Hand",
+          "5 CARDS",
+          "⚡ COL 1 (+1 ALL)",
+          "COL 2 (DIE: 2)",
+          "⚡ COL 3 (+1 ALL)"
+        ]
+      },
+      "9.5px": {
+        "count": 26,
+        "samples": [
+          "🎯 91-SKILL HARNESS ACTIVE",
+          "6",
+          "8",
+          "7",
+          "7",
+          "8"
+        ]
+      },
+      "8.5px": {
+        "count": 7,
+        "samples": [
+          "Chronos Weaver",
+          "Astral Seraph",
+          "Kai Crimson Visor",
+          "Sky-Wing Striker",
+          "Solar Archangel",
+          "MGA COST Clockwork (E+S+W)"
+        ]
+      },
+      "9.0px": {
+        "count": 1,
+        "samples": [
+          "⚡ Temporal Gear Lock"
+        ]
+      },
+      "10.5px": {
+        "count": 14,
+        "samples": [
+          "⚡ +1 BOOST",
+          "⚡ +1 BOOST",
+          "⚡ +1 BOOST",
+          "OPEN",
+          "⚡ +1 BOOST",
+          "⚡ +1 BOOST"
+        ]
+      }
+    },
+    "textElements": 105,
+    "under11px": 61
+  },
+  "reducedMotion": {
+    "no-preference": {
+      "anims": 13,
+      "infinite": 13,
+      "mq": false,
+      "infiniteAfterPlacement": 15,
+      "capturesThisMove": 1,
+      "shakeDuringPlacement": {
+        "maxShakeOffsetPx": 2.82,
+        "framesWithShake": 21
+      }
+    },
+    "reduce": {
+      "anims": 13,
+      "infinite": 13,
+      "mq": true,
+      "infiniteAfterPlacement": 14,
+      "capturesThisMove": 1,
+      "shakeDuringPlacement": {
+        "maxShakeOffsetPx": 2.34,
+        "framesWithShake": 22
+      }
+    },
+    "cssHasReducedMotionMedia": false,
+    "pass": false
+  }
+}

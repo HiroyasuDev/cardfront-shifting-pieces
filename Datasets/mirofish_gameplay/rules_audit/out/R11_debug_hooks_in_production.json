@@ -1,0 +1,56 @@
+{
+  "id": "R11_debug_hooks_in_production",
+  "title": "autotest/dragtest hooks reachable from URL",
+  "reproduced": true,
+  "checks": [
+    {
+      "name": "(b) URL '?ref=xautotest=1' (substring match) started the autotest",
+      "ok": true,
+      "detail": "TEST_COMPLETE:6-3:SINGLETON=true:IMG=true"
+    },
+    {
+      "name": "(a) the game was played with zero user input (hand shrank, dice/reroll spent)",
+      "ok": true,
+      "detail": {
+        "handBefore": 5,
+        "handAfter": 1,
+        "rerollsAfter": 1
+      }
+    },
+    {
+      "name": "(a) report POSTed to /__osascript_report__ on the serving origin",
+      "ok": true,
+      "detail": {
+        "posts": 1,
+        "statuses": [
+          200
+        ]
+      }
+    },
+    {
+      "name": "(c) #cam-select does not exist (autotest camera UI sync is dead code)",
+      "ok": true,
+      "detail": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "(d) autotest outcome is never DEFEAT ('COMPLETED' for losses)",
+      "ok": true,
+      "detail": "VICTORY"
+    }
+  ],
+  "notes": {
+    "autotestReport": {
+      "outcome": "VICTORY",
+      "finalScore": {
+        "player": 6,
+        "boss": 3
+      },
+      "turnsPlayed": 4
+    }
+  },
+  "pageErrors": [],
+  "ranAt": "2026-11-08T12:12:39.098Z"
+}

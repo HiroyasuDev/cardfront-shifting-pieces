@@ -1,0 +1,236 @@
+[
+  {
+    "id": "art_direction.1",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Lock the technical frame: all 16 mastered card portraits must be exact 600x800 PNGs with zero raster problems",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/SKILL.md:16-18",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_art_direction/scripts/style_metrics.py",
+      "json_file": "Datasets/mirofish_gameplay/skills_art_direction/raw/asset_report_cards.json",
+      "expression": "data['ok'] is True and len(data['assets']) == 16 and all(a['width'] == 600 and a['height'] == 800 and len(a['problems']) == 0 for a in data['assets'])"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P0"
+  },
+  {
+    "id": "art_direction.2",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Lock the technical frame: all 4 stage background textures must be exact 1024x768 PNGs with zero raster problems",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/SKILL.md:16-18",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_art_direction/scripts/style_metrics.py",
+      "json_file": "Datasets/mirofish_gameplay/skills_art_direction/raw/asset_report_bgs.json",
+      "expression": "data['ok'] is True and len(data['assets']) == 4 and all(a['width'] == 1024 and a['height'] == 768 and len(a['problems']) == 0 for a in data['assets'])"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "art_direction.3",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Validate in context: all rendered .slot-art images in the live DOM must complete loading at 600x800 natural dimensions",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/SKILL.md:38-40",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "Array.from(document.querySelectorAll('.slot-art')).length >= 6 && Array.from(document.querySelectorAll('.slot-art')).every(img => img.complete && img.naturalWidth === 600 && img.naturalHeight === 800)"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P0"
+  },
+  {
+    "id": "art_direction.4",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Cohesion: card RMS luminance contrast coefficient of variation (CV) across the 16-card family must stay <= 0.12",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/SKILL.md:104-105",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_art_direction/scripts/style_metrics.py",
+      "json_file": "Datasets/mirofish_gameplay/skills_art_direction/raw/style_metrics.json",
+      "expression": "round(data['coefficient_of_variation']['cards'][2], 4)"
+    },
+    "expect": "<=0.12",
+    "observed": 0.0892,
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "art_direction.5",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Cohesion: card ink line-weight coefficient of variation (CV) across the 16-card family must stay <= 0.12",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/references/art-direction.md:60",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_art_direction/scripts/style_metrics.py",
+      "json_file": "Datasets/mirofish_gameplay/skills_art_direction/raw/style_metrics.json",
+      "expression": "round(data['coefficient_of_variation']['cards'][4], 4)"
+    },
+    "expect": "<=0.12",
+    "observed": 0.0696,
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "art_direction.6",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Cohesion: zero cards in the 16-card family should have |z| >= 2.0 style outlier flags on saturation, value, contrast, edge density, line weight, or noise",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/references/art-direction.md:58-67",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_art_direction/scripts/style_metrics.py",
+      "json_file": "Datasets/mirofish_gameplay/skills_art_direction/raw/style_metrics.json",
+      "expression": "sum(1 for c in data['cards'] if len(c['outlier_flags']) > 0)"
+    },
+    "expect": "<=0",
+    "observed": 3,
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "art_direction.7",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Color role separation: blue-ally vs red-enemy hue classifier accuracy across the 16 cards must be >= 0.80",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/references/art-direction.md:14",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_art_direction/scripts/style_metrics.py",
+      "json_file": "Datasets/mirofish_gameplay/skills_art_direction/raw/style_metrics.json",
+      "expression": "round(data['faction']['blue_vs_red_classifier_accuracy'], 4)"
+    },
+    "expect": ">=0.80",
+    "observed": 0.3125,
+    "status": "FAIL",
+    "priority": "P0"
+  },
+  {
+    "id": "art_direction.8",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Color role separation: Cohen's d for (blue_share - red_share) between Hero and Enemy card families must be >= 1.0",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/references/art-direction.md:14",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_art_direction/scripts/style_metrics.py",
+      "json_file": "Datasets/mirofish_gameplay/skills_art_direction/raw/style_metrics.json",
+      "expression": "round(data['faction']['cohens_d_blue_minus_red_hero_vs_enemy'], 4)"
+    },
+    "expect": ">=1.0",
+    "observed": -0.4842,
+    "status": "FAIL",
+    "priority": "P0"
+  },
+  {
+    "id": "art_direction.9",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Framing: all 16 cards must keep subject center-of-mass Y <= 0.62 so focal subjects do not collide with the bottom name ribbon",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/SKILL.md:106-109",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_art_direction/scripts/style_metrics.py",
+      "json_file": "Datasets/mirofish_gameplay/skills_art_direction/raw/style_metrics.json",
+      "expression": "round(max(c['com_y'] for c in data['cards']), 4)"
+    },
+    "expect": "<=0.62",
+    "observed": 0.6129,
+    "status": "PASS",
+    "priority": "P1"
+  },
+  {
+    "id": "art_direction.10",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Backgrounds and parallax: preserve a low-contrast playfield behind cards (raw center RMS contrast <= 0.20 across all 4 stage backgrounds)",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/references/raster-pipeline.md:33",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_art_direction/scripts/style_metrics.py",
+      "json_file": "Datasets/mirofish_gameplay/skills_art_direction/raw/style_metrics.json",
+      "expression": "round(max(b['centre_rms_contrast'] for b in data['backgrounds']), 4)"
+    },
+    "expect": "<=0.20",
+    "observed": 0.2504,
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "art_direction.11",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Backgrounds and card family cohesion: stage background style distance to the card family centroid should stay <= 1.5 sigma",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/SKILL.md:104-105",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "script": "Datasets/mirofish_gameplay/skills_art_direction/scripts/style_metrics.py",
+      "json_file": "Datasets/mirofish_gameplay/skills_art_direction/raw/style_metrics.json",
+      "expression": "round(max(b['style_distance_to_cards'] for b in data['backgrounds']), 4)"
+    },
+    "expect": "<=1.50",
+    "observed": 2.643,
+    "status": "FAIL",
+    "priority": "P2"
+  },
+  {
+    "id": "art_direction.12",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Name the visual system using concrete visual properties; do not substitute a living artist's name in prompts or filenames",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/SKILL.md:20-21",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Visuals/SynapseIllustratorStyleLibrary.cs",
+      "regex": "in the (art |signature (art )?)?style of (Ryoma Ito|Akihiko Yoshida|Ryo Hirata|Toru Nakayama|Hiroshi Minagawa|Isamu Kamikokuryo)"
+    },
+    "expect": "0 matches",
+    "observed": "6 matches (lines 79, 104, 154, 179, 204, 229)",
+    "status": "FAIL",
+    "priority": "P1"
+  },
+  {
+    "id": "art_direction.13",
+    "skill": "disciplines/create-game-assets",
+    "rule": "UI art and icons: keep numbers, labels, and geometric symbols code-native SVG/HTML rather than baked raster text",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/references/raster-pipeline.md:39-41",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "expression": "document.querySelectorAll('.edge-num').length >= 24 && document.querySelectorAll('svg.card-telegraph-fx').length >= 6 && document.querySelectorAll('.slot-name-ribbon').length >= 6"
+    },
+    "expect": "true",
+    "observed": true,
+    "status": "PASS",
+    "priority": "P2"
+  },
+  {
+    "id": "art_direction.14",
+    "skill": "art-direction/tactical-illustrator-library",
+    "rule": "Sovereign Style Variants and High-Contrast Competitive Silhouette Lock must guarantee 0.00% P2W combat stat modification",
+    "source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/art-direction/tactical-illustrator-library/SKILL.md:10-21",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "regex": "combat_stat_modifier\\s*=\\s*0\\.0f"
+    },
+    "expect": ">=5 matches",
+    "observed": "5 matches (lines 620, 631, 642, 653, 664)",
+    "status": "PASS",
+    "priority": "P1"
+  }
+]

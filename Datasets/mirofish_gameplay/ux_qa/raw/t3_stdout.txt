@@ -1,0 +1,169 @@
+/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/raw/t3_viewports.json
+[
+ {
+  "vp": "1024x768",
+  "issues": [
+   "headerRight 54.1% hidden",
+   "bossPanelAside 100% hidden",
+   "telegraphHud 18.9% hidden",
+   "dicePanel 100% hidden",
+   "rerollBtn 100% hidden",
+   "bossProfile 100% hidden",
+   "lastMoveBanner 100% hidden"
+  ],
+  "nIssues": 7,
+  "center": true,
+  "corners": false,
+  "drag": true,
+  "overflow": 1,
+  "docScroll": {
+   "sw": 1333,
+   "sh": 768,
+   "vw": 1024,
+   "vh": 768
+  }
+ },
+ {
+  "vp": "1280x720",
+  "issues": [
+   "headerRight 9.2% hidden",
+   "bossPanelAside 76.4% hidden",
+   "dicePanel 79.3% hidden",
+   "rerollBtn 79.3% hidden",
+   "bossProfile 79.3% hidden",
+   "lastMoveBanner 79.3% hidden"
+  ],
+  "nIssues": 6,
+  "center": false,
+  "corners": false,
+  "drag": true,
+  "overflow": 1,
+  "docScroll": {
+   "sw": 1333,
+   "sh": 720,
+   "vw": 1280,
+   "vh": 720
+  }
+ },
+ {
+  "vp": "1280x800",
+  "issues": [
+   "headerRight 9.2% hidden",
+   "bossPanelAside 74.9% hidden",
+   "dicePanel 77.6% hidden",
+   "rerollBtn 77.6% hidden",
+   "bossProfile 77.6% hidden",
+   "lastMoveBanner 77.6% hidden"
+  ],
+  "nIssues": 6,
+  "center": true,
+  "corners": false,
+  "drag": true,
+  "overflow": 1,
+  "docScroll": {
+   "sw": 1333,
+   "sh": 800,
+   "vw": 1280,
+   "vh": 800
+  }
+ },
+ {
+  "vp": "1440x900",
+  "issues": [
+   "bossPanelAside 14.3% hidden",
+   "dicePanel 10.4% hidden",
+   "rerollBtn 10.4% hidden",
+   "bossProfile 10.4% hidden",
+   "lastMoveBanner 10.4% hidden"
+  ],
+  "nIssues": 5,
+  "center": true,
+  "corners": false,
+  "drag": true,
+  "overflow": 1,
+  "docScroll": {
+   "sw": 1440,
+   "sh": 900,
+   "vw": 1440,
+   "vh": 900
+  }
+ },
+ {
+  "vp": "1920x1080",
+  "issues": [],
+  "nIssues": 0,
+  "center": false,
+  "corners": false,
+  "drag": true,
+  "overflow": 0,
+  "docScroll": {
+   "sw": 1920,
+   "sh": 1080,
+   "vw": 1920,
+   "vh": 1080
+  }
+ },
+ {
+  "vp": "ipad_portrait_820x1180",
+  "issues": [
+   "headerRight 89.9% hidden",
+   "bossPanelAside 100% hidden",
+   "board 31.2% hidden",
+   "grid 29.8% hidden",
+   "telegraphHud 37.6% hidden",
+   "dicePanel 100% hidden",
+   "rerollBtn 100% hidden",
+   "bossProfile 100% hidden",
+   "lastMoveBanner 100% hidden",
+   "tile(0,2) 91.2% hidden",
+   "tile(1,2) 92.2% hidden",
+   "tile(2,2) 93.1% hidden"
+  ],
+  "nIssues": 12,
+  "center": false,
+  "corners": false,
+  "drag": true,
+  "tap": false,
+  "touchEv": {
+   "pointerdown:touch": 1,
+   "pointermove:touch": 24,
+   "pointerup:touch": 1
+  },
+  "overflow": 1,
+  "docScroll": {
+   "sw": 1333,
+   "sh": 1919,
+   "vw": 1333,
+   "vh": 1919
+  }
+ },
+ {
+  "vp": "ipad_landscape_1180x820",
+  "issues": [
+   "headerRight 26.8% hidden",
+   "bossPanelAside 100% hidden",
+   "telegraphHud 1.2% hidden",
+   "dicePanel 100% hidden",
+   "rerollBtn 100% hidden",
+   "bossProfile 100% hidden",
+   "lastMoveBanner 100% hidden"
+  ],
+  "nIssues": 7,
+  "center": true,
+  "corners": false,
+  "drag": true,
+  "tap": true,
+  "touchEv": {
+   "pointerdown:touch": 1,
+   "pointermove:touch": 24,
+   "pointerup:touch": 1
+  },
+  "overflow": 1,
+  "docScroll": {
+   "sw": 1333,
+   "sh": 927,
+   "vw": 1333,
+   "vh": 927
+  }
+ }
+]

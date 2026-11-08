@@ -1896,6 +1896,237 @@ class TestSynapseTcgSuite(unittest.TestCase):
         self.assertEqual(src.count("{"), src.count("}"))
         self.assertGreater(src.count("{"), 15)
 
+    def test_81_pxg_gamedev_harness_91_skills_catalog_and_router_integrity(self) -> None:
+        """Verify YouTube `t13A2XFGoOc` 77-Skill / 91-Skill catalog (`gamedev_skills`) and Master Router exist on disk."""
+        from synapse_gamedev_skills_harness_bridge import SynapseGameDevSkillsHarnessBridge
+
+        analysis = SynapseGameDevSkillsHarnessBridge.get_video_t13A2XFGoOc_analysis_and_catalog()
+        self.assertEqual(analysis["video_analysis"]["video_id"], "t13A2XFGoOc")
+        inv = analysis["local_harness_inventory"]
+        self.assertTrue(inv["rust_binary_exists"])
+        self.assertTrue(inv["router_skill_exists"])
+        self.assertGreaterEqual(inv["total_indexed_skills"], 91)
+        self.assertEqual(inv["upstream_gamedev_skills_count"], 77)
+        self.assertGreaterEqual(inv["custom_synapse_skills_count"], 14)
+
+    def test_82_pxg_gamedev_harness_unity_engine_detection_and_4_skill_composition(self) -> None:
+        """Verify `pxg-gamedev-harness` detects Unity 2022.3.40f1 and composes the 4-slot `unity-scriptableobjects -> game-feel -> game-ui-ux -> card-game` stack."""
+        from synapse_gamedev_skills_harness_bridge import (
+            ITERATION_SKILL_PROMPTS,
+            SynapseGameDevSkillsHarnessBridge,
+        )
+
+        decision = SynapseGameDevSkillsHarnessBridge.invoke_pxg_harness_route(
+            ITERATION_SKILL_PROMPTS[0]["prompt"]
+        )
+        self.assertEqual(decision["engine_detection"]["engine"], "Unity")
+        self.assertEqual(decision["engine_detection"]["version"], "2022.3.40f1")
+        self.assertEqual(decision["skill_stack_count"], 4)
+        self.assertEqual(
+            decision["selected_skill_names"],
+            ["unity-scriptableobjects", "game-feel", "game-ui-ux", "card-game"],
+        )
+        self.assertGreater(decision["composed_system_prompt_chars"], 25000)
+
+    def test_83_gamedev_skills_bridge_card_game_feel_ui_ux_and_asset_qa_gates(self) -> None:
+        """Verify `SynapseGameDevSkillsHarnessBridge.run_continuous_harness_step` passes all 77-Skill quality gates."""
+        from synapse_gamedev_skills_harness_bridge import SynapseGameDevSkillsHarnessBridge
+
+        step = SynapseGameDevSkillsHarnessBridge.run_continuous_harness_step(iteration_index=1)
+        self.assertTrue(step["quality_gates"]["all_gates_passed"])
+        self.assertTrue(step["quality_gates"]["card_game_invariants"]["passed"])
+        self.assertTrue(step["quality_gates"]["game_feel_and_ui_ux"]["passed"])
+        self.assertTrue(step["quality_gates"]["create_game_assets_and_so"]["passed"])
+
+    def test_84_web_playable_game_feel_trauma_shake_hitstop_and_keyboard_focus_nav(self) -> None:
+        """Verify `WebPlayable/cardfront_cradle_of_echoes_playable.html` implements `addTrauma` (`trauma * trauma`), `triggerHitStop`, `handleHarnessKeyDown`, and 16 unique card telegraphs."""
+        html_path = ROOT_DIR / "WebPlayable" / "cardfront_cradle_of_echoes_playable.html"
+        self.assertTrue(html_path.is_file())
+        txt = html_path.read_text(encoding="utf-8")
+        self.assertIn("function addTrauma", txt)
+        self.assertIn("trauma * trauma", txt)
+        self.assertIn("function triggerHitStop", txt)
+        self.assertIn("function handleHarnessKeyDown", txt)
+        self.assertIn("function buildUniqueTelegraphSVG", txt)
+        self.assertIn("function buildBoardTelegraphOverlaySVG", txt)
+        self.assertIn("91-SKILL HARNESS ACTIVE", txt)
+
+    def test_85_unity_csharp_gamedev_skills_runtime_harness_in_synapse_namespace(self) -> None:
+        """Verify Unity C# `SynapseGameDevSkillsHarness.cs` exists in `namespace Synapse.TcgEngine.Core` with balanced braces."""
+        cs_path = ROOT_DIR / "Assets" / "Scripts" / "Core" / "SynapseGameDevSkillsHarness.cs"
+        self.assertTrue(cs_path.is_file())
+        src = cs_path.read_text(encoding="utf-8")
+        self.assertIn("namespace Synapse.TcgEngine.Core", src)
+        self.assertIn("GameFeelTraumaShakeAndHitStopController", src)
+        self.assertIn("CardGameSingleZoneInvariantValidator", src)
+        self.assertIn("GameUiUxFocusAndSafeAreaNavigator", src)
+        self.assertEqual(src.count("{"), src.count("}"))
+        self.assertGreater(src.count("{"), 15)
+
+    def test_86_stage2_atomic_save_system_v3_default_and_fnv1a_checksum(self) -> None:
+        """Verify `SynapseAtomicSaveSystem.create_default_save_v3` creates a version 3 save with 5 active cards and FNV-1a checksum."""
+        from synapse_stage2_metagame_and_publishing import SynapseAtomicSaveSystem
+
+        s = SynapseAtomicSaveSystem.create_default_save_v3("player_test_86")
+        self.assertEqual(s["version"], 3)
+        self.assertEqual(len(s["active_deck"]), 5)
+        self.assertTrue(s["fnv1a_64_checksum"].startswith("0x"))
+        self.assertEqual(len(s["fnv1a_64_checksum"]), 18)
+
+    def test_87_stage2_save_schema_migration_v1_to_v2_to_v3(self) -> None:
+        """Verify `SynapseAtomicSaveSystem.migrate_save_data` upgrades v1 (`gold` -> `coins`) through v2 to v3 seamlessly."""
+        from synapse_stage2_metagame_and_publishing import SynapseAtomicSaveSystem
+
+        legacy_v1 = {"version": 1, "player_id": "legacy_hero", "gold": 777, "active_deck": ["h_archangel"]}
+        migrated = SynapseAtomicSaveSystem.migrate_save_data(legacy_v1)
+        self.assertEqual(migrated["version"], 3)
+        self.assertEqual(migrated["coins"], 777)
+        self.assertNotIn("gold", migrated)
+        self.assertIn("settings", migrated)
+        self.assertIn("fnv1a_64_checksum", migrated)
+
+    def test_88_stage2_atomic_write_tmp_bak_rotation_and_corrupt_fallback(self) -> None:
+        """Verify `save_atomic` writes `.bak` rotation and `load_save_with_fallback` recovers from `.bak` if primary is corrupted."""
+        import tempfile
+        from synapse_stage2_metagame_and_publishing import SynapseAtomicSaveSystem
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            p = Path(tmpdir) / "test_slot.json"
+            s1 = SynapseAtomicSaveSystem.create_default_save_v3("p_slot")
+            s1["coins"] = 900
+            SynapseAtomicSaveSystem.save_atomic(p, s1)
+            s1["coins"] = 1250
+            res2 = SynapseAtomicSaveSystem.save_atomic(p, s1)
+            self.assertTrue(res2["backup_exists"])
+
+            # Corrupt primary file -> must recover 900 coins from .bak!
+            p.write_text("{corrupted_json", encoding="utf-8")
+            recovered, src_tag = SynapseAtomicSaveSystem.load_save_with_fallback(p)
+            self.assertEqual(src_tag, "backup_fallback")
+            self.assertEqual(recovered["coins"], 900)
+
+    def test_89_stage2_audio_mixer_bus_hierarchy_and_headroom_targets(self) -> None:
+        """Verify `SynapseAudioMixerAndAdaptiveMusicEngine` defines `Master <- {Music <- MusicDuck, SFX, Ambience, UI, Voice}`."""
+        from synapse_stage2_metagame_and_publishing import SynapseAudioMixerAndAdaptiveMusicEngine
+
+        tree = SynapseAudioMixerAndAdaptiveMusicEngine.BUS_TREE
+        self.assertIsNone(tree["Master"])
+        self.assertEqual(tree["Music"], "Master")
+        self.assertEqual(tree["MusicDuck"], "Music")
+        self.assertEqual(tree["SFX"], "Master")
+        self.assertEqual(tree["UI"], "Master")
+        self.assertEqual(tree["Voice"], "Master")
+
+    def test_90_stage2_audio_logarithmic_slider_squared_to_db_conversion(self) -> None:
+        """Verify `slider_to_db` maps 0.0 -> (-80.0 dB, muted), 0.5 -> -12.041 dB, and 1.0 -> 0.0 dB."""
+        from synapse_stage2_metagame_and_publishing import SynapseAudioMixerAndAdaptiveMusicEngine
+
+        db0, muted0 = SynapseAudioMixerAndAdaptiveMusicEngine.slider_to_db(0.0)
+        self.assertEqual(db0, -80.0)
+        self.assertTrue(muted0)
+
+        db_half, muted_half = SynapseAudioMixerAndAdaptiveMusicEngine.slider_to_db(0.5)
+        self.assertFalse(muted_half)
+        self.assertAlmostEqual(db_half, -12.041, places=2)
+
+        db_full, muted_full = SynapseAudioMixerAndAdaptiveMusicEngine.slider_to_db(1.0)
+        self.assertFalse(muted_full)
+        self.assertEqual(db_full, 0.0)
+
+    def test_91_stage2_audio_sidechain_ducking_attenuation_curve(self) -> None:
+        """Verify `evaluate_sidechain_ducking` attenuates `MusicDuck` up to -12.0 dB when Voice/HitStop exceeds -30 dB."""
+        from synapse_stage2_metagame_and_publishing import SynapseAudioMixerAndAdaptiveMusicEngine
+
+        self.assertEqual(SynapseAudioMixerAndAdaptiveMusicEngine.evaluate_sidechain_ducking(-40.0), 0.0)
+        duck_mid = SynapseAudioMixerAndAdaptiveMusicEngine.evaluate_sidechain_ducking(-22.0)
+        self.assertLess(duck_mid, -5.0)
+        duck_max = SynapseAudioMixerAndAdaptiveMusicEngine.evaluate_sidechain_ducking(-6.0)
+        self.assertEqual(duck_max, -12.0)
+
+    def test_92_stage2_audio_16_card_telegraph_sfx_pitch_variation(self) -> None:
+        """Verify all 16 cards have distinct telegraph SFX synthesis profiles and seeded pitch variation (`0.96..1.04`)."""
+        from synapse_stage2_metagame_and_publishing import SynapseAudioMixerAndAdaptiveMusicEngine
+
+        self.assertEqual(len(SynapseAudioMixerAndAdaptiveMusicEngine.CARD_TELEGRAPH_SFX_PROFILES), 16)
+        s1 = SynapseAudioMixerAndAdaptiveMusicEngine.sample_varied_telegraph_sfx("h_archangel", seed=10)
+        s2 = SynapseAudioMixerAndAdaptiveMusicEngine.sample_varied_telegraph_sfx("h_archangel", seed=20)
+        self.assertTrue(0.96 <= s1["pitch_scale"] <= 1.04)
+        self.assertNotEqual(s1["varied_base_hz"], s2["varied_base_hz"])
+
+    def test_93_stage2_steam_publish_appid_and_steampipe_vdf_scripts(self) -> None:
+        """Verify `steam_appid.txt`, `app_build_3194820.vdf`, and `depot_build_3194821.vdf` exist and are valid."""
+        from synapse_stage2_metagame_and_publishing import SynapseSteamAndItchReleasePackager
+
+        manifest = SynapseSteamAndItchReleasePackager.build_release_artifacts()
+        appid_txt = Path(manifest["steam_publish"]["steam_appid_txt"]).read_text(encoding="utf-8").strip()
+        self.assertEqual(appid_txt, "3194820")
+        app_vdf = Path(manifest["steam_publish"]["app_build_vdf"]).read_text(encoding="utf-8")
+        depot_vdf = Path(manifest["steam_publish"]["depot_build_vdf"]).read_text(encoding="utf-8")
+        self.assertIn('"appid" "3194820"', app_vdf)
+        self.assertIn('"DepotID" "3194821"', depot_vdf)
+        self.assertIn('"FileExclusion" "*.pdb"', depot_vdf)
+
+    def test_94_stage2_itch_publish_toml_and_butler_channel_matrix(self) -> None:
+        """Verify `.itch.toml` and the 4 `butler push` channels (`windows`, `osx`, `linux`, `html`) are configured."""
+        manifest = json.loads((ROOT_DIR / "Logs" / "stage2_production_release_manifest.json").read_text(encoding="utf-8"))
+        itch_toml = Path(manifest["itch_publish"]["itch_toml"]).read_text(encoding="utf-8")
+        self.assertIn('name = "play"', itch_toml)
+        self.assertIn("WebPlayable/cardfront_cradle_of_echoes_playable.html", itch_toml)
+        channels = [c["channel"] for c in manifest["itch_publish"]["channels"]]
+        self.assertEqual(channels, ["windows", "osx", "linux", "html"])
+
+    def test_95_stage2_web_playable_15_campaign_stages_and_60_card_deckbuilder(self) -> None:
+        """Verify `cardfront_cradle_of_echoes_playable.html` includes all 15 Act I-V stages and the 60-card Set 1 Deckbuilder."""
+        html = (ROOT_DIR / "WebPlayable" / "cardfront_cradle_of_echoes_playable.html").read_text(encoding="utf-8")
+        self.assertIn("Act V-15: Omega Chronos Prime", html)
+        self.assertIn("const SET1_60_CATALOG", html)
+        self.assertIn("function openDeckbuilderModal", html)
+        self.assertIn("function renderDeckbuilderGrid", html)
+
+    def test_96_stage2_web_playable_booster_pack_cardcraft_and_save_v3(self) -> None:
+        """Verify `cardfront_cradle_of_echoes_playable.html` implements `openBoosterPackUI`, `evolveCardCraftUI`, and `saveProgressionV3`."""
+        html = (ROOT_DIR / "WebPlayable" / "cardfront_cradle_of_echoes_playable.html").read_text(encoding="utf-8")
+        self.assertIn("function openBoosterPackUI", html)
+        self.assertIn("function evolveCardCraftUI", html)
+        self.assertIn("function saveProgressionV3", html)
+        self.assertIn("synapse_cardfront_save_v3", html)
+
+    def test_97_stage2_web_playable_3d_glb_q3gs_hologram_pawn_inspector(self) -> None:
+        """Verify `cardfront_cradle_of_echoes_playable.html` includes the live 3D `.glb` / `.q3gs` Hologram Pawn Inspector (`open3DPawnInspectorModal`)."""
+        html = (ROOT_DIR / "WebPlayable" / "cardfront_cradle_of_echoes_playable.html").read_text(encoding="utf-8")
+        self.assertIn("function open3DPawnInspectorModal", html)
+        self.assertIn("pawn3d-canvas", html)
+        self.assertIn("cf_01_mystic_mage_10k.glb", html)
+
+    def test_98_stage2_web_playable_adaptive_bgm_and_sidechain_duck_bus(self) -> None:
+        """Verify `cardfront_cradle_of_echoes_playable.html` implements `slider01ToDb`, `duckMusicBus`, and `toggleAdaptiveBgm`."""
+        html = (ROOT_DIR / "WebPlayable" / "cardfront_cradle_of_echoes_playable.html").read_text(encoding="utf-8")
+        self.assertIn("function slider01ToDb", html)
+        self.assertIn("function duckMusicBus", html)
+        self.assertIn("function toggleAdaptiveBgm", html)
+
+    def test_99_stage2_unity_csharp_save_audio_and_publishing_runtime(self) -> None:
+        """Verify Unity C# `SynapseStageTwoSaveAudioAndPublishing.cs` exists in `namespace Synapse.TcgEngine.Core` with balanced braces."""
+        cs_path = ROOT_DIR / "Assets" / "Scripts" / "Core" / "SynapseStageTwoSaveAudioAndPublishing.cs"
+        self.assertTrue(cs_path.is_file())
+        src = cs_path.read_text(encoding="utf-8")
+        self.assertIn("namespace Synapse.TcgEngine.Core", src)
+        self.assertIn("SynapseAtomicSaveManager", src)
+        self.assertIn("SynapseAudioMixerBusController", src)
+        self.assertIn("SynapseSteamAndItchBuildConfig", src)
+        self.assertEqual(src.count("{"), src.count("}"))
+        self.assertGreater(src.count("{"), 15)
+
+    def test_100_stage2_end_to_end_release_manifest_and_100_test_milestone(self) -> None:
+        """Verify `Logs/stage2_production_release_manifest.json` exists and records schema v3, 7 audio buses, and Steam/Itch configs."""
+        manifest_path = ROOT_DIR / "Logs" / "stage2_production_release_manifest.json"
+        self.assertTrue(manifest_path.is_file())
+        m = json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(m["save_system"]["schema_version"], 3)
+        self.assertEqual(len(m["audio_engine"]["buses"]), 7)
+        self.assertEqual(m["steam_publish"]["steam_app_id"], 3194820)
+        self.assertEqual(m["itch_publish"]["version"], "2.0.0")
+
 
 
 

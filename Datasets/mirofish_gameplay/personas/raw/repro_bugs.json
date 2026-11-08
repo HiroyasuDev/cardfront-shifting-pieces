@@ -1,0 +1,231 @@
+{
+  "viewport_clipping": {
+    "1280x720": {
+      "innerWidth": 1280,
+      "innerHeight": 720,
+      "docScrollWidth": 1333,
+      "reroll_button": {
+        "right": 1465,
+        "bottom": 321,
+        "clipped_x": true,
+        "clipped_y": false
+      },
+      "nudge_counter": {
+        "right": 1465,
+        "bottom": 75,
+        "clipped_x": true,
+        "clipped_y": false
+      },
+      "turn_badge": {
+        "right": 1465,
+        "bottom": 545,
+        "clipped_x": true,
+        "clipped_y": false
+      },
+      "last_move_banner": {
+        "right": 1465,
+        "bottom": 701,
+        "clipped_x": true,
+        "clipped_y": false
+      },
+      "right_panel": {
+        "right": 1478,
+        "bottom": 712,
+        "clipped_x": true,
+        "clipped_y": false
+      },
+      "grid": {
+        "right": 939,
+        "bottom": 664,
+        "clipped_x": false,
+        "clipped_y": false
+      },
+      "hand": {
+        "right": 265,
+        "bottom": 701,
+        "clipped_x": false,
+        "clipped_y": false
+      }
+    },
+    "1408x800": {
+      "innerWidth": 1408,
+      "innerHeight": 800,
+      "docScrollWidth": 1408,
+      "reroll_button": {
+        "right": 1409,
+        "bottom": 321,
+        "clipped_x": true,
+        "clipped_y": false
+      },
+      "nudge_counter": {
+        "right": 1409,
+        "bottom": 75,
+        "clipped_x": true,
+        "clipped_y": false
+      },
+      "turn_badge": {
+        "right": 1409,
+        "bottom": 625,
+        "clipped_x": true,
+        "clipped_y": false
+      },
+      "last_move_banner": {
+        "right": 1409,
+        "bottom": 781,
+        "clipped_x": true,
+        "clipped_y": false
+      },
+      "right_panel": {
+        "right": 1422,
+        "bottom": 792,
+        "clipped_x": true,
+        "clipped_y": false
+      },
+      "grid": {
+        "right": 931,
+        "bottom": 730,
+        "clipped_x": false,
+        "clipped_y": false
+      },
+      "hand": {
+        "right": 265,
+        "bottom": 781,
+        "clipped_x": false,
+        "clipped_y": false
+      }
+    },
+    "1920x1080": {
+      "innerWidth": 1920,
+      "innerHeight": 1080,
+      "docScrollWidth": 1920,
+      "reroll_button": {
+        "right": 1753,
+        "bottom": 321,
+        "clipped_x": false,
+        "clipped_y": false
+      },
+      "nudge_counter": {
+        "right": 1753,
+        "bottom": 75,
+        "clipped_x": false,
+        "clipped_y": false
+      },
+      "turn_badge": {
+        "right": 1753,
+        "bottom": 905,
+        "clipped_x": false,
+        "clipped_y": false
+      },
+      "last_move_banner": {
+        "right": 1753,
+        "bottom": 1061,
+        "clipped_x": false,
+        "clipped_y": false
+      },
+      "right_panel": {
+        "right": 1766,
+        "bottom": 1072,
+        "clipped_x": false,
+        "clipped_y": false
+      },
+      "grid": {
+        "right": 1213,
+        "bottom": 921,
+        "clipped_x": false,
+        "clipped_y": false
+      },
+      "hand": {
+        "right": 405,
+        "bottom": 1061,
+        "clipped_x": false,
+        "clipped_y": false
+      }
+    }
+  },
+  "boss_tiebreak": {
+    "trials": 200,
+    "placement_counts_on_all_tie_board": {
+      "0,0": 200
+    }
+  },
+  "captured_card_stat_drift": {
+    "card": "e_titan",
+    "base": [
+      7,
+      5,
+      7,
+      6
+    ],
+    "col2_die": 2,
+    "before_capture": [
+      8,
+      6,
+      8,
+      7
+    ],
+    "after_capture": [
+      8,
+      6,
+      8,
+      7
+    ],
+    "after_unrelated_nudge": [
+      7,
+      5,
+      7,
+      6
+    ],
+    "changed": true
+  },
+  "stage_boss_presence": {
+    "Eclipse Void Blade": {
+      "bossId": "e_eclipse",
+      "trials": 300,
+      "boss_card_in_enemy_lineup_pct": 74.7
+    },
+    "Prism Core Archon": {
+      "bossId": "e_archon",
+      "trials": 300,
+      "boss_card_in_enemy_lineup_pct": 79.7
+    },
+    "Emerald Colossus": {
+      "bossId": "e_colossus",
+      "trials": 300,
+      "boss_card_in_enemy_lineup_pct": 75.3
+    },
+    "Inferno Core Seraph": {
+      "bossId": "e_inferno",
+      "trials": 300,
+      "boss_card_in_enemy_lineup_pct": 77.3
+    }
+  },
+  "edge_sums": {
+    "heroes": {
+      "h_archangel": 28,
+      "h_phoenix": 28,
+      "h_oracle": 29,
+      "h_chronos": 28,
+      "h_seraph": 29,
+      "h_kai": 28,
+      "h_valkyrie": 27,
+      "h_arbiter": 30
+    },
+    "enemies": {
+      "e_eclipse": 23,
+      "e_archon": 24,
+      "e_inferno": 25,
+      "e_reaper": 25,
+      "e_titan": 25,
+      "e_colossus": 25,
+      "e_cryo": 25,
+      "e_shinobi": 24
+    },
+    "hero_mean": 28.38,
+    "enemy_mean": 24.5,
+    "enemy_mean_with_aiBonus1": 28.5
+  },
+  "edge_win_prob": {
+    "pct_hero_edge_beats_facing_enemy_edge_stage12": 65.2,
+    "pct_stage34": 36.7
+  }
+}

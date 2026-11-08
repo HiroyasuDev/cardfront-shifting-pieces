@@ -1,0 +1,280 @@
+{
+  "id": "R01_stale_boss_turn_after_reset",
+  "title": "Pending boss turn survives Reset/stage-select",
+  "reproduced": true,
+  "checks": [
+    {
+      "name": "A: placement ended the player turn",
+      "ok": true
+    },
+    {
+      "name": "A: fresh board right after Reset has 1 card (boss pre-place)",
+      "ok": true,
+      "detail": {
+        "cards": 1
+      }
+    },
+    {
+      "name": "A: stale boss turn placed an extra red card on the NEW board with no player move",
+      "ok": true,
+      "detail": {
+        "red": 2,
+        "hand": 5
+      }
+    },
+    {
+      "name": "A: nudges bumped above the stage-start value of 2",
+      "ok": true,
+      "detail": {
+        "nudgesLeft": 3
+      }
+    },
+    {
+      "name": "A: aiPool shrank on new board (5 -> 4)",
+      "ok": true,
+      "detail": {
+        "aiPool": 4
+      }
+    },
+    {
+      "name": "B: stage changed to index 2",
+      "ok": true
+    },
+    {
+      "name": "B: after ONE player move the boss has placed TWO cards (1 pre-place + 2 = 3 red-placed cards)",
+      "ok": true,
+      "detail": {
+        "aiPoolAfter": 3,
+        "gridAfter": [
+          [
+            {
+              "id": "e_reaper",
+              "owner": "ai",
+              "nesw": [
+                7,
+                8,
+                8,
+                6
+              ]
+            },
+            {
+              "id": "e_shinobi",
+              "owner": "ai",
+              "nesw": [
+                8,
+                7,
+                7,
+                6
+              ]
+            },
+            {
+              "id": "e_titan",
+              "owner": "ai",
+              "nesw": [
+                8,
+                6,
+                8,
+                7
+              ]
+            }
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            {
+              "id": "h_kai",
+              "owner": "player",
+              "nesw": [
+                8,
+                9,
+                7,
+                8
+              ]
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "name": "B: it is the player's turn and slide reset, i.e. the double move was silent",
+      "ok": true
+    }
+  ],
+  "notes": {
+    "midSnapshot": {
+      "stageIndex": 2,
+      "isPlayerTurn": false,
+      "gameOver": false,
+      "nudgesLeft": 2,
+      "rerollsLeft": 2,
+      "usedSlide": false,
+      "colDice": [
+        4,
+        2,
+        5
+      ],
+      "hand": [
+        "h_oracle",
+        "h_archangel",
+        "h_arbiter",
+        "h_valkyrie"
+      ],
+      "aiPool": [
+        "e_inferno",
+        "e_eclipse",
+        "e_colossus",
+        "e_titan",
+        "e_reaper"
+      ],
+      "selectedHandIdx": 0,
+      "selectedBoardSlot": null,
+      "grid": [
+        [
+          null,
+          {
+            "id": "e_shinobi",
+            "owner": "ai",
+            "nesw": [
+              8,
+              7,
+              7,
+              6
+            ]
+          },
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          {
+            "id": "h_kai",
+            "owner": "player",
+            "nesw": [
+              8,
+              9,
+              7,
+              8
+            ]
+          }
+        ]
+      ],
+      "scores": {
+        "blue": 1,
+        "red": 1,
+        "empty": 7
+      },
+      "domScore": {
+        "you": "1",
+        "boss": "1"
+      },
+      "turnBadge": "BOSS TURN",
+      "modalShown": false,
+      "modalTitle": "VICTORY!",
+      "ghost": false
+    },
+    "endSnapshot": {
+      "stageIndex": 2,
+      "isPlayerTurn": true,
+      "gameOver": false,
+      "nudgesLeft": 3,
+      "rerollsLeft": 2,
+      "usedSlide": false,
+      "colDice": [
+        4,
+        2,
+        5
+      ],
+      "hand": [
+        "h_oracle",
+        "h_archangel",
+        "h_arbiter",
+        "h_valkyrie"
+      ],
+      "aiPool": [
+        "e_inferno",
+        "e_eclipse",
+        "e_colossus"
+      ],
+      "selectedHandIdx": 0,
+      "selectedBoardSlot": null,
+      "grid": [
+        [
+          {
+            "id": "e_reaper",
+            "owner": "ai",
+            "nesw": [
+              7,
+              8,
+              8,
+              6
+            ]
+          },
+          {
+            "id": "e_shinobi",
+            "owner": "ai",
+            "nesw": [
+              8,
+              7,
+              7,
+              6
+            ]
+          },
+          {
+            "id": "e_titan",
+            "owner": "ai",
+            "nesw": [
+              8,
+              6,
+              8,
+              7
+            ]
+          }
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          {
+            "id": "h_kai",
+            "owner": "player",
+            "nesw": [
+              8,
+              9,
+              7,
+              8
+            ]
+          }
+        ]
+      ],
+      "scores": {
+        "blue": 1,
+        "red": 3,
+        "empty": 5
+      },
+      "domScore": {
+        "you": "1",
+        "boss": "3"
+      },
+      "turnBadge": "YOUR TURN",
+      "modalShown": false,
+      "modalTitle": "VICTORY!",
+      "ghost": false
+    }
+  },
+  "pageErrors": [],
+  "ranAt": "2026-11-08T12:04:48.668Z"
+}

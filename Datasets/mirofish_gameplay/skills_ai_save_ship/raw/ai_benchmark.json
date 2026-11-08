@@ -1,0 +1,382 @@
+{
+  "greedy": {
+    "greedy_current": {
+      "bossPolicy": "greedy_current",
+      "playerPolicy": "greedy",
+      "totalMatches": 2000,
+      "overallBossWinRate": 0.0665,
+      "overallPlayerWinRate": 0.9335,
+      "avgBossFinalCards": 2.98,
+      "avgBossCapturesPerMatch": 1.942,
+      "byStage": [
+        {
+          "stage": "Stage 1: Skystone Sanctuary",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.01,
+          "playerWinRate": 0.99,
+          "avgBossFinalCards": 2.566,
+          "avgBossCapturesPerMatch": 1.588
+        },
+        {
+          "stage": "Stage 2: Ivalice Citadel",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.004,
+          "playerWinRate": 0.996,
+          "avgBossFinalCards": 2.534,
+          "avgBossCapturesPerMatch": 1.576
+        },
+        {
+          "stage": "Stage 3: Orbital Mecha Bay",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.116,
+          "playerWinRate": 0.884,
+          "avgBossFinalCards": 3.404,
+          "avgBossCapturesPerMatch": 2.296
+        },
+        {
+          "stage": "Stage 4: Apex Neural Core",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.136,
+          "playerWinRate": 0.864,
+          "avgBossFinalCards": 3.416,
+          "avgBossCapturesPerMatch": 2.308
+        }
+      ]
+    },
+    "apprentice": {
+      "bossPolicy": "apprentice",
+      "playerPolicy": "greedy",
+      "totalMatches": 2000,
+      "overallBossWinRate": 0.035,
+      "overallPlayerWinRate": 0.965,
+      "avgBossFinalCards": 2.665,
+      "avgBossCapturesPerMatch": 1.514,
+      "byStage": [
+        {
+          "stage": "Stage 1: Skystone Sanctuary",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.006,
+          "playerWinRate": 0.994,
+          "avgBossFinalCards": 2.3,
+          "avgBossCapturesPerMatch": 1.25
+        },
+        {
+          "stage": "Stage 2: Ivalice Citadel",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.006,
+          "playerWinRate": 0.994,
+          "avgBossFinalCards": 2.362,
+          "avgBossCapturesPerMatch": 1.306
+        },
+        {
+          "stage": "Stage 3: Orbital Mecha Bay",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.058,
+          "playerWinRate": 0.942,
+          "avgBossFinalCards": 2.968,
+          "avgBossCapturesPerMatch": 1.774
+        },
+        {
+          "stage": "Stage 4: Apex Neural Core",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.07,
+          "playerWinRate": 0.93,
+          "avgBossFinalCards": 3.03,
+          "avgBossCapturesPerMatch": 1.724
+        }
+      ]
+    },
+    "tactician": {
+      "bossPolicy": "tactician",
+      "playerPolicy": "greedy",
+      "totalMatches": 2000,
+      "overallBossWinRate": 0.109,
+      "overallPlayerWinRate": 0.891,
+      "avgBossFinalCards": 3.111,
+      "avgBossCapturesPerMatch": 1.861,
+      "byStage": [
+        {
+          "stage": "Stage 1: Skystone Sanctuary",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.022,
+          "playerWinRate": 0.978,
+          "avgBossFinalCards": 2.674,
+          "avgBossCapturesPerMatch": 1.548
+        },
+        {
+          "stage": "Stage 2: Ivalice Citadel",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.016,
+          "playerWinRate": 0.984,
+          "avgBossFinalCards": 2.618,
+          "avgBossCapturesPerMatch": 1.49
+        },
+        {
+          "stage": "Stage 3: Orbital Mecha Bay",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.196,
+          "playerWinRate": 0.804,
+          "avgBossFinalCards": 3.612,
+          "avgBossCapturesPerMatch": 2.25
+        },
+        {
+          "stage": "Stage 4: Apex Neural Core",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.202,
+          "playerWinRate": 0.798,
+          "avgBossFinalCards": 3.54,
+          "avgBossCapturesPerMatch": 2.158
+        }
+      ]
+    },
+    "grandmaster": {
+      "bossPolicy": "grandmaster",
+      "playerPolicy": "greedy",
+      "totalMatches": 2000,
+      "overallBossWinRate": 0.1595,
+      "overallPlayerWinRate": 0.8405,
+      "avgBossFinalCards": 3.466,
+      "avgBossCapturesPerMatch": 2.404,
+      "byStage": [
+        {
+          "stage": "Stage 1: Skystone Sanctuary",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.034,
+          "playerWinRate": 0.966,
+          "avgBossFinalCards": 2.904,
+          "avgBossCapturesPerMatch": 2.032
+        },
+        {
+          "stage": "Stage 2: Ivalice Citadel",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.024,
+          "playerWinRate": 0.976,
+          "avgBossFinalCards": 2.976,
+          "avgBossCapturesPerMatch": 2.038
+        },
+        {
+          "stage": "Stage 3: Orbital Mecha Bay",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.276,
+          "playerWinRate": 0.724,
+          "avgBossFinalCards": 3.956,
+          "avgBossCapturesPerMatch": 2.76
+        },
+        {
+          "stage": "Stage 4: Apex Neural Core",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.304,
+          "playerWinRate": 0.696,
+          "avgBossFinalCards": 4.03,
+          "avgBossCapturesPerMatch": 2.784
+        }
+      ]
+    }
+  },
+  "random": {
+    "greedy_current": {
+      "bossPolicy": "greedy_current",
+      "playerPolicy": "random",
+      "totalMatches": 2000,
+      "overallBossWinRate": 0.4475,
+      "overallPlayerWinRate": 0.5525,
+      "avgBossFinalCards": 4.423,
+      "avgBossCapturesPerMatch": 1.401,
+      "byStage": [
+        {
+          "stage": "Stage 1: Skystone Sanctuary",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.234,
+          "playerWinRate": 0.766,
+          "avgBossFinalCards": 3.938,
+          "avgBossCapturesPerMatch": 1.002
+        },
+        {
+          "stage": "Stage 2: Ivalice Citadel",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.266,
+          "playerWinRate": 0.734,
+          "avgBossFinalCards": 3.978,
+          "avgBossCapturesPerMatch": 1.104
+        },
+        {
+          "stage": "Stage 3: Orbital Mecha Bay",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.642,
+          "playerWinRate": 0.358,
+          "avgBossFinalCards": 4.86,
+          "avgBossCapturesPerMatch": 1.714
+        },
+        {
+          "stage": "Stage 4: Apex Neural Core",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.648,
+          "playerWinRate": 0.352,
+          "avgBossFinalCards": 4.918,
+          "avgBossCapturesPerMatch": 1.784
+        }
+      ]
+    },
+    "apprentice": {
+      "bossPolicy": "apprentice",
+      "playerPolicy": "random",
+      "totalMatches": 2000,
+      "overallBossWinRate": 0.327,
+      "overallPlayerWinRate": 0.673,
+      "avgBossFinalCards": 4.045,
+      "avgBossCapturesPerMatch": 1.122,
+      "byStage": [
+        {
+          "stage": "Stage 1: Skystone Sanctuary",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.154,
+          "playerWinRate": 0.846,
+          "avgBossFinalCards": 3.592,
+          "avgBossCapturesPerMatch": 0.878
+        },
+        {
+          "stage": "Stage 2: Ivalice Citadel",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.184,
+          "playerWinRate": 0.816,
+          "avgBossFinalCards": 3.664,
+          "avgBossCapturesPerMatch": 0.986
+        },
+        {
+          "stage": "Stage 3: Orbital Mecha Bay",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.5,
+          "playerWinRate": 0.5,
+          "avgBossFinalCards": 4.466,
+          "avgBossCapturesPerMatch": 1.28
+        },
+        {
+          "stage": "Stage 4: Apex Neural Core",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.47,
+          "playerWinRate": 0.53,
+          "avgBossFinalCards": 4.456,
+          "avgBossCapturesPerMatch": 1.344
+        }
+      ]
+    },
+    "tactician": {
+      "bossPolicy": "tactician",
+      "playerPolicy": "random",
+      "totalMatches": 2000,
+      "overallBossWinRate": 0.4605,
+      "overallPlayerWinRate": 0.5395,
+      "avgBossFinalCards": 4.436,
+      "avgBossCapturesPerMatch": 1.437,
+      "byStage": [
+        {
+          "stage": "Stage 1: Skystone Sanctuary",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.248,
+          "playerWinRate": 0.752,
+          "avgBossFinalCards": 3.91,
+          "avgBossCapturesPerMatch": 1.162
+        },
+        {
+          "stage": "Stage 2: Ivalice Citadel",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.264,
+          "playerWinRate": 0.736,
+          "avgBossFinalCards": 3.932,
+          "avgBossCapturesPerMatch": 1.146
+        },
+        {
+          "stage": "Stage 3: Orbital Mecha Bay",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.66,
+          "playerWinRate": 0.34,
+          "avgBossFinalCards": 4.964,
+          "avgBossCapturesPerMatch": 1.74
+        },
+        {
+          "stage": "Stage 4: Apex Neural Core",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.67,
+          "playerWinRate": 0.33,
+          "avgBossFinalCards": 4.94,
+          "avgBossCapturesPerMatch": 1.7
+        }
+      ]
+    },
+    "grandmaster": {
+      "bossPolicy": "grandmaster",
+      "playerPolicy": "random",
+      "totalMatches": 2000,
+      "overallBossWinRate": 0.65,
+      "overallPlayerWinRate": 0.35,
+      "avgBossFinalCards": 4.949,
+      "avgBossCapturesPerMatch": 1.746,
+      "byStage": [
+        {
+          "stage": "Stage 1: Skystone Sanctuary",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.46,
+          "playerWinRate": 0.54,
+          "avgBossFinalCards": 4.412,
+          "avgBossCapturesPerMatch": 1.334
+        },
+        {
+          "stage": "Stage 2: Ivalice Citadel",
+          "aiBonus": 0,
+          "matches": 500,
+          "bossWinRate": 0.464,
+          "playerWinRate": 0.536,
+          "avgBossFinalCards": 4.394,
+          "avgBossCapturesPerMatch": 1.418
+        },
+        {
+          "stage": "Stage 3: Orbital Mecha Bay",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.82,
+          "playerWinRate": 0.18,
+          "avgBossFinalCards": 5.466,
+          "avgBossCapturesPerMatch": 2.084
+        },
+        {
+          "stage": "Stage 4: Apex Neural Core",
+          "aiBonus": 1,
+          "matches": 500,
+          "bossWinRate": 0.856,
+          "playerWinRate": 0.144,
+          "avgBossFinalCards": 5.522,
+          "avgBossCapturesPerMatch": 2.148
+        }
+      ]
+    }
+  }
+}

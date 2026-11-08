@@ -1,0 +1,155 @@
+{
+  "note": "Headless Chromium (chrome-headless-shell) on Apple A18 Pro; rAF cadence ~60 Hz in headless. Numbers are relative indicators, not device-accurate.",
+  "runs": {
+    "cpu1x": {
+      "loadLongTasks": [],
+      "imageRequestsAtLoad": 9,
+      "idle": {
+        "frames": 180,
+        "durationMs": 2983,
+        "avgMs": 16.67,
+        "p95Ms": 16.7,
+        "p99Ms": 16.8,
+        "maxMs": 16.8,
+        "over20ms": 0,
+        "over33ms": 0,
+        "over50ms": 0,
+        "longTasks": 0,
+        "longTaskTotalMs": 0,
+        "longTaskMaxMs": 0,
+        "renderAll": {
+          "calls": 0,
+          "avgMs": 0,
+          "maxMs": 0
+        },
+        "ltObserverError": null
+      },
+      "hoverSweep": {
+        "frames": 362,
+        "durationMs": 3000,
+        "avgMs": 8.31,
+        "p95Ms": 16.7,
+        "p99Ms": 16.8,
+        "maxMs": 16.8,
+        "over20ms": 0,
+        "over33ms": 0,
+        "over50ms": 0,
+        "longTasks": 0,
+        "longTaskTotalMs": 0,
+        "longTaskMaxMs": 0,
+        "renderAll": {
+          "calls": 33,
+          "avgMs": 0.42,
+          "maxMs": 0.8
+        },
+        "ltObserverError": null
+      },
+      "drag": {
+        "frames": 181,
+        "durationMs": 3000,
+        "avgMs": 16.67,
+        "p95Ms": 16.7,
+        "p99Ms": 16.8,
+        "maxMs": 16.8,
+        "over20ms": 0,
+        "over33ms": 0,
+        "over50ms": 0,
+        "longTasks": 0,
+        "longTaskTotalMs": 0,
+        "longTaskMaxMs": 0,
+        "renderAll": {
+          "calls": 23,
+          "avgMs": 0.47,
+          "maxMs": 0.7
+        },
+        "ltObserverError": null,
+        "pointerMovesSent": 174,
+        "ghostPresentDuringDrag": true
+      },
+      "imageRequestsDuringDrag": 0,
+      "domNodesAfter": 250,
+      "brokenImages": [],
+      "resourceErrors": {
+        "failed": [],
+        "bad": []
+      },
+      "console": [],
+      "pageErrors": []
+    },
+    "cpu4x": {
+      "loadLongTasks": [],
+      "imageRequestsAtLoad": 9,
+      "idle": {
+        "frames": 181,
+        "durationMs": 3000,
+        "avgMs": 16.67,
+        "p95Ms": 16.7,
+        "p99Ms": 16.8,
+        "maxMs": 16.8,
+        "over20ms": 0,
+        "over33ms": 0,
+        "over50ms": 0,
+        "longTasks": 0,
+        "longTaskTotalMs": 0,
+        "longTaskMaxMs": 0,
+        "renderAll": {
+          "calls": 0,
+          "avgMs": 0,
+          "maxMs": 0
+        },
+        "ltObserverError": null
+      },
+      "hoverSweep": {
+        "frames": 360,
+        "durationMs": 3000,
+        "avgMs": 8.36,
+        "p95Ms": 16.7,
+        "p99Ms": 16.8,
+        "maxMs": 33.3,
+        "over20ms": 1,
+        "over33ms": 0,
+        "over50ms": 0,
+        "longTasks": 0,
+        "longTaskTotalMs": 0,
+        "longTaskMaxMs": 0,
+        "renderAll": {
+          "calls": 35,
+          "avgMs": 1.41,
+          "maxMs": 2.5
+        },
+        "ltObserverError": null
+      },
+      "drag": {
+        "frames": 182,
+        "durationMs": 3017,
+        "avgMs": 16.67,
+        "p95Ms": 16.7,
+        "p99Ms": 16.8,
+        "maxMs": 16.8,
+        "over20ms": 0,
+        "over33ms": 0,
+        "over50ms": 0,
+        "longTasks": 0,
+        "longTaskTotalMs": 0,
+        "longTaskMaxMs": 0,
+        "renderAll": {
+          "calls": 21,
+          "avgMs": 1.68,
+          "maxMs": 2.5
+        },
+        "ltObserverError": null,
+        "pointerMovesSent": 158,
+        "ghostPresentDuringDrag": true
+      },
+      "imageRequestsDuringDrag": 0,
+      "domNodesAfter": 239,
+      "brokenImages": [],
+      "resourceErrors": {
+        "failed": [],
+        "bad": []
+      },
+      "console": [],
+      "pageErrors": []
+    }
+  }
+}

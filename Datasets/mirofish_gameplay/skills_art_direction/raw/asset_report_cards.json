@@ -1,0 +1,325 @@
+{
+  "ok": true,
+  "assets": [
+    {
+      "path": "MasteredCards/e_archon.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 838780,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/e_colossus.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 807859,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/e_cryo.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 864034,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/e_eclipse.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 803261,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/e_inferno.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 927590,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/e_reaper.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 550129,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/e_shinobi.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 857018,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/e_titan.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 839231,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/h_arbiter.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 887130,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/h_archangel.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 866824,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/h_chronos.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 1023501,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/h_kai.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 747013,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/h_oracle.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 841214,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/h_phoenix.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 843898,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/h_seraph.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 888437,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "MasteredCards/h_valkyrie.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 866215,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    }
+  ]
+}

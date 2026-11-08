@@ -1,0 +1,316 @@
+{
+  "pooled": {
+    "matches": 120,
+    "turns": 480,
+    "personas": 10,
+    "win_rate": 0.942,
+    "avg_margin": 4.667,
+    "place_pred_match_rate": 0.9875,
+    "boss_pred_match_rate": 1.0,
+    "boss_turns": 476,
+    "modal_consistent_rate": 1.0,
+    "unused_hand_cards_per_match": 1,
+    "turns_per_match": 4,
+    "margin_distribution": {
+      "-3": 1,
+      "-1": 6,
+      "1": 12,
+      "3": 18,
+      "5": 39,
+      "7": 44
+    }
+  },
+  "per_stage": {
+    "1": {
+      "matches": 30,
+      "win_rate": 1.0,
+      "avg_margin": 5.667,
+      "avg_flips_lost": 0.667,
+      "avg_flips_gained": 4,
+      "ai_bonus": 0,
+      "boss_name": "Eclipse Void Blade",
+      "agency_mean": 0.901
+    },
+    "2": {
+      "matches": 30,
+      "win_rate": 0.967,
+      "avg_margin": 5.333,
+      "avg_flips_lost": 0.767,
+      "avg_flips_gained": 3.933,
+      "ai_bonus": 0,
+      "boss_name": "Prism Core Archon",
+      "agency_mean": 0.91
+    },
+    "3": {
+      "matches": 30,
+      "win_rate": 0.833,
+      "avg_margin": 3.667,
+      "avg_flips_lost": 1.267,
+      "avg_flips_gained": 3.6,
+      "ai_bonus": 1,
+      "boss_name": "Emerald Colossus",
+      "agency_mean": 0.908
+    },
+    "4": {
+      "matches": 30,
+      "win_rate": 0.967,
+      "avg_margin": 4,
+      "avg_flips_lost": 1.667,
+      "avg_flips_gained": 4.167,
+      "ai_bonus": 1,
+      "boss_name": "Inferno Core Seraph",
+      "agency_mean": 0.928
+    }
+  },
+  "lost_by_tile_kind": {
+    "corner": 14,
+    "edge": 97,
+    "center": 20
+  },
+  "lost_by_turn": {
+    "1": 56,
+    "2": 28,
+    "3": 32,
+    "4": 15
+  },
+  "boss_flips_by_turn": {
+    "1": 0.467,
+    "2": 0.239,
+    "3": 0.267,
+    "4": 0.126
+  },
+  "decision_space_by_turn": {
+    "1": 2.691,
+    "2": 3.236,
+    "3": 2.903,
+    "4": 1.992
+  },
+  "zero_choice_turn_rate_by_turn": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.075
+  },
+  "dice_effect": {
+    "deploys_in_boosted_col": 365,
+    "avg_flips_boosted": 0.877,
+    "deploys_unboosted_col": 115,
+    "avg_flips_unboosted": 0.722
+  },
+  "dice_usage_split": {
+    "matches_with_dice": 40,
+    "win_rate_with_dice": 1.0,
+    "avg_margin_with_dice": 6.15,
+    "matches_without_dice": 80,
+    "win_rate_without_dice": 0.912,
+    "avg_margin_without_dice": 3.925
+  },
+  "slide_usage_split": {
+    "matches_with_slide": 72,
+    "avg_margin_with_slide": 5.472,
+    "avg_slide_flips_when_used": 0.722,
+    "matches_without_slide": 48,
+    "avg_margin_without_slide": 3.458
+  },
+  "drag": {
+    "deploy_drags": 480,
+    "slide_drags": 100,
+    "deploy_mismatch": 6,
+    "deploy_retries": 0,
+    "misdrops_springback": 19,
+    "slide_failed": 0,
+    "slide_landed_elsewhere": 0,
+    "max_abs_release_offset_tile_frac_success": 0.737,
+    "total_drags": 580
+  },
+  "mirofish": {
+    "MeanFrustrationIndex": 0.0415,
+    "MeanPlayerAgencyScore": 0.9119,
+    "MeanDecisionSpace_cards": 2.7054,
+    "ZeroChoiceTurnRate": 0.0187,
+    "WouldQuitPersonas": [
+      "CasualMobileTapper",
+      "TCGFirstTimeNewcomer"
+    ]
+  },
+  "synthetic_ratings": {
+    "personas_with_feedback": 10,
+    "dispersion": {
+      "fun": {
+        "mean": 8.3,
+        "sd": 1.42,
+        "min": 6,
+        "max": 10
+      },
+      "rules_clarity": {
+        "mean": 8.8,
+        "sd": 1.25,
+        "min": 7,
+        "max": 10
+      },
+      "board_readability": {
+        "mean": 8.5,
+        "sd": 1.2,
+        "min": 7,
+        "max": 10
+      },
+      "difficulty_fairness": {
+        "mean": 8.3,
+        "sd": 1.27,
+        "min": 7,
+        "max": 10
+      },
+      "strategic_depth": {
+        "mean": 6.9,
+        "sd": 1.64,
+        "min": 5,
+        "max": 10
+      },
+      "drag_drop_feel": {
+        "mean": 7.5,
+        "sd": 2.29,
+        "min": 2,
+        "max": 10
+      },
+      "art": {
+        "mean": 7.3,
+        "sd": 1.35,
+        "min": 6,
+        "max": 10
+      },
+      "replay_intent": {
+        "mean": 6.1,
+        "sd": 1.64,
+        "min": 4,
+        "max": 10
+      }
+    },
+    "RatingDispersion_mean_sd": 1.508,
+    "nps_values": [
+      6,
+      8,
+      8,
+      6,
+      9,
+      4,
+      7,
+      7,
+      7,
+      10
+    ],
+    "NPS_score": -10.0
+  },
+  "obj_vs_subj_spearman_n10": {
+    "win_rate~difficulty_fairness": 0.544,
+    "avg_margin~fun": 0.519,
+    "agency_mean~strategic_depth": 0.463,
+    "drag_problems~drag_drop_feel": -0.815,
+    "frustration_index~nps": -0.463,
+    "pct_turns_using_dice~strategic_depth": 0.298
+  },
+  "themes": {
+    "readability / clarity": {
+      "like_personas": 9,
+      "frustration_personas": 1,
+      "grounded_like": 3,
+      "grounded_frustration": 1
+    },
+    "strategic depth": {
+      "like_personas": 6,
+      "frustration_personas": 2,
+      "grounded_like": 3,
+      "grounded_frustration": 1
+    },
+    "drag & drop feel": {
+      "like_personas": 5,
+      "frustration_personas": 1,
+      "grounded_like": 2,
+      "grounded_frustration": 0
+    },
+    "too easy / low challenge": {
+      "like_personas": 3,
+      "frustration_personas": 4,
+      "grounded_like": 1,
+      "grounded_frustration": 3
+    },
+    "dice / column boost": {
+      "like_personas": 2,
+      "frustration_personas": 2,
+      "grounded_like": 1,
+      "grounded_frustration": 0
+    },
+    "tactical slide": {
+      "like_personas": 1,
+      "frustration_personas": 0,
+      "grounded_like": 1,
+      "grounded_frustration": 0
+    },
+    "art / visuals": {
+      "like_personas": 1,
+      "frustration_personas": 0,
+      "grounded_like": 0,
+      "grounded_frustration": 0
+    }
+  },
+  "consistency": {
+    "items": 70,
+    "flagged": 34,
+    "flag_rate": 0.486
+  },
+  "cvd": {
+    "player_frame_vs_ai_frame (--blue-ally vs --red-enemy)": {
+      "a": "#00E5FF",
+      "b": "#FF2E54",
+      "a_deutan": "#B2C7FF",
+      "b_deutan": "#A4954E",
+      "dE2000_normal": 84.55,
+      "dE2000_deutan": 45.34,
+      "retained_pct": 53.6
+    },
+    "flip_preview_vs_defend_preview line (#FFB800 vs #FF2E54)": {
+      "a": "#FFB800",
+      "b": "#FF2E54",
+      "a_deutan": "#E5CC17",
+      "b_deutan": "#A4954E",
+      "dE2000_normal": 48.03,
+      "dE2000_deutan": 18.67,
+      "retained_pct": 38.9
+    },
+    "turn_badge YOUR TURN vs BOSS TURN (#FFB800 vs #FF2E54)": {
+      "a": "#FFB800",
+      "b": "#FF2E54",
+      "a_deutan": "#E5CC17",
+      "b_deutan": "#A4954E",
+      "dE2000_normal": 48.03,
+      "dE2000_deutan": 18.67,
+      "retained_pct": 38.9
+    },
+    "slide_target (--emerald) vs flip_target (--gold)": {
+      "a": "#00E676",
+      "b": "#FFB800",
+      "a_deutan": "#D1C27E",
+      "b_deutan": "#E5CC17",
+      "dE2000_normal": 42.22,
+      "dE2000_deutan": 12.32,
+      "retained_pct": 29.2
+    },
+    "slide_target (--emerald) vs ai_frame (--red-enemy)": {
+      "a": "#00E676",
+      "b": "#FF2E54",
+      "a_deutan": "#D1C27E",
+      "b_deutan": "#A4954E",
+      "dE2000_normal": 86.94,
+      "dE2000_deutan": 12.92,
+      "retained_pct": 14.9
+    },
+    "victory_title vs defeat_title (#00E5FF vs #FF2E54)": {
+      "a": "#00E5FF",
+      "b": "#FF2E54",
+      "a_deutan": "#B2C7FF",
+      "b_deutan": "#A4954E",
+      "dE2000_normal": 84.55,
+      "dE2000_deutan": 45.34,
+      "retained_pct": 53.6
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "active_deck": [
+    "h_archangel",
+    "h_phoenix",
+    "h_oracle",
+    "h_chronos",
+    "h_seraph"
+  ],
+  "campaign_stages_cleared": [
+    1
+  ],
+  "coins": 500,
+  "elo_rating": 1200,
+  "evolved_cards": {
+    "cc_01_sketching": false,
+    "cc_03_storyboard": false
+  },
+  "fnv1a_64_checksum": "0x3d89f7017ebded4c",
+  "player_id": "commander_slot_01",
+  "rng_seed": 20261108,
+  "settings": {
+    "master_slider": 0.9,
+    "music_slider": 0.8,
+    "sfx_slider": 0.85,
+    "ui_slider": 0.85,
+    "voice_slider": 0.9
+  },
+  "unlocked_cards": [
+    "h_archangel",
+    "h_phoenix",
+    "h_oracle",
+    "h_chronos",
+    "h_seraph",
+    "h_kai",
+    "h_valkyrie",
+    "h_arbiter",
+    "cc_01_sketching",
+    "cc_03_storyboard"
+  ],
+  "version": 3
+}

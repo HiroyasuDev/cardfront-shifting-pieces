@@ -1,0 +1,150 @@
+{
+ "dragDuringBossTurn": {
+  "bossTurnActiveAtAttempt": true,
+  "ghostCreated": false,
+  "handAfterBoss": 4,
+  "expectedHand": 4,
+  "turnBadgeDuringAttempt": "BOSS TURN (badge only; no cursor change)",
+  "pass": true
+ },
+ "dropOutsideBoard": {
+  "rightPanel": {
+   "at": [
+    1350,
+    201
+   ],
+   "ghostDuring": 1,
+   "magnetTargetAtRelease": null,
+   "placed": 0,
+   "ghostAfter": 0
+  },
+  "header": {
+   "at": [
+    700,
+    20
+   ],
+   "ghostDuring": 1,
+   "magnetTargetAtRelease": null,
+   "placed": 0,
+   "ghostAfter": 0
+  },
+  "handPanelOtherCard": {
+   "at": [
+    208,
+    434
+   ],
+   "ghostDuring": 1,
+   "magnetTargetAtRelease": null,
+   "placed": 0,
+   "ghostAfter": 0
+  },
+  "belowBoard30px": {
+   "at": [
+    748,
+    760
+   ],
+   "ghostDuring": 1,
+   "magnetTargetAtRelease": [
+    2,
+    1
+   ],
+   "placed": 1,
+   "ghostAfter": 0
+  },
+  "leftOfBoard60px": {
+   "at": [
+    475,
+    459
+   ],
+   "ghostDuring": 1,
+   "magnetTargetAtRelease": [
+    1,
+    0
+   ],
+   "placed": 1,
+   "ghostAfter": 0
+  },
+  "passStrict": true
+ },
+ "realTabSwitchMidDrag": {
+  "blurEventsReceived": 0,
+  "visibilityEvents": 0,
+  "ghostWhileOtherTabFront": 1,
+  "placedOnReturn": 1,
+  "note": "If blurEventsReceived=0 the headless shell did not deliver focus loss; the dispatched-blur variant in t2_edge_cases.json is the valid check. No visibilitychange handler exists in the game."
+ },
+ "resetDuringSnapAnimation": {
+  "cardsAfter": {
+   "p": 1,
+   "a": 2,
+   "e": 6
+  },
+  "handAfter": 4,
+  "nudges": 3,
+  "pass": false
+ },
+ "resetButtonMidBossTurn": {
+  "bossTurnPendingWhenReset": true,
+  "cardsRightAfter": {
+   "p": 0,
+   "a": 1,
+   "e": 8
+  },
+  "cardsAfter1200ms": {
+   "p": 0,
+   "a": 2,
+   "e": 7
+  },
+  "nudgesAfter": 3,
+  "aiPoolAfter": 4,
+  "isPlayerTurn": true,
+  "banner": "🟥 Boss deployed Prism Core Archon (Prism Tri-Laser) at (1,1).",
+  "pass": false
+ },
+ "stageSelectMidBossTurn": {
+  "bossTurnPendingWhenReset": true,
+  "cardsRightAfter": {
+   "p": 0,
+   "a": 1,
+   "e": 8
+  },
+  "cardsAfter1200ms": {
+   "p": 0,
+   "a": 2,
+   "e": 7
+  },
+  "nudgesAfter": 3,
+  "aiPoolAfter": 4,
+  "isPlayerTurn": true,
+  "banner": "🟥 Boss deployed Inferno Seraph (Hellfire Artillery) at (1,1).",
+  "pass": false
+ },
+ "resetDuringGameOverDelay": {
+  "modalVisibleOnFreshBoard": true,
+  "freshBoardCards": {
+   "p": 0,
+   "a": 1,
+   "e": 8
+  },
+  "modalTitle": "🏆 VICTORY (6 – 3)!",
+  "pass": false
+ },
+ "secondPointerUpEndsDrag": {
+  "placedByForeignPointerUp": 1,
+  "ghostAfterTouch": 0,
+  "note": "onDragPointerUp/Cancel do not filter by pointerId",
+  "pass": false
+ },
+ "digitAndRerollKeysMidDrag": {
+  "selDuringDrag": 3,
+  "rerollsDuringDrag": 1,
+  "placedCard": "p:h_kai",
+  "expected": "p:h_kai",
+  "pass": true
+ },
+ "oneStepFlick20x": {
+  "trials": 20,
+  "placed": 0,
+  "note": "startStage() called via evaluate only to reset between trials"
+ }
+}

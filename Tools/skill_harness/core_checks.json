@@ -1,0 +1,372 @@
+[
+  {
+    "id": "core.card_game.01",
+    "skill": "genres/card-game",
+    "rule": "A card existing in two zones at once -> duplication/loss bugs. Enforce 'exactly one zone'; move = remove-then-add, and assert no card appears twice.",
+    "source": "skills/genres/card-game/SKILL.md:107",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); const gridIds = state.grid.flat().filter(c => c && c.cardId).map(c => c.cardId); const all = [...state.hand, ...state.aiPool, ...gridIds]; return all.length === 11 && new Set(all).size === 11 && state.hand.length === 5 && state.aiPool.length === 5 && gridIds.length === 1; })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1565-1584",
+    "remediation": "Keep single-zone partition invariant across state.hand, state.aiPool, and state.grid."
+  },
+  {
+    "id": "core.card_game.02",
+    "skill": "genres/card-game",
+    "rule": "Off-by-one in the shuffle's random index -> some orders never occur (a biased deck). Include upper bound i in Fisher-Yates.",
+    "source": "skills/genres/card-game/SKILL.md:118",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "Math\\.floor\\((?:Math\\.random|seededRng)\\(\\)\\s*\\*\\s*\\(i\\s*\\+\\s*1\\)\\)"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1499-1506",
+    "remediation": "Use inclusive upper bound (i + 1) in Fisher-Yates shuffle."
+  },
+  {
+    "id": "core.card_game.03",
+    "skill": "genres/card-game",
+    "rule": "Card data — id, name, cost, type, text, and an effect spec (data, not code).",
+    "source": "skills/genres/card-game/SKILL.md:33",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const cards = Object.values(ALL_CARDS); return cards.length === 16 && cards.every(c => c.id && c.name && Array.isArray(c.nesw) && c.nesw.length === 4 && c.nesw.every(v => v >= 1 && v <= 9) && c.telegraphType && c.telegraphName && c.art); })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:963-1148",
+    "remediation": "Ensure all 16 cards in ALL_CARDS define structured NESW and telegraph data fields."
+  },
+  {
+    "id": "core.card_game.04",
+    "skill": "genres/card-game",
+    "rule": "Turn structure as a phase machine — Fixed phases keep timing windows (triggers, priority) unambiguous.",
+    "source": "skills/genres/card-game/SKILL.md:95",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { return startStage.toString().includes('clearTimeout') || startStage.toString().includes('bossTurnTimer'); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1546,1754",
+    "remediation": "Store the timer ID from `state.bossTurnTimer = setTimeout(executeBossTurn, 650)` at line 1754 and call `clearTimeout(state.bossTurnTimer)` inside `startStage(idx)` at line 1546 so Reset/Stage-Select never leaks a stale boss turn onto the new board (Bug R01)."
+  },
+  {
+    "id": "core.card_game.05",
+    "skill": "genres/card-game",
+    "rule": "Targeting state leaks -> a cancelled play leaves the board mid-targeting. Make play atomic: validate cost + targets first, then commit.",
+    "source": "skills/genres/card-game/SKILL.md:123",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { return startStage.toString().includes('teardownDrag') && onDragPointerUp.toString().includes('owner === \"player\"'); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1546,2356-2378",
+    "remediation": "Call `detachDragListeners(); teardownDrag();` inside `startStage(idx)` at line 1546, and re-validate `state.isPlayerTurn && srcCell.owner === 'player'` inside `onDragPointerUp()` at line 2366 before committing a drop or Tactical Slide (Bugs R03, R04)."
+  },
+  {
+    "id": "core.card_game.06",
+    "skill": "genres/card-game",
+    "rule": "Effect resolution — apply a card's effects in a defined order; handle targets and triggers consistently across all board units.",
+    "source": "skills/genres/card-game/SKILL.md:38",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(2); state.colDice = [6, 2, 2]; state.grid[0][1] = { r: 0, c: 1, cardId: 'e_titan', owner: 'player', nesw: getCardEffectiveStats('e_titan', 1, true), justFlipped: false }; recalcBoardStats(); const preservedAiBonus = state.grid[0][1].nesw[0] === 8; startStage(0); return preservedAiBonus; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1512-1520,1614-1623",
+    "remediation": "Fix `recalcBoardStats()` at line 1614 so captured cards preserve their base/stage `aiBonus` and AI-owned cards in boosted columns also recalculate cleanly when column dice change (Bug R07)."
+  },
+  {
+    "id": "core.card_game.07",
+    "skill": "genres/card-game",
+    "rule": "Unseeded shuffle in a game that needs replays/undo -> can't reproduce. Use a seeded RNG instance (not the engine's global one).",
+    "source": "skills/genres/card-game/SKILL.md:115",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "(mulberry32|seededRng|rngSeed|state\\.seed)"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1499-1506,1608",
+    "remediation": "Replace raw `Math.random()` in `shuffle()`, `rerollAllDice()`, and `executeBossTurn()` with a deterministic seeded PRNG (`mulberry32(state.seed)`) synced with URL `?seed=`."
+  },
+  {
+    "id": "core.game_feel.01",
+    "skill": "disciplines/game-feel",
+    "rule": "Store trauma 0..1; shake = trauma^2 so small hits barely move, big hits punch. Smooth pseudo-random via sampled noise/sin, NOT rand each frame.",
+    "source": "skills/disciplines/game-feel/SKILL.md:66",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "const\\s+shake\\s*=\\s*trauma\\s*\\*\\s*trauma;[\\s\\S]{0,240}Math\\.sin\\(state\\.noiseTime"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1394-1400",
+    "remediation": "Drive screen shake from decaying quadratic `trauma * trauma` and smooth sine waves."
+  },
+  {
+    "id": "core.game_feel.02",
+    "skill": "disciplines/game-feel",
+    "rule": "Hit-stop with WaitForSecondsRealtime ignores Time.timeScale, so the timer still elapses. Let only the newest call restore it.",
+    "source": "skills/disciplines/game-feel/SKILL.md:109",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/SynapseGameDevSkillsHarness.cs",
+      "regex": "WaitForSecondsRealtime\\(durationRealtimeSeconds\\)[\\s\\S]{0,120}myId\\s*==\\s*_activeHitStopId"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Assets/Scripts/Core/SynapseGameDevSkillsHarness.cs:81-91",
+    "remediation": "Use WaitForSecondsRealtime and an incrementing hit-stop token in Unity C#."
+  },
+  {
+    "id": "core.game_feel.03",
+    "skill": "disciplines/game-feel",
+    "rule": "(1) Exaggerate briefly and return to rest; (2) scale juice to event importance — a routine placement is not a multi-card capture.",
+    "source": "skills/disciplines/game-feel/SKILL.md:40",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const code = handleSlotClick.toString(); return code.includes('triggerHitStop(80)') && code.includes('0.38 + flips.length * 0.2') && code.includes('addTrauma(0.18)'); })()"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1739-1744",
+    "remediation": "Scale trauma with capture count and reserve 80ms hit-stop for captures."
+  },
+  {
+    "id": "core.game_feel.04",
+    "skill": "disciplines/game-feel",
+    "rule": "Over-juicing routine actions causes nausea and hides real impacts. Scale to importance; add a 'reduce screen shake'/'reduce flashing' accessibility option.",
+    "source": "skills/disciplines/game-feel/SKILL.md:156",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "prefers-reduced-motion|reduceShake"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1372-1408",
+    "remediation": "Respect `window.matchMedia('(prefers-reduced-motion: reduce)').matches` and provide a UI toggle to suppress `addTrauma()` and brightness-flash hit-stop filters."
+  },
+  {
+    "id": "core.game_ui_ux.01",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Pick a layout model: anchors + containers, never absolute pixels. Scale to fit with zero viewport clipping.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:35",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const mainStyle = getComputedStyle(document.querySelector('main')); const noOverflow = document.documentElement.scrollWidth <= window.innerWidth && document.documentElement.scrollHeight <= window.innerHeight; return mainStyle.display === 'grid' && noOverflow; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:25-30,140-152",
+    "remediation": "Use CSS Grid containers and `clamp()` viewport-relative sizing so 1408x800 and 1280x800 never overflow."
+  },
+  {
+    "id": "core.game_ui_ux.02",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Make every screen keyboard/gamepad navigable. Set an initial focused control per screen, define focus order/neighbors.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:41",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); return state.focusedSlotIndex === 4 && typeof handleHarnessKeyDown === 'function'; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1359,1410-1446",
+    "remediation": "Initialize `state.focusedSlotIndex = 4` (center tile) and support keyboard navigation."
+  },
+  {
+    "id": "core.game_ui_ux.03",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Model screens as a stack. Push (pause/modal over game), pop (resume/reset), with input + visibility handed to the top screen.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:45",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { return startStage.toString().includes('result-modal') && checkGameOver.toString().includes('next-stage-btn'); })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:948-953,1546,1825-1846",
+    "remediation": "In `startStage(idx)` at line 1546, explicitly pop/hide `#result-modal` (`document.getElementById('result-modal').style.display = 'none'`), auto-focus the primary modal button on open, and hide/disable `Next Stage ▶` when `win === false` (Bugs R08, R09)."
+  },
+  {
+    "id": "core.game_ui_ux.04",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Tiny fixed font sizes are unreadable on a TV-at-distance or small phone. Scale text with the UI (Xbox Accessibility Guideline 101 floor).",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:139",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const badge = document.querySelector('.telegraph-tag-badge'); const colPill = document.querySelector('.col-header-pill'); return parseFloat(getComputedStyle(badge).fontSize) >= 12 && parseFloat(getComputedStyle(colPill).fontSize) >= 12; })()"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:75,171,275,323",
+    "remediation": "Raise minimum UI badge/pill typography from `9.5px`/`10px` to `clamp(12px, 1.1vw, 14px)` and add non-color owner icons alongside blue/red borders for deuteranopia accessibility."
+  },
+  {
+    "id": "core.create_game_assets.01",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Technical fit: exact size/frame count, usable alpha, stable anchors/pivots, correct color space/filtering, no clipped content.",
+    "source": "skills/disciplines/create-game-assets/SKILL.md:108",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const imgs = Array.from(document.querySelectorAll('.slot-art')); return imgs.length >= 6 && imgs.every(img => img.complete && img.naturalWidth === 600 && img.naturalHeight === 800); })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:527-533,2532-2540",
+    "remediation": "Maintain 600x800 (3:4 portrait) mastered card art across all 16 hero and mech units."
+  },
+  {
+    "id": "core.create_game_assets.02",
+    "skill": "disciplines/create-game-assets",
+    "rule": "UI art or icons: Keep text and interaction code-native; prefer SVG/vector for simple geometric symbols.",
+    "source": "skills/disciplines/create-game-assets/SKILL.md:52",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const ids = Object.keys(ALL_CARDS); return ids.length === 16 && ids.every(id => buildUniqueTelegraphSVG(ALL_CARDS[id]).includes('<svg')); })()"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1151-1255",
+    "remediation": "Keep all 16 card telegraph overlays as crisp inline SVG vector animations."
+  },
+  {
+    "id": "core.unity_so.01",
+    "skill": "unity/unity-scriptableobjects",
+    "rule": "Define the class deriving from ScriptableObject and tag it with [CreateAssetMenu]; keep mutable runtime state in [NonSerialized] fields reset in OnEnable.",
+    "source": "skills/unity/unity-scriptableobjects/SKILL.md:30",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/SynapseGameDevSkillsHarness.cs",
+      "regex": "\\[CreateAssetMenu[\\s\\S]{0,200}:\\s*ScriptableObject[\\s\\S]{0,200}\\[NonSerialized\\]"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Assets/Scripts/Core/SynapseGameDevSkillsHarness.cs:17-30",
+    "remediation": "Derive shared variable/card config classes from ScriptableObject with [CreateAssetMenu] and [NonSerialized] runtime state."
+  },
+  {
+    "id": "core.unity_so.02",
+    "skill": "unity/unity-scriptableobjects",
+    "rule": "Disabled Domain Reload skips your OnEnable reset — also reset on EditorApplication.playModeStateChanged or [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)].",
+    "source": "skills/unity/unity-scriptableobjects/SKILL.md:115",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/SynapseGameDevSkillsHarness.cs",
+      "regex": "(playModeStateChanged|SubsystemRegistration)"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "Assets/Scripts/Core/SynapseGameDevSkillsHarness.cs:18-42",
+    "remediation": "Subscribe `EditorApplication.playModeStateChanged` inside `#if UNITY_EDITOR` on `ScriptableObjectDomainReloadGuard` so fast Play Mode entry without Domain Reload still resets `RuntimeValue`."
+  },
+  {
+    "id": "core.input_systems.01",
+    "skill": "disciplines/input-systems",
+    "rule": "Define actions, not raw keys; guard global key handlers when native form/select controls hold focus and expose all gameplay actions to keyboard.",
+    "source": "skills/disciplines/input-systems/SKILL.md:35",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const code = handleHarnessKeyDown.toString(); return (code.includes('SELECT') || code.includes('tagName')) && code.includes('nudgeColDie'); })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1410-1446",
+    "remediation": "In `handleHarnessKeyDown(e)` at line 1410, ignore key events when `['SELECT','BUTTON','INPUT'].includes(e.target.tagName)` (Bug R10) and bind keys (e.g. `q`/`e`/`z` or `Alt+1..3`) to `nudgeColDie(0..2)`."
+  },
+  {
+    "id": "core.audio_design.01",
+    "skill": "disciplines/audio-design",
+    "rule": "Lay out buses, not per-sound volume (Master <- {Music, SFX, UI}) and operate in decibels with SFX pitch variation.",
+    "source": "skills/disciplines/audio-design/SKILL.md:33",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const code = playTone.toString(); return code.includes('masterGain') || code.includes('sfxBus') || code.includes('muted'); })()"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1323-1344",
+    "remediation": "Route `playTone()` through a persistent `masterGain` / `sfxBus` GainNode with dB-to-linear conversion (`Math.pow(10, db / 20)`), subtle pitch jitter (`±0.5` semitones), and a header Mute button."
+  },
+  {
+    "id": "core.save_systems.01",
+    "skill": "disciplines/save-systems",
+    "rule": "Define a versioned schema (`version` integer) and persist player progress/settings across sessions.",
+    "source": "skills/disciplines/save-systems/SKILL.md:37",
+    "target": "web",
+    "method": "static_regex",
+    "probe": {
+      "file": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+      "regex": "localStorage\\.(getItem|setItem)"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1546-1590,1820-1846",
+    "remediation": "Persist unlocked/cleared stages, best stage scores, camera preset, and audio mute state to `localStorage` under a versioned JSON schema (`{ version: 1, clearedStages: [...], bestScores: {...} }`)."
+  },
+  {
+    "id": "core.game_ai.01",
+    "skill": "disciplines/game-ai",
+    "rule": "Pick the decision model by complexity: utility scoring evaluates candidate options across offensive capture and positional defense rather than random tie-breaking.",
+    "source": "skills/disciplines/game-ai/SKILL.md:36",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const code = executeBossTurn.toString(); return code.includes('exposedEdges') || code.includes('utilityScore') || code.includes('tieBreak'); })()"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1757-1785",
+    "remediation": "Upgrade `executeBossTurn()` at line 1773 from single-card `aiPool.pop()` + random tie-break (`f > bestCount`) to a deterministic utility scorer that weights immediate captures, corner control, and unexposed weak edges (Bug R02)."
+  },
+  {
+    "id": "core.performance.01",
+    "skill": "disciplines/performance-optimization",
+    "rule": "Define the target and reproduce: 60 FPS = 16.67 ms/frame budget; zero long tasks (>50ms) during pointer drag and hover sweeps.",
+    "source": "skills/disciplines/performance-optimization/SKILL.md:65",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "file": "Datasets/mirofish_gameplay/ux_qa/raw/t4_perf.json",
+      "json_path": "runs.cpu1x.drag.p95Ms",
+      "fallback_expression": "(() => { const t0 = performance.now(); renderAll(); return +(performance.now() - t0).toFixed(2); })()"
+    },
+    "expect": "<=18.0",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1985-2105",
+    "remediation": "Keep `renderAll()` under 1 ms and freeze board parallax during active pointer drag so 60 Hz frame pacing holds at `p95 <= 16.8ms`."
+  }
+]

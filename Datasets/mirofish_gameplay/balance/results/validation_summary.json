@@ -1,0 +1,74 @@
+{
+  "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html?balance=1794139812863",
+  "matches": 166,
+  "syncMatches": 160,
+  "realtimeMatches": 6,
+  "matchAgreementPct": 100,
+  "actionsCompared": 975,
+  "actionAgreementPct": 100,
+  "finalScoreAgreementPct": 100,
+  "byPolicy": {
+    "chaos": {
+      "n": 33,
+      "ok": 33
+    },
+    "greedy_all": {
+      "n": 17,
+      "ok": 17
+    },
+    "random": {
+      "n": 17,
+      "ok": 17
+    },
+    "greedy_slide": {
+      "n": 17,
+      "ok": 17
+    },
+    "greedy_dice": {
+      "n": 17,
+      "ok": 17
+    },
+    "expert": {
+      "n": 17,
+      "ok": 17
+    },
+    "lookahead": {
+      "n": 16,
+      "ok": 16
+    },
+    "greedy": {
+      "n": 16,
+      "ok": 16
+    },
+    "expert_noslide": {
+      "n": 16,
+      "ok": 16
+    }
+  },
+  "byStage": {
+    "0": {
+      "n": 42,
+      "ok": 42,
+      "wins": 39
+    },
+    "1": {
+      "n": 42,
+      "ok": 42,
+      "wins": 42
+    },
+    "2": {
+      "n": 41,
+      "ok": 41,
+      "wins": 33
+    },
+    "3": {
+      "n": 41,
+      "ok": 41,
+      "wins": 34
+    }
+  },
+  "pageErrors": [],
+  "divergent": [],
+  "actionTypeCounts": {},
+  "seconds": 122.334
+}

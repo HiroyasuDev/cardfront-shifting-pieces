@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Synapse.TcgEngine.Data;
 
 namespace Synapse.TcgEngine.Audio
@@ -29,6 +30,9 @@ namespace Synapse.TcgEngine.Audio
         [Range(0f, 1f)] public float masterVolume = 0.85f;
         [Range(0f, 1f)] public float sfxVolume = 0.90f;
         [Range(0f, 1f)] public float fanfareVolume = 0.80f;
+        public AudioMixerGroup defaultMixerGroup;
+        public AudioMixerGroup sfxMixerGroup;
+        public AudioMixerGroup fanfareMixerGroup;
 
         private AudioSource _primarySource;
         private AudioSource _fanfareSource;
@@ -72,12 +76,15 @@ namespace Synapse.TcgEngine.Audio
 
             _primarySource = GetComponent<AudioSource>();
             _primarySource.playOnAwake = false;
+            _primarySource.outputAudioMixerGroup = sfxMixerGroup != null ? sfxMixerGroup : defaultMixerGroup;
 
             _fanfareSource = gameObject.AddComponent<AudioSource>();
             _fanfareSource.playOnAwake = false;
+            _fanfareSource.outputAudioMixerGroup = fanfareMixerGroup != null ? fanfareMixerGroup : defaultMixerGroup;
 
             _synergySource = gameObject.AddComponent<AudioSource>();
             _synergySource.playOnAwake = false;
+            _synergySource.outputAudioMixerGroup = sfxMixerGroup != null ? sfxMixerGroup : defaultMixerGroup;
 
             PrewarmCoreClips();
         }

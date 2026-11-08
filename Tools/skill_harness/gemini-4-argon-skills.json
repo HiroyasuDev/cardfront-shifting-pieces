@@ -1,0 +1,2782 @@
+{
+  "schema_version": "2026.11.gemini-4-argon.v1",
+  "name": "synapse-gamedev-agent-skills-gemini-4-argon",
+  "target_model": {
+    "id": "gemini-4-argon",
+    "display_name": "Gemini 4 Argon",
+    "runtime_harness": "Antigravity / SYNAPSE Parallel Swarm & Grounded Skill Harness",
+    "replaces_legacy_plugin": ".claude-plugin/marketplace.json"
+  },
+  "source_video_reference": {
+    "video_id": "t13A2XFGoOc",
+    "url": "https://youtu.be/t13A2XFGoOc?si=V1HkMBTl7KO5qwac",
+    "title": "Turn Claude into an Expert Game Dev with these Free 77 AI Skills",
+    "author": "Nick Automates (@nickautomates)",
+    "upstream_repo": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
+    "gemini_4_argon_adaptation": "Re-architects the 77 upstream gamedev-skills + 14 custom SYNAPSE skills + Master Router (92 SKILL.md files total) for Gemini 4 Argon's native tool-use, progressive disclosure via `read_file`, parallel `invoke_subagent` swarms (`Model: inherit`), Apple Silicon `jevmlx` / `mlx-apple-silicon-mcp` local gates, and grounded Playwright + Unity verification."
+  },
+  "counts": {
+    "total_skill_md_files": 92,
+    "master_router_count": 1,
+    "upstream_gamedev_skills_count": 77,
+    "custom_synapse_skills_count": 14,
+    "total_routable_skills": 91
+  },
+  "composition_protocol": {
+    "order": [
+      "Engine Fundamentals",
+      "Discipline(s)",
+      "Genre",
+      "Workflow"
+    ],
+    "max_skills_per_single_agent_turn": 4,
+    "dual_engine_project_support": {
+      "primary_web_playable": {
+        "engine": "Custom HTML5/CSS3/JS Tabletop Engine (custom-engines.md)",
+        "entrypoint": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+        "server_url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html"
+      },
+      "secondary_unity_project": {
+        "engine": "Unity",
+        "version": "2022.3.40f1",
+        "entrypoint": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs"
+      }
+    }
+  },
+  "categories": {
+    "art-direction": [
+      "tactical-illustrator-library"
+    ],
+    "decompilation": [
+      "advance-wars-ffta-gba-decomp",
+      "anime-baseline-proprietary-style-distillation",
+      "crossover-engine-bridge",
+      "emulation-state-bridge",
+      "game-bundle-modding",
+      "hi3d-ai-full-studio-re",
+      "into-the-breach-staccs-re",
+      "matching-decompilation",
+      "metal-gear-acid-card-stealth-re",
+      "morluto-rea-omegastrikers-hi3d-pipeline",
+      "nvidia-rtx-tensorcore-unlock",
+      "static-recompilation",
+      "unity-tcg-engine-re"
+    ],
+    "disciplines": [
+      "ai-behavior-trees-utility-ai",
+      "audio-design",
+      "camera-systems",
+      "create-game-assets",
+      "dialogue-systems",
+      "game-ai",
+      "game-feel",
+      "game-ui-ux",
+      "input-systems",
+      "level-design",
+      "performance-optimization",
+      "physics-tuning",
+      "procedural-gen",
+      "save-systems",
+      "shader-programming"
+    ],
+    "ebitengine": [
+      "ebitengine-game"
+    ],
+    "genres": [
+      "card-game",
+      "fps-shooter",
+      "platformer",
+      "puzzle",
+      "roguelike",
+      "rpg",
+      "survival-crafting",
+      "tower-defense",
+      "visual-novel"
+    ],
+    "godot": [
+      "godot-2d-movement",
+      "godot-3d-essentials",
+      "godot-animation",
+      "godot-audio",
+      "godot-csharp",
+      "godot-export",
+      "godot-gdscript",
+      "godot-gdscript-headless-testing",
+      "godot-multiplayer",
+      "godot-nodes-scenes",
+      "godot-physics",
+      "godot-resources",
+      "godot-shaders",
+      "godot-signals-groups",
+      "godot-tilemap",
+      "godot-ui-control"
+    ],
+    "other-engines": [
+      "bevy-ecs",
+      "defold-core",
+      "love2d-core",
+      "pygame-core",
+      "roblox-characters",
+      "roblox-datastores",
+      "roblox-luau",
+      "roblox-networking",
+      "roblox-physics",
+      "roblox-simulator-economy",
+      "roblox-studio-workflow",
+      "roblox-ui"
+    ],
+    "router": [
+      "router"
+    ],
+    "unity": [
+      "unity-animation",
+      "unity-build-pipeline",
+      "unity-csharp-scripting",
+      "unity-input-system",
+      "unity-navmesh",
+      "unity-physics",
+      "unity-scriptableobjects",
+      "unity-tilemap-2d"
+    ],
+    "unreal": [
+      "unreal-behavior-trees",
+      "unreal-blueprints",
+      "unreal-cpp-gameplay",
+      "unreal-enhanced-input",
+      "unreal-niagara",
+      "unreal-packaging"
+    ],
+    "web-engines": [
+      "phaser-arcade-physics",
+      "phaser-core",
+      "pixijs-rendering",
+      "threejs-gltf-loading",
+      "threejs-materials-lighting",
+      "threejs-scene-setup"
+    ],
+    "workflows": [
+      "game-jam",
+      "itch-publish",
+      "prototype-fast",
+      "steam-publish"
+    ]
+  },
+  "skills": [
+    {
+      "skill_id": "router",
+      "name": "router",
+      "category": "router",
+      "slot": "router",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/SKILL.md",
+      "relative_path": "router/SKILL.md",
+      "line_count": 283,
+      "description": "Routes any game-development request to the right specialized skill(s): it detects the engine (Godot, Unity, Unreal, Ebitengine, Bevy, Phaser, PixiJS, three.js, Defold, L\u00d6VE, pygame, Roblox) and the task, then reads the chosen skill before acting. Use to make a game or to decide which skill applies \u2014 for players, levels, enemies, shaders, art direction, sprites, tiles, textures, 3D assets, UI/UX, cameras, game feel, physics, input, audio, saving, multiplayer, AI, dialogue, procedural generation, or performance, for genres (platformer, roguelike, RPG, FPS, tower-defense, card game, visual novel, survival-crafting, puzzle), and for shipping (game jam, Steam, itch). Start here when unsure which gamedev skill to use.",
+      "references": [
+        "router/references/custom-engines.md",
+        "router/references/engine-detection.md",
+        "router/references/routing-table.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "parallel-architect",
+        "verification_subagents": [
+          "code-implementer",
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "mem",
+          "mlx_jev_choose"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "art-direction/tactical-illustrator-library",
+      "name": "tactical-illustrator-library",
+      "category": "art-direction",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/art-direction/tactical-illustrator-library/SKILL.md",
+      "relative_path": "skills/art-direction/tactical-illustrator-library/SKILL.md",
+      "line_count": 22,
+      "description": "Master Tactical RPG & Strategy Illustrator Library encoding the art styles, shader grading parameters, and ComfyUI RTX 4080 prompt conditioning for Ry\u014dma It\u014d (FFTA), Akihiko Yoshida (FFT / FFTA Judges), Hideo Minaba (FFTA Art Director), and Ryo Hirata (Advance Wars 1/2/Dual Strike/Days of Ruin & Fire Emblem Thracia 776/Binding Blade/Sacred Stones).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "prime-vision-worker",
+        "verification_subagents": [
+          "mlx-local-worker",
+          "code-implementer"
+        ],
+        "mcp_tools": [
+          "mlx_jev_rate",
+          "jev_verify"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/advance-wars-ffta-gba-decomp",
+      "name": "advance-wars-ffta-gba-decomp",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/advance-wars-ffta-gba-decomp/SKILL.md",
+      "relative_path": "skills/decompilation/advance-wars-ffta-gba-decomp/SKILL.md",
+      "line_count": 122,
+      "description": "Full GBA ARM7TDMI (16.78 MHz, EWRAM 0x02000000, IWRAM 0x03000000, VRAM 0x06000000, OAM 0x07000000, ROM 0x08000000) decompilation and game-dynamics decomposition of Intelligent Systems' Advance Wars 1 & 2 (Ryo Hirata / Kentaro Nishimura engine) and Square Enix's Final Fantasy Tactics Advance (Yasumi Matsuno / Ryoma Ito / Akihiko Yoshida / Hideo Minaba engine). Covers exact combat math, terrain defense stars, CO Power meter scaling, CTB turn-order queues, isometric height & directional facing multipliers, Judge Points (JP) & Mythril Combo links, and the 12 Classic-Yet-Dynamic Telegraph & Battle Cut-In pipelines.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/anime-baseline-proprietary-style-distillation",
+      "name": "anime-baseline-proprietary-style-distillation",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/anime-baseline-proprietary-style-distillation/SKILL.md",
+      "relative_path": "skills/decompilation/anime-baseline-proprietary-style-distillation/SKILL.md",
+      "line_count": 82,
+      "description": "Architectural blueprint and execution pipeline for using open-weight Anime Training Baselines (Animagine XL 3.1/4.0, Illustrious-XL, NoobAI-XL V-Pred, Kohaku-XL, FLUX.1-dev FP8, and Sana-1.6B DiT) to train orthogonal UNet block-specific DoRA / LyCORIS adapters, merge them via Block-Weighted Task-Arithmetic + TIES Model Soup, and distill a 22-step Teacher into a 4-step CFG=1.0 Student and Unity URP HLSL Shader (`Synapse-Aether-Cel v1.0`).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/crossover-engine-bridge",
+      "name": "crossover-engine-bridge",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/crossover-engine-bridge/SKILL.md",
+      "relative_path": "skills/decompilation/crossover-engine-bridge/SKILL.md",
+      "line_count": 20,
+      "description": "Embed a decompiled game engine or physics/character controller (like libsm64 in Minecraft/Godot/Unity) into a host engine via a deterministic FFI state bridge (smc64 / minecraft-crossover-bridge workflow).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/emulation-state-bridge",
+      "name": "emulation-state-bridge",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/emulation-state-bridge/SKILL.md",
+      "relative_path": "skills/decompilation/emulation-state-bridge/SKILL.md",
+      "line_count": 14,
+      "description": "Bridge emulator memory snapshots, register states, and framebuffers into interactive AI agents or external game worlds (PhotoCraft workflow).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/game-bundle-modding",
+      "name": "game-bundle-modding",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/game-bundle-modding/SKILL.md",
+      "relative_path": "skills/decompilation/game-bundle-modding/SKILL.md",
+      "line_count": 16,
+      "description": "Inspect, unpack, decompile, and inject runtime mod hooks into Unity (.dll/IL2CPP), Godot (.pck/.gd), Unreal (.uproject/.pak), and macOS .app game bundles (Slay the Spire 2 ModTemplate-StS2 workflow).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/hi3d-ai-full-studio-re",
+      "name": "hi3d-ai-full-studio-re",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/hi3d-ai-full-studio-re/SKILL.md",
+      "relative_path": "skills/decompilation/hi3d-ai-full-studio-re/SKILL.md",
+      "line_count": 208,
+      "description": "92nd Gamedev & 3D Studio Decompilation Skill: Complete reverse-engineering and clean-room architectural specification of the full https://www.hi3d.ai/ 5-Stage 3D Studio Platform paired with morluto/rea (REA: Reverse Engineer Anything) continuous evidence verification. Covers Stage 1 NiRNE (Noise-injected Regressive Normal Estimation), Stage 2 NoRLD + TRELLIS 2.0 O-Voxel SLAT watertight genus-0 2-manifold reconstruction (V - E + F = 2), Stage 3 Quad-Dominant Smart Retopology (3K/10K/30K/100K tiers, quad_ratio >= 0.92), Stage 4 4K PBR Albedo Delighting (I = A * S + R) & 6-Channel UV Atlas Baker, Stage 5 22-Bone Heat-Diffusion Auto-Rigging & Procedural Animation Clips, and Stage 6 Continuous morluto/rea Deep glTF 2.0 (0x46546C67 + JSON 0x4E4F534A + BIN 0x004E4942) & .q3gs Evidence Verification.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/into-the-breach-staccs-re",
+      "name": "into-the-breach-staccs-re",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/into-the-breach-staccs-re/SKILL.md",
+      "relative_path": "skills/decompilation/into-the-breach-staccs-re/SKILL.md",
+      "line_count": 79,
+      "description": "Reverse-engineer Subset Games' Into the Breach (C++ engine + embedded Lua 5.1 tactical scripts: Board, Pawn, SkillEffect, SpaceDamage, QueuedAttack, Push bump-collision physics, PowerGrid building defense, Pilot Time-Breach single-survivor timeline carryover, and deterministic environmental telegraphs) fused with STACCS (https://youtube.com/shorts/EmsNLDg2B-s) 3D isometric hexagonal cube-card stacking mechanics (3-rhombus Top/Left/Right cube projection, vertical Z-stacking, and cantilever overhang stacking during battle animation).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/matching-decompilation",
+      "name": "matching-decompilation",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/matching-decompilation/SKILL.md",
+      "relative_path": "skills/decompilation/matching-decompilation/SKILL.md",
+      "line_count": 18,
+      "description": "Reconstruct clean, compilable C/C++/C#/Rust source code from native binaries (Mach-O, ELF, PE, N64 ROMs, .NET DLLs) using symbol recovery, CFG analysis, and V100 LLM decompilation (libsm64 / Slay the Spire 2 workflow).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/metal-gear-acid-card-stealth-re",
+      "name": "metal-gear-acid-card-stealth-re",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/metal-gear-acid-card-stealth-re/SKILL.md",
+      "relative_path": "skills/decompilation/metal-gear-acid-card-stealth-re/SKILL.md",
+      "line_count": 127,
+      "description": "Full Sony PSP Allegrex MIPS R4000 (333 MHz, 32 MB Main RAM 0x08800000, 2 MB eDRAM GU VRAM 0x04000000, VFPU 128-bit Vector FPU) decompilation and creative design specification of Konami's Metal Gear Acid (2004, ULUS-10006) and Metal Gear Acid 2 (2005, ULUS-10077) directed by Shinta Nojiri with character/card illustration by Tsubasa Masao, \"Solid Eye\" pop-cel direction by Naochika Morishita & Ikuya Nakamura, and mecha/espionage ink supervision by Yoji Shinkawa. Covers the dynamic COST turn-delay clock, 4-mode card economy (Tactical Effect | Move/Rotate | Equipment Slot Mount | LINK Chain Reaction), Stealth Vision Cones & Doorway Ambushes, CQC Knockback, and the MGA1 Noir vs. MGA2 Solid Eye Stereoscopic Pop-Cel rendering pipeline.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/morluto-rea-omegastrikers-hi3d-pipeline",
+      "name": "morluto-rea-omegastrikers-hi3d-pipeline",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/morluto-rea-omegastrikers-hi3d-pipeline/SKILL.md",
+      "relative_path": "skills/decompilation/morluto-rea-omegastrikers-hi3d-pipeline/SKILL.md",
+      "line_count": 55,
+      "description": "Reverse-engineering, 3D mesh synthesis, and Studio Trigger / Omega Strikers Sakuga video production pipeline integrating morluto/rea (REA: Reverse Engineer Anything MCP & CLI), Omega Strikers stepped frame-quantized animation nuance (On-Ones/Twos/Threes, Obake smears, Impact Frames, Trigger Cross-Stars), and Hi3DGen (NiRNE + NoRLD) + TRELLIS 2.0 watertight manifold 3D generation.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/nvidia-rtx-tensorcore-unlock",
+      "name": "nvidia-rtx-tensorcore-unlock",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/nvidia-rtx-tensorcore-unlock/SKILL.md",
+      "relative_path": "skills/decompilation/nvidia-rtx-tensorcore-unlock/SKILL.md",
+      "line_count": 34,
+      "description": "Unlock hidden AI & Tensor Core FP16/BF16/TF32 matrix-multiply performance on consumer NVIDIA GeForce RTX 20 (Turing sm_75), RTX 30 (Ampere sm_86), RTX 40 (Ada sm_89), and RTX 50 (Blackwell) GPUs via BAR0 MMIO pre-driver register mods (gpu-unlock / turing-unlock / nv-uefi-unlocker), cuBLAS CUBLAS_COMPUTE_16F interception, and PyTorch allow_fp16_accumulation (Reddit r/pcmasterrace 1xif38w).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/static-recompilation",
+      "name": "static-recompilation",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/static-recompilation/SKILL.md",
+      "relative_path": "skills/decompilation/static-recompilation/SKILL.md",
+      "line_count": 18,
+      "description": "Translate compiled native binaries (ARM64, x86_64, MIPS/N64) ahead-of-time into portable C or WebAssembly (WASM) with hardware/OS runtime shims (N64Recomp workflow).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "decompilation/unity-tcg-engine-re",
+      "name": "unity-tcg-engine-re",
+      "category": "decompilation",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/decompilation/unity-tcg-engine-re/SKILL.md",
+      "relative_path": "skills/decompilation/unity-tcg-engine-re/SKILL.md",
+      "line_count": 39,
+      "description": "Reverse-engineer any Unity TCG / CCG / Deckbuilder game (Mono Assembly-CSharp.dll, IL2CPP GameAssembly + global-metadata.dat, and ScriptableObject CardData/AbilityData assets) and reconstruct a clean-room, data-driven Unity C# TCG Engine across the 3-Node GPU Fleet (V100 32GB + RTX 4080 16GB + RTX 2070 8GB).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "research",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "sequentialthinking",
+          "jev_compare"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/ai-behavior-trees-utility-ai",
+      "name": "ai-behavior-trees-utility-ai",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md",
+      "relative_path": "skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md",
+      "line_count": 177,
+      "description": "Build a production behavior-tree runtime (Blackboard, action/condition leaves, sequence/selector/parallel composites, decorators) and a Utility AI system (response curves \u2014 linear, exponential, sigmoid, quadratic \u2014 considerations, and action evaluators), plus hybrid BT-drives-Utility agents. Use when implementing a reusable behavior-tree or utility-based decision system, or tuning enemy/NPC decisions beyond a simple FSM, or when the user mentions behavior tree, blackboard, decorator, selector, sequence, tick status, utility AI, response/scoring curve, or consideration. For choosing between FSM/BT/steering or for pathfinding, use game-ai; for Unreal's BehaviorTree/Blackboard assets, use unreal-behavior-trees.",
+      "references": [
+        "skills/disciplines/ai-behavior-trees-utility-ai/references/behavior-tree-core.md",
+        "skills/disciplines/ai-behavior-trees-utility-ai/references/best-practices-and-pitfalls.md",
+        "skills/disciplines/ai-behavior-trees-utility-ai/references/practical-examples.md",
+        "skills/disciplines/ai-behavior-trees-utility-ai/references/utility-ai-system.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/audio-design",
+      "name": "audio-design",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/audio-design/SKILL.md",
+      "relative_path": "skills/disciplines/audio-design/SKILL.md",
+      "line_count": 190,
+      "description": "Implement game audio practice \u2014 bus/mixer architecture and gain in decibels, ducking (sidechain), adaptive/dynamic music via layering and re-sequencing, SFX variation, and beat synchronization. Engine-neutral. Use when the user mentions audio mixing, audio buses, adaptive/dynamic music, ducking, SFX variation, music layers, or syncing gameplay to the beat.",
+      "references": [
+        "skills/disciplines/audio-design/references/adaptive-music.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/camera-systems",
+      "name": "camera-systems",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/camera-systems/SKILL.md",
+      "relative_path": "skills/disciplines/camera-systems/SKILL.md",
+      "line_count": 163,
+      "description": "Build game cameras that feel good \u2014 2D follow with a deadzone, look-ahead, smoothing, and level-bounds clamping; 3D third-person orbit with collision and first-person look; plus multi-target framing and a shake hook. Engine-neutral techniques that pair with the engine's camera node and rigs like Unity Cinemachine or Godot Camera2D/PhantomCamera. Use when the user mentions camera follow, follow camera, deadzone, look-ahead, camera smoothing, camera bounds/ limits, third-person camera, orbit camera, first-person look, Cinemachine, or camera jitter.",
+      "references": [
+        "skills/disciplines/camera-systems/references/follow-and-framing.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/create-game-assets",
+      "name": "create-game-assets",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/SKILL.md",
+      "relative_path": "skills/disciplines/create-game-assets/SKILL.md",
+      "line_count": 137,
+      "description": "Plan, generate, source, normalize, and validate cohesive visual game assets. Use for art direction, style bibles, sprites, tilesets, backgrounds, UI art, icons, textures, concept art, or 3D asset briefs.",
+      "references": [
+        "skills/disciplines/create-game-assets/references/art-direction.md",
+        "skills/disciplines/create-game-assets/references/provenance.md",
+        "skills/disciplines/create-game-assets/references/raster-pipeline.md",
+        "skills/disciplines/create-game-assets/references/three-d-pipeline.md"
+      ],
+      "scripts": [
+        "skills/disciplines/create-game-assets/scripts/asset_report.py",
+        "skills/disciplines/create-game-assets/scripts/build_preview_sheet.py",
+        "skills/disciplines/create-game-assets/scripts/requirements.txt"
+      ],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "prime-vision-worker",
+        "verification_subagents": [
+          "mlx-local-worker",
+          "code-implementer"
+        ],
+        "mcp_tools": [
+          "mlx_jev_rate",
+          "jev_verify"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/dialogue-systems",
+      "name": "dialogue-systems",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/dialogue-systems/SKILL.md",
+      "relative_path": "skills/disciplines/dialogue-systems/SKILL.md",
+      "line_count": 182,
+      "description": "Build branching dialogue and narrative \u2014 a node/choice graph with conditions, variables, and localization hooks \u2014 and choose between authoring tools Ink and Yarn Spinner or a custom data-driven runner. Engine-neutral. Use when the user mentions dialogue system, branching dialogue, conversation tree, choices, Ink (.ink), Yarn Spinner (.yarn), or NPC dialogue.",
+      "references": [
+        "skills/disciplines/dialogue-systems/references/ink-and-yarn.md",
+        "skills/disciplines/dialogue-systems/references/runner.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/game-ai",
+      "name": "game-ai",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md",
+      "relative_path": "skills/disciplines/game-ai/SKILL.md",
+      "line_count": 179,
+      "description": "Design NPC and enemy decision-making with finite state machines, behavior trees, steering behaviors, and A* pathfinding \u2014 engine-neutral algorithms that pair with the detected engine's navigation API. Use when building enemy AI, an FSM or behavior tree, steering/flocking, or pathfinding, or when the user mentions state machine, behavior tree, blackboard, A*, navmesh, seek, or patrol/chase.",
+      "references": [
+        "skills/disciplines/game-ai/references/behavior-trees.md",
+        "skills/disciplines/game-ai/references/pathfinding.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/game-feel",
+      "name": "game-feel",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md",
+      "relative_path": "skills/disciplines/game-feel/SKILL.md",
+      "line_count": 174,
+      "description": "Add \"juice\" and game feel that makes actions satisfying \u2014 screen shake, hit-stop/freeze frames, tweened/eased motion, squash & stretch, knockback, and layered audio-visual feedback \u2014 as engine-neutral techniques that pair with the detected engine's tween, particle, and camera APIs. Use when the user mentions game feel, juice, \"make it feel good/punchy\", screen shake, hit stop, screen freeze, easing, squash and stretch, impact frames, or feedback/polish on hits, jumps, pickups, and deaths.",
+      "references": [
+        "skills/disciplines/game-feel/references/feedback-recipes.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/game-ui-ux",
+      "name": "game-ui-ux",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md",
+      "relative_path": "skills/disciplines/game-ui-ux/SKILL.md",
+      "line_count": 167,
+      "description": "Design and build game UI/UX \u2014 HUDs, menus, and overlays \u2014 that survive every screen: anchor- based responsive layout, resolution/aspect scaling and safe areas, keyboard/gamepad focus navigation, a screen/menu state stack, and event-driven (not polled) HUD updates. Engine- neutral patterns that pair with the detected engine's UI skill. Use when the user mentions HUD, health bar, main menu, pause menu, settings screen, UI layout, anchors, UI scaling, aspect ratio, safe area, controller/keyboard menu navigation, or wiring UI to game state.",
+      "references": [
+        "skills/disciplines/game-ui-ux/references/layout-and-flow.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/input-systems",
+      "name": "input-systems",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/input-systems/SKILL.md",
+      "relative_path": "skills/disciplines/input-systems/SKILL.md",
+      "line_count": 211,
+      "description": "Architect game input \u2014 action mapping (abstracting keys into named actions), rebinding with conflict detection and persistence, multi-device support (keyboard, gamepad, touch), analog deadzones, and feel features like input buffering and coyote time, plus accessibility. Engine-neutral. Use when the user mentions input mapping, rebind controls, gamepad support, deadzone, input buffering, coyote time, or accessible controls.",
+      "references": [
+        "skills/disciplines/input-systems/references/buffering-and-accessibility.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/level-design",
+      "name": "level-design",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/level-design/SKILL.md",
+      "relative_path": "skills/disciplines/level-design/SKILL.md",
+      "line_count": 169,
+      "description": "Design and build playable levels \u2014 the blockout/whitebox-to-playable workflow, player metrics and grid layout, pacing and flow (tension/rest curve), gating and the critical path, and encounter design. Engine-neutral practice. Use when the user mentions level design, blockout/whitebox/greybox, level layout, level pacing, encounter design, or the critical path through a level.",
+      "references": [
+        "skills/disciplines/level-design/references/pacing-and-flow.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/performance-optimization",
+      "name": "performance-optimization",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/performance-optimization/SKILL.md",
+      "relative_path": "skills/disciplines/performance-optimization/SKILL.md",
+      "line_count": 172,
+      "description": "Find and fix game performance problems methodically \u2014 measure with the engine profiler first, reason about the frame-time budget, locate the CPU-vs-GPU bottleneck, then apply the right fix: object pooling, draw-call batching, fewer allocations/GC spikes, and asset budgets. Engine- neutral method that pairs with each engine's profiler. Use when the user mentions performance, optimize, low/dropping FPS, frame drops, stutter, lag, profiler, frame budget, draw calls, batching, garbage collection/GC spikes, object pooling, or \"the game runs slow\".",
+      "references": [
+        "skills/disciplines/performance-optimization/references/profiling-and-budgets.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/physics-tuning",
+      "name": "physics-tuning",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/physics-tuning/SKILL.md",
+      "relative_path": "skills/disciplines/physics-tuning/SKILL.md",
+      "line_count": 164,
+      "description": "Tune game physics for stable, good-feeling motion \u2014 fixed vs variable timestep, render interpolation, mass/gravity/drag, continuous collision detection (CCD) to stop tunneling, fixing jitter, and collision layers/masks. Engine-neutral. Use when the user mentions physics feel, jitter, tunneling, fixed timestep, FixedUpdate, CCD, bouncing/unstable physics, or collision layers.",
+      "references": [
+        "skills/disciplines/physics-tuning/references/timestep-and-ccd.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/procedural-gen",
+      "name": "procedural-gen",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/procedural-gen/SKILL.md",
+      "relative_path": "skills/disciplines/procedural-gen/SKILL.md",
+      "line_count": 173,
+      "description": "Generate game content procedurally \u2014 seeded deterministic RNG, value/Perlin/ Simplex noise for terrain and heightmaps, grid dungeon generation (rooms + corridors, BSP, random walk, wave function collapse), and weighted loot/drop tables. Engine-neutral algorithms. Use when the user mentions procedural generation, perlin/simplex noise, random seed, dungeon generator, WFC, heightmap/terrain, or loot tables.",
+      "references": [
+        "skills/disciplines/procedural-gen/references/dungeon-generation.md",
+        "skills/disciplines/procedural-gen/references/noise.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/save-systems",
+      "name": "save-systems",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/save-systems/SKILL.md",
+      "relative_path": "skills/disciplines/save-systems/SKILL.md",
+      "line_count": 191,
+      "description": "Design save/load for game state \u2014 choosing what to serialize, file formats, save slots, atomic crash-safe writes, schema versioning and migration, and autosave. Engine-neutral. Use when the user mentions save system, save/load, game state persistence, save slots, autosave, save file corruption, or migrating old saves to a new version.",
+      "references": [
+        "skills/disciplines/save-systems/references/versioning-and-migration.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "disciplines/shader-programming",
+      "name": "shader-programming",
+      "category": "disciplines",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/shader-programming/SKILL.md",
+      "relative_path": "skills/disciplines/shader-programming/SKILL.md",
+      "line_count": 170,
+      "description": "Write game shaders from cross-engine fundamentals \u2014 the vertex\u2192fragment pipeline, coordinate spaces, UV math, and common 2D/3D effects (tint, UV scroll, dissolve, outline, fresnel rim, vignette) in GLSL with HLSL equivalents. Use when the user mentions shaders, fragment/pixel shader, vertex shader, UV, GLSL, HLSL, or effects like dissolve, outline, or rim light.",
+      "references": [
+        "skills/disciplines/shader-programming/references/effects.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "prime-vision-worker",
+          "mlx-local-worker",
+          "truth-verifier"
+        ],
+        "mcp_tools": [
+          "mlx_jev_judge",
+          "jev_verify",
+          "sequentialthinking"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "ebitengine/ebitengine-game",
+      "name": "ebitengine-game",
+      "category": "ebitengine",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/ebitengine/ebitengine-game/SKILL.md",
+      "relative_path": "skills/ebitengine/ebitengine-game/SKILL.md",
+      "line_count": 213,
+      "description": "Create, improve, debug and package playable 2D games in Go with Ebitengine (github.com/hajimehoshi/ebiten/v2). Use for Ebitengine game requests: game design translated into a complete loop, input, rendering, text, audio, scenes, gameplay tests and desktop, browser or mobile builds. Also use when fixing these systems in an existing Ebitengine game. Do not apply to unrelated Go software or engine-internal patches merely because they depend on Ebitengine.",
+      "references": [
+        "skills/ebitengine/ebitengine-game/references/architecture-and-testing.md",
+        "skills/ebitengine/ebitengine-game/references/assets-and-animation.md",
+        "skills/ebitengine/ebitengine-game/references/audio.md",
+        "skills/ebitengine/ebitengine-game/references/ci-and-release.md",
+        "skills/ebitengine/ebitengine-game/references/design-and-quality.md",
+        "skills/ebitengine/ebitengine-game/references/gameplay-systems.md",
+        "skills/ebitengine/ebitengine-game/references/input.md",
+        "skills/ebitengine/ebitengine-game/references/monetization.md",
+        "skills/ebitengine/ebitengine-game/references/networking.md",
+        "skills/ebitengine/ebitengine-game/references/playtest-diagnostics.md",
+        "skills/ebitengine/ebitengine-game/references/project-and-builds.md",
+        "skills/ebitengine/ebitengine-game/references/publishing-and-platforms.md",
+        "skills/ebitengine/ebitengine-game/references/rendering.md",
+        "skills/ebitengine/ebitengine-game/references/text-and-ui.md",
+        "skills/ebitengine/ebitengine-game/references/tilemaps.md"
+      ],
+      "scripts": [
+        "skills/ebitengine/ebitengine-game/scripts/check_ebitengine.py",
+        "skills/ebitengine/ebitengine-game/scripts/new_game.py",
+        "skills/ebitengine/ebitengine-game/scripts/package_macos_app.py"
+      ],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "genres/card-game",
+      "name": "card-game",
+      "category": "genres",
+      "slot": "genre",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md",
+      "relative_path": "skills/genres/card-game/SKILL.md",
+      "line_count": 138,
+      "description": "Build a card game: card data, deck/hand/discard zones, draw/shuffle/reshuffle, a turn structure, costs, and effect resolution. Use for a deckbuilder, TCG/CCG, or roguelike deckbuilder.",
+      "references": [
+        "skills/genres/card-game/references/effect-resolution.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "mlx_jev_schema_decide",
+          "jev_gate"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "genres/fps-shooter",
+      "name": "fps-shooter",
+      "category": "genres",
+      "slot": "genre",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/fps-shooter/SKILL.md",
+      "relative_path": "skills/genres/fps-shooter/SKILL.md",
+      "line_count": 123,
+      "description": "Build a first-person shooter: move+mouse-look controller, hitscan or projectile shooting, weapons, health, and enemy AI. Use for an FPS, or tuning aim feel, time-to-kill, recoil, or spread.",
+      "references": [
+        "skills/genres/fps-shooter/references/shooting-and-feel.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "mlx_jev_schema_decide",
+          "jev_gate"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "genres/platformer",
+      "name": "platformer",
+      "category": "genres",
+      "slot": "genre",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/platformer/SKILL.md",
+      "relative_path": "skills/genres/platformer/SKILL.md",
+      "line_count": 153,
+      "description": "Build a 2D platformer: run/jump control with coyote time, jump buffering, and variable jump height, wall slide and wall jump, plus tiled levels and hazards. Use for a platformer or Mario/Celeste-like, or tuning jump feel.",
+      "references": [
+        "skills/genres/platformer/references/feel-tuning.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "mlx_jev_schema_decide",
+          "jev_gate"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "genres/puzzle",
+      "name": "puzzle",
+      "category": "genres",
+      "slot": "genre",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/puzzle/SKILL.md",
+      "relative_path": "skills/genres/puzzle/SKILL.md",
+      "line_count": 143,
+      "description": "Build a puzzle game: grid/board state, move input, rule-based resolution (match-3 cascades, sokoban pushes, tile logic), scoring, and undo. Use for a match-3, sokoban, or grid-logic puzzle.",
+      "references": [
+        "skills/genres/puzzle/references/board-and-resolution.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "mlx_jev_schema_decide",
+          "jev_gate"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "genres/roguelike",
+      "name": "roguelike",
+      "category": "genres",
+      "slot": "genre",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/roguelike/SKILL.md",
+      "relative_path": "skills/genres/roguelike/SKILL.md",
+      "line_count": 142,
+      "description": "Build a roguelike: turn-based grid movement, procedural dungeons, permadeath, field-of-view, and loot tables. Use for a roguelike/roguelite or turn-based grid dungeon crawler with procedural levels.",
+      "references": [
+        "skills/genres/roguelike/references/generation-fov-loot.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "mlx_jev_schema_decide",
+          "jev_gate"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "genres/rpg",
+      "name": "rpg",
+      "category": "genres",
+      "slot": "genre",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/rpg/SKILL.md",
+      "relative_path": "skills/genres/rpg/SKILL.md",
+      "line_count": 141,
+      "description": "Build an RPG: stats and leveling, inventory and equipment, quests, branching dialogue, save/load, and combat. Use for an RPG/JRPG, or designing stat, inventory, quest, or combat systems.",
+      "references": [
+        "skills/genres/rpg/references/stats-combat-quests.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "mlx_jev_schema_decide",
+          "jev_gate"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "genres/survival-crafting",
+      "name": "survival-crafting",
+      "category": "genres",
+      "slot": "genre",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/survival-crafting/SKILL.md",
+      "relative_path": "skills/genres/survival-crafting/SKILL.md",
+      "line_count": 148,
+      "description": "Build a survival-crafting game: resource gathering, inventory, crafting and a tech tree, needs (hunger/thirst/temperature), and base building. Use for a survival or crafting/base-building game.",
+      "references": [
+        "skills/genres/survival-crafting/references/needs-and-crafting.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "mlx_jev_schema_decide",
+          "jev_gate"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "genres/tower-defense",
+      "name": "tower-defense",
+      "category": "genres",
+      "slot": "genre",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/tower-defense/SKILL.md",
+      "relative_path": "skills/genres/tower-defense/SKILL.md",
+      "line_count": 124,
+      "description": "Build a tower defense: enemies pathing along lanes, wave spawning, towers that auto-target and fire, an economy, and lives. Use for a tower-defense/wave-defense game, or balancing waves and economy.",
+      "references": [
+        "skills/genres/tower-defense/references/balancing.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "mlx_jev_schema_decide",
+          "jev_gate"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "genres/visual-novel",
+      "name": "visual-novel",
+      "category": "genres",
+      "slot": "genre",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/visual-novel/SKILL.md",
+      "relative_path": "skills/genres/visual-novel/SKILL.md",
+      "line_count": 153,
+      "description": "Build a visual novel: a branching script, character and background display, a text box with choices, save/load, backlog, and skip/auto. Use for a VN, dating sim, or branching story game.",
+      "references": [
+        "skills/genres/visual-novel/references/script-and-flow.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "mlx_jev_schema_decide",
+          "jev_gate"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-2d-movement",
+      "name": "godot-2d-movement",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-2d-movement/SKILL.md",
+      "relative_path": "skills/godot/godot-2d-movement/SKILL.md",
+      "line_count": 154,
+      "description": "Implement 2D kinematic character movement in Godot 4.7 with CharacterBody2D and move_and_slide(): platformer run/jump with gravity, top-down 8-direction motion, slope handling, and reading collisions. Use when coding a 2D player or enemy controller, a platformer or top-down character, or fixing move_and_slide()/ is_on_floor() behavior in a .tscn with a CharacterBody2D.",
+      "references": [
+        "skills/godot/godot-2d-movement/references/controller-recipes.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-3d-essentials",
+      "name": "godot-3d-essentials",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-3d-essentials/SKILL.md",
+      "relative_path": "skills/godot/godot-3d-essentials/SKILL.md",
+      "line_count": 140,
+      "description": "Set up a Godot 4.7 3D scene: Node3D transforms, Camera3D, lighting (DirectionalLight3D/OmniLight3D), WorldEnvironment for sky/ambient/tonemap/post, MeshInstance3D materials, and GridMap for tile-based 3D levels. Use when building a 3D scene in a Godot project, placing cameras/lights, configuring environment and post-processing, or working with Node3D/.tscn 3D content and GridMap.",
+      "references": [
+        "skills/godot/godot-3d-essentials/references/scene-and-environment.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-animation",
+      "name": "godot-animation",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-animation/SKILL.md",
+      "relative_path": "skills/godot/godot-animation/SKILL.md",
+      "line_count": 130,
+      "description": "Animate in Godot 4.7 three ways: AnimationPlayer for keyframed clips (incl. Call Method tracks), AnimationTree with state machines and blend spaces for character animation, and Tween for short procedural/UI tweens via create_tween(). Use when working with AnimationPlayer/AnimationTree nodes in a .tscn, blending character states, sprite-sheet animation, or code-driven Tweens.",
+      "references": [
+        "skills/godot/godot-animation/references/animation-tree-and-tween.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-audio",
+      "name": "godot-audio",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-audio/SKILL.md",
+      "relative_path": "skills/godot/godot-audio/SKILL.md",
+      "line_count": 125,
+      "description": "Play and mix audio in Godot 4.7: AudioStreamPlayer (2D/3D variants), audio buses with volume/mute and effects, music vs SFX routing, db/linear volume, and precise sync-to-beat playback timing. Use when playing sounds or music in a Godot project, routing AudioStreamPlayer nodes to buses, adjusting bus volume via AudioServer, or syncing gameplay to the beat.",
+      "references": [
+        "skills/godot/godot-audio/references/buses-and-effects.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-csharp",
+      "name": "godot-csharp",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-csharp/SKILL.md",
+      "relative_path": "skills/godot/godot-csharp/SKILL.md",
+      "line_count": 172,
+      "description": "Use C#/.NET in Godot 4.7: partial classes extending nodes, the PascalCase lifecycle (_Ready/_Process/_PhysicsProcess), [Export] fields, [Signal] delegates as C# events, type-safe node lookup, and calling between C# and GDScript. Use when writing Godot game code in C# (.cs files, .csproj), needing the Godot .NET build, converting GDScript patterns to C#, or wiring Godot signals as C# events.",
+      "references": [
+        "skills/godot/godot-csharp/references/csharp-setup-and-interop.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-export",
+      "name": "godot-export",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-export/SKILL.md",
+      "relative_path": "skills/godot/godot-export/SKILL.md",
+      "line_count": 129,
+      "description": "Export and build a Godot 4.7 project for distribution: install export templates, define export presets (Windows/macOS/Linux/Web/Android), run headless command-line exports for CI, and handle web (HTML5) COOP/COEP and dedicated-server/headless builds. Use when exporting a Godot game, configuring export_presets.cfg, building for web/desktop/mobile, or automating builds from the command line.",
+      "references": [
+        "skills/godot/godot-export/references/presets-and-cli.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-gdscript",
+      "name": "godot-gdscript",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-gdscript/SKILL.md",
+      "relative_path": "skills/godot/godot-gdscript/SKILL.md",
+      "line_count": 135,
+      "description": "Write idiomatic GDScript for Godot 4.7: static typing, the node lifecycle (_ready/_process/_physics_process), @export/@onready/@tool annotations, signals, and await for asynchronous flow. Use when editing .gd scripts in a Godot project (project.godot), writing or debugging GDScript, or porting 3.x GDScript to 4.x (function signatures, yield to await, export to @export).",
+      "references": [
+        "skills/godot/godot-gdscript/references/annotations-and-typing.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-gdscript-headless-testing",
+      "name": "godot-gdscript-headless-testing",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-gdscript-headless-testing/SKILL.md",
+      "relative_path": "skills/godot/godot-gdscript-headless-testing/SKILL.md",
+      "line_count": 201,
+      "description": "Run GDScript test suites from the command line with `godot --headless`, using a SceneTree/MainLoop runner script that exits non-zero on failure so CI can gate merges. Use when a Godot project needs unit tests without opening the editor, when wiring a CI job (GitHub Actions or similar) that must fail the build on a failing `.gd` test, or when a `godot --headless` invocation hangs, opens a window, or exits 0 despite failed assertions.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-multiplayer",
+      "name": "godot-multiplayer",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-multiplayer/SKILL.md",
+      "relative_path": "skills/godot/godot-multiplayer/SKILL.md",
+      "line_count": 167,
+      "description": "Build networked games with Godot 4.7 high-level multiplayer: set up an ENetMultiplayerPeer server/client, define RPCs with the @rpc annotation (call via rpc()/rpc_id()), set per-node multiplayer authority, and replicate state with MultiplayerSpawner and MultiplayerSynchronizer. Use when adding multiplayer/networking to a Godot project, writing @rpc functions, or syncing player/world state across peers.",
+      "references": [
+        "skills/godot/godot-multiplayer/references/replication-and-rpc.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-nodes-scenes",
+      "name": "godot-nodes-scenes",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-nodes-scenes/SKILL.md",
+      "relative_path": "skills/godot/godot-nodes-scenes/SKILL.md",
+      "line_count": 136,
+      "description": "Structure a Godot 4.7 project with the scene tree and node composition: build reusable scenes, instance PackedScenes at runtime, navigate the tree safely, and register autoload singletons. Use when designing .tscn scenes, deciding how to split nodes, spawning instances with instantiate(), wiring autoloads, or fixing \"node not found\"/freed-node errors in a Godot project.",
+      "references": [
+        "skills/godot/godot-nodes-scenes/references/tree-and-instancing.md"
+      ],
+      "scripts": [
+        "skills/godot/godot-nodes-scenes/scripts/check_godot_project.py"
+      ],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-physics",
+      "name": "godot-physics",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-physics/SKILL.md",
+      "relative_path": "skills/godot/godot-physics/SKILL.md",
+      "line_count": 177,
+      "description": "Use Godot 4.7 physics bodies and detection in 2D and 3D: RigidBody, StaticBody, Area, and CharacterBody; collision layers vs masks; contact/overlap signals; and raycasts (RayCast nodes and direct space-state queries). Use when configuring collision layers/masks, detecting overlaps with Area2D/Area3D, applying forces to a RigidBody, or casting rays in a Godot project (.tscn with physics bodies), including 3D projects running Jolt Physics, the default 3D engine for projects created in 4.6+.",
+      "references": [
+        "skills/godot/godot-physics/references/bodies-and-queries.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-resources",
+      "name": "godot-resources",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-resources/SKILL.md",
+      "relative_path": "skills/godot/godot-resources/SKILL.md",
+      "line_count": 126,
+      "description": "Design data-driven Godot 4.7 games with custom Resource classes: define typed data with class_name + @export, save/load .tres/.res files, instance and duplicate resources, and load on demand with ResourceLoader (incl. threaded loading). Use when modeling items/stats/configs as data in a Godot project, creating .tres resources, or working with custom Resource subclasses and ResourceLoader/ResourceSaver.",
+      "references": [
+        "skills/godot/godot-resources/references/resource-patterns.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-shaders",
+      "name": "godot-shaders",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-shaders/SKILL.md",
+      "relative_path": "skills/godot/godot-shaders/SKILL.md",
+      "line_count": 148,
+      "description": "Write Godot 4.7 shaders in the Godot Shading Language: canvas_item shaders for 2D and spatial shaders for 3D, with vertex/fragment functions, uniforms (source_color, hint_range), TIME/UV animation, and screen-reading via hint_screen_texture. Use when authoring .gdshader files, writing fragment/vertex code, making 2D/3D visual effects, or porting 3.x shaders (SCREEN_TEXTURE, hint_color) to 4.x.",
+      "references": [
+        "skills/godot/godot-shaders/references/shading-language.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-signals-groups",
+      "name": "godot-signals-groups",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-signals-groups/SKILL.md",
+      "relative_path": "skills/godot/godot-signals-groups/SKILL.md",
+      "line_count": 134,
+      "description": "Build event-driven, decoupled Godot 4.7 gameplay with signals and node groups: declare and emit custom signals, connect with Callables (incl. bind/one-shot), and broadcast to many nodes via groups and call_group. Use when wiring node communication in a Godot project, replacing tight references with signals, emitting/connecting events, or porting 3.x connect(\"sig\", self, \"method\") code.",
+      "references": [
+        "skills/godot/godot-signals-groups/references/signal-patterns.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-tilemap",
+      "name": "godot-tilemap",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-tilemap/SKILL.md",
+      "relative_path": "skills/godot/godot-tilemap/SKILL.md",
+      "line_count": 134,
+      "description": "Build and edit tile-based 2D levels in Godot 4.7 with TileMapLayer and TileSet: paint layers, set up collision/navigation/custom-data on tiles, autotile with terrain sets, and read/write cells from code (set_cell, get_cell_tile_data, local_to_map). Use when working with TileMapLayer nodes, .tres TileSets, autotiling, or migrating a deprecated TileMap node to TileMapLayer.",
+      "references": [
+        "skills/godot/godot-tilemap/references/tileset-and-terrains.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "godot/godot-ui-control",
+      "name": "godot-ui-control",
+      "category": "godot",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/godot/godot-ui-control/SKILL.md",
+      "relative_path": "skills/godot/godot-ui-control/SKILL.md",
+      "line_count": 131,
+      "description": "Build Godot 4.7 user interfaces with Control nodes: anchors and offsets for responsive layout, Container nodes (VBox/HBox/Grid/Margin) for automatic arrangement, Theme resources for consistent styling, and keyboard/gamepad focus navigation. Use when laying out a HUD, menu, or UI in a Godot project, working with Control/Container nodes, anchors, themes, or focus in a .tscn.",
+      "references": [
+        "skills/godot/godot-ui-control/references/layout-and-theming.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/bevy-ecs",
+      "name": "bevy-ecs",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/bevy-ecs/SKILL.md",
+      "relative_path": "skills/other-engines/bevy-ecs/SKILL.md",
+      "line_count": 232,
+      "description": "Structure a Bevy app around its Entity Component System: build the App with plugins, define Component/Resource types, write systems with Query/Res/Commands, filter and order systems, and use the Time resource for frame-rate-independent motion. Use when building or debugging a Bevy game in Rust \u2014 when the user mentions Bevy, ECS, App::new, add_systems, Query, Commands, components/systems, or a Cargo.toml depending on bevy.",
+      "references": [
+        "skills/other-engines/bevy-ecs/references/queries-and-scheduling.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/defold-core",
+      "name": "defold-core",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/defold-core/SKILL.md",
+      "relative_path": "skills/other-engines/defold-core/SKILL.md",
+      "line_count": 265,
+      "description": "Build and debug the core of a Defold game in Lua: game.project settings, collections, game objects and components, script lifecycle and self state, go.property, input focus and bindings, URLs and message passing, factories, collection factories and collection proxies, plus building and smoke-running with Bob. Use when a project has game.project or .collection, .go, .script, .gui_script or .input_binding files, or the request mentions Defold, msg.post, on_message, on_input, acquire_input_focus, factory.create, collection proxy, bob.jar, or a Defold build error.",
+      "references": [
+        "skills/other-engines/defold-core/references/build-and-run.md",
+        "skills/other-engines/defold-core/references/file-formats.md"
+      ],
+      "scripts": [
+        "skills/other-engines/defold-core/scripts/check_defold_project.py"
+      ],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/love2d-core",
+      "name": "love2d-core",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/love2d-core/SKILL.md",
+      "relative_path": "skills/other-engines/love2d-core/SKILL.md",
+      "line_count": 150,
+      "description": "Structure and debug a L\u00d6VE (Love2D) game in Lua: the love.load/update/draw loop, delta-time movement, input, and screen states. Use when building a L\u00d6VE 11.x game (main.lua, conf.lua, .love).",
+      "references": [
+        "skills/other-engines/love2d-core/references/state-stack.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/pygame-core",
+      "name": "pygame-core",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/pygame-core/SKILL.md",
+      "relative_path": "skills/other-engines/pygame-core/SKILL.md",
+      "line_count": 192,
+      "description": "Structure a pygame (pygame-ce) game in Python: the init/event/update/draw loop, delta-time movement, Surface/Rect blitting, keyboard/mouse input, and Sprite/Group management with collision. Use when building or debugging a pygame game \u2014 when the user mentions pygame, pygame-ce, the game loop, blit, Surface, Rect, sprite groups, or clock.tick. Targets pygame-ce.",
+      "references": [
+        "skills/other-engines/pygame-core/references/sprites-and-collision.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/roblox-characters",
+      "name": "roblox-characters",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/roblox-characters/SKILL.md",
+      "relative_path": "skills/other-engines/roblox-characters/SKILL.md",
+      "line_count": 168,
+      "description": "Build respawn-safe Roblox character systems around Players, CharacterAdded/CharacterRemoving, Humanoid, HumanoidRootPart, Animator, R6/R15 rigs, movement, animations and markers, death, tools, accessories, ownership, and custom characters. Use when character scripts break after respawn, cache stale Humanoids, control movement or velocity, load AnimationTracks, handle death, equip Tools, modify avatars, or support custom player rigs.",
+      "references": [
+        "skills/other-engines/roblox-characters/references/lifecycle-and-animation.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/roblox-datastores",
+      "name": "roblox-datastores",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/roblox-datastores/SKILL.md",
+      "relative_path": "skills/other-engines/roblox-datastores/SKILL.md",
+      "line_count": 211,
+      "description": "Persist player data in Roblox with DataStoreService: GetDataStore, GetAsync/ SetAsync/UpdateAsync/IncrementAsync wrapped in pcall, load-on-join and save-on-leave plus BindToClose, retries, and OrderedDataStore leaderboards. Use when saving or loading persistent data in a Roblox experience \u2014 when the user mentions DataStore, DataStoreService, GetAsync, SetAsync, UpdateAsync, save player data, or leaderboards. For general Luau scripting use roblox-luau.",
+      "references": [
+        "skills/other-engines/roblox-datastores/references/sessions-and-limits.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/roblox-luau",
+      "name": "roblox-luau",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/roblox-luau/SKILL.md",
+      "relative_path": "skills/other-engines/roblox-luau/SKILL.md",
+      "line_count": 212,
+      "description": "Script a Roblox experience in Luau: get services, create and parent Instances, connect events, run server Scripts vs client LocalScripts, and communicate across the client/server boundary with RemoteEvents/RemoteFunctions (server-authoritative). Use when building or debugging Roblox Studio scripts \u2014 when the user mentions Roblox, Luau, services, RemoteEvent, Instance.new, PlayerAdded, or client vs server. For saving player data use roblox-datastores.",
+      "references": [
+        "skills/other-engines/roblox-luau/references/client-server.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/roblox-networking",
+      "name": "roblox-networking",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/roblox-networking/SKILL.md",
+      "relative_path": "skills/other-engines/roblox-networking/SKILL.md",
+      "line_count": 213,
+      "description": "Design and harden Roblox client/server networking with RemoteEvent, RemoteFunction, and UnreliableRemoteEvent; server authority, argument and Instance validation, rate limits, proximity/ownership checks, targeted replication, streaming, lifecycle, prediction, and reconciliation. Use for Roblox remotes, exploits, request spam, multiplayer replication, network ownership, high-frequency cosmetic updates, or server/client desynchronization.",
+      "references": [
+        "skills/other-engines/roblox-networking/references/validation-and-testing.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/roblox-physics",
+      "name": "roblox-physics",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/roblox-physics/SKILL.md",
+      "relative_path": "skills/other-engines/roblox-physics/SKILL.md",
+      "line_count": 160,
+      "description": "Implement Roblox physical simulation and queries with assemblies, anchoring, constraints, collision groups, CanCollide/CanTouch/CanQuery, raycasts and overlap queries, mass, impulses, forces, velocity, moving assemblies, cleanup, and network ownership. Use for Roblox collisions, hit detection, RaycastParams, PhysicsService, projectiles, vehicles, knockback, constraints, deprecated BodyMovers, unstable motion, or client-owned physics exploits.",
+      "references": [
+        "skills/other-engines/roblox-physics/references/queries-and-ownership.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/roblox-simulator-economy",
+      "name": "roblox-simulator-economy",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/roblox-simulator-economy/SKILL.md",
+      "relative_path": "skills/other-engines/roblox-simulator-economy/SKILL.md",
+      "line_count": 198,
+      "description": "Design, balance, and implement the economy of a Roblox simulator, tycoon, clicker, or idle game in Luau: upgrade cost curves, buy max, income per second, rebirth/prestige requirements and multipliers, offline earnings, big-number display (1.5K, 3.4M, 2.0Qa), server-authoritative purchases, repairing tampered or old save data, and odds disclosure for paid random items such as eggs, crates, and spins. Includes a Lune pacing calculator. Use when choosing or checking baseCost/costGrowth/rebirth numbers, writing upgrade/currency/rebirth/offline code, or when progress stalls, a rebirth takes far longer than the last, numbers display as 1000K, offline earnings pay too much, or players gain currency they did not earn.",
+      "references": [
+        "skills/other-engines/roblox-simulator-economy/references/formulas.md",
+        "skills/other-engines/roblox-simulator-economy/references/server-patterns.md"
+      ],
+      "scripts": [
+        "skills/other-engines/roblox-simulator-economy/scripts/balance.luau",
+        "skills/other-engines/roblox-simulator-economy/scripts/economy_math.luau",
+        "skills/other-engines/roblox-simulator-economy/scripts/test_economy_math.luau"
+      ],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/roblox-studio-workflow",
+      "name": "roblox-studio-workflow",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/roblox-studio-workflow/SKILL.md",
+      "relative_path": "skills/other-engines/roblox-studio-workflow/SKILL.md",
+      "line_count": 183,
+      "description": "Modify living Roblox Studio projects safely: inspect Explorer and execution locations, preserve existing structure, reuse modules/remotes, create meaningful Instances, apply Attributes and CollectionService tags, test server/client and multiple devices, inspect Output, and remove experiments/debug objects. Use when an agent edits a place or rbxl/rbxlx/Rojo project, operates in Studio, adds Scripts/LocalScripts/ModuleScripts, or must verify a Roblox change in context.",
+      "references": [
+        "skills/other-engines/roblox-studio-workflow/references/studio-verification.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "other-engines/roblox-ui",
+      "name": "roblox-ui",
+      "category": "other-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/other-engines/roblox-ui/SKILL.md",
+      "relative_path": "skills/other-engines/roblox-ui/SKILL.md",
+      "line_count": 254,
+      "description": "Build production Roblox interfaces with ScreenGui/PlayerGui lifecycle, responsive UDim2 layouts, safe insets, reusable editable Instances, cross-device input and selection, restrained motion, cleanup, and multi-viewport verification. Use for Roblox HUDs, inventories, shops, settings, ability bars, ScrollingFrames, AutomaticSize, GuiService, gamepad focus, touch UI, or UI that clips, resets on respawn, looks generic, or was generated as one giant LocalScript.",
+      "references": [
+        "skills/other-engines/roblox-ui/references/input-navigation.md",
+        "skills/other-engines/roblox-ui/references/responsive-layout.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unity/unity-animation",
+      "name": "unity-animation",
+      "category": "unity",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-animation/SKILL.md",
+      "relative_path": "skills/unity/unity-animation/SKILL.md",
+      "line_count": 131,
+      "description": "Drive Unity 6.3 LTS character animation with Animator Controllers: states, transitions, parameters, blend trees, animation layers, and humanoid Avatar IK. Use when wiring an Animator, setting parameters from script (SetFloat/SetBool/SetTrigger), building blend trees, or when the user mentions Animator, Mecanim, state machine, blend tree, or .controller.",
+      "references": [
+        "skills/unity/unity-animation/references/blend-trees-and-ik.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unity/unity-build-pipeline",
+      "name": "unity-build-pipeline",
+      "category": "unity",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-build-pipeline/SKILL.md",
+      "relative_path": "skills/unity/unity-build-pipeline/SKILL.md",
+      "line_count": 169,
+      "description": "Build and ship Unity 6.3 LTS players: build settings and scenes, player/quality settings, the IL2CPP vs Mono scripting backend, managed code stripping, scripted BuildPipeline.BuildPlayer, and CI/headless builds. Use when configuring or automating a build, choosing a scripting backend, shrinking build size, or when the user mentions Unity build, player settings, IL2CPP, code stripping, or Addressables.",
+      "references": [
+        "skills/unity/unity-build-pipeline/references/ci-build-script.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unity/unity-csharp-scripting",
+      "name": "unity-csharp-scripting",
+      "category": "unity",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md",
+      "relative_path": "skills/unity/unity-csharp-scripting/SKILL.md",
+      "line_count": 159,
+      "description": "Write Unity 6.3 LTS C# gameplay scripts: the MonoBehaviour lifecycle (Awake/OnEnable/Start/Update/FixedUpdate/LateUpdate), GameObject and component access, coroutines, and Inspector serialization. Use when creating or editing .cs scripts in a Unity project, or when the user mentions MonoBehaviour, Start/Update, GetComponent, SerializeField, coroutines, or \"Unity script\".",
+      "references": [
+        "skills/unity/unity-csharp-scripting/references/lifecycle-and-coroutines.md"
+      ],
+      "scripts": [
+        "skills/unity/unity-csharp-scripting/scripts/check_unity_project.py"
+      ],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unity/unity-input-system",
+      "name": "unity-input-system",
+      "category": "unity",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-input-system/SKILL.md",
+      "relative_path": "skills/unity/unity-input-system/SKILL.md",
+      "line_count": 180,
+      "description": "Wire player input in Unity 6.3 LTS with the Input System package: Input Actions, action maps, the PlayerInput component, and reading values via callbacks or polling. Use when the project has a .inputactions asset or com.unity.inputsystem, or when the user mentions the Unity Input System, InputAction, action maps, PlayerInput, control schemes, or rebinding.",
+      "references": [
+        "skills/unity/unity-input-system/references/rebinding.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unity/unity-navmesh",
+      "name": "unity-navmesh",
+      "category": "unity",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-navmesh/SKILL.md",
+      "relative_path": "skills/unity/unity-navmesh/SKILL.md",
+      "line_count": 165,
+      "description": "Add AI navigation in Unity 6.3 LTS: bake a NavMesh with the AI Navigation package (NavMeshSurface), move agents with NavMeshAgent.SetDestination, and handle dynamic obstacles. Use when setting up pathfinding, making an enemy chase the player, baking navigation, or when the user mentions NavMesh, NavMeshAgent, NavMeshSurface, NavMeshObstacle, or Unity pathfinding.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unity/unity-physics",
+      "name": "unity-physics",
+      "category": "unity",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-physics/SKILL.md",
+      "relative_path": "skills/unity/unity-physics/SKILL.md",
+      "line_count": 189,
+      "description": "Set up 3D physics in Unity 6.3 LTS: Rigidbody movement and forces, colliders, triggers vs collisions, layer-based collision, raycasts, and joints. Use when adding a Rigidbody, handling OnCollisionEnter/OnTriggerEnter, tuning collision layers, casting rays, or when the user mentions Unity physics, AddForce, isKinematic, or linearVelocity.",
+      "references": [
+        "skills/unity/unity-physics/references/raycasting-and-joints.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unity/unity-scriptableobjects",
+      "name": "unity-scriptableobjects",
+      "category": "unity",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
+      "relative_path": "skills/unity/unity-scriptableobjects/SKILL.md",
+      "line_count": 143,
+      "description": "Architect Unity 6.3 LTS data and decoupling with ScriptableObjects: config/data assets, shared runtime variables, event channels, and runtime sets/registries. Use when designing data-driven systems, replacing singletons/managers, creating .asset data with CreateAssetMenu, or when the user mentions ScriptableObject, SO architecture, or data assets.",
+      "references": [
+        "skills/unity/unity-scriptableobjects/references/event-channels.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unity/unity-tilemap-2d",
+      "name": "unity-tilemap-2d",
+      "category": "unity",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-tilemap-2d/SKILL.md",
+      "relative_path": "skills/unity/unity-tilemap-2d/SKILL.md",
+      "line_count": 131,
+      "description": "Build and script 2D tilemaps in Unity 6.3 LTS: the Grid + Tilemap components, the Tile Palette, tilemap colliders, rule tiles, and runtime SetTile/GetTile painting. Use when painting tile levels, adding a TilemapCollider2D, using rule or animated tiles, generating tilemaps from code, or when the user mentions Unity tilemap, tile palette, rule tile, or Grid.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unreal/unreal-behavior-trees",
+      "name": "unreal-behavior-trees",
+      "category": "unreal",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unreal/unreal-behavior-trees/SKILL.md",
+      "relative_path": "skills/unreal/unreal-behavior-trees/SKILL.md",
+      "line_count": 125,
+      "description": "Build NPC AI in Unreal Engine 5 with Behavior Trees and Blackboards: composites (Selector/Sequence), tasks, decorators, services, and running the tree from an AIController. Use when creating enemy/NPC AI, BT_/BB_ assets, custom BTTask or BTService nodes, or when the user mentions Behavior Tree, Blackboard, AIController, BTTask, decorator, or service.",
+      "references": [
+        "skills/unreal/unreal-behavior-trees/references/custom-bttask.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unreal/unreal-blueprints",
+      "name": "unreal-blueprints",
+      "category": "unreal",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unreal/unreal-blueprints/SKILL.md",
+      "relative_path": "skills/unreal/unreal-blueprints/SKILL.md",
+      "line_count": 124,
+      "description": "Build Unreal Engine 5 gameplay with Blueprint visual scripting: Blueprint Classes, the Event Graph and Construction Script, variables/functions/macros, and Blueprint communication (Cast, Interfaces, Event Dispatchers). Use when working in Blueprints, wiring an event graph, deciding how Blueprints talk to each other, or when the user mentions Blueprint, BP, event graph, construction script, or a Blueprint .uasset.",
+      "references": [
+        "skills/unreal/unreal-blueprints/references/communication.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unreal/unreal-cpp-gameplay",
+      "name": "unreal-cpp-gameplay",
+      "category": "unreal",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unreal/unreal-cpp-gameplay/SKILL.md",
+      "relative_path": "skills/unreal/unreal-cpp-gameplay/SKILL.md",
+      "line_count": 150,
+      "description": "Write Unreal Engine 5 C++ gameplay code: the UCLASS/UPROPERTY/UFUNCTION reflection macros, the Gameplay Framework (GameMode, Pawn, Character, PlayerController, Actor components), and the module Build.cs. Use when writing or debugging UE C++, deriving from AActor/ACharacter/ AGameModeBase, exposing properties to the editor or Blueprints, or when the user mentions Unreal C++, UCLASS, GENERATED_BODY, GameMode, ACharacter, or .Build.cs.",
+      "references": [
+        "skills/unreal/unreal-cpp-gameplay/references/components-and-gc.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unreal/unreal-enhanced-input",
+      "name": "unreal-enhanced-input",
+      "category": "unreal",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unreal/unreal-enhanced-input/SKILL.md",
+      "relative_path": "skills/unreal/unreal-enhanced-input/SKILL.md",
+      "line_count": 133,
+      "description": "Set up player input in Unreal Engine 5 with Enhanced Input: Input Actions, Input Mapping Contexts, modifiers and triggers, adding the mapping context, and binding actions by ETriggerEvent. Use when wiring movement/look/jump input, creating IA_/IMC_ assets, binding in C++ or Blueprints, or when the user mentions Enhanced Input, Input Mapping Context, Input Action, IA_/IMC_, or ETriggerEvent.",
+      "references": [
+        "skills/unreal/unreal-enhanced-input/references/cpp-setup.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unreal/unreal-niagara",
+      "name": "unreal-niagara",
+      "category": "unreal",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unreal/unreal-niagara/SKILL.md",
+      "relative_path": "skills/unreal/unreal-niagara/SKILL.md",
+      "line_count": 128,
+      "description": "Create and control VFX in Unreal Engine 5 with Niagara: systems and emitters, modules and the spawn/update stages, exposed User parameters, and spawning or driving effects from Blueprints or C++. Use when building particle effects, NS_/NE_ assets, spawning a Niagara system at runtime, setting User parameters, or when the user mentions Niagara, VFX, or a particle system in Unreal.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "unreal/unreal-packaging",
+      "name": "unreal-packaging",
+      "category": "unreal",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unreal/unreal-packaging/SKILL.md",
+      "relative_path": "skills/unreal/unreal-packaging/SKILL.md",
+      "line_count": 129,
+      "description": "Package and ship an Unreal Engine 5 project: the Platforms menu Package Project flow, build configurations (Development vs Shipping), cooking content, packaging settings and the Game Default Map, and command-line builds with RunUAT BuildCookRun. Use when packaging a build, making a shipping build, cooking content, configuring packaging settings, or when the user mentions package Unreal, cook content, shipping build, or BuildCookRun.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "web-engines/phaser-arcade-physics",
+      "name": "phaser-arcade-physics",
+      "category": "web-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/web-engines/phaser-arcade-physics/SKILL.md",
+      "relative_path": "skills/web-engines/phaser-arcade-physics/SKILL.md",
+      "line_count": 194,
+      "description": "Use Phaser 4 Arcade Physics: enable the world, give sprites bodies, set velocity/acceleration/gravity, and resolve collisions with colliders, overlaps, groups, and world bounds. Use when a Phaser game needs movement or collisions \u2014 when the user mentions Arcade Physics, this.physics, setVelocity, collider, overlap, gravity, onFloor, or a platformer/top-down controller. For game config, scenes, and the loader use phaser-core.",
+      "references": [
+        "skills/web-engines/phaser-arcade-physics/references/bodies-and-collision.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "web-engines/phaser-core",
+      "name": "phaser-core",
+      "category": "web-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/web-engines/phaser-core/SKILL.md",
+      "relative_path": "skills/web-engines/phaser-core/SKILL.md",
+      "line_count": 204,
+      "description": "Set up and debug a Phaser 4 game: the Game config, the Scene lifecycle (init/preload/create/update), the asset loader, cameras, and cross-scene communication. Use when building or debugging a Phaser game \u2014 when the user mentions Phaser, Phaser.Game, Phaser.Scene, preload/create/update, this.load, this.add, or scene transitions. For Arcade Physics movement/collisions use phaser-arcade-physics.",
+      "references": [
+        "skills/web-engines/phaser-core/references/scene-flow.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "web-engines/pixijs-rendering",
+      "name": "pixijs-rendering",
+      "category": "web-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/web-engines/pixijs-rendering/SKILL.md",
+      "relative_path": "skills/web-engines/pixijs-rendering/SKILL.md",
+      "line_count": 225,
+      "description": "Build a PixiJS v8 render layer: create the async Application, load textures with Assets, compose the scene graph with Container and Sprite, drive the ticker loop, wire pointer events, and group draws with render groups. Use when building or debugging PixiJS v8 \u2014 when the user mentions PixiJS, Pixi, Application, app.stage, Container, Sprite, Assets.load, app.ticker, or eventMode. Pins the v8 async init() API (examples checked against 8.22).",
+      "references": [
+        "skills/web-engines/pixijs-rendering/references/assets-and-display.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "web-engines/threejs-gltf-loading",
+      "name": "threejs-gltf-loading",
+      "category": "web-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/web-engines/threejs-gltf-loading/SKILL.md",
+      "relative_path": "skills/web-engines/threejs-gltf-loading/SKILL.md",
+      "line_count": 202,
+      "description": "Load glTF/GLB models in three.js with GLTFLoader and play their skinned animations with AnimationMixer, including DRACO/Meshopt-compressed meshes and KTX2 textures. Use when importing 3D models into three.js \u2014 when the user mentions glTF, GLB, GLTFLoader, AnimationMixer, animation clips, DRACOLoader, or \"load a 3D model\". For scene/camera/renderer setup use threejs-scene-setup; for materials and lights use threejs-materials-lighting.",
+      "references": [
+        "skills/web-engines/threejs-gltf-loading/references/loaders-and-animation.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "web-engines/threejs-materials-lighting",
+      "name": "threejs-materials-lighting",
+      "category": "web-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/web-engines/threejs-materials-lighting/SKILL.md",
+      "relative_path": "skills/web-engines/threejs-materials-lighting/SKILL.md",
+      "line_count": 178,
+      "description": "Light and shade a three.js scene: choose materials (MeshStandardMaterial PBR vs unlit MeshBasicMaterial), add ambient/hemisphere/directional/point/spot lights, turn on shadow maps, and use an environment map (IBL) for realistic reflections. Use when a three.js model looks black, flat, or wrong \u2014 when the user mentions three.js materials, MeshStandardMaterial, lights, shadows, envMap, or PBR. For renderer/loop setup use threejs-scene-setup; for loading models use threejs-gltf-loading.",
+      "references": [
+        "skills/web-engines/threejs-materials-lighting/references/materials-lights-table.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "web-engines/threejs-scene-setup",
+      "name": "threejs-scene-setup",
+      "category": "web-engines",
+      "slot": "engine",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/web-engines/threejs-scene-setup/SKILL.md",
+      "relative_path": "skills/web-engines/threejs-scene-setup/SKILL.md",
+      "line_count": 231,
+      "description": "Stand up a three.js scene: import maps and the three/addons path, the Scene/PerspectiveCamera/WebGLRenderer trio, the setAnimationLoop render loop, responsive resize, OrbitControls, and opting into WebGPURenderer. Use when starting or debugging a three.js app \u2014 when the user mentions three.js, THREE.Scene, WebGLRenderer, WebGPURenderer, PerspectiveCamera, the render loop, resizing, or OrbitControls. For models use threejs-gltf-loading; for materials/lights use threejs-materials-lighting.",
+      "references": [
+        "skills/web-engines/threejs-scene-setup/references/scene-graph.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "code-implementer",
+        "verification_subagents": [
+          "truth-verifier",
+          "jev-judge"
+        ],
+        "mcp_tools": [
+          "jev_verify",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "workflows/game-jam",
+      "name": "game-jam",
+      "category": "workflows",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/game-jam/SKILL.md",
+      "relative_path": "skills/workflows/game-jam/SKILL.md",
+      "line_count": 156,
+      "description": "Plan and ship a game under a jam deadline: lock scope to the clock, schedule the hours, cut features, and submit on time. Use for a game jam (Ludum Dare, GMTK Jam, Global Game Jam), a 48-hour or weekend build, or scoping and submitting a jam entry.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "truth-verifier",
+        "verification_subagents": [
+          "jev-judge",
+          "code-implementer"
+        ],
+        "mcp_tools": [
+          "jev_gate",
+          "jev_review",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "workflows/itch-publish",
+      "name": "itch-publish",
+      "category": "workflows",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/itch-publish/SKILL.md",
+      "relative_path": "skills/workflows/itch-publish/SKILL.md",
+      "line_count": 162,
+      "description": "Publish and update a game on itch.io: create the project page and upload builds with the butler CLI (butler push) to named channels. Use for itch.io publishing, butler push, channel naming for Windows/macOS/Linux/HTML5, versioning uploads, or shipping a jam or release build to itch.io.",
+      "references": [
+        "skills/workflows/itch-publish/references/butler-ci.md"
+      ],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "truth-verifier",
+        "verification_subagents": [
+          "jev-judge",
+          "code-implementer"
+        ],
+        "mcp_tools": [
+          "jev_gate",
+          "jev_review",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "workflows/prototype-fast",
+      "name": "prototype-fast",
+      "category": "workflows",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/prototype-fast/SKILL.md",
+      "relative_path": "skills/workflows/prototype-fast/SKILL.md",
+      "line_count": 119,
+      "description": "Build a playable prototype in about an hour to answer one question \u2014 is it fun? \u2014 with greybox primitives, a hard timebox, and explicit keep/kill criteria. Use when prototyping a mechanic, making a vertical slice or MVP, greyboxing/blockout, or judging throwaway vs keep.",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "truth-verifier",
+        "verification_subagents": [
+          "jev-judge",
+          "code-implementer"
+        ],
+        "mcp_tools": [
+          "jev_gate",
+          "jev_review",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "workflows/steam-publish",
+      "name": "steam-publish",
+      "category": "workflows",
+      "slot": "workflow",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/steam-publish/SKILL.md",
+      "relative_path": "skills/workflows/steam-publish/SKILL.md",
+      "line_count": 247,
+      "description": "Publish or update a game on Steam with Steamworks and SteamPipe: configure depots and packages, upload builds with steamcmd, set a build live on a branch, and run the release checklists. Use for Steam publishing, app_build.vdf/steamcmd uploads, depots, beta branches, or a store page release.",
+      "references": [
+        "skills/workflows/steam-publish/references/steampipe-build-scripts.md"
+      ],
+      "scripts": [
+        "skills/workflows/steam-publish/scripts/check_steam_build.py"
+      ],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "truth-verifier",
+        "verification_subagents": [
+          "jev-judge",
+          "code-implementer"
+        ],
+        "mcp_tools": [
+          "jev_gate",
+          "jev_review",
+          "mlx_jev_judge"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    }
+  ]
+}

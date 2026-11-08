@@ -1,0 +1,286 @@
+{
+  "cards": {
+    "heroes": [
+      {
+        "id": "h_archangel",
+        "nesw": [
+          8,
+          7,
+          6,
+          7
+        ],
+        "total": 28
+      },
+      {
+        "id": "h_phoenix",
+        "nesw": [
+          9,
+          8,
+          5,
+          6
+        ],
+        "total": 28
+      },
+      {
+        "id": "h_oracle",
+        "nesw": [
+          7,
+          7,
+          8,
+          7
+        ],
+        "total": 29
+      },
+      {
+        "id": "h_chronos",
+        "nesw": [
+          6,
+          8,
+          7,
+          7
+        ],
+        "total": 28
+      },
+      {
+        "id": "h_seraph",
+        "nesw": [
+          8,
+          6,
+          7,
+          8
+        ],
+        "total": 29
+      },
+      {
+        "id": "h_kai",
+        "nesw": [
+          7,
+          8,
+          6,
+          7
+        ],
+        "total": 28
+      },
+      {
+        "id": "h_valkyrie",
+        "nesw": [
+          8,
+          8,
+          5,
+          6
+        ],
+        "total": 27
+      },
+      {
+        "id": "h_arbiter",
+        "nesw": [
+          7,
+          7,
+          8,
+          8
+        ],
+        "total": 30
+      }
+    ],
+    "enemies": [
+      {
+        "id": "e_eclipse",
+        "nesw": [
+          6,
+          6,
+          5,
+          6
+        ],
+        "total": 23
+      },
+      {
+        "id": "e_archon",
+        "nesw": [
+          7,
+          6,
+          6,
+          5
+        ],
+        "total": 24
+      },
+      {
+        "id": "e_inferno",
+        "nesw": [
+          7,
+          7,
+          5,
+          6
+        ],
+        "total": 25
+      },
+      {
+        "id": "e_reaper",
+        "nesw": [
+          6,
+          7,
+          7,
+          5
+        ],
+        "total": 25
+      },
+      {
+        "id": "e_titan",
+        "nesw": [
+          7,
+          5,
+          7,
+          6
+        ],
+        "total": 25
+      },
+      {
+        "id": "e_colossus",
+        "nesw": [
+          6,
+          8,
+          5,
+          6
+        ],
+        "total": 25
+      },
+      {
+        "id": "e_cryo",
+        "nesw": [
+          5,
+          7,
+          6,
+          7
+        ],
+        "total": 25
+      },
+      {
+        "id": "e_shinobi",
+        "nesw": [
+          7,
+          6,
+          6,
+          5
+        ],
+        "total": 24
+      }
+    ],
+    "heroMeanTotal": 28.375,
+    "enemyMeanTotal": 24.5,
+    "edgeVsEdge": {
+      "noBoost_bonus0": {
+        "pHeroEdgeBeats": 0.6572,
+        "pTie": 0.2197
+      },
+      "boost_bonus0": {
+        "pHeroEdgeBeats": 0.877,
+        "pTie": 0.0957
+      },
+      "noBoost_bonus1": {
+        "pHeroEdgeBeats": 0.3496,
+        "pTie": 0.3076
+      },
+      "boost_bonus1": {
+        "pHeroEdgeBeats": 0.6563,
+        "pTie": 0.2207
+      },
+      "enemyAttacksHero_bonus0": 0.123,
+      "enemyAttacksHero_bonus1_vsUnboosted": 0.3428
+    }
+  },
+  "sims": {
+    "random_aiBonus0": {
+      "N": 20000,
+      "playerWinRate": 0.7286,
+      "meanBlue": 5.047,
+      "blueDist": {
+        "2": 40,
+        "3": 786,
+        "4": 4603,
+        "5": 8435,
+        "6": 5055,
+        "7": 1055,
+        "8": 26
+      },
+      "meanPlayerPlacements": 4,
+      "meanBossPlacementsInclPreplaced": 5,
+      "meanHandLeftAtEnd": 1,
+      "meanLegalMovesPerPlayerTurn": 20,
+      "shareTurnsNoCaptureAvailable": 0.0199,
+      "samePlusWouldTriggerPerPlayerTurn": 0.0743,
+      "sameOnly": 0.0129,
+      "plusOnly": 0.0667
+    },
+    "random_aiBonus1": {
+      "N": 20000,
+      "playerWinRate": 0.3429,
+      "meanBlue": 4.084,
+      "blueDist": {
+        "0": 3,
+        "1": 104,
+        "2": 1104,
+        "3": 4534,
+        "4": 7397,
+        "5": 5135,
+        "6": 1569,
+        "7": 150,
+        "8": 4
+      },
+      "meanPlayerPlacements": 4,
+      "meanBossPlacementsInclPreplaced": 5,
+      "meanHandLeftAtEnd": 1,
+      "meanLegalMovesPerPlayerTurn": 20,
+      "shareTurnsNoCaptureAvailable": 0.0238,
+      "samePlusWouldTriggerPerPlayerTurn": 0.1047,
+      "sameOnly": 0.0293,
+      "plusOnly": 0.0878
+    },
+    "greedy_aiBonus0": {
+      "N": 20000,
+      "playerWinRate": 0.9836,
+      "meanBlue": 6.322,
+      "blueDist": {
+        "3": 18,
+        "4": 310,
+        "5": 3116,
+        "6": 8007,
+        "7": 6867,
+        "8": 1682
+      },
+      "meanPlayerPlacements": 4,
+      "meanBossPlacementsInclPreplaced": 5,
+      "meanHandLeftAtEnd": 1,
+      "meanLegalMovesPerPlayerTurn": 20,
+      "shareTurnsNoCaptureAvailable": 0.0361,
+      "samePlusWouldTriggerPerPlayerTurn": 0.0766,
+      "sameOnly": 0.003,
+      "plusOnly": 0.0753
+    },
+    "greedy_aiBonus1": {
+      "N": 20000,
+      "playerWinRate": 0.8359,
+      "meanBlue": 5.418,
+      "blueDist": {
+        "2": 32,
+        "3": 494,
+        "4": 2755,
+        "5": 7464,
+        "6": 6692,
+        "7": 2192,
+        "8": 371
+      },
+      "meanPlayerPlacements": 4,
+      "meanBossPlacementsInclPreplaced": 5,
+      "meanHandLeftAtEnd": 1,
+      "meanLegalMovesPerPlayerTurn": 20,
+      "shareTurnsNoCaptureAvailable": 0.0736,
+      "samePlusWouldTriggerPerPlayerTurn": 0.0793,
+      "sameOnly": 0.0051,
+      "plusOnly": 0.0775
+    }
+  },
+  "notes": [
+    "No Tactical Slide, no nudges/rerolls; dice fixed at startStage default [4,2,5] (cols 1 and 3 boosted).",
+    "Boss logic replicates executeBossTurn: bestCount=-1 init means the random initial slot is always overwritten by the first scanned slot with max flips (reading order).",
+    "Same/Plus columns are counterfactual: share of player placements where FF8 Same or Plus WOULD fire if implemented (base values used)."
+  ]
+}

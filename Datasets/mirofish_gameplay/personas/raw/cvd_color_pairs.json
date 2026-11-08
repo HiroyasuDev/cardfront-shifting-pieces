@@ -1,0 +1,85 @@
+{
+  "method": "Machado2009 deuteranopia severity=1.0 (linear sRGB); CIEDE2000",
+  "pairs": {
+    "player_frame_vs_ai_frame (--blue-ally vs --red-enemy)": {
+      "a": "#00E5FF",
+      "b": "#FF2E54",
+      "a_deutan": "#B2C7FF",
+      "b_deutan": "#A4954E",
+      "dE2000_normal": 84.55,
+      "dE2000_deutan": 45.34,
+      "retained_pct": 53.6
+    },
+    "flip_preview_vs_defend_preview line (#FFB800 vs #FF2E54)": {
+      "a": "#FFB800",
+      "b": "#FF2E54",
+      "a_deutan": "#E5CC17",
+      "b_deutan": "#A4954E",
+      "dE2000_normal": 48.03,
+      "dE2000_deutan": 18.67,
+      "retained_pct": 38.9
+    },
+    "turn_badge YOUR TURN vs BOSS TURN (#FFB800 vs #FF2E54)": {
+      "a": "#FFB800",
+      "b": "#FF2E54",
+      "a_deutan": "#E5CC17",
+      "b_deutan": "#A4954E",
+      "dE2000_normal": 48.03,
+      "dE2000_deutan": 18.67,
+      "retained_pct": 38.9
+    },
+    "slide_target (--emerald) vs flip_target (--gold)": {
+      "a": "#00E676",
+      "b": "#FFB800",
+      "a_deutan": "#D1C27E",
+      "b_deutan": "#E5CC17",
+      "dE2000_normal": 42.22,
+      "dE2000_deutan": 12.32,
+      "retained_pct": 29.2
+    },
+    "slide_target (--emerald) vs ai_frame (--red-enemy)": {
+      "a": "#00E676",
+      "b": "#FF2E54",
+      "a_deutan": "#D1C27E",
+      "b_deutan": "#A4954E",
+      "dE2000_normal": 86.94,
+      "dE2000_deutan": 12.92,
+      "retained_pct": 14.9
+    },
+    "victory_title vs defeat_title (#00E5FF vs #FF2E54)": {
+      "a": "#00E5FF",
+      "b": "#FF2E54",
+      "a_deutan": "#B2C7FF",
+      "b_deutan": "#A4954E",
+      "dE2000_normal": 84.55,
+      "dE2000_deutan": 45.34,
+      "retained_pct": 53.6
+    }
+  },
+  "deutan_screenshots": [
+    "screenshots/p08_DeuteranopiaColorReader/p08_s1_m1_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s1_m1_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s1_m2_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s1_m2_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s1_m3_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s1_m3_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s2_m1_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s2_m1_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s2_m2_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s2_m2_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s2_m3_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s2_m3_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s3_m1_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s3_m1_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s3_m2_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s3_m2_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s3_m3_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s3_m3_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s4_m1_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s4_m1_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s4_m2_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s4_m2_mid_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s4_m3_final_deutan.jpg",
+    "screenshots/p08_DeuteranopiaColorReader/p08_s4_m3_mid_deutan.jpg"
+  ]
+}

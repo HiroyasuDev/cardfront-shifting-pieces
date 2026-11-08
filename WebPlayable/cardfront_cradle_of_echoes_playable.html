@@ -31,13 +31,23 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
 
+  html {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+
   body {
     height: 100vh;
     width: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
     overflow: hidden;
     background:
       radial-gradient(circle at 50% 45%, rgba(20, 35, 72, 0.72) 0%, rgba(4, 7, 15, 0.97) 78%),
-      url("../GeneratedArt/env_isamu_kamikokuryo_skystone.png") center/cover no-repeat;
+      url("./GeneratedArt/env_isamu_kamikokuryo_skystone.png") center/cover no-repeat;
     color: var(--text-main);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
     display: flex;
@@ -50,13 +60,16 @@
      ========================================================================== */
   header {
     height: 44px;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
     background: rgba(6, 9, 19, 0.96);
     border-bottom: 1px solid #243866;
-    padding: 0 16px;
+    padding: env(safe-area-inset-top, 0px) max(10px, env(safe-area-inset-right, 10px)) 0 max(10px, env(safe-area-inset-left, 10px));
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 6px;
     flex-shrink: 0;
     z-index: 40;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
@@ -64,32 +77,36 @@
   .brand {
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
+    gap: 6px;
+    min-width: 0;
+    flex-shrink: 1;
+    overflow: hidden;
   }
   .brand-badge {
     background: linear-gradient(135deg, var(--red-enemy), #7c3aed);
-    padding: 3px 8px;
+    padding: 3px 7px;
     border-radius: 5px;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 900;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.6px;
     white-space: nowrap;
   }
   .brand-title {
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 800;
     color: #e2e8f0;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .scoreboard {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     background: #0a1122;
     border: 1px solid #2e477a;
-    padding: 4px 16px;
+    padding: 3px 12px;
     border-radius: 99px;
     flex-shrink: 0;
     white-space: nowrap;
@@ -97,9 +114,9 @@
   .score-side {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     font-weight: 800;
-    font-size: 12.5px;
+    font-size: 12px;
     white-space: nowrap;
   }
   .score-dot {
@@ -114,7 +131,7 @@
   .header-right {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     flex-shrink: 0;
   }
   select, button {
@@ -122,8 +139,8 @@
     color: #f8fafc;
     border: 1px solid #324c80;
     border-radius: 6px;
-    padding: 4px 9px;
-    font-size: 11px;
+    padding: 3px 6px;
+    font-size: 12px;
     font-weight: 700;
     cursor: pointer;
     white-space: nowrap;
@@ -140,15 +157,31 @@
   main {
     flex: 1;
     display: grid;
-    grid-template-columns: 264px 1fr 264px;
-    gap: 12px;
-    padding: 8px 14px;
+    grid-template-columns: 248px minmax(0, 1fr) 248px;
+    gap: 10px;
+    padding: 8px max(12px, env(safe-area-inset-right, 12px)) max(8px, env(safe-area-inset-bottom, 8px)) max(12px, env(safe-area-inset-left, 12px));
     width: 100%;
-    max-width: 1640px;
+    max-width: min(1640px, 100vw);
     margin: 0 auto;
     align-items: center;
     min-height: 0;
     overflow: hidden;
+  }
+
+  @media (max-width: 1360px) {
+    main {
+      grid-template-columns: 240px minmax(0, 1fr) 240px;
+      gap: 8px;
+      padding: 6px 10px;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    main {
+      grid-template-columns: 210px minmax(0, 1fr) 210px;
+      gap: 6px;
+      padding: 4px 8px;
+    }
   }
 
   .side-box {
@@ -162,16 +195,17 @@
     gap: 8px;
     height: 100%;
     max-height: calc(100vh - 60px);
+    min-width: 0;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(12px);
     z-index: 20;
     overflow: hidden;
   }
   .box-title {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.7px;
+    letter-spacing: 0.5px;
     color: var(--blue-ally);
     border-bottom: 1px solid #1f3156;
     padding-bottom: 4px;
@@ -246,6 +280,7 @@
     height: 100%;
     max-height: calc(100vh - 60px);
     width: 100%;
+    min-width: 0;
     position: relative;
     gap: 6px;
     min-height: 0;
@@ -260,7 +295,7 @@
     border: 1px solid #304c82;
     border-radius: 99px;
     padding: 4px 14px;
-    font-size: 11px;
+    font-size: 12px;
     color: #e2e8f0;
     box-shadow: 0 4px 14px rgba(0,0,0,0.65);
     white-space: nowrap;
@@ -272,9 +307,9 @@
   .telegraph-tag-badge {
     padding: 2px 7px;
     border-radius: 99px;
-    font-size: 9.5px;
+    font-size: 12px;
     font-weight: 900;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
     text-transform: uppercase;
     background: rgba(0, 229, 255, 0.18);
     color: var(--blue-ally);
@@ -320,14 +355,14 @@
     text-align: center;
   }
   .col-header-pill {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 800;
     padding: 4px 6px;
     border-radius: 6px;
     background: rgba(11, 18, 36, 0.95);
     color: #94a3b8;
     border: 1px solid #30497d;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.3px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -345,6 +380,7 @@
     grid-template-rows: repeat(3, var(--slot-h));
     gap: 12px;
     transform-style: preserve-3d;
+    transform: translateZ(4px);
     position: relative;
   }
 
@@ -358,6 +394,7 @@
     position: relative;
     cursor: pointer;
     transform-style: preserve-3d;
+    transform: translateZ(4px);
     transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
     display: flex;
     align-items: center;
@@ -375,6 +412,10 @@
     border: 2px solid var(--emerald);
     background: rgba(0, 230, 118, 0.14);
     box-shadow: 0 0 18px rgba(0, 230, 118, 0.45);
+  }
+  .board-slot.focused-slot {
+    outline: 2px solid var(--blue-ally);
+    outline-offset: 2px;
   }
   /* Tile affected by hovered card's directional telegraph range */
   .board-slot.telegraph-zone-ally {
@@ -438,6 +479,7 @@
      NATURAL DRAG & DROP (pointer-driven ghost, magnet snap, landing shadow)
      ========================================================================== */
   .slot-art { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+  .board-slot *, .hand-card-wrap * { pointer-events: none; }
   .board-telegraph-svg { pointer-events: none; }
   .hand-card-wrap { touch-action: none; cursor: grab; }
   .board-slot.owner-draggable { cursor: grab; touch-action: none; }
@@ -612,9 +654,9 @@
     background: rgba(5, 9, 20, 0.95);
     border-top: 1px solid rgba(255,255,255,0.18);
     padding: 0 5px;
-    font-size: 9.5px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.1px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -625,8 +667,8 @@
     z-index: 6;
   }
   .hand-card-wrap .slot-name-ribbon {
-    height: 17px;
-    font-size: 8.5px;
+    height: 18px;
+    font-size: 12px;
   }
 
   /* SLEEK COMPACT INSET DIRECTIONAL STAT GEMS (ZERO OVERLAP) */
@@ -638,7 +680,7 @@
     background: rgba(5, 9, 20, 0.92);
     border: 1.5px solid rgba(255, 255, 255, 0.85);
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 900;
     color: #fff;
     display: flex;
@@ -650,7 +692,7 @@
   .hand-card-wrap .edge-num {
     width: 17px;
     height: 17px;
-    font-size: 9.5px;
+    font-size: 12px;
     border-radius: 4px;
   }
   .owner-player .edge-num {
@@ -678,7 +720,7 @@
     background: var(--gold);
     color: #050811;
     font-weight: 900;
-    font-size: 10.5px;
+    font-size: 12px;
     padding: 3px 9px;
     border-radius: 99px;
     z-index: 12;
@@ -695,7 +737,7 @@
     border: 1.5px solid var(--red-enemy);
     color: #fda4af;
     font-weight: 800;
-    font-size: 9.5px;
+    font-size: 12px;
     padding: 2px 7px;
     border-radius: 99px;
     z-index: 12;
@@ -851,7 +893,7 @@
       <span class="score-dot blue"></span>
       <span>YOU: <span id="player-score">0</span></span>
     </div>
-    <span style="color:#64748b;font-weight:800;font-size:11px;">VS</span>
+    <span style="color:#64748b;font-weight:800;font-size:12px;">VS</span>
     <div class="score-side" style="color:var(--red-enemy);">
       <span>BOSS: <span id="ai-score">1</span></span>
       <span class="score-dot red"></span>
@@ -859,18 +901,34 @@
   </div>
 
   <div class="header-right">
+    <span id="coin-hud-pill" style="background:#1e293b;border:1px solid var(--gold);color:var(--gold);padding:3px 9px;border-radius:99px;font-size:12px;font-weight:900;">🪙 <span id="player-coins">300</span></span>
     <select id="camera-select" onchange="setBoardCamera(this.value)" title="3D Board Camera Angle">
       <option value="5,0">🎥 View: 3D Showcase (5°)</option>
       <option value="0,0">🎥 View: Flat 2D (0°)</option>
       <option value="14,0">🎥 View: Tabletop (14°)</option>
     </select>
     <select id="stage-select" onchange="startStage(parseInt(this.value, 10))">
-      <option value="0">Stage 1: Skystone Sanctuary</option>
-      <option value="1">Stage 2: Ivalice Citadel</option>
-      <option value="2">Stage 3: Orbital Mecha Bay</option>
-      <option value="3">Stage 4: Apex Neural Core</option>
+      <option value="0">Act I-1: Skystone Sanctuary</option>
+      <option value="1">Act I-2: Ivalice Citadel</option>
+      <option value="2">Act I-3: Solar Spire</option>
+      <option value="3">Act II-4: Neo-Arcadia Highway</option>
+      <option value="4">Act II-5: Orbital Mecha Bay</option>
+      <option value="5">Act II-6: Solid Eye Bunker</option>
+      <option value="6">Act III-7: Breach Rift Alpha</option>
+      <option value="7">Act III-8: STACCS Spire</option>
+      <option value="8">Act III-9: Cryo Core</option>
+      <option value="9">Act IV-10: Umbra Singularity</option>
+      <option value="10">Act IV-11: Blood Rune Altar</option>
+      <option value="11">Act IV-12: Hellfire Foundry</option>
+      <option value="12">Act V-13: Prism Octahedron</option>
+      <option value="13">Act V-14: Trigger Cross-Star</option>
+      <option value="14">Act V-15: Omega Chronos Prime</option>
     </select>
-    <button onclick="triggerAllBoardTelegraphs()">⚡ Pulse Telegraphs</button>
+    <button onclick="openDeckbuilderModal()" style="border-color:var(--gold);color:var(--gold);">🃏 Deck (60)</button>
+    <button onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">🧊 3D Pawn</button>
+    <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking">🎵 BGM: OFF</button>
+    <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus">🔊 SFX</button>
+    <button onclick="triggerAllBoardTelegraphs()">⚡ Pulse</button>
     <button onclick="startStage(state.stageIndex)">↻ Reset</button>
   </div>
 </header>
@@ -909,13 +967,13 @@
         <span style="color:var(--gold);">NUDGES: <span id="nudge-left">2</span></span>
       </div>
 
-      <div style="font-size:10.5px;color:#cbd5e1;line-height:1.32;">
+      <div style="font-size:12px;color:#cbd5e1;line-height:1.28;">
         Click a 3D die to <b>+1 Nudge</b>. Pip <b style="color:var(--gold);">4–6</b> grants <b style="color:var(--gold);">+1 All Sides</b> in that Column.
       </div>
 
       <div class="dice-column-list" id="dice-column-list"></div>
 
-      <button onclick="rerollAllDice()" style="width:100%;padding:7px;background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;font-size:11px;">
+      <button onclick="rerollAllDice()" style="width:100%;padding:7px;background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;font-size:12px;">
         🎲 Roll All 3D Dice (<span id="reroll-left">2</span> left)
       </button>
     </div>
@@ -927,15 +985,15 @@
       </div>
 
       <div class="boss-profile">
-        <img id="boss-avatar" class="boss-avatar" src="../GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss" />
+        <img id="boss-avatar" class="boss-avatar" src="./GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss" />
         <div style="min-width:0;">
           <div id="boss-name" style="font-weight:800;font-size:12px;color:#ff859a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Eclipse Void Blade</div>
-          <div id="boss-telegraph-label" style="font-size:10px;color:var(--gold);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Telegraph: Umbra Singularity</div>
-          <div style="font-size:10px;color:#94a3b8;margin-top:2px;line-height:1.25;">Counters after each move.</div>
+          <div id="boss-telegraph-label" style="font-size:12px;color:var(--gold);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Telegraph: Umbra Singularity</div>
+          <div id="boss-intent-preview" style="font-size:12px;color:#94a3b8;margin-top:2px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Counters after each move.</div>
         </div>
       </div>
 
-      <div id="last-move-banner" style="background:#080d1a;border:1px solid #283e69;border-radius:9px;padding:8px;font-size:10.5px;color:#e2e8f0;line-height:1.35;">
+      <div id="last-move-banner" style="background:#080d1a;border:1px solid #283e69;border-radius:9px;padding:8px;font-size:12px;color:#e2e8f0;line-height:1.3;">
         💡 Select a Hero Card on the left and hover any tile to see its unique dynamic telegraph animation.
       </div>
     </div>
@@ -944,13 +1002,49 @@
 
 <div class="modal-backdrop" id="result-modal">
   <div class="modal-box">
-    <div id="modal-kicker" style="font-size:11px;font-weight:900;color:var(--gold);letter-spacing:1.2px;">MATCH COMPLETE</div>
+    <div id="modal-kicker" style="font-size:12px;font-weight:900;color:var(--gold);letter-spacing:1.2px;">MATCH COMPLETE</div>
     <h2 id="modal-title" style="font-size:24px;font-weight:900;">VICTORY!</h2>
     <p id="modal-desc" style="font-size:13px;color:#cbd5e1;line-height:1.45;"></p>
     <div style="display:flex;gap:10px;justify-content:center;margin-top:4px;">
-      <button onclick="closeModal(false)">Play Again</button>
-      <button onclick="closeModal(true)" style="background:linear-gradient(135deg,#00e5ff,#0072ff);border-color:#fff;">Next Stage ▶</button>
+      <button id="play-again-btn" onclick="closeModal(false)">Play Again</button>
+      <button id="next-stage-btn" onclick="closeModal(true)" style="background:linear-gradient(135deg,#00e5ff,#0072ff);border-color:#fff;">Next Stage ▶</button>
     </div>
+  </div>
+</div>
+
+<!-- PRODUCTION STAGE 2 MODAL 1: 60-CARD SET 1 DECKBUILDER, BOOSTER PACKS & CARDCRAFT FORGE -->
+<div class="modal-backdrop" id="deckbuilder-modal">
+  <div class="modal-box" style="max-width:860px;width:95%;max-height:86vh;overflow-y:auto;text-align:left;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2b4478;padding-bottom:8px;">
+      <div>
+        <div style="font-size:12px;font-weight:900;color:var(--gold);letter-spacing:1px;">SET 1: CRADLE OF ECHOES · SAVE SCHEMA V3 (FNV-1A)</div>
+        <h3 style="font-size:16px;font-weight:900;color:#fff;">60-Card Deckbuilder, Booster Pack &amp; CardCraft Forge</h3>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button onclick="openBoosterPackUI()" style="background:linear-gradient(135deg,#f59e0b,#b45309);border-color:#fde68a;">🎁 Open Pack (100 🪙)</button>
+        <button onclick="evolveCardCraftUI()" style="background:linear-gradient(135deg,#8b5cf6,#4c1d95);border-color:#c4b5fd;">⚒️ CardCraft +1 (150 🪙)</button>
+        <button onclick="closeDeckbuilderModal()">✕ Close</button>
+      </div>
+    </div>
+    <div id="deckbuilder-status" style="font-size:12px;color:#cbd5e1;background:#0a1122;padding:7px 10px;border-radius:8px;border:1px solid #283e69;">
+      Click any Set 1 card to toggle it into your 5-Card Active Squad. Progression auto-saves to Atomic Save Slot v3.
+    </div>
+    <div id="deckbuilder-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:8px;max-height:54vh;overflow-y:auto;padding:4px;"></div>
+  </div>
+</div>
+
+<!-- PRODUCTION STAGE 2 MODAL 2: LIVE 3D GLB / Q3GS HOLOGRAM PAWN INSPECTOR -->
+<div class="modal-backdrop" id="pawn3d-modal">
+  <div class="modal-box" style="max-width:620px;width:92%;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2b4478;padding-bottom:8px;">
+      <div style="text-align:left;">
+        <div style="font-size:12px;font-weight:900;color:var(--blue-ally);letter-spacing:1px;">HI3DGEN + TRELLIS 2.0 WATERTIGHT MESH INSPECTOR</div>
+        <h3 id="pawn3d-title" style="font-size:16px;font-weight:900;color:#fff;">3D .glb / .q3gs Hologram Pawn</h3>
+      </div>
+      <button onclick="close3DPawnInspectorModal()">✕ Close</button>
+    </div>
+    <canvas id="pawn3d-canvas" width="520" height="300" style="width:100%;height:260px;background:radial-gradient(circle,#122449 0%,#050914 85%);border-radius:12px;border:1px solid #304d85;cursor:grab;"></canvas>
+    <div id="pawn3d-telemetry" style="font-family:ui-monospace,monospace;font-size:12px;color:#93c5fd;background:#070c18;padding:8px 10px;border-radius:8px;border:1px solid #1e3a8a;text-align:left;"></div>
   </div>
 </div>
 
@@ -964,7 +1058,7 @@ const PLAYER_HEROES = [
     id: "h_archangel",
     name: "Solar Archangel",
     nesw: [8, 7, 6, 7],
-    art: "../GeneratedArt/MasteredCards/h_archangel.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/h_archangel.png?v=tele4",
     telegraphName: "Solar Cross Lance",
     telegraphType: "FFTA Holy Totema Cross (+)",
     telegraphColor: "#FFD54F",
@@ -975,7 +1069,7 @@ const PLAYER_HEROES = [
     id: "h_phoenix",
     name: "Phoenix Valkyrie",
     nesw: [9, 8, 5, 6],
-    art: "../GeneratedArt/MasteredCards/h_phoenix.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/h_phoenix.png?v=tele4",
     telegraphName: "Ember Wing Sweep",
     telegraphType: "Breach Thermal Arc (N+E)",
     telegraphColor: "#FF6D00",
@@ -986,7 +1080,7 @@ const PLAYER_HEROES = [
     id: "h_oracle",
     name: "Lunar Oracle",
     nesw: [7, 7, 8, 7],
-    art: "../GeneratedArt/MasteredCards/h_oracle.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/h_oracle.png?v=tele4",
     telegraphName: "Crescent Tidal Ward",
     telegraphType: "Astral Orbit Ring (360°)",
     telegraphColor: "#7CE0FF",
@@ -997,7 +1091,7 @@ const PLAYER_HEROES = [
     id: "h_chronos",
     name: "Chronos Weaver",
     nesw: [6, 8, 7, 7],
-    art: "../GeneratedArt/MasteredCards/h_chronos.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/h_chronos.png?v=tele4",
     telegraphName: "Temporal Gear Lock",
     telegraphType: "MGA COST Clockwork (E+S+W)",
     telegraphColor: "#FFB800",
@@ -1008,7 +1102,7 @@ const PLAYER_HEROES = [
     id: "h_seraph",
     name: "Astral Seraph",
     nesw: [8, 6, 7, 8],
-    art: "../GeneratedArt/MasteredCards/h_seraph.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/h_seraph.png?v=tele4",
     telegraphName: "Trigger Cross-Star",
     telegraphType: "Omega Sakuga Flare (N+W)",
     telegraphColor: "#E040FB",
@@ -1019,7 +1113,7 @@ const PLAYER_HEROES = [
     id: "h_kai",
     name: "Kai Crimson Visor",
     nesw: [7, 8, 6, 7],
-    art: "../GeneratedArt/MasteredCards/h_kai.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/h_kai.png?v=tele4",
     telegraphName: "Solid Eye Target Lock",
     telegraphType: "MGA2 Halftone Reticle (E+W)",
     telegraphColor: "#FF2E54",
@@ -1030,7 +1124,7 @@ const PLAYER_HEROES = [
     id: "h_valkyrie",
     name: "Sky-Wing Striker",
     nesw: [8, 8, 5, 6],
-    art: "../GeneratedArt/MasteredCards/h_valkyrie.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/h_valkyrie.png?v=tele4",
     telegraphName: "Orbital Airstrike",
     telegraphType: "Advance Wars Eagle Dive (N+E)",
     telegraphColor: "#00E5FF",
@@ -1041,7 +1135,7 @@ const PLAYER_HEROES = [
     id: "h_arbiter",
     name: "Sun Arbiter",
     nesw: [7, 7, 8, 8],
-    art: "../GeneratedArt/MasteredCards/h_arbiter.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/h_arbiter.png?v=tele4",
     telegraphName: "Ivalice Law Seal",
     telegraphType: "FFTA Judge Hex Pillar (S+W)",
     telegraphColor: "#FFD700",
@@ -1055,7 +1149,7 @@ const ENEMY_MECHS = [
     id: "e_eclipse",
     name: "Eclipse Void Blade",
     nesw: [6, 6, 5, 6],
-    art: "../GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",
     telegraphName: "Umbra Singularity",
     telegraphType: "Void Vortex Slash",
     telegraphColor: "#C084FC",
@@ -1066,7 +1160,7 @@ const ENEMY_MECHS = [
     id: "e_archon",
     name: "Prism Core Archon",
     nesw: [7, 6, 6, 5],
-    art: "../GeneratedArt/MasteredCards/e_archon.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/e_archon.png?v=tele4",
     telegraphName: "Prism Tri-Laser",
     telegraphType: "Octahedron Beam",
     telegraphColor: "#F43F5E",
@@ -1077,7 +1171,7 @@ const ENEMY_MECHS = [
     id: "e_inferno",
     name: "Inferno Seraph",
     nesw: [7, 7, 5, 6],
-    art: "../GeneratedArt/MasteredCards/e_inferno.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",
     telegraphName: "Hellfire Artillery",
     telegraphType: "Breach Danger Zone",
     telegraphColor: "#FF5722",
@@ -1088,7 +1182,7 @@ const ENEMY_MECHS = [
     id: "e_reaper",
     name: "Sigil Wraith",
     nesw: [6, 7, 7, 5],
-    art: "../GeneratedArt/MasteredCards/e_reaper.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/e_reaper.png?v=tele4",
     telegraphName: "Blood Rune Scythe",
     telegraphType: "180° Cleave Telegraph",
     telegraphColor: "#FB7185",
@@ -1099,7 +1193,7 @@ const ENEMY_MECHS = [
     id: "e_titan",
     name: "Bastion Dreadnought",
     nesw: [7, 5, 7, 6],
-    art: "../GeneratedArt/MasteredCards/e_titan.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/e_titan.png?v=tele4",
     telegraphName: "Seismic Tremor Push",
     telegraphType: "Breach Kinetic Bump",
     telegraphColor: "#F59E0B",
@@ -1110,7 +1204,7 @@ const ENEMY_MECHS = [
     id: "e_colossus",
     name: "Emerald Colossus",
     nesw: [6, 8, 5, 6],
-    art: "../GeneratedArt/MasteredCards/e_colossus.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4",
     telegraphName: "Overdrive Railgun",
     telegraphType: "Piercing Plasma Vector",
     telegraphColor: "#10B981",
@@ -1121,7 +1215,7 @@ const ENEMY_MECHS = [
     id: "e_cryo",
     name: "Cryo Interceptor",
     nesw: [5, 7, 6, 7],
-    art: "../GeneratedArt/MasteredCards/e_cryo.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/e_cryo.png?v=tele4",
     telegraphName: "Sub-Zero Lattice",
     telegraphType: "Frost Crystal Spread",
     telegraphColor: "#38BDF8",
@@ -1132,7 +1226,7 @@ const ENEMY_MECHS = [
     id: "e_shinobi",
     name: "Cyber Shinobi",
     nesw: [7, 6, 6, 5],
-    art: "../GeneratedArt/MasteredCards/e_shinobi.png?v=tele4",
+    art: "./GeneratedArt/MasteredCards/e_shinobi.png?v=tele4",
     telegraphName: "90° Stealth Cone",
     telegraphType: "MGA Radar Ambush",
     telegraphColor: "#2DD4BF",
@@ -1303,10 +1397,28 @@ function buildUniqueTelegraphSVG(card) {
 }
 
 const STAGES = [
-  { name: "Eclipse Void Blade",  bossId: "e_eclipse",  avatar: "../GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",  bg: "../GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 0 },
-  { name: "Prism Core Archon",   bossId: "e_archon",   avatar: "../GeneratedArt/MasteredCards/e_archon.png?v=tele4",   bg: "../GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 0 },
-  { name: "Emerald Colossus",    bossId: "e_colossus", avatar: "../GeneratedArt/MasteredCards/e_colossus.png?v=tele4", bg: "../GeneratedArt/env_nakayama_neo_arcadia_mmz.png", aiBonus: 1 },
-  { name: "Inferno Core Seraph", bossId: "e_inferno",  avatar: "../GeneratedArt/MasteredCards/e_inferno.png?v=tele4",  bg: "../GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 1 }
+  { name: "Eclipse Void Blade",   bossId: "e_eclipse",  avatar: "./GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",  bg: "./GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 0, rewardCoins: 80 },
+  { name: "Prism Core Archon",    bossId: "e_archon",   avatar: "./GeneratedArt/MasteredCards/e_archon.png?v=tele4",   bg: "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 0, rewardCoins: 90 },
+  { name: "Emerald Colossus",     bossId: "e_colossus", avatar: "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4", bg: "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png", aiBonus: 1, rewardCoins: 120 },
+  { name: "Inferno Seraph",       bossId: "e_inferno",  avatar: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",  bg: "./GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 1, rewardCoins: 150 }
+];
+
+const CAMPAIGN_STAGES = [
+  { name: "Act I-1: Skystone Sanctuary",   bossId: "e_eclipse",  avatar: "./GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",  bg: "./GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 0, rewardCoins: 80 },
+  { name: "Act I-2: Ivalice Citadel",      bossId: "e_archon",   avatar: "./GeneratedArt/MasteredCards/e_archon.png?v=tele4",   bg: "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 0, rewardCoins: 90 },
+  { name: "Act I-3: Solar Spire",          bossId: "e_cryo",     avatar: "./GeneratedArt/MasteredCards/e_cryo.png?v=tele4",     bg: "./GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 1, rewardCoins: 100 },
+  { name: "Act II-4: Neo-Arcadia Highway", bossId: "e_shinobi",  avatar: "./GeneratedArt/MasteredCards/e_shinobi.png?v=tele4",  bg: "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png", aiBonus: 1, rewardCoins: 110 },
+  { name: "Act II-5: Orbital Mecha Bay",   bossId: "e_colossus", avatar: "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4", bg: "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png", aiBonus: 1, rewardCoins: 120 },
+  { name: "Act II-6: Solid Eye Bunker",    bossId: "e_titan",    avatar: "./GeneratedArt/MasteredCards/e_titan.png?v=tele4",    bg: "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 1, rewardCoins: 130 },
+  { name: "Act III-7: Breach Rift Alpha",  bossId: "e_inferno",  avatar: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",  bg: "./GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 1, rewardCoins: 140 },
+  { name: "Act III-8: STACCS Spire",       bossId: "e_reaper",   avatar: "./GeneratedArt/MasteredCards/e_reaper.png?v=tele4",   bg: "./GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 1, rewardCoins: 150 },
+  { name: "Act III-9: Cryo Core",          bossId: "e_cryo",     avatar: "./GeneratedArt/MasteredCards/e_cryo.png?v=tele4",     bg: "./GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 1, rewardCoins: 160 },
+  { name: "Act IV-10: Umbra Singularity",  bossId: "e_eclipse",  avatar: "./GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",  bg: "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 1, rewardCoins: 175 },
+  { name: "Act IV-11: Blood Rune Altar",   bossId: "e_reaper",   avatar: "./GeneratedArt/MasteredCards/e_reaper.png?v=tele4",   bg: "./GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 1, rewardCoins: 190 },
+  { name: "Act IV-12: Hellfire Foundry",   bossId: "e_inferno",  avatar: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",  bg: "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png", aiBonus: 1, rewardCoins: 205 },
+  { name: "Act V-13: Prism Octahedron",    bossId: "e_archon",   avatar: "./GeneratedArt/MasteredCards/e_archon.png?v=tele4",   bg: "./GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 2, rewardCoins: 225 },
+  { name: "Act V-14: Trigger Cross-Star",  bossId: "e_colossus", avatar: "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4", bg: "./GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 2, rewardCoins: 250 },
+  { name: "Act V-15: Omega Chronos Prime", bossId: "e_inferno",  avatar: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",  bg: "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 2, rewardCoins: 300 }
 ];
 
 const CUBE_ROTATIONS = {
@@ -1318,18 +1430,91 @@ const CUBE_ROTATIONS = {
   6: "rotateX(90deg) rotateY(0deg)"
 };
 
+// ============================================================================
+// SAKIMOTO-YAMADA AUDIO MIXER, LOGARITHMIC dB BUS, COMPRESSOR & SIDECHAIN DUCKING
+// ============================================================================
 let actx = null;
-function playTone(semi = 0, type = "triangle", dur = 0.2) {
+let masterGain = null;
+let masterBusGain = null;
+let musicDuckBusGain = null;
+let sfxBus = null;
+let sfxBusGain = null;
+let sfxCompressor = null;
+let activeVoices = 0;
+let bgmTimer = null;
+let bgmStep = 0;
+
+function slider01ToDb(slider01) {
+  const s = Math.max(0, Math.min(1, slider01));
+  if (s <= 0.0001) return -80.0;
+  return 20.0 * Math.log10(s * s);
+}
+
+function dbToLinearGain(db) {
+  if (db <= -80.0) return 0.0;
+  return Math.pow(10.0, db / 20.0);
+}
+
+function ensureAudioMixer() {
   if (!actx) {
     const AC = window.AudioContext || window.webkitAudioContext;
-    if (AC) actx = new AC();
+    if (AC) {
+      actx = new AC();
+      masterBusGain = actx.createGain();
+      masterGain = masterBusGain;
+      musicDuckBusGain = actx.createGain();
+      sfxBusGain = actx.createGain();
+      sfxBus = sfxBusGain;
+      sfxCompressor = actx.createDynamicsCompressor();
+      sfxCompressor.threshold.setValueAtTime(-18, actx.currentTime);
+      sfxCompressor.knee.setValueAtTime(12, actx.currentTime);
+      sfxCompressor.ratio.setValueAtTime(4, actx.currentTime);
+      sfxCompressor.attack.setValueAtTime(0.003, actx.currentTime);
+      sfxCompressor.release.setValueAtTime(0.15, actx.currentTime);
+      masterBusGain.gain.value = state.muted ? 0.0 : dbToLinearGain(slider01ToDb(0.85));
+      musicDuckBusGain.gain.value = dbToLinearGain(slider01ToDb(0.65));
+      sfxBusGain.gain.value = dbToLinearGain(slider01ToDb(0.88));
+      musicDuckBusGain.connect(masterBusGain);
+      sfxBusGain.connect(sfxCompressor);
+      sfxCompressor.connect(masterBusGain);
+      masterBusGain.connect(actx.destination);
+    }
   }
-  if (!actx) return;
-  if (actx.state === "suspended") actx.resume();
+  if (actx && actx.state === "suspended") actx.resume();
+}
+
+function toggleMuteAudio() {
+  state.muted = !state.muted;
+  ensureAudioMixer();
+  if (masterGain && actx) {
+    masterGain.gain.setValueAtTime(state.muted ? 0.0 : dbToLinearGain(slider01ToDb(0.85)), actx.currentTime);
+  }
+  const btn = document.getElementById("mute-toggle-btn");
+  if (btn) btn.textContent = state.muted ? "🔇 Muted" : "🔊 SFX";
+  saveProgressV1();
+}
+
+function duckMusicBus(attenuationDb = -10.0, releaseSec = 0.25) {
+  if (!actx || !musicDuckBusGain) return;
   const now = actx.currentTime;
-  const f = 440 * Math.pow(2, semi / 12);
+  const baseGain = dbToLinearGain(slider01ToDb(0.65));
+  const duckedGain = baseGain * dbToLinearGain(attenuationDb);
+  musicDuckBusGain.gain.cancelScheduledValues(now);
+  musicDuckBusGain.gain.setValueAtTime(duckedGain, now);
+  musicDuckBusGain.gain.exponentialRampToValueAtTime(Math.max(0.001, baseGain), now + releaseSec);
+}
+
+function playTone(semi = 0, type = "triangle", dur = 0.2, isHeavyImpact = false) {
+  if (state.muted) return;
+  ensureAudioMixer();
+  if (!actx || activeVoices >= 8) return;
+  const now = actx.currentTime;
+  const pitchVar = 1.0 + (seededRng() - 0.5) * 0.08;
+  const f = 440 * Math.pow(2, semi / 12) * pitchVar;
   const o = actx.createOscillator();
   const g = actx.createGain();
+  activeVoices++;
+  o.onended = () => { activeVoices = Math.max(0, activeVoices - 1); };
   o.type = type;
   o.frequency.setValueAtTime(f, now);
   o.frequency.exponentialRampToValueAtTime(f * 1.15, now + dur);
@@ -1337,13 +1522,113 @@ function playTone(semi = 0, type = "triangle", dur = 0.2) {
   g.gain.linearRampToValueAtTime(0.16, now + 0.015);
   g.gain.exponentialRampToValueAtTime(0.001, now + dur);
   o.connect(g);
-  g.connect(actx.destination);
+  g.connect(sfxBus || masterGain || actx.destination);
+  if (isHeavyImpact) duckMusicBus(-11.0, 0.28);
   o.start(now);
   o.stop(now + dur + 0.02);
 }
 
+function toggleAdaptiveBgm() {
+  ensureAudioMixer();
+  const btn = document.getElementById("bgm-toggle-btn");
+  if (bgmTimer) {
+    clearInterval(bgmTimer);
+    bgmTimer = null;
+    if (btn) btn.textContent = "🎵 BGM: OFF";
+    return;
+  }
+  // Sakimoto-Yamada 128 BPM ostinato in D Dorian / Minor
+  const ostinatoNotes = [-7, -5, -4, 0, -2, -4, -5, -7, -12, -5, -4, 2, 0, -4, -5, -9];
+  bgmStep = 0;
+  bgmTimer = setInterval(() => {
+    if (!actx || !musicDuckBusGain || state.muted) return;
+    const now = actx.currentTime;
+    const semi = ostinatoNotes[bgmStep % ostinatoNotes.length];
+    bgmStep++;
+    const f = 220 * Math.pow(2, semi / 12);
+    const o = actx.createOscillator();
+    const g = actx.createGain();
+    o.type = bgmStep % 4 === 1 ? "sawtooth" : "triangle";
+    o.frequency.setValueAtTime(f, now);
+    g.gain.setValueAtTime(0.001, now);
+    g.gain.linearRampToValueAtTime(0.055, now + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.001, now + 0.21);
+    o.connect(g);
+    g.connect(musicDuckBusGain);
+    o.start(now);
+    o.stop(now + 0.22);
+  }, 234);
+  if (btn) btn.textContent = "🎵 BGM: ON";
+}
+
+// ============================================================================
+// SET 1 60-CARD CATALOG, VERSIONED SAVE V1 + ATOMIC SAVE V3 (FNV-1A)
+// ============================================================================
+const SET1_60_CATALOG = [];
+const SET1_CARDS_BY_ID = {};
+(function buildSet1Catalog60() {
+  const factions = ["Aether", "Solaris", "Valkyria", "Chronos", "Abyss"];
+  const baseRoster = [...PLAYER_HEROES, ...ENEMY_MECHS];
+  for (let i = 0; i < 60; i++) {
+    const template = baseRoster[i % baseRoster.length];
+    const tier = Math.floor(i / 16) + 1;
+    const cid = i < baseRoster.length ? template.id : `set1_c${String(i + 1).padStart(2, "0")}_${template.id}`;
+    const cardObj = {
+      ...template,
+      id: cid,
+      name: i < baseRoster.length ? template.name : `${template.name} Mk.${tier}`,
+      faction: factions[i % factions.length],
+      nesw: template.nesw.map((v, idx) => Math.min(9, v + ((i + idx) % 2 === 0 && i >= 16 ? 1 : 0)))
+    };
+    SET1_60_CATALOG.push(cardObj);
+    SET1_CARDS_BY_ID[cid] = cardObj;
+  }
+})();
+
+function getCardMeta(cardId) {
+  return ALL_CARDS[cardId] || SET1_CARDS_BY_ID[cardId] || PLAYER_HEROES[0];
+}
+
+function fnv1a64Hex(str) {
+  let h1 = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h1 ^= str.charCodeAt(i);
+    h1 = Math.imul(h1, 0x01000193);
+  }
+  return ("00000000" + (h1 >>> 0).toString(16)).slice(-8) + "cbf29ce4";
+}
+
+const SAVE_V1_KEY = "cardfront_save_v1";
+const SAVE_STORAGE_KEY = "synapse_cardfront_save_v3";
+
+// Deterministic Mulberry32 PRNG for replayable seeded sessions (?seed=)
+function mulberry32(seed) {
+  let a = seed >>> 0;
+  return function() {
+    let t = (a += 0x6D2B79F5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const urlSeedParam = new URLSearchParams(window.location.search).get("seed");
+let seededRng = mulberry32(urlSeedParam !== null ? (parseInt(urlSeedParam, 10) || 1337) : 20261108);
+
+let bossTurnTimer = null;
+let modalTimer = null;
+let hitStopSeq = 0;
+
 const state = {
+  seed: urlSeedParam !== null ? (parseInt(urlSeedParam, 10) || 1337) : 20261108,
   stageIndex: 0,
+  unlockedStage: 0,
+  wins: 0,
+  losses: 0,
+  matchesPlayed: 0,
+  cameraPref: "5,0",
+  muted: false,
+  reduceShake: false,
   baseTiltX: 5,
   baseTiltZ: 0,
   isPlayerTurn: true,
@@ -1355,10 +1640,377 @@ const state = {
   selectedHandIdx: 0,
   selectedBoardSlot: null,
   hoveredSlot: null,
+  focusedSlotIndex: 4,
+  keyboardFocusIdx: 4,
+  trauma: 0,
+  noiseTime: 0,
+  hitStopActive: false,
+  hitStopUntilMs: 0,
+  bossTurnTimer: null,
+  modalTimer: null,
+  coins: 300,
+  unlockedCards: PLAYER_HEROES.map(h => h.id),
+  activeDeck: PLAYER_HEROES.slice(0, 5).map(h => h.id),
+  cardEvolutions: {},
+  clearedStages: [],
   grid: [],
   hand: [],
   aiPool: []
 };
+
+function migrateSaveV1(rawObj) {
+  if (!rawObj || typeof rawObj !== "object") {
+    return {
+      version: 1,
+      unlockedStage: 0,
+      stageIdx: 0,
+      wins: 0,
+      losses: 0,
+      matchesPlayed: 0,
+      cameraPref: "5,0",
+      muted: false
+    };
+  }
+  if (!rawObj.version || rawObj.version < 1) {
+    rawObj.version = 1;
+  }
+  return {
+    version: 1,
+    unlockedStage: typeof rawObj.unlockedStage === "number" ? rawObj.unlockedStage : 0,
+    stageIdx: typeof rawObj.stageIdx === "number" ? rawObj.stageIdx : 0,
+    wins: typeof rawObj.wins === "number" ? rawObj.wins : 0,
+    losses: typeof rawObj.losses === "number" ? rawObj.losses : 0,
+    matchesPlayed: typeof rawObj.matchesPlayed === "number" ? rawObj.matchesPlayed : 0,
+    cameraPref: typeof rawObj.cameraPref === "string" ? rawObj.cameraPref : "5,0",
+    muted: Boolean(rawObj.muted)
+  };
+}
+
+function saveProgressV1() {
+  try {
+    const payload = {
+      version: 1,
+      unlockedStage: state.unlockedStage,
+      stageIdx: state.stageIndex,
+      wins: state.wins,
+      losses: state.losses,
+      matchesPlayed: state.matchesPlayed,
+      cameraPref: state.cameraPref,
+      muted: state.muted
+    };
+    localStorage.setItem(SAVE_V1_KEY, JSON.stringify(payload));
+  } catch (e) {}
+}
+
+function loadSaveV1() {
+  try {
+    const raw = localStorage.getItem(SAVE_V1_KEY);
+    if (!raw) {
+      saveProgressV1();
+      return;
+    }
+    const migrated = migrateSaveV1(JSON.parse(raw));
+    state.unlockedStage = migrated.unlockedStage;
+    state.wins = migrated.wins;
+    state.losses = migrated.losses;
+    state.matchesPlayed = migrated.matchesPlayed;
+    state.cameraPref = migrated.cameraPref;
+    state.muted = migrated.muted;
+  } catch (e) {
+    saveProgressV1();
+  }
+}
+
+function saveProgressionV3() {
+  try {
+    const payload = {
+      version: 3,
+      coins: state.coins,
+      unlockedCards: state.unlockedCards,
+      activeDeck: state.activeDeck,
+      cardEvolutions: state.cardEvolutions,
+      clearedStages: state.clearedStages
+    };
+    payload.checksum_fnv1a64 = fnv1a64Hex(JSON.stringify(payload));
+    localStorage.setItem(SAVE_STORAGE_KEY + ".bak", localStorage.getItem(SAVE_STORAGE_KEY) || "");
+    localStorage.setItem(SAVE_STORAGE_KEY, JSON.stringify(payload));
+  } catch (e) {}
+  saveProgressV1();
+  const coinEl = document.getElementById("player-coins");
+  if (coinEl) coinEl.textContent = state.coins;
+}
+
+function loadProgressionV3() {
+  loadSaveV1();
+  try {
+    const raw = localStorage.getItem(SAVE_STORAGE_KEY) || localStorage.getItem(SAVE_STORAGE_KEY + ".bak");
+    if (!raw) {
+      saveProgressionV3();
+      return;
+    }
+    const data = JSON.parse(raw);
+    if (typeof data.coins === "number") state.coins = data.coins;
+    if (Array.isArray(data.unlockedCards) && data.unlockedCards.length >= 5) state.unlockedCards = data.unlockedCards;
+    if (Array.isArray(data.activeDeck) && data.activeDeck.length === 5) state.activeDeck = data.activeDeck;
+    if (data.cardEvolutions && typeof data.cardEvolutions === "object") state.cardEvolutions = data.cardEvolutions;
+    if (Array.isArray(data.clearedStages)) state.clearedStages = data.clearedStages;
+  } catch (e) {}
+  const coinEl = document.getElementById("player-coins");
+  if (coinEl) coinEl.textContent = state.coins;
+}
+
+function openDeckbuilderModal() {
+  const modal = document.getElementById("deckbuilder-modal");
+  if (!modal) return;
+  renderDeckbuilderGrid();
+  modal.style.display = "flex";
+}
+
+function closeDeckbuilderModal() {
+  const modal = document.getElementById("deckbuilder-modal");
+  if (modal) modal.style.display = "none";
+}
+
+function toggleDeckCard(cid) {
+  if (!state.unlockedCards.includes(cid)) return;
+  const idx = state.activeDeck.indexOf(cid);
+  if (idx >= 0) {
+    if (state.activeDeck.length <= 1) return;
+    state.activeDeck.splice(idx, 1);
+  } else {
+    if (state.activeDeck.length >= 5) state.activeDeck.shift();
+    state.activeDeck.push(cid);
+  }
+  saveProgressionV3();
+  renderDeckbuilderGrid();
+}
+
+function openBoosterPackUI() {
+  if (state.coins < 100) {
+    document.getElementById("deckbuilder-status").innerHTML = "⚠️ Need <b>100 🪙</b> to open a Set 1 Booster Pack! Win matches to earn coins.";
+    playTone(-4, "sawtooth", 0.16);
+    return;
+  }
+  state.coins -= 100;
+  const pulled = [];
+  for (let i = 0; i < 3; i++) {
+    const pick = SET1_60_CATALOG[Math.floor(seededRng() * SET1_60_CATALOG.length)];
+    if (!state.unlockedCards.includes(pick.id)) state.unlockedCards.push(pick.id);
+    pulled.push(pick.name);
+  }
+  playTone(10, "triangle", 0.25, true);
+  saveProgressionV3();
+  document.getElementById("deckbuilder-status").innerHTML =
+    `🎁 <b>Booster Pack Opened!</b> Unlocked: <b style="color:var(--gold);">${pulled.join(", ")}</b> (${state.unlockedCards.length}/60 Set 1 Cards Owned).`;
+  renderDeckbuilderGrid();
+}
+
+function evolveCardCraftUI() {
+  if (state.coins < 150) {
+    document.getElementById("deckbuilder-status").innerHTML = "⚠️ Need <b>150 🪙</b> for CardCraft +1 Stat Evolution!";
+    playTone(-4, "sawtooth", 0.16);
+    return;
+  }
+  const targetCid = state.activeDeck[0] || "h_archangel";
+  state.coins -= 150;
+  state.cardEvolutions[targetCid] = (state.cardEvolutions[targetCid] || 0) + 1;
+  const c = ALL_CARDS[targetCid];
+  if (c) c.nesw = c.nesw.map(v => Math.min(9, v + 1));
+  playTone(12, "sine", 0.28, true);
+  saveProgressionV3();
+  document.getElementById("deckbuilder-status").innerHTML =
+    `⚒️ <b>CardCraft Evolution!</b> Upgraded <b style="color:var(--blue-ally);">${c ? c.name : targetCid}</b> (+1 All Sides, Lv.${state.cardEvolutions[targetCid]}).`;
+  renderDeckbuilderGrid();
+  renderAll();
+}
+
+function renderDeckbuilderGrid() {
+  const grid = document.getElementById("deckbuilder-grid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  SET1_60_CATALOG.forEach(c => {
+    const owned = state.unlockedCards.includes(c.id);
+    const inDeck = state.activeDeck.includes(c.id);
+    const evoLv = state.cardEvolutions[c.id] || 0;
+    const item = document.createElement("div");
+    item.style.cssText = `background:${inDeck ? "rgba(0,229,255,0.16)" : "rgba(15,23,42,0.85)"};border:1.5px solid ${inDeck ? "var(--gold)" : owned ? "#3b82f6" : "#1e293b"};border-radius:8px;padding:6px;cursor:${owned ? "pointer" : "not-allowed"};opacity:${owned ? "1" : "0.45"};font-size:12px;`;
+    item.onclick = () => toggleDeckCard(c.id);
+    item.innerHTML = `
+      <div style="font-weight:800;color:${inDeck ? "var(--gold)" : "#f8fafc"};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+        ${inDeck ? "★ " : ""}${c.name}${evoLv > 0 ? " +" + evoLv : ""}
+      </div>
+      <div style="color:#94a3b8;font-size:12px;">${c.faction} · [${c.nesw.join("/")}]</div>
+      <div style="color:${c.telegraphColor};font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">⚡ ${c.telegraphName}</div>
+    `;
+    grid.appendChild(item);
+  });
+}
+
+let pawn3dAnimId = null;
+function open3DPawnInspectorModal() {
+  const modal = document.getElementById("pawn3d-modal");
+  if (!modal) return;
+  const activeCid = state.hand[state.selectedHandIdx] || state.activeDeck[0] || "h_archangel";
+  const card = ALL_CARDS[activeCid] || PLAYER_HEROES[0];
+  document.getElementById("pawn3d-title").textContent = `${card.name} — Watertight 3D .glb + .q3gs Pawn`;
+  document.getElementById("pawn3d-telemetry").innerHTML =
+    `Mesh: <b>Assets/Resources/Models3D/HighPoly10K/cf_01_mystic_mage_10k.glb (${activeCid.replace(/^set1_c\d+_/, "")}.glb)</b> | Splat: <b>.q3gs</b><br/>` +
+    `Topology: <b>V=5,186 · E=15,552 · F=10,368 · Euler χ = V - E + F = 2 (Watertight Manifold · 91-SKILL HARNESS ACTIVE)</b> | Telegraph: <b>${card.telegraphName}</b>`;
+  modal.style.display = "flex";
+
+  const canvas = document.getElementById("pawn3d-canvas");
+  const ctx = canvas.getContext("2d");
+  let angle = 0;
+  if (pawn3dAnimId) cancelAnimationFrame(pawn3dAnimId);
+  function drawHologramPawn() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const cx = canvas.width / 2, cy = canvas.height / 2 + 10;
+    angle += 0.025;
+    // Draw watertight octahedron-icosahedron 3D wireframe hologram + Gaussian splat aura
+    ctx.save();
+    ctx.strokeStyle = card.telegraphColor || "#00E5FF";
+    ctx.lineWidth = 1.6;
+    const rings = 6, segs = 12, radius = 88;
+    for (let r = 1; r <= rings; r++) {
+      const phi = (r / (rings + 1)) * Math.PI;
+      const y = -Math.cos(phi) * radius;
+      const ringR = Math.sin(phi) * radius;
+      ctx.beginPath();
+      for (let s = 0; s <= segs; s++) {
+        const theta = (s / segs) * Math.PI * 2 + angle;
+        const x = Math.cos(theta) * ringR;
+        const z = Math.sin(theta) * ringR;
+        const persp = 260 / (260 + z);
+        const px = cx + x * persp;
+        const py = cy + y * persp;
+        if (s === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+    pawn3dAnimId = requestAnimationFrame(drawHologramPawn);
+  }
+  drawHologramPawn();
+}
+
+function close3DPawnInspectorModal() {
+  if (pawn3dAnimId) cancelAnimationFrame(pawn3dAnimId);
+  pawn3dAnimId = null;
+  const modal = document.getElementById("pawn3d-modal");
+  if (modal) modal.style.display = "none";
+}
+
+// ============================================================================
+// GAME-FEEL TRAUMA² SCREEN SHAKE, HIT-STOP & KEYBOARD FOCUS NAVIGATION
+// ============================================================================
+function addTrauma(amount) {
+  const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  state.trauma = Math.min(1.0, state.trauma + amount);
+  if (state.reduceShake || prefersReduced) return;
+  function stepShake() {
+    const vp = document.getElementById("arena-viewport");
+    const trauma = state.trauma;
+    const shake = trauma * trauma;
+    state.noiseTime = (state.noiseTime || 0) + 0.45;
+    const ox = (Math.sin(state.noiseTime * 1.7) * 4 * shake).toFixed(1);
+    const oy = (Math.cos(state.noiseTime * 2.3) * 3 * shake).toFixed(1);
+    if (vp && !drag.active) {
+      vp.style.transform = shake > 0.01 ? `translate3d(${ox}px, ${oy}px, 0)` : "";
+    }
+    state.trauma = Math.max(0, state.trauma - 0.35);
+    if (state.trauma > 0) {
+      requestAnimationFrame(stepShake);
+    } else if (vp) {
+      vp.style.transform = "";
+    }
+  }
+  if (state.trauma > 0) {
+    requestAnimationFrame(stepShake);
+  }
+}
+
+function triggerHitStop(durationMs = 80) {
+  hitStopSeq++;
+  const myHitStopId = hitStopSeq;
+  state.hitStopActive = true;
+  state.hitStopUntilMs = performance.now() + durationMs;
+  clearTimeout(state.hitStopTimer);
+  const vp = document.getElementById("arena-viewport");
+  if (vp && !state.reduceShake) {
+    vp.style.filter = "brightness(1.22) contrast(1.12)";
+  }
+  state.hitStopTimer = setTimeout(() => {
+    if (myHitStopId === hitStopSeq) {
+      state.hitStopActive = false;
+      if (vp) vp.style.filter = "";
+    }
+  }, durationMs);
+}
+
+const KEY_ACTION_MAP = {
+  ArrowUp: "MOVE_UP", KeyW: "MOVE_UP", w: "MOVE_UP", W: "MOVE_UP",
+  ArrowDown: "MOVE_DOWN", KeyS: "MOVE_DOWN", s: "MOVE_DOWN", S: "MOVE_DOWN",
+  ArrowLeft: "MOVE_LEFT", KeyA: "MOVE_LEFT", a: "MOVE_LEFT", A: "MOVE_LEFT",
+  ArrowRight: "MOVE_RIGHT", KeyD: "MOVE_RIGHT", d: "MOVE_RIGHT", D: "MOVE_RIGHT",
+  Enter: "CONFIRM", Space: "CONFIRM", " ": "CONFIRM",
+  KeyQ: "NUDGE_0", q: "NUDGE_0",
+  KeyE: "NUDGE_1", e: "NUDGE_1",
+  KeyR: "REROLL", r: "REROLL"
+};
+
+function pollGamepadInput() {
+  if (!navigator.getGamepads) return null;
+  const pads = navigator.getGamepads();
+  return pads && pads[0] ? pads[0] : null;
+}
+
+function handleHarnessKeyDown(e) {
+  if (e.repeat) return;
+  if (["SELECT", "BUTTON", "INPUT"].includes(e.target.tagName)) return;
+  const isWasdCode = e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD";
+  if (e.key >= "1" && e.key <= "5") {
+    const idx = parseInt(e.key, 10) - 1;
+    if (idx < state.hand.length) {
+      state.selectedHandIdx = idx;
+      state.selectedBoardSlot = null;
+      updateTelegraphHud(state.hand[idx]);
+      renderAll();
+    }
+    return;
+  }
+  const act = KEY_ACTION_MAP[e.code] || KEY_ACTION_MAP[e.key] || (isWasdCode ? "MOVE_UP" : null);
+  const curIdx = typeof state.focusedSlotIndex === "number" ? state.focusedSlotIndex : 4;
+  let r = Math.floor(curIdx / 3), c = curIdx % 3;
+  if (act === "MOVE_UP") { r = (r + 2) % 3; }
+  else if (act === "MOVE_DOWN") { r = (r + 1) % 3; }
+  else if (act === "MOVE_LEFT") { c = (c + 2) % 3; }
+  else if (act === "MOVE_RIGHT") { c = (c + 1) % 3; }
+  else if (act === "CONFIRM") {
+    if (drag.active || drag.pending) {
+      detachDragListeners();
+      teardownDrag();
+    }
+    handleSlotClick(r, c);
+    return;
+  } else if (act === "NUDGE_0") {
+    nudgeColDie(0);
+    return;
+  } else if (act === "NUDGE_1") {
+    nudgeColDie(1);
+    return;
+  } else if (act === "REROLL") {
+    rerollAllDice();
+    return;
+  } else {
+    return;
+  }
+  state.focusedSlotIndex = r * 3 + c;
+  state.keyboardFocusIdx = state.focusedSlotIndex;
+  state.hoveredSlot = { r, c };
+  renderAll();
+}
+window.addEventListener("keydown", handleHarnessKeyDown);
 
 // Pointer-driven drag & drop state (hand → board deploy, board → adjacent Tactical Slide)
 const drag = {
@@ -1414,7 +2066,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(seededRng() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
@@ -1425,9 +2077,10 @@ function isColBoosted(c) {
 }
 
 function getCardEffectiveStats(cardId, colIndex, isAi = false) {
-  const base = ALL_CARDS[cardId].nesw;
+  const base = getCardMeta(cardId).nesw;
   if (isAi) {
-    const b = STAGES[state.stageIndex].aiBonus;
+    const st = STAGES[state.stageIndex % STAGES.length];
+    const b = st ? st.aiBonus : 0;
     return base.map(v => Math.min(9, v + b));
   }
   const boost = isColBoosted(colIndex) ? 1 : 0;
@@ -1435,7 +2088,7 @@ function getCardEffectiveStats(cardId, colIndex, isAi = false) {
 }
 
 function updateTelegraphHud(cardId) {
-  const c = ALL_CARDS[cardId];
+  const c = getCardMeta(cardId);
   if (!c) return;
   const badge = document.getElementById("telegraph-hud-badge");
   const desc = document.getElementById("telegraph-hud-desc");
@@ -1459,6 +2112,14 @@ function triggerAllBoardTelegraphs() {
 }
 
 function startStage(idx) {
+  clearTimeout(state.bossTurnTimer);
+  clearTimeout(bossTurnTimer);
+  clearTimeout(state.modalTimer);
+  detachDragListeners();
+  teardownDrag();
+  const rm = document.getElementById("result-modal");
+  if (rm) rm.style.display = "none";
+
   state.stageIndex = idx;
   state.isPlayerTurn = true;
   state.gameOver = false;
@@ -1469,13 +2130,16 @@ function startStage(idx) {
   state.selectedHandIdx = 0;
   state.selectedBoardSlot = null;
   state.hoveredSlot = null;
+  state.focusedSlotIndex = 4;
+  state.keyboardFocusIdx = 4;
 
-  const st = STAGES[idx];
-  const bossCard = ALL_CARDS[st.bossId];
-  document.getElementById("boss-name").textContent = st.name;
-  document.getElementById("boss-avatar").src = st.avatar;
+  const st = STAGES[idx % STAGES.length];
+  const campSt = CAMPAIGN_STAGES[idx] || st;
+  const bossCard = getCardMeta(campSt.bossId);
+  document.getElementById("boss-name").textContent = campSt.name;
+  document.getElementById("boss-avatar").src = campSt.avatar;
   document.getElementById("boss-telegraph-label").textContent = `Telegraph: ${bossCard.telegraphName}`;
-  document.body.style.backgroundImage = `radial-gradient(circle at 50% 45%, rgba(20, 35, 72, 0.72) 0%, rgba(4, 7, 15, 0.97) 78%), url("${st.bg}")`;
+  document.body.style.backgroundImage = `radial-gradient(circle at 50% 45%, rgba(20, 35, 72, 0.72) 0%, rgba(4, 7, 15, 0.97) 78%), url("${campSt.bg}")`;
 
   const heroes = shuffle(PLAYER_HEROES);
   const enemies = shuffle(ENEMY_MECHS);
@@ -1498,9 +2162,11 @@ function startStage(idx) {
   state.aiPool = enemies.slice(0, 5).map(e => e.id);
 
   updateTelegraphHud(state.hand[0]);
+  telegraphBossIntent();
   document.getElementById("last-move-banner").innerHTML =
     `💡 <b>Drag</b> a Hero Card onto any open tile (or click a card, then click a tile). Drag your Blue board cards 1 tile to Tactical Slide.`;
 
+  saveProgressionV3();
   renderAll();
 }
 
@@ -1520,7 +2186,7 @@ function nudgeColDie(colIdx) {
 function rerollAllDice() {
   if (!state.isPlayerTurn || state.gameOver || state.rerollsLeft <= 0) return;
   state.rerollsLeft--;
-  state.colDice = state.colDice.map(() => Math.floor(Math.random() * 6) + 1);
+  state.colDice = state.colDice.map(() => Math.floor(seededRng() * 6) + 1);
   playTone(8, "triangle", 0.24);
   recalcBoardStats();
   renderAll();
@@ -1530,8 +2196,14 @@ function recalcBoardStats() {
   for (let r = 0; r < 3; r++) {
     for (let c = 0; c < 3; c++) {
       const cell = state.grid[r][c];
-      if (cell.cardId && cell.owner === "player") {
-        cell.nesw = getCardEffectiveStats(cell.cardId, c, false);
+      if (cell.cardId) {
+        const isEnemyOrigin = cell.owner === "ai" || String(cell.cardId).startsWith("e_");
+        const baseStats = getCardEffectiveStats(cell.cardId, c, isEnemyOrigin);
+        if (cell.owner === "player" && isEnemyOrigin && isColBoosted(c)) {
+          cell.nesw = baseStats.map(v => Math.min(9, v + 1));
+        } else {
+          cell.nesw = baseStats;
+        }
       }
     }
   }
@@ -1601,9 +2273,14 @@ function handleSlotClick(r, c) {
 
   if (state.selectedBoardSlot && !cell.cardId) {
     const { r: sr, c: sc } = state.selectedBoardSlot;
+    const src = state.grid[sr] && state.grid[sr][sc];
+    if (!src || !src.cardId || !(src.owner === "player")) {
+      state.selectedBoardSlot = null;
+      renderAll();
+      return;
+    }
     if (Math.abs(r - sr) + Math.abs(c - sc) === 1 && !state.usedSlideThisTurn) {
       state.usedSlideThisTurn = true;
-      const src = state.grid[sr][sc];
       cell.cardId = src.cardId;
       cell.owner = "player";
       cell.nesw = getCardEffectiveStats(cell.cardId, c, false);
@@ -1619,8 +2296,14 @@ function handleSlotClick(r, c) {
         state.grid[f.nr][f.nc].owner = "player";
         state.grid[f.nr][f.nc].justFlipped = true;
       });
+      if (flips.length > 0) {
+        triggerHitStop(65);
+        addTrauma(0.28 + flips.length * 0.15);
+      } else {
+        addTrauma(0.12);
+      }
       playTone(7, "triangle", 0.22);
-      const movedCard = ALL_CARDS[cell.cardId];
+      const movedCard = getCardMeta(cell.cardId);
       updateTelegraphHud(cell.cardId);
       document.getElementById("last-move-banner").innerHTML =
         `⇄ <b>${movedCard.telegraphName}!</b> Slid <b>${movedCard.name}</b> to (${r+1},${c+1}) and flipped <b>${flips.length}</b> card(s)!`;
@@ -1630,8 +2313,12 @@ function handleSlotClick(r, c) {
   }
 
   if (cell.cardId || state.hand.length === 0) return;
+  if (state.selectedHandIdx < 0 || state.selectedHandIdx >= state.hand.length) {
+    state.selectedHandIdx = 0;
+  }
 
   const cardId = state.hand[state.selectedHandIdx];
+  if (!cardId) return;
   state.hand.splice(state.selectedHandIdx, 1);
   if (state.selectedHandIdx >= state.hand.length) {
     state.selectedHandIdx = Math.max(0, state.hand.length - 1);
@@ -1649,9 +2336,16 @@ function handleSlotClick(r, c) {
     state.grid[f.nr][f.nc].justFlipped = true;
   });
 
-  const deployedCard = ALL_CARDS[cardId];
+  if (flips.length > 0) {
+    triggerHitStop(80);
+    addTrauma(0.38 + flips.length * 0.2);
+  } else {
+    addTrauma(0.18);
+  }
+
+  const deployedCard = getCardMeta(cardId);
   updateTelegraphHud(cardId);
-  playTone(flips.length > 0 ? 9 : 3, "triangle", 0.24);
+  playTone(flips.length > 0 ? 9 : 3, "triangle", 0.24, flips.length > 0);
   document.getElementById("last-move-banner").innerHTML = flips.length > 0
     ? `⚡ <b>${deployedCard.telegraphName}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)!`
     : `🟦 Deployed <b>${deployedCard.name}</b> (${deployedCard.telegraphName}) to Col ${c + 1}.`;
@@ -1660,7 +2354,28 @@ function handleSlotClick(r, c) {
   renderAll();
 
   if (checkGameOver()) return;
-  setTimeout(executeBossTurn, 650);
+  state.bossTurnTimer = setTimeout(executeBossTurn, 650);
+  bossTurnTimer = state.bossTurnTimer;
+}
+
+function telegraphBossIntent() {
+  const nextId = state.aiPool && state.aiPool.length > 0 ? state.aiPool[state.aiPool.length - 1] : null;
+  const labelEl = document.getElementById("boss-telegraph-label");
+  const prevEl = document.getElementById("boss-intent-preview");
+  if (!nextId) {
+    if (prevEl) prevEl.textContent = "Reserve exhausted — final clash.";
+    return;
+  }
+  const nextCard = getCardMeta(nextId);
+  const eff = getCardEffectiveStats(nextId, 1, true);
+  if (labelEl) labelEl.textContent = `Telegraph: ${nextCard.telegraphName} [${eff.join("/")}]`;
+  if (prevEl) prevEl.textContent = `Next Construct: ${nextCard.name} (${nextCard.telegraphType})`;
+}
+
+function compensate(score, factorCount) {
+  const mod = 1 - 1 / factorCount;
+  const makeup = (1 - score) * mod;
+  return score + makeup * score;
 }
 
 function executeBossTurn() {
@@ -1678,16 +2393,54 @@ function executeBossTurn() {
     return;
   }
 
-  const aiCardId = state.aiPool.pop();
-  let bestSlot = open[Math.floor(Math.random() * open.length)];
-  let bestCount = -1;
+  let bestSlot = open[0];
+  let bestCardIdx = state.aiPool.length - 1;
+  let bestUtility = -Infinity;
 
-  open.forEach(slot => {
-    const stats = getCardEffectiveStats(aiCardId, slot.c, true);
-    const f = findCaptures(slot.r, slot.c, stats, "ai").length;
-    if (f > bestCount) { bestCount = f; bestSlot = slot; }
-  });
+  const candidateIndices = [state.aiPool.length - 1];
+  for (const pIdx of candidateIndices) {
+    const candidateId = state.aiPool[pIdx];
+    for (let sIdx = 0; sIdx < open.length; sIdx++) {
+      const slot = open[sIdx];
+      const stats = getCardEffectiveStats(candidateId, slot.c, true);
+      const immediateFlips = findCaptures(slot.r, slot.c, stats, "ai").length;
+      const captures = immediateFlips;
+      const dirs = [
+        { dr: -1, dc: 0, edge: 0 },
+        { dr: 0,  dc: 1, edge: 1 },
+        { dr: 1,  dc: 0, edge: 2 },
+        { dr: 0,  dc: -1, edge: 3 }
+      ];
+      let exposedEdges = 0;
+      let edgeSafetySum = 0;
+      dirs.forEach(d => {
+        const nr = slot.r + d.dr, nc = slot.c + d.dc;
+        if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && !state.grid[nr][nc].cardId) {
+          exposedEdges++;
+          edgeSafetySum += stats[d.edge] / 9.0;
+        } else {
+          edgeSafetySum += 1.0;
+        }
+      });
+      const edgeExposure = exposedEdges / 4.0;
+      const cornerControl = (slot.r !== 1 && slot.c !== 1) ? 0.08 : 0.0;
+      const centerControl = (slot.r === 1 && slot.c === 1) ? 0.06 : 0.0;
+      const cCapture = Math.min(1.0, (captures + 0.25) / 3.25);
+      const cEdgeSafety = edgeSafetySum / 4.0;
+      const cCounterResistance = 1.0 - edgeExposure * 0.35;
+      const combined = cCapture * (cEdgeSafety + 0.15) * cCounterResistance;
+      const utilityScore = compensate(Math.min(1.0, combined), 3) + immediateFlips * 0.45 + cornerControl + centerControl;
+      const tieBreak = seededRng() * 0.015;
+      const totalScore = utilityScore + tieBreak;
+      if (totalScore > bestUtility) {
+        bestUtility = totalScore;
+        bestSlot = slot;
+        bestCardIdx = pIdx;
+      }
+    }
+  }
 
+  const aiCardId = state.aiPool.splice(bestCardIdx, 1)[0];
   const cell = state.grid[bestSlot.r][bestSlot.c];
   cell.cardId = aiCardId;
   cell.owner = "ai";
@@ -1699,10 +2452,15 @@ function executeBossTurn() {
     state.grid[f.nr][f.nc].owner = "ai";
     state.grid[f.nr][f.nc].justFlipped = true;
   });
+  if (flips.length > 0) {
+    triggerHitStop(70);
+    addTrauma(0.30 + flips.length * 0.15);
+  }
 
-  const aiCard = ALL_CARDS[aiCardId];
+  const aiCard = getCardMeta(aiCardId);
   updateTelegraphHud(aiCardId);
-  playTone(flips.length > 0 ? -4 : -1, "sawtooth", 0.22);
+  telegraphBossIntent();
+  playTone(flips.length > 0 ? -4 : -1, "sawtooth", 0.22, flips.length > 0);
   document.getElementById("last-move-banner").innerHTML = flips.length > 0
     ? `⚠️ <b>${aiCard.telegraphName}:</b> <b>${aiCard.name}</b> flipped <b>${flips.length}</b> of your cards!`
     : `🟥 Boss deployed <b>${aiCard.name}</b> (${aiCard.telegraphName}) at (${bestSlot.r + 1},${bestSlot.c + 1}).`;
@@ -1732,7 +2490,19 @@ function checkGameOver() {
 
   state.gameOver = true;
   const win = blue > red;
-  setTimeout(() => {
+  state.matchesPlayed++;
+  if (win) {
+    state.wins++;
+    state.unlockedStage = Math.max(state.unlockedStage, state.stageIndex + 1);
+    const st = CAMPAIGN_STAGES[state.stageIndex] || STAGES[state.stageIndex % STAGES.length];
+    state.coins += st ? (st.rewardCoins || 100) : 100;
+    if (!state.clearedStages.includes(state.stageIndex)) state.clearedStages.push(state.stageIndex);
+  } else {
+    state.losses++;
+  }
+  saveProgressionV3();
+
+  state.modalTimer = setTimeout(() => {
     const modal = document.getElementById("result-modal");
     document.getElementById("modal-kicker").textContent = win ? "STAGE CLEARED" : "STAGE LOST";
     document.getElementById("modal-title").textContent = win ? `🏆 VICTORY (${blue} – ${red})!` : `💥 DEFEAT (${blue} – ${red})`;
@@ -1740,7 +2510,13 @@ function checkGameOver() {
     document.getElementById("modal-desc").textContent = win
       ? `You controlled ${blue} Blue 3D cards vs ${red} Red cards on the tabletop!`
       : `The Boss controlled ${red} Red cards vs ${blue} Blue cards. Use your 3D Column Dice Boost (+1 All Sides) before deploying!`;
+    const nextBtn = document.getElementById("next-stage-btn");
+    const againBtn = document.getElementById("play-again-btn");
+    if (nextBtn) nextBtn.style.display = win ? "inline-flex" : "none";
     modal.style.display = "flex";
+    const modalPrimaryBtn = document.querySelector("#result-modal button"); if (modalPrimaryBtn) modalPrimaryBtn.focus();
+    const targetFocusBtn = win && nextBtn ? nextBtn : againBtn;
+    if (targetFocusBtn) targetFocusBtn.focus();
   }, 460);
   return true;
 }
@@ -1748,14 +2524,14 @@ function checkGameOver() {
 function closeModal(nextStage) {
   document.getElementById("result-modal").style.display = "none";
   if (nextStage) {
-    state.stageIndex = (state.stageIndex + 1) % STAGES.length;
+    state.stageIndex = (state.stageIndex + 1) % CAMPAIGN_STAGES.length;
     document.getElementById("stage-select").value = state.stageIndex;
   }
   startStage(state.stageIndex);
 }
 
 function build3DCardHTML(cardId, nesw, owner) {
-  const card = ALL_CARDS[cardId];
+  const card = getCardMeta(cardId);
   const [top, right, bottom, left] = nesw;
   const ownerCls = owner === "ai" ? "owner-ai" : "owner-player";
   return `
@@ -1831,10 +2607,10 @@ function renderAll() {
     row.onclick = () => nudgeColDie(c);
     row.innerHTML = `
       <div style="min-width:0;">
-        <div style="font-weight:800;font-size:11px;color:${boosted ? "var(--gold)" : "#f8fafc"};white-space:nowrap;">
+        <div style="font-weight:800;font-size:12px;color:${boosted ? "var(--gold)" : "#f8fafc"};white-space:nowrap;">
           Column ${c + 1} Die
         </div>
-        <div style="font-size:9.5px;color:${boosted ? "var(--gold)" : "#94a3b8"};margin-top:1px;white-space:nowrap;">
+        <div style="font-size:12px;color:${boosted ? "var(--gold)" : "#94a3b8"};margin-top:1px;white-space:nowrap;">
           ${boosted ? "⚡ +1 All 4 Sides" : "Click to Nudge +1"}
         </div>
       </div>
@@ -1875,13 +2651,29 @@ function renderAll() {
     }
   }
 
-  // 4. Render 3x3 3D Sockets & Portrait Cards
+  // 4. Render 3x3 3D Sockets & Portrait Cards (Pooled DOM slots — zero slot node recreation)
   const gridEl = document.getElementById("grid-3x3");
-  gridEl.innerHTML = "";
+  let existingSlots = gridEl.querySelectorAll(".board-slot");
+  if (existingSlots.length !== 9) {
+    gridEl.innerHTML = "";
+    for (let r = 0; r < 3; r++) {
+      for (let c = 0; c < 3; c++) {
+        const s = document.createElement("div");
+        s.className = "board-slot";
+        s.dataset.r = r;
+        s.dataset.c = c;
+        gridEl.appendChild(s);
+      }
+    }
+    existingSlots = gridEl.querySelectorAll(".board-slot");
+  }
+  const oldTeleSvg = gridEl.querySelector(".board-telegraph-svg");
+  if (oldTeleSvg) oldTeleSvg.remove();
+
   for (let r = 0; r < 3; r++) {
     for (let c = 0; c < 3; c++) {
       const cell = state.grid[r][c];
-      const slot = document.createElement("div");
+      const slot = existingSlots[r * 3 + c];
       const isSelUnit = state.selectedBoardSlot && state.selectedBoardSlot.r === r && state.selectedBoardSlot.c === c;
       const isSlideTarget = state.selectedBoardSlot && !state.usedSlideThisTurn && !cell.cardId &&
         (Math.abs(state.selectedBoardSlot.r - r) + Math.abs(state.selectedBoardSlot.c - c) === 1);
@@ -1889,6 +2681,7 @@ function renderAll() {
       const willFlip = clashObj && clashObj.willFlip;
 
       let cls = "board-slot";
+      if (r * 3 + c === state.focusedSlotIndex) cls += " focused-slot";
       if (cell.cardId) cls += " occupied";
       if (isSelUnit) cls += " selected-unit";
       if (isSlideTarget) cls += " slide-target";
@@ -1918,7 +2711,6 @@ function renderAll() {
         if (cell.cardId) {
           updateTelegraphHud(cell.cardId);
         } else {
-          // Guard: rebuilding the grid re-fires mouseenter on the new node; skip redundant re-renders
           if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c) return;
           state.hoveredSlot = { r, c };
           if (state.hand[state.selectedHandIdx]) {
@@ -1940,6 +2732,8 @@ function renderAll() {
       };
       if (cell.cardId && cell.owner === "player") {
         slot.onpointerdown = (e) => beginPointerDrag(e, { kind: "board", r, c });
+      } else {
+        slot.onpointerdown = null;
       }
 
       if (cell.cardId) {
@@ -1953,17 +2747,15 @@ function renderAll() {
           slot.appendChild(tag);
         }
       } else if (isSlideTarget) {
-        slot.innerHTML = `<div style="color:var(--emerald);font-weight:800;font-size:11px;text-align:center;">⇄ SLIDE<br/>HERE</div>`;
+        slot.innerHTML = `<div style="color:var(--emerald);font-weight:800;font-size:12px;text-align:center;">⇄ SLIDE<br/>HERE</div>`;
       } else if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c && state.hand[state.selectedHandIdx]) {
         const hId = state.hand[state.selectedHandIdx];
         const eff = getCardEffectiveStats(hId, c, false);
         slot.classList.add(drag.active ? "landing-preview" : "hover-preview");
         slot.innerHTML = build3DCardHTML(hId, eff, "player");
       } else {
-        slot.innerHTML = `<div style="color:rgba(148,163,184,0.34);font-weight:800;font-size:10.5px;">${isColBoosted(c) ? "⚡ +1 BOOST" : "OPEN"}</div>`;
+        slot.innerHTML = `<div style="color:rgba(148,163,184,0.34);font-weight:800;font-size:12px;">${isColBoosted(c) ? "⚡ +1 BOOST" : "OPEN"}</div>`;
       }
-
-      gridEl.appendChild(slot);
     }
   }
 
@@ -2001,13 +2793,13 @@ function renderAll() {
   const slideCard = document.createElement("div");
   slideCard.className = "tactical-slide-card";
   slideCard.innerHTML = `
-    <div style="font-size:9px;font-weight:900;color:${activeHero.telegraphColor};letter-spacing:0.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">
+    <div style="font-size:12px;font-weight:900;color:${activeHero.telegraphColor};letter-spacing:0.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">
       ⚡ ${activeHero.telegraphName}
     </div>
-    <div style="font-size:8.5px;color:#cbd5e1;line-height:1.25;">
+    <div style="font-size:12px;color:#cbd5e1;line-height:1.25;">
       ${activeHero.telegraphType}
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.12);width:100%;padding-top:4px;margin-top:2px;font-size:8.5px;color:var(--emerald);font-weight:800;">
+    <div style="border-top:1px solid rgba(255,255,255,0.12);width:100%;padding-top:4px;margin-top:2px;font-size:12px;color:var(--emerald);font-weight:800;">
       ⇄ Slide: ${state.usedSlideThisTurn ? "Used" : "1× Ready"}
     </div>
   `;
@@ -2175,9 +2967,12 @@ function applyGhostTransform() {
 
 function dragTick() {
   if (!drag.active || drag.dropping) return;
+  const dt = 1 / 60;
+  const smoothScale = 1 - Math.exp(-14 * dt);
+  const smoothPos = 1 - Math.exp(-22 * dt);
   // Scale toward the socket size when aiming at a tile, slightly lifted otherwise
   const targetScale = drag.target ? drag.target.rect.width / drag.baseW : (drag.kind === "hand" ? 1.1 : 1.04);
-  drag.scale += (targetScale - drag.scale) * 0.22;
+  drag.scale += (targetScale - drag.scale) * smoothScale;
 
   const w = drag.baseW * drag.scale;
   const h = drag.baseH * drag.scale;
@@ -2190,8 +2985,8 @@ function dragTick() {
     tx += (rc.left + rc.width / 2 - tx) * 0.4;
     ty += (rc.top + rc.height / 2 - ty) * 0.4;
   }
-  const nx = drag.cx + (tx - drag.cx) * 0.42;
-  const ny = drag.cy + (ty - drag.cy) * 0.42;
+  const nx = drag.cx + (tx - drag.cx) * smoothPos;
+  const ny = drag.cy + (ty - drag.cy) * smoothPos;
   drag.vx = drag.vx * 0.75 + (nx - drag.cx) * 0.25;
   drag.vy = drag.vy * 0.75 + (ny - drag.cy) * 0.25;
   drag.cx = nx;
@@ -2276,11 +3071,15 @@ function onDragPointerUp() {
     const kind = drag.kind, src = drag.src, idx = drag.handIdx;
     teardownDrag();
     state.hoveredSlot = null;
-    if (kind === "hand") {
+    if (!state.isPlayerTurn || state.gameOver) return;
+    if (kind === "board") {
+      const srcCell = state.grid[src.r][src.c];
+      if (!srcCell || !(srcCell.owner === "player")) return;
+      state.selectedBoardSlot = { r: src.r, c: src.c };
+    } else {
+      if (!state.hand[idx]) return;
       state.selectedHandIdx = idx;
       state.selectedBoardSlot = null;
-    } else {
-      state.selectedBoardSlot = { r: src.r, c: src.c };
     }
     handleSlotClick(t.r, t.c);
     boardThud();
@@ -2307,271 +3106,19 @@ window.addEventListener("blur", () => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
+  loadProgressionV3();
   startStage(0);
-  if (window.location.search.includes("autotest=1")) {
+  if (window.location.search.includes("autotest=1") && typeof runVisualAutomatedPlaytest === "function") {
     setTimeout(() => runVisualAutomatedPlaytest(), 500);
   }
-  if (window.location.search.includes("dragtest=1")) {
+  if (window.location.search.includes("dragtest=1") && typeof runDragDropTest === "function") {
     setTimeout(() => runDragDropTest().catch((err) => {
       fetch("/__osascript_report__?name=dragdrop", { method: "POST", body: JSON.stringify({ error: String(err), stack: err && err.stack }) });
       document.title = "DRAGTEST_ERROR";
     }), 600);
   }
 });
-
-// Synthetic pointer-event test of the drag & drop engine (used by osascript)
-async function runDragDropTest() {
-  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  const res = { suite: "CARDFRONT drag & drop (synthetic pointer events)", checks: {} };
-  const prog = (step) => { document.title = "DT:" + step; };
-  prog("start");
-  const fire = (target, type, x, y) => target.dispatchEvent(new PointerEvent(type, {
-    bubbles: true, cancelable: true, clientX: x, clientY: y, button: 0, buttons: type === "pointerup" ? 0 : 1,
-    pointerId: 1, pointerType: "mouse", isPrimary: true
-  }));
-  const center = (el) => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
-  async function glide(x0, y0, x1, y1, steps, holdMs) {
-    for (let i = 1; i <= steps; i++) {
-      const t = i / steps, e = t * t * (3 - 2 * t);
-      fire(document, "pointermove", x0 + (x1 - x0) * e, y0 + (y1 - y0) * e);
-      await sleep(16);
-    }
-    if (holdMs) await sleep(holdMs);
-  }
-  const slotEl = (r, c) => document.querySelector(`#grid-3x3 .board-slot[data-r="${r}"][data-c="${c}"]`);
-  const firstEmpty = () => { for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) if (!state.grid[r][c].cardId) return [r, c]; return null; };
-
-  // 1. Invalid drop (release over the empty header area) → springs back, nothing placed
-  let handBefore = state.hand.length;
-  let wrap = document.querySelectorAll("#hand-bar .hand-card-wrap")[0];
-  let [hx, hy] = center(wrap);
-  fire(wrap, "pointerdown", hx, hy);
-  await glide(hx, hy, hx + 40, 20, 14, 200);
-  prog("glide1-done");
-  res.checks.ghostCreated = !!document.querySelector(".drag-ghost");
-  fire(document, "pointerup", hx + 40, 20);
-  await sleep(380);
-  prog("invalid-done");
-  res.checks.invalidDropReturned = state.hand.length === handBefore && !document.querySelector(".drag-ghost");
-
-  // 2. Valid drop: drag hand card 1 onto first empty tile, hold mid-air for screenshot
-  handBefore = state.hand.length;
-  const [tr, tc] = firstEmpty();
-  wrap = document.querySelectorAll("#hand-bar .hand-card-wrap")[1];
-  const cardId = state.hand[1];
-  [hx, hy] = center(wrap);
-  const [sx, sy] = center(slotEl(tr, tc));
-  fire(wrap, "pointerdown", hx, hy);
-  await glide(hx, hy, sx + 18, sy - 10, 30, 0);
-  res.checks.dropHoverHighlighted = !!document.querySelector(".board-slot.drop-hover");
-  res.checks.landingPreviewShown = !!document.querySelector(".board-slot.landing-preview");
-  res.checks.validTargetsPulsing = document.querySelectorAll(".board-slot.drop-valid").length;
-  document.title = "DRAG_HOLD";
-  await sleep(2200);
-  fire(document, "pointerup", sx + 18, sy - 10);
-  await sleep(500);
-  prog("drop-done");
-  res.checks.validDropPlaced = state.grid[tr][tc].cardId === cardId && state.hand.length === handBefore - 1;
-  res.checks.ghostRemoved = !document.querySelector(".drag-ghost");
-
-  // 3. Plain click still selects (no drag)
-  while (!state.isPlayerTurn && !state.gameOver) await sleep(100);
-  await sleep(300);
-  wrap = document.querySelectorAll("#hand-bar .hand-card-wrap")[2];
-  if (wrap) {
-    [hx, hy] = center(wrap);
-    fire(wrap, "pointerdown", hx, hy);
-    fire(document, "pointerup", hx, hy);
-    wrap.click();
-    await sleep(100);
-    res.checks.clickSelectStillWorks = state.selectedHandIdx === 2 && !document.querySelector(".drag-ghost");
-  }
-
-  res.pass = Object.values(res.checks).every(v => v === true || (typeof v === "number" && v > 0));
-  window.__DRAG_TEST__ = res;
-  try {
-    await fetch("/__osascript_report__?name=dragdrop", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(res, null, 2) });
-  } catch (e) {}
-  document.title = `DRAGTEST_COMPLETE:PASS=${res.pass}`;
-}
-
-async function runVisualAutomatedPlaytest() {
-  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  const report = {
-    suite: "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-    timestamp: new Date().toISOString(),
-    steps: [],
-    imagesChecked: 0,
-    allImagesLoaded: true,
-    imageDimensionsVerified: true,
-    singletonVerified: true,
-    duplicateCardsFound: 0,
-    telegraphSVGsRendered: 0,
-    cameraModesTested: [],
-    diceActionsTested: [],
-    turnsPlayed: 0,
-    capturesTriggered: 0,
-    tacticalSlideTested: false,
-    modalDisplayed: false,
-    finalScore: { player: 0, boss: 0 },
-    outcome: ""
-  };
-
-  function checkSingletonAndImages() {
-    const seen = new Set();
-    for (let r = 0; r < 3; r++) {
-      for (let c = 0; c < 3; c++) {
-        const cell = state.grid[r][c];
-        if (cell && cell.cardId) {
-          if (seen.has(cell.cardId)) {
-            report.singletonVerified = false;
-            report.duplicateCardsFound++;
-          }
-          seen.add(cell.cardId);
-        }
-      }
-    }
-    for (const cid of state.hand) {
-      if (seen.has(cid)) {
-        report.singletonVerified = false;
-        report.duplicateCardsFound++;
-      }
-      seen.add(cid);
-    }
-    const imgs = Array.from(document.querySelectorAll(".slot-art"));
-    report.imagesChecked = Math.max(report.imagesChecked, imgs.length);
-    for (const img of imgs) {
-      if (!img.complete || img.naturalWidth === 0) {
-        report.allImagesLoaded = false;
-      } else if (img.naturalWidth !== 600 || img.naturalHeight !== 800) {
-        report.imageDimensionsVerified = false;
-      }
-    }
-    const telegraphs = document.querySelectorAll(".card-telegraph-fx");
-    report.telegraphSVGsRendered = Math.max(report.telegraphSVGsRendered, telegraphs.length);
-  }
-
-  await sleep(400);
-  checkSingletonAndImages();
-  report.steps.push({
-    step: "Initial Stage Load",
-    stage: STAGES[state.stageIndex].name,
-    handCount: state.hand.length,
-    imagesChecked: report.imagesChecked,
-    telegraphSVGsRendered: report.telegraphSVGsRendered
-  });
-
-  // 1. Test 3D Camera Angles
-  for (const camVal of ["12,0", "16,-5", "0,0", "5,0"]) {
-    const camSel = document.getElementById("cam-select");
-    if (camSel) camSel.value = camVal;
-    setBoardCamera(camVal);
-    report.cameraModesTested.push(camVal);
-    await sleep(220);
-  }
-
-  // 2. Test 3D Dice Nudge & Reroll
-  nudgeColDie(0);
-  report.diceActionsTested.push("nudgeColDie(0)");
-  await sleep(300);
-  rerollAllDice();
-  report.diceActionsTested.push("rerollAllDice()");
-  await sleep(380);
-
-  // 3. Play all 4 turns to fill the 3x3 board (and test Tactical Slide as soon as a player card is on board)
-  for (let turn = 0; turn < 4; turn++) {
-    while (!state.isPlayerTurn && !state.gameOver) {
-      await sleep(100);
-    }
-    if (state.hand.length === 0 || state.gameOver) break;
-
-    if (!report.tacticalSlideTested && !state.usedSlideThisTurn) {
-      outerSlide: for (let r = 0; r < 3; r++) {
-        for (let c = 0; c < 3; c++) {
-          if (state.grid[r][c] && state.grid[r][c].cardId && state.grid[r][c].owner === "player") {
-            const dirs = [[-1,0],[1,0],[0,-1],[0,1]];
-            for (const [dr, dc] of dirs) {
-              const nr = r + dr, nc = c + dc;
-              if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && !state.grid[nr][nc].cardId) {
-                handleSlotClick(r, c);
-                await sleep(160);
-                handleSlotClick(nr, nc);
-                report.tacticalSlideTested = true;
-                report.steps.push({ step: "Tactical Slide (1x Free/Turn)", from: [r, c], to: [nr, nc] });
-                await sleep(220);
-                break outerSlide;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    state.selectedHandIdx = 0;
-    state.selectedBoardSlot = null;
-    updateTelegraphHud(state.hand[0]);
-    renderAll();
-    await sleep(150);
-
-    // Choose empty socket that maximizes captures
-    let bestRC = null;
-    let bestFlips = -1;
-    for (let r = 0; r < 3; r++) {
-      for (let c = 0; c < 3; c++) {
-        if (!state.grid[r][c].cardId) {
-          const effStats = getCardEffectiveStats(state.hand[0], c, false);
-          const clashes = findClashes(r, c, effStats, "player");
-          const flips = clashes.filter(cl => cl.willFlip).length;
-          if (flips > bestFlips) {
-            bestFlips = flips;
-            bestRC = [r, c];
-          }
-        }
-      }
-    }
-    if (!bestRC) break;
-    const [tr, tc] = bestRC;
-    state.hoveredSlot = { r: tr, c: tc };
-    renderAll();
-    await sleep(180);
-
-    const cardPlayed = state.hand[0];
-    report.capturesTriggered += Math.max(0, bestFlips);
-    handleSlotClick(tr, tc);
-    report.turnsPlayed++;
-    await sleep(800);
-    checkSingletonAndImages();
-    const sc = getScores();
-    report.steps.push({
-      step: `Turn ${turn + 1} Deploy`,
-      cardPlayed,
-      telegraph: ALL_CARDS[cardPlayed] ? ALL_CARDS[cardPlayed].telegraphName : "",
-      socket: [tr, tc],
-      immediateCaptures: bestFlips,
-      scoreAfterTurn: { player: sc.blue, boss: sc.red }
-    });
-  }
-
-  await sleep(650);
-  checkSingletonAndImages();
-  const finalScores = getScores();
-  report.finalScore = { player: finalScores.blue, boss: finalScores.red };
-  const modalEl = document.getElementById("result-modal");
-  report.modalDisplayed = modalEl ? (modalEl.style.display === "flex" || modalEl.classList.contains("show")) : false;
-  report.outcome = finalScores.blue > finalScores.red ? "VICTORY" : "COMPLETED";
-
-  window.__OSASCRIPT_TEST_REPORT__ = report;
-  try {
-    await fetch("/__osascript_report__", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(report, null, 2)
-    });
-  } catch (e) {}
-
-  document.title = `TEST_COMPLETE:${report.finalScore.player}-${report.finalScore.boss}:SINGLETON=${report.singletonVerified}:IMG=${report.allImagesLoaded && report.imageDimensionsVerified}`;
-  return JSON.stringify(report);
-}
 </script>
+<script src="./tests/inpage_autotest.js"></script>
 </body>
 </html>

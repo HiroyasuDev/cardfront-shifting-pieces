@@ -49,6 +49,7 @@ from test_synapse_tcg_suite import (  # noqa: E402
     SynapseTacticalGridEngine,
     run_suite,
 )
+from synapse_gamedev_skills_harness_bridge import SynapseGameDevSkillsHarnessBridge  # noqa: E402
 
 
 @dataclass
@@ -450,6 +451,11 @@ def execute_single_iteration(iteration_index: int, num_matches: int = 200) -> Di
         "epoch_step": lf_epoch,
     }
 
+    # 9. Run 77-Skill / 91-Skill GameDev Harness Bridge (YouTube t13A2XFGoOc & pxg-gamedev-harness)
+    gamedev_skills_harness = SynapseGameDevSkillsHarnessBridge.run_continuous_harness_step(
+        iteration_index=iteration_index
+    )
+
     report = {
         "iteration": iteration_index,
         "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -473,6 +479,7 @@ def execute_single_iteration(iteration_index: int, num_matches: int = 200) -> Di
         "creative_director_and_miro_strands": creative_director_status,
         "hi3d_rea_studio_audit": hi3d_rea_studio_audit,
         "lumenforge_io_audit": lumenforge_io_audit,
+        "gamedev_skills_harness": gamedev_skills_harness,
         "three_gpu_fleet_reviews": fleet_reviews,
         "total_iteration_elapsed_s": round(time.time() - iter_start, 3),
     }

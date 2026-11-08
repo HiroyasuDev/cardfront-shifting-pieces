@@ -1,0 +1,2836 @@
+[
+ {
+  "match": 0,
+  "seed": 777000,
+  "stage": 0,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 11,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 24,
+  "ok": true
+ },
+ {
+  "match": 1,
+  "seed": 784919,
+  "stage": 1,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 2,
+  "seed": 792838,
+  "stage": 2,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 3,
+   "red": 6,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 3,
+  "seed": 800757,
+  "stage": 3,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 4,
+  "seed": 808676,
+  "stage": 0,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 5,
+  "seed": 816595,
+  "stage": 1,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 6,
+  "seed": 824514,
+  "stage": 2,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 7,
+  "seed": 832433,
+  "stage": 3,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 3,
+   "red": 6,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 8,
+  "seed": 840352,
+  "stage": 0,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 9,
+  "seed": 848271,
+  "stage": 1,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 10,
+  "seed": 856190,
+  "stage": 2,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 12,
+  "mismatches": [],
+  "final": {
+   "blue": 4,
+   "red": 5,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 24,
+  "ok": true
+ },
+ {
+  "match": 11,
+  "seed": 864109,
+  "stage": 3,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 5,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 12,
+  "seed": 872028,
+  "stage": 0,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 13,
+  "seed": 879947,
+  "stage": 1,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 14,
+  "seed": 887866,
+  "stage": 2,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 15,
+  "seed": 895785,
+  "stage": 3,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 16,
+  "seed": 903704,
+  "stage": 0,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 17,
+  "seed": 911623,
+  "stage": 1,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 18,
+  "seed": 919542,
+  "stage": 2,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 19,
+  "seed": 927461,
+  "stage": 3,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 20,
+  "seed": 935380,
+  "stage": 0,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 21,
+  "seed": 943299,
+  "stage": 1,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 22,
+  "seed": 951218,
+  "stage": 2,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 4,
+   "red": 5,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 23,
+  "seed": 959137,
+  "stage": 3,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 5,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 24,
+  "seed": 967056,
+  "stage": 0,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 25,
+  "seed": 974975,
+  "stage": 1,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 26,
+  "seed": 982894,
+  "stage": 2,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 27,
+  "seed": 990813,
+  "stage": 3,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 4,
+   "red": 5,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 28,
+  "seed": 998732,
+  "stage": 0,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 29,
+  "seed": 1006651,
+  "stage": 1,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 30,
+  "seed": 1014570,
+  "stage": 2,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 31,
+  "seed": 1022489,
+  "stage": 3,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 32,
+  "seed": 1030408,
+  "stage": 0,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 33,
+  "seed": 1038327,
+  "stage": 1,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 5,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 34,
+  "seed": 1046246,
+  "stage": 2,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 35,
+  "seed": 1054165,
+  "stage": 3,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 36,
+  "seed": 1062084,
+  "stage": 0,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 37,
+  "seed": 1070003,
+  "stage": 1,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 38,
+  "seed": 1077922,
+  "stage": 2,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 39,
+  "seed": 1085841,
+  "stage": 3,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 4,
+   "red": 5,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 40,
+  "seed": 1093760,
+  "stage": 0,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 9,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 41,
+  "seed": 1101679,
+  "stage": 1,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 42,
+  "seed": 1109598,
+  "stage": 2,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 43,
+  "seed": 1117517,
+  "stage": 3,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 44,
+  "seed": 1125436,
+  "stage": 0,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 45,
+  "seed": 1133355,
+  "stage": 1,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 46,
+  "seed": 1141274,
+  "stage": 2,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 47,
+  "seed": 1149193,
+  "stage": 3,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 48,
+  "seed": 1157112,
+  "stage": 0,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 49,
+  "seed": 1165031,
+  "stage": 1,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 9,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 50,
+  "seed": 1172950,
+  "stage": 2,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 51,
+  "seed": 1180869,
+  "stage": 3,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 5,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 52,
+  "seed": 1188788,
+  "stage": 0,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 3,
+   "red": 6,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 53,
+  "seed": 1196707,
+  "stage": 1,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 54,
+  "seed": 1204626,
+  "stage": 2,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 55,
+  "seed": 1212545,
+  "stage": 3,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 56,
+  "seed": 1220464,
+  "stage": 0,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 57,
+  "seed": 1228383,
+  "stage": 1,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 58,
+  "seed": 1236302,
+  "stage": 2,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 59,
+  "seed": 1244221,
+  "stage": 3,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 3,
+   "red": 6,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 24,
+  "ok": true
+ },
+ {
+  "match": 60,
+  "seed": 1252140,
+  "stage": 0,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 61,
+  "seed": 1260059,
+  "stage": 1,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 62,
+  "seed": 1267978,
+  "stage": 2,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 2,
+   "red": 7,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 63,
+  "seed": 1275897,
+  "stage": 3,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 64,
+  "seed": 1283816,
+  "stage": 0,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 65,
+  "seed": 1291735,
+  "stage": 1,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 66,
+  "seed": 1299654,
+  "stage": 2,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 67,
+  "seed": 1307573,
+  "stage": 3,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 68,
+  "seed": 1315492,
+  "stage": 0,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 69,
+  "seed": 1323411,
+  "stage": 1,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 70,
+  "seed": 1331330,
+  "stage": 2,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 4,
+   "red": 5,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 71,
+  "seed": 1339249,
+  "stage": 3,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 72,
+  "seed": 1347168,
+  "stage": 0,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 73,
+  "seed": 1355087,
+  "stage": 1,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 74,
+  "seed": 1363006,
+  "stage": 2,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 75,
+  "seed": 1370925,
+  "stage": 3,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 76,
+  "seed": 1378844,
+  "stage": 0,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 77,
+  "seed": 1386763,
+  "stage": 1,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 78,
+  "seed": 1394682,
+  "stage": 2,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 79,
+  "seed": 1402601,
+  "stage": 3,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 4,
+   "red": 5,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 80,
+  "seed": 1410520,
+  "stage": 0,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 10,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 81,
+  "seed": 1418439,
+  "stage": 1,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 82,
+  "seed": 1426358,
+  "stage": 2,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 4,
+   "red": 5,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 83,
+  "seed": 1434277,
+  "stage": 3,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 5,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 84,
+  "seed": 1442196,
+  "stage": 0,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 85,
+  "seed": 1450115,
+  "stage": 1,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 86,
+  "seed": 1458034,
+  "stage": 2,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 87,
+  "seed": 1465953,
+  "stage": 3,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 88,
+  "seed": 1473872,
+  "stage": 0,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 89,
+  "seed": 1481791,
+  "stage": 1,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 10,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 90,
+  "seed": 1489710,
+  "stage": 2,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 9,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 91,
+  "seed": 1497629,
+  "stage": 3,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 92,
+  "seed": 1505548,
+  "stage": 0,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 4,
+   "red": 5,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 93,
+  "seed": 1513467,
+  "stage": 1,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 94,
+  "seed": 1521386,
+  "stage": 2,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 95,
+  "seed": 1529305,
+  "stage": 3,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 96,
+  "seed": 1537224,
+  "stage": 0,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 97,
+  "seed": 1545143,
+  "stage": 1,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 98,
+  "seed": 1553062,
+  "stage": 2,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 99,
+  "seed": 1560981,
+  "stage": 3,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 100,
+  "seed": 1568900,
+  "stage": 0,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 10,
+  "mismatches": [],
+  "final": {
+   "blue": 4,
+   "red": 5,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 24,
+  "ok": true
+ },
+ {
+  "match": 101,
+  "seed": 1576819,
+  "stage": 1,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 102,
+  "seed": 1584738,
+  "stage": 2,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 3,
+   "red": 6,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 103,
+  "seed": 1592657,
+  "stage": 3,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 104,
+  "seed": 1600576,
+  "stage": 0,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 105,
+  "seed": 1608495,
+  "stage": 1,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 106,
+  "seed": 1616414,
+  "stage": 2,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 107,
+  "seed": 1624333,
+  "stage": 3,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 108,
+  "seed": 1632252,
+  "stage": 0,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 109,
+  "seed": 1640171,
+  "stage": 1,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 110,
+  "seed": 1648090,
+  "stage": 2,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 24,
+  "ok": true
+ },
+ {
+  "match": 111,
+  "seed": 1656009,
+  "stage": 3,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 112,
+  "seed": 1663928,
+  "stage": 0,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 113,
+  "seed": 1671847,
+  "stage": 1,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 114,
+  "seed": 1679766,
+  "stage": 2,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 115,
+  "seed": 1687685,
+  "stage": 3,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 116,
+  "seed": 1695604,
+  "stage": 0,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 117,
+  "seed": 1703523,
+  "stage": 1,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 118,
+  "seed": 1711442,
+  "stage": 2,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 119,
+  "seed": 1719361,
+  "stage": 3,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 2,
+   "red": 7,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 120,
+  "seed": 1727280,
+  "stage": 0,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 5,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 121,
+  "seed": 1735199,
+  "stage": 1,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 122,
+  "seed": 1743118,
+  "stage": 2,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 3,
+   "red": 6,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 123,
+  "seed": 1751037,
+  "stage": 3,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 124,
+  "seed": 1758956,
+  "stage": 0,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 125,
+  "seed": 1766875,
+  "stage": 1,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 126,
+  "seed": 1774794,
+  "stage": 2,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 127,
+  "seed": 1782713,
+  "stage": 3,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 128,
+  "seed": 1790632,
+  "stage": 0,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 129,
+  "seed": 1798551,
+  "stage": 1,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 130,
+  "seed": 1806470,
+  "stage": 2,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 10,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 131,
+  "seed": 1814389,
+  "stage": 3,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 5,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 132,
+  "seed": 1822308,
+  "stage": 0,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 133,
+  "seed": 1830227,
+  "stage": 1,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 134,
+  "seed": 1838146,
+  "stage": 2,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 135,
+  "seed": 1846065,
+  "stage": 3,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 136,
+  "seed": 1853984,
+  "stage": 0,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 9,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 137,
+  "seed": 1861903,
+  "stage": 1,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 138,
+  "seed": 1869822,
+  "stage": 2,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 139,
+  "seed": 1877741,
+  "stage": 3,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 140,
+  "seed": 1885660,
+  "stage": 0,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 9,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 24,
+  "ok": true
+ },
+ {
+  "match": 141,
+  "seed": 1893579,
+  "stage": 1,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 142,
+  "seed": 1901498,
+  "stage": 2,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 143,
+  "seed": 1909417,
+  "stage": 3,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 5,
+  "mismatches": [],
+  "final": {
+   "blue": 4,
+   "red": 5,
+   "win": false
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 144,
+  "seed": 1917336,
+  "stage": 0,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 145,
+  "seed": 1925255,
+  "stage": 1,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 8,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 146,
+  "seed": 1933174,
+  "stage": 2,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 147,
+  "seed": 1941093,
+  "stage": 3,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 148,
+  "seed": 1949012,
+  "stage": 0,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 149,
+  "seed": 1956931,
+  "stage": 1,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 150,
+  "seed": 1964850,
+  "stage": 2,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 21,
+  "ok": true
+ },
+ {
+  "match": 151,
+  "seed": 1972769,
+  "stage": 3,
+  "policy": "greedy_all",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 152,
+  "seed": 1980688,
+  "stage": 0,
+  "policy": "random",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 153,
+  "seed": 1988607,
+  "stage": 1,
+  "policy": "greedy_slide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 154,
+  "seed": 1996526,
+  "stage": 2,
+  "policy": "greedy_dice",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 155,
+  "seed": 2004445,
+  "stage": 3,
+  "policy": "expert",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 156,
+  "seed": 2012364,
+  "stage": 0,
+  "policy": "lookahead",
+  "realtime": false,
+  "actions": 7,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 157,
+  "seed": 2020283,
+  "stage": 1,
+  "policy": "greedy",
+  "realtime": false,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 158,
+  "seed": 2028202,
+  "stage": 2,
+  "policy": "expert_noslide",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 159,
+  "seed": 2036121,
+  "stage": 3,
+  "policy": "chaos",
+  "realtime": false,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 160,
+  "seed": 2044040,
+  "stage": 0,
+  "policy": "chaos",
+  "realtime": true,
+  "actions": 13,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "modalTitle": "🏆 VICTORY (6 – 3)!",
+  "modalMatches": true,
+  "rngCallsPage": 24,
+  "ok": true
+ },
+ {
+  "match": 161,
+  "seed": 2051959,
+  "stage": 1,
+  "policy": "greedy_all",
+  "realtime": true,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 8,
+   "red": 1,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "modalTitle": "🏆 VICTORY (8 – 1)!",
+  "modalMatches": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 162,
+  "seed": 2059878,
+  "stage": 2,
+  "policy": "random",
+  "realtime": true,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "modalTitle": "🏆 VICTORY (5 – 4)!",
+  "modalMatches": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 163,
+  "seed": 2067797,
+  "stage": 3,
+  "policy": "greedy_slide",
+  "realtime": true,
+  "actions": 5,
+  "mismatches": [],
+  "final": {
+   "blue": 5,
+   "red": 4,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "modalTitle": "🏆 VICTORY (5 – 4)!",
+  "modalMatches": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 164,
+  "seed": 2075716,
+  "stage": 0,
+  "policy": "greedy_dice",
+  "realtime": true,
+  "actions": 4,
+  "mismatches": [],
+  "final": {
+   "blue": 6,
+   "red": 3,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "modalTitle": "🏆 VICTORY (6 – 3)!",
+  "modalMatches": true,
+  "rngCallsPage": 18,
+  "ok": true
+ },
+ {
+  "match": 165,
+  "seed": 2083635,
+  "stage": 1,
+  "policy": "expert",
+  "realtime": true,
+  "actions": 6,
+  "mismatches": [],
+  "final": {
+   "blue": 7,
+   "red": 2,
+   "win": true
+  },
+  "policyEngineAgrees": true,
+  "modalTitle": "🏆 VICTORY (7 – 2)!",
+  "modalMatches": true,
+  "rngCallsPage": 18,
+  "ok": true
+ }
+]

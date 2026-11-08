@@ -1,0 +1,62 @@
+{
+  "id": "R10_global_hotkeys_hijack_space",
+  "title": "Space/Enter/r global hotkeys override focused controls",
+  "reproduced": true,
+  "checks": [
+    {
+      "name": "Roll button clicked: rerolls 2 -> 1 and button has focus",
+      "ok": true,
+      "detail": {
+        "rerolls": 1,
+        "focused": "🎲 Roll All 3D Dice "
+      }
+    },
+    {
+      "name": "(a) Space did NOT activate the focused button (rerolls still 1)",
+      "ok": true,
+      "detail": {
+        "rerolls": 1
+      }
+    },
+    {
+      "name": "(a) Space deployed hand[0] at focus tile (1,1) and ended the turn",
+      "ok": true,
+      "detail": {
+        "centre": {
+          "id": "h_seraph",
+          "owner": "player",
+          "nesw": [
+            9,
+            7,
+            8,
+            9
+          ]
+        },
+        "hand": 4
+      }
+    },
+    {
+      "name": "(b) bare 'r' keypress spent the last reroll and re-rolled all dice",
+      "ok": true,
+      "detail": {
+        "before": 1,
+        "after": 0,
+        "dice": [
+          [
+            4,
+            5,
+            2
+          ],
+          [
+            2,
+            1,
+            2
+          ]
+        ]
+      }
+    }
+  ],
+  "notes": {},
+  "pageErrors": [],
+  "ranAt": "2026-11-08T12:12:27.336Z"
+}

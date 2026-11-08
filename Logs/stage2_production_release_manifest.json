@@ -1,0 +1,57 @@
+{
+  "stage": "Production Stage 2 \u2014 Full Metagame, Adaptive Audio, 3D Pawn Viewer & Steam/Itch Packaging",
+  "timestamp_utc": "2026-11-08T13:16:16Z",
+  "save_system": {
+    "schema_version": 3,
+    "slot_01_report": {
+      "saved_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Saves/slot_01_commander.json",
+      "backup_exists": true,
+      "version": 3,
+      "fnv1a_64_checksum": "0x3d89f7017ebded4c",
+      "bytes_written": 746
+    }
+  },
+  "audio_engine": {
+    "buses": [
+      "Master",
+      "Music",
+      "MusicDuck",
+      "SFX",
+      "Ambience",
+      "UI",
+      "Voice"
+    ],
+    "loudness_target_lufs": -24.0,
+    "true_peak_ceiling_dbtp": -1.0,
+    "telegraph_sfx_profiles_count": 16
+  },
+  "steam_publish": {
+    "steam_app_id": 3194820,
+    "steam_depot_id": 3194821,
+    "steam_appid_txt": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/SteamPipe/content/steam_appid.txt",
+    "app_build_vdf": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/SteamPipe/scripts/app_build_3194820.vdf",
+    "depot_build_vdf": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/SteamPipe/scripts/depot_build_3194821.vdf"
+  },
+  "itch_publish": {
+    "itch_toml": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/SteamPipe/content/.itch.toml",
+    "version": "2.0.0",
+    "channels": [
+      {
+        "channel": "windows",
+        "cmd": "butler push ./Build/SteamPipe/content lumenforge/cardfront-cradle-of-echoes:windows --userversion 2.0.0 --ignore '*.pdb' --ignore '*.dSYM'"
+      },
+      {
+        "channel": "osx",
+        "cmd": "butler push ./Build/SteamPipe/content lumenforge/cardfront-cradle-of-echoes:osx --userversion 2.0.0 --ignore '*.pdb' --ignore '*.dSYM'"
+      },
+      {
+        "channel": "linux",
+        "cmd": "butler push ./Build/SteamPipe/content lumenforge/cardfront-cradle-of-echoes:linux --userversion 2.0.0 --ignore '*.pdb' --ignore '*.dSYM'"
+      },
+      {
+        "channel": "html",
+        "cmd": "butler push ./WebPlayable lumenforge/cardfront-cradle-of-echoes:html --userversion 2.0.0"
+      }
+    ]
+  }
+}

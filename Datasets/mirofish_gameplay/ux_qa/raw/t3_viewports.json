@@ -1,0 +1,2273 @@
+[
+  {
+    "viewport": "1024x768",
+    "screenshot": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t3_vp_1024x768.png",
+    "regions": {
+      "header": {
+        "rect": [
+          0,
+          0,
+          1024,
+          44
+        ],
+        "hiddenPct": 0
+      },
+      "headerRight": {
+        "rect": [
+          763,
+          8,
+          570,
+          28
+        ],
+        "hiddenPct": 54.1
+      },
+      "scoreboard": {
+        "rect": [
+          549,
+          9,
+          202,
+          25
+        ],
+        "hiddenPct": 0
+      },
+      "handPanel": {
+        "rect": [
+          14,
+          52,
+          264,
+          708
+        ],
+        "hiddenPct": 0
+      },
+      "bossPanelAside": {
+        "rect": [
+          1221,
+          52,
+          264,
+          708
+        ],
+        "hiddenPct": 100
+      },
+      "board": {
+        "rect": [
+          526,
+          137,
+          447,
+          583
+        ],
+        "hiddenPct": 0
+      },
+      "grid": {
+        "rect": [
+          545,
+          182,
+          410,
+          521
+        ],
+        "hiddenPct": 0
+      },
+      "telegraphHud": {
+        "rect": [
+          308,
+          52,
+          883,
+          27
+        ],
+        "hiddenPct": 18.9
+      },
+      "dicePanel": {
+        "rect": [
+          1234,
+          122,
+          238,
+          158
+        ],
+        "hiddenPct": 100
+      },
+      "rerollBtn": {
+        "rect": [
+          1234,
+          287,
+          238,
+          34
+        ],
+        "hiddenPct": 100
+      },
+      "bossProfile": {
+        "rect": [
+          1234,
+          605,
+          238,
+          76
+        ],
+        "hiddenPct": 100
+      },
+      "lastMoveBanner": {
+        "rect": [
+          1234,
+          688,
+          238,
+          61
+        ],
+        "hiddenPct": 100
+      }
+    },
+    "handCards": [
+      {
+        "i": 0,
+        "rect": [
+          31,
+          190,
+          111,
+          149
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 1,
+        "rect": [
+          152,
+          196,
+          107,
+          143
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 2,
+        "rect": [
+          33,
+          347,
+          107,
+          143
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 3,
+        "rect": [
+          152,
+          347,
+          107,
+          143
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 4,
+        "rect": [
+          33,
+          498,
+          107,
+          143
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 5,
+        "rect": [
+          152,
+          498,
+          107,
+          143
+        ],
+        "hiddenPct": 0
+      }
+    ],
+    "tiles": [
+      {
+        "r": 0,
+        "c": 0,
+        "rect": [
+          550,
+          182,
+          126,
+          162
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 1,
+        "rect": [
+          687,
+          182,
+          125,
+          162
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 2,
+        "rect": [
+          824,
+          182,
+          126,
+          162
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 1,
+        "c": 0,
+        "rect": [
+          547,
+          356,
+          128,
+          166
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 1,
+        "rect": [
+          686,
+          356,
+          127,
+          166
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 2,
+        "rect": [
+          824,
+          356,
+          128,
+          166
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 0,
+        "rect": [
+          545,
+          533,
+          129,
+          170
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 1,
+        "rect": [
+          685,
+          533,
+          128,
+          170
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 2,
+        "rect": [
+          825,
+          533,
+          129,
+          170
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      }
+    ],
+    "textOverflow": [
+      {
+        "text": "⚡ Orbital Airstrike",
+        "cls": "DIV",
+        "id": "",
+        "ox": 11,
+        "oy": 0,
+        "ellipsis": true
+      }
+    ],
+    "docScroll": {
+      "sw": 1333,
+      "sh": 768,
+      "vw": 1024,
+      "vh": 768
+    },
+    "visibleIssues": [
+      "headerRight 54.1% hidden",
+      "bossPanelAside 100% hidden",
+      "telegraphHud 18.9% hidden",
+      "dicePanel 100% hidden",
+      "rerollBtn 100% hidden",
+      "bossProfile 100% hidden",
+      "lastMoveBanner 100% hidden"
+    ],
+    "allTilesCenterHittable": true,
+    "allTilesCornersHittable": false,
+    "inputMode": "mouse",
+    "dragPlacementWorked": true,
+    "pageErrors": []
+  },
+  {
+    "viewport": "1280x720",
+    "screenshot": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t3_vp_1280x720.png",
+    "regions": {
+      "header": {
+        "rect": [
+          0,
+          0,
+          1280,
+          44
+        ],
+        "hiddenPct": 0
+      },
+      "headerRight": {
+        "rect": [
+          763,
+          8,
+          570,
+          28
+        ],
+        "hiddenPct": 9.2
+      },
+      "scoreboard": {
+        "rect": [
+          549,
+          9,
+          202,
+          25
+        ],
+        "hiddenPct": 0
+      },
+      "handPanel": {
+        "rect": [
+          14,
+          52,
+          264,
+          660
+        ],
+        "hiddenPct": 0
+      },
+      "bossPanelAside": {
+        "rect": [
+          1218,
+          52,
+          264,
+          660
+        ],
+        "hiddenPct": 76.4
+      },
+      "board": {
+        "rect": [
+          536,
+          127,
+          424,
+          553
+        ],
+        "hiddenPct": 0
+      },
+      "grid": {
+        "rect": [
+          555,
+          172,
+          386,
+          491
+        ],
+        "hiddenPct": 0
+      },
+      "telegraphHud": {
+        "rect": [
+          308,
+          52,
+          879,
+          27
+        ],
+        "hiddenPct": 0
+      },
+      "dicePanel": {
+        "rect": [
+          1231,
+          122,
+          238,
+          158
+        ],
+        "hiddenPct": 79.3
+      },
+      "rerollBtn": {
+        "rect": [
+          1231,
+          287,
+          238,
+          34
+        ],
+        "hiddenPct": 79.3
+      },
+      "bossProfile": {
+        "rect": [
+          1231,
+          557,
+          238,
+          76
+        ],
+        "hiddenPct": 79.3
+      },
+      "lastMoveBanner": {
+        "rect": [
+          1231,
+          640,
+          238,
+          61
+        ],
+        "hiddenPct": 79.3
+      }
+    },
+    "handCards": [
+      {
+        "i": 0,
+        "rect": [
+          38,
+          180,
+          104,
+          139
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 1,
+        "rect": [
+          152,
+          186,
+          100,
+          134
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 2,
+        "rect": [
+          40,
+          328,
+          100,
+          134
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 3,
+        "rect": [
+          152,
+          328,
+          100,
+          134
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 4,
+        "rect": [
+          40,
+          469,
+          100,
+          134
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 5,
+        "rect": [
+          152,
+          469,
+          100,
+          134
+        ],
+        "hiddenPct": 0
+      }
+    ],
+    "tiles": [
+      {
+        "r": 0,
+        "c": 0,
+        "rect": [
+          559,
+          172,
+          119,
+          152
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 1,
+        "rect": [
+          689,
+          172,
+          118,
+          152
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 2,
+        "rect": [
+          818,
+          172,
+          119,
+          152
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 1,
+        "c": 0,
+        "rect": [
+          557,
+          336,
+          120,
+          156
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 1,
+        "rect": [
+          688,
+          336,
+          119,
+          156
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 2,
+        "rect": [
+          819,
+          336,
+          120,
+          156
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 0,
+        "rect": [
+          555,
+          504,
+          121,
+          159
+        ],
+        "hiddenPct": 0,
+        "centerHittable": false,
+        "cornersHittable": true
+      },
+      {
+        "r": 2,
+        "c": 1,
+        "rect": [
+          688,
+          504,
+          121,
+          159
+        ],
+        "hiddenPct": 0,
+        "centerHittable": false,
+        "cornersHittable": true
+      },
+      {
+        "r": 2,
+        "c": 2,
+        "rect": [
+          820,
+          504,
+          121,
+          159
+        ],
+        "hiddenPct": 0,
+        "centerHittable": false,
+        "cornersHittable": true
+      }
+    ],
+    "textOverflow": [
+      {
+        "text": "⚡ Ivalice Law Seal",
+        "cls": "DIV",
+        "id": "",
+        "ox": 16,
+        "oy": 0,
+        "ellipsis": true
+      }
+    ],
+    "docScroll": {
+      "sw": 1333,
+      "sh": 720,
+      "vw": 1280,
+      "vh": 720
+    },
+    "visibleIssues": [
+      "headerRight 9.2% hidden",
+      "bossPanelAside 76.4% hidden",
+      "dicePanel 79.3% hidden",
+      "rerollBtn 79.3% hidden",
+      "bossProfile 79.3% hidden",
+      "lastMoveBanner 79.3% hidden"
+    ],
+    "allTilesCenterHittable": false,
+    "allTilesCornersHittable": false,
+    "inputMode": "mouse",
+    "dragPlacementWorked": true,
+    "pageErrors": []
+  },
+  {
+    "viewport": "1280x800",
+    "screenshot": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t3_vp_1280x800.png",
+    "regions": {
+      "header": {
+        "rect": [
+          0,
+          0,
+          1280,
+          44
+        ],
+        "hiddenPct": 0
+      },
+      "headerRight": {
+        "rect": [
+          763,
+          8,
+          570,
+          28
+        ],
+        "hiddenPct": 9.2
+      },
+      "scoreboard": {
+        "rect": [
+          549,
+          9,
+          202,
+          25
+        ],
+        "hiddenPct": 0
+      },
+      "handPanel": {
+        "rect": [
+          14,
+          52,
+          264,
+          740
+        ],
+        "hiddenPct": 0
+      },
+      "bossPanelAside": {
+        "rect": [
+          1214,
+          52,
+          264,
+          740
+        ],
+        "hiddenPct": 74.9
+      },
+      "board": {
+        "rect": [
+          514,
+          143,
+          463,
+          603
+        ],
+        "hiddenPct": 0
+      },
+      "grid": {
+        "rect": [
+          533,
+          188,
+          426,
+          542
+        ],
+        "hiddenPct": 0
+      },
+      "telegraphHud": {
+        "rect": [
+          308,
+          52,
+          875,
+          27
+        ],
+        "hiddenPct": 0
+      },
+      "dicePanel": {
+        "rect": [
+          1227,
+          122,
+          238,
+          158
+        ],
+        "hiddenPct": 77.6
+      },
+      "rerollBtn": {
+        "rect": [
+          1227,
+          287,
+          238,
+          34
+        ],
+        "hiddenPct": 77.6
+      },
+      "bossProfile": {
+        "rect": [
+          1227,
+          637,
+          238,
+          76
+        ],
+        "hiddenPct": 77.6
+      },
+      "lastMoveBanner": {
+        "rect": [
+          1227,
+          720,
+          238,
+          61
+        ],
+        "hiddenPct": 77.6
+      }
+    },
+    "handCards": [
+      {
+        "i": 0,
+        "rect": [
+          26,
+          197,
+          116,
+          155
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 1,
+        "rect": [
+          152,
+          203,
+          112,
+          149
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 2,
+        "rect": [
+          28,
+          360,
+          112,
+          149
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 3,
+        "rect": [
+          152,
+          360,
+          112,
+          149
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 4,
+        "rect": [
+          28,
+          517,
+          112,
+          149
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 5,
+        "rect": [
+          152,
+          517,
+          112,
+          149
+        ],
+        "hiddenPct": 0
+      }
+    ],
+    "tiles": [
+      {
+        "r": 0,
+        "c": 0,
+        "rect": [
+          538,
+          188,
+          131,
+          168
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 1,
+        "rect": [
+          681,
+          188,
+          131,
+          168
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 2,
+        "rect": [
+          822,
+          188,
+          131,
+          168
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 1,
+        "c": 0,
+        "rect": [
+          535,
+          368,
+          133,
+          173
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 1,
+        "rect": [
+          680,
+          368,
+          132,
+          173
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 2,
+        "rect": [
+          823,
+          368,
+          133,
+          173
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 0,
+        "rect": [
+          533,
+          553,
+          135,
+          177
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 2,
+        "c": 1,
+        "rect": [
+          679,
+          553,
+          134,
+          177
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 2,
+        "c": 2,
+        "rect": [
+          824,
+          553,
+          135,
+          177
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      }
+    ],
+    "textOverflow": [
+      {
+        "text": "⚡ Solid Eye Target Lock",
+        "cls": "DIV",
+        "id": "",
+        "ox": 32,
+        "oy": 0,
+        "ellipsis": true
+      }
+    ],
+    "docScroll": {
+      "sw": 1333,
+      "sh": 800,
+      "vw": 1280,
+      "vh": 800
+    },
+    "visibleIssues": [
+      "headerRight 9.2% hidden",
+      "bossPanelAside 74.9% hidden",
+      "dicePanel 77.6% hidden",
+      "rerollBtn 77.6% hidden",
+      "bossProfile 77.6% hidden",
+      "lastMoveBanner 77.6% hidden"
+    ],
+    "allTilesCenterHittable": true,
+    "allTilesCornersHittable": false,
+    "inputMode": "mouse",
+    "dragPlacementWorked": true,
+    "pageErrors": []
+  },
+  {
+    "viewport": "1440x900",
+    "screenshot": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t3_vp_1440x900.png",
+    "regions": {
+      "header": {
+        "rect": [
+          0,
+          0,
+          1440,
+          44
+        ],
+        "hiddenPct": 0
+      },
+      "headerRight": {
+        "rect": [
+          854,
+          8,
+          570,
+          28
+        ],
+        "hiddenPct": 0
+      },
+      "scoreboard": {
+        "rect": [
+          594,
+          9,
+          202,
+          25
+        ],
+        "hiddenPct": 0
+      },
+      "handPanel": {
+        "rect": [
+          14,
+          52,
+          264,
+          840
+        ],
+        "hiddenPct": 0
+      },
+      "bossPanelAside": {
+        "rect": [
+          1214,
+          52,
+          264,
+          840
+        ],
+        "hiddenPct": 14.3
+      },
+      "board": {
+        "rect": [
+          488,
+          162,
+          515,
+          668
+        ],
+        "hiddenPct": 0
+      },
+      "grid": {
+        "rect": [
+          507,
+          207,
+          477,
+          606
+        ],
+        "hiddenPct": 0
+      },
+      "telegraphHud": {
+        "rect": [
+          308,
+          52,
+          875,
+          27
+        ],
+        "hiddenPct": 0
+      },
+      "dicePanel": {
+        "rect": [
+          1227,
+          122,
+          238,
+          158
+        ],
+        "hiddenPct": 10.4
+      },
+      "rerollBtn": {
+        "rect": [
+          1227,
+          287,
+          238,
+          34
+        ],
+        "hiddenPct": 10.4
+      },
+      "bossProfile": {
+        "rect": [
+          1227,
+          737,
+          238,
+          76
+        ],
+        "hiddenPct": 10.4
+      },
+      "lastMoveBanner": {
+        "rect": [
+          1227,
+          820,
+          238,
+          61
+        ],
+        "hiddenPct": 10.4
+      }
+    },
+    "handCards": [
+      {
+        "i": 0,
+        "rect": [
+          18,
+          230,
+          125,
+          166
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 1,
+        "rect": [
+          152,
+          237,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 2,
+        "rect": [
+          20,
+          405,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 3,
+        "rect": [
+          152,
+          405,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 4,
+        "rect": [
+          20,
+          573,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 5,
+        "rect": [
+          152,
+          573,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      }
+    ],
+    "tiles": [
+      {
+        "r": 0,
+        "c": 0,
+        "rect": [
+          514,
+          207,
+          148,
+          189
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 1,
+        "rect": [
+          672,
+          207,
+          147,
+          189
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 2,
+        "rect": [
+          830,
+          207,
+          148,
+          189
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 1,
+        "c": 0,
+        "rect": [
+          510,
+          408,
+          150,
+          194
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 1,
+        "rect": [
+          671,
+          408,
+          149,
+          194
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 2,
+        "rect": [
+          831,
+          408,
+          150,
+          194
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 0,
+        "rect": [
+          507,
+          614,
+          152,
+          200
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 2,
+        "c": 1,
+        "rect": [
+          670,
+          614,
+          151,
+          200
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 2,
+        "c": 2,
+        "rect": [
+          832,
+          614,
+          152,
+          200
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      }
+    ],
+    "textOverflow": [
+      {
+        "text": "⚡ Solid Eye Target Lock",
+        "cls": "DIV",
+        "id": "",
+        "ox": 24,
+        "oy": 0,
+        "ellipsis": true
+      }
+    ],
+    "docScroll": {
+      "sw": 1440,
+      "sh": 900,
+      "vw": 1440,
+      "vh": 900
+    },
+    "visibleIssues": [
+      "bossPanelAside 14.3% hidden",
+      "dicePanel 10.4% hidden",
+      "rerollBtn 10.4% hidden",
+      "bossProfile 10.4% hidden",
+      "lastMoveBanner 10.4% hidden"
+    ],
+    "allTilesCenterHittable": true,
+    "allTilesCornersHittable": false,
+    "inputMode": "mouse",
+    "dragPlacementWorked": true,
+    "pageErrors": []
+  },
+  {
+    "viewport": "1920x1080",
+    "screenshot": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t3_vp_1920x1080.png",
+    "regions": {
+      "header": {
+        "rect": [
+          0,
+          0,
+          1920,
+          44
+        ],
+        "hiddenPct": 0
+      },
+      "headerRight": {
+        "rect": [
+          1334,
+          8,
+          570,
+          28
+        ],
+        "hiddenPct": 0
+      },
+      "scoreboard": {
+        "rect": [
+          834,
+          9,
+          202,
+          25
+        ],
+        "hiddenPct": 0
+      },
+      "handPanel": {
+        "rect": [
+          154,
+          52,
+          264,
+          1020
+        ],
+        "hiddenPct": 0
+      },
+      "bossPanelAside": {
+        "rect": [
+          1502,
+          52,
+          264,
+          1020
+        ],
+        "hiddenPct": 0
+      },
+      "board": {
+        "rect": [
+          689,
+          235,
+          542,
+          703
+        ],
+        "hiddenPct": 0
+      },
+      "grid": {
+        "rect": [
+          707,
+          280,
+          505,
+          641
+        ],
+        "hiddenPct": 0
+      },
+      "telegraphHud": {
+        "rect": [
+          502,
+          52,
+          916,
+          27
+        ],
+        "hiddenPct": 0
+      },
+      "dicePanel": {
+        "rect": [
+          1515,
+          122,
+          238,
+          158
+        ],
+        "hiddenPct": 0
+      },
+      "rerollBtn": {
+        "rect": [
+          1515,
+          287,
+          238,
+          34
+        ],
+        "hiddenPct": 0
+      },
+      "bossProfile": {
+        "rect": [
+          1515,
+          917,
+          238,
+          76
+        ],
+        "hiddenPct": 0
+      },
+      "lastMoveBanner": {
+        "rect": [
+          1515,
+          1000,
+          238,
+          61
+        ],
+        "hiddenPct": 0
+      }
+    },
+    "handCards": [
+      {
+        "i": 0,
+        "rect": [
+          158,
+          320,
+          125,
+          166
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 1,
+        "rect": [
+          292,
+          327,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 2,
+        "rect": [
+          160,
+          495,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 3,
+        "rect": [
+          292,
+          495,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 4,
+        "rect": [
+          160,
+          663,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 5,
+        "rect": [
+          292,
+          663,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      }
+    ],
+    "tiles": [
+      {
+        "r": 0,
+        "c": 0,
+        "rect": [
+          715,
+          280,
+          157,
+          200
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 1,
+        "rect": [
+          882,
+          280,
+          156,
+          200
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 2,
+        "rect": [
+          1048,
+          280,
+          157,
+          200
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 1,
+        "c": 0,
+        "rect": [
+          711,
+          492,
+          159,
+          206
+        ],
+        "hiddenPct": 0,
+        "centerHittable": false,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 1,
+        "rect": [
+          881,
+          492,
+          158,
+          206
+        ],
+        "hiddenPct": 0,
+        "centerHittable": false,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 2,
+        "rect": [
+          1050,
+          492,
+          159,
+          206
+        ],
+        "hiddenPct": 0,
+        "centerHittable": false,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 0,
+        "rect": [
+          707,
+          710,
+          161,
+          212
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 1,
+        "rect": [
+          880,
+          710,
+          160,
+          212
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 2,
+        "rect": [
+          1051,
+          710,
+          161,
+          212
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      }
+    ],
+    "textOverflow": [],
+    "docScroll": {
+      "sw": 1920,
+      "sh": 1080,
+      "vw": 1920,
+      "vh": 1080
+    },
+    "visibleIssues": [],
+    "allTilesCenterHittable": false,
+    "allTilesCornersHittable": false,
+    "inputMode": "mouse",
+    "dragPlacementWorked": true,
+    "pageErrors": []
+  },
+  {
+    "viewport": "ipad_portrait_820x1180",
+    "screenshot": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t3_vp_ipad_portrait_820x1180.png",
+    "regions": {
+      "header": {
+        "rect": [
+          0,
+          0,
+          820,
+          44
+        ],
+        "hiddenPct": 0
+      },
+      "headerRight": {
+        "rect": [
+          763,
+          8,
+          570,
+          28
+        ],
+        "hiddenPct": 89.9
+      },
+      "scoreboard": {
+        "rect": [
+          549,
+          9,
+          202,
+          25
+        ],
+        "hiddenPct": 0
+      },
+      "handPanel": {
+        "rect": [
+          14,
+          52,
+          264,
+          1120
+        ],
+        "hiddenPct": 0
+      },
+      "bossPanelAside": {
+        "rect": [
+          1158,
+          52,
+          264,
+          1120
+        ],
+        "hiddenPct": 100
+      },
+      "board": {
+        "rect": [
+          447,
+          285,
+          542,
+          703
+        ],
+        "hiddenPct": 31.2
+      },
+      "grid": {
+        "rect": [
+          465,
+          330,
+          505,
+          641
+        ],
+        "hiddenPct": 29.8
+      },
+      "telegraphHud": {
+        "rect": [
+          307,
+          52,
+          821,
+          27
+        ],
+        "hiddenPct": 37.6
+      },
+      "dicePanel": {
+        "rect": [
+          1171,
+          122,
+          238,
+          158
+        ],
+        "hiddenPct": 100
+      },
+      "rerollBtn": {
+        "rect": [
+          1171,
+          287,
+          238,
+          34
+        ],
+        "hiddenPct": 100
+      },
+      "bossProfile": {
+        "rect": [
+          1171,
+          1017,
+          238,
+          76
+        ],
+        "hiddenPct": 100
+      },
+      "lastMoveBanner": {
+        "rect": [
+          1171,
+          1100,
+          238,
+          61
+        ],
+        "hiddenPct": 100
+      }
+    },
+    "handCards": [
+      {
+        "i": 0,
+        "rect": [
+          18,
+          370,
+          125,
+          166
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 1,
+        "rect": [
+          152,
+          377,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 2,
+        "rect": [
+          20,
+          545,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 3,
+        "rect": [
+          152,
+          545,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 4,
+        "rect": [
+          20,
+          713,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 5,
+        "rect": [
+          152,
+          713,
+          120,
+          160
+        ],
+        "hiddenPct": 0
+      }
+    ],
+    "tiles": [
+      {
+        "r": 0,
+        "c": 0,
+        "rect": [
+          473,
+          330,
+          157,
+          200
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 1,
+        "rect": [
+          640,
+          330,
+          156,
+          200
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 2,
+        "rect": [
+          806,
+          330,
+          157,
+          200
+        ],
+        "hiddenPct": 91.2,
+        "centerHittable": false,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 0,
+        "rect": [
+          469,
+          542,
+          159,
+          206
+        ],
+        "hiddenPct": 0,
+        "centerHittable": false,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 1,
+        "rect": [
+          639,
+          542,
+          158,
+          206
+        ],
+        "hiddenPct": 0,
+        "centerHittable": false,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 2,
+        "rect": [
+          808,
+          542,
+          159,
+          206
+        ],
+        "hiddenPct": 92.2,
+        "centerHittable": false,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 0,
+        "rect": [
+          465,
+          760,
+          161,
+          212
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 1,
+        "rect": [
+          638,
+          760,
+          160,
+          212
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 2,
+        "rect": [
+          809,
+          760,
+          161,
+          212
+        ],
+        "hiddenPct": 93.1,
+        "centerHittable": false,
+        "cornersHittable": false
+      }
+    ],
+    "textOverflow": [
+      {
+        "text": "⚡ Trigger Cross-Star",
+        "cls": "DIV",
+        "id": "",
+        "ox": 11,
+        "oy": 0,
+        "ellipsis": true
+      }
+    ],
+    "docScroll": {
+      "sw": 1333,
+      "sh": 1919,
+      "vw": 1333,
+      "vh": 1919
+    },
+    "visibleIssues": [
+      "headerRight 89.9% hidden",
+      "bossPanelAside 100% hidden",
+      "board 31.2% hidden",
+      "grid 29.8% hidden",
+      "telegraphHud 37.6% hidden",
+      "dicePanel 100% hidden",
+      "rerollBtn 100% hidden",
+      "bossProfile 100% hidden",
+      "lastMoveBanner 100% hidden",
+      "tile(0,2) 91.2% hidden",
+      "tile(1,2) 92.2% hidden",
+      "tile(2,2) 93.1% hidden"
+    ],
+    "allTilesCenterHittable": false,
+    "allTilesCornersHittable": false,
+    "touchPointerEvents": {
+      "pointerdown:touch": 1,
+      "pointermove:touch": 24,
+      "pointerup:touch": 1
+    },
+    "inputMode": "touch (CDP Input.dispatchTouchEvent)",
+    "dragPlacementWorked": true,
+    "tapTapPlacementWorked": false,
+    "pageErrors": []
+  },
+  {
+    "viewport": "ipad_landscape_1180x820",
+    "screenshot": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/mirofish_gameplay/ux_qa/screens/t3_vp_ipad_landscape_1180x820.png",
+    "regions": {
+      "header": {
+        "rect": [
+          0,
+          0,
+          1180,
+          44
+        ],
+        "hiddenPct": 0
+      },
+      "headerRight": {
+        "rect": [
+          763,
+          8,
+          570,
+          28
+        ],
+        "hiddenPct": 26.8
+      },
+      "scoreboard": {
+        "rect": [
+          549,
+          9,
+          202,
+          25
+        ],
+        "hiddenPct": 0
+      },
+      "handPanel": {
+        "rect": [
+          14,
+          52,
+          264,
+          760
+        ],
+        "hiddenPct": 0
+      },
+      "bossPanelAside": {
+        "rect": [
+          1221,
+          52,
+          264,
+          760
+        ],
+        "hiddenPct": 100
+      },
+      "board": {
+        "rect": [
+          513,
+          147,
+          474,
+          616
+        ],
+        "hiddenPct": 0
+      },
+      "grid": {
+        "rect": [
+          531,
+          192,
+          436,
+          555
+        ],
+        "hiddenPct": 0
+      },
+      "telegraphHud": {
+        "rect": [
+          308,
+          52,
+          883,
+          27
+        ],
+        "hiddenPct": 1.2
+      },
+      "dicePanel": {
+        "rect": [
+          1234,
+          122,
+          238,
+          158
+        ],
+        "hiddenPct": 100
+      },
+      "rerollBtn": {
+        "rect": [
+          1234,
+          287,
+          238,
+          34
+        ],
+        "hiddenPct": 100
+      },
+      "bossProfile": {
+        "rect": [
+          1234,
+          657,
+          238,
+          76
+        ],
+        "hiddenPct": 100
+      },
+      "lastMoveBanner": {
+        "rect": [
+          1234,
+          740,
+          238,
+          61
+        ],
+        "hiddenPct": 100
+      }
+    },
+    "handCards": [
+      {
+        "i": 0,
+        "rect": [
+          23,
+          202,
+          119,
+          159
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 1,
+        "rect": [
+          152,
+          208,
+          114,
+          153
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 2,
+        "rect": [
+          26,
+          368,
+          114,
+          153
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 3,
+        "rect": [
+          152,
+          368,
+          114,
+          153
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 4,
+        "rect": [
+          26,
+          529,
+          114,
+          153
+        ],
+        "hiddenPct": 0
+      },
+      {
+        "i": 5,
+        "rect": [
+          152,
+          529,
+          114,
+          153
+        ],
+        "hiddenPct": 0
+      }
+    ],
+    "tiles": [
+      {
+        "r": 0,
+        "c": 0,
+        "rect": [
+          537,
+          192,
+          135,
+          172
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 1,
+        "rect": [
+          683,
+          192,
+          134,
+          172
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 0,
+        "c": 2,
+        "rect": [
+          828,
+          192,
+          135,
+          172
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 1,
+        "c": 0,
+        "rect": [
+          534,
+          376,
+          136,
+          177
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 1,
+        "rect": [
+          682,
+          376,
+          136,
+          177
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 1,
+        "c": 2,
+        "rect": [
+          829,
+          376,
+          136,
+          177
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": false
+      },
+      {
+        "r": 2,
+        "c": 0,
+        "rect": [
+          531,
+          565,
+          138,
+          181
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 2,
+        "c": 1,
+        "rect": [
+          681,
+          565,
+          137,
+          181
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      },
+      {
+        "r": 2,
+        "c": 2,
+        "rect": [
+          830,
+          565,
+          138,
+          181
+        ],
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
+      }
+    ],
+    "textOverflow": [
+      {
+        "text": "⚡ Orbital Airstrike",
+        "cls": "DIV",
+        "id": "",
+        "ox": 4,
+        "oy": 0,
+        "ellipsis": true
+      }
+    ],
+    "docScroll": {
+      "sw": 1333,
+      "sh": 927,
+      "vw": 1333,
+      "vh": 927
+    },
+    "visibleIssues": [
+      "headerRight 26.8% hidden",
+      "bossPanelAside 100% hidden",
+      "telegraphHud 1.2% hidden",
+      "dicePanel 100% hidden",
+      "rerollBtn 100% hidden",
+      "bossProfile 100% hidden",
+      "lastMoveBanner 100% hidden"
+    ],
+    "allTilesCenterHittable": true,
+    "allTilesCornersHittable": false,
+    "touchPointerEvents": {
+      "pointerdown:touch": 1,
+      "pointermove:touch": 24,
+      "pointerup:touch": 1
+    },
+    "inputMode": "touch (CDP Input.dispatchTouchEvent)",
+    "dragPlacementWorked": true,
+    "tapTapPlacementWorked": true,
+    "pageErrors": []
+  }
+]

@@ -1,0 +1,614 @@
+{
+  "latest_iteration": {
+    "iteration": 11,
+    "timestamp_utc": "2026-11-08T13:16:16Z",
+    "video_id": "t13A2XFGoOc",
+    "target_model": "gemini-4-argon",
+    "active_track": {
+      "track_id": "track_01_card_game_feel_ui",
+      "focus": "Card-Game Single-Zone Invariant, Game-Feel Trauma\u00b2 Shake & 80ms Hit-Stop, and Responsive UI/UX",
+      "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance"
+    },
+    "routed_skill_stack": {
+      "primary_web_engine": "Custom HTML5/CSS3/JS Tabletop Engine",
+      "unity_engine": "Unity",
+      "unity_version": "2022.3.40f1",
+      "selected_skill_names": [
+        "unity-scriptableobjects",
+        "game-feel",
+        "game-ui-ux",
+        "card-game"
+      ],
+      "skill_stack_order": "Engine Fundamentals -> Discipline(s) -> Genre -> Workflow",
+      "exact_skill_files_to_load": [
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/references/custom-engines.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md"
+      ],
+      "composed_system_prompt_chars": 32873
+    },
+    "primary_tcg_stack": {
+      "selected_skill_names": [
+        "unity-scriptableobjects",
+        "game-feel",
+        "game-ui-ux",
+        "card-game"
+      ],
+      "composed_system_prompt_chars": 32873
+    },
+    "grounded_verification_summary": {
+      "drag_e2e_passed": true,
+      "autotest_e2e_passed": true,
+      "autotest_title": "TEST_COMPLETE:6-3:SINGLETON=true:IMG=true",
+      "total_checks": 98,
+      "passed_checks": 98,
+      "failed_checks": 0,
+      "pass_rate_pct": 100.0,
+      "p0_failures": 0,
+      "p1_failures": 0,
+      "check_sources_loaded": [
+        "Tools/skill_harness/core_checks.json",
+        "Datasets/mirofish_gameplay/skills_ai_save_ship/checks.json",
+        "Datasets/mirofish_gameplay/skills_art_direction/checks.json",
+        "Datasets/mirofish_gameplay/skills_cardgame_ui_input/checks.json",
+        "Datasets/mirofish_gameplay/skills_feel_audio_camera_perf/checks.json"
+      ],
+      "passed_check_ids": [
+        "ai_save_ship.1",
+        "ai_save_ship.10",
+        "ai_save_ship.11",
+        "ai_save_ship.12",
+        "ai_save_ship.13",
+        "ai_save_ship.14",
+        "ai_save_ship.15",
+        "ai_save_ship.16",
+        "ai_save_ship.17",
+        "ai_save_ship.18",
+        "ai_save_ship.2",
+        "ai_save_ship.3",
+        "ai_save_ship.4",
+        "ai_save_ship.5",
+        "ai_save_ship.6",
+        "ai_save_ship.7",
+        "ai_save_ship.8",
+        "ai_save_ship.9",
+        "art_direction.1",
+        "art_direction.10",
+        "art_direction.11",
+        "art_direction.12",
+        "art_direction.13",
+        "art_direction.14",
+        "art_direction.2",
+        "art_direction.3",
+        "art_direction.4",
+        "art_direction.5",
+        "art_direction.6",
+        "art_direction.7",
+        "art_direction.8",
+        "art_direction.9",
+        "cardgame_ui_input.1",
+        "cardgame_ui_input.10",
+        "cardgame_ui_input.11",
+        "cardgame_ui_input.12",
+        "cardgame_ui_input.13",
+        "cardgame_ui_input.14",
+        "cardgame_ui_input.15",
+        "cardgame_ui_input.16",
+        "cardgame_ui_input.17",
+        "cardgame_ui_input.18",
+        "cardgame_ui_input.19",
+        "cardgame_ui_input.2",
+        "cardgame_ui_input.20",
+        "cardgame_ui_input.21",
+        "cardgame_ui_input.22",
+        "cardgame_ui_input.3",
+        "cardgame_ui_input.4",
+        "cardgame_ui_input.5",
+        "cardgame_ui_input.6",
+        "cardgame_ui_input.7",
+        "cardgame_ui_input.8",
+        "cardgame_ui_input.9",
+        "core.audio_design.01",
+        "core.card_game.01",
+        "core.card_game.02",
+        "core.card_game.03",
+        "core.card_game.04",
+        "core.card_game.05",
+        "core.card_game.06",
+        "core.card_game.07",
+        "core.create_game_assets.01",
+        "core.create_game_assets.02",
+        "core.game_ai.01",
+        "core.game_feel.01",
+        "core.game_feel.02",
+        "core.game_feel.03",
+        "core.game_feel.04",
+        "core.game_ui_ux.01",
+        "core.game_ui_ux.02",
+        "core.game_ui_ux.03",
+        "core.game_ui_ux.04",
+        "core.input_systems.01",
+        "core.performance.01",
+        "core.save_systems.01",
+        "core.unity_so.01",
+        "core.unity_so.02",
+        "feel_audio_camera_perf.1",
+        "feel_audio_camera_perf.10",
+        "feel_audio_camera_perf.11",
+        "feel_audio_camera_perf.12",
+        "feel_audio_camera_perf.13",
+        "feel_audio_camera_perf.14",
+        "feel_audio_camera_perf.15",
+        "feel_audio_camera_perf.16",
+        "feel_audio_camera_perf.17",
+        "feel_audio_camera_perf.18",
+        "feel_audio_camera_perf.19",
+        "feel_audio_camera_perf.2",
+        "feel_audio_camera_perf.20",
+        "feel_audio_camera_perf.3",
+        "feel_audio_camera_perf.4",
+        "feel_audio_camera_perf.5",
+        "feel_audio_camera_perf.6",
+        "feel_audio_camera_perf.7",
+        "feel_audio_camera_perf.8",
+        "feel_audio_camera_perf.9"
+      ],
+      "failed_check_ids": []
+    },
+    "gate_status": "PASS_ALL_GATES",
+    "quality_gates": {
+      "all_gates_passed": true,
+      "card_game_invariants": {
+        "passed": true
+      },
+      "game_feel_and_ui_ux": {
+        "passed": true
+      },
+      "create_game_assets_and_so": {
+        "passed": true
+      }
+    },
+    "per_skill_scorecard": {
+      "genres/card-game": {
+        "skill": "genres/card-game",
+        "total": 13,
+        "passed": 13,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/game-feel": {
+        "skill": "disciplines/game-feel",
+        "total": 11,
+        "passed": 11,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/game-ui-ux": {
+        "skill": "disciplines/game-ui-ux",
+        "total": 12,
+        "passed": 12,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/create-game-assets": {
+        "skill": "disciplines/create-game-assets",
+        "total": 15,
+        "passed": 15,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "unity/unity-scriptableobjects": {
+        "skill": "unity/unity-scriptableobjects",
+        "total": 5,
+        "passed": 5,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/input-systems": {
+        "skill": "disciplines/input-systems",
+        "total": 6,
+        "passed": 6,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/audio-design": {
+        "skill": "disciplines/audio-design",
+        "total": 5,
+        "passed": 5,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/save-systems": {
+        "skill": "disciplines/save-systems",
+        "total": 6,
+        "passed": 6,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/game-ai": {
+        "skill": "disciplines/game-ai",
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/performance-optimization": {
+        "skill": "disciplines/performance-optimization",
+        "total": 6,
+        "passed": 6,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/ai-behavior-trees-utility-ai": {
+        "skill": "disciplines/ai-behavior-trees-utility-ai",
+        "total": 5,
+        "passed": 5,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "workflows/prototype-fast": {
+        "skill": "workflows/prototype-fast",
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "workflows/itch-publish": {
+        "skill": "workflows/itch-publish",
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "workflows/steam-publish": {
+        "skill": "workflows/steam-publish",
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "art-direction/tactical-illustrator-library": {
+        "skill": "art-direction/tactical-illustrator-library",
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/camera-systems": {
+        "skill": "disciplines/camera-systems",
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      }
+    },
+    "prioritized_backlog": [],
+    "mirofish_telemetry": {
+      "workstreams_present": [
+        "balance",
+        "rules_audit",
+        "ux_qa",
+        "personas",
+        "benchmark",
+        "skills_art_direction"
+      ],
+      "balance": {
+        "matches_validated": 166,
+        "actions_compared": 975,
+        "match_agreement_pct": 100,
+        "action_agreement_pct": 100,
+        "total_simulated_games": 322000,
+        "total_main_games": 112000,
+        "total_variant_games": 210000,
+        "by_stage": {
+          "0": {
+            "n": 42,
+            "ok": 42,
+            "wins": 39
+          },
+          "1": {
+            "n": 42,
+            "ok": 42,
+            "wins": 42
+          },
+          "2": {
+            "n": 41,
+            "ok": 41,
+            "wins": 33
+          },
+          "3": {
+            "n": 41,
+            "ok": 41,
+            "wins": 34
+          }
+        }
+      },
+      "rules_audit": {
+        "total_repro_probes": 11,
+        "reproduced_count": 10,
+        "findings": [
+          {
+            "id": "R01_stale_boss_turn_after_reset",
+            "title": "Pending boss turn survives Reset/stage-select",
+            "reproduced": true
+          },
+          {
+            "id": "R02_boss_tiebreak_deterministic",
+            "title": "Boss tie-break always picks first row-major slot",
+            "reproduced": true
+          },
+          {
+            "id": "R03_stale_hand_drag_undefined_card",
+            "title": "Stale hand-drag drop after keyboard deploy corrupts board",
+            "reproduced": true
+          },
+          {
+            "id": "R04_stale_board_drag_steals_card",
+            "title": "Stale slide-drag moves & converts a boss-captured card",
+            "reproduced": true
+          },
+          {
+            "id": "R05_selected_unit_misclick_deploys",
+            "title": "Mis-click while a board unit is selected deploys from hand",
+            "reproduced": true
+          },
+          {
+            "id": "R06_empty_tile_click_swallowed",
+            "title": "Clicks on slide-target tiles swallowed by hover re-render / 3D hit-test",
+            "reproduced": false
+          },
+          {
+            "id": "R07_recalc_asymmetry_captured_cards",
+            "title": "Captured cards re-statted inconsistently on dice change",
+            "reproduced": true
+          },
+          {
+            "id": "R08_next_stage_after_defeat_wraps",
+            "title": "Next Stage after defeat, 4->1 wrap, end-state badge",
+            "reproduced": true
+          },
+          {
+            "id": "R09_stale_result_modal_after_reset",
+            "title": "Old result modal pops over a new game after Reset",
+            "reproduced": true
+          },
+          {
+            "id": "R10_global_hotkeys_hijack_space",
+            "title": "Space/Enter/r global hotkeys override focused controls",
+            "reproduced": true
+          },
+          {
+            "id": "R11_debug_hooks_in_production",
+            "title": "autotest/dragtest hooks reachable from URL",
+            "reproduced": true
+          }
+        ]
+      },
+      "ux_qa": {
+        "drag_p95_ms": 16.7,
+        "drag_long_tasks": 0,
+        "renderAll_avg_ms": 0.47,
+        "broken_images_count": 0,
+        "keyboard_only_game_completed": true,
+        "modal_auto_focused": false
+      },
+      "personas": {
+        "matches_recorded": 120,
+        "distinct_personas": [
+          "p01",
+          "p02",
+          "p03",
+          "p04",
+          "p05",
+          "p06",
+          "p07",
+          "p08",
+          "p09",
+          "p10"
+        ],
+        "wins_recorded": 0
+      },
+      "benchmark": {
+        "hero_cards_count": 8,
+        "enemy_cards_count": 8,
+        "report_present": true
+      },
+      "skills_art_direction": {
+        "cards_raster_qa_ok": true,
+        "cards_verified_count": 16,
+        "contact_sheet_exists": true
+      }
+    },
+    "catalog_summary": {
+      "total_skill_md_files": 92,
+      "total_indexed_skills": 91,
+      "upstream_gamedev_skills_count": 77,
+      "custom_synapse_skills_count": 14
+    },
+    "elapsed_ms": 17400.1
+  },
+  "video_and_catalog": {
+    "video_analysis": {
+      "video_id": "t13A2XFGoOc",
+      "url": "https://youtu.be/t13A2XFGoOc?si=V1HkMBTl7KO5qwac",
+      "title": "Turn Claude into an Expert Game Dev with these Free 77 AI Skills",
+      "author": "Nick Automates (@nickautomates)",
+      "duration_seconds": 35,
+      "featured_repository": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
+      "target_orchestrator_model": "gemini-4-argon",
+      "gemini_4_argon_rewrite_summary": "Replaces Claude Code's single-threaded `.claude-plugin/marketplace.json` assumptions with `.gemini-plugin/gemini-4-argon-skills.json`: native Gemini 4 Argon progressive disclosure via `read_file`, dual-engine routing (Custom HTML5/CSS3/JS WebPlayable + Unity 2022.3.40f1), parallel subagent swarms (`invoke_subagent` with `Model: inherit`), Apple Silicon `jevmlx` gates, and real Playwright + static code verification.",
+      "core_architecture_pillars": [
+        {
+          "pillar": "1. Master Router Dispatcher (router/SKILL.md + custom-engines.md)",
+          "mechanism": "Fingerprints the project across 12 catalog engines plus custom/proprietary engines (recognizing both `WebPlayable/cardfront_cradle_of_echoes_playable.html` as a custom HTML5/CSS3/JS tabletop engine and `Assets/` as Unity `2022.3.40f1`)."
+        },
+        {
+          "pillar": "2. Strict 4-Slot Progressive Disclosure Composition",
+          "mechanism": "Orders chosen skills strictly as `Engine Fundamentals -> Discipline(s) -> Genre -> Workflow` and reads only selected `SKILL.md` bodies on demand."
+        },
+        {
+          "pillar": "3. Gemini 4 Argon Parallel Swarm & Grounded Verification (`Tools/skill_harness/iterate.py`)",
+          "mechanism": "Executes real Playwright Chromium E2E tests (`WebPlayable/tests/drag_e2e.js` and `?autotest=1`), merges `Tools/skill_harness/core_checks.json` with all `Datasets/mirofish_gameplay/skills_*/checks.json` files, and outputs a ranked P0-P3 backlog."
+        },
+        {
+          "pillar": "4. Cohesive Art Direction & Raster QA (`create-game-assets`)",
+          "mechanism": "Validates 600x800 (3:4 portrait) card assets, 1024x768 stage backdrops, and 16 inline SVG telegraph overlays in live DOM and via `scripts/asset_report.py`."
+        }
+      ]
+    },
+    "local_harness_inventory": {
+      "rust_binary": "/Users/frederickamina/.local/bin/pxg-gamedev-harness",
+      "rust_binary_exists": true,
+      "router_skill_exists": true,
+      "gemini_4_argon_manifest": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/.gemini-plugin/gemini-4-argon-skills.json",
+      "total_skill_md_files": 92,
+      "total_indexed_skills": 91,
+      "upstream_gamedev_skills_count": 77,
+      "custom_synapse_skills_count": 14,
+      "categories_count": 12,
+      "skills_by_category": {
+        "art-direction": [
+          "tactical-illustrator-library"
+        ],
+        "decompilation": [
+          "advance-wars-ffta-gba-decomp",
+          "anime-baseline-proprietary-style-distillation",
+          "crossover-engine-bridge",
+          "emulation-state-bridge",
+          "game-bundle-modding",
+          "hi3d-ai-full-studio-re",
+          "into-the-breach-staccs-re",
+          "matching-decompilation",
+          "metal-gear-acid-card-stealth-re",
+          "morluto-rea-omegastrikers-hi3d-pipeline",
+          "nvidia-rtx-tensorcore-unlock",
+          "static-recompilation",
+          "unity-tcg-engine-re"
+        ],
+        "disciplines": [
+          "ai-behavior-trees-utility-ai",
+          "audio-design",
+          "camera-systems",
+          "create-game-assets",
+          "dialogue-systems",
+          "game-ai",
+          "game-feel",
+          "game-ui-ux",
+          "input-systems",
+          "level-design",
+          "performance-optimization",
+          "physics-tuning",
+          "procedural-gen",
+          "save-systems",
+          "shader-programming"
+        ],
+        "ebitengine": [
+          "ebitengine-game"
+        ],
+        "genres": [
+          "card-game",
+          "fps-shooter",
+          "platformer",
+          "puzzle",
+          "roguelike",
+          "rpg",
+          "survival-crafting",
+          "tower-defense",
+          "visual-novel"
+        ],
+        "godot": [
+          "godot-2d-movement",
+          "godot-3d-essentials",
+          "godot-animation",
+          "godot-audio",
+          "godot-csharp",
+          "godot-export",
+          "godot-gdscript",
+          "godot-gdscript-headless-testing",
+          "godot-multiplayer",
+          "godot-nodes-scenes",
+          "godot-physics",
+          "godot-resources",
+          "godot-shaders",
+          "godot-signals-groups",
+          "godot-tilemap",
+          "godot-ui-control"
+        ],
+        "other-engines": [
+          "bevy-ecs",
+          "defold-core",
+          "love2d-core",
+          "pygame-core",
+          "roblox-characters",
+          "roblox-datastores",
+          "roblox-luau",
+          "roblox-networking",
+          "roblox-physics",
+          "roblox-simulator-economy",
+          "roblox-studio-workflow",
+          "roblox-ui"
+        ],
+        "router": [
+          "router"
+        ],
+        "unity": [
+          "unity-animation",
+          "unity-build-pipeline",
+          "unity-csharp-scripting",
+          "unity-input-system",
+          "unity-navmesh",
+          "unity-physics",
+          "unity-scriptableobjects",
+          "unity-tilemap-2d"
+        ],
+        "unreal": [
+          "unreal-behavior-trees",
+          "unreal-blueprints",
+          "unreal-cpp-gameplay",
+          "unreal-enhanced-input",
+          "unreal-niagara",
+          "unreal-packaging"
+        ],
+        "web-engines": [
+          "phaser-arcade-physics",
+          "phaser-core",
+          "pixijs-rendering",
+          "threejs-gltf-loading",
+          "threejs-materials-lighting",
+          "threejs-scene-setup"
+        ],
+        "workflows": [
+          "game-jam",
+          "itch-publish",
+          "prototype-fast",
+          "steam-publish"
+        ]
+      }
+    }
+  },
+  "grounded_artifacts": {
+    "iterations_jsonl": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/skill_harness/iterations.jsonl",
+    "latest_scorecard_json": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/skill_harness/latest_scorecard.json",
+    "latest_report_md": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/skill_harness/latest_report.md",
+    "gemini_4_argon_manifest": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/.gemini-plugin/gemini-4-argon-skills.json"
+  }
+}

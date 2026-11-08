@@ -1,0 +1,736 @@
+{
+  "_note": "Consistency check of SYNTHETIC feedback vs REAL telemetry. judge model: jevmlx 'fast'",
+  "personas": {
+    "p01": {
+      "name": "TripleTriadEdgeVeteran",
+      "items": [
+        {
+          "kind": "like",
+          "text": "Clear and fair rules",
+          "jev_verdict": true,
+          "jev_probability": 0.9161,
+          "jev_margin": 0.8322,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "like",
+          "text": "Engaging gameplay",
+          "jev_verdict": true,
+          "jev_probability": 0.9381,
+          "jev_margin": 0.8762,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "like",
+          "text": "Smooth drag and drop",
+          "jev_verdict": true,
+          "jev_probability": 0.8991,
+          "jev_margin": 0.7982,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "Rare but high cost of random moves",
+          "jev_verdict": true,
+          "jev_probability": 0.8007,
+          "jev_margin": 0.6014,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "Lack of progression",
+          "jev_verdict": true,
+          "jev_probability": 0.9208,
+          "jev_margin": 0.8416,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "No multiplayer",
+          "jev_verdict": true,
+          "jev_probability": 0.7982,
+          "jev_margin": 0.5964,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "quote",
+          "text": "The game is very clear and fair, but the occasional random move can be quite frustrating.",
+          "jev_verdict": true,
+          "jev_probability": 0.78,
+          "jev_margin": 0.56,
+          "rule_flags": [],
+          "flagged": false
+        }
+      ],
+      "rating_notes": [],
+      "n_items": 7,
+      "n_flagged": 0
+    },
+    "p02": {
+      "name": "QueensBloodLaneBuilder",
+      "items": [
+        {
+          "kind": "like",
+          "text": "Each match progression is clear and ends in a fair manner.",
+          "jev_verdict": true,
+          "jev_probability": 0.7186,
+          "jev_margin": 0.4372,
+          "rule_flags": [
+            "claims feature/experience not present: no collection/progression/unlocks"
+          ],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "The simplicity of the drag-and-drop mechanic makes the game enjoyable and intuitive.",
+          "jev_verdict": true,
+          "jev_probability": 0.6225,
+          "jev_margin": 0.2449,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "like",
+          "text": "The strategic depth lies in deciding when to use Tactical Slide and when to place cards to flip the most cards.",
+          "jev_verdict": true,
+          "jev_probability": 0.9334,
+          "jev_margin": 0.8669,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "There is no room for human error or skill variance, which might make the game predictable.",
+          "jev_verdict": true,
+          "jev_probability": 0.7249,
+          "jev_margin": 0.4497,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "No multiplayer mode can add replay value.",
+          "jev_verdict": false,
+          "jev_probability": 0.5775,
+          "jev_margin": 0.155,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "The lack of progression and progression-based unlocks can make the game feel stagnant.",
+          "jev_verdict": true,
+          "jev_probability": 0.6261,
+          "jev_margin": 0.2522,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "quote",
+          "text": "Each match progression is clear and ends in a fair manner, but the lack of progression and human skill variance makes the game predictable.",
+          "jev_verdict": false,
+          "jev_probability": 0.5775,
+          "jev_margin": 0.155,
+          "rule_flags": [],
+          "flagged": true
+        }
+      ],
+      "rating_notes": [
+        "difficulty_fairness>=9 despite 100% wins with avg margin >= 4 (game was very easy for this persona)"
+      ],
+      "n_items": 7,
+      "n_flagged": 3
+    },
+    "p03": {
+      "name": "SnapCompetitiveGrinder",
+      "items": [
+        {
+          "kind": "like",
+          "text": "Clear and easy to understand rules",
+          "jev_verdict": false,
+          "jev_probability": 0.8808,
+          "jev_margin": 0.7616,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "Engaging tactical decisions",
+          "jev_verdict": false,
+          "jev_probability": 0.5312,
+          "jev_margin": 0.0624,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "Smooth and responsive drag and drop",
+          "jev_verdict": false,
+          "jev_probability": 0.8903,
+          "jev_margin": 0.7806,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "Some turns are too predictable",
+          "jev_verdict": false,
+          "jev_probability": 0.6859,
+          "jev_margin": 0.3719,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "Frequent nudging and rerolling",
+          "jev_verdict": false,
+          "jev_probability": 0.9219,
+          "jev_margin": 0.8438,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "Lack of progression system",
+          "jev_verdict": false,
+          "jev_probability": 0.8652,
+          "jev_margin": 0.7304,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "quote",
+          "text": "The game is very smooth and the rules are clear, but the predictability and nudging mechanic can be a bit tedious.",
+          "jev_verdict": false,
+          "jev_probability": 0.6406,
+          "jev_margin": 0.2813,
+          "rule_flags": [],
+          "flagged": true
+        }
+      ],
+      "rating_notes": [],
+      "n_items": 7,
+      "n_flagged": 7
+    },
+    "p04": {
+      "name": "CasualMobileTapper",
+      "items": [
+        {
+          "kind": "like",
+          "text": "Clear and intuitive rules",
+          "jev_verdict": false,
+          "jev_probability": 0.8376,
+          "jev_margin": 0.6752,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "Engaging strategic depth",
+          "jev_verdict": false,
+          "jev_probability": 0.7578,
+          "jev_margin": 0.5156,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "Visual representation of the game state",
+          "jev_verdict": false,
+          "jev_probability": 0.7122,
+          "jev_margin": 0.4245,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "Some moves are not as impactful as other plays",
+          "jev_verdict": false,
+          "jev_probability": 0.8152,
+          "jev_margin": 0.6305,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "Decision-making spread",
+          "jev_verdict": false,
+          "jev_probability": 0.9482,
+          "jev_margin": 0.8963,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "No multiplayer",
+          "jev_verdict": false,
+          "jev_probability": 0.9592,
+          "jev_margin": 0.9183,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "quote",
+          "text": "The game is mostly fun, but the lack of progression and multiplayer makes me feel a bit incomplete.",
+          "jev_verdict": true,
+          "jev_probability": 0.6114,
+          "jev_margin": 0.2228,
+          "rule_flags": [],
+          "flagged": false
+        }
+      ],
+      "rating_notes": [],
+      "n_items": 7,
+      "n_flagged": 6
+    },
+    "p05": {
+      "name": "IntoTheBreachTactician",
+      "items": [
+        {
+          "kind": "like",
+          "text": "Clear and fair rules",
+          "jev_verdict": true,
+          "jev_probability": 0.8032,
+          "jev_margin": 0.6063,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "like",
+          "text": "Engaging and predictable difficulty",
+          "jev_verdict": true,
+          "jev_probability": 0.8129,
+          "jev_margin": 0.6257,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "like",
+          "text": "Interesting strategic depth",
+          "jev_verdict": true,
+          "jev_probability": 0.7186,
+          "jev_margin": 0.4372,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "No hidden randomness affecting outcomes",
+          "jev_verdict": true,
+          "jev_probability": 0.7957,
+          "jev_margin": 0.5913,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "No progression or deck building",
+          "jev_verdict": true,
+          "jev_probability": 0.8311,
+          "jev_margin": 0.6623,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "No multiplayer or progression",
+          "jev_verdict": true,
+          "jev_probability": 0.6826,
+          "jev_margin": 0.3651,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "quote",
+          "text": "The game's structure and rules are clear and fair, providing a consistent and enjoyable experience. The strategic depth and drag & drop mechanics are well-balanced and engaging. However, the lack of progression and multiplayer feels like a missed opportunity.",
+          "jev_verdict": false,
+          "jev_probability": 0.6654,
+          "jev_margin": 0.3308,
+          "rule_flags": [],
+          "flagged": true
+        }
+      ],
+      "rating_notes": [
+        "difficulty_fairness>=9 despite 100% wins with avg margin >= 4 (game was very easy for this persona)"
+      ],
+      "n_items": 7,
+      "n_flagged": 1
+    },
+    "p06": {
+      "name": "TCGFirstTimeNewcomer",
+      "items": [
+        {
+          "kind": "like",
+          "text": "Clear and understandable rules",
+          "jev_verdict": true,
+          "jev_probability": 0.852,
+          "jev_margin": 0.7039,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "like",
+          "text": "Engaging game mechanics",
+          "jev_verdict": true,
+          "jev_probability": 0.7827,
+          "jev_margin": 0.5653,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "like",
+          "text": "Simple and effective deployment system",
+          "jev_verdict": true,
+          "jev_probability": 0.6826,
+          "jev_margin": 0.3651,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "No dice system",
+          "jev_verdict": true,
+          "jev_probability": 0.7249,
+          "jev_margin": 0.4497,
+          "rule_flags": [
+            "describes using dice but persona never used dice"
+          ],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "No deck building",
+          "jev_verdict": true,
+          "jev_probability": 0.8856,
+          "jev_margin": 0.7713,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "No progression mechanics",
+          "jev_verdict": true,
+          "jev_probability": 0.7905,
+          "jev_margin": 0.5811,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "quote",
+          "text": "The game has a solid foundation with clear rules and engaging mechanics. However, the lack of progression and dice system feels like a missed opportunity for more strategic depth.",
+          "jev_verdict": false,
+          "jev_probability": 0.5467,
+          "jev_margin": 0.0935,
+          "rule_flags": [
+            "describes using dice but persona never used dice"
+          ],
+          "flagged": true
+        }
+      ],
+      "rating_notes": [],
+      "n_items": 7,
+      "n_flagged": 2
+    },
+    "p07": {
+      "name": "StreamerSpectacleCaster",
+      "items": [
+        {
+          "kind": "like",
+          "text": "The game is very fair and balanced.",
+          "jev_verdict": false,
+          "jev_probability": 0.8559,
+          "jev_margin": 0.7117,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "The drag and drop mechanic is smooth and intuitive.",
+          "jev_verdict": false,
+          "jev_probability": 0.5813,
+          "jev_margin": 0.1626,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "The game rewards strategic thinking and careful placement of cards.",
+          "jev_verdict": true,
+          "jev_probability": 0.7718,
+          "jev_margin": 0.5437,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "The lack of progression and deck building can lead to predictability over time.",
+          "jev_verdict": true,
+          "jev_probability": 0.8152,
+          "jev_margin": 0.6305,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "The flat difficulty curve might make the game feel repetitive.",
+          "jev_verdict": true,
+          "jev_probability": 0.5156,
+          "jev_margin": 0.0312,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "The lack of multiplayer and progression features limit replayability.",
+          "jev_verdict": true,
+          "jev_probability": 0.5117,
+          "jev_margin": 0.0234,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "quote",
+          "text": "StreamSpectacleCaster: This game is a solid, fair, and engaging experience. I enjoyed the strategic depth and the tactical choices, especially the drag and drop mechanic. However, the predictability and lack of progression make it less engaging over time.",
+          "jev_verdict": true,
+          "jev_probability": 0.8199,
+          "jev_margin": 0.6398,
+          "rule_flags": [],
+          "flagged": false
+        }
+      ],
+      "rating_notes": [],
+      "n_items": 7,
+      "n_flagged": 2
+    },
+    "p08": {
+      "name": "DeuteranopiaColorReader",
+      "items": [
+        {
+          "kind": "like",
+          "text": "Match outcomes were consistently positive, and the game's progression was clear and fair.",
+          "jev_verdict": false,
+          "jev_probability": 0.7827,
+          "jev_margin": 0.5653,
+          "rule_flags": [
+            "claims feature/experience not present: no collection/progression/unlocks"
+          ],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "The controls were intuitive and easy to use.",
+          "jev_verdict": false,
+          "jev_probability": 0.6926,
+          "jev_margin": 0.3853,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "The mechanic of nudging or rerolling dice was a refreshing twist.",
+          "jev_verdict": false,
+          "jev_probability": 0.7372,
+          "jev_margin": 0.4743,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "There were occasional misjudgments related to card ownership, though this was not due to the game's mechanics but the colourblind player's colour perception.",
+          "jev_verdict": true,
+          "jev_probability": 0.9294,
+          "jev_margin": 0.8589,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "The colour of the cards and board were not as intuitive for the colourblind player, leading to a few misjudgments.",
+          "jev_verdict": true,
+          "jev_probability": 0.8856,
+          "jev_margin": 0.7713,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "There were no significant issues with the drag-drop functionality.",
+          "jev_verdict": false,
+          "jev_probability": 0.6993,
+          "jev_margin": 0.3985,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "quote",
+          "text": "Overall, an enjoyable and fair game, though the colour issues made it challenging for a deuteranopic player like me.",
+          "jev_verdict": true,
+          "jev_probability": 0.8056,
+          "jev_margin": 0.6113,
+          "rule_flags": [],
+          "flagged": false
+        }
+      ],
+      "rating_notes": [
+        "difficulty_fairness>=9 despite 100% wins with avg margin >= 4 (game was very easy for this persona)"
+      ],
+      "n_items": 7,
+      "n_flagged": 4
+    },
+    "p09": {
+      "name": "CompletionistCollector",
+      "items": [
+        {
+          "kind": "like",
+          "text": "Clear, straightforward mechanics",
+          "jev_verdict": false,
+          "jev_probability": 0.5429,
+          "jev_margin": 0.0857,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "Engaging and consistent win rate",
+          "jev_verdict": true,
+          "jev_probability": 0.6406,
+          "jev_margin": 0.2813,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "like",
+          "text": "Well-balanced nudges and rerolls",
+          "jev_verdict": true,
+          "jev_probability": 0.6619,
+          "jev_margin": 0.3238,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "Rarely have to make difficult strategic choices",
+          "jev_verdict": true,
+          "jev_probability": 0.7827,
+          "jev_margin": 0.5653,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "Lack of progression makes it predictable",
+          "jev_verdict": true,
+          "jev_probability": 0.6792,
+          "jev_margin": 0.3584,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "frustration",
+          "text": "Limited choices due to hand size",
+          "jev_verdict": true,
+          "jev_probability": 0.7186,
+          "jev_margin": 0.4372,
+          "rule_flags": [],
+          "flagged": false
+        },
+        {
+          "kind": "quote",
+          "text": "...",
+          "jev_verdict": false,
+          "jev_probability": 0.7635,
+          "jev_margin": 0.527,
+          "rule_flags": [],
+          "flagged": true
+        }
+      ],
+      "rating_notes": [],
+      "n_items": 7,
+      "n_flagged": 2
+    },
+    "p10": {
+      "name": "MinMaxOptimizer",
+      "items": [
+        {
+          "kind": "like",
+          "text": "Clear and fair win rate",
+          "jev_verdict": false,
+          "jev_probability": 0.8706,
+          "jev_margin": 0.7412,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "Engaging strategic depth",
+          "jev_verdict": false,
+          "jev_probability": 0.7746,
+          "jev_margin": 0.5492,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "like",
+          "text": "Smooth and intuitive drag & drop",
+          "jev_verdict": false,
+          "jev_probability": 0.9433,
+          "jev_margin": 0.8867,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "No multiplayer or progression",
+          "jev_verdict": false,
+          "jev_probability": 0.8081,
+          "jev_margin": 0.6161,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "No deck building or progression",
+          "jev_verdict": false,
+          "jev_probability": 0.8032,
+          "jev_margin": 0.6063,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "frustration",
+          "text": "No same/plus/combos",
+          "jev_verdict": false,
+          "jev_probability": 0.9417,
+          "jev_margin": 0.8833,
+          "rule_flags": [],
+          "flagged": true
+        },
+        {
+          "kind": "quote",
+          "text": "The game is a pleasure to play, with a clear and fair win rate and engaging strategic depth. The board state and rules are intuitive and easy to understand.",
+          "jev_verdict": false,
+          "jev_probability": 0.566,
+          "jev_margin": 0.132,
+          "rule_flags": [],
+          "flagged": true
+        }
+      ],
+      "rating_notes": [
+        "difficulty_fairness>=9 despite 100% wins with avg margin >= 4 (game was very easy for this persona)"
+      ],
+      "n_items": 7,
+      "n_flagged": 7
+    }
+  },
+  "summary": {
+    "items": 70,
+    "flagged": 34,
+    "flag_rate": 0.486
+  }
+}

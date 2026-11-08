@@ -1,0 +1,63 @@
+{
+  "id": "R08_next_stage_after_defeat_wraps",
+  "title": "Next Stage after defeat, 4->1 wrap, end-state badge",
+  "reproduced": true,
+  "checks": [
+    {
+      "name": "player deploy did not end the game (board 8/9)",
+      "ok": true,
+      "detail": {
+        "blue": 3,
+        "red": 5,
+        "empty": 1
+      }
+    },
+    {
+      "name": "(d) game ended on the boss's 9th card with 1 hero left unused in hand",
+      "ok": true,
+      "detail": {
+        "hand": [
+          "h_chronos"
+        ],
+        "scores": {
+          "blue": 3,
+          "red": 6,
+          "empty": 0
+        }
+      }
+    },
+    {
+      "name": "result is a DEFEAT",
+      "ok": true,
+      "detail": "💥 DEFEAT (3 – 6)"
+    },
+    {
+      "name": "(c) turn badge says YOUR TURN on the finished board",
+      "ok": true,
+      "detail": "YOUR TURN"
+    },
+    {
+      "name": "(a) 'Next Stage ▶' button is visible on the DEFEAT modal",
+      "ok": true
+    },
+    {
+      "name": "(a)+(b) after losing Stage 4, Next Stage starts Stage 1 (index 0)",
+      "ok": true,
+      "detail": {
+        "stageIndex": 0,
+        "select": "0"
+      }
+    },
+    {
+      "name": "(a) losing Stage 1 still advances to Stage 2",
+      "ok": true,
+      "detail": {
+        "title": "💥 DEFEAT (3 – 6)",
+        "stageIndex": 1
+      }
+    }
+  ],
+  "notes": {},
+  "pageErrors": [],
+  "ranAt": "2026-11-08T12:12:01.517Z"
+}

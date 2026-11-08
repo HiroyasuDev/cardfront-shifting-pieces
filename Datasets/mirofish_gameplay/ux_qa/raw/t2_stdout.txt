@@ -1,0 +1,619 @@
+{
+ "dragDuringBossTurn": true,
+ "rapidDoubleClick": true,
+ "dropOnOccupied": true,
+ "dropOutsideBoard": false,
+ "escMidDrag": true,
+ "windowBlurMidDrag": true,
+ "dragBoardCardSlideUsed": true,
+ "clickSelectThenDragOther": true,
+ "resetMidBossTurn": false,
+ "stageSelectMidBossTurn": false,
+ "nudgeRerollSpam": true,
+ "fastFlick": false,
+ "enterKeyMidDrag": false
+}
+{
+ "dragDuringBossTurn": {
+  "bossTurnActiveAtAttempt": false,
+  "ghostCreated": false,
+  "dragActive": false,
+  "handAfterBoss": 4,
+  "expectedHand": 4,
+  "pass": true,
+  "note": "No feedback cursor/tooltip explains why the card cannot be grabbed (cursor stays 'grab').",
+  "cursorDuringBossTurn": "grab"
+ },
+ "rapidDoubleClick": {
+  "dblclickPlacedCount": 1,
+  "twoTileRapidPlacedCount": 1,
+  "pass": true
+ },
+ "dropOnOccupied": {
+  "placed": 0,
+  "ghostLeft": 0,
+  "occupiedUnchanged": true,
+  "pass": true
+ },
+ "dropOnOccupiedNearEdge": {
+  "placedSomewhere": 1,
+  "whereChanged": [
+   0,
+   1
+  ],
+  "note": "magnet may redirect a sloppy drop to the nearest valid neighbour (by design)"
+ },
+ "dropOutsideBoard": {
+  "rightPanel": {
+   "at": [
+    1342,
+    201
+   ],
+   "ghostDuring": 1,
+   "placed": 0,
+   "ghostAfter": 0
+  },
+  "header": {
+   "at": [
+    700,
+    20
+   ],
+   "ghostDuring": 1,
+   "placed": 0,
+   "ghostAfter": 0
+  },
+  "belowBoard": {
+   "at": [
+    744,
+    760
+   ],
+   "ghostDuring": 1,
+   "placed": 1,
+   "ghostAfter": 0
+  },
+  "handPanel": {
+   "at": [
+    208,
+    434
+   ],
+   "ghostDuring": 0,
+   "placed": 1,
+   "ghostAfter": 0
+  },
+  "pass": false
+ },
+ "escMidDrag": {
+  "ghostAfterEsc": 0,
+  "dragActiveAfterEsc": false,
+  "placedAfterRelease": 0,
+  "pass": true,
+  "dragWorksAfterEsc": true
+ },
+ "windowBlurMidDrag": {
+  "realTabSwitch": {
+   "ghostAfterBlur": 1,
+   "placed": 1,
+   "ghostAfter": 0
+  },
+  "dispatchedBlur": {
+   "ghostAfterBlur": 0,
+   "placed": 0,
+   "ghostAfter": 0
+  },
+  "pass": true
+ },
+ "dragBoardCardSlideUsed": {
+  "slideFound": true,
+  "firstSlideOk": true,
+  "secondDrag": {
+   "ghost": 0,
+   "boardChanged": false,
+   "selectedBoardAfter": null
+  },
+  "cursorOnUsedBoardCard": "pointer",
+  "pass": true
+ },
+ "clickSelectThenDragOther": {
+  "expected": "h_arbiter",
+  "placed": "p:h_arbiter",
+  "pass": true
+ },
+ "resetMidDrag": {
+  "draggedCard": "h_arbiter",
+  "resetHappened": true,
+  "ghostStillShownAfterReset": 0,
+  "dragStillActive": false,
+  "newHandAtIdx1": "h_seraph",
+  "placedAfterRelease": "p:h_chronos",
+  "placedCardMatchesGhost": false,
+  "placedCardIsFromNewHand": false
+ },
+ "stageSelectMidDrag": {
+  "draggedCard": "h_valkyrie",
+  "stageAfter": 2,
+  "ghostStillShown": 1,
+  "placedAfterRelease": "p:h_arbiter",
+  "placedCardMatchesGhost": false
+ },
+ "resetMidBossTurn": {
+  "bossTurnPendingWhenReset": false,
+  "cardsRightAfterReset": {
+   "p": 0,
+   "a": 1,
+   "e": 8
+  },
+  "cardsAfter1200ms": {
+   "p": 1,
+   "a": 2,
+   "e": 6
+  },
+  "nudgesAfter": 3,
+  "handAfter": 4,
+  "aiPoolAfter": 4,
+  "bannerAfter": "🟥 Boss deployed Bastion Dreadnought (Seismic Tremor Push) at (1,3).",
+  "pass": false
+ },
+ "stageSelectMidBossTurn": {
+  "stageAfter": 3,
+  "cardsRightAfter": {
+   "p": 0,
+   "a": 1,
+   "e": 8
+  },
+  "cardsAfter1200ms": {
+   "p": 1,
+   "a": 2,
+   "e": 6
+  },
+  "nudgesAfter": 3,
+  "pass": false
+ },
+ "resetDuringGameOverDelay": {
+  "skipped": "board never reached 1 empty on player turn"
+ },
+ "nudgeRerollSpam": {
+  "nudgesStart": 2,
+  "nudgesAfter10Clicks": 0,
+  "die1Start": 2,
+  "die1After": 4,
+  "rerollsAfter10Clicks": 0,
+  "rerollBtnWhenExhausted": {
+   "disabled": false,
+   "opacity": "1",
+   "cursor": "pointer",
+   "text": "🎲 Roll All 3D Dice (0 left)"
+  },
+  "dieRowWhenNoNudges": {
+   "opacity": "1",
+   "cursor": "pointer",
+   "hint": "Column 1 Die ⚡ +1 All 4 Sides 1 2 3 4 5 6"
+  },
+  "nudgeDuringBossTurnChangedDice": false,
+  "pass": true
+ },
+ "fastFlick": {
+  "byConfig": {
+   "steps1_fx0.5_fy0.5": {
+    "n": 8,
+    "intended": 0,
+    "wrongTile": 0,
+    "noPlace": 8
+   },
+   "steps2_fx0.5_fy0.5": {
+    "n": 7,
+    "intended": 7,
+    "wrongTile": 0,
+    "noPlace": 0
+   },
+   "steps3_fx0.5_fy0.5": {
+    "n": 7,
+    "intended": 7,
+    "wrongTile": 0,
+    "noPlace": 0
+   },
+   "steps5_fx0.5_fy0.5": {
+    "n": 7,
+    "intended": 7,
+    "wrongTile": 0,
+    "noPlace": 0
+   },
+   "steps1_fx0.08_fy0.9": {
+    "n": 8,
+    "intended": 3,
+    "wrongTile": 0,
+    "noPlace": 5
+   },
+   "steps2_fx0.92_fy0.1": {
+    "n": 7,
+    "intended": 7,
+    "wrongTile": 0,
+    "noPlace": 0
+   },
+   "steps3_fx1.06_fy0.5": {
+    "n": 7,
+    "intended": 4,
+    "wrongTile": 3,
+    "noPlace": 0
+   },
+   "steps2_fx0.5_fy-0.05": {
+    "n": 7,
+    "intended": 3,
+    "wrongTile": 4,
+    "noPlace": 0
+   }
+  },
+  "trials": [
+   {
+    "steps": 1,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     1,
+     1
+    ],
+    "landedOnIntended": false,
+    "landedIdx": [],
+    "placed": 0,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 1,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     2,
+     0
+    ],
+    "landedOnIntended": false,
+    "landedIdx": [],
+    "placed": 0,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 1,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     2,
+     2
+    ],
+    "landedOnIntended": false,
+    "landedIdx": [],
+    "placed": 0,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 1,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     1,
+     0
+    ],
+    "landedOnIntended": false,
+    "landedIdx": [],
+    "placed": 0,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 1,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     1,
+     2
+    ],
+    "landedOnIntended": false,
+    "landedIdx": [],
+    "placed": 0,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 1,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     2,
+     1
+    ],
+    "landedOnIntended": false,
+    "landedIdx": [],
+    "placed": 0,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 1,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     0,
+     0
+    ],
+    "landedOnIntended": false,
+    "landedIdx": [],
+    "placed": 0,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 1,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     0,
+     2
+    ],
+    "landedOnIntended": false,
+    "landedIdx": [],
+    "placed": 0,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 2,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     1,
+     1
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      1,
+      1
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 2,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     2,
+     0
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      2,
+      0
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 2,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     2,
+     2
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      2,
+      2
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 2,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     1,
+     0
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      1,
+      0
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 2,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     1,
+     2
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      1,
+      2
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 2,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     2,
+     1
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      2,
+      1
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 2,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     0,
+     2
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      0,
+      2
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 3,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     1,
+     1
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      1,
+      1
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 3,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     2,
+     0
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      2,
+      0
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 3,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     2,
+     2
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      2,
+      2
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 3,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     1,
+     0
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      1,
+      0
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 3,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     1,
+     2
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      1,
+      2
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 3,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     2,
+     1
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      2,
+      1
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 3,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     0,
+     2
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      0,
+      2
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+   },
+   {
+    "steps": 5,
+    "fx": 0.5,
+    "fy": 0.5,
+    "tile": [
+     1,
+     1
+    ],
+    "landedOnIntended": true,
+    "landedIdx": [
+     [
+      1,
+      1
+     ]
+    ],
+    "placed": 1,
+    "ghostLeft": 0
+ 

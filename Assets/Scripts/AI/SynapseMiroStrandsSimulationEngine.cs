@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Synapse.TcgEngine.Core;
 using Synapse.TcgEngine.Data;
 
@@ -214,10 +213,16 @@ namespace Synapse.TcgEngine.AI
             // 1. Execute Strands 5-stage loop for top NPC Balance Personas
             foreach (var npc in npcAgents)
             {
-                string topCard = npc.cardValuationBeliefs
-                    .OrderByDescending(kv => kv.Value)
-                    .Select(kv => kv.Key)
-                    .FirstOrDefault() ?? "cf_02_mech_knight";
+                string topCard = "cf_02_mech_knight";
+                float bestVal = float.MinValue;
+                foreach (var kv in npc.cardValuationBeliefs)
+                {
+                    if (kv.Value > bestVal)
+                    {
+                        bestVal = kv.Value;
+                        topCard = kv.Key;
+                    }
+                }
 
                 float pickRate = cardPickRates.TryGetValue(topCard, out float pr) ? pr : 0.10f;
                 float winRate = cardWinRates.TryGetValue(topCard, out float wr) ? wr : 0.50f;
@@ -429,8 +434,13 @@ namespace Synapse.TcgEngine.AI
         public SimulationFeedbackAnalyticsReport RunFullSimulationCycle(int rounds = 24, int seed = 1337)
         {
             var rng = new System.Random(seed);
-            var cardPicks = CanonicalCardIds.ToDictionary(id => id, _ => 0);
-            var cardWins = CanonicalCardIds.ToDictionary(id => id, _ => 0);
+            var cardPicks = new Dictionary<string, int>(CanonicalCardIds.Length);
+            var cardWins = new Dictionary<string, int>(CanonicalCardIds.Length);
+            for (int k = 0; k < CanonicalCardIds.Length; k++)
+            {
+                cardPicks[CanonicalCardIds[k]] = 0;
+                cardWins[CanonicalCardIds[k]] = 0;
+            }
             int totalMatches = 0;
 
             for (int r = 0; r < rounds; r++)
@@ -472,10 +482,13 @@ namespace Synapse.TcgEngine.AI
             }
 
             // Compute normalized pick rates, win rates, Gini coefficient, and Shannon entropy
-            float totalPickEvents = Math.Max(1, cardPicks.Values.Sum());
+            int totalPicksSum = 0;
+            foreach (var kv in cardPicks) totalPicksSum += kv.Value;
+            float totalPickEvents = Math.Max(1, totalPicksSum);
             var pickRates = new Dictionary<string, float>();
             var winRates = new Dictionary<string, float>();
             var elasticities = new Dictionary<string, float>();
+            var pickRatesList = new List<float>(CanonicalCardIds.Length);
 
             foreach (var cid in CanonicalCardIds)
             {
@@ -483,16 +496,31 @@ namespace Synapse.TcgEngine.AI
                 float wr = cardPicks[cid] > 0 ? (float)cardWins[cid] / cardPicks[cid] : 0.50f;
                 pickRates[cid] = pr;
                 winRates[cid] = wr;
+                pickRatesList.Add(pr);
                 // Win-Pick Elasticity: sensitivity of win rate deviation from 50% relative to pick share
                 elasticities[cid] = (wr - 0.50f) / Math.Max(0.01f, pr);
             }
 
-            float gini = ComputeGiniCoefficient(pickRates.Values.ToList());
-            float entropy = ComputeShannonEntropyBits(pickRates.Values.ToList());
-            float meanAgency = NpcAgents.Average(a => a.agencyScore);
-            float meanFrustration = NpcAgents.Average(a => a.frustrationIndex);
-            float telegraphReadability = StudioAgents.Average(s => s.latestAudit.IsometricReadabilityScore);
-            float studioFidelity = StudioAgents.Average(s => s.latestAudit.CompositeStudioScore);
+            float gini = ComputeGiniCoefficient(pickRatesList);
+            float entropy = ComputeShannonEntropyBits(pickRatesList);
+            float agencySum = 0f;
+            float frustrationSum = 0f;
+            for (int i = 0; i < NpcAgents.Count; i++)
+            {
+                agencySum += NpcAgents[i].agencyScore;
+                frustrationSum += NpcAgents[i].frustrationIndex;
+            }
+            float meanAgency = NpcAgents.Count > 0 ? agencySum / NpcAgents.Count : 0f;
+            float meanFrustration = NpcAgents.Count > 0 ? frustrationSum / NpcAgents.Count : 0f;
+            float readSum = 0f;
+            float fidSum = 0f;
+            for (int i = 0; i < StudioAgents.Count; i++)
+            {
+                readSum += StudioAgents[i].latestAudit.IsometricReadabilityScore;
+                fidSum += StudioAgents[i].latestAudit.CompositeStudioScore;
+            }
+            float telegraphReadability = StudioAgents.Count > 0 ? readSum / StudioAgents.Count : 0f;
+            float studioFidelity = StudioAgents.Count > 0 ? fidSum / StudioAgents.Count : 0f;
 
             var traces = StrandsAgentWorkflowLoop.ExecuteAgentCycle(NpcAgents, StudioAgents, pickRates, winRates);
             var soupRecipe = BuildOptimalModelSoupRecipe(ModelSoupStrategy.TiesMerging);
@@ -569,9 +597,11 @@ namespace Synapse.TcgEngine.AI
         public static float ComputeGiniCoefficient(List<float> values)
         {
             if (values == null || values.Count == 0) return 0f;
-            var sorted = values.OrderBy(v => v).ToList();
+            var sorted = new List<float>(values);
+            sorted.Sort();
             int n = sorted.Count;
-            float sum = sorted.Sum();
+            float sum = 0f;
+            for (int i = 0; i < n; i++) sum += sorted[i];
             if (sum <= 1e-6f) return 0f;
 
             float weightedSum = 0f;

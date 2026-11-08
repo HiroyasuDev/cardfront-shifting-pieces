@@ -1,0 +1,567 @@
+{
+  "stages": [
+    {
+      "stage": 0,
+      "stageIndexInGame": 0,
+      "turns": [
+        {
+          "turn": 0,
+          "card": "h_arbiter",
+          "tile": [
+            0,
+            0
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 1189,
+          "bossFlipsAgainstPlayer": 1,
+          "scoreAfterBoss": {
+            "blue": 1,
+            "red": 2,
+            "empty": 6
+          }
+        },
+        {
+          "turn": 1,
+          "card": "h_seraph",
+          "tile": [
+            1,
+            2
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 674,
+          "bossFlipsAgainstPlayer": 0,
+          "scoreAfterBoss": {
+            "blue": 3,
+            "red": 2,
+            "empty": 4
+          }
+        },
+        {
+          "turn": 2,
+          "card": "h_kai",
+          "tile": [
+            1,
+            1
+          ],
+          "predictedCaptures": 2,
+          "capturesObserved": 2,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 674,
+          "bossFlipsAgainstPlayer": 1,
+          "scoreAfterBoss": {
+            "blue": 5,
+            "red": 2,
+            "empty": 2
+          }
+        },
+        {
+          "turn": 3,
+          "card": "h_chronos",
+          "tile": [
+            2,
+            0
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 673,
+          "bossFlipsAgainstPlayer": 0,
+          "scoreAfterBoss": {
+            "blue": 7,
+            "red": 2,
+            "empty": 0
+          }
+        }
+      ],
+      "timeToCompleteMs": 8508,
+      "outcome": "WIN",
+      "modalTitle": "🏆 VICTORY (7 – 2)!",
+      "finalScores": {
+        "blue": 7,
+        "red": 2,
+        "empty": 0
+      },
+      "handLeft": 1,
+      "nextStageLoaded": true,
+      "stageSelectValueAfter": "1"
+    },
+    {
+      "stage": 1,
+      "stageIndexInGame": 1,
+      "turns": [
+        {
+          "turn": 0,
+          "card": "h_oracle",
+          "tile": [
+            0,
+            0
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 1109,
+          "bossFlipsAgainstPlayer": 1,
+          "scoreAfterBoss": {
+            "blue": 1,
+            "red": 2,
+            "empty": 6
+          }
+        },
+        {
+          "turn": 1,
+          "card": "h_seraph",
+          "tile": [
+            0,
+            2
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 672,
+          "bossFlipsAgainstPlayer": 0,
+          "scoreAfterBoss": {
+            "blue": 3,
+            "red": 2,
+            "empty": 4
+          }
+        },
+        {
+          "turn": 2,
+          "card": "h_archangel",
+          "tile": [
+            1,
+            2
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 673,
+          "bossFlipsAgainstPlayer": 0,
+          "scoreAfterBoss": {
+            "blue": 5,
+            "red": 2,
+            "empty": 2
+          }
+        },
+        {
+          "turn": 3,
+          "card": "h_phoenix",
+          "tile": [
+            2,
+            2
+          ],
+          "predictedCaptures": 0,
+          "capturesObserved": 0,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 673,
+          "bossFlipsAgainstPlayer": 0,
+          "scoreAfterBoss": {
+            "blue": 6,
+            "red": 3,
+            "empty": 0
+          }
+        }
+      ],
+      "timeToCompleteMs": 8472,
+      "outcome": "WIN",
+      "modalTitle": "🏆 VICTORY (6 – 3)!",
+      "finalScores": {
+        "blue": 6,
+        "red": 3,
+        "empty": 0
+      },
+      "handLeft": 1,
+      "nextStageLoaded": true,
+      "stageSelectValueAfter": "2"
+    },
+    {
+      "stage": 2,
+      "stageIndexInGame": 2,
+      "turns": [
+        {
+          "turn": 0,
+          "card": "h_seraph",
+          "tile": [
+            0,
+            2
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 1108,
+          "bossFlipsAgainstPlayer": 1,
+          "scoreAfterBoss": {
+            "blue": 1,
+            "red": 2,
+            "empty": 6
+          }
+        },
+        {
+          "turn": 1,
+          "card": "h_kai",
+          "tile": [
+            0,
+            0
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 673,
+          "bossFlipsAgainstPlayer": 0,
+          "scoreAfterBoss": {
+            "blue": 3,
+            "red": 2,
+            "empty": 4
+          }
+        },
+        {
+          "turn": 2,
+          "card": "h_chronos",
+          "tile": [
+            1,
+            2
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 673,
+          "bossFlipsAgainstPlayer": 1,
+          "scoreAfterBoss": {
+            "blue": 4,
+            "red": 3,
+            "empty": 2
+          }
+        },
+        {
+          "turn": 3,
+          "card": "h_archangel",
+          "tile": [
+            2,
+            0
+          ],
+          "predictedCaptures": 2,
+          "capturesObserved": 2,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 672,
+          "bossFlipsAgainstPlayer": 0,
+          "scoreAfterBoss": {
+            "blue": 7,
+            "red": 2,
+            "empty": 0
+          }
+        }
+      ],
+      "timeToCompleteMs": 8403,
+      "outcome": "WIN",
+      "modalTitle": "🏆 VICTORY (7 – 2)!",
+      "finalScores": {
+        "blue": 7,
+        "red": 2,
+        "empty": 0
+      },
+      "handLeft": 1,
+      "nextStageLoaded": true,
+      "stageSelectValueAfter": "3"
+    },
+    {
+      "stage": 3,
+      "stageIndexInGame": 3,
+      "turns": [
+        {
+          "turn": 0,
+          "card": "h_seraph",
+          "tile": [
+            0,
+            2
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 1106,
+          "bossFlipsAgainstPlayer": 0,
+          "scoreAfterBoss": {
+            "blue": 2,
+            "red": 1,
+            "empty": 6
+          }
+        },
+        {
+          "turn": 1,
+          "card": "h_oracle",
+          "tile": [
+            1,
+            0
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 671,
+          "bossFlipsAgainstPlayer": 0,
+          "scoreAfterBoss": {
+            "blue": 4,
+            "red": 1,
+            "empty": 4
+          }
+        },
+        {
+          "turn": 2,
+          "card": "h_phoenix",
+          "tile": [
+            2,
+            1
+          ],
+          "predictedCaptures": 1,
+          "capturesObserved": 1,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 683,
+          "bossFlipsAgainstPlayer": 1,
+          "scoreAfterBoss": {
+            "blue": 5,
+            "red": 2,
+            "empty": 2
+          }
+        },
+        {
+          "turn": 3,
+          "card": "h_chronos",
+          "tile": [
+            1,
+            2
+          ],
+          "predictedCaptures": 0,
+          "capturesObserved": 0,
+          "landed": true,
+          "committed": true,
+          "gestureToCommitMs": 686,
+          "bossFlipsAgainstPlayer": 0,
+          "scoreAfterBoss": {
+            "blue": 6,
+            "red": 3,
+            "empty": 0
+          }
+        }
+      ],
+      "timeToCompleteMs": 8448,
+      "outcome": "WIN",
+      "modalTitle": "🏆 VICTORY (6 – 3)!",
+      "finalScores": {
+        "blue": 6,
+        "red": 3,
+        "empty": 0
+      },
+      "handLeft": 1,
+      "nextStageLoaded": true,
+      "stageSelectValueAfter": "0"
+    }
+  ],
+  "domSeries": [
+    {
+      "label": "initial",
+      "documents": 1,
+      "nodes": 671,
+      "jsEventListeners": 72,
+      "liveNodes": 235,
+      "heap": 1258422
+    },
+    {
+      "label": "s1t0",
+      "documents": 1,
+      "nodes": 710,
+      "jsEventListeners": 83,
+      "liveNodes": 248,
+      "heap": 2083485
+    },
+    {
+      "label": "s1t1",
+      "documents": 1,
+      "nodes": 732,
+      "jsEventListeners": 82,
+      "liveNodes": 255,
+      "heap": 2170889
+    },
+    {
+      "label": "s1t2",
+      "documents": 1,
+      "nodes": 769,
+      "jsEventListeners": 81,
+      "liveNodes": 267,
+      "heap": 2192901
+    },
+    {
+      "label": "s1t3",
+      "documents": 1,
+      "nodes": 796,
+      "jsEventListeners": 80,
+      "liveNodes": 276,
+      "heap": 2205049
+    },
+    {
+      "label": "after_stage1",
+      "documents": 1,
+      "nodes": 710,
+      "jsEventListeners": 85,
+      "liveNodes": 249,
+      "heap": 2247660
+    },
+    {
+      "label": "s2t0",
+      "documents": 1,
+      "nodes": 703,
+      "jsEventListeners": 83,
+      "liveNodes": 244,
+      "heap": 2292568
+    },
+    {
+      "label": "s2t1",
+      "documents": 1,
+      "nodes": 728,
+      "jsEventListeners": 82,
+      "liveNodes": 252,
+      "heap": 2298144
+    },
+    {
+      "label": "s2t2",
+      "documents": 1,
+      "nodes": 761,
+      "jsEventListeners": 81,
+      "liveNodes": 263,
+      "heap": 2299736
+    },
+    {
+      "label": "s2t3",
+      "documents": 1,
+      "nodes": 794,
+      "jsEventListeners": 79,
+      "liveNodes": 274,
+      "heap": 2299790
+    },
+    {
+      "label": "after_stage2",
+      "documents": 1,
+      "nodes": 728,
+      "jsEventListeners": 85,
+      "liveNodes": 256,
+      "heap": 2303154
+    },
+    {
+      "label": "s3t0",
+      "documents": 1,
+      "nodes": 719,
+      "jsEventListeners": 83,
+      "liveNodes": 250,
+      "heap": 2327086
+    },
+    {
+      "label": "s3t1",
+      "documents": 1,
+      "nodes": 741,
+      "jsEventListeners": 82,
+      "liveNodes": 257,
+      "heap": 2332206
+    },
+    {
+      "label": "s3t2",
+      "documents": 1,
+      "nodes": 775,
+      "jsEventListeners": 80,
+      "liveNodes": 268,
+      "heap": 2333662
+    },
+    {
+      "label": "s3t3",
+      "documents": 1,
+      "nodes": 802,
+      "jsEventListeners": 80,
+      "liveNodes": 277,
+      "heap": 2346406
+    },
+    {
+      "label": "after_stage3",
+      "documents": 1,
+      "nodes": 716,
+      "jsEventListeners": 85,
+      "liveNodes": 251,
+      "heap": 2362248
+    },
+    {
+      "label": "s4t0",
+      "documents": 1,
+      "nodes": 707,
+      "jsEventListeners": 84,
+      "liveNodes": 246,
+      "heap": 2366784
+    },
+    {
+      "label": "s4t1",
+      "documents": 1,
+      "nodes": 735,
+      "jsEventListeners": 83,
+      "liveNodes": 255,
+      "heap": 2370664
+    },
+    {
+      "label": "s4t2",
+      "documents": 1,
+      "nodes": 774,
+      "jsEventListeners": 81,
+      "liveNodes": 268,
+      "heap": 2372004
+    },
+    {
+      "label": "s4t3",
+      "documents": 1,
+      "nodes": 796,
+      "jsEventListeners": 79,
+      "liveNodes": 275,
+      "heap": 2372084
+    },
+    {
+      "label": "after_stage4",
+      "documents": 1,
+      "nodes": 705,
+      "jsEventListeners": 85,
+      "liveNodes": 246,
+      "heap": 2375196
+    }
+  ],
+  "misdrops": [],
+  "log": {
+    "console": [],
+    "pageErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  "campaignMs": 36991,
+  "domSummary": {
+    "nodesFirst": 671,
+    "nodesLast": 705,
+    "liveNodesFirst": 235,
+    "liveNodesLast": 246,
+    "listenersFirst": 72,
+    "listenersLast": 85,
+    "maxNodes": 802,
+    "maxListeners": 85,
+    "heapFirst": 1258422,
+    "heapLast": 2375196
+  },
+  "imgCheck": []
+}

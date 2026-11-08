@@ -1,0 +1,543 @@
+{
+  "timestamp": "2026-11-08T12:23:58.852Z",
+  "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+  "viewportMetrics": [
+    {
+      "name": "1280x800_laptop",
+      "viewport": {
+        "vw": 1280,
+        "vh": 800
+      },
+      "header": {
+        "left": 0,
+        "top": 0,
+        "right": 1280,
+        "bottom": 44,
+        "width": 1280,
+        "height": 44,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": true,
+        "overflowY": false
+      },
+      "leftPanel": {
+        "left": 14,
+        "top": 52,
+        "right": 278,
+        "bottom": 792,
+        "width": 264,
+        "height": 740,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "centerZone": {
+        "left": 290,
+        "top": 52,
+        "right": 1134,
+        "bottom": 792,
+        "width": 844,
+        "height": 740,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "boardSlab": {
+        "left": 480,
+        "top": 143,
+        "right": 943,
+        "bottom": 746,
+        "width": 463,
+        "height": 603,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "rightPanel": {
+        "left": 1146,
+        "top": 52,
+        "right": 1410,
+        "bottom": 792,
+        "width": 264,
+        "height": 740,
+        "clippedHoriz": true,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "fontCensus": {
+        "totalLeafTextNodes": 108,
+        "minFontPx": 8.5,
+        "maxFontPx": 24,
+        "below18PxCount": 107,
+        "below12PxCount": 85,
+        "samplesBelow10Px": [
+          {
+            "tag": "SPAN",
+            "className": "",
+            "text": "🎯 91-SKILL HARNESS ACTI",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-top",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-right",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-bottom",
+            "text": "8",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-left",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "slot-name-ribbon",
+            "text": "Lunar Oracle",
+            "px": 8.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-top",
+            "text": "8",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-right",
+            "text": "6",
+            "px": 9.5
+          }
+        ]
+      }
+    },
+    {
+      "name": "1920x1080_desktop",
+      "viewport": {
+        "vw": 1920,
+        "vh": 1080
+      },
+      "header": {
+        "left": 0,
+        "top": 0,
+        "right": 1920,
+        "bottom": 44,
+        "width": 1920,
+        "height": 44,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "leftPanel": {
+        "left": 154,
+        "top": 52,
+        "right": 418,
+        "bottom": 1072,
+        "width": 264,
+        "height": 1020,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "centerZone": {
+        "left": 430,
+        "top": 52,
+        "right": 1490,
+        "bottom": 1072,
+        "width": 1060,
+        "height": 1020,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "boardSlab": {
+        "left": 689,
+        "top": 235,
+        "right": 1231,
+        "bottom": 938,
+        "width": 542,
+        "height": 703,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "rightPanel": {
+        "left": 1502,
+        "top": 52,
+        "right": 1766,
+        "bottom": 1072,
+        "width": 264,
+        "height": 1020,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "fontCensus": {
+        "totalLeafTextNodes": 103,
+        "minFontPx": 8.5,
+        "maxFontPx": 24,
+        "below18PxCount": 102,
+        "below12PxCount": 80,
+        "samplesBelow10Px": [
+          {
+            "tag": "SPAN",
+            "className": "",
+            "text": "🎯 91-SKILL HARNESS ACTI",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-top",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-right",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-bottom",
+            "text": "8",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-left",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "slot-name-ribbon",
+            "text": "Lunar Oracle",
+            "px": 8.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-top",
+            "text": "8",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-right",
+            "text": "6",
+            "px": 9.5
+          }
+        ]
+      }
+    },
+    {
+      "name": "2560x1080_ultrawide",
+      "viewport": {
+        "vw": 2560,
+        "vh": 1080
+      },
+      "header": {
+        "left": 0,
+        "top": 0,
+        "right": 2560,
+        "bottom": 44,
+        "width": 2560,
+        "height": 44,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "leftPanel": {
+        "left": 474,
+        "top": 52,
+        "right": 738,
+        "bottom": 1072,
+        "width": 264,
+        "height": 1020,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "centerZone": {
+        "left": 750,
+        "top": 52,
+        "right": 1810,
+        "bottom": 1072,
+        "width": 1060,
+        "height": 1020,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "boardSlab": {
+        "left": 1009,
+        "top": 235,
+        "right": 1551,
+        "bottom": 938,
+        "width": 542,
+        "height": 703,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "rightPanel": {
+        "left": 1822,
+        "top": 52,
+        "right": 2086,
+        "bottom": 1072,
+        "width": 264,
+        "height": 1020,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "fontCensus": {
+        "totalLeafTextNodes": 103,
+        "minFontPx": 8.5,
+        "maxFontPx": 24,
+        "below18PxCount": 102,
+        "below12PxCount": 80,
+        "samplesBelow10Px": [
+          {
+            "tag": "SPAN",
+            "className": "",
+            "text": "🎯 91-SKILL HARNESS ACTI",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-top",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-right",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-bottom",
+            "text": "8",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-left",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "slot-name-ribbon",
+            "text": "Lunar Oracle",
+            "px": 8.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-top",
+            "text": "8",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-right",
+            "text": "6",
+            "px": 9.5
+          }
+        ]
+      }
+    },
+    {
+      "name": "375x667_mobile",
+      "viewport": {
+        "vw": 375,
+        "vh": 667
+      },
+      "header": {
+        "left": 0,
+        "top": 0,
+        "right": 375,
+        "bottom": 44,
+        "width": 375,
+        "height": 44,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": true,
+        "overflowY": false
+      },
+      "leftPanel": {
+        "left": 14,
+        "top": 52,
+        "right": 278,
+        "bottom": 659,
+        "width": 264,
+        "height": 607,
+        "clippedHoriz": false,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "centerZone": {
+        "left": 290,
+        "top": 52,
+        "right": 1146,
+        "bottom": 659,
+        "width": 856,
+        "height": 607,
+        "clippedHoriz": true,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "boardSlab": {
+        "left": 506,
+        "top": 101,
+        "right": 930,
+        "bottom": 654,
+        "width": 424,
+        "height": 553,
+        "clippedHoriz": true,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "rightPanel": {
+        "left": 1158,
+        "top": 52,
+        "right": 1422,
+        "bottom": 659,
+        "width": 264,
+        "height": 607,
+        "clippedHoriz": true,
+        "clippedVert": false,
+        "overflowX": false,
+        "overflowY": false
+      },
+      "fontCensus": {
+        "totalLeafTextNodes": 103,
+        "minFontPx": 8.5,
+        "maxFontPx": 24,
+        "below18PxCount": 102,
+        "below12PxCount": 80,
+        "samplesBelow10Px": [
+          {
+            "tag": "SPAN",
+            "className": "",
+            "text": "🎯 91-SKILL HARNESS ACTI",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-top",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-right",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-bottom",
+            "text": "8",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-left",
+            "text": "7",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "slot-name-ribbon",
+            "text": "Lunar Oracle",
+            "px": 8.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-top",
+            "text": "8",
+            "px": 9.5
+          },
+          {
+            "tag": "DIV",
+            "className": "edge-num edge-right",
+            "text": "6",
+            "px": 9.5
+          }
+        ]
+      }
+    }
+  ],
+  "deepProbes": {
+    "cardGame": {
+      "handCount": 5,
+      "boardCount": 1,
+      "aiPoolCount": 5,
+      "totalInPlay": 11,
+      "uniqueInPlay": 11,
+      "singleZoneDisjoint": true,
+      "allImagesComplete600x800": true
+    },
+    "domChurnAndPerf": {
+      "render20CallsTotalMs": 3.7,
+      "avgSingleRenderAllMs": 0.185,
+      "mutationsPer20Renders": 584,
+      "addedNodesPer20Renders": 504,
+      "removedNodesPer20Renders": 504,
+      "addedNodesPerSingleRender": 25,
+      "activeSvgAnimationsCount": 6,
+      "meanFrameMs": 16.67,
+      "p95FrameMs": 16.8,
+      "maxFrameMs": 16.8
+    },
+    "gameFeel": {
+      "traumaAfterAdd05": 0.5,
+      "expectedQuadraticShake": 0.25,
+      "hitStopImmediate": true,
+      "vpFilterDuringHitStop": "brightness(1.22) contrast(1.12)",
+      "hitStopAfter110ms": false
+    },
+    "cameraAndInput": {
+      "cam14Transform": "rotateX(14deg) rotateY(0deg) rotateZ(0deg)",
+      "selectedAfterKey3": 2,
+      "focusBefore": 4,
+      "focusAfterUp": 1,
+      "dragThresholdPx": 6
+    },
+    "persistence": {
+      "localStorageKeysCount": 0,
+      "sessionStorageKeysCount": 0
+    }
+  }
+}

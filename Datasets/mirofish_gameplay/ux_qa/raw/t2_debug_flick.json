@@ -1,0 +1,91 @@
+{
+  "steps1": {
+    "mid": {
+      "active": false,
+      "target": null,
+      "ghost": false
+    },
+    "placed": 0,
+    "events": [
+      {
+        "t": "pointermove",
+        "x": 84,
+        "y": 434,
+        "active": false,
+        "pending": false,
+        "target": null,
+        "ts": 1169
+      },
+      {
+        "t": "pointerdown",
+        "x": 84,
+        "y": 434,
+        "active": false,
+        "pending": false,
+        "target": null,
+        "ts": 1182
+      },
+      {
+        "t": "pointerup",
+        "x": 704,
+        "y": 454,
+        "active": false,
+        "pending": true,
+        "target": null,
+        "ts": 1217
+      }
+    ]
+  },
+  "steps2": {
+    "mid": {
+      "active": true,
+      "target": [
+        1,
+        1
+      ],
+      "ghost": true
+    },
+    "placed": 1,
+    "events": [
+      {
+        "t": "pointerdown",
+        "x": 84,
+        "y": 434,
+        "active": false,
+        "pending": false,
+        "target": null,
+        "ts": 1973
+      },
+      {
+        "t": "pointermove",
+        "x": 416,
+        "y": 444,
+        "active": false,
+        "pending": true,
+        "target": null,
+        "ts": 1992
+      },
+      {
+        "t": "pointermove",
+        "x": 748,
+        "y": 454,
+        "active": true,
+        "pending": false,
+        "target": null,
+        "ts": 2153
+      },
+      {
+        "t": "pointerup",
+        "x": 748,
+        "y": 454,
+        "active": true,
+        "pending": false,
+        "target": [
+          1,
+          1
+        ],
+        "ts": 2169
+      }
+    ]
+  }
+}

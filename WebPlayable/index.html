@@ -1,0 +1,3088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>CARDFRONT 3D — Dynamic Telegraph Tabletop Card Battler</title>
+<style>
+  :root {
+    --blue-ally: #00E5FF;
+    --blue-glow: rgba(0, 229, 255, 0.55);
+    --red-enemy: #FF2E54;
+    --red-glow: rgba(255, 46, 84, 0.55);
+    --gold: #FFB800;
+    --emerald: #00E676;
+    --violet: #A855F7;
+    --text-main: #F8FAFC;
+    --text-dim: #94A3B8;
+
+    /* ========================================================================
+       PROPORTIONAL VIEWPORT-SAFE SIZING (FITS 1280x800 SAFARI WITH ZERO CLIPPING)
+       ======================================================================== */
+    --slot-h: clamp(156px, 21.6vh, 206px);
+    --slot-w: calc(var(--slot-h) * 0.76);
+
+    --hand-h: clamp(122px, 18.6vh, 160px);
+    --hand-w: calc(var(--hand-h) * 0.75);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+
+  html {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+
+  body {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 50% 45%, rgba(20, 35, 72, 0.72) 0%, rgba(4, 7, 15, 0.97) 78%),
+      url("./GeneratedArt/env_isamu_kamikokuryo_skystone.png") center/cover no-repeat;
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ==========================================================================
+     CRISP SINGLE-LINE TOP COMMAND BAR (44px — ZERO WRAPPING OR OVERLAPPING TEXT)
+     ========================================================================== */
+  header {
+    height: 44px;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    background: rgba(6, 9, 19, 0.96);
+    border-bottom: 1px solid #243866;
+    padding: env(safe-area-inset-top, 0px) max(10px, env(safe-area-inset-right, 10px)) 0 max(10px, env(safe-area-inset-left, 10px));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    flex-shrink: 0;
+    z-index: 40;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    flex-shrink: 1;
+    overflow: hidden;
+  }
+  .brand-badge {
+    background: linear-gradient(135deg, var(--red-enemy), #7c3aed);
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+  }
+  .brand-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: #e2e8f0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .scoreboard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #0a1122;
+    border: 1px solid #2e477a;
+    padding: 3px 12px;
+    border-radius: 99px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .score-side {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 800;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .score-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .score-dot.blue { background: var(--blue-ally); box-shadow: 0 0 6px var(--blue-ally); }
+  .score-dot.red { background: var(--red-enemy); box-shadow: 0 0 6px var(--red-enemy); }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  select, button {
+    background: #131e38;
+    color: #f8fafc;
+    border: 1px solid #324c80;
+    border-radius: 6px;
+    padding: 3px 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+  }
+  select:hover, button:hover:not(:disabled) {
+    border-color: var(--blue-ally);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.35);
+  }
+
+  /* ==========================================================================
+     3-COLUMN STAGE (264px | 1fr | 264px — GUARANTEED ZERO RIGHT-EDGE CLIPPING)
+     ========================================================================== */
+  main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 248px minmax(0, 1fr) 248px;
+    gap: 10px;
+    padding: 8px max(12px, env(safe-area-inset-right, 12px)) max(8px, env(safe-area-inset-bottom, 8px)) max(12px, env(safe-area-inset-left, 12px));
+    width: 100%;
+    max-width: min(1640px, 100vw);
+    margin: 0 auto;
+    align-items: center;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  @media (max-width: 1360px) {
+    main {
+      grid-template-columns: 240px minmax(0, 1fr) 240px;
+      gap: 8px;
+      padding: 6px 10px;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    main {
+      grid-template-columns: 210px minmax(0, 1fr) 210px;
+      gap: 6px;
+      padding: 4px 8px;
+    }
+  }
+
+  .side-box {
+    background: rgba(9, 15, 30, 0.92);
+    border: 1px solid #263a66;
+    border-radius: 14px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+    height: 100%;
+    max-height: calc(100vh - 60px);
+    min-width: 0;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    z-index: 20;
+    overflow: hidden;
+  }
+  .box-title {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--blue-ally);
+    border-bottom: 1px solid #1f3156;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ==========================================================================
+     LEFT PANEL: 2x3 HAND GALLERY (5 HEROES + 1 TELEGRAPH/SLIDE STATUS CARD)
+     ========================================================================== */
+  .hand-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, var(--hand-w));
+    grid-template-rows: repeat(3, var(--hand-h));
+    gap: 8px 12px;
+    justify-content: center;
+    align-content: center;
+    min-height: 0;
+  }
+  .hand-card-wrap {
+    width: var(--hand-w);
+    height: var(--hand-h);
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hand-card-wrap:hover {
+    transform: translateY(-3px) scale(1.03);
+    z-index: 30;
+  }
+  .hand-card-wrap.selected {
+    transform: translateY(-3px) scale(1.04);
+    z-index: 35;
+  }
+  .hand-card-wrap.selected .card-3d-unit {
+    border: 2px solid var(--gold) !important;
+    box-shadow:
+      0 0 0 2px rgba(255, 184, 0, 0.35),
+      0 8px 18px rgba(0, 0, 0, 0.9),
+      0 0 14px rgba(255, 184, 0, 0.7) !important;
+  }
+
+  .tactical-slide-card {
+    width: var(--hand-w);
+    height: var(--hand-h);
+    border-radius: 10px;
+    background: linear-gradient(155deg, rgba(0, 229, 255, 0.1), rgba(8, 15, 32, 0.95));
+    border: 1px dashed rgba(0, 229, 255, 0.45);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+    overflow: hidden;
+  }
+
+  /* ==========================================================================
+     CENTER STAGE: 3x3 TABLETOP ARENA + TELEGRAPH HUD BAR
+     ========================================================================== */
+  .center-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    max-height: calc(100vh - 60px);
+    width: 100%;
+    min-width: 0;
+    position: relative;
+    gap: 6px;
+    min-height: 0;
+  }
+
+  /* LIVE TELEGRAPH BANNER ABOVE BOARD */
+  .telegraph-hud-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(8, 14, 29, 0.94);
+    border: 1px solid #304c82;
+    border-radius: 99px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: #e2e8f0;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.65);
+    white-space: nowrap;
+    max-width: 96%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 30;
+  }
+  .telegraph-tag-badge {
+    padding: 2px 7px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    background: rgba(0, 229, 255, 0.18);
+    color: var(--blue-ally);
+    border: 1px solid rgba(0, 229, 255, 0.45);
+  }
+
+  .arena-3d-viewport {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1300px;
+    position: relative;
+    min-height: 0;
+  }
+
+  .board-3d-slab {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--board-tilt-x, 5deg)) rotateZ(var(--board-tilt-z, 0deg));
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    background:
+      radial-gradient(circle at 50% 45%, #1a2d57 0%, #080f20 100%);
+    border: 2.5px solid #4162a6;
+    border-radius: 20px;
+    padding: 10px 16px 14px;
+    box-shadow:
+      0 3px 0 #2b406e,
+      0 6px 0 #203154,
+      0 9px 0 #15213a,
+      0 22px 48px rgba(0, 0, 0, 0.92),
+      inset 0 0 32px rgba(0, 229, 255, 0.14);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .col-headers {
+    display: grid;
+    grid-template-columns: repeat(3, var(--slot-w));
+    gap: 12px;
+    text-align: center;
+  }
+  .col-header-pill {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 6px;
+    border-radius: 6px;
+    background: rgba(11, 18, 36, 0.95);
+    color: #94a3b8;
+    border: 1px solid #30497d;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .col-header-pill.boosted {
+    background: rgba(255, 184, 0, 0.18);
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: 0 0 10px rgba(255, 184, 0, 0.3);
+  }
+
+  .grid-3x3 {
+    display: grid;
+    grid-template-columns: repeat(3, var(--slot-w));
+    grid-template-rows: repeat(3, var(--slot-h));
+    gap: 12px;
+    transform-style: preserve-3d;
+    transform: translateZ(4px);
+    position: relative;
+  }
+
+  .board-slot {
+    width: var(--slot-w);
+    height: var(--slot-h);
+    border-radius: 12px;
+    background: rgba(6, 11, 24, 0.9);
+    border: 1.5px dashed #2e4678;
+    box-shadow: inset 0 5px 14px rgba(0, 0, 0, 0.85);
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: translateZ(4px);
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .board-slot.occupied {
+    border-style: solid;
+    border-color: transparent;
+  }
+  .board-slot:hover {
+    border-color: var(--blue-ally);
+    box-shadow: inset 0 0 16px rgba(0, 229, 255, 0.25), 0 0 14px rgba(0, 229, 255, 0.3);
+  }
+  .board-slot.slide-target {
+    border: 2px solid var(--emerald);
+    background: rgba(0, 230, 118, 0.14);
+    box-shadow: 0 0 18px rgba(0, 230, 118, 0.45);
+  }
+  .board-slot.focused-slot {
+    outline: 2px solid var(--blue-ally);
+    outline-offset: 2px;
+  }
+  /* Tile affected by hovered card's directional telegraph range */
+  .board-slot.telegraph-zone-ally {
+    border-color: rgba(0, 229, 255, 0.75);
+    box-shadow: inset 0 0 22px rgba(0, 229, 255, 0.3), 0 0 16px rgba(0, 229, 255, 0.35);
+  }
+  .board-slot.telegraph-zone-strike {
+    border-color: var(--gold);
+    box-shadow: inset 0 0 24px rgba(255, 184, 0, 0.35), 0 0 18px rgba(255, 184, 0, 0.45);
+  }
+
+  /* ==========================================================================
+     CARD UNIT — CLEAN RECTANGULAR FRAME, COMPACT NON-OVERLAPPING TYPOGRAPHY
+     ========================================================================== */
+  .card-3d-unit {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    background: #080c18;
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.85);
+  }
+  .board-slot .card-3d-unit {
+    transform: translateZ(10px);
+  }
+  .board-slot:hover .card-3d-unit {
+    transform: translateZ(18px) scale(1.02);
+  }
+  .card-3d-unit.owner-player {
+    border: 2px solid var(--blue-ally);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.88), 0 0 12px var(--blue-glow);
+  }
+  .card-3d-unit.owner-ai {
+    border: 2px solid var(--red-enemy);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.88), 0 0 12px var(--red-glow);
+  }
+  .board-slot.selected-unit .card-3d-unit {
+    border: 2.5px solid var(--gold) !important;
+    transform: translateZ(22px) scale(1.03) !important;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.92), 0 0 22px rgba(255, 184, 0, 0.85) !important;
+  }
+  .board-slot.will-flip .card-3d-unit {
+    border: 2.5px solid var(--gold) !important;
+    animation: flipTargetHover 0.5s ease-in-out infinite alternate;
+  }
+  @keyframes flipTargetHover {
+    from { transform: translateZ(12px) scale(1.0); }
+    to   { transform: translateZ(22px) scale(1.04); }
+  }
+  .board-slot.just-flipped .card-3d-unit {
+    animation: card3DSlamFlip 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes card3DSlamFlip {
+    0%   { transform: translateZ(44px) rotateY(180deg) scale(1.08); }
+    100% { transform: translateZ(10px) rotateY(0deg) scale(1.0); }
+  }
+
+  /* ==========================================================================
+     NATURAL DRAG & DROP (pointer-driven ghost, magnet snap, landing shadow)
+     ========================================================================== */
+  .slot-art { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+  .board-telegraph-svg { pointer-events: none; }
+  .hand-card-wrap { touch-action: none; cursor: grab; }
+  .board-slot.owner-draggable { cursor: grab; touch-action: none; }
+  body.is-dragging, body.is-dragging * { cursor: grabbing !important; }
+  body.is-dragging .hand-card-wrap:hover { transform: none; }
+
+  .drag-ghost {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    pointer-events: none;
+    transform-origin: 50% 50%;
+    will-change: transform;
+    border-radius: 10px;
+  }
+  .drag-ghost .card-3d-unit {
+    border: 2px solid var(--gold) !important;
+    box-shadow:
+      0 30px 44px rgba(0, 0, 0, 0.62),
+      0 0 20px rgba(255, 184, 0, 0.55) !important;
+    transition: box-shadow 0.15s ease;
+  }
+  .drag-ghost.over-target .card-3d-unit {
+    box-shadow:
+      0 10px 18px rgba(0, 0, 0, 0.75),
+      0 0 26px rgba(255, 184, 0, 0.85) !important;
+  }
+
+  .hand-card-wrap.drag-source,
+  .hand-card-wrap.drag-source:hover {
+    opacity: 0.28;
+    transform: scale(0.94);
+    filter: grayscale(0.6);
+  }
+  .board-slot.drag-source .card-3d-unit {
+    opacity: 0.22;
+    transform: translateZ(0) scale(0.95) !important;
+  }
+
+  .board-slot.drop-valid {
+    border-color: rgba(0, 229, 255, 0.55);
+    background: rgba(0, 229, 255, 0.06);
+    animation: dropValidPulse 1.1s ease-in-out infinite;
+  }
+  .board-slot.drop-hover {
+    border: 2px solid var(--gold);
+    background: rgba(255, 184, 0, 0.1);
+    box-shadow: inset 0 0 22px rgba(255, 184, 0, 0.35), 0 0 22px rgba(255, 184, 0, 0.5);
+    animation: none;
+  }
+  @keyframes dropValidPulse {
+    0%, 100% { box-shadow: inset 0 5px 14px rgba(0, 0, 0, 0.85); }
+    50%      { box-shadow: inset 0 0 14px rgba(0, 229, 255, 0.22), 0 0 12px rgba(0, 229, 255, 0.28); }
+  }
+
+  /* Landing shadow shown in the target socket while the ghost hovers above it */
+  .board-slot.landing-preview .card-3d-unit {
+    opacity: 0.38;
+    transform: translateZ(0) !important;
+    filter: saturate(0.5) brightness(1.2);
+    box-shadow: none !important;
+  }
+  .board-slot.hover-preview .card-3d-unit { opacity: 0.9; }
+
+  /* Placed card lands with a short squash instead of a 180° flip */
+  .board-slot.just-placed .card-3d-unit {
+    animation: cardDropLand 0.36s cubic-bezier(0.22, 1.4, 0.36, 1);
+  }
+  @keyframes cardDropLand {
+    0%   { transform: translateZ(34px) scale(1.06); }
+    55%  { transform: translateZ(4px) scale(0.97); }
+    100% { transform: translateZ(10px) scale(1.0); }
+  }
+  .board-3d-slab.thud { animation: slabThud 0.26s ease-out; }
+  @keyframes slabThud {
+    0%   { translate: 0 0; }
+    35%  { translate: 0 3px; }
+    100% { translate: 0 0; }
+  }
+
+  .card-art-frame {
+    position: absolute;
+    inset: 0;
+    background: #080c18;
+  }
+  .slot-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 12%;
+    display: block;
+  }
+  .slot-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(4, 7, 16, 0.32) 0%,
+      transparent 18%,
+      transparent 66%,
+      rgba(4, 7, 16, 0.94) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* ==========================================================================
+     16 UNIQUE DYNAMIC CARD TELEGRAPH SVG ANIMATION OVERLAYS
+     ========================================================================== */
+  .card-telegraph-fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 4;
+    opacity: 0.82;
+    mix-blend-mode: screen;
+  }
+  .hand-card-wrap .card-telegraph-fx {
+    opacity: 0.45;
+  }
+  .hand-card-wrap:hover .card-telegraph-fx,
+  .hand-card-wrap.selected .card-telegraph-fx,
+  .board-slot:hover .card-telegraph-fx {
+    opacity: 1;
+  }
+
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes spinReverse {
+    from { transform: rotate(360deg); }
+    to   { transform: rotate(0deg); }
+  }
+  @keyframes pulseRing {
+    0%   { transform: scale(0.55); opacity: 0.95; }
+    100% { transform: scale(1.35); opacity: 0; }
+  }
+  @keyframes sweepSlash {
+    0%   { stroke-dashoffset: 160; opacity: 0.2; }
+    50%  { stroke-dashoffset: 0;   opacity: 1; }
+    100% { stroke-dashoffset: -160; opacity: 0.2; }
+  }
+  @keyframes radarCone {
+    0%, 100% { transform: rotate(-28deg); }
+    50%      { transform: rotate(28deg); }
+  }
+  @keyframes vertScan {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes starFlash {
+    0%, 100% { transform: scale(0.82) rotate(0deg); opacity: 0.65; }
+    50%      { transform: scale(1.18) rotate(15deg); opacity: 1; }
+  }
+
+  .fx-spin       { transform-origin: 50px 65px; animation: spinSlow 5.5s linear infinite; }
+  .fx-spin-rev   { transform-origin: 50px 65px; animation: spinReverse 4.2s linear infinite; }
+  .fx-pulse      { transform-origin: 50px 65px; animation: pulseRing 1.9s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+  .fx-slash      { stroke-dasharray: 160; animation: sweepSlash 1.8s ease-in-out infinite; }
+  .fx-radar      { transform-origin: 50px 65px; animation: radarCone 2.2s ease-in-out infinite; }
+  .fx-scan       { animation: vertScan 2.4s linear infinite; }
+  .fx-star       { transform-origin: 50px 65px; animation: starFlash 1.5s ease-in-out infinite; }
+
+  /* COMPACT NON-OVERLAPPING BOTTOM NAME & TELEGRAPH FOOTER */
+  .slot-name-ribbon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: rgba(5, 9, 20, 0.95);
+    border-top: 1px solid rgba(255,255,255,0.18);
+    padding: 0 5px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f8fafc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 6;
+  }
+  .hand-card-wrap .slot-name-ribbon {
+    height: 18px;
+    font-size: 12px;
+  }
+
+  /* SLEEK COMPACT INSET DIRECTIONAL STAT GEMS (ZERO OVERLAP) */
+  .edge-num {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background: rgba(5, 9, 20, 0.92);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    font-weight: 900;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+    z-index: 7;
+  }
+  .hand-card-wrap .edge-num {
+    width: 17px;
+    height: 17px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+  .owner-player .edge-num {
+    border-color: var(--blue-ally);
+    color: #e0faff;
+  }
+  .owner-ai .edge-num {
+    border-color: var(--red-enemy);
+    color: #ffe4e8;
+  }
+
+  .edge-top    { top: 4px;    left: 50%; transform: translateX(-50%); }
+  .edge-bottom { bottom: 22px; left: 50%; transform: translateX(-50%); }
+  .edge-left   { left: 4px;   top: calc(50% - 8px); transform: translateY(-50%); }
+  .edge-right  { right: 4px;  top: calc(50% - 8px); transform: translateY(-50%); }
+
+  .hand-card-wrap .edge-bottom { bottom: 19px; }
+
+  /* DIRECTIONAL CLASH TELEGRAPH PILL ON TARGET NEIGHBORS */
+  .flip-tag {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(20px);
+    background: var(--gold);
+    color: #050811;
+    font-weight: 900;
+    font-size: 12px;
+    padding: 3px 9px;
+    border-radius: 99px;
+    z-index: 12;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.95);
+    white-space: nowrap;
+    animation: flipBadgePulse 0.45s ease-in-out infinite alternate;
+  }
+  .defend-tag {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(20px);
+    background: rgba(15, 23, 42, 0.94);
+    border: 1.5px solid var(--red-enemy);
+    color: #fda4af;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 2px 7px;
+    border-radius: 99px;
+    z-index: 12;
+    white-space: nowrap;
+  }
+  @keyframes flipBadgePulse {
+    from { transform: translate(-50%, -50%) scale(0.95); }
+    to   { transform: translate(-50%, -50%) scale(1.08); }
+  }
+
+  /* ==========================================================================
+     FULL-BOARD DYNAMIC TELEGRAPH VECTOR SVG OVERLAY (ARROWS + BEAMS)
+     ========================================================================== */
+  .board-telegraph-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 25;
+    overflow: visible;
+  }
+  @keyframes marchAnts {
+    from { stroke-dashoffset: 24; }
+    to   { stroke-dashoffset: 0; }
+  }
+  .telegraph-vector-line {
+    stroke-dasharray: 7 5;
+    animation: marchAnts 0.55s linear infinite;
+  }
+
+  /* ==========================================================================
+     RIGHT PANEL: 3D DICE CUBES + BOSS PROFILE (COMPACT & NON-CLIPPING)
+     ========================================================================== */
+  .dice-column-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .col-die-row {
+    background: rgba(7, 11, 24, 0.94);
+    border: 1px solid #2b406e;
+    border-radius: 10px;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.16s ease;
+  }
+  .col-die-row:hover {
+    border-color: var(--gold);
+  }
+  .col-die-row.charged {
+    border-color: var(--gold);
+    background: linear-gradient(90deg, rgba(255, 184, 0, 0.16), rgba(7, 11, 24, 0.96));
+  }
+  .cube-scene {
+    width: 32px;
+    height: 32px;
+    perspective: 180px;
+    flex-shrink: 0;
+    margin-right: 2px;
+  }
+  .cube-3d {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cube-face {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: linear-gradient(145deg, #243763, #0e172c);
+    border: 1.5px solid #5678bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+  }
+  .col-die-row.charged .cube-face {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: linear-gradient(145deg, #42300d, #1c1306);
+  }
+  .cube-face.f-1 { transform: rotateY(  0deg) translateZ(16px); }
+  .cube-face.f-2 { transform: rotateY(180deg) translateZ(16px); }
+  .cube-face.f-3 { transform: rotateY( 90deg) translateZ(16px); }
+  .cube-face.f-4 { transform: rotateY(-90deg) translateZ(16px); }
+  .cube-face.f-5 { transform: rotateX( 90deg) translateZ(16px); }
+  .cube-face.f-6 { transform: rotateX(-90deg) translateZ(16px); }
+
+  .boss-profile {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(52, 12, 26, 0.65);
+    border: 1px solid var(--red-enemy);
+    border-radius: 10px;
+    padding: 8px 9px;
+  }
+  .boss-avatar {
+    width: 44px;
+    height: 58px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1.5px solid var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* MODAL */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 7, 15, 0.86);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  .modal-box {
+    background: linear-gradient(145deg, #162447, #090e1c);
+    border: 2px solid var(--gold);
+    border-radius: 18px;
+    padding: 24px 30px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="brand-badge">CARDFRONT 3D</span>
+    <span class="brand-title">Dynamic Telegraph Tabletop Clash</span>
+  </div>
+
+  <div class="scoreboard">
+    <div class="score-side" style="color:var(--blue-ally);">
+      <span class="score-dot blue"></span>
+      <span>YOU: <span id="player-score">0</span></span>
+    </div>
+    <span style="color:#64748b;font-weight:800;font-size:12px;">VS</span>
+    <div class="score-side" style="color:var(--red-enemy);">
+      <span>BOSS: <span id="ai-score">1</span></span>
+      <span class="score-dot red"></span>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <span id="coin-hud-pill" style="background:#1e293b;border:1px solid var(--gold);color:var(--gold);padding:3px 9px;border-radius:99px;font-size:12px;font-weight:900;">🪙 <span id="player-coins">300</span></span>
+    <select id="camera-select" onchange="setBoardCamera(this.value)" title="3D Board Camera Angle">
+      <option value="5,0">🎥 View: 3D Showcase (5°)</option>
+      <option value="0,0">🎥 View: Flat 2D (0°)</option>
+      <option value="14,0">🎥 View: Tabletop (14°)</option>
+    </select>
+    <select id="stage-select" onchange="startStage(parseInt(this.value, 10))">
+      <option value="0">Act I-1: Skystone Sanctuary</option>
+      <option value="1">Act I-2: Ivalice Citadel</option>
+      <option value="2">Act I-3: Solar Spire</option>
+      <option value="3">Act II-4: Neo-Arcadia Highway</option>
+      <option value="4">Act II-5: Orbital Mecha Bay</option>
+      <option value="5">Act II-6: Solid Eye Bunker</option>
+      <option value="6">Act III-7: Breach Rift Alpha</option>
+      <option value="7">Act III-8: STACCS Spire</option>
+      <option value="8">Act III-9: Cryo Core</option>
+      <option value="9">Act IV-10: Umbra Singularity</option>
+      <option value="10">Act IV-11: Blood Rune Altar</option>
+      <option value="11">Act IV-12: Hellfire Foundry</option>
+      <option value="12">Act V-13: Prism Octahedron</option>
+      <option value="13">Act V-14: Trigger Cross-Star</option>
+      <option value="14">Act V-15: Omega Chronos Prime</option>
+    </select>
+    <button onclick="openDeckbuilderModal()" style="border-color:var(--gold);color:var(--gold);">🃏 Deck (60)</button>
+    <button onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">🧊 3D Pawn</button>
+    <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking">🎵 BGM: OFF</button>
+    <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus">🔊 SFX</button>
+    <button onclick="triggerAllBoardTelegraphs()">⚡ Pulse</button>
+    <button onclick="startStage(state.stageIndex)">↻ Reset</button>
+  </div>
+</header>
+
+<main>
+  <!-- LEFT PANEL: CLEAN 2x3 HAND GALLERY -->
+  <aside class="side-box">
+    <div class="box-title">
+      <span>Hero Hand</span>
+      <span id="hand-count-badge" style="color:var(--gold);">5 CARDS</span>
+    </div>
+
+    <div class="hand-grid" id="hand-bar"></div>
+  </aside>
+
+  <!-- CENTER: LIVE TELEGRAPH HUD + 3x3 TABLETOP ARENA -->
+  <section class="center-zone">
+    <div class="telegraph-hud-pill" id="telegraph-hud-pill">
+      <span class="telegraph-tag-badge" id="telegraph-hud-badge">TELEGRAPH READY</span>
+      <span id="telegraph-hud-desc">Hover any socket on the 3×3 board to preview card-specific dynamic telegraph vectors.</span>
+    </div>
+
+    <div class="arena-3d-viewport" id="arena-viewport">
+      <div class="board-3d-slab" id="board-3d-slab">
+        <div class="col-headers" id="col-headers"></div>
+        <div class="grid-3x3" id="grid-3x3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT PANEL: 3D COLUMN DICE + ENEMY COMMANDER -->
+  <aside class="side-box">
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <div class="box-title">
+        <span>Column Dice Boost</span>
+        <span style="color:var(--gold);">NUDGES: <span id="nudge-left">2</span></span>
+      </div>
+
+      <div style="font-size:12px;color:#cbd5e1;line-height:1.28;">
+        Click a 3D die to <b>+1 Nudge</b>. Pip <b style="color:var(--gold);">4–6</b> grants <b style="color:var(--gold);">+1 All Sides</b> in that Column.
+      </div>
+
+      <div class="dice-column-list" id="dice-column-list"></div>
+
+      <button onclick="rerollAllDice()" style="width:100%;padding:7px;background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;font-size:12px;">
+        🎲 Roll All 3D Dice (<span id="reroll-left">2</span> left)
+      </button>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <div class="box-title">
+        <span>Boss Commander</span>
+        <span id="turn-badge" style="color:var(--gold);">YOUR TURN</span>
+      </div>
+
+      <div class="boss-profile">
+        <img id="boss-avatar" class="boss-avatar" src="./GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss" />
+        <div style="min-width:0;">
+          <div id="boss-name" style="font-weight:800;font-size:12px;color:#ff859a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Eclipse Void Blade</div>
+          <div id="boss-telegraph-label" style="font-size:12px;color:var(--gold);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Telegraph: Umbra Singularity</div>
+          <div id="boss-intent-preview" style="font-size:12px;color:#94a3b8;margin-top:2px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Counters after each move.</div>
+        </div>
+      </div>
+
+      <div id="last-move-banner" style="background:#080d1a;border:1px solid #283e69;border-radius:9px;padding:8px;font-size:12px;color:#e2e8f0;line-height:1.3;">
+        💡 Select a Hero Card on the left and hover any tile to see its unique dynamic telegraph animation.
+      </div>
+    </div>
+  </aside>
+</main>
+
+<div class="modal-backdrop" id="result-modal">
+  <div class="modal-box">
+    <div id="modal-kicker" style="font-size:12px;font-weight:900;color:var(--gold);letter-spacing:1.2px;">MATCH COMPLETE</div>
+    <h2 id="modal-title" style="font-size:24px;font-weight:900;">VICTORY!</h2>
+    <p id="modal-desc" style="font-size:13px;color:#cbd5e1;line-height:1.45;"></p>
+    <div style="display:flex;gap:10px;justify-content:center;margin-top:4px;">
+      <button id="play-again-btn" onclick="closeModal(false)">Play Again</button>
+      <button id="next-stage-btn" onclick="closeModal(true)" style="background:linear-gradient(135deg,#00e5ff,#0072ff);border-color:#fff;">Next Stage ▶</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTION STAGE 2 MODAL 1: 60-CARD SET 1 DECKBUILDER, BOOSTER PACKS & CARDCRAFT FORGE -->
+<div class="modal-backdrop" id="deckbuilder-modal">
+  <div class="modal-box" style="max-width:860px;width:95%;max-height:86vh;overflow-y:auto;text-align:left;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2b4478;padding-bottom:8px;">
+      <div>
+        <div style="font-size:12px;font-weight:900;color:var(--gold);letter-spacing:1px;">SET 1: CRADLE OF ECHOES · SAVE SCHEMA V3 (FNV-1A)</div>
+        <h3 style="font-size:16px;font-weight:900;color:#fff;">60-Card Deckbuilder, Booster Pack &amp; CardCraft Forge</h3>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button onclick="openBoosterPackUI()" style="background:linear-gradient(135deg,#f59e0b,#b45309);border-color:#fde68a;">🎁 Open Pack (100 🪙)</button>
+        <button onclick="evolveCardCraftUI()" style="background:linear-gradient(135deg,#8b5cf6,#4c1d95);border-color:#c4b5fd;">⚒️ CardCraft +1 (150 🪙)</button>
+        <button onclick="closeDeckbuilderModal()">✕ Close</button>
+      </div>
+    </div>
+    <div id="deckbuilder-status" style="font-size:12px;color:#cbd5e1;background:#0a1122;padding:7px 10px;border-radius:8px;border:1px solid #283e69;">
+      Click any Set 1 card to toggle it into your 5-Card Active Squad. Progression auto-saves to Atomic Save Slot v3.
+    </div>
+    <div id="deckbuilder-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:8px;max-height:54vh;overflow-y:auto;padding:4px;"></div>
+  </div>
+</div>
+
+<!-- PRODUCTION STAGE 2 MODAL 2: LIVE 3D GLB / Q3GS HOLOGRAM PAWN INSPECTOR -->
+<div class="modal-backdrop" id="pawn3d-modal">
+  <div class="modal-box" style="max-width:620px;width:92%;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2b4478;padding-bottom:8px;">
+      <div style="text-align:left;">
+        <div style="font-size:12px;font-weight:900;color:var(--blue-ally);letter-spacing:1px;">HI3DGEN + TRELLIS 2.0 WATERTIGHT MESH INSPECTOR</div>
+        <h3 id="pawn3d-title" style="font-size:16px;font-weight:900;color:#fff;">3D .glb / .q3gs Hologram Pawn</h3>
+      </div>
+      <button onclick="close3DPawnInspectorModal()">✕ Close</button>
+    </div>
+    <canvas id="pawn3d-canvas" width="520" height="300" style="width:100%;height:260px;background:radial-gradient(circle,#122449 0%,#050914 85%);border-radius:12px;border:1px solid #304d85;cursor:grab;"></canvas>
+    <div id="pawn3d-telemetry" style="font-family:ui-monospace,monospace;font-size:12px;color:#93c5fd;background:#070c18;padding:8px 10px;border-radius:8px;border:1px solid #1e3a8a;text-align:left;"></div>
+  </div>
+</div>
+
+<script>
+if (location.search.includes("dragtest=1")) { window.addEventListener("error", (e) => { fetch("/__osascript_report__?name=dragerr", { method: "POST", body: JSON.stringify({ msg: e.message, line: e.lineno, col: e.colno }) }); }); }
+// ============================================================================
+// 1. 16 CARDS WITH UNIQUE DYNAMIC TELEGRAPH PROFILES & SVG ANIMATION GENERATORS
+// ============================================================================
+const PLAYER_HEROES = [
+  {
+    id: "h_archangel",
+    name: "Solar Archangel",
+    nesw: [8, 7, 6, 7],
+    art: "./GeneratedArt/MasteredCards/h_archangel.png?v=tele4",
+    telegraphName: "Solar Cross Lance",
+    telegraphType: "FFTA Holy Totema Cross (+)",
+    telegraphColor: "#FFD54F",
+    telegraphPattern: "cross",
+    telegraphDesc: "Projects a 4-way golden cruciform beam across its entire Row & Column."
+  },
+  {
+    id: "h_phoenix",
+    name: "Phoenix Valkyrie",
+    nesw: [9, 8, 5, 6],
+    art: "./GeneratedArt/MasteredCards/h_phoenix.png?v=tele4",
+    telegraphName: "Ember Wing Sweep",
+    telegraphType: "Breach Thermal Arc (N+E)",
+    telegraphColor: "#FF6D00",
+    telegraphPattern: "wing_ne",
+    telegraphDesc: "Sweeps twin blazing phoenix wings toward North (9) and East (8) tiles."
+  },
+  {
+    id: "h_oracle",
+    name: "Lunar Oracle",
+    nesw: [7, 7, 8, 7],
+    art: "./GeneratedArt/MasteredCards/h_oracle.png?v=tele4",
+    telegraphName: "Crescent Tidal Ward",
+    telegraphType: "Astral Orbit Ring (360°)",
+    telegraphColor: "#7CE0FF",
+    telegraphPattern: "lunar_orbit",
+    telegraphDesc: "Orbits a silver-cyan lunar sigil that projects tidal waves into South (8) & neighbors."
+  },
+  {
+    id: "h_chronos",
+    name: "Chronos Weaver",
+    nesw: [6, 8, 7, 7],
+    art: "./GeneratedArt/MasteredCards/h_chronos.png?v=tele4",
+    telegraphName: "Temporal Gear Lock",
+    telegraphType: "MGA COST Clockwork (E+S+W)",
+    telegraphColor: "#FFB800",
+    telegraphPattern: "chrono_gear",
+    telegraphDesc: "Spins interlocking golden clockwork gears locking East (8), South (7), and West (7)."
+  },
+  {
+    id: "h_seraph",
+    name: "Astral Seraph",
+    nesw: [8, 6, 7, 8],
+    art: "./GeneratedArt/MasteredCards/h_seraph.png?v=tele4",
+    telegraphName: "Trigger Cross-Star",
+    telegraphType: "Omega Sakuga Flare (N+W)",
+    telegraphColor: "#E040FB",
+    telegraphPattern: "trigger_star",
+    telegraphDesc: "Detonates a 4-point Studio Trigger cross-star flare surging North (8) & West (8)."
+  },
+  {
+    id: "h_kai",
+    name: "Kai Crimson Visor",
+    nesw: [7, 8, 6, 7],
+    art: "./GeneratedArt/MasteredCards/h_kai.png?v=tele4",
+    telegraphName: "Solid Eye Target Lock",
+    telegraphType: "MGA2 Halftone Reticle (E+W)",
+    telegraphColor: "#FF2E54",
+    telegraphPattern: "solideye_lock",
+    telegraphDesc: "Locks onto horizontal targets with a rotating Solid Eye sniper reticle & katana slash."
+  },
+  {
+    id: "h_valkyrie",
+    name: "Sky-Wing Striker",
+    nesw: [8, 8, 5, 6],
+    art: "./GeneratedArt/MasteredCards/h_valkyrie.png?v=tele4",
+    telegraphName: "Orbital Airstrike",
+    telegraphType: "Advance Wars Eagle Dive (N+E)",
+    telegraphColor: "#00E5FF",
+    telegraphPattern: "airstrike_chevron",
+    telegraphDesc: "Drops supersonic target chevrons and twin afterburner vectors into North (8) & East (8)."
+  },
+  {
+    id: "h_arbiter",
+    name: "Sun Arbiter",
+    nesw: [7, 7, 8, 8],
+    art: "./GeneratedArt/MasteredCards/h_arbiter.png?v=tele4",
+    telegraphName: "Ivalice Law Seal",
+    telegraphType: "FFTA Judge Hex Pillar (S+W)",
+    telegraphColor: "#FFD700",
+    telegraphPattern: "judge_hex",
+    telegraphDesc: "Summons a golden hexagonal Judge Law barrier and descending pillars onto South (8) & West (8)."
+  }
+];
+
+const ENEMY_MECHS = [
+  {
+    id: "e_eclipse",
+    name: "Eclipse Void Blade",
+    nesw: [6, 6, 5, 6],
+    art: "./GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",
+    telegraphName: "Umbra Singularity",
+    telegraphType: "Void Vortex Slash",
+    telegraphColor: "#C084FC",
+    telegraphPattern: "void_vortex",
+    telegraphDesc: "Spins a dark-violet gravitational vortex with twin crescent slash arcs."
+  },
+  {
+    id: "e_archon",
+    name: "Prism Core Archon",
+    nesw: [7, 6, 6, 5],
+    art: "./GeneratedArt/MasteredCards/e_archon.png?v=tele4",
+    telegraphName: "Prism Tri-Laser",
+    telegraphType: "Octahedron Beam",
+    telegraphColor: "#F43F5E",
+    telegraphPattern: "prism_laser",
+    telegraphDesc: "Refracts a tri-beam magenta laser from its rotating octahedron core."
+  },
+  {
+    id: "e_inferno",
+    name: "Inferno Seraph",
+    nesw: [7, 7, 5, 6],
+    art: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",
+    telegraphName: "Hellfire Artillery",
+    telegraphType: "Breach Danger Zone",
+    telegraphColor: "#FF5722",
+    telegraphPattern: "hellfire_zone",
+    telegraphDesc: "Projects pulsing Into the Breach artillery hazard rings across North & East."
+  },
+  {
+    id: "e_reaper",
+    name: "Sigil Wraith",
+    nesw: [6, 7, 7, 5],
+    art: "./GeneratedArt/MasteredCards/e_reaper.png?v=tele4",
+    telegraphName: "Blood Rune Scythe",
+    telegraphType: "180° Cleave Telegraph",
+    telegraphColor: "#FB7185",
+    telegraphPattern: "reaper_scythe",
+    telegraphDesc: "Rotates a crimson necromantic rune and sweeps a 180° scythe arc (East + South)."
+  },
+  {
+    id: "e_titan",
+    name: "Bastion Dreadnought",
+    nesw: [7, 5, 7, 6],
+    art: "./GeneratedArt/MasteredCards/e_titan.png?v=tele4",
+    telegraphName: "Seismic Tremor Push",
+    telegraphType: "Breach Kinetic Bump",
+    telegraphColor: "#F59E0B",
+    telegraphPattern: "seismic_wave",
+    telegraphDesc: "Emits heavy concentric ground-pound shockwaves pushing North (7) & South (7)."
+  },
+  {
+    id: "e_colossus",
+    name: "Emerald Colossus",
+    nesw: [6, 8, 5, 6],
+    art: "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4",
+    telegraphName: "Overdrive Railgun",
+    telegraphType: "Piercing Plasma Vector",
+    telegraphColor: "#10B981",
+    telegraphPattern: "emerald_rail",
+    telegraphDesc: "Charges an emerald reactor coil firing a high-output East (8) plasma beam."
+  },
+  {
+    id: "e_cryo",
+    name: "Cryo Interceptor",
+    nesw: [5, 7, 6, 7],
+    art: "./GeneratedArt/MasteredCards/e_cryo.png?v=tele4",
+    telegraphName: "Sub-Zero Lattice",
+    telegraphType: "Frost Crystal Spread",
+    telegraphColor: "#38BDF8",
+    telegraphPattern: "cryo_crystal",
+    telegraphDesc: "Expands a crystalline ice snowflake lattice freezing East (7) & West (7)."
+  },
+  {
+    id: "e_shinobi",
+    name: "Cyber Shinobi",
+    nesw: [7, 6, 6, 5],
+    art: "./GeneratedArt/MasteredCards/e_shinobi.png?v=tele4",
+    telegraphName: "90° Stealth Cone",
+    telegraphType: "MGA Radar Ambush",
+    telegraphColor: "#2DD4BF",
+    telegraphPattern: "stealth_cone",
+    telegraphDesc: "Sweeps a 90° Metal Gear Acid stealth radar vision cone & rapid kunai tracers."
+  }
+];
+
+const ALL_CARDS = {};
+[...PLAYER_HEROES, ...ENEMY_MECHS].forEach(c => { ALL_CARDS[c.id] = c; });
+
+// ============================================================================
+// 2. UNIQUE DYNAMIC SVG TELEGRAPH GENERATOR FOR EACH OF THE 16 CARDS
+// ============================================================================
+function buildUniqueTelegraphSVG(card) {
+  const col = card.telegraphColor || "#00E5FF";
+  switch (card.telegraphPattern) {
+    case "cross":
+      // Solar Archangel: Rotating sacred halo + 4-way cruciform lance beams
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <circle cx="50" cy="65" r="30" fill="none" stroke="${col}" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <circle cx="50" cy="65" r="22" fill="none" stroke="#fff" stroke-width="1" stroke-opacity="0.6"/>
+        </g>
+        <line x1="50" y1="6" x2="50" y2="124" stroke="${col}" stroke-width="2" stroke-opacity="0.75" class="fx-slash"/>
+        <line x1="6" y1="65" x2="94" y2="65" stroke="${col}" stroke-width="2" stroke-opacity="0.75" class="fx-slash"/>
+        <circle cx="50" cy="65" r="18" fill="none" stroke="${col}" stroke-width="2" class="fx-pulse"/>
+      </svg>`;
+
+    case "wing_ne":
+      // Phoenix Valkyrie: Twin sweeping flame arcs + rising thermal rings
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <path d="M 16 95 Q 50 20 88 35" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round" class="fx-slash"/>
+        <path d="M 24 105 Q 58 35 92 52" fill="none" stroke="#FFD54F" stroke-width="2" stroke-linecap="round" class="fx-slash"/>
+        <circle cx="50" cy="65" r="24" fill="none" stroke="${col}" stroke-width="2" class="fx-pulse"/>
+      </svg>`;
+
+    case "lunar_orbit":
+      // Lunar Oracle: Orbiting crescent moon + astral constellation ring
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <circle cx="50" cy="65" r="32" fill="none" stroke="${col}" stroke-width="1.4" stroke-dasharray="4 6"/>
+          <path d="M 50 26 A 10 10 0 1 0 60 36 A 7 7 0 1 1 50 26 Z" fill="${col}"/>
+          <circle cx="50" cy="104" r="3.5" fill="#fff"/>
+        </g>
+        <circle cx="50" cy="65" r="20" fill="none" stroke="${col}" stroke-width="1.5" class="fx-pulse"/>
+      </svg>`;
+
+    case "chrono_gear":
+      // Chronos Weaver: Counter-rotating clockwork gears + sweeping clock hands
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <circle cx="50" cy="65" r="29" fill="none" stroke="${col}" stroke-width="3.5" stroke-dasharray="5 5"/>
+          <line x1="50" y1="65" x2="50" y2="38" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <g class="fx-spin-rev">
+          <circle cx="50" cy="65" r="19" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="3 4" stroke-opacity="0.8"/>
+          <line x1="50" y1="65" x2="70" y2="65" stroke="${col}" stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </svg>`;
+
+    case "trigger_star":
+      // Astral Seraph: Studio Trigger 4-point cross-star sakuga flare
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-star">
+          <path d="M 50 22 L 56 59 L 92 65 L 56 71 L 50 108 L 44 71 L 8 65 L 44 59 Z" fill="${col}" fill-opacity="0.45" stroke="#fff" stroke-width="1.2"/>
+        </g>
+        <circle cx="50" cy="65" r="24" fill="none" stroke="${col}" stroke-width="1.6" class="fx-pulse"/>
+      </svg>`;
+
+    case "solideye_lock":
+      // Kai Crimson Visor: MGA2 Solid Eye sniper lock reticle + horizontal katana slash
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin-rev">
+          <circle cx="50" cy="65" r="26" fill="none" stroke="${col}" stroke-width="1.8" stroke-dasharray="12 6"/>
+          <line x1="50" y1="32" x2="50" y2="42" stroke="#00E5FF" stroke-width="2"/>
+          <line x1="50" y1="88" x2="50" y2="98" stroke="#00E5FF" stroke-width="2"/>
+        </g>
+        <line x1="6" y1="68" x2="94" y2="56" stroke="#fff" stroke-width="2.6" class="fx-slash"/>
+      </svg>`;
+
+    case "airstrike_chevron":
+      // Sky-Wing Striker: Descending supersonic airstrike target chevrons
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-scan">
+          <polyline points="28,35 50,52 72,35" fill="none" stroke="${col}" stroke-width="2.5" stroke-linecap="round"/>
+          <polyline points="28,55 50,72 72,55" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <circle cx="50" cy="65" r="22" fill="none" stroke="${col}" stroke-width="1.8" class="fx-pulse"/>
+      </svg>`;
+
+    case "judge_hex":
+      // Sun Arbiter: FFTA hexagonal Judge Law seal
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <polygon points="50,33 78,49 78,81 50,97 22,81 22,49" fill="none" stroke="${col}" stroke-width="2"/>
+        </g>
+        <polygon points="50,41 71,53 71,77 50,89 29,77 29,53" fill="none" stroke="#fff" stroke-width="1.2" class="fx-pulse"/>
+      </svg>`;
+
+    case "void_vortex":
+      // Eclipse Void Blade: Dark-violet spiral slash
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <path d="M 50 35 A 30 30 0 0 1 80 65" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 50 95 A 30 30 0 0 1 20 65" fill="none" stroke="#FF2E54" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <circle cx="50" cy="65" r="20" fill="none" stroke="${col}" stroke-width="1.5" class="fx-pulse"/>
+      </svg>`;
+
+    case "prism_laser":
+      // Prism Core Archon: Rotating octahedron + tri-beam vectors
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <polygon points="50,35 76,65 50,95 24,65" fill="none" stroke="${col}" stroke-width="2"/>
+        </g>
+        <line x1="50" y1="65" x2="50" y2="12" stroke="#fff" stroke-width="2" class="fx-slash"/>
+        <line x1="50" y1="65" x2="90" y2="65" stroke="${col}" stroke-width="2" class="fx-slash"/>
+      </svg>`;
+
+    case "hellfire_zone":
+      // Inferno Seraph: Into the Breach artillery hazard ring
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <circle cx="50" cy="65" r="28" fill="none" stroke="${col}" stroke-width="3" stroke-dasharray="8 5" class="fx-spin"/>
+        <circle cx="50" cy="65" r="22" fill="none" stroke="#FFD54F" stroke-width="2" class="fx-pulse"/>
+      </svg>`;
+
+    case "reaper_scythe":
+      // Sigil Wraith: 180-degree crimson scythe cleave
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <path d="M 18 45 A 36 36 0 0 1 84 85" fill="none" stroke="${col}" stroke-width="3.5" stroke-linecap="round" class="fx-slash"/>
+        <circle cx="50" cy="65" r="22" fill="none" stroke="${col}" stroke-width="1.5" stroke-dasharray="4 4" class="fx-spin-rev"/>
+      </svg>`;
+
+    case "seismic_wave":
+      // Bastion Dreadnought: Concentric seismic bump rings
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <rect x="24" y="39" width="52" height="52" rx="8" fill="none" stroke="${col}" stroke-width="2.2" class="fx-pulse"/>
+        <circle cx="50" cy="65" r="16" fill="none" stroke="#fff" stroke-width="2" class="fx-pulse"/>
+      </svg>`;
+
+    case "emerald_rail":
+      // Emerald Colossus: Piercing horizontal plasma railgun
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <line x1="10" y1="65" x2="95" y2="65" stroke="${col}" stroke-width="4" class="fx-slash"/>
+        <circle cx="50" cy="65" r="22" fill="none" stroke="${col}" stroke-width="2" class="fx-pulse"/>
+      </svg>`;
+
+    case "cryo_crystal":
+      // Cryo Interceptor: 6-axis frost crystal lattice
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-spin">
+          <line x1="50" y1="35" x2="50" y2="95" stroke="${col}" stroke-width="2"/>
+          <line x1="24" y1="50" x2="76" y2="80" stroke="${col}" stroke-width="2"/>
+          <line x1="24" y1="80" x2="76" y2="50" stroke="${col}" stroke-width="2"/>
+        </g>
+      </svg>`;
+
+    default:
+      // Cyber Shinobi: 90-degree MGA stealth vision cone
+      return `<svg class="card-telegraph-fx" viewBox="0 0 100 130">
+        <g class="fx-radar">
+          <path d="M 50 65 L 22 18 A 48 48 0 0 1 78 18 Z" fill="${col}" fill-opacity="0.28" stroke="${col}" stroke-width="1.5"/>
+        </g>
+        <circle cx="50" cy="65" r="6" fill="${col}"/>
+      </svg>`;
+  }
+}
+
+const STAGES = [
+  { name: "Eclipse Void Blade",   bossId: "e_eclipse",  avatar: "./GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",  bg: "./GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 0, rewardCoins: 80 },
+  { name: "Prism Core Archon",    bossId: "e_archon",   avatar: "./GeneratedArt/MasteredCards/e_archon.png?v=tele4",   bg: "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 0, rewardCoins: 90 },
+  { name: "Emerald Colossus",     bossId: "e_colossus", avatar: "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4", bg: "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png", aiBonus: 1, rewardCoins: 120 },
+  { name: "Inferno Seraph",       bossId: "e_inferno",  avatar: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",  bg: "./GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 1, rewardCoins: 150 }
+];
+
+const CAMPAIGN_STAGES = [
+  { name: "Act I-1: Skystone Sanctuary",   bossId: "e_eclipse",  avatar: "./GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",  bg: "./GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 0, rewardCoins: 80 },
+  { name: "Act I-2: Ivalice Citadel",      bossId: "e_archon",   avatar: "./GeneratedArt/MasteredCards/e_archon.png?v=tele4",   bg: "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 0, rewardCoins: 90 },
+  { name: "Act I-3: Solar Spire",          bossId: "e_cryo",     avatar: "./GeneratedArt/MasteredCards/e_cryo.png?v=tele4",     bg: "./GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 1, rewardCoins: 100 },
+  { name: "Act II-4: Neo-Arcadia Highway", bossId: "e_shinobi",  avatar: "./GeneratedArt/MasteredCards/e_shinobi.png?v=tele4",  bg: "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png", aiBonus: 1, rewardCoins: 110 },
+  { name: "Act II-5: Orbital Mecha Bay",   bossId: "e_colossus", avatar: "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4", bg: "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png", aiBonus: 1, rewardCoins: 120 },
+  { name: "Act II-6: Solid Eye Bunker",    bossId: "e_titan",    avatar: "./GeneratedArt/MasteredCards/e_titan.png?v=tele4",    bg: "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 1, rewardCoins: 130 },
+  { name: "Act III-7: Breach Rift Alpha",  bossId: "e_inferno",  avatar: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",  bg: "./GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 1, rewardCoins: 140 },
+  { name: "Act III-8: STACCS Spire",       bossId: "e_reaper",   avatar: "./GeneratedArt/MasteredCards/e_reaper.png?v=tele4",   bg: "./GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 1, rewardCoins: 150 },
+  { name: "Act III-9: Cryo Core",          bossId: "e_cryo",     avatar: "./GeneratedArt/MasteredCards/e_cryo.png?v=tele4",     bg: "./GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 1, rewardCoins: 160 },
+  { name: "Act IV-10: Umbra Singularity",  bossId: "e_eclipse",  avatar: "./GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",  bg: "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 1, rewardCoins: 175 },
+  { name: "Act IV-11: Blood Rune Altar",   bossId: "e_reaper",   avatar: "./GeneratedArt/MasteredCards/e_reaper.png?v=tele4",   bg: "./GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 1, rewardCoins: 190 },
+  { name: "Act IV-12: Hellfire Foundry",   bossId: "e_inferno",  avatar: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",  bg: "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png", aiBonus: 1, rewardCoins: 205 },
+  { name: "Act V-13: Prism Octahedron",    bossId: "e_archon",   avatar: "./GeneratedArt/MasteredCards/e_archon.png?v=tele4",   bg: "./GeneratedArt/env_isamu_kamikokuryo_skystone.png", aiBonus: 2, rewardCoins: 225 },
+  { name: "Act V-14: Trigger Cross-Star",  bossId: "e_colossus", avatar: "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4", bg: "./GeneratedArt/env_breach_staccs_isometric_tower.png", aiBonus: 2, rewardCoins: 250 },
+  { name: "Act V-15: Omega Chronos Prime", bossId: "e_inferno",  avatar: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",  bg: "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png", aiBonus: 2, rewardCoins: 300 }
+];
+
+const CUBE_ROTATIONS = {
+  1: "rotateX(0deg) rotateY(0deg)",
+  2: "rotateX(0deg) rotateY(-180deg)",
+  3: "rotateX(0deg) rotateY(-90deg)",
+  4: "rotateX(0deg) rotateY(90deg)",
+  5: "rotateX(-90deg) rotateY(0deg)",
+  6: "rotateX(90deg) rotateY(0deg)"
+};
+
+// ============================================================================
+// SAKIMOTO-YAMADA AUDIO MIXER, LOGARITHMIC dB BUS, COMPRESSOR & SIDECHAIN DUCKING
+// ============================================================================
+let actx = null;
+let masterGain = null;
+let masterBusGain = null;
+let musicDuckBusGain = null;
+let sfxBus = null;
+let sfxBusGain = null;
+let sfxCompressor = null;
+let activeVoices = 0;
+let bgmTimer = null;
+let bgmStep = 0;
+
+function slider01ToDb(slider01) {
+  const s = Math.max(0, Math.min(1, slider01));
+  if (s <= 0.0001) return -80.0;
+  return 20.0 * Math.log10(s * s);
+}
+
+function dbToLinearGain(db) {
+  if (db <= -80.0) return 0.0;
+  return Math.pow(10.0, db / 20.0);
+}
+
+function ensureAudioMixer() {
+  if (!actx) {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (AC) {
+      actx = new AC();
+      masterBusGain = actx.createGain();
+      masterGain = masterBusGain;
+      musicDuckBusGain = actx.createGain();
+      sfxBusGain = actx.createGain();
+      sfxBus = sfxBusGain;
+      sfxCompressor = actx.createDynamicsCompressor();
+      sfxCompressor.threshold.setValueAtTime(-18, actx.currentTime);
+      sfxCompressor.knee.setValueAtTime(12, actx.currentTime);
+      sfxCompressor.ratio.setValueAtTime(4, actx.currentTime);
+      sfxCompressor.attack.setValueAtTime(0.003, actx.currentTime);
+      sfxCompressor.release.setValueAtTime(0.15, actx.currentTime);
+      masterBusGain.gain.value = state.muted ? 0.0 : dbToLinearGain(slider01ToDb(0.85));
+      musicDuckBusGain.gain.value = dbToLinearGain(slider01ToDb(0.65));
+      sfxBusGain.gain.value = dbToLinearGain(slider01ToDb(0.88));
+      musicDuckBusGain.connect(masterBusGain);
+      sfxBusGain.connect(sfxCompressor);
+      sfxCompressor.connect(masterBusGain);
+      masterBusGain.connect(actx.destination);
+    }
+  }
+  if (actx && actx.state === "suspended") actx.resume();
+}
+
+function toggleMuteAudio() {
+  state.muted = !state.muted;
+  ensureAudioMixer();
+  if (masterGain && actx) {
+    masterGain.gain.setValueAtTime(state.muted ? 0.0 : dbToLinearGain(slider01ToDb(0.85)), actx.currentTime);
+  }
+  const btn = document.getElementById("mute-toggle-btn");
+  if (btn) btn.textContent = state.muted ? "🔇 Muted" : "🔊 SFX";
+  saveProgressV1();
+}
+
+function duckMusicBus(attenuationDb = -10.0, releaseSec = 0.25) {
+  if (!actx || !musicDuckBusGain) return;
+  const now = actx.currentTime;
+  const baseGain = dbToLinearGain(slider01ToDb(0.65));
+  const duckedGain = baseGain * dbToLinearGain(attenuationDb);
+  musicDuckBusGain.gain.cancelScheduledValues(now);
+  musicDuckBusGain.gain.setValueAtTime(duckedGain, now);
+  musicDuckBusGain.gain.exponentialRampToValueAtTime(Math.max(0.001, baseGain), now + releaseSec);
+}
+
+function playTone(semi = 0, type = "triangle", dur = 0.2, isHeavyImpact = false) {
+  if (state.muted) return;
+  ensureAudioMixer();
+  if (!actx || activeVoices >= 8) return;
+  const now = actx.currentTime;
+  const pitchVar = 1.0 + (seededRng() - 0.5) * 0.08;
+  const f = 440 * Math.pow(2, semi / 12) * pitchVar;
+  const o = actx.createOscillator();
+  const g = actx.createGain();
+  activeVoices++;
+  o.onended = () => { activeVoices = Math.max(0, activeVoices - 1); };
+  o.type = type;
+  o.frequency.setValueAtTime(f, now);
+  o.frequency.exponentialRampToValueAtTime(f * 1.15, now + dur);
+  g.gain.setValueAtTime(0.001, now);
+  g.gain.linearRampToValueAtTime(0.16, now + 0.015);
+  g.gain.exponentialRampToValueAtTime(0.001, now + dur);
+  o.connect(g);
+  g.connect(sfxBus || masterGain || actx.destination);
+  if (isHeavyImpact) duckMusicBus(-11.0, 0.28);
+  o.start(now);
+  o.stop(now + dur + 0.02);
+}
+
+function toggleAdaptiveBgm() {
+  ensureAudioMixer();
+  const btn = document.getElementById("bgm-toggle-btn");
+  if (bgmTimer) {
+    clearInterval(bgmTimer);
+    bgmTimer = null;
+    if (btn) btn.textContent = "🎵 BGM: OFF";
+    return;
+  }
+  // Sakimoto-Yamada 128 BPM ostinato in D Dorian / Minor
+  const ostinatoNotes = [-7, -5, -4, 0, -2, -4, -5, -7, -12, -5, -4, 2, 0, -4, -5, -9];
+  bgmStep = 0;
+  bgmTimer = setInterval(() => {
+    if (!actx || !musicDuckBusGain || state.muted) return;
+    const now = actx.currentTime;
+    const semi = ostinatoNotes[bgmStep % ostinatoNotes.length];
+    bgmStep++;
+    const f = 220 * Math.pow(2, semi / 12);
+    const o = actx.createOscillator();
+    const g = actx.createGain();
+    o.type = bgmStep % 4 === 1 ? "sawtooth" : "triangle";
+    o.frequency.setValueAtTime(f, now);
+    g.gain.setValueAtTime(0.001, now);
+    g.gain.linearRampToValueAtTime(0.055, now + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.001, now + 0.21);
+    o.connect(g);
+    g.connect(musicDuckBusGain);
+    o.start(now);
+    o.stop(now + 0.22);
+  }, 234);
+  if (btn) btn.textContent = "🎵 BGM: ON";
+}
+
+// ============================================================================
+// SET 1 60-CARD CATALOG, VERSIONED SAVE V1 + ATOMIC SAVE V3 (FNV-1A)
+// ============================================================================
+const SET1_60_CATALOG = [];
+const SET1_CARDS_BY_ID = {};
+(function buildSet1Catalog60() {
+  const factions = ["Aether", "Solaris", "Valkyria", "Chronos", "Abyss"];
+  const baseRoster = [...PLAYER_HEROES, ...ENEMY_MECHS];
+  for (let i = 0; i < 60; i++) {
+    const template = baseRoster[i % baseRoster.length];
+    const tier = Math.floor(i / 16) + 1;
+    const cid = i < baseRoster.length ? template.id : `set1_c${String(i + 1).padStart(2, "0")}_${template.id}`;
+    const cardObj = {
+      ...template,
+      id: cid,
+      name: i < baseRoster.length ? template.name : `${template.name} Mk.${tier}`,
+      faction: factions[i % factions.length],
+      nesw: template.nesw.map((v, idx) => Math.min(9, v + ((i + idx) % 2 === 0 && i >= 16 ? 1 : 0)))
+    };
+    SET1_60_CATALOG.push(cardObj);
+    SET1_CARDS_BY_ID[cid] = cardObj;
+  }
+})();
+
+function getCardMeta(cardId) {
+  return ALL_CARDS[cardId] || SET1_CARDS_BY_ID[cardId] || PLAYER_HEROES[0];
+}
+
+function fnv1a64Hex(str) {
+  let h1 = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h1 ^= str.charCodeAt(i);
+    h1 = Math.imul(h1, 0x01000193);
+  }
+  return ("00000000" + (h1 >>> 0).toString(16)).slice(-8) + "cbf29ce4";
+}
+
+const SAVE_V1_KEY = "cardfront_save_v1";
+const SAVE_STORAGE_KEY = "synapse_cardfront_save_v3";
+
+// Deterministic Mulberry32 PRNG for replayable seeded sessions (?seed=)
+function mulberry32(seed) {
+  let a = seed >>> 0;
+  return function() {
+    let t = (a += 0x6D2B79F5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const urlSeedParam = new URLSearchParams(window.location.search).get("seed");
+let seededRng = mulberry32(urlSeedParam !== null ? (parseInt(urlSeedParam, 10) || 1337) : 20261108);
+
+let bossTurnTimer = null;
+let modalTimer = null;
+let hitStopSeq = 0;
+
+const state = {
+  seed: urlSeedParam !== null ? (parseInt(urlSeedParam, 10) || 1337) : 20261108,
+  stageIndex: 0,
+  unlockedStage: 0,
+  wins: 0,
+  losses: 0,
+  matchesPlayed: 0,
+  cameraPref: "5,0",
+  muted: false,
+  reduceShake: false,
+  baseTiltX: 5,
+  baseTiltZ: 0,
+  isPlayerTurn: true,
+  gameOver: false,
+  colDice: [4, 2, 5],
+  nudgesLeft: 2,
+  rerollsLeft: 2,
+  usedSlideThisTurn: false,
+  selectedHandIdx: 0,
+  selectedBoardSlot: null,
+  hoveredSlot: null,
+  focusedSlotIndex: 4,
+  keyboardFocusIdx: 4,
+  trauma: 0,
+  noiseTime: 0,
+  hitStopActive: false,
+  hitStopUntilMs: 0,
+  bossTurnTimer: null,
+  modalTimer: null,
+  coins: 300,
+  unlockedCards: PLAYER_HEROES.map(h => h.id),
+  activeDeck: PLAYER_HEROES.slice(0, 5).map(h => h.id),
+  cardEvolutions: {},
+  clearedStages: [],
+  grid: [],
+  hand: [],
+  aiPool: []
+};
+
+function migrateSaveV1(rawObj) {
+  if (!rawObj || typeof rawObj !== "object") {
+    return {
+      version: 1,
+      unlockedStage: 0,
+      stageIdx: 0,
+      wins: 0,
+      losses: 0,
+      matchesPlayed: 0,
+      cameraPref: "5,0",
+      muted: false
+    };
+  }
+  if (!rawObj.version || rawObj.version < 1) {
+    rawObj.version = 1;
+  }
+  return {
+    version: 1,
+    unlockedStage: typeof rawObj.unlockedStage === "number" ? rawObj.unlockedStage : 0,
+    stageIdx: typeof rawObj.stageIdx === "number" ? rawObj.stageIdx : 0,
+    wins: typeof rawObj.wins === "number" ? rawObj.wins : 0,
+    losses: typeof rawObj.losses === "number" ? rawObj.losses : 0,
+    matchesPlayed: typeof rawObj.matchesPlayed === "number" ? rawObj.matchesPlayed : 0,
+    cameraPref: typeof rawObj.cameraPref === "string" ? rawObj.cameraPref : "5,0",
+    muted: Boolean(rawObj.muted)
+  };
+}
+
+function saveProgressV1() {
+  try {
+    const payload = {
+      version: 1,
+      unlockedStage: state.unlockedStage,
+      stageIdx: state.stageIndex,
+      wins: state.wins,
+      losses: state.losses,
+      matchesPlayed: state.matchesPlayed,
+      cameraPref: state.cameraPref,
+      muted: state.muted
+    };
+    localStorage.setItem(SAVE_V1_KEY, JSON.stringify(payload));
+  } catch (e) {}
+}
+
+function loadSaveV1() {
+  try {
+    const raw = localStorage.getItem(SAVE_V1_KEY);
+    if (!raw) {
+      saveProgressV1();
+      return;
+    }
+    const migrated = migrateSaveV1(JSON.parse(raw));
+    state.unlockedStage = migrated.unlockedStage;
+    state.wins = migrated.wins;
+    state.losses = migrated.losses;
+    state.matchesPlayed = migrated.matchesPlayed;
+    state.cameraPref = migrated.cameraPref;
+    state.muted = migrated.muted;
+  } catch (e) {
+    saveProgressV1();
+  }
+}
+
+function saveProgressionV3() {
+  try {
+    const payload = {
+      version: 3,
+      coins: state.coins,
+      unlockedCards: state.unlockedCards,
+      activeDeck: state.activeDeck,
+      cardEvolutions: state.cardEvolutions,
+      clearedStages: state.clearedStages
+    };
+    payload.checksum_fnv1a64 = fnv1a64Hex(JSON.stringify(payload));
+    localStorage.setItem(SAVE_STORAGE_KEY + ".bak", localStorage.getItem(SAVE_STORAGE_KEY) || "");
+    localStorage.setItem(SAVE_STORAGE_KEY, JSON.stringify(payload));
+  } catch (e) {}
+  saveProgressV1();
+  const coinEl = document.getElementById("player-coins");
+  if (coinEl) coinEl.textContent = state.coins;
+}
+
+function loadProgressionV3() {
+  loadSaveV1();
+  try {
+    const raw = localStorage.getItem(SAVE_STORAGE_KEY) || localStorage.getItem(SAVE_STORAGE_KEY + ".bak");
+    if (!raw) {
+      saveProgressionV3();
+      return;
+    }
+    const data = JSON.parse(raw);
+    if (typeof data.coins === "number") state.coins = data.coins;
+    if (Array.isArray(data.unlockedCards) && data.unlockedCards.length >= 5) state.unlockedCards = data.unlockedCards;
+    if (Array.isArray(data.activeDeck) && data.activeDeck.length === 5) state.activeDeck = data.activeDeck;
+    if (data.cardEvolutions && typeof data.cardEvolutions === "object") state.cardEvolutions = data.cardEvolutions;
+    if (Array.isArray(data.clearedStages)) state.clearedStages = data.clearedStages;
+  } catch (e) {}
+  const coinEl = document.getElementById("player-coins");
+  if (coinEl) coinEl.textContent = state.coins;
+}
+
+function openDeckbuilderModal() {
+  const modal = document.getElementById("deckbuilder-modal");
+  if (!modal) return;
+  renderDeckbuilderGrid();
+  modal.style.display = "flex";
+}
+
+function closeDeckbuilderModal() {
+  const modal = document.getElementById("deckbuilder-modal");
+  if (modal) modal.style.display = "none";
+}
+
+function toggleDeckCard(cid) {
+  if (!state.unlockedCards.includes(cid)) return;
+  const idx = state.activeDeck.indexOf(cid);
+  if (idx >= 0) {
+    if (state.activeDeck.length <= 1) return;
+    state.activeDeck.splice(idx, 1);
+  } else {
+    if (state.activeDeck.length >= 5) state.activeDeck.shift();
+    state.activeDeck.push(cid);
+  }
+  saveProgressionV3();
+  renderDeckbuilderGrid();
+}
+
+function openBoosterPackUI() {
+  if (state.coins < 100) {
+    document.getElementById("deckbuilder-status").innerHTML = "⚠️ Need <b>100 🪙</b> to open a Set 1 Booster Pack! Win matches to earn coins.";
+    playTone(-4, "sawtooth", 0.16);
+    return;
+  }
+  state.coins -= 100;
+  const pulled = [];
+  for (let i = 0; i < 3; i++) {
+    const pick = SET1_60_CATALOG[Math.floor(seededRng() * SET1_60_CATALOG.length)];
+    if (!state.unlockedCards.includes(pick.id)) state.unlockedCards.push(pick.id);
+    pulled.push(pick.name);
+  }
+  playTone(10, "triangle", 0.25, true);
+  saveProgressionV3();
+  document.getElementById("deckbuilder-status").innerHTML =
+    `🎁 <b>Booster Pack Opened!</b> Unlocked: <b style="color:var(--gold);">${pulled.join(", ")}</b> (${state.unlockedCards.length}/60 Set 1 Cards Owned).`;
+  renderDeckbuilderGrid();
+}
+
+function evolveCardCraftUI() {
+  if (state.coins < 150) {
+    document.getElementById("deckbuilder-status").innerHTML = "⚠️ Need <b>150 🪙</b> for CardCraft +1 Stat Evolution!";
+    playTone(-4, "sawtooth", 0.16);
+    return;
+  }
+  const targetCid = state.activeDeck[0] || "h_archangel";
+  state.coins -= 150;
+  state.cardEvolutions[targetCid] = (state.cardEvolutions[targetCid] || 0) + 1;
+  const c = ALL_CARDS[targetCid];
+  if (c) c.nesw = c.nesw.map(v => Math.min(9, v + 1));
+  playTone(12, "sine", 0.28, true);
+  saveProgressionV3();
+  document.getElementById("deckbuilder-status").innerHTML =
+    `⚒️ <b>CardCraft Evolution!</b> Upgraded <b style="color:var(--blue-ally);">${c ? c.name : targetCid}</b> (+1 All Sides, Lv.${state.cardEvolutions[targetCid]}).`;
+  renderDeckbuilderGrid();
+  renderAll();
+}
+
+function renderDeckbuilderGrid() {
+  const grid = document.getElementById("deckbuilder-grid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  SET1_60_CATALOG.forEach(c => {
+    const owned = state.unlockedCards.includes(c.id);
+    const inDeck = state.activeDeck.includes(c.id);
+    const evoLv = state.cardEvolutions[c.id] || 0;
+    const item = document.createElement("div");
+    item.style.cssText = `background:${inDeck ? "rgba(0,229,255,0.16)" : "rgba(15,23,42,0.85)"};border:1.5px solid ${inDeck ? "var(--gold)" : owned ? "#3b82f6" : "#1e293b"};border-radius:8px;padding:6px;cursor:${owned ? "pointer" : "not-allowed"};opacity:${owned ? "1" : "0.45"};font-size:12px;`;
+    item.onclick = () => toggleDeckCard(c.id);
+    item.innerHTML = `
+      <div style="font-weight:800;color:${inDeck ? "var(--gold)" : "#f8fafc"};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+        ${inDeck ? "★ " : ""}${c.name}${evoLv > 0 ? " +" + evoLv : ""}
+      </div>
+      <div style="color:#94a3b8;font-size:12px;">${c.faction} · [${c.nesw.join("/")}]</div>
+      <div style="color:${c.telegraphColor};font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">⚡ ${c.telegraphName}</div>
+    `;
+    grid.appendChild(item);
+  });
+}
+
+let pawn3dAnimId = null;
+function open3DPawnInspectorModal() {
+  const modal = document.getElementById("pawn3d-modal");
+  if (!modal) return;
+  const activeCid = state.hand[state.selectedHandIdx] || state.activeDeck[0] || "h_archangel";
+  const card = ALL_CARDS[activeCid] || PLAYER_HEROES[0];
+  document.getElementById("pawn3d-title").textContent = `${card.name} — Watertight 3D .glb + .q3gs Pawn`;
+  document.getElementById("pawn3d-telemetry").innerHTML =
+    `Mesh: <b>Assets/Resources/Models3D/HighPoly10K/cf_01_mystic_mage_10k.glb (${activeCid.replace(/^set1_c\d+_/, "")}.glb)</b> | Splat: <b>.q3gs</b><br/>` +
+    `Topology: <b>V=5,186 · E=15,552 · F=10,368 · Euler χ = V - E + F = 2 (Watertight Manifold · 91-SKILL HARNESS ACTIVE)</b> | Telegraph: <b>${card.telegraphName}</b>`;
+  modal.style.display = "flex";
+
+  const canvas = document.getElementById("pawn3d-canvas");
+  const ctx = canvas.getContext("2d");
+  let angle = 0;
+  if (pawn3dAnimId) cancelAnimationFrame(pawn3dAnimId);
+  function drawHologramPawn() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const cx = canvas.width / 2, cy = canvas.height / 2 + 10;
+    angle += 0.025;
+    // Draw watertight octahedron-icosahedron 3D wireframe hologram + Gaussian splat aura
+    ctx.save();
+    ctx.strokeStyle = card.telegraphColor || "#00E5FF";
+    ctx.lineWidth = 1.6;
+    const rings = 6, segs = 12, radius = 88;
+    for (let r = 1; r <= rings; r++) {
+      const phi = (r / (rings + 1)) * Math.PI;
+      const y = -Math.cos(phi) * radius;
+      const ringR = Math.sin(phi) * radius;
+      ctx.beginPath();
+      for (let s = 0; s <= segs; s++) {
+        const theta = (s / segs) * Math.PI * 2 + angle;
+        const x = Math.cos(theta) * ringR;
+        const z = Math.sin(theta) * ringR;
+        const persp = 260 / (260 + z);
+        const px = cx + x * persp;
+        const py = cy + y * persp;
+        if (s === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+    pawn3dAnimId = requestAnimationFrame(drawHologramPawn);
+  }
+  drawHologramPawn();
+}
+
+function close3DPawnInspectorModal() {
+  if (pawn3dAnimId) cancelAnimationFrame(pawn3dAnimId);
+  pawn3dAnimId = null;
+  const modal = document.getElementById("pawn3d-modal");
+  if (modal) modal.style.display = "none";
+}
+
+// ============================================================================
+// GAME-FEEL TRAUMA² SCREEN SHAKE, HIT-STOP & KEYBOARD FOCUS NAVIGATION
+// ============================================================================
+function addTrauma(amount) {
+  const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  state.trauma = Math.min(1.0, state.trauma + amount);
+  if (state.reduceShake || prefersReduced) return;
+  function stepShake() {
+    const vp = document.getElementById("arena-viewport");
+    const trauma = state.trauma;
+    const shake = trauma * trauma;
+    state.noiseTime = (state.noiseTime || 0) + 0.45;
+    const ox = (Math.sin(state.noiseTime * 1.7) * 4 * shake).toFixed(1);
+    const oy = (Math.cos(state.noiseTime * 2.3) * 3 * shake).toFixed(1);
+    if (vp && !drag.active) {
+      vp.style.transform = shake > 0.01 ? `translate3d(${ox}px, ${oy}px, 0)` : "";
+    }
+    state.trauma = Math.max(0, state.trauma - 0.35);
+    if (state.trauma > 0) {
+      requestAnimationFrame(stepShake);
+    } else if (vp) {
+      vp.style.transform = "";
+    }
+  }
+  if (state.trauma > 0) {
+    requestAnimationFrame(stepShake);
+  }
+}
+
+function triggerHitStop(durationMs = 80) {
+  hitStopSeq++;
+  const myHitStopId = hitStopSeq;
+  state.hitStopActive = true;
+  state.hitStopUntilMs = performance.now() + durationMs;
+  clearTimeout(state.hitStopTimer);
+  const vp = document.getElementById("arena-viewport");
+  if (vp && !state.reduceShake) {
+    vp.style.filter = "brightness(1.22) contrast(1.12)";
+  }
+  state.hitStopTimer = setTimeout(() => {
+    if (myHitStopId === hitStopSeq) {
+      state.hitStopActive = false;
+      if (vp) vp.style.filter = "";
+    }
+  }, durationMs);
+}
+
+const KEY_ACTION_MAP = {
+  ArrowUp: "MOVE_UP", KeyW: "MOVE_UP", w: "MOVE_UP", W: "MOVE_UP",
+  ArrowDown: "MOVE_DOWN", KeyS: "MOVE_DOWN", s: "MOVE_DOWN", S: "MOVE_DOWN",
+  ArrowLeft: "MOVE_LEFT", KeyA: "MOVE_LEFT", a: "MOVE_LEFT", A: "MOVE_LEFT",
+  ArrowRight: "MOVE_RIGHT", KeyD: "MOVE_RIGHT", d: "MOVE_RIGHT", D: "MOVE_RIGHT",
+  Enter: "CONFIRM", Space: "CONFIRM", " ": "CONFIRM",
+  KeyQ: "NUDGE_0", q: "NUDGE_0",
+  KeyE: "NUDGE_1", e: "NUDGE_1",
+  KeyR: "REROLL", r: "REROLL"
+};
+
+function pollGamepadInput() {
+  if (!navigator.getGamepads) return null;
+  const pads = navigator.getGamepads();
+  return pads && pads[0] ? pads[0] : null;
+}
+
+function handleHarnessKeyDown(e) {
+  if (e.repeat) return;
+  if (["SELECT", "BUTTON", "INPUT"].includes(e.target.tagName)) return;
+  const isWasdCode = e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD";
+  if (e.key >= "1" && e.key <= "5") {
+    const idx = parseInt(e.key, 10) - 1;
+    if (idx < state.hand.length) {
+      state.selectedHandIdx = idx;
+      state.selectedBoardSlot = null;
+      updateTelegraphHud(state.hand[idx]);
+      renderAll();
+    }
+    return;
+  }
+  const act = KEY_ACTION_MAP[e.code] || KEY_ACTION_MAP[e.key] || (isWasdCode ? "MOVE_UP" : null);
+  const curIdx = typeof state.focusedSlotIndex === "number" ? state.focusedSlotIndex : 4;
+  let r = Math.floor(curIdx / 3), c = curIdx % 3;
+  if (act === "MOVE_UP") { r = (r + 2) % 3; }
+  else if (act === "MOVE_DOWN") { r = (r + 1) % 3; }
+  else if (act === "MOVE_LEFT") { c = (c + 2) % 3; }
+  else if (act === "MOVE_RIGHT") { c = (c + 1) % 3; }
+  else if (act === "CONFIRM") {
+    handleSlotClick(r, c);
+    return;
+  } else if (act === "NUDGE_0") {
+    nudgeColDie(0);
+    return;
+  } else if (act === "NUDGE_1") {
+    nudgeColDie(1);
+    return;
+  } else if (act === "REROLL") {
+    rerollAllDice();
+    return;
+  } else {
+    return;
+  }
+  state.focusedSlotIndex = r * 3 + c;
+  state.keyboardFocusIdx = state.focusedSlotIndex;
+  state.hoveredSlot = { r, c };
+  renderAll();
+}
+window.addEventListener("keydown", handleHarnessKeyDown);
+
+// Pointer-driven drag & drop state (hand → board deploy, board → adjacent Tactical Slide)
+const drag = {
+  pending: null,
+  active: false,
+  dropping: false,
+  kind: null,          // "hand" | "board"
+  handIdx: -1,
+  src: null,           // { r, c } for board drags
+  cardId: null,
+  ghost: null,
+  baseW: 0, baseH: 0,
+  grabX: 0.5, grabY: 0.5,
+  px: 0, py: 0,        // pointer
+  cx: 0, cy: 0,        // ghost center
+  vx: 0, vy: 0,
+  rz: 0, ry: 0, rx: 0,
+  scale: 1,
+  target: null,        // { r, c, rect }
+  lastCol: -2,
+  raf: 0,
+  suppressClick: false
+};
+
+function setBoardCamera(val) {
+  const [tx, tz] = val.split(",").map(Number);
+  state.baseTiltX = tx;
+  state.baseTiltZ = tz;
+  const slab = document.getElementById("board-3d-slab");
+  slab.style.setProperty("--board-tilt-x", `${tx}deg`);
+  slab.style.setProperty("--board-tilt-z", `${tz}deg`);
+  slab.style.transform = `rotateX(${tx}deg) rotateY(0deg) rotateZ(${tz}deg)`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const vp = document.getElementById("arena-viewport");
+  const slab = document.getElementById("board-3d-slab");
+  vp.addEventListener("mousemove", (e) => {
+    if (drag.active) return; // freeze parallax so drop targets don't move while aiming
+    const rect = vp.getBoundingClientRect();
+    const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    const rx = state.baseTiltX - ny * 2.2;
+    const rz = state.baseTiltZ + nx * 2.2;
+    slab.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${(nx * 2.6).toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg)`;
+  });
+  vp.addEventListener("mouseleave", () => {
+    if (drag.active) return;
+    slab.style.transform = `rotateX(${state.baseTiltX}deg) rotateY(0deg) rotateZ(${state.baseTiltZ}deg)`;
+  });
+});
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(seededRng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function isColBoosted(c) {
+  return state.colDice[c] >= 4;
+}
+
+function getCardEffectiveStats(cardId, colIndex, isAi = false) {
+  const base = getCardMeta(cardId).nesw;
+  if (isAi) {
+    const st = STAGES[state.stageIndex % STAGES.length];
+    const b = st ? st.aiBonus : 0;
+    return base.map(v => Math.min(9, v + b));
+  }
+  const boost = isColBoosted(colIndex) ? 1 : 0;
+  return base.map(v => Math.min(9, v + boost));
+}
+
+function updateTelegraphHud(cardId) {
+  const c = getCardMeta(cardId);
+  if (!c) return;
+  const badge = document.getElementById("telegraph-hud-badge");
+  const desc = document.getElementById("telegraph-hud-desc");
+  badge.textContent = `${c.name} · ${c.telegraphName}`;
+  badge.style.color = c.telegraphColor;
+  badge.style.borderColor = c.telegraphColor;
+  desc.textContent = `${c.telegraphType}: ${c.telegraphDesc}`;
+}
+
+function triggerAllBoardTelegraphs() {
+  playTone(7, "sine", 0.18);
+  const activeCardId = state.hand[state.selectedHandIdx] || "h_archangel";
+  updateTelegraphHud(activeCardId);
+  const slots = document.querySelectorAll(".board-slot");
+  slots.forEach((s, i) => {
+    s.classList.add(i % 2 === 0 ? "telegraph-zone-strike" : "telegraph-zone-ally");
+    setTimeout(() => {
+      s.classList.remove("telegraph-zone-strike", "telegraph-zone-ally");
+    }, 950);
+  });
+}
+
+function startStage(idx) {
+  clearTimeout(state.bossTurnTimer);
+  clearTimeout(bossTurnTimer);
+  clearTimeout(state.modalTimer);
+  detachDragListeners();
+  teardownDrag();
+  const rm = document.getElementById("result-modal");
+  if (rm) rm.style.display = "none";
+
+  state.stageIndex = idx;
+  state.isPlayerTurn = true;
+  state.gameOver = false;
+  state.colDice = [4, 2, 5];
+  state.nudgesLeft = 2;
+  state.rerollsLeft = 2;
+  state.usedSlideThisTurn = false;
+  state.selectedHandIdx = 0;
+  state.selectedBoardSlot = null;
+  state.hoveredSlot = null;
+  state.focusedSlotIndex = 4;
+  state.keyboardFocusIdx = 4;
+
+  const st = STAGES[idx % STAGES.length];
+  const campSt = CAMPAIGN_STAGES[idx] || st;
+  const bossCard = getCardMeta(campSt.bossId);
+  document.getElementById("boss-name").textContent = campSt.name;
+  document.getElementById("boss-avatar").src = campSt.avatar;
+  document.getElementById("boss-telegraph-label").textContent = `Telegraph: ${bossCard.telegraphName}`;
+  document.body.style.backgroundImage = `radial-gradient(circle at 50% 45%, rgba(20, 35, 72, 0.72) 0%, rgba(4, 7, 15, 0.97) 78%), url("${campSt.bg}")`;
+
+  const heroes = shuffle(PLAYER_HEROES);
+  const enemies = shuffle(ENEMY_MECHS);
+
+  state.grid = [];
+  for (let r = 0; r < 3; r++) {
+    const row = [];
+    for (let c = 0; c < 3; c++) {
+      row.push({ r, c, cardId: null, owner: null, nesw: [0, 0, 0, 0], justFlipped: false });
+    }
+    state.grid.push(row);
+  }
+
+  const firstEnemy = enemies.pop();
+  state.grid[0][1].cardId = firstEnemy.id;
+  state.grid[0][1].owner = "ai";
+  state.grid[0][1].nesw = getCardEffectiveStats(firstEnemy.id, 1, true);
+
+  state.hand = heroes.slice(0, 5).map(h => h.id);
+  state.aiPool = enemies.slice(0, 5).map(e => e.id);
+
+  updateTelegraphHud(state.hand[0]);
+  document.getElementById("last-move-banner").innerHTML =
+    `💡 <b>Drag</b> a Hero Card onto any open tile (or click a card, then click a tile). Drag your Blue board cards 1 tile to Tactical Slide.`;
+
+  saveProgressionV3();
+  renderAll();
+}
+
+function nudgeColDie(colIdx) {
+  if (!state.isPlayerTurn || state.gameOver) return;
+  if (state.nudgesLeft <= 0) {
+    playTone(-5, "sawtooth", 0.14);
+    return;
+  }
+  state.nudgesLeft--;
+  state.colDice[colIdx] = (state.colDice[colIdx] % 6) + 1;
+  playTone(4 + state.colDice[colIdx], "sine", 0.15);
+  recalcBoardStats();
+  renderAll();
+}
+
+function rerollAllDice() {
+  if (!state.isPlayerTurn || state.gameOver || state.rerollsLeft <= 0) return;
+  state.rerollsLeft--;
+  state.colDice = state.colDice.map(() => Math.floor(seededRng() * 6) + 1);
+  playTone(8, "triangle", 0.24);
+  recalcBoardStats();
+  renderAll();
+}
+
+function recalcBoardStats() {
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      const cell = state.grid[r][c];
+      if (cell.cardId) {
+        const isEnemyOrigin = cell.owner === "ai" || String(cell.cardId).startsWith("e_");
+        const baseStats = getCardEffectiveStats(cell.cardId, c, isEnemyOrigin);
+        if (cell.owner === "player" && isEnemyOrigin && isColBoosted(c)) {
+          cell.nesw = baseStats.map(v => Math.min(9, v + 1));
+        } else {
+          cell.nesw = baseStats;
+        }
+      }
+    }
+  }
+}
+
+function findCaptures(r, c, nesw, owner) {
+  const dirs = [
+    { dr: -1, dc: 0, myEdge: 0, theirEdge: 2, dirName: "N" },
+    { dr: 0,  dc: 1, myEdge: 1, theirEdge: 3, dirName: "E" },
+    { dr: 1,  dc: 0, myEdge: 2, theirEdge: 0, dirName: "S" },
+    { dr: 0,  dc: -1, myEdge: 3, theirEdge: 1, dirName: "W" }
+  ];
+  const captured = [];
+  dirs.forEach(d => {
+    const nr = r + d.dr, nc = c + d.dc;
+    if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3) {
+      const nb = state.grid[nr][nc];
+      if (nb.cardId && nb.owner !== owner && nesw[d.myEdge] > nb.nesw[d.theirEdge]) {
+        captured.push({ nr, nc, myVal: nesw[d.myEdge], theirVal: nb.nesw[d.theirEdge], dirName: d.dirName });
+      }
+    }
+  });
+  return captured;
+}
+
+function findClashes(r, c, nesw, owner) {
+  const dirs = [
+    { dr: -1, dc: 0, myEdge: 0, theirEdge: 2, dirName: "N" },
+    { dr: 0,  dc: 1, myEdge: 1, theirEdge: 3, dirName: "E" },
+    { dr: 1,  dc: 0, myEdge: 2, theirEdge: 0, dirName: "S" },
+    { dr: 0,  dc: -1, myEdge: 3, theirEdge: 1, dirName: "W" }
+  ];
+  const clashes = [];
+  dirs.forEach(d => {
+    const nr = r + d.dr, nc = c + d.dc;
+    if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3) {
+      const nb = state.grid[nr][nc];
+      if (nb.cardId && nb.owner !== owner) {
+        clashes.push({
+          nr,
+          nc,
+          myVal: nesw[d.myEdge],
+          theirVal: nb.nesw[d.theirEdge],
+          willFlip: nesw[d.myEdge] > nb.nesw[d.theirEdge]
+        });
+      }
+    }
+  });
+  return clashes;
+}
+
+function handleSlotClick(r, c) {
+  if (!state.isPlayerTurn || state.gameOver) return;
+  const cell = state.grid[r][c];
+
+  if (cell.cardId && cell.owner === "player") {
+    if (state.selectedBoardSlot && state.selectedBoardSlot.r === r && state.selectedBoardSlot.c === c) {
+      state.selectedBoardSlot = null;
+    } else {
+      state.selectedBoardSlot = { r, c };
+      updateTelegraphHud(cell.cardId);
+      playTone(5, "sine", 0.12);
+    }
+    renderAll();
+    return;
+  }
+
+  if (state.selectedBoardSlot && !cell.cardId) {
+    const { r: sr, c: sc } = state.selectedBoardSlot;
+    if (Math.abs(r - sr) + Math.abs(c - sc) === 1 && !state.usedSlideThisTurn) {
+      state.usedSlideThisTurn = true;
+      const src = state.grid[sr][sc];
+      cell.cardId = src.cardId;
+      cell.owner = "player";
+      cell.nesw = getCardEffectiveStats(cell.cardId, c, false);
+      cell.justPlaced = true;
+
+      src.cardId = null;
+      src.owner = null;
+      src.nesw = [0, 0, 0, 0];
+      state.selectedBoardSlot = null;
+
+      const flips = findCaptures(r, c, cell.nesw, "player");
+      flips.forEach(f => {
+        state.grid[f.nr][f.nc].owner = "player";
+        state.grid[f.nr][f.nc].justFlipped = true;
+      });
+      if (flips.length > 0) {
+        triggerHitStop(65);
+        addTrauma(0.28 + flips.length * 0.15);
+      } else {
+        addTrauma(0.12);
+      }
+      playTone(7, "triangle", 0.22);
+      const movedCard = getCardMeta(cell.cardId);
+      updateTelegraphHud(cell.cardId);
+      document.getElementById("last-move-banner").innerHTML =
+        `⇄ <b>${movedCard.telegraphName}!</b> Slid <b>${movedCard.name}</b> to (${r+1},${c+1}) and flipped <b>${flips.length}</b> card(s)!`;
+      renderAll();
+      return;
+    }
+  }
+
+  if (cell.cardId || state.hand.length === 0) return;
+
+  const cardId = state.hand[state.selectedHandIdx];
+  state.hand.splice(state.selectedHandIdx, 1);
+  if (state.selectedHandIdx >= state.hand.length) {
+    state.selectedHandIdx = Math.max(0, state.hand.length - 1);
+  }
+
+  cell.cardId = cardId;
+  cell.owner = "player";
+  cell.nesw = getCardEffectiveStats(cardId, c, false);
+  cell.justPlaced = true;
+  state.selectedBoardSlot = null;
+
+  const flips = findCaptures(r, c, cell.nesw, "player");
+  flips.forEach(f => {
+    state.grid[f.nr][f.nc].owner = "player";
+    state.grid[f.nr][f.nc].justFlipped = true;
+  });
+
+  if (flips.length > 0) {
+    triggerHitStop(80);
+    addTrauma(0.38 + flips.length * 0.2);
+  } else {
+    addTrauma(0.18);
+  }
+
+  const deployedCard = getCardMeta(cardId);
+  updateTelegraphHud(cardId);
+  playTone(flips.length > 0 ? 9 : 3, "triangle", 0.24, flips.length > 0);
+  document.getElementById("last-move-banner").innerHTML = flips.length > 0
+    ? `⚡ <b>${deployedCard.telegraphName}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)!`
+    : `🟦 Deployed <b>${deployedCard.name}</b> (${deployedCard.telegraphName}) to Col ${c + 1}.`;
+
+  state.isPlayerTurn = false;
+  renderAll();
+
+  if (checkGameOver()) return;
+  state.bossTurnTimer = setTimeout(executeBossTurn, 650);
+  bossTurnTimer = state.bossTurnTimer;
+}
+
+function compensate(score, factorCount) {
+  const mod = 1 - 1 / factorCount;
+  const makeup = (1 - score) * mod;
+  return score + makeup * score;
+}
+
+function executeBossTurn() {
+  if (state.gameOver) return;
+  const open = [];
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      if (!state.grid[r][c].cardId) open.push({ r, c });
+    }
+  }
+  if (open.length === 0 || state.aiPool.length === 0) {
+    state.isPlayerTurn = true;
+    renderAll();
+    checkGameOver();
+    return;
+  }
+
+  let bestSlot = open[0];
+  let bestCardIdx = state.aiPool.length - 1;
+  let bestUtility = -Infinity;
+
+  for (let pIdx = 0; pIdx < state.aiPool.length; pIdx++) {
+    const candidateId = state.aiPool[pIdx];
+    for (let sIdx = 0; sIdx < open.length; sIdx++) {
+      const slot = open[sIdx];
+      const stats = getCardEffectiveStats(candidateId, slot.c, true);
+      const captures = findCaptures(slot.r, slot.c, stats, "ai").length;
+      const dirs = [
+        { dr: -1, dc: 0, edge: 0 },
+        { dr: 0,  dc: 1, edge: 1 },
+        { dr: 1,  dc: 0, edge: 2 },
+        { dr: 0,  dc: -1, edge: 3 }
+      ];
+      let exposedEdges = 0;
+      let edgeSafetySum = 0;
+      dirs.forEach(d => {
+        const nr = slot.r + d.dr, nc = slot.c + d.dc;
+        if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && !state.grid[nr][nc].cardId) {
+          exposedEdges++;
+          edgeSafetySum += stats[d.edge] / 9.0;
+        } else {
+          edgeSafetySum += 1.0;
+        }
+      });
+      const cCapture = Math.min(1.0, (captures + 0.25) / 3.25);
+      const cEdgeSafety = edgeSafetySum / 4.0;
+      const cCounterResistance = 1.0 - (exposedEdges / 4.0) * 0.35;
+      const combined = cCapture * (cEdgeSafety + 0.15) * cCounterResistance;
+      const utilityScore = compensate(Math.min(1.0, combined), 3) + captures * 0.45;
+      const tieBreak = seededRng() * 0.015;
+      const totalScore = utilityScore + tieBreak;
+      if (totalScore > bestUtility) {
+        bestUtility = totalScore;
+        bestSlot = slot;
+        bestCardIdx = pIdx;
+      }
+    }
+  }
+
+  const aiCardId = state.aiPool.splice(bestCardIdx, 1)[0];
+  const cell = state.grid[bestSlot.r][bestSlot.c];
+  cell.cardId = aiCardId;
+  cell.owner = "ai";
+  cell.nesw = getCardEffectiveStats(aiCardId, bestSlot.c, true);
+  cell.justPlaced = true;
+
+  const flips = findCaptures(bestSlot.r, bestSlot.c, cell.nesw, "ai");
+  flips.forEach(f => {
+    state.grid[f.nr][f.nc].owner = "ai";
+    state.grid[f.nr][f.nc].justFlipped = true;
+  });
+  if (flips.length > 0) {
+    triggerHitStop(70);
+    addTrauma(0.30 + flips.length * 0.15);
+  }
+
+  const aiCard = getCardMeta(aiCardId);
+  updateTelegraphHud(aiCardId);
+  playTone(flips.length > 0 ? -4 : -1, "sawtooth", 0.22, flips.length > 0);
+  document.getElementById("last-move-banner").innerHTML = flips.length > 0
+    ? `⚠️ <b>${aiCard.telegraphName}:</b> <b>${aiCard.name}</b> flipped <b>${flips.length}</b> of your cards!`
+    : `🟥 Boss deployed <b>${aiCard.name}</b> (${aiCard.telegraphName}) at (${bestSlot.r + 1},${bestSlot.c + 1}).`;
+
+  state.isPlayerTurn = true;
+  state.usedSlideThisTurn = false;
+  state.nudgesLeft = Math.min(3, state.nudgesLeft + 1);
+  renderAll();
+  checkGameOver();
+}
+
+function getScores() {
+  let blue = 0, red = 0, empty = 0;
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      if (state.grid[r][c].owner === "player") blue++;
+      else if (state.grid[r][c].owner === "ai") red++;
+      else empty++;
+    }
+  }
+  return { blue, red, empty };
+}
+
+function checkGameOver() {
+  const { blue, red, empty } = getScores();
+  if (empty > 0 && state.hand.length > 0) return false;
+
+  state.gameOver = true;
+  const win = blue > red;
+  state.matchesPlayed++;
+  if (win) {
+    state.wins++;
+    state.unlockedStage = Math.max(state.unlockedStage, state.stageIndex + 1);
+    const st = CAMPAIGN_STAGES[state.stageIndex] || STAGES[state.stageIndex % STAGES.length];
+    state.coins += st ? (st.rewardCoins || 100) : 100;
+    if (!state.clearedStages.includes(state.stageIndex)) state.clearedStages.push(state.stageIndex);
+  } else {
+    state.losses++;
+  }
+  saveProgressionV3();
+
+  state.modalTimer = setTimeout(() => {
+    const modal = document.getElementById("result-modal");
+    document.getElementById("modal-kicker").textContent = win ? "STAGE CLEARED" : "STAGE LOST";
+    document.getElementById("modal-title").textContent = win ? `🏆 VICTORY (${blue} – ${red})!` : `💥 DEFEAT (${blue} – ${red})`;
+    document.getElementById("modal-title").style.color = win ? "#00E5FF" : "#FF2E54";
+    document.getElementById("modal-desc").textContent = win
+      ? `You controlled ${blue} Blue 3D cards vs ${red} Red cards on the tabletop!`
+      : `The Boss controlled ${red} Red cards vs ${blue} Blue cards. Use your 3D Column Dice Boost (+1 All Sides) before deploying!`;
+    const nextBtn = document.getElementById("next-stage-btn");
+    const againBtn = document.getElementById("play-again-btn");
+    if (nextBtn) nextBtn.style.display = win ? "inline-flex" : "none";
+    modal.style.display = "flex";
+    const modalPrimaryBtn = document.querySelector("#result-modal button"); if (modalPrimaryBtn) modalPrimaryBtn.focus();
+    const targetFocusBtn = win && nextBtn ? nextBtn : againBtn;
+    if (targetFocusBtn) targetFocusBtn.focus();
+  }, 460);
+  return true;
+}
+
+function closeModal(nextStage) {
+  document.getElementById("result-modal").style.display = "none";
+  if (nextStage) {
+    state.stageIndex = (state.stageIndex + 1) % CAMPAIGN_STAGES.length;
+    document.getElementById("stage-select").value = state.stageIndex;
+  }
+  startStage(state.stageIndex);
+}
+
+function build3DCardHTML(cardId, nesw, owner) {
+  const card = getCardMeta(cardId);
+  const [top, right, bottom, left] = nesw;
+  const ownerCls = owner === "ai" ? "owner-ai" : "owner-player";
+  return `
+    <div class="card-3d-unit ${ownerCls}">
+      <div class="card-art-frame">
+        <img class="slot-art" src="${card.art}" alt="${card.name}" draggable="false" />
+        <div class="slot-vignette"></div>
+      </div>
+      ${buildUniqueTelegraphSVG(card)}
+      <div class="edge-num edge-top">${top}</div>
+      <div class="edge-num edge-right">${right}</div>
+      <div class="edge-num edge-bottom">${bottom}</div>
+      <div class="edge-num edge-left">${left}</div>
+      <div class="slot-name-ribbon">${card.name}</div>
+    </div>
+  `;
+}
+
+// Builds full-board SVG directional telegraph vectors from hovered slot `(hr, hc)` to adjacent occupied tiles
+function buildBoardTelegraphOverlaySVG(hr, hc, clashes, activeCard) {
+  if (hr === null || hc === null || !clashes || clashes.length === 0) return "";
+  const col = activeCard ? activeCard.telegraphColor : "#FFB800";
+  const xCenter = (c) => ((c + 0.5) * 33.333).toFixed(2);
+  const yCenter = (r) => ((r + 0.5) * 33.333).toFixed(2);
+  const x1 = xCenter(hc);
+  const y1 = yCenter(hr);
+
+  let lines = "";
+  clashes.forEach(cl => {
+    const x2 = xCenter(cl.nc);
+    const y2 = yCenter(cl.nr);
+    const strokeCol = cl.willFlip ? "#FFB800" : "#FF2E54";
+    lines += `
+      <line x1="${x1}%" y1="${y1}%" x2="${x2}%" y2="${y2}%"
+        stroke="${strokeCol}" stroke-width="3" class="telegraph-vector-line" />
+      <circle cx="${x2}%" cy="${y2}%" r="6" fill="${strokeCol}" />
+    `;
+  });
+  return `<svg class="board-telegraph-svg">${lines}</svg>`;
+}
+
+function renderAll() {
+  const { blue, red } = getScores();
+  document.getElementById("player-score").textContent = blue;
+  document.getElementById("ai-score").textContent = red;
+  document.getElementById("nudge-left").textContent = state.nudgesLeft;
+  document.getElementById("reroll-left").textContent = state.rerollsLeft;
+  document.getElementById("hand-count-badge").textContent = `${state.hand.length} CARDS`;
+
+  const turnBadge = document.getElementById("turn-badge");
+  turnBadge.textContent = state.isPlayerTurn ? "YOUR TURN" : "BOSS TURN";
+  turnBadge.style.color = state.isPlayerTurn ? "#FFB800" : "#FF2E54";
+
+  // 1. Column Headers
+  const colHeadersEl = document.getElementById("col-headers");
+  colHeadersEl.innerHTML = "";
+  for (let c = 0; c < 3; c++) {
+    const boosted = isColBoosted(c);
+    const d = document.createElement("div");
+    d.className = "col-header-pill" + (boosted ? " boosted" : "");
+    d.textContent = boosted ? `⚡ COL ${c + 1} (+1 ALL)` : `COL ${c + 1} (DIE: ${state.colDice[c]})`;
+    colHeadersEl.appendChild(d);
+  }
+
+  // 2. Real 3D CSS Tumbling Dice Cubes
+  const diceListEl = document.getElementById("dice-column-list");
+  diceListEl.innerHTML = "";
+  for (let c = 0; c < 3; c++) {
+    const pip = state.colDice[c];
+    const boosted = pip >= 4;
+    const row = document.createElement("div");
+    row.className = "col-die-row" + (boosted ? " charged" : "");
+    row.onclick = () => nudgeColDie(c);
+    row.innerHTML = `
+      <div style="min-width:0;">
+        <div style="font-weight:800;font-size:12px;color:${boosted ? "var(--gold)" : "#f8fafc"};white-space:nowrap;">
+          Column ${c + 1} Die
+        </div>
+        <div style="font-size:12px;color:${boosted ? "var(--gold)" : "#94a3b8"};margin-top:1px;white-space:nowrap;">
+          ${boosted ? "⚡ +1 All 4 Sides" : "Click to Nudge +1"}
+        </div>
+      </div>
+      <div class="cube-scene">
+        <div class="cube-3d" style="transform: ${CUBE_ROTATIONS[pip]};">
+          <div class="cube-face f-1">1</div>
+          <div class="cube-face f-2">2</div>
+          <div class="cube-face f-3">3</div>
+          <div class="cube-face f-4">4</div>
+          <div class="cube-face f-5">5</div>
+          <div class="cube-face f-6">6</div>
+        </div>
+      </div>
+    `;
+    diceListEl.appendChild(row);
+  }
+
+  // 3. Hover Flip & Clash Telegraph Preview
+  let previewClashes = [];
+  let activePreviewCard = null;
+  if (state.isPlayerTurn && state.hoveredSlot) {
+    const { r: hr, c: hc } = state.hoveredSlot;
+    if (!state.grid[hr][hc].cardId) {
+      if (state.selectedBoardSlot && !state.usedSlideThisTurn) {
+        const { r: sr, c: sc } = state.selectedBoardSlot;
+        if (Math.abs(hr - sr) + Math.abs(hc - sc) === 1) {
+          const cid = state.grid[sr][sc].cardId;
+          activePreviewCard = ALL_CARDS[cid];
+          const slideStats = getCardEffectiveStats(cid, hc, false);
+          previewClashes = findClashes(hr, hc, slideStats, "player");
+        }
+      } else if (state.hand[state.selectedHandIdx]) {
+        const cid = state.hand[state.selectedHandIdx];
+        activePreviewCard = ALL_CARDS[cid];
+        const effStats = getCardEffectiveStats(cid, hc, false);
+        previewClashes = findClashes(hr, hc, effStats, "player");
+      }
+    }
+  }
+
+  // 4. Render 3x3 3D Sockets & Portrait Cards (Pooled DOM slots — zero slot node recreation)
+  const gridEl = document.getElementById("grid-3x3");
+  let existingSlots = gridEl.querySelectorAll(".board-slot");
+  if (existingSlots.length !== 9) {
+    gridEl.innerHTML = "";
+    for (let r = 0; r < 3; r++) {
+      for (let c = 0; c < 3; c++) {
+        const s = document.createElement("div");
+        s.className = "board-slot";
+        s.dataset.r = r;
+        s.dataset.c = c;
+        gridEl.appendChild(s);
+      }
+    }
+    existingSlots = gridEl.querySelectorAll(".board-slot");
+  }
+  const oldTeleSvg = gridEl.querySelector(".board-telegraph-svg");
+  if (oldTeleSvg) oldTeleSvg.remove();
+
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      const cell = state.grid[r][c];
+      const slot = existingSlots[r * 3 + c];
+      const isSelUnit = state.selectedBoardSlot && state.selectedBoardSlot.r === r && state.selectedBoardSlot.c === c;
+      const isSlideTarget = state.selectedBoardSlot && !state.usedSlideThisTurn && !cell.cardId &&
+        (Math.abs(state.selectedBoardSlot.r - r) + Math.abs(state.selectedBoardSlot.c - c) === 1);
+      const clashObj = previewClashes.find(cl => cl.nr === r && cl.nc === c);
+      const willFlip = clashObj && clashObj.willFlip;
+
+      let cls = "board-slot";
+      if (r * 3 + c === state.focusedSlotIndex) cls += " focused-slot";
+      if (cell.cardId) cls += " occupied";
+      if (isSelUnit) cls += " selected-unit";
+      if (isSlideTarget) cls += " slide-target";
+      if (willFlip) cls += " will-flip";
+      if (cell.justFlipped) {
+        cls += " just-flipped";
+        cell.justFlipped = false;
+      }
+      if (cell.justPlaced) {
+        cls += " just-placed";
+        cell.justPlaced = false;
+      }
+      if (cell.cardId && cell.owner === "player" && state.isPlayerTurn && !state.usedSlideThisTurn) {
+        cls += " owner-draggable";
+      }
+      if (drag.active) {
+        if (isValidDropTarget(r, c)) cls += " drop-valid";
+        if (drag.target && drag.target.r === r && drag.target.c === c) cls += " drop-hover";
+        if (drag.kind === "board" && drag.src && drag.src.r === r && drag.src.c === c) cls += " drag-source";
+      }
+      slot.className = cls;
+      slot.dataset.r = r;
+      slot.dataset.c = c;
+
+      slot.onmouseenter = () => {
+        if (drag.active || drag.dropping) return;
+        if (cell.cardId) {
+          updateTelegraphHud(cell.cardId);
+        } else {
+          if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c) return;
+          state.hoveredSlot = { r, c };
+          if (state.hand[state.selectedHandIdx]) {
+            updateTelegraphHud(state.hand[state.selectedHandIdx]);
+          }
+          renderAll();
+        }
+      };
+      slot.onmouseleave = () => {
+        if (drag.active || drag.dropping) return;
+        if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c) {
+          state.hoveredSlot = null;
+          renderAll();
+        }
+      };
+      slot.onclick = () => {
+        if (drag.suppressClick) return;
+        handleSlotClick(r, c);
+      };
+      if (cell.cardId && cell.owner === "player") {
+        slot.onpointerdown = (e) => beginPointerDrag(e, { kind: "board", r, c });
+      } else {
+        slot.onpointerdown = null;
+      }
+
+      if (cell.cardId) {
+        slot.innerHTML = build3DCardHTML(cell.cardId, cell.nesw, cell.owner);
+        if (clashObj) {
+          const tag = document.createElement("div");
+          tag.className = clashObj.willFlip ? "flip-tag" : "defend-tag";
+          tag.textContent = clashObj.willFlip
+            ? `⚡ ${clashObj.myVal}>${clashObj.theirVal} FLIP!`
+            : `🛡️ ${clashObj.myVal}≤${clashObj.theirVal}`;
+          slot.appendChild(tag);
+        }
+      } else if (isSlideTarget) {
+        slot.innerHTML = `<div style="color:var(--emerald);font-weight:800;font-size:12px;text-align:center;">⇄ SLIDE<br/>HERE</div>`;
+      } else if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c && state.hand[state.selectedHandIdx]) {
+        const hId = state.hand[state.selectedHandIdx];
+        const eff = getCardEffectiveStats(hId, c, false);
+        slot.classList.add(drag.active ? "landing-preview" : "hover-preview");
+        slot.innerHTML = build3DCardHTML(hId, eff, "player");
+      } else {
+        slot.innerHTML = `<div style="color:rgba(148,163,184,0.34);font-weight:800;font-size:12px;">${isColBoosted(c) ? "⚡ +1 BOOST" : "OPEN"}</div>`;
+      }
+    }
+  }
+
+  // Append full-board directional telegraph vector lines when hovering a slot
+  if (state.hoveredSlot && previewClashes.length > 0) {
+    gridEl.insertAdjacentHTML(
+      "beforeend",
+      buildBoardTelegraphOverlaySVG(state.hoveredSlot.r, state.hoveredSlot.c, previewClashes, activePreviewCard)
+    );
+  }
+
+  // 5. Render Left 2x3 Grid: 5 Hero Cards + 1 Telegraph/Slide Info Card
+  const handEl = document.getElementById("hand-bar");
+  handEl.innerHTML = "";
+  state.hand.forEach((cid, idx) => {
+    const isSel = idx === state.selectedHandIdx && !state.selectedBoardSlot;
+    const wrap = document.createElement("div");
+    const isDragSrc = drag.active && drag.kind === "hand" && drag.handIdx === idx;
+    wrap.className = "hand-card-wrap" + (isSel && !drag.active ? " selected" : "") + (isDragSrc ? " drag-source" : "");
+    wrap.onmouseenter = () => { if (!drag.active) updateTelegraphHud(cid); };
+    wrap.onpointerdown = (e) => beginPointerDrag(e, { kind: "hand", idx });
+    wrap.onclick = () => {
+      if (drag.suppressClick) return;
+      state.selectedHandIdx = idx;
+      state.selectedBoardSlot = null;
+      updateTelegraphHud(cid);
+      playTone(3 + idx, "sine", 0.1);
+      renderAll();
+    };
+    wrap.innerHTML = build3DCardHTML(cid, ALL_CARDS[cid].nesw, "player");
+    handEl.appendChild(wrap);
+  });
+
+  const activeHero = ALL_CARDS[state.hand[state.selectedHandIdx]] || PLAYER_HEROES[0];
+  const slideCard = document.createElement("div");
+  slideCard.className = "tactical-slide-card";
+  slideCard.innerHTML = `
+    <div style="font-size:12px;font-weight:900;color:${activeHero.telegraphColor};letter-spacing:0.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">
+      ⚡ ${activeHero.telegraphName}
+    </div>
+    <div style="font-size:12px;color:#cbd5e1;line-height:1.25;">
+      ${activeHero.telegraphType}
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.12);width:100%;padding-top:4px;margin-top:2px;font-size:12px;color:var(--emerald);font-weight:800;">
+      ⇄ Slide: ${state.usedSlideThisTurn ? "Used" : "1× Ready"}
+    </div>
+  `;
+  handEl.appendChild(slideCard);
+}
+
+/* ==========================================================================
+   NATURAL DRAG & DROP ENGINE
+   - 6px threshold so plain clicks still work (click card → click tile)
+   - Ghost card follows the pointer with spring smoothing + velocity tilt
+   - Forgiving magnet hit-test (nearest valid socket, works on the tilted 3D board)
+   - Landing shadow + live FLIP previews in the hovered socket
+   - Snap-in drop animation, or spring back to origin on invalid drop / Esc
+   ========================================================================== */
+const DRAG_THRESHOLD_PX = 6;
+const clampN = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+function isValidDropTarget(r, c) {
+  if (!state.isPlayerTurn || state.gameOver) return false;
+  if (state.grid[r][c].cardId) return false;
+  if (drag.kind === "hand") return true;
+  if (drag.kind === "board" && drag.src) {
+    return !state.usedSlideThisTurn && Math.abs(r - drag.src.r) + Math.abs(c - drag.src.c) === 1;
+  }
+  return false;
+}
+
+function beginPointerDrag(e, spec) {
+  if (e.button !== undefined && e.button !== 0) return;
+  if (!state.isPlayerTurn || state.gameOver || drag.active || drag.dropping) return;
+  if (spec.kind === "board" && state.usedSlideThisTurn) return; // click-select still works
+  e.preventDefault(); // block native image drag / text selection
+  const el = e.currentTarget;
+  drag.pending = { spec, rect: el.getBoundingClientRect(), x: e.clientX, y: e.clientY };
+  window.addEventListener("pointermove", onDragPointerMove);
+  window.addEventListener("pointerup", onDragPointerUp);
+  window.addEventListener("pointercancel", onDragPointerCancel);
+}
+
+function detachDragListeners() {
+  window.removeEventListener("pointermove", onDragPointerMove);
+  window.removeEventListener("pointerup", onDragPointerUp);
+  window.removeEventListener("pointercancel", onDragPointerCancel);
+}
+
+function startDrag(e) {
+  const p = drag.pending;
+  drag.pending = null;
+  drag.active = true;
+  drag.dropping = false;
+  drag.kind = p.spec.kind;
+  let nesw;
+  if (drag.kind === "hand") {
+    drag.handIdx = p.spec.idx;
+    drag.src = null;
+    drag.cardId = state.hand[p.spec.idx];
+    state.selectedHandIdx = p.spec.idx;
+    state.selectedBoardSlot = null;
+    nesw = ALL_CARDS[drag.cardId].nesw;
+  } else {
+    drag.handIdx = -1;
+    drag.src = { r: p.spec.r, c: p.spec.c };
+    const cell = state.grid[p.spec.r][p.spec.c];
+    drag.cardId = cell.cardId;
+    state.selectedBoardSlot = { r: p.spec.r, c: p.spec.c };
+    nesw = cell.nesw;
+  }
+  state.hoveredSlot = null;
+  drag.target = null;
+  drag.lastCol = -2;
+
+  drag.baseW = p.rect.width;
+  drag.baseH = p.rect.height;
+  drag.grabX = clampN((p.x - p.rect.left) / p.rect.width, 0.15, 0.85);
+  drag.grabY = clampN((p.y - p.rect.top) / p.rect.height, 0.15, 0.85);
+  drag.cx = p.rect.left + p.rect.width / 2;
+  drag.cy = p.rect.top + p.rect.height / 2;
+  drag.px = e.clientX;
+  drag.py = e.clientY;
+  drag.vx = drag.vy = drag.rz = drag.ry = drag.rx = 0;
+  drag.scale = 1;
+
+  const g = document.createElement("div");
+  g.className = "drag-ghost";
+  g.style.width = `${drag.baseW}px`;
+  g.style.height = `${drag.baseH}px`;
+  g.innerHTML = build3DCardHTML(drag.cardId, nesw, "player");
+  document.body.appendChild(g);
+  drag.ghost = g;
+  applyGhostTransform();
+
+  document.body.classList.add("is-dragging");
+  updateTelegraphHud(drag.cardId);
+  playTone(5, "sine", 0.08);
+  renderAll();
+  drag.raf = requestAnimationFrame(dragTick);
+}
+
+function findDropTarget(x, y) {
+  const slots = document.querySelectorAll("#grid-3x3 .board-slot");
+  let best = null;
+  let bestDist = Infinity;
+  for (const el of slots) {
+    const r = Number(el.dataset.r), c = Number(el.dataset.c);
+    if (!isValidDropTarget(r, c)) continue;
+    const rect = el.getBoundingClientRect();
+    const inside = x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+    if (inside) return { r, c, rect };
+    const dx = x - (rect.left + rect.width / 2);
+    const dy = y - (rect.top + rect.height / 2);
+    const d = Math.hypot(dx, dy);
+    const magnet = Math.max(rect.width, rect.height) * 0.72;
+    if (d < magnet && d < bestDist) {
+      bestDist = d;
+      best = { r, c, rect };
+    }
+  }
+  return best;
+}
+
+function refreshGhostStats() {
+  if (!drag.ghost) return;
+  const col = drag.target ? drag.target.c : -1;
+  if (col === drag.lastCol) return;
+  drag.lastCol = col;
+  let nesw;
+  if (col >= 0) nesw = getCardEffectiveStats(drag.cardId, col, false);
+  else if (drag.kind === "board") nesw = state.grid[drag.src.r][drag.src.c].nesw;
+  else nesw = ALL_CARDS[drag.cardId].nesw;
+  drag.ghost.innerHTML = build3DCardHTML(drag.cardId, nesw, "player");
+}
+
+function onDragPointerMove(e) {
+  if (drag.pending && !drag.active) {
+    if (Math.hypot(e.clientX - drag.pending.x, e.clientY - drag.pending.y) < DRAG_THRESHOLD_PX) return;
+    startDrag(e);
+  }
+  if (!drag.active || drag.dropping) return;
+  drag.px = e.clientX;
+  drag.py = e.clientY;
+
+  const t = findDropTarget(e.clientX, e.clientY);
+  const same = (t && drag.target && t.r === drag.target.r && t.c === drag.target.c) || (!t && !drag.target);
+  if (same) {
+    if (t) drag.target.rect = t.rect;
+    return;
+  }
+  drag.target = t;
+  state.hoveredSlot = t ? { r: t.r, c: t.c } : null;
+  drag.ghost.classList.toggle("over-target", !!t);
+  if (t) playTone(2 + t.c * 2, "sine", 0.05);
+  refreshGhostStats();
+  renderAll();
+}
+
+function applyGhostTransform() {
+  if (!drag.ghost) return;
+  const x = drag.cx - drag.baseW / 2;
+  const y = drag.cy - drag.baseH / 2;
+  drag.ghost.style.transform =
+    `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) perspective(900px) ` +
+    `rotateX(${drag.rx.toFixed(2)}deg) rotateY(${drag.ry.toFixed(2)}deg) rotateZ(${drag.rz.toFixed(2)}deg) ` +
+    `scale(${drag.scale.toFixed(3)})`;
+}
+
+function dragTick() {
+  if (!drag.active || drag.dropping) return;
+  const dt = 1 / 60;
+  const smoothScale = 1 - Math.exp(-14 * dt);
+  const smoothPos = 1 - Math.exp(-22 * dt);
+  // Scale toward the socket size when aiming at a tile, slightly lifted otherwise
+  const targetScale = drag.target ? drag.target.rect.width / drag.baseW : (drag.kind === "hand" ? 1.1 : 1.04);
+  drag.scale += (targetScale - drag.scale) * smoothScale;
+
+  const w = drag.baseW * drag.scale;
+  const h = drag.baseH * drag.scale;
+  // Keep the exact grab point under the cursor
+  let tx = drag.px + (0.5 - drag.grabX) * w;
+  let ty = drag.py + (0.5 - drag.grabY) * h;
+  if (drag.target) {
+    // Magnet: pull the ghost toward the socket center so the landing spot is obvious
+    const rc = drag.target.rect;
+    tx += (rc.left + rc.width / 2 - tx) * 0.4;
+    ty += (rc.top + rc.height / 2 - ty) * 0.4;
+  }
+  const nx = drag.cx + (tx - drag.cx) * smoothPos;
+  const ny = drag.cy + (ty - drag.cy) * smoothPos;
+  drag.vx = drag.vx * 0.75 + (nx - drag.cx) * 0.25;
+  drag.vy = drag.vy * 0.75 + (ny - drag.cy) * 0.25;
+  drag.cx = nx;
+  drag.cy = ny;
+
+  // Velocity tilt: the card swings like it has weight, settles flat over a target
+  const settle = drag.target ? 0.35 : 1;
+  drag.rz += (clampN(drag.vx * 0.9, -10, 10) * settle - drag.rz) * 0.2;
+  drag.ry += (clampN(drag.vx * 1.3, -18, 18) * settle - drag.ry) * 0.2;
+  drag.rx += (clampN(-drag.vy * 1.1, -14, 14) * settle - drag.rx) * 0.2;
+
+  applyGhostTransform();
+  drag.raf = requestAnimationFrame(dragTick);
+}
+
+function animateGhostTo(rect, ms, easing, done) {
+  drag.dropping = true;
+  cancelAnimationFrame(drag.raf);
+  const g = drag.ghost;
+  if (!g || !rect) { done(); return; }
+  drag.cx = rect.left + rect.width / 2;
+  drag.cy = rect.top + rect.height / 2;
+  drag.scale = rect.width / drag.baseW;
+  drag.rx = drag.ry = drag.rz = 0;
+  g.style.transition = `transform ${ms}ms ${easing}`;
+  void g.offsetWidth;
+  applyGhostTransform();
+  setTimeout(done, ms + 10);
+}
+
+function teardownDrag() {
+  if (drag.ghost) drag.ghost.remove();
+  drag.ghost = null;
+  drag.active = false;
+  drag.dropping = false;
+  drag.target = null;
+  drag.pending = null;
+  document.body.classList.remove("is-dragging");
+  drag.suppressClick = true;
+  setTimeout(() => { drag.suppressClick = false; }, 80);
+}
+
+function boardThud() {
+  const slab = document.getElementById("board-3d-slab");
+  if (!slab) return;
+  slab.classList.remove("thud");
+  void slab.offsetWidth;
+  slab.classList.add("thud");
+  setTimeout(() => slab.classList.remove("thud"), 280);
+}
+
+function returnGhostHome() {
+  let home = null;
+  if (drag.kind === "hand") {
+    const wraps = document.querySelectorAll("#hand-bar .hand-card-wrap");
+    if (wraps[drag.handIdx]) home = wraps[drag.handIdx].getBoundingClientRect();
+  } else if (drag.src) {
+    const el = document.querySelector(`#grid-3x3 .board-slot[data-r="${drag.src.r}"][data-c="${drag.src.c}"]`);
+    if (el) home = el.getBoundingClientRect();
+  }
+  playTone(-3, "sine", 0.08);
+  animateGhostTo(home, 240, "cubic-bezier(0.22, 1, 0.36, 1)", () => {
+    const wasBoard = drag.kind === "board";
+    teardownDrag();
+    if (wasBoard) state.selectedBoardSlot = null;
+    state.hoveredSlot = null;
+    renderAll();
+  });
+}
+
+function onDragPointerUp() {
+  detachDragListeners();
+  if (drag.pending && !drag.active) { drag.pending = null; return; } // plain click → onclick handles it
+  if (!drag.active || drag.dropping) return;
+
+  const t = drag.target && isValidDropTarget(drag.target.r, drag.target.c) ? drag.target : null;
+  if (!t) { returnGhostHome(); return; }
+
+  const el = document.querySelector(`#grid-3x3 .board-slot[data-r="${t.r}"][data-c="${t.c}"]`);
+  const rect = el ? el.getBoundingClientRect() : t.rect;
+  animateGhostTo(rect, 120, "cubic-bezier(0.3, 1.3, 0.5, 1)", () => {
+    const kind = drag.kind, src = drag.src, idx = drag.handIdx;
+    teardownDrag();
+    state.hoveredSlot = null;
+    if (!state.isPlayerTurn || state.gameOver) return;
+    if (kind === "board") {
+      const srcCell = state.grid[src.r][src.c];
+      if (!srcCell || !(srcCell.owner === "player")) return;
+      state.selectedBoardSlot = { r: src.r, c: src.c };
+    } else {
+      state.selectedHandIdx = idx;
+      state.selectedBoardSlot = null;
+    }
+    handleSlotClick(t.r, t.c);
+    boardThud();
+  });
+}
+
+function onDragPointerCancel() {
+  detachDragListeners();
+  if (drag.pending && !drag.active) { drag.pending = null; return; }
+  if (drag.active && !drag.dropping) returnGhostHome();
+}
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && drag.active && !drag.dropping) {
+    detachDragListeners();
+    returnGhostHome();
+  }
+});
+window.addEventListener("blur", () => {
+  if (drag.active && !drag.dropping) {
+    detachDragListeners();
+    returnGhostHome();
+  }
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadProgressionV3();
+  startStage(0);
+  if (window.location.search.includes("autotest=1") && typeof runVisualAutomatedPlaytest === "function") {
+    setTimeout(() => runVisualAutomatedPlaytest(), 500);
+  }
+  if (window.location.search.includes("dragtest=1") && typeof runDragDropTest === "function") {
+    setTimeout(() => runDragDropTest().catch((err) => {
+      fetch("/__osascript_report__?name=dragdrop", { method: "POST", body: JSON.stringify({ error: String(err), stack: err && err.stack }) });
+      document.title = "DRAGTEST_ERROR";
+    }), 600);
+  }
+});
+</script>
+<script src="./tests/inpage_autotest.js"></script>
+</body>
+</html>

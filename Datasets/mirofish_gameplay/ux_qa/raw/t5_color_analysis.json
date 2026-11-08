@@ -1,0 +1,91 @@
+{
+  "theoretical": {
+    "blue_#00E5FF_luminance": 0.633,
+    "red_#FF2E54_luminance": 0.239,
+    "blue_vs_red_contrast_ratio": 2.37,
+    "gray_value_blue_rec601": 163.5,
+    "gray_value_red_rec601": 112.8,
+    "deltaE76_normal": 129.4
+  },
+  "measured": {
+    "sampled_pixels": {
+      "player": 614,
+      "ai": 627
+    },
+    "none": {
+      "player_border_rgb": [
+        0,
+        225,
+        250
+      ],
+      "ai_border_rgb": [
+        251,
+        46,
+        83
+      ],
+      "contrast_ratio_between_borders": 2.34,
+      "deltaE76": 127.5
+    },
+    "achromatopsia": {
+      "player_border_rgb": [
+        204,
+        204,
+        204
+      ],
+      "ai_border_rgb": [
+        132,
+        132,
+        132
+      ],
+      "contrast_ratio_between_borders": 2.33,
+      "deltaE76": 26.9
+    },
+    "protanopia": {
+      "player_border_rgb": [
+        203,
+        216,
+        252
+      ],
+      "ai_border_rgb": [
+        111,
+        105,
+        83
+      ],
+      "contrast_ratio_between_borders": 3.86,
+      "deltaE76": 53.2
+    },
+    "deuteranopia": {
+      "player_border_rgb": [
+        175,
+        196,
+        250
+      ],
+      "ai_border_rgb": [
+        161,
+        147,
+        77
+      ],
+      "contrast_ratio_between_borders": 1.78,
+      "deltaE76": 70.6
+    },
+    "tritanopia": {
+      "player_border_rgb": [
+        0,
+        236,
+        232
+      ],
+      "ai_border_rgb": [
+        255,
+        0,
+        64
+      ],
+      "contrast_ratio_between_borders": 2.66,
+      "deltaE76": 141.4
+    },
+    "grayscale_L": {
+      "player_gray": 161,
+      "ai_gray": 113,
+      "contrast_ratio": 1.89
+    }
+  }
+}

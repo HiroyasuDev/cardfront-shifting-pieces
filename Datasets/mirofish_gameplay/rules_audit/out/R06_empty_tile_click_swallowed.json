@@ -1,0 +1,1169 @@
+{
+  "id": "R06_empty_tile_click_swallowed",
+  "title": "Clicks on slide-target tiles swallowed by hover re-render / 3D hit-test",
+  "reproduced": false,
+  "checks": [
+    {
+      "name": "at least one centred real-mouse click on a slide-target tile was swallowed",
+      "ok": true,
+      "detail": {
+        "total": 30,
+        "lost": 10,
+        "flickering": 0,
+        "hitGrid": 7
+      }
+    },
+    {
+      "name": "every swallowed click hit-tested to #grid-3x3 or sat in a flicker loop",
+      "ok": false,
+      "detail": [
+        {
+          "kind": "slide",
+          "cam": "5,0",
+          "unit": [
+            2,
+            0
+          ],
+          "target": [
+            2,
+            1
+          ],
+          "selected": {
+            "r": 2,
+            "c": 0
+          },
+          "hit": "slot21",
+          "flickerEventsIn250ms": 0,
+          "actionHappened": false
+        },
+        {
+          "kind": "slide",
+          "cam": "5,0",
+          "unit": [
+            1,
+            1
+          ],
+          "target": [
+            2,
+            1
+          ],
+          "selected": {
+            "r": 1,
+            "c": 1
+          },
+          "hit": "grid-3x3",
+          "flickerEventsIn250ms": 0,
+          "actionHappened": false
+        },
+        {
+          "kind": "slide",
+          "cam": "0,0",
+          "unit": [
+            2,
+            0
+          ],
+          "target": [
+            2,
+            1
+          ],
+          "selected": {
+            "r": 2,
+            "c": 0
+          },
+          "hit": "slot21",
+          "flickerEventsIn250ms": 0,
+          "actionHappened": false
+        },
+        {
+          "kind": "slide",
+          "cam": "0,0",
+          "unit": [
+            1,
+            1
+          ],
+          "target": [
+            2,
+            1
+          ],
+          "selected": {
+            "r": 1,
+            "c": 1
+          },
+          "hit": "slot21",
+          "flickerEventsIn250ms": 0,
+          "actionHappened": false
+        }
+      ]
+    }
+  ],
+  "notes": {
+    "summary": {
+      "slide": {
+        "total": 30,
+        "lost": 10,
+        "flickering": 0,
+        "hitGrid": 7
+      },
+      "deploy": {
+        "total": 30,
+        "lost": 0,
+        "flickering": 0,
+        "hitGrid": 0
+      }
+    },
+    "trials": [
+      {
+        "kind": "slide",
+        "cam": "5,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": {
+          "r": 2,
+          "c": 0
+        },
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "5,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": {
+          "r": 2,
+          "c": 0
+        },
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": false
+      },
+      {
+        "kind": "slide",
+        "cam": "5,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": {
+          "r": 1,
+          "c": 1
+        },
+        "hit": "grid-3x3",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": false
+      },
+      {
+        "kind": "slide",
+        "cam": "5,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": {
+          "r": 1,
+          "c": 1
+        },
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "5,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": {
+          "r": 1,
+          "c": 1
+        },
+        "hit": "slot12",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "5,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": {
+          "r": 2,
+          "c": 2
+        },
+        "hit": "grid-3x3",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "5,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": {
+          "r": 2,
+          "c": 2
+        },
+        "hit": "grid-3x3",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "5,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          0,
+          0
+        ],
+        "selected": {
+          "r": 1,
+          "c": 0
+        },
+        "hit": "slot00",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "5,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          2,
+          0
+        ],
+        "selected": {
+          "r": 1,
+          "c": 0
+        },
+        "hit": "slot20",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "5,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          1,
+          1
+        ],
+        "selected": {
+          "r": 1,
+          "c": 0
+        },
+        "hit": "slot11",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "5,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": null,
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "5,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": null,
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "5,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": null,
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "5,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": null,
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "5,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": null,
+        "hit": "slot12",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "5,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": null,
+        "hit": "slot12",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "5,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": null,
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "5,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          0,
+          0
+        ],
+        "selected": null,
+        "hit": "slot00",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "5,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          2,
+          0
+        ],
+        "selected": null,
+        "hit": "slot20",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "5,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          1,
+          1
+        ],
+        "selected": null,
+        "hit": "slot11",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "0,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": {
+          "r": 2,
+          "c": 0
+        },
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "0,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": {
+          "r": 2,
+          "c": 0
+        },
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": false
+      },
+      {
+        "kind": "slide",
+        "cam": "0,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": {
+          "r": 1,
+          "c": 1
+        },
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": false
+      },
+      {
+        "kind": "slide",
+        "cam": "0,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": {
+          "r": 1,
+          "c": 1
+        },
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "0,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": {
+          "r": 1,
+          "c": 1
+        },
+        "hit": "slot12",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "0,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": {
+          "r": 2,
+          "c": 2
+        },
+        "hit": "grid-3x3",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": false
+      },
+      {
+        "kind": "slide",
+        "cam": "0,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": {
+          "r": 2,
+          "c": 2
+        },
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "0,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          0,
+          0
+        ],
+        "selected": {
+          "r": 1,
+          "c": 0
+        },
+        "hit": "slot00",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": false
+      },
+      {
+        "kind": "slide",
+        "cam": "0,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          2,
+          0
+        ],
+        "selected": {
+          "r": 1,
+          "c": 0
+        },
+        "hit": "slot20",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "0,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          1,
+          1
+        ],
+        "selected": {
+          "r": 1,
+          "c": 0
+        },
+        "hit": "slot11",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "0,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": null,
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "0,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": null,
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "0,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": null,
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "0,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": null,
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "0,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": null,
+        "hit": "slot12",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "0,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": null,
+        "hit": "slot12",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "0,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": null,
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "0,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          0,
+          0
+        ],
+        "selected": null,
+        "hit": "slot00",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "0,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          2,
+          0
+        ],
+        "selected": null,
+        "hit": "slot20",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "0,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          1,
+          1
+        ],
+        "selected": null,
+        "hit": "slot11",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "14,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": {
+          "r": 2,
+          "c": 0
+        },
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "14,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": {
+          "r": 2,
+          "c": 0
+        },
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": false
+      },
+      {
+        "kind": "slide",
+        "cam": "14,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": {
+          "r": 1,
+          "c": 1
+        },
+        "hit": "grid-3x3",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "14,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": {
+          "r": 1,
+          "c": 1
+        },
+        "hit": "grid-3x3",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": false
+      },
+      {
+        "kind": "slide",
+        "cam": "14,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": {
+          "r": 1,
+          "c": 1
+        },
+        "hit": "slot12",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "14,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": {
+          "r": 2,
+          "c": 2
+        },
+        "hit": "slot12",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "14,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": {
+          "r": 2,
+          "c": 2
+        },
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": false
+      },
+      {
+        "kind": "slide",
+        "cam": "14,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          0,
+          0
+        ],
+        "selected": {
+          "r": 1,
+          "c": 0
+        },
+        "hit": "slot00",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "14,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          2,
+          0
+        ],
+        "selected": {
+          "r": 1,
+          "c": 0
+        },
+        "hit": "slot20",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "slide",
+        "cam": "14,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          1,
+          1
+        ],
+        "selected": {
+          "r": 1,
+          "c": 0
+        },
+        "hit": "grid-3x3",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": false
+      },
+      {
+        "kind": "deploy",
+        "cam": "14,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": null,
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "14,0",
+        "unit": [
+          2,
+          0
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": null,
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "14,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": null,
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "14,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          0
+        ],
+        "selected": null,
+        "hit": "slot10",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "14,0",
+        "unit": [
+          1,
+          1
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": null,
+        "hit": "slot12",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "14,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          1,
+          2
+        ],
+        "selected": null,
+        "hit": "slot12",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "14,0",
+        "unit": [
+          2,
+          2
+        ],
+        "target": [
+          2,
+          1
+        ],
+        "selected": null,
+        "hit": "slot21",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "14,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          0,
+          0
+        ],
+        "selected": null,
+        "hit": "slot00",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "14,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          2,
+          0
+        ],
+        "selected": null,
+        "hit": "slot20",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      },
+      {
+        "kind": "deploy",
+        "cam": "14,0",
+        "unit": [
+          1,
+          0
+        ],
+        "target": [
+          1,
+          1
+        ],
+        "selected": null,
+        "hit": "slot11",
+        "flickerEventsIn250ms": 0,
+        "actionHappened": true
+      }
+    ]
+  },
+  "pageErrors": [],
+  "ranAt": "2026-11-08T12:14:54.139Z"
+}

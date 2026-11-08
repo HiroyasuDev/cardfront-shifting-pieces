@@ -1,0 +1,85 @@
+{
+  "ok": true,
+  "assets": [
+    {
+      "path": "env_isamu_kamikokuryo_skystone.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 1024,
+      "height": 768,
+      "bytes": 1335382,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        1024,
+        768
+      ],
+      "problems": []
+    },
+    {
+      "path": "env_hiroshi_minagawa_ivalice_diorama.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 1024,
+      "height": 768,
+      "bytes": 1451901,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        1024,
+        768
+      ],
+      "problems": []
+    },
+    {
+      "path": "env_nakayama_neo_arcadia_mmz.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 1024,
+      "height": 768,
+      "bytes": 1711696,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        1024,
+        768
+      ],
+      "problems": []
+    },
+    {
+      "path": "env_breach_staccs_isometric_tower.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 1024,
+      "height": 768,
+      "bytes": 1251528,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        1024,
+        768
+      ],
+      "problems": []
+    }
+  ]
+}
