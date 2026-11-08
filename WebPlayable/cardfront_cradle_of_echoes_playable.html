@@ -434,6 +434,91 @@
     100% { transform: translateZ(10px) rotateY(0deg) scale(1.0); }
   }
 
+  /* ==========================================================================
+     NATURAL DRAG & DROP (pointer-driven ghost, magnet snap, landing shadow)
+     ========================================================================== */
+  .slot-art { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+  .board-telegraph-svg { pointer-events: none; }
+  .hand-card-wrap { touch-action: none; cursor: grab; }
+  .board-slot.owner-draggable { cursor: grab; touch-action: none; }
+  body.is-dragging, body.is-dragging * { cursor: grabbing !important; }
+  body.is-dragging .hand-card-wrap:hover { transform: none; }
+
+  .drag-ghost {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    pointer-events: none;
+    transform-origin: 50% 50%;
+    will-change: transform;
+    border-radius: 10px;
+  }
+  .drag-ghost .card-3d-unit {
+    border: 2px solid var(--gold) !important;
+    box-shadow:
+      0 30px 44px rgba(0, 0, 0, 0.62),
+      0 0 20px rgba(255, 184, 0, 0.55) !important;
+    transition: box-shadow 0.15s ease;
+  }
+  .drag-ghost.over-target .card-3d-unit {
+    box-shadow:
+      0 10px 18px rgba(0, 0, 0, 0.75),
+      0 0 26px rgba(255, 184, 0, 0.85) !important;
+  }
+
+  .hand-card-wrap.drag-source,
+  .hand-card-wrap.drag-source:hover {
+    opacity: 0.28;
+    transform: scale(0.94);
+    filter: grayscale(0.6);
+  }
+  .board-slot.drag-source .card-3d-unit {
+    opacity: 0.22;
+    transform: translateZ(0) scale(0.95) !important;
+  }
+
+  .board-slot.drop-valid {
+    border-color: rgba(0, 229, 255, 0.55);
+    background: rgba(0, 229, 255, 0.06);
+    animation: dropValidPulse 1.1s ease-in-out infinite;
+  }
+  .board-slot.drop-hover {
+    border: 2px solid var(--gold);
+    background: rgba(255, 184, 0, 0.1);
+    box-shadow: inset 0 0 22px rgba(255, 184, 0, 0.35), 0 0 22px rgba(255, 184, 0, 0.5);
+    animation: none;
+  }
+  @keyframes dropValidPulse {
+    0%, 100% { box-shadow: inset 0 5px 14px rgba(0, 0, 0, 0.85); }
+    50%      { box-shadow: inset 0 0 14px rgba(0, 229, 255, 0.22), 0 0 12px rgba(0, 229, 255, 0.28); }
+  }
+
+  /* Landing shadow shown in the target socket while the ghost hovers above it */
+  .board-slot.landing-preview .card-3d-unit {
+    opacity: 0.38;
+    transform: translateZ(0) !important;
+    filter: saturate(0.5) brightness(1.2);
+    box-shadow: none !important;
+  }
+  .board-slot.hover-preview .card-3d-unit { opacity: 0.9; }
+
+  /* Placed card lands with a short squash instead of a 180° flip */
+  .board-slot.just-placed .card-3d-unit {
+    animation: cardDropLand 0.36s cubic-bezier(0.22, 1.4, 0.36, 1);
+  }
+  @keyframes cardDropLand {
+    0%   { transform: translateZ(34px) scale(1.06); }
+    55%  { transform: translateZ(4px) scale(0.97); }
+    100% { transform: translateZ(10px) scale(1.0); }
+  }
+  .board-3d-slab.thud { animation: slabThud 0.26s ease-out; }
+  @keyframes slabThud {
+    0%   { translate: 0 0; }
+    35%  { translate: 0 3px; }
+    100% { translate: 0 0; }
+  }
+
   .card-art-frame {
     position: absolute;
     inset: 0;
@@ -870,6 +955,7 @@
 </div>
 
 <script>
+if (location.search.includes("dragtest=1")) { window.addEventListener("error", (e) => { fetch("/__osascript_report__?name=dragerr", { method: "POST", body: JSON.stringify({ msg: e.message, line: e.lineno, col: e.colno }) }); }); }
 // ============================================================================
 // 1. 16 CARDS WITH UNIQUE DYNAMIC TELEGRAPH PROFILES & SVG ANIMATION GENERATORS
 // ============================================================================
@@ -1274,6 +1360,29 @@ const state = {
   aiPool: []
 };
 
+// Pointer-driven drag & drop state (hand → board deploy, board → adjacent Tactical Slide)
+const drag = {
+  pending: null,
+  active: false,
+  dropping: false,
+  kind: null,          // "hand" | "board"
+  handIdx: -1,
+  src: null,           // { r, c } for board drags
+  cardId: null,
+  ghost: null,
+  baseW: 0, baseH: 0,
+  grabX: 0.5, grabY: 0.5,
+  px: 0, py: 0,        // pointer
+  cx: 0, cy: 0,        // ghost center
+  vx: 0, vy: 0,
+  rz: 0, ry: 0, rx: 0,
+  scale: 1,
+  target: null,        // { r, c, rect }
+  lastCol: -2,
+  raf: 0,
+  suppressClick: false
+};
+
 function setBoardCamera(val) {
   const [tx, tz] = val.split(",").map(Number);
   state.baseTiltX = tx;
@@ -1288,6 +1397,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const vp = document.getElementById("arena-viewport");
   const slab = document.getElementById("board-3d-slab");
   vp.addEventListener("mousemove", (e) => {
+    if (drag.active) return; // freeze parallax so drop targets don't move while aiming
     const rect = vp.getBoundingClientRect();
     const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
     const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
@@ -1296,6 +1406,7 @@ document.addEventListener("DOMContentLoaded", () => {
     slab.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${(nx * 2.6).toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg)`;
   });
   vp.addEventListener("mouseleave", () => {
+    if (drag.active) return;
     slab.style.transform = `rotateX(${state.baseTiltX}deg) rotateY(0deg) rotateZ(${state.baseTiltZ}deg)`;
   });
 });
@@ -1388,7 +1499,7 @@ function startStage(idx) {
 
   updateTelegraphHud(state.hand[0]);
   document.getElementById("last-move-banner").innerHTML =
-    `💡 Click a Hero Card on the left and hover any tile to see its unique <b>${ALL_CARDS[state.hand[0]].telegraphName}</b> telegraph.`;
+    `💡 <b>Drag</b> a Hero Card onto any open tile (or click a card, then click a tile). Drag your Blue board cards 1 tile to Tactical Slide.`;
 
   renderAll();
 }
@@ -1496,7 +1607,7 @@ function handleSlotClick(r, c) {
       cell.cardId = src.cardId;
       cell.owner = "player";
       cell.nesw = getCardEffectiveStats(cell.cardId, c, false);
-      cell.justFlipped = true;
+      cell.justPlaced = true;
 
       src.cardId = null;
       src.owner = null;
@@ -1529,7 +1640,7 @@ function handleSlotClick(r, c) {
   cell.cardId = cardId;
   cell.owner = "player";
   cell.nesw = getCardEffectiveStats(cardId, c, false);
-  cell.justFlipped = true;
+  cell.justPlaced = true;
   state.selectedBoardSlot = null;
 
   const flips = findCaptures(r, c, cell.nesw, "player");
@@ -1581,7 +1692,7 @@ function executeBossTurn() {
   cell.cardId = aiCardId;
   cell.owner = "ai";
   cell.nesw = getCardEffectiveStats(aiCardId, bestSlot.c, true);
-  cell.justFlipped = true;
+  cell.justPlaced = true;
 
   const flips = findCaptures(bestSlot.r, bestSlot.c, cell.nesw, "ai");
   flips.forEach(f => {
@@ -1650,7 +1761,7 @@ function build3DCardHTML(cardId, nesw, owner) {
   return `
     <div class="card-3d-unit ${ownerCls}">
       <div class="card-art-frame">
-        <img class="slot-art" src="${card.art}" alt="${card.name}" />
+        <img class="slot-art" src="${card.art}" alt="${card.name}" draggable="false" />
         <div class="slot-vignette"></div>
       </div>
       ${buildUniqueTelegraphSVG(card)}
@@ -1786,12 +1897,29 @@ function renderAll() {
         cls += " just-flipped";
         cell.justFlipped = false;
       }
+      if (cell.justPlaced) {
+        cls += " just-placed";
+        cell.justPlaced = false;
+      }
+      if (cell.cardId && cell.owner === "player" && state.isPlayerTurn && !state.usedSlideThisTurn) {
+        cls += " owner-draggable";
+      }
+      if (drag.active) {
+        if (isValidDropTarget(r, c)) cls += " drop-valid";
+        if (drag.target && drag.target.r === r && drag.target.c === c) cls += " drop-hover";
+        if (drag.kind === "board" && drag.src && drag.src.r === r && drag.src.c === c) cls += " drag-source";
+      }
       slot.className = cls;
+      slot.dataset.r = r;
+      slot.dataset.c = c;
 
       slot.onmouseenter = () => {
+        if (drag.active || drag.dropping) return;
         if (cell.cardId) {
           updateTelegraphHud(cell.cardId);
         } else {
+          // Guard: rebuilding the grid re-fires mouseenter on the new node; skip redundant re-renders
+          if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c) return;
           state.hoveredSlot = { r, c };
           if (state.hand[state.selectedHandIdx]) {
             updateTelegraphHud(state.hand[state.selectedHandIdx]);
@@ -1800,12 +1928,19 @@ function renderAll() {
         }
       };
       slot.onmouseleave = () => {
+        if (drag.active || drag.dropping) return;
         if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c) {
           state.hoveredSlot = null;
           renderAll();
         }
       };
-      slot.onclick = () => handleSlotClick(r, c);
+      slot.onclick = () => {
+        if (drag.suppressClick) return;
+        handleSlotClick(r, c);
+      };
+      if (cell.cardId && cell.owner === "player") {
+        slot.onpointerdown = (e) => beginPointerDrag(e, { kind: "board", r, c });
+      }
 
       if (cell.cardId) {
         slot.innerHTML = build3DCardHTML(cell.cardId, cell.nesw, cell.owner);
@@ -1822,7 +1957,7 @@ function renderAll() {
       } else if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c && state.hand[state.selectedHandIdx]) {
         const hId = state.hand[state.selectedHandIdx];
         const eff = getCardEffectiveStats(hId, c, false);
-        slot.style.opacity = "0.9";
+        slot.classList.add(drag.active ? "landing-preview" : "hover-preview");
         slot.innerHTML = build3DCardHTML(hId, eff, "player");
       } else {
         slot.innerHTML = `<div style="color:rgba(148,163,184,0.34);font-weight:800;font-size:10.5px;">${isColBoosted(c) ? "⚡ +1 BOOST" : "OPEN"}</div>`;
@@ -1846,9 +1981,12 @@ function renderAll() {
   state.hand.forEach((cid, idx) => {
     const isSel = idx === state.selectedHandIdx && !state.selectedBoardSlot;
     const wrap = document.createElement("div");
-    wrap.className = "hand-card-wrap" + (isSel ? " selected" : "");
-    wrap.onmouseenter = () => updateTelegraphHud(cid);
+    const isDragSrc = drag.active && drag.kind === "hand" && drag.handIdx === idx;
+    wrap.className = "hand-card-wrap" + (isSel && !drag.active ? " selected" : "") + (isDragSrc ? " drag-source" : "");
+    wrap.onmouseenter = () => { if (!drag.active) updateTelegraphHud(cid); };
+    wrap.onpointerdown = (e) => beginPointerDrag(e, { kind: "hand", idx });
     wrap.onclick = () => {
+      if (drag.suppressClick) return;
       state.selectedHandIdx = idx;
       state.selectedBoardSlot = null;
       updateTelegraphHud(cid);
@@ -1876,12 +2014,386 @@ function renderAll() {
   handEl.appendChild(slideCard);
 }
 
+/* ==========================================================================
+   NATURAL DRAG & DROP ENGINE
+   - 6px threshold so plain clicks still work (click card → click tile)
+   - Ghost card follows the pointer with spring smoothing + velocity tilt
+   - Forgiving magnet hit-test (nearest valid socket, works on the tilted 3D board)
+   - Landing shadow + live FLIP previews in the hovered socket
+   - Snap-in drop animation, or spring back to origin on invalid drop / Esc
+   ========================================================================== */
+const DRAG_THRESHOLD_PX = 6;
+const clampN = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+function isValidDropTarget(r, c) {
+  if (!state.isPlayerTurn || state.gameOver) return false;
+  if (state.grid[r][c].cardId) return false;
+  if (drag.kind === "hand") return true;
+  if (drag.kind === "board" && drag.src) {
+    return !state.usedSlideThisTurn && Math.abs(r - drag.src.r) + Math.abs(c - drag.src.c) === 1;
+  }
+  return false;
+}
+
+function beginPointerDrag(e, spec) {
+  if (e.button !== undefined && e.button !== 0) return;
+  if (!state.isPlayerTurn || state.gameOver || drag.active || drag.dropping) return;
+  if (spec.kind === "board" && state.usedSlideThisTurn) return; // click-select still works
+  e.preventDefault(); // block native image drag / text selection
+  const el = e.currentTarget;
+  drag.pending = { spec, rect: el.getBoundingClientRect(), x: e.clientX, y: e.clientY };
+  window.addEventListener("pointermove", onDragPointerMove);
+  window.addEventListener("pointerup", onDragPointerUp);
+  window.addEventListener("pointercancel", onDragPointerCancel);
+}
+
+function detachDragListeners() {
+  window.removeEventListener("pointermove", onDragPointerMove);
+  window.removeEventListener("pointerup", onDragPointerUp);
+  window.removeEventListener("pointercancel", onDragPointerCancel);
+}
+
+function startDrag(e) {
+  const p = drag.pending;
+  drag.pending = null;
+  drag.active = true;
+  drag.dropping = false;
+  drag.kind = p.spec.kind;
+  let nesw;
+  if (drag.kind === "hand") {
+    drag.handIdx = p.spec.idx;
+    drag.src = null;
+    drag.cardId = state.hand[p.spec.idx];
+    state.selectedHandIdx = p.spec.idx;
+    state.selectedBoardSlot = null;
+    nesw = ALL_CARDS[drag.cardId].nesw;
+  } else {
+    drag.handIdx = -1;
+    drag.src = { r: p.spec.r, c: p.spec.c };
+    const cell = state.grid[p.spec.r][p.spec.c];
+    drag.cardId = cell.cardId;
+    state.selectedBoardSlot = { r: p.spec.r, c: p.spec.c };
+    nesw = cell.nesw;
+  }
+  state.hoveredSlot = null;
+  drag.target = null;
+  drag.lastCol = -2;
+
+  drag.baseW = p.rect.width;
+  drag.baseH = p.rect.height;
+  drag.grabX = clampN((p.x - p.rect.left) / p.rect.width, 0.15, 0.85);
+  drag.grabY = clampN((p.y - p.rect.top) / p.rect.height, 0.15, 0.85);
+  drag.cx = p.rect.left + p.rect.width / 2;
+  drag.cy = p.rect.top + p.rect.height / 2;
+  drag.px = e.clientX;
+  drag.py = e.clientY;
+  drag.vx = drag.vy = drag.rz = drag.ry = drag.rx = 0;
+  drag.scale = 1;
+
+  const g = document.createElement("div");
+  g.className = "drag-ghost";
+  g.style.width = `${drag.baseW}px`;
+  g.style.height = `${drag.baseH}px`;
+  g.innerHTML = build3DCardHTML(drag.cardId, nesw, "player");
+  document.body.appendChild(g);
+  drag.ghost = g;
+  applyGhostTransform();
+
+  document.body.classList.add("is-dragging");
+  updateTelegraphHud(drag.cardId);
+  playTone(5, "sine", 0.08);
+  renderAll();
+  drag.raf = requestAnimationFrame(dragTick);
+}
+
+function findDropTarget(x, y) {
+  const slots = document.querySelectorAll("#grid-3x3 .board-slot");
+  let best = null;
+  let bestDist = Infinity;
+  for (const el of slots) {
+    const r = Number(el.dataset.r), c = Number(el.dataset.c);
+    if (!isValidDropTarget(r, c)) continue;
+    const rect = el.getBoundingClientRect();
+    const inside = x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+    if (inside) return { r, c, rect };
+    const dx = x - (rect.left + rect.width / 2);
+    const dy = y - (rect.top + rect.height / 2);
+    const d = Math.hypot(dx, dy);
+    const magnet = Math.max(rect.width, rect.height) * 0.72;
+    if (d < magnet && d < bestDist) {
+      bestDist = d;
+      best = { r, c, rect };
+    }
+  }
+  return best;
+}
+
+function refreshGhostStats() {
+  if (!drag.ghost) return;
+  const col = drag.target ? drag.target.c : -1;
+  if (col === drag.lastCol) return;
+  drag.lastCol = col;
+  let nesw;
+  if (col >= 0) nesw = getCardEffectiveStats(drag.cardId, col, false);
+  else if (drag.kind === "board") nesw = state.grid[drag.src.r][drag.src.c].nesw;
+  else nesw = ALL_CARDS[drag.cardId].nesw;
+  drag.ghost.innerHTML = build3DCardHTML(drag.cardId, nesw, "player");
+}
+
+function onDragPointerMove(e) {
+  if (drag.pending && !drag.active) {
+    if (Math.hypot(e.clientX - drag.pending.x, e.clientY - drag.pending.y) < DRAG_THRESHOLD_PX) return;
+    startDrag(e);
+  }
+  if (!drag.active || drag.dropping) return;
+  drag.px = e.clientX;
+  drag.py = e.clientY;
+
+  const t = findDropTarget(e.clientX, e.clientY);
+  const same = (t && drag.target && t.r === drag.target.r && t.c === drag.target.c) || (!t && !drag.target);
+  if (same) {
+    if (t) drag.target.rect = t.rect;
+    return;
+  }
+  drag.target = t;
+  state.hoveredSlot = t ? { r: t.r, c: t.c } : null;
+  drag.ghost.classList.toggle("over-target", !!t);
+  if (t) playTone(2 + t.c * 2, "sine", 0.05);
+  refreshGhostStats();
+  renderAll();
+}
+
+function applyGhostTransform() {
+  if (!drag.ghost) return;
+  const x = drag.cx - drag.baseW / 2;
+  const y = drag.cy - drag.baseH / 2;
+  drag.ghost.style.transform =
+    `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) perspective(900px) ` +
+    `rotateX(${drag.rx.toFixed(2)}deg) rotateY(${drag.ry.toFixed(2)}deg) rotateZ(${drag.rz.toFixed(2)}deg) ` +
+    `scale(${drag.scale.toFixed(3)})`;
+}
+
+function dragTick() {
+  if (!drag.active || drag.dropping) return;
+  // Scale toward the socket size when aiming at a tile, slightly lifted otherwise
+  const targetScale = drag.target ? drag.target.rect.width / drag.baseW : (drag.kind === "hand" ? 1.1 : 1.04);
+  drag.scale += (targetScale - drag.scale) * 0.22;
+
+  const w = drag.baseW * drag.scale;
+  const h = drag.baseH * drag.scale;
+  // Keep the exact grab point under the cursor
+  let tx = drag.px + (0.5 - drag.grabX) * w;
+  let ty = drag.py + (0.5 - drag.grabY) * h;
+  if (drag.target) {
+    // Magnet: pull the ghost toward the socket center so the landing spot is obvious
+    const rc = drag.target.rect;
+    tx += (rc.left + rc.width / 2 - tx) * 0.4;
+    ty += (rc.top + rc.height / 2 - ty) * 0.4;
+  }
+  const nx = drag.cx + (tx - drag.cx) * 0.42;
+  const ny = drag.cy + (ty - drag.cy) * 0.42;
+  drag.vx = drag.vx * 0.75 + (nx - drag.cx) * 0.25;
+  drag.vy = drag.vy * 0.75 + (ny - drag.cy) * 0.25;
+  drag.cx = nx;
+  drag.cy = ny;
+
+  // Velocity tilt: the card swings like it has weight, settles flat over a target
+  const settle = drag.target ? 0.35 : 1;
+  drag.rz += (clampN(drag.vx * 0.9, -10, 10) * settle - drag.rz) * 0.2;
+  drag.ry += (clampN(drag.vx * 1.3, -18, 18) * settle - drag.ry) * 0.2;
+  drag.rx += (clampN(-drag.vy * 1.1, -14, 14) * settle - drag.rx) * 0.2;
+
+  applyGhostTransform();
+  drag.raf = requestAnimationFrame(dragTick);
+}
+
+function animateGhostTo(rect, ms, easing, done) {
+  drag.dropping = true;
+  cancelAnimationFrame(drag.raf);
+  const g = drag.ghost;
+  if (!g || !rect) { done(); return; }
+  drag.cx = rect.left + rect.width / 2;
+  drag.cy = rect.top + rect.height / 2;
+  drag.scale = rect.width / drag.baseW;
+  drag.rx = drag.ry = drag.rz = 0;
+  g.style.transition = `transform ${ms}ms ${easing}`;
+  void g.offsetWidth;
+  applyGhostTransform();
+  setTimeout(done, ms + 10);
+}
+
+function teardownDrag() {
+  if (drag.ghost) drag.ghost.remove();
+  drag.ghost = null;
+  drag.active = false;
+  drag.dropping = false;
+  drag.target = null;
+  drag.pending = null;
+  document.body.classList.remove("is-dragging");
+  drag.suppressClick = true;
+  setTimeout(() => { drag.suppressClick = false; }, 80);
+}
+
+function boardThud() {
+  const slab = document.getElementById("board-3d-slab");
+  if (!slab) return;
+  slab.classList.remove("thud");
+  void slab.offsetWidth;
+  slab.classList.add("thud");
+  setTimeout(() => slab.classList.remove("thud"), 280);
+}
+
+function returnGhostHome() {
+  let home = null;
+  if (drag.kind === "hand") {
+    const wraps = document.querySelectorAll("#hand-bar .hand-card-wrap");
+    if (wraps[drag.handIdx]) home = wraps[drag.handIdx].getBoundingClientRect();
+  } else if (drag.src) {
+    const el = document.querySelector(`#grid-3x3 .board-slot[data-r="${drag.src.r}"][data-c="${drag.src.c}"]`);
+    if (el) home = el.getBoundingClientRect();
+  }
+  playTone(-3, "sine", 0.08);
+  animateGhostTo(home, 240, "cubic-bezier(0.22, 1, 0.36, 1)", () => {
+    const wasBoard = drag.kind === "board";
+    teardownDrag();
+    if (wasBoard) state.selectedBoardSlot = null;
+    state.hoveredSlot = null;
+    renderAll();
+  });
+}
+
+function onDragPointerUp() {
+  detachDragListeners();
+  if (drag.pending && !drag.active) { drag.pending = null; return; } // plain click → onclick handles it
+  if (!drag.active || drag.dropping) return;
+
+  const t = drag.target && isValidDropTarget(drag.target.r, drag.target.c) ? drag.target : null;
+  if (!t) { returnGhostHome(); return; }
+
+  const el = document.querySelector(`#grid-3x3 .board-slot[data-r="${t.r}"][data-c="${t.c}"]`);
+  const rect = el ? el.getBoundingClientRect() : t.rect;
+  animateGhostTo(rect, 120, "cubic-bezier(0.3, 1.3, 0.5, 1)", () => {
+    const kind = drag.kind, src = drag.src, idx = drag.handIdx;
+    teardownDrag();
+    state.hoveredSlot = null;
+    if (kind === "hand") {
+      state.selectedHandIdx = idx;
+      state.selectedBoardSlot = null;
+    } else {
+      state.selectedBoardSlot = { r: src.r, c: src.c };
+    }
+    handleSlotClick(t.r, t.c);
+    boardThud();
+  });
+}
+
+function onDragPointerCancel() {
+  detachDragListeners();
+  if (drag.pending && !drag.active) { drag.pending = null; return; }
+  if (drag.active && !drag.dropping) returnGhostHome();
+}
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && drag.active && !drag.dropping) {
+    detachDragListeners();
+    returnGhostHome();
+  }
+});
+window.addEventListener("blur", () => {
+  if (drag.active && !drag.dropping) {
+    detachDragListeners();
+    returnGhostHome();
+  }
+});
+
 window.addEventListener("DOMContentLoaded", () => {
   startStage(0);
   if (window.location.search.includes("autotest=1")) {
     setTimeout(() => runVisualAutomatedPlaytest(), 500);
   }
+  if (window.location.search.includes("dragtest=1")) {
+    setTimeout(() => runDragDropTest().catch((err) => {
+      fetch("/__osascript_report__?name=dragdrop", { method: "POST", body: JSON.stringify({ error: String(err), stack: err && err.stack }) });
+      document.title = "DRAGTEST_ERROR";
+    }), 600);
+  }
 });
+
+// Synthetic pointer-event test of the drag & drop engine (used by osascript)
+async function runDragDropTest() {
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const res = { suite: "CARDFRONT drag & drop (synthetic pointer events)", checks: {} };
+  const prog = (step) => { document.title = "DT:" + step; };
+  prog("start");
+  const fire = (target, type, x, y) => target.dispatchEvent(new PointerEvent(type, {
+    bubbles: true, cancelable: true, clientX: x, clientY: y, button: 0, buttons: type === "pointerup" ? 0 : 1,
+    pointerId: 1, pointerType: "mouse", isPrimary: true
+  }));
+  const center = (el) => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+  async function glide(x0, y0, x1, y1, steps, holdMs) {
+    for (let i = 1; i <= steps; i++) {
+      const t = i / steps, e = t * t * (3 - 2 * t);
+      fire(document, "pointermove", x0 + (x1 - x0) * e, y0 + (y1 - y0) * e);
+      await sleep(16);
+    }
+    if (holdMs) await sleep(holdMs);
+  }
+  const slotEl = (r, c) => document.querySelector(`#grid-3x3 .board-slot[data-r="${r}"][data-c="${c}"]`);
+  const firstEmpty = () => { for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) if (!state.grid[r][c].cardId) return [r, c]; return null; };
+
+  // 1. Invalid drop (release over the empty header area) → springs back, nothing placed
+  let handBefore = state.hand.length;
+  let wrap = document.querySelectorAll("#hand-bar .hand-card-wrap")[0];
+  let [hx, hy] = center(wrap);
+  fire(wrap, "pointerdown", hx, hy);
+  await glide(hx, hy, hx + 40, 20, 14, 200);
+  prog("glide1-done");
+  res.checks.ghostCreated = !!document.querySelector(".drag-ghost");
+  fire(document, "pointerup", hx + 40, 20);
+  await sleep(380);
+  prog("invalid-done");
+  res.checks.invalidDropReturned = state.hand.length === handBefore && !document.querySelector(".drag-ghost");
+
+  // 2. Valid drop: drag hand card 1 onto first empty tile, hold mid-air for screenshot
+  handBefore = state.hand.length;
+  const [tr, tc] = firstEmpty();
+  wrap = document.querySelectorAll("#hand-bar .hand-card-wrap")[1];
+  const cardId = state.hand[1];
+  [hx, hy] = center(wrap);
+  const [sx, sy] = center(slotEl(tr, tc));
+  fire(wrap, "pointerdown", hx, hy);
+  await glide(hx, hy, sx + 18, sy - 10, 30, 0);
+  res.checks.dropHoverHighlighted = !!document.querySelector(".board-slot.drop-hover");
+  res.checks.landingPreviewShown = !!document.querySelector(".board-slot.landing-preview");
+  res.checks.validTargetsPulsing = document.querySelectorAll(".board-slot.drop-valid").length;
+  document.title = "DRAG_HOLD";
+  await sleep(2200);
+  fire(document, "pointerup", sx + 18, sy - 10);
+  await sleep(500);
+  prog("drop-done");
+  res.checks.validDropPlaced = state.grid[tr][tc].cardId === cardId && state.hand.length === handBefore - 1;
+  res.checks.ghostRemoved = !document.querySelector(".drag-ghost");
+
+  // 3. Plain click still selects (no drag)
+  while (!state.isPlayerTurn && !state.gameOver) await sleep(100);
+  await sleep(300);
+  wrap = document.querySelectorAll("#hand-bar .hand-card-wrap")[2];
+  if (wrap) {
+    [hx, hy] = center(wrap);
+    fire(wrap, "pointerdown", hx, hy);
+    fire(document, "pointerup", hx, hy);
+    wrap.click();
+    await sleep(100);
+    res.checks.clickSelectStillWorks = state.selectedHandIdx === 2 && !document.querySelector(".drag-ghost");
+  }
+
+  res.pass = Object.values(res.checks).every(v => v === true || (typeof v === "number" && v > 0));
+  window.__DRAG_TEST__ = res;
+  try {
+    await fetch("/__osascript_report__?name=dragdrop", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(res, null, 2) });
+  } catch (e) {}
+  document.title = `DRAGTEST_COMPLETE:PASS=${res.pass}`;
+}
 
 async function runVisualAutomatedPlaytest() {
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

@@ -15,11 +15,14 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
         super().end_headers()
 
     def do_POST(self):
-        if self.path == "/__osascript_report__":
+        if self.path.startswith("/__osascript_report__"):
+            from urllib.parse import urlparse, parse_qs
+            name = parse_qs(urlparse(self.path).query).get("name", [""])[0]
+            out_path = REPORT_PATH if not name.isalnum() else os.path.join(ROOT_DIR, "Datasets", f"osascript_{name}_report.json")
             length = int(self.headers.get("Content-Length", "0"))
             body = self.rfile.read(length).decode("utf-8", errors="replace")
             os.makedirs(os.path.dirname(REPORT_PATH), exist_ok=True)
-            with open(REPORT_PATH, "w", encoding="utf-8") as f:
+            with open(out_path, "w", encoding="utf-8") as f:
                 f.write(body)
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
