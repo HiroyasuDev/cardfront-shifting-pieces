@@ -1,0 +1,16 @@
+{
+  "schema": "CARDFRONT_RELEASE_PACKAGING_MANIFEST_V1",
+  "status": "PASS_MACOS_AND_ITCH_BUNDLES_READY",
+  "generated_at_utc": "2026-11-09T10:53:53Z",
+  "itch_webgl_release": {
+    "zip_path": "Builds/ItchWebGL/cardfront_cradle_of_echoes_itch_release.zip",
+    "zip_size_bytes": 100358668,
+    "files_bundled": 267
+  },
+  "macos_app_bundle": {
+    "app_bundle_path": "Builds/macOS/CARDFRONT 3D - Cradle of Echoes.app",
+    "executable_path": "Builds/macOS/CARDFRONT 3D - Cradle of Echoes.app/Contents/MacOS/CardFront3D",
+    "assembly_csharp_bundled": true,
+    "bundle_identifier": "com.synapse.cardfront3d.cradleofechoes"
+  }
+}

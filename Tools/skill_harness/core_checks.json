@@ -921,5 +921,67 @@
     "priority": "P0",
     "code_ref": "Backend/sync_unity_tcg_engine_port.py:180-235",
     "remediation": "Run python3 Backend/sync_unity_tcg_engine_port.py to synchronize both Unity repositories and generate Datasets/unity_tcg_engine_port_manifest.json."
+  },
+  {
+    "id": "core.lan_pvp.01",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "Live 2-MacBook LAN 1v1 Room Sync & HMAC-SHA256 Echo-Ghost PvP API: /api/lan/room and /api/lan/ghosts persist active rooms (CITADEL-1) and signed EchoGhostSnapshots, wired to toggleLanMultiplayerDuel() and syncLanRoomState() in WebPlayable.",
+    "source": "skills/unity/unity-netcode-multiplayer/SKILL.md:52",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => typeof toggleLanMultiplayerDuel === 'function' && typeof syncLanRoomState === 'function' && typeof pushLanRoomUpdate === 'function' && typeof saveLanEchoGhostSnapshot === 'function' && !!state.lanMultiplayer && state.lanMultiplayer.roomId === 'CITADEL-1')()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/serve_playtest.py:45-235,WebPlayable/cardfront_cradle_of_echoes_playable.html:4310-4420",
+    "remediation": "Implement /api/lan/room and /api/lan/ghosts in WebPlayable/serve_playtest.py and wire toggleLanMultiplayerDuel() in WebPlayable."
+  },
+  {
+    "id": "core.act_mutators.01",
+    "skill": "genres/card-game",
+    "rule": "Act I / Act II / Act III Progressive Tabletop Mutators: evaluateStageTabletopMutator(stageIdx) returns Pure 3x3 for Act I, Mnemosyne Center Constellation Node (r:1,c:1) for Act II, and Okitsu Tie-Surge Judge Law for Act III.",
+    "source": "skills/genres/card-game/SKILL.md:74",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { if (typeof evaluateStageTabletopMutator !== 'function') return false; const m1 = evaluateStageTabletopMutator(0); const m2 = evaluateStageTabletopMutator(4); const m3 = evaluateStageTabletopMutator(12); return m1.actId === 'ACT_I' && !m1.centerConstellationNode && m2.actId === 'ACT_II' && m2.centerConstellationNode && !m2.okitsuTieSurge && m3.actId === 'ACT_III' && m3.centerConstellationNode && m3.okitsuTieSurge; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4285-4318,Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:132-154",
+    "remediation": "Implement evaluateStageTabletopMutator(stageIdx) in WebPlayable and EvaluateStageTabletopMutator in CardFrontUnifiedRuntime.cs."
+  },
+  {
+    "id": "core.sakuga_v100.06",
+    "skill": "disciplines/create-game-assets",
+    "rule": "53 / 53 V100 24fps Animated WebP Sakuga Cut-In Clips Rendered: Backend/render_v100_sakuga_video_clips.py exports all 53 multi-frame animated WebP clips with 84ms Frame-2 Impact Frame hold.",
+    "source": "skills/disciplines/create-game-assets/SKILL.md:112",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/pxg_v100_sakuga_telegraph/v100_video_clips_manifest.json",
+      "expression": "data['status'] == 'PASS_ALL_53_SAKUGA_CLIPS_RENDERED' and data['total_clips_rendered'] == 53 and data['fps'] == 24"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Backend/render_v100_sakuga_video_clips.py:18-65",
+    "remediation": "Run python3 Backend/render_v100_sakuga_video_clips.py to synthesize all 53 animated WebP Sakuga cut-ins."
+  },
+  {
+    "id": "core.release_pkg.01",
+    "skill": "workflows/itch-publish",
+    "rule": "Standalone macOS .app Bundle & itch.io WebGL Release Archive: Backend/build_macos_and_itch_release.py packages Builds/ItchWebGL/cardfront_cradle_of_echoes_itch_release.zip and Builds/macOS/CARDFRONT 3D - Cradle of Echoes.app.",
+    "source": "skills/workflows/itch-publish/SKILL.md:35",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/release_build_packaging_manifest.json",
+      "expression": "data['status'] == 'PASS_MACOS_AND_ITCH_BUNDLES_READY' and data['itch_webgl_release']['files_bundled'] >= 200 and data['macos_app_bundle']['assembly_csharp_bundled'] is True"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Backend/build_macos_and_itch_release.py:25-125",
+    "remediation": "Run python3 Backend/build_macos_and_itch_release.py to package the macOS .app bundle and itch.io release archive."
   }
 ]

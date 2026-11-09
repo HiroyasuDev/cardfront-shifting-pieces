@@ -1795,6 +1795,7 @@
       <button id="drawer-deck-btn" onclick="openDeckbuilderModal()" style="border-color:var(--gold);color:var(--gold);">Deck (60)</button>
       <button id="drawer-map-btn" onclick="openCampaignMapOverlay()" style="border-color:#38bdf8;color:#7dd3fc;" title="Open Citadel Campaign Map & Boss Dossier">Campaign Map</button>
       <button id="drawer-plugins-btn" onclick="equipSovereignPluginSquad()" style="border-color:#a855f7;color:#e9d5ff;" title="Equip the 4 Mythic Sovereign Agent Plugins into your active 5-card squad">Plugins (4)</button>
+      <button id="drawer-lan-btn" onclick="toggleLanMultiplayerDuel()" style="border-color:#2ee6d3;color:#2ee6d3;" title="Live 2-MacBook LAN 1v1 Sync & Echo-Ghost PvP">LAN 1v1: OFF</button>
       <button id="drawer-pawn-btn" onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">3D Pawn</button>
       <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking">BGM: OFF</button>
       <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus">SFX</button>
@@ -4277,6 +4278,164 @@ function triggerSakugaCardCutIn(cardId) {
   clearTimeout(state.cutInTimer);
   state.cutInTimer = setTimeout(() => banner.classList.remove("active"), 1500);
   return true;
+}
+
+function getSakugaVideoClipUrl(cardId) {
+  const cleanId = String(cardId || "h_archangel").split("?")[0];
+  return `./GeneratedArt/SakugaCutIns/Videos/${cleanId}_cutin.webp`;
+}
+
+// ============================================================================
+// ACT I / ACT II / ACT III TABLETOP MUTATORS & LIVE 2-MACBOOK LAN / GHOST PVP
+// ============================================================================
+function evaluateStageTabletopMutator(stageIdx = state.stageIndex) {
+  const idx = Number.isFinite(stageIdx) ? stageIdx : 0;
+  if (idx <= 2) {
+    return {
+      actId: "ACT_I",
+      mutatorId: "ACT_I_SOLAR_SPIRE",
+      label: "Act I · Pure 3x3 Directional Grid + Column Dice",
+      centerConstellationNode: false,
+      constellationSocket: null,
+      okitsuTieSurge: false,
+      judgeLawId: "STANDARD_HIGH_PIP"
+    };
+  }
+  if (idx <= 8) {
+    return {
+      actId: "ACT_II",
+      mutatorId: "ACT_II_MNEMOSYNE_CONSTELLATION",
+      label: "Act II · Center Socket (2,2) Mnemosyne Node (+1 All Stats & +50G)",
+      centerConstellationNode: true,
+      constellationSocket: { r: 1, c: 1, bonusAllStats: 1, bonusGold: 50 },
+      okitsuTieSurge: false,
+      judgeLawId: "MNEMOSYNE_NODE_RESONANCE"
+    };
+  }
+  return {
+    actId: "ACT_III",
+    mutatorId: "ACT_III_OKITSU_JUDGE_LAW",
+    label: "Act III · Center Constellation + Okitsu Tie-Surge Law (Equal Pips Capture)",
+    centerConstellationNode: true,
+    constellationSocket: { r: 1, c: 1, bonusAllStats: 1, bonusGold: 50 },
+    okitsuTieSurge: true,
+    judgeLawId: "OKITSU_TIE_SURGE"
+  };
+}
+
+state.lanMultiplayer = {
+  enabled: false,
+  roomId: "CITADEL-1",
+  revision: 1,
+  role: "host",
+  echoGhosts: [],
+  lastSyncOk: false,
+  pollTimer: 0
+};
+
+async function syncLanRoomState(roomId = "CITADEL-1") {
+  try {
+    const res = await fetch(`/api/lan/room?room=${encodeURIComponent(roomId)}`, { cache: "no-store" });
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data && data.ok && data.room) {
+      state.lanMultiplayer.lastSyncOk = true;
+      state.lanMultiplayer.roomId = data.room.room_id;
+      if (data.room.revision > (state.lanMultiplayer.revision || 0)) {
+        state.lanMultiplayer.revision = data.room.revision;
+        if (Array.isArray(data.room.colDice) && data.room.colDice.length === 3) {
+          state.colDice = data.room.colDice.slice();
+        }
+      }
+      return data.room;
+    }
+  } catch (_e) {}
+  return null;
+}
+
+async function pushLanRoomUpdate(actionType = "sync_state", summary = "Tabletop state updated") {
+  try {
+    const scores = getScores();
+    const mut = evaluateStageTabletopMutator(state.stageIndex);
+    const payload = {
+      room_id: state.lanMultiplayer.roomId || "CITADEL-1",
+      action: actionType,
+      actor: state.lanMultiplayer.role || "host",
+      turn: state.turn,
+      stageIndex: state.stageIndex,
+      activeMutator: mut.mutatorId,
+      colDice: state.colDice.slice(),
+      scores: { player: scores.blue, enemy: scores.red },
+      board: state.board.map(cell => cell ? { id: cell.id, owner: cell.owner, nesw: cell.nesw } : null),
+      summary
+    };
+    const res = await fetch("/api/lan/room", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data && data.ok && data.room) {
+      state.lanMultiplayer.revision = data.room.revision;
+      state.lanMultiplayer.lastSyncOk = true;
+      return data.room;
+    }
+  } catch (_e) {}
+  return null;
+}
+
+async function fetchLanEchoGhosts() {
+  try {
+    const res = await fetch("/api/lan/ghosts", { cache: "no-store" });
+    if (!res.ok) return [];
+    const data = await res.json();
+    if (data && data.ok && Array.isArray(data.ghosts)) {
+      state.lanMultiplayer.echoGhosts = data.ghosts;
+      return data.ghosts;
+    }
+  } catch (_e) {}
+  return [];
+}
+
+async function saveLanEchoGhostSnapshot(username = "MacBook-Sovereign") {
+  try {
+    const payload = {
+      player_username: username,
+      elo_rating: 1680 + (state.clearedStages.length * 25),
+      chapter_progress: Math.max(1, state.stageIndex + 1),
+      card_ids: state.hand.slice(0, 5)
+    };
+    const res = await fetch("/api/lan/ghosts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data && data.ok && data.snapshot) {
+      await fetchLanEchoGhosts();
+      return data.snapshot;
+    }
+  } catch (_e) {}
+  return null;
+}
+
+function toggleLanMultiplayerDuel() {
+  state.lanMultiplayer.enabled = !state.lanMultiplayer.enabled;
+  const btn = document.getElementById("drawer-lan-btn");
+  if (btn) {
+    btn.textContent = state.lanMultiplayer.enabled ? `LAN 1v1: ${state.lanMultiplayer.roomId}` : "LAN 1v1: OFF";
+  }
+  clearInterval(state.lanMultiplayer.pollTimer);
+  if (state.lanMultiplayer.enabled) {
+    pushLanRoomUpdate("join_room", "MacBook joined LAN Room CITADEL-1");
+    fetchLanEchoGhosts();
+    state.lanMultiplayer.pollTimer = setInterval(() => {
+      syncLanRoomState(state.lanMultiplayer.roomId);
+    }, 1500);
+  }
+  return state.lanMultiplayer.enabled;
 }
 
 function renderCampaignMapNodes() {

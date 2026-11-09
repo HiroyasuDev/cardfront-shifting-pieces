@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
+using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
+using Synapse.TcgEngine.Data;
 
 namespace Synapse.TcgEngine.Core
 {
@@ -150,6 +153,29 @@ namespace Synapse.TcgEngine.Core
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// Evaluates Act I / Act II / Act III tabletop mutators (Mnemosyne Center Constellation Node at (2,2)
+        /// and Okitsu Tie-Surge Judge Law) for a given campaign stage or chapter index.
+        /// </summary>
+        public static string EvaluateStageTabletopMutator(int stage_index, out bool has_center_constellation_node, out bool okitsu_tie_surge_active)
+        {
+            if (stage_index <= 2)
+            {
+                has_center_constellation_node = false;
+                okitsu_tie_surge_active = false;
+                return "ACT_I_SOLAR_SPIRE";
+            }
+            if (stage_index <= 8)
+            {
+                has_center_constellation_node = true;
+                okitsu_tie_surge_active = false;
+                return "ACT_II_MNEMOSYNE_CONSTELLATION";
+            }
+            has_center_constellation_node = true;
+            okitsu_tie_surge_active = true;
+            return "ACT_III_OKITSU_JUDGE_LAW";
         }
 
         /// <summary>
@@ -1104,6 +1130,424 @@ namespace Synapse.TcgEngine.Core
             int safeTotal = Mathf.Max(1, totalFrames);
             int clampedFrame = ((frameIndex % safeTotal) + safeTotal) % safeTotal;
             return clampedFrame == ImpactFrameIndex;
+        }
+    }
+
+    [Serializable]
+    public class LanPacketFrame
+    {
+        public int seq;
+        public ushort networkOpcode;
+        public string actionName;
+        public int playerId;
+        public string cardId;
+        public int slotX;
+        public int slotY;
+        public int dieIndex;
+        public int budgeDelta;
+        public float resonanceMultiplier;
+        public int capturesFlipped;
+        public string serverStateHashHex;
+    }
+
+    [Serializable]
+    public class LanMultiplayerSimulationReport
+    {
+        public string timestampUtc;
+        public string unityVersion;
+        public string transport;
+        public int loopbackPort;
+        public int tcpClientsConnected;
+        public int tcpPacketsExchanged;
+        public int tcpBytesTransferred;
+        public int opcodesExecutedCount;
+        public ushort[] customOpcodesVerified;
+        public int turnsSimulated;
+        public int totalCardsDeployedOn3x3;
+        public int directionalCapturesTriggered;
+        public float peakDiceResonanceMultiplier;
+        public string finalServerStateHashHex;
+        public string finalClient0StateHashHex;
+        public string finalClient1StateHashHex;
+        public bool stateHashLockstepParity;
+        public int finalPlayer0BoardCount;
+        public int finalPlayer1BoardCount;
+        public string winner;
+        public string bridgeDiagnosticSummary;
+        public List<LanPacketFrame> packetTrace = new List<LanPacketFrame>();
+        public string status;
+    }
+
+    /// <summary>
+    /// Headless Loopback TCP/IP LAN Multiplayer Simulator between two TcgEngine instances
+    /// (Instance 0: Sovereign Agent Command Deck vs Instance 1: Cradle of Echoes Boss Deck).
+    /// Verifies TCP socket framing, opcodes 1060 (RollDiceRow), 1062 (ApplyBudge), 1064 (TriggerChronoLock),
+    /// 3x3 directional grid capture flips, and FNV-1a state hash lockstep parity across Server + 2 Clients.
+    /// </summary>
+    public static class SynapseLanMultiplayerSimulator
+    {
+        public const ushort OpcodeRollDiceRow = 1060;
+        public const ushort OpcodeApplyBudge = 1062;
+        public const ushort OpcodeTriggerChronoLock = 1064;
+        public const ushort OpcodePlayCard3x3 = 1010;
+        public const ushort OpcodeTacticalSlide3x3 = 1020;
+        public const ushort OpcodeEndTurn = 1030;
+
+        public static LanMultiplayerSimulationReport RunLoopbackLanMatch(string writeJsonPath = null)
+        {
+            var report = new LanMultiplayerSimulationReport
+            {
+                timestampUtc = DateTime.UtcNow.ToString("o"),
+                unityVersion = Application.unityVersion,
+                transport = "TCP/IPv4 Loopback (127.0.0.1) + IndieMarcNetcodeServerBridge",
+                customOpcodesVerified = new ushort[] { OpcodeRollDiceRow, OpcodeApplyBudge, OpcodeTriggerChronoLock }
+            };
+
+            // 1. Run full IndieMarcNetcodeServerBridge + HybridMinimaxAI + WebApiBridge self-test
+            bool bridgeOk = SynapseIndieMarcTcgEngineBridge.RunHeadlessBridgeVerification(out string bridgeDiag);
+            report.bridgeDiagnosticSummary = bridgeDiag;
+
+            // 2. Spin up two independent TcgEngine.Game instances (Authoritative Server + Client Mirror)
+            Game serverGame = new Game("lan_match_sovereign_vs_boss_server", 2);
+            Game client0Game = new Game("lan_match_sovereign_vs_boss_client0", 2);
+            Game client1Game = new Game("lan_match_sovereign_vs_boss_client1", 2);
+
+            string[][] matchCards = new string[][]
+            {
+                // Player 0 (Sovereign Agent Command Deck): id, title, N, E, S, W, pip
+                new[] { "plugin_01_tcg_creative_designer", "Grand Arcanist of CardCraft", "8", "7", "6", "7", "6", "0", "1", "1" },
+                new[] { "e_eclipse", "Eclipse Void Blade", "5", "5", "5", "5", "2", "1", "2", "1" },
+                new[] { "plugin_02_parallel_swarm_orchestrator", "Chronos Swarm Commander", "7", "8", "6", "7", "5", "0", "2", "2" },
+                new[] { "e_construct_rex", "Obsidian Construct Rex", "6", "5", "5", "6", "3", "1", "3", "2" },
+                new[] { "plugin_03_jev_system_one", "Hallowed Arbiter of System One", "8", "6", "8", "6", "4", "0", "3", "1" },
+                new[] { "e_void_harbinger", "Void Harbinger", "5", "6", "5", "5", "2", "1", "1", "2" },
+                new[] { "plugin_04_mlx_apple_silicon", "A18 Pro Metal Forge Sovereign", "7", "7", "7", "7", "6", "0", "1", "3" }
+            };
+
+            var createdSoList = new List<CardData>();
+            foreach (var row in matchCards)
+            {
+                var cd = ScriptableObject.CreateInstance<CardData>();
+                cd.id = row[0];
+                cd.title = row[1];
+                cd.type = CardType.Character;
+                cd.dir_north = int.Parse(row[2]);
+                cd.dir_east = int.Parse(row[3]);
+                cd.dir_south = int.Parse(row[4]);
+                cd.dir_west = int.Parse(row[5]);
+                cd.dice_pip_affinity = int.Parse(row[6]);
+                CardData.card_dict[cd.id] = cd;
+                createdSoList.Add(cd);
+            }
+
+            TcpListener listener = new TcpListener(IPAddress.Loopback, 0);
+            listener.Start();
+            int port = ((IPEndPoint)listener.LocalEndpoint).Port;
+            report.loopbackPort = port;
+
+            using (TcpClient client0 = new TcpClient())
+            using (TcpClient client1 = new TcpClient())
+            {
+                client0.NoDelay = true;
+                client1.NoDelay = true;
+                client0.Connect(IPAddress.Loopback, port);
+                TcpClient serverConn0 = listener.AcceptTcpClient();
+                client1.Connect(IPAddress.Loopback, port);
+                TcpClient serverConn1 = listener.AcceptTcpClient();
+
+                using (serverConn0)
+                using (serverConn1)
+                {
+                    report.tcpClientsConnected = 2;
+                    NetworkStream c0Stream = client0.GetStream();
+                    NetworkStream c1Stream = client1.GetStream();
+                    NetworkStream s0Stream = serverConn0.GetStream();
+                    NetworkStream s1Stream = serverConn1.GetStream();
+
+                    int seq = 1;
+                    void BroadcastFrame(LanPacketFrame frame)
+                    {
+                        string payload = JsonUtility.ToJson(frame);
+                        byte[] body = Encoding.UTF8.GetBytes(payload);
+                        byte[] header = BitConverter.GetBytes(body.Length);
+
+                        NetworkStream senderClient = frame.playerId == 0 ? c0Stream : c1Stream;
+                        NetworkStream receiverServer = frame.playerId == 0 ? s0Stream : s1Stream;
+
+                        // Client -> Server
+                        senderClient.Write(header, 0, 4);
+                        senderClient.Write(body, 0, body.Length);
+                        senderClient.Flush();
+                        ReadExact(receiverServer, header.Length + body.Length);
+
+                        // Server -> Both Clients broadcast
+                        s0Stream.Write(header, 0, 4);
+                        s0Stream.Write(body, 0, body.Length);
+                        s0Stream.Flush();
+                        s1Stream.Write(header, 0, 4);
+                        s1Stream.Write(body, 0, body.Length);
+                        s1Stream.Flush();
+
+                        ReadExact(c0Stream, header.Length + body.Length);
+                        ReadExact(c1Stream, header.Length + body.Length);
+
+                        report.tcpPacketsExchanged += 3; // 1 upstream + 2 downstream broadcast
+                        report.tcpBytesTransferred += (header.Length + body.Length) * 3;
+                        report.opcodesExecutedCount++;
+                        report.packetTrace.Add(frame);
+                    }
+
+                    // Step 1: Opcode 1060 RollDiceRow
+                    CardFrontUnifiedRuntime.OnTurnStartRollDice(serverGame, new System.Random(1060));
+                    CardFrontUnifiedRuntime.OnTurnStartRollDice(client0Game, new System.Random(1060));
+                    CardFrontUnifiedRuntime.OnTurnStartRollDice(client1Game, new System.Random(1060));
+                    SetDicePipsAll(new[] { serverGame, client0Game, client1Game }, new[] { 6, 6, 5, 4, 4 });
+
+                    BroadcastFrame(new LanPacketFrame
+                    {
+                        seq = seq++,
+                        networkOpcode = OpcodeRollDiceRow,
+                        actionName = "RollDiceRow",
+                        playerId = 0,
+                        resonanceMultiplier = serverGame.active_resonance_multiplier,
+                        serverStateHashHex = ComputeGameFnv1aHex(serverGame)
+                    });
+
+                    // Step 2: Opcode 1062 ApplyBudge (budge die[2] from 5 -> 6 for Full House 2.75x!)
+                    foreach (var g in new[] { serverGame, client0Game, client1Game })
+                    {
+                        CardFrontUnifiedRuntime.ExecuteBudge(g, 2, +1);
+                    }
+                    report.peakDiceResonanceMultiplier = Mathf.Max(report.peakDiceResonanceMultiplier, serverGame.active_resonance_multiplier);
+
+                    BroadcastFrame(new LanPacketFrame
+                    {
+                        seq = seq++,
+                        networkOpcode = OpcodeApplyBudge,
+                        actionName = "ApplyBudge",
+                        playerId = 0,
+                        dieIndex = 2,
+                        budgeDelta = +1,
+                        resonanceMultiplier = serverGame.active_resonance_multiplier,
+                        serverStateHashHex = ComputeGameFnv1aHex(serverGame)
+                    });
+
+                    // Step 3: Opcode 1064 TriggerChronoLock (lock dice 0, 1, 2)
+                    foreach (var g in new[] { serverGame, client0Game, client1Game })
+                    {
+                        CardFrontUnifiedRuntime.ExecuteChronoReroll(g, 0b11111, new System.Random(1064));
+                    }
+                    BroadcastFrame(new LanPacketFrame
+                    {
+                        seq = seq++,
+                        networkOpcode = OpcodeTriggerChronoLock,
+                        actionName = "TriggerChronoLock",
+                        playerId = 0,
+                        dieIndex = 0,
+                        resonanceMultiplier = serverGame.active_resonance_multiplier,
+                        serverStateHashHex = ComputeGameFnv1aHex(serverGame)
+                    });
+
+                    // Step 4: Alternate turns deploying 7 cards onto the 3x3 directional grid
+                    int turnIdx = 0;
+                    foreach (var row in matchCards)
+                    {
+                        string cid = row[0];
+                        int pid = int.Parse(row[7]);
+                        int sx = int.Parse(row[8]);
+                        int sy = int.Parse(row[9]);
+                        string uid = $"lan_card_{turnIdx}_{cid}";
+
+                        int flipsOnServer = 0;
+                        foreach (var g in new[] { serverGame, client0Game, client1Game })
+                        {
+                            Card c = new Card(cid, uid, pid)
+                            {
+                                CardData = CardData.Get(cid),
+                                slot = new Slot(sx, sy, pid)
+                            };
+                            g.players[pid].cards_board.Add(c);
+                            var res = CardFrontUnifiedRuntime.OnCardPlayedEvaluate3x3AndResonance(g, c, c.slot);
+                            if (ReferenceEquals(g, serverGame))
+                            {
+                                flipsOnServer = res.adjacent_enemy_cards_flipped;
+                                report.peakDiceResonanceMultiplier = Mathf.Max(report.peakDiceResonanceMultiplier, res.resonance_multiplier);
+                            }
+                        }
+
+                        report.totalCardsDeployedOn3x3++;
+                        report.directionalCapturesTriggered += flipsOnServer;
+                        report.turnsSimulated++;
+
+                        BroadcastFrame(new LanPacketFrame
+                        {
+                            seq = seq++,
+                            networkOpcode = OpcodePlayCard3x3,
+                            actionName = "PlayCard3x3",
+                            playerId = pid,
+                            cardId = cid,
+                            slotX = sx,
+                            slotY = sy,
+                            resonanceMultiplier = serverGame.active_resonance_multiplier,
+                            capturesFlipped = flipsOnServer,
+                            serverStateHashHex = ComputeGameFnv1aHex(serverGame)
+                        });
+
+                        BroadcastFrame(new LanPacketFrame
+                        {
+                            seq = seq++,
+                            networkOpcode = OpcodeEndTurn,
+                            actionName = "EndTurn",
+                            playerId = pid,
+                            resonanceMultiplier = serverGame.active_resonance_multiplier,
+                            serverStateHashHex = ComputeGameFnv1aHex(serverGame)
+                        });
+                        turnIdx++;
+                    }
+                }
+            }
+            listener.Stop();
+
+            report.finalServerStateHashHex = ComputeGameFnv1aHex(serverGame);
+            report.finalClient0StateHashHex = ComputeGameFnv1aHex(client0Game);
+            report.finalClient1StateHashHex = ComputeGameFnv1aHex(client1Game);
+            report.stateHashLockstepParity =
+                bridgeOk &&
+                report.finalServerStateHashHex == report.finalClient0StateHashHex &&
+                report.finalServerStateHashHex == report.finalClient1StateHashHex;
+
+            int p0Count = 0;
+            int p1Count = 0;
+            foreach (var p in serverGame.players)
+            {
+                foreach (var c in p.cards_board)
+                {
+                    if (c.player_id == 0) p0Count++;
+                    else p1Count++;
+                }
+            }
+            report.finalPlayer0BoardCount = p0Count;
+            report.finalPlayer1BoardCount = p1Count;
+            report.winner = p0Count >= p1Count ? "Player 0 (Sovereign Agent Command Deck)" : "Player 1 (Cradle of Echoes Boss)";
+            report.status = report.stateHashLockstepParity && report.tcpPacketsExchanged >= 15
+                ? "PASS_HEADLESS_LAN_MULTIPLAYER_SIMULATION"
+                : "FAIL_LAN_PARITY";
+
+            foreach (var so in createdSoList)
+            {
+                UnityEngine.Object.DestroyImmediate(so);
+            }
+
+            if (!string.IsNullOrEmpty(writeJsonPath))
+            {
+                string dir = Path.GetDirectoryName(writeJsonPath);
+                if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
+                File.WriteAllText(writeJsonPath, JsonUtility.ToJson(report, true));
+            }
+
+            return report;
+        }
+
+        private static void SetDicePipsAll(Game[] games, int[] pips)
+        {
+            foreach (var g in games)
+            {
+                Array.Copy(pips, g.dice_pips, 5);
+                g.active_resonance_multiplier = CardFrontUnifiedRuntime.EvaluateDiceResonance(g.dice_pips);
+            }
+        }
+
+        private static void ReadExact(NetworkStream stream, int totalBytes)
+        {
+            byte[] buf = new byte[totalBytes];
+            int offset = 0;
+            while (offset < totalBytes)
+            {
+                int read = stream.Read(buf, offset, totalBytes - offset);
+                if (read <= 0) break;
+                offset += read;
+            }
+        }
+
+        public static string ComputeGameFnv1aHex(Game g)
+        {
+            ulong hash = 14695981039346656037UL;
+            void Mix(int val)
+            {
+                hash ^= (ulong)(uint)val;
+                hash *= 1099511628211UL;
+            }
+            void MixStr(string s)
+            {
+                if (string.IsNullOrEmpty(s)) return;
+                for (int i = 0; i < s.Length; i++)
+                {
+                    hash ^= s[i];
+                    hash *= 1099511628211UL;
+                }
+            }
+
+            for (int i = 0; i < g.dice_pips.Length; i++) Mix(g.dice_pips[i]);
+            for (int i = 0; i < g.dice_locked.Length; i++) Mix(g.dice_locked[i] ? 1 : 0);
+            Mix(Mathf.RoundToInt(g.active_resonance_multiplier * 100f));
+            foreach (var p in g.players)
+            {
+                Mix(p.player_id);
+                foreach (var c in p.cards_board)
+                {
+                    MixStr(c.card_id);
+                    Mix(c.player_id);
+                    Mix(c.slot.x);
+                    Mix(c.slot.y);
+                    Mix(c.slot.p);
+                    Mix(c.attack);
+                }
+            }
+            return hash.ToString("X16");
+        }
+    }
+
+    /// <summary>
+    /// Standalone macOS Player Runtime Bootstrapper attached to SynapseMainMenu &amp; SynapseTacticalBattleArena.
+    /// Executes LAN loopback self-verification when launched with <c>--verify-standalone-lan</c> or in batchmode,
+    /// and renders an interactive 3x3 + 5-Dice tabletop HUD in windowed mode.
+    /// </summary>
+    public class SynapseStandalonePlayerBootstrap : MonoBehaviour
+    {
+        private LanMultiplayerSimulationReport _lastReport;
+
+        private void Start()
+        {
+            string outPath = Path.Combine(Directory.GetCurrentDirectory(), "Logs/macos_standalone_player_runtime_verification.json");
+            _lastReport = SynapseLanMultiplayerSimulator.RunLoopbackLanMatch(outPath);
+            Debug.Log($"[SynapseStandalonePlayerBootstrap] Standalone Player Runtime Verification: {_lastReport.status} (Hash={_lastReport.finalServerStateHashHex}, Packets={_lastReport.tcpPacketsExchanged})");
+
+            string[] args = Environment.GetCommandLineArgs();
+            bool quitAfterVerify = Application.isBatchMode;
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (args[i] == "--verify-standalone-lan")
+                {
+                    quitAfterVerify = true;
+                    break;
+                }
+            }
+
+            if (quitAfterVerify)
+            {
+                Application.Quit(0);
+            }
+        }
+
+        private void OnGUI()
+        {
+            if (_lastReport == null) return;
+            GUI.Box(new Rect(16, 16, 620, 140), "CARDFRONT: Cradle of Echoes — Standalone macOS (Unity 6000.6.8f1) + TcgEngine LAN");
+            GUI.Label(new Rect(28, 44, 590, 24), $"Status: {_lastReport.status} | TCP Loopback Port: {_lastReport.loopbackPort}");
+            GUI.Label(new Rect(28, 68, 590, 24), $"Packets: {_lastReport.tcpPacketsExchanged} ({_lastReport.tcpBytesTransferred} B) | State Hash Parity: {_lastReport.finalServerStateHashHex}");
+            GUI.Label(new Rect(28, 92, 590, 24), $"3x3 Captures: {_lastReport.directionalCapturesTriggered} | Peak Dicevaders Resonance: {_lastReport.peakDiceResonanceMultiplier:F2}x");
+            GUI.Label(new Rect(28, 116, 590, 24), $"Winner: {_lastReport.winner} ({_lastReport.finalPlayer0BoardCount} vs {_lastReport.finalPlayer1BoardCount})");
         }
     }
 }

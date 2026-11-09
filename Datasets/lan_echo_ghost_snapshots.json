@@ -1,0 +1,55 @@
+{
+  "ghosts": [
+    {
+      "version": 1,
+      "ghost_id": "ghost_AlphaSovereign_1650",
+      "player_username": "AlphaSovereign (MacBook-Pro-LAN)",
+      "elo_rating": 1650,
+      "chapter_progress": 12,
+      "card_ids": [
+        "h_archangel",
+        "h_valkyrie",
+        "h_oracle",
+        "h_seraph",
+        "h_arbiter"
+      ],
+      "sovereign_style_variants": [
+        "cel_astral_gold",
+        "cel_astral_gold",
+        "cel_astral_gold",
+        "cel_astral_gold",
+        "cel_astral_gold"
+      ],
+      "aggression_weight": 1.15,
+      "resonance_greed_weight": 1.2,
+      "directional_capture_weight": 1.35,
+      "snapshot_hmac_sha256": "1c9219e60f358fa580923f803127934be8c8bd3f69bd6c8e72fc0090b7db0f28"
+    },
+    {
+      "version": 1,
+      "ghost_id": "ghost_OkitsuArbiter_1780",
+      "player_username": "OkitsuArbiter (Citadel-Champion)",
+      "elo_rating": 1780,
+      "chapter_progress": 19,
+      "card_ids": [
+        "plugin_01_tcg_creative_designer",
+        "plugin_02_parallel_swarm_orchestrator",
+        "plugin_03_jev_system_one",
+        "plugin_04_mlx_apple_silicon",
+        "h_chronos"
+      ],
+      "sovereign_style_variants": [
+        "stained_glass_prism",
+        "stained_glass_prism",
+        "stained_glass_prism",
+        "stained_glass_prism",
+        "stained_glass_prism"
+      ],
+      "aggression_weight": 1.25,
+      "resonance_greed_weight": 1.3,
+      "directional_capture_weight": 1.45,
+      "snapshot_hmac_sha256": "14f16622d9bffc64e913932138d82bd1d2c069d5af2361de055e8ae2ddc2c11d"
+    }
+  ],
+  "updated_at_ms": 1794221462945
+}

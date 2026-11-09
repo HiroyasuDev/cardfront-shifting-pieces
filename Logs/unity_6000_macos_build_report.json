@@ -1,0 +1,21 @@
+{
+    "timestampUtc": "2026-11-09T10:53:36.0522380Z",
+    "unityVersion": "6000.6.8f1",
+    "buildTarget": "StandaloneOSX",
+    "outputAppPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Builds/MacOS/CARDFRONT_CradleOfEchoes.app",
+    "executableBinaryPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Builds/MacOS/CARDFRONT_CradleOfEchoes.app/Contents/MacOS/unity-tcg-engine",
+    "managedAssemblyCSharpPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Builds/MacOS/CARDFRONT_CradleOfEchoes.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+    "buildResult": "Succeeded",
+    "totalSizeBytes": 265716987,
+    "totalTimeSeconds": 19.53,
+    "totalErrors": 0,
+    "totalWarnings": 34,
+    "scenesIncluded": [
+        "Assets/Scenes/SynapseMainMenu.unity",
+        "Assets/Scenes/SynapseTacticalBattleArena.unity"
+    ],
+    "lanSimulationStatus": "PASS_HEADLESS_LAN_MULTIPLAYER_SIMULATION",
+    "lanStateHashHex": "4C837E02F2035A25",
+    "lanTcpPacketsExchanged": 51,
+    "status": "PASS_MACOS_STANDALONE_BUILD_AND_LAN_MULTIPLAYER"
+}

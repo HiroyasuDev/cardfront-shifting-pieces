@@ -1,0 +1,550 @@
+{
+  "schema": "PXG_V100_SAKUGA_ANIMATED_CLIPS_MANIFEST_V1",
+  "status": "PASS_ALL_53_SAKUGA_CLIPS_RENDERED",
+  "generated_at_utc": "2026-11-09T10:53:51Z",
+  "lora_checkpoint": "Models/pxg_sakuga_trigger_cutin_v1.safetensors",
+  "total_clips_rendered": 53,
+  "fps": 24,
+  "frame_durations_ms": [
+    42,
+    42,
+    84,
+    42,
+    42,
+    42,
+    42,
+    42
+  ],
+  "clips": [
+    {
+      "card_id": "e_archon",
+      "strip_source": "GeneratedArt/SakugaCutIns/e_archon_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/e_archon_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 168584
+    },
+    {
+      "card_id": "e_colossus",
+      "strip_source": "GeneratedArt/SakugaCutIns/e_colossus_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/e_colossus_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 153422
+    },
+    {
+      "card_id": "e_cryo",
+      "strip_source": "GeneratedArt/SakugaCutIns/e_cryo_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/e_cryo_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 171990
+    },
+    {
+      "card_id": "e_eclipse",
+      "strip_source": "GeneratedArt/SakugaCutIns/e_eclipse_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/e_eclipse_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 153754
+    },
+    {
+      "card_id": "e_inferno",
+      "strip_source": "GeneratedArt/SakugaCutIns/e_inferno_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/e_inferno_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 165494
+    },
+    {
+      "card_id": "e_reaper",
+      "strip_source": "GeneratedArt/SakugaCutIns/e_reaper_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/e_reaper_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 143308
+    },
+    {
+      "card_id": "e_shinobi",
+      "strip_source": "GeneratedArt/SakugaCutIns/e_shinobi_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/e_shinobi_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 167730
+    },
+    {
+      "card_id": "e_titan",
+      "strip_source": "GeneratedArt/SakugaCutIns/e_titan_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/e_titan_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 174608
+    },
+    {
+      "card_id": "h_arbiter",
+      "strip_source": "GeneratedArt/SakugaCutIns/h_arbiter_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/h_arbiter_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 143090
+    },
+    {
+      "card_id": "h_archangel",
+      "strip_source": "GeneratedArt/SakugaCutIns/h_archangel_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/h_archangel_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 156808
+    },
+    {
+      "card_id": "h_chronos",
+      "strip_source": "GeneratedArt/SakugaCutIns/h_chronos_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/h_chronos_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 172502
+    },
+    {
+      "card_id": "h_kai",
+      "strip_source": "GeneratedArt/SakugaCutIns/h_kai_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/h_kai_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 141004
+    },
+    {
+      "card_id": "h_oracle",
+      "strip_source": "GeneratedArt/SakugaCutIns/h_oracle_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/h_oracle_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 159498
+    },
+    {
+      "card_id": "h_phoenix",
+      "strip_source": "GeneratedArt/SakugaCutIns/h_phoenix_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/h_phoenix_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 155064
+    },
+    {
+      "card_id": "h_seraph",
+      "strip_source": "GeneratedArt/SakugaCutIns/h_seraph_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/h_seraph_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 174090
+    },
+    {
+      "card_id": "h_valkyrie",
+      "strip_source": "GeneratedArt/SakugaCutIns/h_valkyrie_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/h_valkyrie_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 173326
+    },
+    {
+      "card_id": "mcp_01_jev_system_one",
+      "strip_source": "GeneratedArt/SakugaCutIns/mcp_01_jev_system_one_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/mcp_01_jev_system_one_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 170234
+    },
+    {
+      "card_id": "mcp_02_jev_py_verifier",
+      "strip_source": "GeneratedArt/SakugaCutIns/mcp_02_jev_py_verifier_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/mcp_02_jev_py_verifier_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 125994
+    },
+    {
+      "card_id": "mcp_03_mlx_apple_silicon",
+      "strip_source": "GeneratedArt/SakugaCutIns/mcp_03_mlx_apple_silicon_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/mcp_03_mlx_apple_silicon_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 193436
+    },
+    {
+      "card_id": "mcp_04_prime_rlm_swarm",
+      "strip_source": "GeneratedArt/SakugaCutIns/mcp_04_prime_rlm_swarm_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/mcp_04_prime_rlm_swarm_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 162714
+    },
+    {
+      "card_id": "mcp_05_sequential_thinking",
+      "strip_source": "GeneratedArt/SakugaCutIns/mcp_05_sequential_thinking_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/mcp_05_sequential_thinking_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 194028
+    },
+    {
+      "card_id": "mcp_06_knowledge_graph_mem",
+      "strip_source": "GeneratedArt/SakugaCutIns/mcp_06_knowledge_graph_mem_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/mcp_06_knowledge_graph_mem_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 188540
+    },
+    {
+      "card_id": "mcp_07_git_time_chronicle",
+      "strip_source": "GeneratedArt/SakugaCutIns/mcp_07_git_time_chronicle_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/mcp_07_git_time_chronicle_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 170400
+    },
+    {
+      "card_id": "mcp_08_filesystem_and_fetch",
+      "strip_source": "GeneratedArt/SakugaCutIns/mcp_08_filesystem_and_fetch_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/mcp_08_filesystem_and_fetch_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 106096
+    },
+    {
+      "card_id": "mcp_09_tcg_creative_studio",
+      "strip_source": "GeneratedArt/SakugaCutIns/mcp_09_tcg_creative_studio_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/mcp_09_tcg_creative_studio_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 185716
+    },
+    {
+      "card_id": "plugin_01_tcg_creative_designer",
+      "strip_source": "GeneratedArt/SakugaCutIns/plugin_01_tcg_creative_designer_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/plugin_01_tcg_creative_designer_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 185006
+    },
+    {
+      "card_id": "plugin_02_parallel_swarm_orchestrator",
+      "strip_source": "GeneratedArt/SakugaCutIns/plugin_02_parallel_swarm_orchestrator_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/plugin_02_parallel_swarm_orchestrator_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 185414
+    },
+    {
+      "card_id": "plugin_03_jev_system_one",
+      "strip_source": "GeneratedArt/SakugaCutIns/plugin_03_jev_system_one_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/plugin_03_jev_system_one_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 172566
+    },
+    {
+      "card_id": "plugin_04_mlx_apple_silicon",
+      "strip_source": "GeneratedArt/SakugaCutIns/plugin_04_mlx_apple_silicon_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/plugin_04_mlx_apple_silicon_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 194452
+    },
+    {
+      "card_id": "skill_01_master_router",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_01_master_router_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_01_master_router_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 173964
+    },
+    {
+      "card_id": "skill_02_tactical_illustrator_library",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_02_tactical_illustrator_library_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_02_tactical_illustrator_library_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 173218
+    },
+    {
+      "card_id": "skill_03_create_game_assets",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_03_create_game_assets_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_03_create_game_assets_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 172702
+    },
+    {
+      "card_id": "skill_04_card_game_genre",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_04_card_game_genre_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_04_card_game_genre_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 180292
+    },
+    {
+      "card_id": "skill_05_game_feel_juice",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_05_game_feel_juice_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_05_game_feel_juice_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 172740
+    },
+    {
+      "card_id": "skill_06_game_ui_ux",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_06_game_ui_ux_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_06_game_ui_ux_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 153872
+    },
+    {
+      "card_id": "skill_07_ai_utility_behavior",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_07_ai_utility_behavior_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_07_ai_utility_behavior_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 168764
+    },
+    {
+      "card_id": "skill_08_shader_camera_audio",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_08_shader_camera_audio_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_08_shader_camera_audio_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 172206
+    },
+    {
+      "card_id": "skill_09_save_procgen_dialogue",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_09_save_procgen_dialogue_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_09_save_procgen_dialogue_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 163194
+    },
+    {
+      "card_id": "skill_10_multi_engine_codex",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_10_multi_engine_codex_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_10_multi_engine_codex_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 148016
+    },
+    {
+      "card_id": "skill_11_decompilation_hi3d_rea",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_11_decompilation_hi3d_rea_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_11_decompilation_hi3d_rea_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 176032
+    },
+    {
+      "card_id": "skill_12_workflows_and_agent_core",
+      "strip_source": "GeneratedArt/SakugaCutIns/skill_12_workflows_and_agent_core_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/skill_12_workflows_and_agent_core_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 160512
+    },
+    {
+      "card_id": "tool_01_invoke_subagent",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_01_invoke_subagent_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_01_invoke_subagent_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 180548
+    },
+    {
+      "card_id": "tool_02_define_subagent",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_02_define_subagent_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_02_define_subagent_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 158044
+    },
+    {
+      "card_id": "tool_03_manage_subagents",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_03_manage_subagents_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_03_manage_subagents_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 154872
+    },
+    {
+      "card_id": "tool_04_send_message",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_04_send_message_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_04_send_message_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 126156
+    },
+    {
+      "card_id": "tool_05_call_mcp_tool",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_05_call_mcp_tool_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_05_call_mcp_tool_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 195630
+    },
+    {
+      "card_id": "tool_06_mcp_resources",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_06_mcp_resources_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_06_mcp_resources_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 144650
+    },
+    {
+      "card_id": "tool_07_run_command",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_07_run_command_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_07_run_command_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 143616
+    },
+    {
+      "card_id": "tool_08_manage_task",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_08_manage_task_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_08_manage_task_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 127086
+    },
+    {
+      "card_id": "tool_09_read_file",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_09_read_file_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_09_read_file_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 135594
+    },
+    {
+      "card_id": "tool_10_write_file",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_10_write_file_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_10_write_file_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 172640
+    },
+    {
+      "card_id": "tool_11_edit_file",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_11_edit_file_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_11_edit_file_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 153744
+    },
+    {
+      "card_id": "tool_12_search_schedule_ask",
+      "strip_source": "GeneratedArt/SakugaCutIns/tool_12_search_schedule_ask_strip.png",
+      "animated_clip_path": "GeneratedArt/SakugaCutIns/Videos/tool_12_search_schedule_ask_cutin.webp",
+      "frame_count": 8,
+      "fps": 24,
+      "impact_frame_index": 2,
+      "impact_frame_hold_ms": 84,
+      "bytes": 95806
+    }
+  ]
+}

@@ -5,12 +5,34 @@ using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.Build.Reporting;
+using UnityEditor.SceneManagement;
 #endif
+using UnityEngine.SceneManagement;
 using Synapse.TcgEngine.Core;
 using Synapse.TcgEngine.Data;
 
 namespace Synapse.TcgEngine.EditorTools
 {
+    [Serializable]
+    public class MacOSStandaloneBuildReport
+    {
+        public string timestampUtc;
+        public string unityVersion;
+        public string buildTarget;
+        public string outputAppPath;
+        public string executableBinaryPath;
+        public string managedAssemblyCSharpPath;
+        public string buildResult;
+        public ulong totalSizeBytes;
+        public double totalTimeSeconds;
+        public int totalErrors;
+        public int totalWarnings;
+        public string[] scenesIncluded;
+        public string lanSimulationStatus;
+        public string lanStateHashHex;
+        public int lanTcpPacketsExchanged;
+        public string status;
+    }
     [Serializable]
     public class UnityHeadlessAgentReport
     {
@@ -137,5 +159,128 @@ namespace Synapse.TcgEngine.EditorTools
             UnityEngine.Object.DestroyImmediate(heroData);
             UnityEngine.Object.DestroyImmediate(enemyData);
         }
+
+#if UNITY_EDITOR
+        [MenuItem("Synapse TCG/Headless Agent CLI/Run Headless LAN Multiplayer Simulation (2 TcgEngine Instances)", priority = 11)]
+#endif
+        public static LanMultiplayerSimulationReport RunLanMultiplayerSimulation()
+        {
+            string outPath = Path.Combine(Directory.GetCurrentDirectory(), "Logs/unity_6000_lan_multiplayer_report.json");
+            LanMultiplayerSimulationReport report = SynapseLanMultiplayerSimulator.RunLoopbackLanMatch(outPath);
+            Debug.Log($"[UnityHeadlessAgentCLI] LAN Multiplayer Simulation: {JsonUtility.ToJson(report, true)}");
+            return report;
+        }
+
+#if UNITY_EDITOR
+        [MenuItem("Synapse TCG/Headless Agent CLI/Build macOS Standalone Player (OSXUniversal) + LAN Simulation", priority = 12)]
+#endif
+        public static void BuildMacOSStandaloneAndRunLanSimulation()
+        {
+            RunFullHeadlessPipeline();
+            LanMultiplayerSimulationReport lanReport = RunLanMultiplayerSimulation();
+
+#if UNITY_EDITOR
+            string projectRoot = Directory.GetCurrentDirectory();
+            string scenesDir = Path.Combine(projectRoot, "Assets/Scenes");
+            if (!Directory.Exists(scenesDir))
+                Directory.CreateDirectory(scenesDir);
+
+            string mainMenuScenePath = "Assets/Scenes/SynapseMainMenu.unity";
+            string battleScenePath = "Assets/Scenes/SynapseTacticalBattleArena.unity";
+
+            // Ensure both scenes are cleanly serialized by Unity 6000.6.8f1 EditorSceneManager with Camera + Bootstrapper
+            CreateOrRefreshBuildScene(mainMenuScenePath, "SynapseMainMenuRoot", new Color(0.05f, 0.07f, 0.12f, 1f));
+            CreateOrRefreshBuildScene(battleScenePath, "SynapseTacticalBattleArenaRoot", new Color(0.06f, 0.08f, 0.14f, 1f));
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            string[] scenes = new[] { mainMenuScenePath, battleScenePath };
+            EditorBuildSettings.scenes = new[]
+            {
+                new EditorBuildSettingsScene(mainMenuScenePath, true),
+                new EditorBuildSettingsScene(battleScenePath, true)
+            };
+
+            string buildDir = Path.Combine(projectRoot, "Builds/MacOS");
+            if (!Directory.Exists(buildDir))
+                Directory.CreateDirectory(buildDir);
+
+            string appBundlePath = Path.Combine(buildDir, "CARDFRONT_CradleOfEchoes.app");
+            BuildPlayerOptions buildOptions = new BuildPlayerOptions
+            {
+                scenes = scenes,
+                locationPathName = appBundlePath,
+                target = BuildTarget.StandaloneOSX,
+                options = BuildOptions.None
+            };
+
+            BuildReport unityBuildReport = BuildPipeline.BuildPlayer(buildOptions);
+            BuildSummary summary = unityBuildReport.summary;
+
+            string exeDir = Path.Combine(appBundlePath, "Contents/MacOS");
+            string exePath = exeDir;
+            if (Directory.Exists(exeDir))
+            {
+                string[] files = Directory.GetFiles(exeDir);
+                if (files.Length > 0)
+                    exePath = files[0];
+            }
+            string managedDllPath = Path.Combine(appBundlePath, "Contents/Resources/Data/Managed/Assembly-CSharp.dll");
+
+            MacOSStandaloneBuildReport macReport = new MacOSStandaloneBuildReport
+            {
+                timestampUtc = DateTime.UtcNow.ToString("o"),
+                unityVersion = Application.unityVersion,
+                buildTarget = summary.platform.ToString(),
+                outputAppPath = appBundlePath,
+                executableBinaryPath = exePath,
+                managedAssemblyCSharpPath = managedDllPath,
+                buildResult = summary.result.ToString(),
+                totalSizeBytes = summary.totalSize,
+                totalTimeSeconds = Math.Round(summary.totalTime.TotalSeconds, 2),
+                totalErrors = summary.totalErrors,
+                totalWarnings = summary.totalWarnings,
+                scenesIncluded = scenes,
+                lanSimulationStatus = lanReport.status,
+                lanStateHashHex = lanReport.finalServerStateHashHex,
+                lanTcpPacketsExchanged = lanReport.tcpPacketsExchanged,
+                status = summary.result == BuildResult.Succeeded && lanReport.stateHashLockstepParity
+                    ? "PASS_MACOS_STANDALONE_BUILD_AND_LAN_MULTIPLAYER"
+                    : $"BUILD_{summary.result}"
+            };
+
+            string reportPath = Path.Combine(projectRoot, "Logs/unity_6000_macos_build_report.json");
+            File.WriteAllText(reportPath, JsonUtility.ToJson(macReport, true));
+            Debug.Log($"[UnityHeadlessAgentCLI] macOS Standalone Build + LAN Report: {JsonUtility.ToJson(macReport, true)}");
+#endif
+        }
+
+#if UNITY_EDITOR
+        private static void CreateOrRefreshBuildScene(string sceneAssetPath, string rootName, Color bgColor)
+        {
+            Scene scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+
+            GameObject camGo = new GameObject("Main Camera");
+            camGo.tag = "MainCamera";
+            Camera cam = camGo.AddComponent<Camera>();
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = bgColor;
+            camGo.AddComponent<AudioListener>();
+            camGo.transform.position = new Vector3(0f, 8.5f, -8.5f);
+            camGo.transform.rotation = Quaternion.Euler(35f, 0f, 0f);
+
+            GameObject lightGo = new GameObject("IvaliceDirectionalLight");
+            Light light = lightGo.AddComponent<Light>();
+            light.type = LightType.Directional;
+            light.color = new Color(1f, 0.96f, 0.88f, 1f);
+            light.intensity = 1.2f;
+            lightGo.transform.rotation = Quaternion.Euler(45f, -30f, 0f);
+
+            GameObject rootGo = new GameObject(rootName);
+            rootGo.AddComponent<SynapseStandalonePlayerBootstrap>();
+
+            EditorSceneManager.SaveScene(scene, sceneAssetPath);
+        }
+#endif
     }
 }

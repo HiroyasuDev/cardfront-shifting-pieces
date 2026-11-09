@@ -1,14 +1,14 @@
 {
-  "iteration": 160,
-  "timestamp_utc": "2026-11-09T10:42:12Z",
+  "iteration": 163,
+  "timestamp_utc": "2026-11-09T10:55:15Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
     "autotest_title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
-    "total_checks": 134,
-    "passed_checks": 134,
+    "total_checks": 138,
+    "passed_checks": 138,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -75,6 +75,7 @@
       "cardgame_ui_input.7",
       "cardgame_ui_input.8",
       "cardgame_ui_input.9",
+      "core.act_mutators.01",
       "core.audio_design.01",
       "core.card_game.01",
       "core.card_game.02",
@@ -95,6 +96,7 @@
       "core.game_ui_ux.03",
       "core.game_ui_ux.04",
       "core.input_systems.01",
+      "core.lan_pvp.01",
       "core.next_gen_tabletop.01",
       "core.next_gen_tabletop.02",
       "core.next_gen_tabletop.03",
@@ -108,11 +110,13 @@
       "core.next_gen_tabletop.11",
       "core.next_gen_tabletop.12",
       "core.performance.01",
+      "core.release_pkg.01",
       "core.sakuga_v100.01",
       "core.sakuga_v100.02",
       "core.sakuga_v100.03",
       "core.sakuga_v100.04",
       "core.sakuga_v100.05",
+      "core.sakuga_v100.06",
       "core.save_systems.01",
       "core.tabletop_real_estate.01",
       "core.tabletop_real_estate.02",
@@ -159,11 +163,16 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 159,
-    "newly_passing_checks": [],
+    "previous_iteration": 162,
+    "newly_passing_checks": [
+      "core.act_mutators.01",
+      "core.lan_pvp.01",
+      "core.release_pkg.01",
+      "core.sakuga_v100.06"
+    ],
     "newly_failing_checks": [],
-    "pass_count_delta": 0,
-    "total_checks_delta": 0
+    "pass_count_delta": 4,
+    "total_checks_delta": 4
   },
   "step_a_router": {
     "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
@@ -263,7 +272,7 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 6412.7
+      "elapsed_ms": 6607.2
     },
     "autotest": {
       "ran": true,
@@ -272,10 +281,10 @@
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8535,
+      "elapsed_ms": 8561,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T10:42:00.973Z",
+        "timestamp": "2026-11-09T10:55:04.035Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -1336,6 +1345,70 @@
         "priority": "P0",
         "code_ref": "Backend/sync_unity_tcg_engine_port.py:180-235",
         "remediation": "Run python3 Backend/sync_unity_tcg_engine_port.py to synchronize both Unity repositories and generate Datasets/unity_tcg_engine_port_manifest.json.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.lan_pvp.01",
+        "skill": "unity/unity-netcode-multiplayer",
+        "rule": "Live 2-MacBook LAN 1v1 Room Sync & HMAC-SHA256 Echo-Ghost PvP API: /api/lan/room and /api/lan/ghosts persist active rooms (CITADEL-1) and signed EchoGhostSnapshots, wired to toggleLanMultiplayerDuel() and syncLanRoomState() in WebPlayable.",
+        "source": "skills/unity/unity-netcode-multiplayer/SKILL.md:52",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/serve_playtest.py:45-235,WebPlayable/cardfront_cradle_of_echoes_playable.html:4310-4420",
+        "remediation": "Implement /api/lan/room and /api/lan/ghosts in WebPlayable/serve_playtest.py and wire toggleLanMultiplayerDuel() in WebPlayable.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.act_mutators.01",
+        "skill": "genres/card-game",
+        "rule": "Act I / Act II / Act III Progressive Tabletop Mutators: evaluateStageTabletopMutator(stageIdx) returns Pure 3x3 for Act I, Mnemosyne Center Constellation Node (r:1,c:1) for Act II, and Okitsu Tie-Surge Judge Law for Act III.",
+        "source": "skills/genres/card-game/SKILL.md:74",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4285-4318,Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:132-154",
+        "remediation": "Implement evaluateStageTabletopMutator(stageIdx) in WebPlayable and EvaluateStageTabletopMutator in CardFrontUnifiedRuntime.cs.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.sakuga_v100.06",
+        "skill": "disciplines/create-game-assets",
+        "rule": "53 / 53 V100 24fps Animated WebP Sakuga Cut-In Clips Rendered: Backend/render_v100_sakuga_video_clips.py exports all 53 multi-frame animated WebP clips with 84ms Frame-2 Impact Frame hold.",
+        "source": "skills/disciplines/create-game-assets/SKILL.md:112",
+        "target": "both",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "Backend/render_v100_sakuga_video_clips.py:18-65",
+        "remediation": "Run python3 Backend/render_v100_sakuga_video_clips.py to synthesize all 53 animated WebP Sakuga cut-ins.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.release_pkg.01",
+        "skill": "workflows/itch-publish",
+        "rule": "Standalone macOS .app Bundle & itch.io WebGL Release Archive: Backend/build_macos_and_itch_release.py packages Builds/ItchWebGL/cardfront_cradle_of_echoes_itch_release.zip and Builds/macOS/CARDFRONT 3D - Cradle of Echoes.app.",
+        "source": "skills/workflows/itch-publish/SKILL.md:35",
+        "target": "both",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "Backend/build_macos_and_itch_release.py:25-125",
+        "remediation": "Run python3 Backend/build_macos_and_itch_release.py to package the macOS .app bundle and itch.io release archive.",
         "origin": "Tools/skill_harness/core_checks.json",
         "error": null
       },
@@ -2674,8 +2747,8 @@
     "per_skill": {
       "genres/card-game": {
         "skill": "genres/card-game",
-        "total": 16,
-        "passed": 16,
+        "total": 17,
+        "passed": 17,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2698,8 +2771,8 @@
       },
       "disciplines/create-game-assets": {
         "skill": "disciplines/create-game-assets",
-        "total": 18,
-        "passed": 18,
+        "total": 19,
+        "passed": 19,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2794,8 +2867,16 @@
       },
       "unity/unity-netcode-multiplayer": {
         "skill": "unity/unity-netcode-multiplayer",
-        "total": 1,
-        "passed": 1,
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "workflows/itch-publish": {
+        "skill": "workflows/itch-publish",
+        "total": 3,
+        "passed": 3,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2810,14 +2891,6 @@
       },
       "workflows/prototype-fast": {
         "skill": "workflows/prototype-fast",
-        "total": 2,
-        "passed": 2,
-        "failed": 0,
-        "pass_rate": 100.0,
-        "failed_ids": []
-      },
-      "workflows/itch-publish": {
-        "skill": "workflows/itch-publish",
         "total": 2,
         "passed": 2,
         "failed": 0,
@@ -2858,5 +2931,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 24643.6
+  "elapsed_ms": 24801.4
 }
