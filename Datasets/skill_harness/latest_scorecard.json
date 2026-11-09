@@ -1,6 +1,6 @@
 {
-  "iteration": 29,
-  "timestamp_utc": "2026-11-09T00:54:44Z",
+  "iteration": 35,
+  "timestamp_utc": "2026-11-09T01:19:37Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
@@ -123,14 +123,14 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 28,
+    "previous_iteration": 34,
     "newly_passing_checks": [],
     "newly_failing_checks": [],
     "pass_count_delta": 0,
     "total_checks_delta": 0
   },
   "step_a_router": {
-    "prompt": "Tactile Tabletop HUD: Bottom Hand Arc, 3D Column Header Dice, Top Boss Commander, Recessed Brass Sockets, and Collapsible Dev Drawer",
+    "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
     "target_model": "gemini-4-argon",
     "dual_engine_detection": {
       "primary_target": {
@@ -161,9 +161,17 @@
       {
         "slot": "engine",
         "category": "unity",
-        "name": "unity-csharp-scripting",
-        "skill_id": "unity/unity-csharp-scripting",
-        "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md",
+        "name": "unity-scriptableobjects",
+        "skill_id": "unity/unity-scriptableobjects",
+        "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
+        "source": "pxg-gamedev-harness"
+      },
+      {
+        "slot": "discipline",
+        "category": "disciplines",
+        "name": "game-feel",
+        "skill_id": "disciplines/game-feel",
+        "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md",
         "source": "pxg-gamedev-harness"
       },
       {
@@ -175,36 +183,30 @@
         "source": "pxg-gamedev-harness"
       },
       {
-        "slot": "discipline",
-        "category": "disciplines",
-        "name": "game-ai",
-        "skill_id": "disciplines/game-ai",
-        "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md",
-        "source": "router/SKILL.md_verification"
-      },
-      {
         "slot": "genre",
         "category": "genres",
         "name": "card-game",
         "skill_id": "genres/card-game",
         "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md",
-        "source": "router/SKILL.md_verification"
+        "source": "pxg-gamedev-harness"
       }
     ],
     "exact_skill_files_to_load": [
       "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/SKILL.md",
       "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/references/custom-engines.md",
-      "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md",
+      "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
+      "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md",
       "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md",
-      "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md",
       "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md"
     ],
     "pxg_cli_raw": {
       "detect_engine": "Unity",
       "detect_version": "2022.3.40f1",
       "cli_selected_skills": [
-        "unity-csharp-scripting",
-        "game-ui-ux"
+        "unity-scriptableobjects",
+        "game-feel",
+        "game-ui-ux",
+        "card-game"
       ]
     }
   },
@@ -225,7 +227,7 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 6003.4
+      "elapsed_ms": 5919.4
     },
     "autotest": {
       "ran": true,
@@ -234,17 +236,17 @@
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8533,
+      "elapsed_ms": 8516,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T00:54:34.392Z",
+        "timestamp": "2026-11-09T01:19:27.413Z",
         "steps": [
           {
             "step": "Initial Stage Load",
             "stage": "Eclipse Void Blade",
             "handCount": 5,
-            "imagesChecked": 7,
-            "telegraphSVGsRendered": 7
+            "imagesChecked": 6,
+            "telegraphSVGsRendered": 6
           },
           {
             "step": "Turn 1 Deploy",
@@ -1373,7 +1375,7 @@
         "target": "web",
         "method": "static_regex",
         "expect": ">=1 match",
-        "actual": 6,
+        "actual": 5,
         "passed": true,
         "priority": "P1",
         "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
@@ -1389,7 +1391,7 @@
         "target": "web",
         "method": "static_regex",
         "expect": ">=1 match",
-        "actual": 6,
+        "actual": 5,
         "passed": true,
         "priority": "P2",
         "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
@@ -2183,9 +2185,9 @@
   "gemini_4_argon_manifest_summary": {
     "manifest_path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/.gemini-plugin/gemini-4-argon-skills.json",
     "local_copy_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Tools/skill_harness/gemini-4-argon-skills.json",
-    "total_skill_md_files": 92,
+    "total_skill_md_files": 93,
     "upstream_skills": 77,
-    "custom_synapse_skills": 14
+    "custom_synapse_skills": 15
   },
-  "elapsed_ms": 17616.0
+  "elapsed_ms": 17447.9
 }

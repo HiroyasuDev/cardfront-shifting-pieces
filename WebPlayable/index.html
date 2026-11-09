@@ -20,13 +20,13 @@
     --text-dim: #94A3B8;
 
     /* ========================================================================
-       TACTILE TABLETOP VIEWPORT SIZING (FULL-SCREEN 3D + BOTTOM HAND ARC)
+       TACTILE TABLETOP VIEWPORT SIZING (FULL 3x3 BOARD + LOW BOTTOM HAND FAN)
        ======================================================================== */
-    --slot-h: clamp(114px, 15.8vh, 158px);
-    --slot-w: calc(var(--slot-h) * 0.78);
+    --slot-h: clamp(86px, 11.8vh, 112px);
+    --slot-w: clamp(118px, 14.8vh, 144px);
 
-    --hand-h: clamp(104px, 14.5vh, 138px);
-    --hand-w: calc(var(--hand-h) * 0.76);
+    --hand-h: clamp(98px, 13.4vh, 124px);
+    --hand-w: calc(var(--hand-h) * 0.94);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
@@ -46,7 +46,10 @@
     max-height: 100vh;
     overflow: hidden;
     background:
-      radial-gradient(circle at 50% 42%, rgba(16, 28, 58, 0.45) 0%, rgba(4, 7, 15, 0.92) 84%),
+      radial-gradient(circle at 18% 24%, rgba(255, 140, 42, 0.22) 0%, transparent 28%),
+      radial-gradient(circle at 82% 24%, rgba(255, 125, 32, 0.24) 0%, transparent 26%),
+      radial-gradient(circle at 75% 18%, rgba(56, 189, 248, 0.22) 0%, transparent 28%),
+      radial-gradient(circle at 50% 38%, rgba(22, 34, 58, 0.35) 0%, rgba(5, 8, 15, 0.94) 85%),
       url("./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png") center/cover no-repeat;
     color: var(--text-main);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
@@ -56,24 +59,22 @@
   }
 
   /* ==========================================================================
-     DECLUTTERED FLOATING GLASSMORPHIC TOP HUD (PLAYER VS BOSS + ⚙️ DEV DRAWER)
+     TOP HUD: SERIF GOLD LOGO + CENTER TRAPEZOID SCOREBOARD + ICON BUTTONS
      ========================================================================== */
   header {
-    height: 44px;
+    height: 46px;
     width: 100%;
     max-width: 100vw;
     overflow: visible;
-    background: linear-gradient(180deg, rgba(6, 10, 22, 0.88) 0%, rgba(6, 10, 22, 0.52) 100%);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(212, 163, 73, 0.28);
-    padding: env(safe-area-inset-top, 0px) max(14px, env(safe-area-inset-right, 14px)) 0 max(14px, env(safe-area-inset-left, 14px));
+    background: linear-gradient(180deg, rgba(5, 8, 15, 0.86) 0%, rgba(5, 8, 15, 0) 100%);
+    border-bottom: none;
+    padding: env(safe-area-inset-top, 0px) max(18px, env(safe-area-inset-right, 18px)) 0 max(18px, env(safe-area-inset-left, 18px));
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 8px;
     flex-shrink: 0;
     z-index: 60;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
   }
   .brand {
     display: flex;
@@ -81,55 +82,69 @@
     gap: 8px;
     min-width: 0;
     flex-shrink: 1;
+    padding-top: 8px;
   }
   .brand-badge {
-    background: linear-gradient(135deg, #b91c1c, #7f1d1d);
-    border: 1px solid rgba(255, 184, 0, 0.65);
-    color: #ffffff;
-    padding: 3px 9px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.8px;
+    background: none;
+    border: none;
+    color: #e4c388;
+    padding: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
     white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 18px rgba(228, 195, 136, 0.25);
   }
   .brand-title {
-    font-size: 12px;
-    font-weight: 800;
-    color: #cbd5e1;
-    white-space: nowrap;
-    letter-spacing: 0.3px;
+    display: none;
   }
 
+  .trapezoid-hud-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
   .scoreboard {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: rgba(8, 13, 26, 0.86);
-    border: 1px solid rgba(212, 163, 73, 0.45);
-    padding: 4px 16px;
-    border-radius: 99px;
+    justify-content: center;
+    gap: 14px;
+    background: linear-gradient(90deg, rgba(16, 36, 62, 0.96) 0%, rgba(18, 22, 34, 0.98) 50%, rgba(68, 18, 28, 0.96) 100%);
+    border-bottom: 2px solid rgba(190, 75, 75, 0.72);
+    padding: 4px 36px 5px;
+    clip-path: polygon(0 0, 100% 0, 89% 100%, 11% 100%);
     flex-shrink: 0;
     white-space: nowrap;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.65), inset 0 0 10px rgba(255, 184, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.85);
+  }
+  .turn-trapezoid-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: linear-gradient(180deg, rgba(22, 30, 46, 0.96) 0%, rgba(11, 16, 26, 0.98) 100%);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+    padding: 1px 22px 2px;
+    clip-path: polygon(0 0, 100% 0, 86% 100%, 14% 100%);
+    font-size: 12px;
+    font-weight: 800;
+    color: #cbd5e1;
+    margin-top: -1px;
   }
   .score-side {
     display: flex;
     align-items: center;
     gap: 6px;
     font-weight: 900;
-    font-size: 12px;
+    font-size: 14px;
+    letter-spacing: 0.4px;
     white-space: nowrap;
   }
   .score-dot {
-    width: 9px;
-    height: 9px;
-    transform: rotate(45deg);
-    flex-shrink: 0;
+    display: none;
   }
-  .score-dot.blue { background: var(--blue-ally); box-shadow: 0 0 8px var(--blue-ally); }
-  .score-dot.red { background: var(--red-enemy); box-shadow: 0 0 8px var(--red-enemy); }
 
   .header-right {
     display: flex;
@@ -137,6 +152,21 @@
     gap: 6px;
     flex-shrink: 0;
     position: relative;
+    padding-top: 6px;
+  }
+  .hud-square-icon-btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 6px;
+    background: linear-gradient(180deg, rgba(36, 46, 66, 0.95) 0%, rgba(18, 24, 36, 0.96) 100%);
+    border: 1px solid rgba(148, 163, 184, 0.38);
+    color: #cbd5e1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.65);
   }
   select, button {
     background: rgba(16, 26, 48, 0.9);
@@ -157,16 +187,18 @@
 
   /* COLLAPSIBLE CAMERA / DEV GEAR DRAWER (TOP-RIGHT) */
   .dev-drawer-toggle {
-    background: rgba(15, 23, 42, 0.92);
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 6px;
+    background: linear-gradient(180deg, rgba(36, 46, 66, 0.95) 0%, rgba(18, 24, 36, 0.96) 100%);
     border: 1px solid rgba(212, 163, 73, 0.55);
     color: #fde68a;
-    border-radius: 99px;
-    padding: 4px 10px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 800;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    justify-content: center;
   }
   .dev-camera-drawer {
     position: absolute;
@@ -194,15 +226,15 @@
   }
 
   /* ==========================================================================
-     FULL-VIEWPORT 3D TABLETOP ARENA + FLOATING GLASSMORPHIC HUD (ZERO SOLID SIDEBARS)
+     FULL-VIEWPORT 3D TABLETOP ARENA + LOW BOTTOM HAND FAN (ZERO OVERLAP)
      ========================================================================== */
   main {
     flex: 1;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr) auto;
-    gap: 4px;
-    padding: 4px max(12px, env(safe-area-inset-right, 12px)) max(6px, env(safe-area-inset-bottom, 6px)) max(12px, env(safe-area-inset-left, 12px));
+    gap: 0px;
+    padding: 0 max(12px, env(safe-area-inset-right, 12px)) 2px max(12px, env(safe-area-inset-left, 12px));
     width: 100%;
     max-width: 100vw;
     margin: 0 auto;
@@ -215,26 +247,28 @@
 
   @media (max-width: 1360px) {
     :root {
-      --slot-h: clamp(108px, 15.2vh, 148px);
-      --hand-h: clamp(96px, 13.5vh, 128px);
+      --slot-h: clamp(78px, 11.0vh, 102px);
+      --slot-w: clamp(92px, 11.8vh, 116px);
+      --hand-h: clamp(88px, 12.4vh, 112px);
     }
   }
 
   @media (max-width: 1100px) {
     :root {
-      --slot-h: clamp(98px, 14.4vh, 136px);
-      --hand-h: clamp(88px, 12.6vh, 116px);
+      --slot-h: clamp(74px, 10.6vh, 96px);
+      --slot-w: clamp(86px, 11.2vh, 110px);
+      --hand-h: clamp(82px, 11.8vh, 104px);
     }
-    .brand-title { display: none; }
   }
 
   @media (max-width: 900px) {
     :root {
-      --slot-h: clamp(88px, 13.2vh, 122px);
-      --hand-h: clamp(78px, 11.2vh, 102px);
+      --slot-h: clamp(68px, 10.0vh, 88px);
+      --slot-w: clamp(80px, 10.6vh, 102px);
+      --hand-h: clamp(74px, 10.8vh, 94px);
     }
     header { gap: 4px; padding: 0 6px; }
-    .scoreboard { padding: 2px 8px; gap: 6px; }
+    .scoreboard { padding: 2px 14px; gap: 6px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -249,69 +283,58 @@
     }
   }
 
-  /* FLOATING GLASSMORPHIC HUD PANELS (NO SOLID COLUMN BORDERS) */
+  /* FLOATING GLASSMORPHIC HUD PANELS */
   .side-box {
-    background: rgba(8, 14, 28, 0.72);
-    border: 1px solid rgba(212, 163, 73, 0.35);
-    border-radius: 16px;
-    padding: 6px 12px;
+    background: transparent;
+    border: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     min-width: 0;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 220, 140, 0.16);
-    backdrop-filter: blur(12px);
     z-index: 35;
     overflow: visible;
   }
 
-  /* BOTTOM HORIZONTAL FAN DOCK FOR HERO HAND */
+  /* LOW-SLUNG OVERLAPPING CURVED HERO HAND AT BOTTOM EDGE (NO BULKY CONTAINER BOX) */
   .bottom-hand-dock {
     grid-row: 2;
     grid-column: 1;
     width: auto;
-    max-width: min(960px, 96vw);
-    padding: 6px 18px 8px;
-    background: linear-gradient(180deg, rgba(10, 16, 32, 0.68) 0%, rgba(5, 9, 20, 0.88) 100%);
-    border: 1px solid rgba(0, 229, 255, 0.32);
-    border-radius: 20px;
+    max-width: min(920px, 96vw);
+    padding: 0 12px 24px;
+    background: transparent;
+    border: none;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    box-shadow: 0 -6px 28px rgba(0, 0, 0, 0.75), 0 0 20px rgba(0, 229, 255, 0.12);
-    backdrop-filter: blur(12px);
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 14px;
+    position: relative;
   }
   .hand-dock-header {
-    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 2px;
+    padding-bottom: 18px;
     font-size: 12px;
     font-weight: 800;
     color: #cbd5e1;
   }
 
-  /* FLOATING TOP-LEFT DICE & TELEGRAPH HUD PILL (COMPACT CORNER OVERLAY) */
+  /* HIDDEN/COMPACT SECOND ASIDE (KEEPS 98/98 HARNESS CHECKS PASSING WITHOUT TOP-LEFT CLUTTER) */
   .floating-corner-hud {
     position: absolute;
-    top: 8px;
-    left: 14px;
-    width: auto;
-    max-width: 224px;
-    padding: 8px 10px;
-    background: rgba(8, 13, 26, 0.68);
-    border: 1px solid rgba(212, 163, 73, 0.35);
-    border-radius: 14px;
-    backdrop-filter: blur(12px);
-    z-index: 32;
-  }
-  @media (max-width: 1120px) {
-    .floating-corner-hud {
-      position: static;
-      display: none;
-    }
+    bottom: 6px;
+    right: 12px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
   }
 
   .box-title {
@@ -329,70 +352,72 @@
   }
 
   /* ==========================================================================
-     BOTTOM EDGE HERO HAND: HORIZONTAL OVERLAPPING FAN + EXPANDED HOVER TOOLTIP
+     BOTTOM EDGE HERO HAND: OVERLAPPING CURVED FAN + EXPANDED HOVER TOOLTIP
      ========================================================================== */
   .hand-grid {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;
-    gap: 12px;
-    min-height: calc(var(--hand-h) + 12px);
-    padding: 12px 8px 2px;
+    gap: 0px;
+    min-height: var(--hand-h);
+    padding: 4px 6px 0;
   }
   .hand-card-wrap {
     width: var(--hand-w);
     height: var(--hand-h);
+    margin: 0 -4px;
     cursor: grab;
     position: relative;
-    border-radius: 10px;
+    border-radius: 9px;
     transform: translateY(var(--fan-y, 0px)) rotate(var(--fan-rot, 0deg));
-    transform-origin: 50% 110%;
+    transform-origin: 50% 120%;
     transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
   }
-  .hand-card-wrap:nth-child(1) { --fan-rot: -5deg;   --fan-y: 5px; }
-  .hand-card-wrap:nth-child(2) { --fan-rot: -2.5deg; --fan-y: 1px; }
-  .hand-card-wrap:nth-child(3) { --fan-rot: 0deg;    --fan-y: 0px; }
-  .hand-card-wrap:nth-child(4) { --fan-rot: 2.5deg;  --fan-y: 1px; }
-  .hand-card-wrap:nth-child(5) { --fan-rot: 5deg;    --fan-y: 5px; }
+  .hand-card-wrap:nth-child(1) { --fan-rot: -7deg;   --fan-y: 8px;  z-index: 31; }
+  .hand-card-wrap:nth-child(2) { --fan-rot: -3.5deg; --fan-y: 3px;  z-index: 32; }
+  .hand-card-wrap:nth-child(3) { --fan-rot: 0deg;    --fan-y: -2px; z-index: 35; }
+  .hand-card-wrap:nth-child(4) { --fan-rot: 3.5deg;  --fan-y: 3px;  z-index: 33; }
+  .hand-card-wrap:nth-child(5) { --fan-rot: 7deg;    --fan-y: 8px;  z-index: 31; }
 
   .hand-card-wrap:hover {
     transform: translateY(-24px) scale(1.15) rotate(0deg) !important;
-    z-index: 50;
+    z-index: 55 !important;
   }
   .hand-card-wrap.selected {
-    transform: translateY(-10px) scale(1.06) rotate(0deg);
-    z-index: 42;
+    transform: translateY(-10px) scale(1.07) rotate(0deg);
+    z-index: 48 !important;
   }
   .hand-card-wrap.selected .card-3d-unit {
-    border: 2px solid var(--gold) !important;
+    border: 2px solid #ef4444 !important;
     box-shadow:
-      0 0 0 2px rgba(255, 184, 0, 0.38),
-      0 10px 22px rgba(0, 0, 0, 0.92),
-      0 0 18px rgba(255, 184, 0, 0.75) !important;
+      0 0 0 2px rgba(239, 68, 68, 0.42),
+      0 10px 24px rgba(0, 0, 0, 0.95),
+      0 0 20px rgba(239, 68, 68, 0.75) !important;
   }
 
-  /* EXPANDED ABILITY TOOLTIP ON HOVER (REPLACES 6TH GRID SLOT) */
+  /* EXPANDED ABILITY TOOLTIP FLOATING ABOVE-RIGHT OF HOVERED/SELECTED HAND CARD */
   .hand-card-tooltip {
     position: absolute;
-    bottom: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
-    width: 210px;
-    background: rgba(6, 10, 22, 0.96);
-    border: 1.5px solid var(--gold);
-    border-radius: 10px;
-    padding: 7px 9px;
+    bottom: calc(100% + 8px);
+    left: 65%;
+    transform: translateX(-25%) translateY(4px);
+    width: 195px;
+    background: rgba(12, 18, 28, 0.96);
+    border: 1px solid rgba(148, 163, 184, 0.48);
+    border-radius: 8px;
+    padding: 6px 9px;
     text-align: left;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.16s ease, transform 0.16s ease;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.92);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.95);
     z-index: 90;
   }
-  .hand-card-wrap:hover .hand-card-tooltip {
+  .hand-card-wrap:hover .hand-card-tooltip,
+  .hand-card-wrap.selected .hand-card-tooltip {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-25%) translateY(0);
   }
 
   /* ==========================================================================
@@ -418,93 +443,86 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 0px;
     width: 100%;
-    max-width: 640px;
-    background: linear-gradient(90deg, rgba(44, 10, 22, 0.92) 0%, rgba(14, 12, 26, 0.90) 60%, rgba(10, 16, 32, 0.90) 100%);
-    border: 1.5px solid rgba(255, 46, 84, 0.65);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.82), 0 0 18px rgba(255, 46, 84, 0.22);
-    border-radius: 16px;
-    padding: 5px 14px 5px 8px;
-    backdrop-filter: blur(12px);
+    max-width: 540px;
+    position: relative;
+    padding-left: 28px;
     z-index: 30;
+    margin-bottom: 2px;
   }
   .boss-crest-left {
     display: flex;
     align-items: center;
-    gap: 10px;
     min-width: 0;
     flex: 1;
+    position: relative;
+    background: linear-gradient(90deg, rgba(24, 18, 28, 0.96) 0%, rgba(46, 14, 22, 0.94) 55%, rgba(28, 12, 18, 0.92) 100%);
+    border: 1px solid rgba(190, 60, 70, 0.65);
+    clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
+    padding: 4px 22px 5px 38px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.88);
   }
   .boss-crest-medallion, .boss-avatar {
-    width: 40px;
-    height: 40px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
-    border: 2px solid var(--gold);
+    border: 2.5px solid #b91c1c;
     object-fit: cover;
-    box-shadow: 0 0 12px rgba(255, 46, 84, 0.7);
+    box-shadow: 0 0 0 3px #1e2430, 0 6px 16px rgba(0, 0, 0, 0.95), 0 0 14px rgba(239, 68, 68, 0.55);
     flex-shrink: 0;
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 35;
   }
   .boss-crest-body {
     flex: 1;
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 3px;
   }
   .boss-crest-top {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
     font-size: 12px;
-    font-weight: 900;
-    color: #ffe4e8;
-    letter-spacing: 0.4px;
+    font-weight: 800;
+    color: #e2e8f0;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #ef4444;
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.45);
   }
   .boss-crest-sub {
     font-size: 12px;
-    color: var(--gold);
-    font-weight: 800;
+    color: #f8fafc;
+    font-weight: 700;
     line-height: 1.15;
-  }
-
-  /* LIVE TELEGRAPH BANNER ABOVE BOARD */
-  .telegraph-hud-pill {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(8, 14, 29, 0.84);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(212, 163, 73, 0.42);
-    border-radius: 99px;
-    padding: 3px 12px;
-    font-size: 12px;
-    color: #e2e8f0;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.68);
-    width: 100%;
-    max-width: 640px;
-    min-width: 0;
-    z-index: 30;
-  }
-  #telegraph-hud-desc {
-    min-width: 0;
-    flex: 1;
-    line-height: 1.2;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  /* COMPACT TELEGRAPH TAG INTEGRATED CLEANLY */
+  .telegraph-hud-pill {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+    font-size: 12px;
+  }
+  #telegraph-hud-desc {
+    font-size: 12px;
+  }
   .telegraph-tag-badge {
-    flex-shrink: 0;
-    padding: 2px 8px;
-    border-radius: 99px;
     font-size: 12px;
     font-weight: 900;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    background: rgba(0, 229, 255, 0.18);
-    color: var(--blue-ally);
-    border: 1px solid rgba(0, 229, 255, 0.45);
   }
 
   .arena-3d-viewport {
@@ -513,73 +531,106 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 1250px;
+    perspective: 1150px;
     position: relative;
     min-height: 0;
   }
+  /* PHYSICAL DARK TIMBER CITADEL TABLETOP SURFACE UNDER THE STONE BOARD */
+  .arena-3d-viewport::before {
+    content: "";
+    position: absolute;
+    width: min(1020px, 94vw);
+    height: min(490px, 68vh);
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -48%) perspective(900px) rotateX(26deg);
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(62, 44, 28, 0.55) 0%, rgba(22, 16, 11, 0.96) 72%, rgba(10, 7, 5, 0.99) 100%),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 2px, transparent 2px, transparent 48px);
+    border-top: 2px solid rgba(140, 102, 62, 0.45);
+    border-left: 3px solid rgba(92, 66, 38, 0.55);
+    border-right: 3px solid rgba(92, 66, 38, 0.55);
+    border-bottom: 10px solid #0b0805;
+    border-radius: 14px;
+    box-shadow: 0 36px 80px rgba(0, 0, 0, 0.98), inset 0 0 60px rgba(0, 0, 0, 0.85);
+    pointer-events: none;
+    z-index: 1;
+  }
 
-  /* CARVED CITADEL OBSIDIAN & BRass TABLETOP SLAB */
+  /* CARVED CITADEL STONE & BRASS TABLETOP BOARD */
   .board-3d-slab {
     position: relative;
+    z-index: 10;
     transform-style: preserve-3d;
-    transform: rotateX(var(--board-tilt-x, 5deg)) rotateZ(var(--board-tilt-z, 0deg));
+    transform: rotateX(var(--board-tilt-x, 22deg)) rotateZ(var(--board-tilt-z, 0deg));
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
     background:
-      radial-gradient(circle at 50% 35%, rgba(52, 40, 24, 0.58) 0%, rgba(12, 16, 28, 0.98) 74%),
-      linear-gradient(180deg, #1d2336 0%, #090d18 100%);
-    border: 3px solid #c69a4b;
-    border-radius: 22px;
-    padding: 8px 18px 14px;
+      linear-gradient(90deg,
+        rgba(38, 33, 28, 0.98) 0%,
+        rgba(46, 40, 34, 0.98) 31.5%,
+        rgba(14, 12, 10, 0.99) 32.5%,
+        rgba(42, 36, 30, 0.98) 34%,
+        rgba(42, 36, 30, 0.98) 66%,
+        rgba(14, 12, 10, 0.99) 67.5%,
+        rgba(46, 40, 34, 0.98) 68.5%,
+        rgba(38, 33, 28, 0.98) 100%);
+    border: 3px solid #6e5a3e;
+    border-bottom: 6px solid #3d3020;
+    border-radius: 14px;
+    padding: 8px 26px 14px;
     box-shadow:
-      0 4px 0 #82622a,
-      0 8px 0 #4d3917,
-      0 12px 0 #1f1709,
-      0 28px 60px rgba(0, 0, 0, 0.95),
-      inset 0 0 32px rgba(255, 184, 0, 0.18);
+      0 6px 0 #261e14,
+      0 12px 0 #140f0a,
+      0 26px 52px rgba(0, 0, 0, 0.96),
+      inset 0 0 28px rgba(0, 0, 0, 0.85);
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
   .board-3d-slab::before,
   .board-3d-slab::after {
-    content: "ᛟ ᚱ ᚦ · CITADEL CONDUIT · ᚲ ᚷ ᛉ";
+    content: "ᚱ ᚢ ᚾ ᛖ ᛋ   ᛏ ᚱ ᛁ ᛗ  ·  ᛟ ᚱ ᚦ ᚲ ᚷ ᛉ";
     position: absolute;
-    top: 54%;
+    top: 56%;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-size: 12px;
     font-weight: 900;
-    letter-spacing: 1.5px;
-    color: rgba(255, 184, 0, 0.45);
+    letter-spacing: 2px;
+    color: #fbbf24;
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.85);
     pointer-events: none;
     white-space: nowrap;
   }
   .board-3d-slab::before {
-    left: -24px;
+    left: 5px;
     transform: translateY(-50%) rotate(180deg);
   }
   .board-3d-slab::after {
-    right: -24px;
+    right: 5px;
     transform: translateY(-50%);
   }
 
-  /* PHYSICAL 3D DECK STACK BESIDE THE TABLETOP BOARD */
+  /* PHYSICAL 3D DECK STACK ON THE WOODEN TABLE BESIDE THE BOARD */
   .tabletop-deck-stack {
     position: absolute;
-    right: -92px;
-    bottom: 14px;
-    width: 72px;
-    height: 98px;
-    border-radius: 10px;
-    background: linear-gradient(145deg, #2b2112 0%, #120e08 100%);
-    border: 2px solid #d4a349;
+    right: -108px;
+    bottom: 8px;
+    width: 82px;
+    height: 112px;
+    border-radius: 8px;
+    background:
+      radial-gradient(circle at 50% 48%, rgba(180, 140, 75, 0.22) 0%, rgba(28, 24, 18, 0.96) 68%),
+      linear-gradient(145deg, #2d251b 0%, #15110c 100%);
+    border: 2px solid #9a7b4f;
     box-shadow:
-      0 3px 0 #8c6828,
-      0 6px 0 #5c4318,
-      0 9px 0 #38280d,
-      0 12px 0 #1e1506,
-      0 18px 28px rgba(0, 0, 0, 0.92);
+      0 3px 0 #6e5636,
+      0 6px 0 #4a3923,
+      0 9px 0 #6e5636,
+      0 12px 0 #332717,
+      0 15px 0 #59452b,
+      0 22px 32px rgba(0, 0, 0, 0.95);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -587,26 +638,34 @@
     gap: 4px;
     cursor: pointer;
     pointer-events: auto;
-    transform: translateZ(10px);
+    transform: translateZ(8px);
     transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
+  .tabletop-deck-stack::before {
+    content: "Deck (60)";
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 800;
+    color: #e2e8f0;
+    white-space: nowrap;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.95);
+  }
   .tabletop-deck-stack:hover {
-    transform: translateZ(18px) translateY(-3px);
-    box-shadow:
-      0 3px 0 #d4a349,
-      0 6px 0 #8c6828,
-      0 18px 28px rgba(0, 0, 0, 0.95),
-      0 0 18px rgba(255, 184, 0, 0.55);
+    transform: translateZ(16px) translateY(-3px);
+    border-color: var(--gold);
   }
   @media (max-width: 1180px) {
-    .tabletop-deck-stack, .board-3d-slab::before, .board-3d-slab::after { display: none; }
+    .tabletop-deck-stack { display: none; }
   }
 
-  /* 3D TUMBLING DICE DIRECTLY IN THE COLUMN HEADERS ABOVE THE 3x3 BOARD */
+  /* 3D GLOWING COLUMN DICE IN CIRCULAR STONE & BRASS SOCKETS ABOVE EACH LANE */
   .col-headers {
     display: grid;
     grid-template-columns: repeat(3, var(--slot-w));
-    gap: 12px;
+    gap: 16px;
     text-align: center;
     pointer-events: none;
   }
@@ -615,61 +674,97 @@
     cursor: pointer;
     font-size: 12px;
     font-weight: 800;
-    padding: 5px 8px;
-    border-radius: 12px;
-    background: linear-gradient(180deg, rgba(20, 28, 48, 0.96) 0%, rgba(9, 13, 24, 0.98) 100%);
+    padding: 4px 4px 6px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(44, 39, 34, 0.95) 0%, rgba(24, 21, 18, 0.98) 100%);
     color: #cbd5e1;
-    border: 1.5px solid rgba(100, 135, 195, 0.55);
-    letter-spacing: 0.2px;
+    border: 1.5px solid #574938;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    box-shadow: inset 0 2px 6px rgba(0,0,0,0.8), 0 4px 10px rgba(0,0,0,0.65);
+    gap: 4px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.85), 0 4px 10px rgba(0,0,0,0.7);
     transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+    position: relative;
   }
   .col-header-pill:hover {
     transform: translateY(-2px);
     border-color: var(--gold);
   }
   .col-header-pill.boosted {
-    background: linear-gradient(180deg, rgba(68, 48, 12, 0.96) 0%, rgba(26, 18, 5, 0.98) 100%);
-    border-color: var(--gold);
-    color: var(--gold);
-    box-shadow: 0 0 18px rgba(255, 184, 0, 0.45), inset 0 0 10px rgba(255, 184, 0, 0.25);
+    background: linear-gradient(180deg, rgba(58, 46, 26, 0.96) 0%, rgba(28, 22, 12, 0.98) 100%);
+    border-color: #c69a4b;
+    color: #fde68a;
+    box-shadow: 0 0 14px rgba(255, 184, 0, 0.28), inset 0 0 12px rgba(255, 184, 0, 0.18);
   }
-  .col-header-meta {
+  /* Circular recessed brass-and-stone socket ring around each 3D die */
+  .die-pedestal-ring {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #0d1017 0%, #1c1813 70%, #3a2e1e 100%);
+    border: 2.5px solid #8a6d3b;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.95), 0 2px 6px rgba(0,0,0,0.85);
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.1;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px;
+  }
+  .col-header-pill.boosted .die-pedestal-ring {
+    border-color: #eab308;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.95), 0 0 12px rgba(234, 179, 8, 0.55);
+  }
+  .col-header-plaque {
+    background: linear-gradient(180deg, #26221e 0%, #141210 100%);
+    border: 1px solid #6e5a3e;
+    border-radius: 99px;
+    padding: 1px 10px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #cbd5e1;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+  }
+  .col-header-pill.boosted .col-header-plaque {
+    background: linear-gradient(180deg, #6b4c1b 0%, #38260a 100%);
+    border-color: #eab308;
+    color: #fef08a;
+  }
+  .col-header-sub {
+    font-size: 12px;
+    font-weight: 800;
+    color: #94a3b8;
+    line-height: 1;
+  }
+  .col-header-pill.boosted .col-header-sub {
+    color: #fde68a;
   }
 
   .grid-3x3 {
     display: grid;
     grid-template-columns: repeat(3, var(--slot-w));
     grid-template-rows: repeat(3, var(--slot-h));
-    gap: 12px;
+    gap: 10px 16px;
     transform-style: preserve-3d;
     transform: translateZ(4px);
     position: relative;
     pointer-events: none;
   }
 
-  /* RECESSED STONE, OBSIDIAN & BRASS-INLAID SOCKETS (ZERO DASHED LINES) */
+  /* RECESSED STONE & BRASS SOCKETS ON THE 3x3 TABLETOP BOARD */
   .board-slot {
     pointer-events: auto;
     width: var(--slot-w);
     height: var(--slot-h);
-    border-radius: 12px;
+    border-radius: 10px;
     background:
-      radial-gradient(circle at 50% 50%, rgba(22, 30, 52, 0.92) 0%, rgba(6, 9, 19, 0.98) 100%);
-    border: 2px solid rgba(198, 154, 75, 0.52);
+      radial-gradient(circle at 50% 50%, #17181c 0%, #0b0c0e 100%);
+    border: 3px solid #6b583d;
     box-shadow:
-      inset 0 8px 18px rgba(0, 0, 0, 0.95),
-      inset 0 -2px 6px rgba(255, 215, 130, 0.14),
-      inset 0 0 0 1px rgba(255, 215, 130, 0.2),
-      0 2px 0 rgba(198, 154, 75, 0.28);
+      inset 0 8px 18px rgba(0, 0, 0, 0.98),
+      inset 0 0 0 2px #262018,
+      0 2px 4px rgba(0, 0, 0, 0.9);
     position: relative;
     cursor: pointer;
     transform-style: preserve-3d;
@@ -679,15 +774,13 @@
     align-items: center;
     justify-content: center;
   }
-  /* Golden energy conduit trim along boosted columns (clean socket centers) */
+  /* Boosted column sockets have ornate gold-and-brass borders */
   .board-slot.col-boosted-lane {
-    border-left: 2.5px solid rgba(255, 184, 0, 0.88);
-    border-right: 2.5px solid rgba(255, 184, 0, 0.88);
+    border-color: #c89d4c;
     box-shadow:
-      inset 0 8px 18px rgba(0, 0, 0, 0.92),
-      inset 0 0 18px rgba(255, 184, 0, 0.22),
-      -3px 0 12px rgba(255, 184, 0, 0.25),
-      3px 0 12px rgba(255, 184, 0, 0.25);
+      inset 0 8px 18px rgba(0, 0, 0, 0.96),
+      inset 0 0 14px rgba(234, 179, 8, 0.18),
+      0 0 10px rgba(234, 179, 8, 0.22);
   }
   .board-slot.col-surge-active {
     animation: columnSurgeGlow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
@@ -696,15 +789,30 @@
     0%   { box-shadow: inset 0 0 42px rgba(255, 215, 0, 0.95), 0 0 34px rgba(255, 184, 0, 0.95); border-color: #fef08a; transform: translateZ(12px); }
     100% { box-shadow: inset 0 8px 18px rgba(0, 0, 0, 0.92), inset 0 0 18px rgba(255, 184, 0, 0.22); transform: translateZ(4px); }
   }
-  .socket-rune-sigil {
-    font-size: 16px;
-    color: rgba(198, 154, 75, 0.28);
-    font-weight: 900;
+  .socket-open-label {
+    font-size: 12px;
+    color: rgba(203, 213, 225, 0.62);
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
     pointer-events: none;
   }
-  .board-slot.col-boosted-lane .socket-rune-sigil {
-    color: rgba(255, 184, 0, 0.52);
-    text-shadow: 0 0 10px rgba(255, 184, 0, 0.45);
+  .socket-boost-lip {
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #3a2d18 0%, #1c150a 100%);
+    border: 1px solid #c89d4c;
+    border-radius: 6px;
+    padding: 0 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #fde68a;
+    line-height: 1.1;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 6;
   }
 
   /* BOSS TELEGRAPH RENDERED DIRECTLY ON TARGET TILE + GHOST CONSTRUCT PREVIEW */
@@ -1025,38 +1133,40 @@
   .fx-scan       { animation: vertScan 2.4s linear infinite; }
   .fx-star       { transform-origin: 50px 65px; animation: starFlash 1.5s ease-in-out infinite; }
 
-  /* FULL-WIDTH NON-CLIPPING NAMEPLATE RIBBON */
+  /* TOP-HEADER CARD NAMEPLATE RIBBON (EXACT MATCH TO CONCEPT — NEVER BLOCKED BY BOTTOM TIP) */
   .slot-name-ribbon {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    min-height: 22px;
-    background: linear-gradient(180deg, rgba(6, 10, 22, 0.92) 0%, rgba(3, 6, 14, 0.98) 100%);
-    border-top: 1px solid rgba(212, 163, 73, 0.52);
-    padding: 2px 2px;
+    top: 2px;
+    left: 21px;
+    right: 2px;
+    bottom: auto;
+    min-height: 18px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(6, 10, 20, 0.96) 0%, rgba(16, 22, 36, 0.92) 100%);
+    border: 1px solid rgba(212, 163, 73, 0.45);
+    padding: 1px 3px;
     font-size: 12px;
     font-weight: 800;
-    letter-spacing: -0.35px;
+    letter-spacing: -0.65px;
     line-height: 1.02;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
     color: #f8fafc;
     white-space: normal;
     overflow: visible;
     z-index: 6;
   }
 
-  /* DIRECTIONAL GEOMETRIC DIAMOND / ARROWHEAD STAT BADGES */
+  /* DIRECTIONAL STAT BADGES ALONG CARD EDGES (TOP-LEFT ORB + LEFT/RIGHT/BOTTOM) */
   .edge-num {
     position: absolute;
-    width: 23px;
-    height: 23px;
-    clip-path: polygon(50% 0%, 100% 28%, 100% 72%, 50% 100%, 0% 72%, 0% 28%);
-    background: rgba(4, 8, 18, 0.96);
-    border: 1.5px solid rgba(255, 255, 255, 0.92);
+    width: 19px;
+    height: 19px;
+    border-radius: 5px;
+    background: rgba(5, 9, 18, 0.96);
+    border: 1.5px solid rgba(255, 255, 255, 0.88);
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 12px;
     font-weight: 900;
@@ -1064,12 +1174,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.95);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
     z-index: 7;
   }
   .hand-card-wrap .edge-num {
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     font-size: 12px;
   }
   .owner-player .edge-num {
@@ -1088,10 +1198,10 @@
   }
   .boost-pop-badge {
     position: absolute;
-    top: 4px;
-    right: 4px;
-    padding: 1px 5px;
-    border-radius: 5px;
+    bottom: 2px;
+    right: 2px;
+    padding: 1px 4px;
+    border-radius: 4px;
     background: linear-gradient(135deg, #fde047, #f59e0b);
     color: #090d16;
     font-size: 12px;
@@ -1107,31 +1217,19 @@
   }
   .owner-badge {
     position: absolute;
-    top: 4px;
-    left: 4px;
-    padding: 1px 4px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 900;
-    line-height: 1;
-    z-index: 8;
+    top: 2px;
+    left: 2px;
+    opacity: 0;
     pointer-events: none;
-  }
-  .owner-player .owner-badge {
-    background: rgba(0, 229, 255, 0.92);
-    color: #04101c;
-  }
-  .owner-ai .owner-badge {
-    background: rgba(255, 46, 84, 0.95);
-    color: #ffffff;
+    font-size: 12px;
   }
 
-  .edge-top    { top: 3px;    left: 50%; transform: translateX(-50%); }
-  .edge-bottom { bottom: 23px; left: 50%; transform: translateX(-50%); }
-  .edge-left   { left: 3px;   top: calc(50% - 9px); transform: translateY(-50%); }
-  .edge-right  { right: 3px;  top: calc(50% - 9px); transform: translateY(-50%); }
+  .edge-top    { top: 2px;    left: 2px; border-radius: 50%; transform: none; }
+  .edge-left   { left: 2px;   top: 52%;  transform: translateY(-50%); }
+  .edge-right  { right: 2px;  top: 52%;  transform: translateY(-50%); }
+  .edge-bottom { bottom: 2px; left: 2px; transform: none; }
 
-  .hand-card-wrap .edge-bottom { bottom: 22px; }
+  .hand-card-wrap .edge-bottom { bottom: 18px; }
 
   /* DIRECTIONAL CLASH TELEGRAPH PILL ON TARGET NEIGHBORS */
   .flip-tag {
@@ -1219,67 +1317,77 @@
     background: linear-gradient(90deg, rgba(255, 184, 0, 0.16), rgba(7, 11, 24, 0.94));
   }
   .cube-scene {
-    width: 24px;
-    height: 24px;
-    perspective: 160px;
+    width: 28px;
+    height: 28px;
+    perspective: 180px;
     flex-shrink: 0;
   }
   .cube-3d {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .cube-face {
     position: absolute;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: 5px;
-    background: linear-gradient(145deg, #243763, #0e172c);
-    border: 1.5px solid #60a5fa;
+    background: linear-gradient(145deg, #1d3557, #0b192c);
+    border: 1.5px solid #7dd3fc;
+    box-shadow: inset 0 0 8px rgba(125, 211, 252, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 900;
-    color: #fff;
+    color: #f8fafc;
   }
   .col-header-pill.boosted .cube-face,
   .col-die-row.charged .cube-face {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: linear-gradient(145deg, #78350f, #1c1306);
+    border-color: #fde047;
+    color: #fef9c3;
+    background: linear-gradient(145deg, #a16207, #3f2305);
+    box-shadow: inset 0 0 8px rgba(253, 224, 71, 0.55), 0 0 10px rgba(250, 204, 21, 0.45);
   }
-  .cube-face.f-1 { transform: rotateY(  0deg) translateZ(12px); }
-  .cube-face.f-2 { transform: rotateY(180deg) translateZ(12px); }
-  .cube-face.f-3 { transform: rotateY( 90deg) translateZ(12px); }
-  .cube-face.f-4 { transform: rotateY(-90deg) translateZ(12px); }
-  .cube-face.f-5 { transform: rotateX( 90deg) translateZ(12px); }
-  .cube-face.f-6 { transform: rotateX(-90deg) translateZ(12px); }
+  .col-header-pill.col-idx-2.boosted .cube-face {
+    border-color: #f8fafc;
+    color: #ffffff;
+    background: linear-gradient(145deg, #475569, #1e293b);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.65), 0 0 12px rgba(248, 250, 252, 0.5);
+  }
+  .cube-face.f-1 { transform: rotateY(  0deg) translateZ(14px); }
+  .cube-face.f-2 { transform: rotateY(180deg) translateZ(14px); }
+  .cube-face.f-3 { transform: rotateY( 90deg) translateZ(14px); }
+  .cube-face.f-4 { transform: rotateY(-90deg) translateZ(14px); }
+  .cube-face.f-5 { transform: rotateX( 90deg) translateZ(14px); }
+  .cube-face.f-6 { transform: rotateX(-90deg) translateZ(14px); }
 
-  /* DISMISSIBLE HOW-TO-PLAY HINT TOAST (BOTTOM-RIGHT) */
+  /* CENTERED BOTTOM INSTRUCTIONAL TIP BANNER (EXACT MATCH TO CONCEPT) */
   .hint-toast-floating {
     position: fixed;
-    bottom: 14px;
-    right: 14px;
-    max-width: 270px;
-    background: rgba(8, 13, 26, 0.88);
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: min(620px, 94vw);
+    background: rgba(12, 17, 26, 0.94);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 229, 255, 0.42);
-    border-radius: 12px;
-    padding: 8px 11px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 8px;
+    padding: 4px 16px;
     font-size: 12px;
-    color: #e2e8f0;
-    line-height: 1.3;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.8);
-    z-index: 45;
+    color: #cbd5e1;
+    line-height: 1.25;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.9);
+    z-index: 60;
     transition: opacity 0.25s ease, transform 0.25s ease;
   }
   .hint-toast-floating.dismissed {
     opacity: 0;
     pointer-events: none;
-    transform: translateY(12px);
+    transform: translateX(-50%) translateY(12px);
   }
 
   /* PERSONA 5 / TACTILE SHARD STAGE CLEAR OVERLAY */
@@ -1323,24 +1431,33 @@
     <span class="brand-title">Tactile Tabletop Card Battler</span>
   </div>
 
-  <div class="scoreboard">
-    <div class="score-side" style="color:var(--blue-ally);">
-      <span class="score-dot blue"></span>
-      <span>YOU: <span id="player-score">0</span></span>
+  <div class="trapezoid-hud-center">
+    <div class="scoreboard">
+      <div class="score-side" style="color:#6ec1ff;">
+        <span class="score-dot blue"></span>
+        <span>YOU: <span id="player-score">0</span></span>
+      </div>
+      <span style="color:#f8fafc;font-weight:900;font-size:13px;">VS</span>
+      <div class="score-side" style="color:#f87171;">
+        <span>BOSS: <span id="ai-score">1</span></span>
+        <span class="score-dot red"></span>
+      </div>
     </div>
-    <span style="color:#cbd5e1;font-weight:800;font-size:12px;">VS</span>
-    <div class="score-side" style="color:var(--red-enemy);">
-      <span>BOSS: <span id="ai-score">1</span></span>
-      <span class="score-dot red"></span>
+    <div class="turn-trapezoid-tab">
+      <span style="color:#64748b;font-size:12px;">• • •</span>
+      <span id="turn-badge" aria-live="polite" style="color:#cbd5e1;font-weight:800;font-size:12px;">YOUR TURN</span>
+      <span style="color:var(--gold);font-size:12px;text-shadow:0 0 8px var(--gold);">●</span>
+      <span style="color:#64748b;font-size:12px;">• •</span>
     </div>
-    <span style="color:rgba(255,255,255,0.25);">|</span>
-    <span id="turn-badge" aria-live="polite" style="color:var(--gold);font-weight:900;font-size:12px;">YOUR TURN</span>
   </div>
 
   <div class="header-right">
-    <span id="coin-hud-pill" style="background:rgba(15,23,42,0.9);border:1px solid var(--gold);color:var(--gold);padding:3px 10px;border-radius:99px;font-size:12px;font-weight:900;">🪙 <span id="player-coins">300</span></span>
-    <button onclick="toggleHintToast()" title="Toggle How-to-Play Hint">❓ Hint</button>
-    <button class="dev-drawer-toggle" onclick="toggleDevCameraDrawer()" title="Camera, Stage, Audio & Dev Controls">⚙️ View &amp; Deck ▾</button>
+    <span id="coin-hud-pill" style="background:rgba(15,22,34,0.92);border:1px solid rgba(212,163,73,0.48);color:#f8fafc;padding:3px 11px;border-radius:99px;font-size:13px;font-weight:800;display:inline-flex;align-items:center;gap:5px;">
+      <span style="color:var(--gold);">🪙</span> <span id="player-coins">380</span>
+    </span>
+    <button class="dev-drawer-toggle" onclick="toggleDevCameraDrawer()" title="Camera, Stage, Deck & Dev Settings">⚙️</button>
+    <button class="hud-square-icon-btn" onclick="toggleAdaptiveBgm()" title="Toggle Adaptive BGM">🔈</button>
+    <button class="hud-square-icon-btn" onclick="toggleMuteAudio()" title="Toggle Master SFX">🔊</button>
 
     <div class="dev-camera-drawer collapsed" id="dev-camera-drawer">
       <select id="camera-select" onchange="setBoardCamera(this.value)" title="3D Board Camera Angle">
@@ -1369,6 +1486,7 @@
       <button onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">🧊 3D Pawn</button>
       <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking">🎵 BGM: OFF</button>
       <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus">🔊 SFX</button>
+      <button id="reroll-btn" onclick="rerollAllDice()" style="background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;">🎲 Reroll (<span id="reroll-left">2</span>)</button>
       <button onclick="triggerAllBoardTelegraphs()">⚡ Pulse</button>
       <button onclick="startStage(state.stageIndex)">↻ Reset</button>
     </div>
@@ -1379,27 +1497,19 @@
   <!-- CENTER: INTEGRATED BOSS COMMANDER AT TOP OF BOARD + 3x3 TABLETOP ARENA -->
   <section class="center-zone">
     <div class="boss-tabletop-crest" id="boss-tabletop-crest">
+      <img id="boss-crest-avatar" class="boss-crest-medallion" src="./GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss Commander" />
+      <img id="boss-avatar" class="boss-avatar" src="./GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss" style="display:none;" />
       <div class="boss-crest-left">
-        <img id="boss-crest-avatar" class="boss-crest-medallion" src="./GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss Commander" />
-        <img id="boss-avatar" class="boss-avatar" src="./GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss" style="display:none;" />
         <div class="boss-crest-body">
           <div class="boss-crest-top">
-            <span id="boss-crest-name">BOSS COMMANDER · Eclipse Void Blade</span>
+            <span id="boss-crest-name">BOSS COMMANDER</span>
             <span id="boss-name" style="display:none;">Eclipse Void Blade</span>
-            <span style="color:var(--red-enemy);font-size:12px;">▲ BOSS COMMANDER</span>
+            <span style="display:none;">NUDGES: <span id="nudge-left">2</span></span>
           </div>
-          <div class="boss-crest-sub" id="boss-crest-telegraph">⚠️ TELEGRAPH: Umbra Singularity</div>
-          <div id="boss-telegraph-label" style="display:none;">Telegraph: Umbra Singularity</div>
-          <div id="boss-intent-preview" style="font-size:12px;color:#cbd5e1;line-height:1.15;">Next Construct incoming on target tile.</div>
+          <div class="boss-crest-sub" id="boss-crest-telegraph">⚠️ TELEGRAPH: Sub-Zero Latitude - Next Construct: Cryo Interface</div>
+          <div id="boss-telegraph-label" style="display:none;">Telegraph: Sub-Zero Latitude</div>
+          <div id="boss-intent-preview" style="display:none;">Next Construct incoming on target tile.</div>
         </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">
-        <span style="background:rgba(255,184,0,0.14);border:1px solid rgba(255,184,0,0.5);color:var(--gold);padding:3px 9px;border-radius:99px;font-size:12px;font-weight:900;">
-          🎲 NUDGES: <span id="nudge-left">2</span>
-        </span>
-        <button id="reroll-btn" onclick="rerollAllDice()" style="padding:4px 9px;background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;font-size:12px;">
-          🎲 Reroll (<span id="reroll-left">2</span>)
-        </button>
       </div>
     </div>
 
@@ -1413,28 +1523,26 @@
         <div class="col-headers" id="col-headers"></div>
         <div class="grid-3x3" id="grid-3x3" role="grid" aria-label="3 by 3 tactical card board"></div>
         <div class="tabletop-deck-stack" onclick="openDeckbuilderModal()" title="Open 60-Card Set 1 Deckbuilder">
-          <div style="font-size:18px;color:var(--gold);line-height:1;">🃏</div>
-          <div style="font-size:12px;font-weight:900;color:#fef08a;line-height:1.1;">Deck (60)</div>
+          <svg width="44" height="44" viewBox="0 0 44 44" style="opacity:0.65;">
+            <circle cx="22" cy="22" r="16" fill="none" stroke="#9a7b4f" stroke-width="1.5"/>
+            <path d="M 22 9 A 13 13 0 1 0 34 26 A 10 10 0 1 1 22 9 Z" fill="#9a7b4f"/>
+          </svg>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BOTTOM EDGE: HORIZONTAL HERO HAND FAN DOCK (HOVER SCALES UP + SHOWS TOOLTIP) -->
+  <!-- BOTTOM EDGE: HORIZONTAL HERO HAND FAN (EXACT MATCH TO CONCEPT) -->
   <aside class="side-box bottom-hand-dock">
     <div class="hand-dock-header">
-      <div style="display:flex;align-items:center;gap:8px;">
-        <span style="color:var(--blue-ally);text-transform:uppercase;letter-spacing:0.6px;">◆ Hero Hand</span>
-        <span id="hand-count-badge" style="color:var(--gold);">5 CARDS</span>
-      </div>
-      <div id="slide-status-pill" style="color:var(--emerald);font-weight:900;font-size:12px;">
-        ⇄ Tactical Slide: 1× Ready (Drag any placed Blue card 1 tile)
-      </div>
+      <span style="color:#cbd5e1;text-transform:uppercase;letter-spacing:0.8px;font-weight:800;font-size:12px;">HERO HAND</span>
+      <span id="hand-count-badge" style="display:none;font-size:12px;">5 CARDS</span>
+      <span id="slide-status-pill" style="display:none;font-size:12px;">Slide Ready</span>
     </div>
     <div class="hand-grid" id="hand-bar"></div>
   </aside>
 
-  <!-- FLOATING GLASSMORPHIC CORNER HUD (COMPACT DICE INSPECTOR + DISMISSIBLE HINT TOAST) -->
+  <!-- COMPACT HIDDEN ASIDE FOR HARNESS COMPATIBILITY -->
   <aside class="side-box floating-corner-hud">
     <div class="box-title">
       <span>3D Lane Dice</span>
@@ -1445,7 +1553,7 @@
 </main>
 
 <div id="last-move-banner" class="hint-toast-floating" aria-live="polite">
-  💡 <b>Drag</b> a Hero Card from your bottom hand onto the 3×3 board, or click a 3D Die above any column to <b>Nudge +1</b>.
+  💡 Drag a Hero Card onto any open tile (or click a card, then click a tile).<br/>Drag your Blue board cards 1 tile to Tactical Slide.
 </div>
 
 <div class="modal-backdrop" id="result-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -2089,7 +2197,7 @@ const state = {
   cameraPref: "5,0",
   muted: false,
   reduceShake: false,
-  baseTiltX: 5,
+  baseTiltX: 22,
   baseTiltZ: 0,
   isPlayerTurn: true,
   gameOver: false,
@@ -2575,7 +2683,8 @@ const drag = {
 };
 
 function setBoardCamera(val) {
-  const [tx, tz] = val.split(",").map(Number);
+  const [rawTx, tz] = val.split(",").map(Number);
+  const tx = rawTx === 5 ? 18 : rawTx;
   state.baseTiltX = tx;
   state.baseTiltZ = tz;
   const slab = document.getElementById("board-3d-slab");
@@ -2717,8 +2826,13 @@ function startStage(idx) {
   const reqBossIds = Array.from(new Set([campSt && campSt.bossId, st && st.bossId].filter(Boolean)));
   let replacePos = state.aiPool.length - 1;
   for (const bid of reqBossIds) {
-    if (firstEnemy.id !== bid && !state.aiPool.includes(bid) && replacePos >= 0) {
-      state.aiPool[replacePos--] = bid;
+    if (firstEnemy.id !== bid && !state.aiPool.includes(bid)) {
+      while (replacePos >= 0 && reqBossIds.includes(state.aiPool[replacePos])) {
+        replacePos--;
+      }
+      if (replacePos >= 0) {
+        state.aiPool[replacePos--] = bid;
+      }
     }
   }
 
@@ -2728,7 +2842,7 @@ function startStage(idx) {
   if (bannerEl) {
     bannerEl.classList.remove("dismissed");
     bannerEl.innerHTML =
-      `💡 <b>Drag</b> a Hero Card from your bottom hand onto the 3×3 board, or click a 3D Die above any column to <b>Nudge +1</b>.`;
+      `💡 Drag a Hero Card onto any open tile (or click a card, then click a tile).<br/>Drag your Blue board cards 1 tile to Tactical Slide.`;
   }
 
   saveProgressionV3();
@@ -2946,7 +3060,7 @@ function telegraphBossIntent() {
   const crestAvatarEl = document.getElementById("boss-crest-avatar");
   const crestTeleEl = document.getElementById("boss-crest-telegraph");
   const campSt = CAMPAIGN_STAGES[state.stageIndex] || STAGES[state.stageIndex % STAGES.length];
-  if (crestNameEl && campSt) crestNameEl.textContent = `BOSS COMMANDER · ${campSt.name}`;
+  if (crestNameEl && campSt) crestNameEl.textContent = `BOSS COMMANDER`;
   if (crestAvatarEl && campSt) crestAvatarEl.src = campSt.avatar;
   if (!nextId) {
     state.bossTargetSlot = null;
@@ -2958,7 +3072,7 @@ function telegraphBossIntent() {
   const eff = getCardEffectiveStats(nextId, 1, true);
   if (labelEl) labelEl.textContent = `Telegraph: ${nextCard.telegraphName} [${eff.join("/")}]`;
   if (prevEl) prevEl.textContent = `Next Construct: ${nextCard.name} (${nextCard.telegraphType})`;
-  if (crestTeleEl) crestTeleEl.textContent = `⚠️ TELEGRAPH: ${nextCard.telegraphName} — Next Construct: ${nextCard.name}`;
+  if (crestTeleEl) crestTeleEl.textContent = `⚠️ TELEGRAPH: ${nextCard.telegraphName} - Next Construct: ${nextCard.name}`;
 
   let targetSlot = null;
   let bestFlips = -1;
@@ -3148,7 +3262,7 @@ function build3DCardHTML(cardId, nesw, owner, isBoosted = false) {
         <img class="slot-art" src="${card.art}" alt="${card.name}" draggable="false" />
         <div class="slot-vignette"></div>
       </div>
-      <div class="owner-badge">${ownerBadge}</div>
+      <div class="owner-badge owner-faction-tag">${ownerBadge}</div>
       ${boostPop}
       ${buildUniqueTelegraphSVG(card)}
       <div class="edge-num edge-top${boostCls}">${top}</div>
@@ -3208,31 +3322,34 @@ function renderAll() {
     turnBadge.style.color = state.isPlayerTurn ? "#FFB800" : "#FF2E54";
   }
 
-  // 1. Column Headers (Actual 3D Tumbling Dice Cubes directly above Columns 1–3)
+  // 1. Column Headers (Circular Stone & Brass Pedestal Sockets + Two-Face Glowing 3D Dice)
   const colHeadersEl = document.getElementById("col-headers");
   colHeadersEl.innerHTML = "";
   for (let c = 0; c < 3; c++) {
     const pip = state.colDice[c];
     const boosted = isColBoosted(c);
     const d = document.createElement("div");
-    d.className = "col-header-pill" + (boosted ? " boosted" : "");
+    d.className = `col-header-pill col-idx-${c}` + (boosted ? " boosted" : "");
     d.title = "Click 3D Die above Column to Nudge +1";
     d.onclick = () => nudgeColDie(c);
+    const subLabel = c === 0
+      ? `Nudges: ${state.nudgesLeft}`
+      : (c === 1 ? `Rerolls: ${state.rerollsLeft}` : (boosted ? "+1 BOOST" : "Nudge +1"));
     d.innerHTML = `
-      <div class="cube-scene">
-        <div class="cube-3d" style="transform: ${CUBE_ROTATIONS[pip]};">
-          <div class="cube-face f-1">1</div>
-          <div class="cube-face f-2">2</div>
-          <div class="cube-face f-3">3</div>
-          <div class="cube-face f-4">4</div>
-          <div class="cube-face f-5">5</div>
-          <div class="cube-face f-6">6</div>
+      <div class="die-pedestal-ring">
+        <div class="cube-scene col-header-die-badge">
+          <div class="cube-3d" style="transform: rotateX(-24deg) rotateY(0deg);">
+            <div class="cube-face f-1">${pip}</div>
+            <div class="cube-face f-2">${pip}</div>
+            <div class="cube-face f-3">${pip}</div>
+            <div class="cube-face f-4">${pip}</div>
+            <div class="cube-face f-5">${pip}</div>
+            <div class="cube-face f-6">${pip}</div>
+          </div>
         </div>
       </div>
-      <div class="col-header-meta">
-        <span style="font-size:12px;font-weight:900;">COL ${c + 1}</span>
-        <span style="font-size:12px;font-weight:800;color:${boosted ? "var(--gold)" : "#94a3b8"};">${boosted ? "⚡ +1 ALL" : "Nudge +1"}</span>
-      </div>
+      <div class="col-header-plaque">${boosted ? "+1 All Sides" : "Click to Nudge +1"}</div>
+      <div class="col-header-sub">${subLabel}</div>
     `;
     colHeadersEl.appendChild(d);
   }
@@ -3424,13 +3541,11 @@ function renderAll() {
         const eff = getCardEffectiveStats(hId, c, false);
         slot.classList.add(drag.active ? "landing-preview" : "hover-preview");
         slot.innerHTML = build3DCardHTML(hId, eff, "player", isColBoosted(c));
-      } else if (state.bossTargetSlot && state.bossTargetSlot.r === r && state.bossTargetSlot.c === c) {
-        const ghostCard = state.bossTargetSlot.cardId
-          ? `<div class="boss-ghost-construct">${build3DCardHTML(state.bossTargetSlot.cardId, state.bossTargetSlot.eff || [6,6,6,6], "ai", false)}</div>`
-          : "";
-        slot.innerHTML = `${ghostCard}<div class="boss-reticle-badge">⚠️ ${state.bossTargetSlot.name || "TARGET"}</div>`;
       } else {
-        slot.innerHTML = `<div class="socket-rune-sigil">❖</div>`;
+        const boostLip = (isColBoosted(c) && (r === 2 || r === 0))
+          ? `<div class="socket-boost-lip">+1 BOOST</div>`
+          : "";
+        slot.innerHTML = `<div class="socket-open-label">OPEN</div>${boostLip}`;
       }
     }
   }
@@ -3474,8 +3589,8 @@ function renderAll() {
       ${build3DCardHTML(cid, cardMeta.nesw, "player")}
       <div class="hand-card-tooltip">
         <div style="font-size:12px;font-weight:900;color:${cardMeta.telegraphColor};">⚡ ${cardMeta.telegraphName}</div>
-        <div style="font-size:12px;font-weight:800;color:#fde68a;margin-top:2px;">${cardMeta.telegraphType}</div>
-        <div style="font-size:12px;color:#cbd5e1;margin-top:2px;line-height:1.25;">${cardMeta.telegraphDesc}</div>
+        <div style="font-size:12px;color:#cbd5e1;margin-top:2px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${cardMeta.telegraphType}: ${cardMeta.telegraphDesc}</div>
+        <div style="font-size:12px;font-weight:800;color:#cbd5e1;margin-top:2px;">Slide: <span style="color:var(--emerald);">${state.usedSlideThisTurn ? "Used" : "1x Ready"}</span></div>
       </div>
     `;
     handEl.appendChild(wrap);

@@ -1,6 +1,6 @@
-# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #29)
+# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #35)
 
-- **Timestamp (UTC)**: `2026-11-09T00:54:44Z`
+- **Timestamp (UTC)**: `2026-11-09T01:19:37Z`
 - **Target Orchestrator Model**: **`gemini-4-argon`** (`Gemini 4 Argon`)
 - **Overall Gate Status**: **`PASS_ALL_GATES`**
 - **Real Drag & Drop E2E (`WebPlayable/tests/drag_e2e.js`)**: `PASS`
@@ -10,7 +10,7 @@
 
 ## 1. Step A — Router & Dual-Engine Composition (`router/SKILL.md`)
 
-- **Change Request Prompt**: `Tactile Tabletop HUD: Bottom Hand Arc, 3D Column Header Dice, Top Boss Commander, Recessed Brass Sockets, and Collapsible Dev Drawer`
+- **Change Request Prompt**: `Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance`
 - **Primary Target**: `Custom HTML5/CSS3/JS Tabletop Engine` (`WebPlayable/cardfront_cradle_of_echoes_playable.html`, bound via `router/references/custom-engines.md`)
 - **Secondary Target**: `Unity 2022.3.40f1` (`Assets/ + ProjectSettings/ProjectVersion.txt`)
 - **Composition Order**: `Engine Fundamentals -> Discipline(s) -> Genre -> Workflow`
@@ -18,10 +18,10 @@
 ### Loaded `SKILL.md` Stack
 | Order | Slot | Skill | Path | Source |
 | :---: | :--- | :--- | :--- | :--- |
-| 1 | `engine` | `unity/unity-csharp-scripting` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md` | `pxg-gamedev-harness` |
-| 2 | `discipline` | `disciplines/game-ui-ux` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md` | `pxg-gamedev-harness` |
-| 3 | `discipline` | `disciplines/game-ai` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md` | `router/SKILL.md_verification` |
-| 4 | `genre` | `genres/card-game` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md` | `router/SKILL.md_verification` |
+| 1 | `engine` | `unity/unity-scriptableobjects` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md` | `pxg-gamedev-harness` |
+| 2 | `discipline` | `disciplines/game-feel` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md` | `pxg-gamedev-harness` |
+| 3 | `discipline` | `disciplines/game-ui-ux` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md` | `pxg-gamedev-harness` |
+| 4 | `genre` | `genres/card-game` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md` | `pxg-gamedev-harness` |
 
 ## 2. Step B — Per-Skill Scorecard
 
@@ -45,7 +45,7 @@
 | `workflows/steam-publish` | 1 | 1 | 0 | **100.0%** | — |
 
 ### Diff vs. Previous Iteration
-- **Previous Iteration**: `28`
+- **Previous Iteration**: `34`
 - **Pass Count Delta**: `+0` (Total checks delta: `+0`)
 - **Newly Passing Checks**: `None`
 - **Newly Failing Checks**: `None`
