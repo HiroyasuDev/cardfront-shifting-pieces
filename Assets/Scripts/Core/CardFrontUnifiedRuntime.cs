@@ -797,4 +797,213 @@ namespace Synapse.TcgEngine.Core
             }
         }
     }
+
+    /// <summary>
+    /// Descriptor for an Antigravity Agent Command Deck capability card (Plugins, Skills, Tool Calling, MCP Conduits)
+    /// and its paired watertight skeletal-rigged <c>.glb</c> / <c>.q3gs</c> 3D tabletop miniature.
+    /// </summary>
+    [Serializable]
+    public struct AgentCommandDeckCardDescriptor
+    {
+        public string card_id;
+        public string title;
+        public string tier;
+        public int mana_cost;
+        public int north;
+        public int east;
+        public int south;
+        public int west;
+        public string primary_hex;
+        public string accent_hex;
+        public string card_png_path;
+        public string emblem_svg_path;
+        public string glb_relic_path;
+        public string q3gs_splat_path;
+        public string telegraph_pattern;
+        public string ability_summary;
+    }
+
+    /// <summary>
+    /// Registry binding the 37-card Antigravity Agent Command Deck (4 Mythic Sovereign Plugins, 12 Arcane Skills
+    /// routing 93+ gamedev skills, 12 Native Tool-Calling Spells, and 9 MCP Server Conduits) and the 6 watertight
+    /// (<c>V=4,034, E=12,096, F=8,064, V-E+F=2</c>) skeletal-rigged <c>.glb</c> / <c>.q3gs</c> relics into Unity.
+    /// </summary>
+    public static class AgentCommandDeckRegistry
+    {
+        public const int TotalAgentDeckCards = 37;
+        public const int MythicPluginsCount = 4;
+        public const int ArcaneSkillsCount = 12;
+        public const int TacticalSpellsCount = 12;
+        public const int McpConduitsCount = 9;
+        public const int Watertight3DRelicsCount = 6;
+
+        private static readonly AgentCommandDeckCardDescriptor[] s_sovereignPlugins = new AgentCommandDeckCardDescriptor[]
+        {
+            new AgentCommandDeckCardDescriptor
+            {
+                card_id = "plugin_01_tcg_creative_designer",
+                title = "Grand Arcanist of CardCraft",
+                tier = "MYTHIC_PLUGIN",
+                mana_cost = 5,
+                north = 8, east = 7, south = 6, west = 7,
+                primary_hex = "#A855F7",
+                accent_hex = "#FFB800",
+                card_png_path = "GeneratedArt/AgentDeck/Cards/plugin_01_tcg_creative_designer.png",
+                emblem_svg_path = "GeneratedArt/AgentDeck/SVGs/plugin_01_tcg_creative_designer.svg",
+                glb_relic_path = "Assets/Resources/Models3D/AgentDeck/agent_01_grand_arcanist_designer.glb",
+                q3gs_splat_path = "Assets/Resources/Models3D/AgentDeck/agent_01_grand_arcanist_designer.q3gs",
+                telegraph_pattern = "3x3 Atelier Prism + Golden Ratio Frame Lock",
+                ability_summary = "DEPLOY: Compiles 8-block morphological briefs, 600x800 portraits, & SVG telegraphs."
+            },
+            new AgentCommandDeckCardDescriptor
+            {
+                card_id = "plugin_02_parallel_swarm_orchestrator",
+                title = "Chronos Swarm Commander",
+                tier = "MYTHIC_PLUGIN",
+                mana_cost = 5,
+                north = 7, east = 8, south = 6, west = 7,
+                primary_hex = "#F97316",
+                accent_hex = "#00E5FF",
+                card_png_path = "GeneratedArt/AgentDeck/Cards/plugin_02_parallel_swarm_orchestrator.png",
+                emblem_svg_path = "GeneratedArt/AgentDeck/SVGs/plugin_02_parallel_swarm_orchestrator.svg",
+                glb_relic_path = "Assets/Resources/Models3D/AgentDeck/agent_02_chronos_swarm_commander.glb",
+                q3gs_splat_path = "Assets/Resources/Models3D/AgentDeck/agent_02_chronos_swarm_commander.q3gs",
+                telegraph_pattern = "Tri-Portal Worktree Fan-Out (Share / Branch)",
+                ability_summary = "DEPLOY: Summons parallel subagents in isolated git worktrees with shared memory."
+            },
+            new AgentCommandDeckCardDescriptor
+            {
+                card_id = "plugin_03_jev_system_one",
+                title = "Hallowed Arbiter of System One",
+                tier = "MYTHIC_PLUGIN",
+                mana_cost = 4,
+                north = 8, east = 6, south = 8, west = 6,
+                primary_hex = "#2EE6D3",
+                accent_hex = "#FFB800",
+                card_png_path = "GeneratedArt/AgentDeck/Cards/plugin_03_jev_system_one.png",
+                emblem_svg_path = "GeneratedArt/AgentDeck/SVGs/plugin_03_jev_system_one.svg",
+                glb_relic_path = "Assets/Resources/Models3D/AgentDeck/agent_03_hallowed_arbiter_jev.glb",
+                q3gs_splat_path = "Assets/Resources/Models3D/AgentDeck/agent_03_hallowed_arbiter_jev.q3gs",
+                telegraph_pattern = "Octagonal Law-Seal Verification Gate",
+                ability_summary = "GUARD: Screens untrusted input (jev_screen) & gates diffs with calibrated probabilities."
+            },
+            new AgentCommandDeckCardDescriptor
+            {
+                card_id = "plugin_04_mlx_apple_silicon",
+                title = "A18 Pro Metal Forge Sovereign",
+                tier = "MYTHIC_PLUGIN",
+                mana_cost = 4,
+                north = 7, east = 7, south = 7, west = 7,
+                primary_hex = "#00E5FF",
+                accent_hex = "#6366F1",
+                card_png_path = "GeneratedArt/AgentDeck/Cards/plugin_04_mlx_apple_silicon.png",
+                emblem_svg_path = "GeneratedArt/AgentDeck/SVGs/plugin_04_mlx_apple_silicon.svg",
+                glb_relic_path = "Assets/Resources/Models3D/AgentDeck/agent_04_a18_pro_metal_sovereign.glb",
+                q3gs_splat_path = "Assets/Resources/Models3D/AgentDeck/agent_04_a18_pro_metal_sovereign.q3gs",
+                telegraph_pattern = "Single-Pass Logit Diamond Refraction",
+                ability_summary = "OVERCHARGE: Executes zero-latency Choice, Score & Noul decisions on Metal GPU."
+            }
+        };
+
+        public static AgentCommandDeckCardDescriptor[] GetSovereignPluginCards()
+        {
+            return s_sovereignPlugins;
+        }
+    }
+
+    /// <summary>
+    /// 3-scene campaign loop progression states (Citadel Stage Map -> Tactile Tabletop Duel -> Post-Victory Spoils Draft).
+    /// </summary>
+    public enum CampaignLoopScene
+    {
+        CitadelStageMap = 0,
+        TactileTabletopDuel = 1,
+        PostVictorySpoilsDraft = 2
+    }
+
+    /// <summary>
+    /// Directional clash callout payload for 180-degree capture flips and floating stat comparisons.
+    /// </summary>
+    [Serializable]
+    public struct DirectionalClashCallout
+    {
+        public int from_slot_index;
+        public int to_slot_index;
+        public string direction_edge;
+        public int attacker_stat;
+        public int defender_stat;
+        public bool column_boosted;
+        public bool triggered_180_capture_flip;
+    }
+
+    /// <summary>
+    /// Tactile 2.5D tabletop HUD and board topology state synchronized with the WebPlayable layout.
+    /// </summary>
+    [Serializable]
+    public struct TactileTabletopTopologyState
+    {
+        public CampaignLoopScene active_scene;
+        public bool top_trapezoid_scoreboard_visible;
+        public bool boss_circular_medallion_crest_visible;
+        public bool circular_column_die_pedestals_aligned;
+        public bool holo_telegraph_incoming_lip_active;
+        public bool ghost_underlying_nameplate_suppressed;
+        public float stat_badge_bg_opacity;
+        public float board_pitch_deg;
+        public int[] column_dice_pips;
+        public bool[] column_die_tumbling_3d;
+    }
+
+    /// <summary>
+    /// Unity 2022.3.40f1 Native Runtime Visual &amp; Cinematics Bridge for the tactile 2.5D tabletop layout.
+    /// </summary>
+    public static class TactileTabletopHudAndCinematicsBridge
+    {
+        public static TactileTabletopTopologyState CreateDefaultTabletopTopology()
+        {
+            return new TactileTabletopTopologyState
+            {
+                active_scene = CampaignLoopScene.TactileTabletopDuel,
+                top_trapezoid_scoreboard_visible = true,
+                boss_circular_medallion_crest_visible = true,
+                circular_column_die_pedestals_aligned = true,
+                holo_telegraph_incoming_lip_active = true,
+                ghost_underlying_nameplate_suppressed = true,
+                stat_badge_bg_opacity = 0.94f,
+                board_pitch_deg = 22.0f,
+                column_dice_pips = new int[] { 2, 4, 6 },
+                column_die_tumbling_3d = new bool[] { false, false, false }
+            };
+        }
+
+        public static Quaternion EvaluateCaptureFlipRotation3D(float normalizedTime)
+        {
+            return Quaternion.Euler(0f, Mathf.SmoothStep(0f, 180f, Mathf.Clamp01(normalizedTime)), 0f);
+        }
+
+        public static Quaternion EvaluateDieTumbleRotation3D(float normalizedTime)
+        {
+            float t = Mathf.Clamp01(normalizedTime);
+            return Quaternion.Euler(360f * t, 540f * t, 180f * t);
+        }
+
+        public static float ComputeAudioTensionCutoffHz(bool imminentTelegraph, int openSlotsCount)
+        {
+            return imminentTelegraph || openSlotsCount <= 2 ? 1680f : 920f;
+        }
+
+        public static CampaignLoopScene AdvanceCampaignScene(CampaignLoopScene current, bool stageWon)
+        {
+            switch (current)
+            {
+                case CampaignLoopScene.CitadelStageMap:
+                    return CampaignLoopScene.TactileTabletopDuel;
+                case CampaignLoopScene.TactileTabletopDuel:
+                    return stageWon ? CampaignLoopScene.PostVictorySpoilsDraft : CampaignLoopScene.CitadelStageMap;
+                case CampaignLoopScene.PostVictorySpoilsDraft:
+                default:
+                    return CampaignLoopScene.CitadelStageMap;
+            }
+        }
+    }
 }

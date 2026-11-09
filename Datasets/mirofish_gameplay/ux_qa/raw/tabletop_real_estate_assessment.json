@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-09T01:41:29.617Z",
+  "generatedAt": "2026-11-09T02:29:45.140Z",
   "harness": "gemini-4-argon",
   "summary": {
     "viewportsTested": 5,
-    "totalChecks": 40,
-    "passedChecks": 40,
+    "totalChecks": 50,
+    "passedChecks": 50,
     "passRatePct": 100,
     "status": "PASS_ALL_VIEWPORTS"
   },
@@ -14,14 +14,16 @@
       "width": 1920,
       "height": 1080,
       "metrics": {
-        "boardWidthPx": 985,
-        "boardHeightPx": 533,
-        "boardWidthPct": 51.3,
+        "boardWidthPx": 986,
+        "boardHeightPx": 534,
+        "boardWidthPct": 51.4,
         "socketWidthPx": 295,
         "socketHeightPx": 151,
-        "gapBossToSlabPx": 46,
+        "gapBossToSlabPx": 45,
         "gapRow3ToHandPx": 148,
+        "gapSlabToDeckPx": 309,
         "drawerClearancePx": 401,
+        "svgIconCount": 27,
         "deckVisible": true
       },
       "checks": {
@@ -32,7 +34,9 @@
         "drawerNonCollision": true,
         "nameplatesClear": true,
         "diceAligned": true,
-        "interactiveJuiceOk": true
+        "interactiveJuiceOk": true,
+        "deckSeparatedFromBoard": true,
+        "customAtelierSvgIconsOk": true
       },
       "allPassed": true
     },
@@ -42,13 +46,15 @@
       "height": 900,
       "metrics": {
         "boardWidthPx": 843,
-        "boardHeightPx": 477,
+        "boardHeightPx": 478,
         "boardWidthPct": 58.5,
         "socketWidthPx": 248,
         "socketHeightPx": 128,
-        "gapBossToSlabPx": 38,
+        "gapBossToSlabPx": 39,
         "gapRow3ToHandPx": 92,
+        "gapSlabToDeckPx": 151,
         "drawerClearancePx": 161,
+        "svgIconCount": 27,
         "deckVisible": true
       },
       "checks": {
@@ -59,7 +65,9 @@
         "drawerNonCollision": true,
         "nameplatesClear": true,
         "diceAligned": true,
-        "interactiveJuiceOk": true
+        "interactiveJuiceOk": true,
+        "deckSeparatedFromBoard": true,
+        "customAtelierSvgIconsOk": true
       },
       "allPassed": true
     },
@@ -69,13 +77,15 @@
       "height": 800,
       "metrics": {
         "boardWidthPx": 820,
-        "boardHeightPx": 439,
+        "boardHeightPx": 440,
         "boardWidthPct": 58.2,
         "socketWidthPx": 241,
         "socketHeightPx": 113,
-        "gapBossToSlabPx": 34,
-        "gapRow3ToHandPx": 71,
+        "gapBossToSlabPx": 35,
+        "gapRow3ToHandPx": 72,
+        "gapSlabToDeckPx": 147,
         "drawerClearancePx": 145,
+        "svgIconCount": 27,
         "deckVisible": true
       },
       "checks": {
@@ -86,7 +96,9 @@
         "drawerNonCollision": true,
         "nameplatesClear": true,
         "diceAligned": true,
-        "interactiveJuiceOk": true
+        "interactiveJuiceOk": true,
+        "deckSeparatedFromBoard": true,
+        "customAtelierSvgIconsOk": true
       },
       "allPassed": true
     },
@@ -96,13 +108,15 @@
       "height": 800,
       "metrics": {
         "boardWidthPx": 636,
-        "boardHeightPx": 380,
+        "boardHeightPx": 381,
         "boardWidthPct": 49.7,
         "socketWidthPx": 180,
         "socketHeightPx": 90,
         "gapBossToSlabPx": 28,
         "gapRow3ToHandPx": 109,
+        "gapSlabToDeckPx": 179,
         "drawerClearancePx": 81,
+        "svgIconCount": 27,
         "deckVisible": true
       },
       "checks": {
@@ -113,7 +127,9 @@
         "drawerNonCollision": true,
         "nameplatesClear": true,
         "diceAligned": true,
-        "interactiveJuiceOk": true
+        "interactiveJuiceOk": true,
+        "deckSeparatedFromBoard": true,
+        "customAtelierSvgIconsOk": true
       },
       "allPassed": true
     },
@@ -123,14 +139,16 @@
       "height": 820,
       "metrics": {
         "boardWidthPx": 636,
-        "boardHeightPx": 386,
+        "boardHeightPx": 387,
         "boardWidthPct": 53.9,
         "socketWidthPx": 180,
-        "socketHeightPx": 93,
-        "gapBossToSlabPx": 30,
-        "gapRow3ToHandPx": 113,
+        "socketHeightPx": 92,
+        "gapBossToSlabPx": 29,
+        "gapRow3ToHandPx": 114,
+        "gapSlabToDeckPx": 131,
         "drawerClearancePx": 31,
-        "deckVisible": false
+        "svgIconCount": 27,
+        "deckVisible": true
       },
       "checks": {
         "noOverflow": true,
@@ -140,7 +158,9 @@
         "drawerNonCollision": true,
         "nameplatesClear": true,
         "diceAligned": true,
-        "interactiveJuiceOk": true
+        "interactiveJuiceOk": true,
+        "deckSeparatedFromBoard": true,
+        "customAtelierSvgIconsOk": true
       },
       "allPassed": true
     }

@@ -550,5 +550,234 @@
     "priority": "P0",
     "code_ref": "Tools/skill_harness/assess_tabletop_real_estate.js:1-140",
     "remediation": "Run Tools/skill_harness/assess_tabletop_real_estate.js across all 5 viewports and verify 100% pass rate."
+  },
+  {
+    "id": "core.tcg_creative_designer.01",
+    "skill": "art-direction/tcg-creative-game-designer",
+    "rule": "Complete 37-card Agent Command Deck manifest (4 Mythic Sovereign Plugins, 12 Arcane Skills, 12 Tool-Calling Spells, 9 MCP Conduits) with 100% 600x800 portrait compliance and zero asset_report.py problems.",
+    "source": "skills/art-direction/tcg-creative-game-designer/SKILL.md:30",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "GeneratedArt/AgentDeck/asset_report_agent_deck.json",
+      "expression": "data['ok'] is True and len(data['assets']) == 37 and all(a['width'] == 600 and a['height'] == 800 and len(a['problems']) == 0 for a in data['assets'])"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/render_tcg_agent_deck_graphics.py:87-610,992-1016",
+    "remediation": "Run Backend/render_tcg_agent_deck_graphics.py and asset_report.py to verify all 37 Agent Deck 600x800 cards and 256x256 SVGs."
+  },
+  {
+    "id": "core.tcg_creative_designer.02",
+    "skill": "art-direction/tcg-creative-game-designer",
+    "rule": "6 watertight (V=4,034, E=12,096, F=8,064, Euler V-E+F=2) 4-bone skeletal-rigged PBR .glb and .q3gs 3D tabletop relics generated for the Agent Command Deck.",
+    "source": "skills/art-direction/tcg-creative-game-designer/SKILL.md:58",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "GeneratedArt/AgentDeck/agent_deck_3d_glb_manifest.json",
+      "expression": "data['watertight_euler_2'] is True and data['has_skeletal_rig'] is True and data['has_pbr_normal_roughness_maps'] is True and data['total_relics'] == 6"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Backend/generate_agent_deck_3d_glb.py:45-248",
+    "remediation": "Run Backend/generate_agent_deck_3d_glb.py to generate and verify all 6 watertight skeletal-rigged .glb and .q3gs relics."
+  },
+  {
+    "id": "core.tcg_creative_designer.03",
+    "skill": "art-direction/tcg-creative-game-designer",
+    "rule": "Playable 4 Mythic Sovereign Agent Plugin cards (SOVEREIGN_AGENT_PLUGINS) and equipSovereignPluginSquad() are integrated into the 3x3 tabletop client and Unity C# AgentCommandDeckRegistry.",
+    "source": "skills/art-direction/tcg-creative-game-designer/SKILL.md:82",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { return Array.isArray(SOVEREIGN_AGENT_PLUGINS) && SOVEREIGN_AGENT_PLUGINS.length === 4 && typeof equipSovereignPluginSquad === 'function' && getCardMeta('plugin_01_tcg_creative_designer').name === 'Grand Arcanist of CardCraft'; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1810-1870,2261-2285",
+    "remediation": "Keep SOVEREIGN_AGENT_PLUGINS (4 cards) and equipSovereignPluginSquad() wired in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+  },
+  {
+    "id": "core.next_gen_tabletop.01",
+    "skill": "disciplines/game-feel",
+    "rule": "180° 3D Y-Axis Capture Flip & Shockwave: capturing an adjacent Boss card triggers .card-captured-flip and .capture-shockwave-ring on the captured socket.",
+    "source": "skills/disciplines/game-feel/SKILL.md:54",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); state.grid[0][1] = { r: 0, c: 1, cardId: 'e_eclipse', owner: 'ai', nesw: [1, 1, 1, 1], justFlipped: false }; state.hand[0] = 'h_archangel'; state.selectedHandIdx = 0; handleSlotClick(0, 0); clearTimeout(state.bossTurnTimer); const capSlot = document.querySelectorAll('#grid-3x3 .board-slot')[1]; const ok = capSlot.classList.contains('card-captured-flip') && !!capSlot.querySelector('.capture-shockwave-ring'); startStage(0); return ok; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1470-1495,4450-4535",
+    "remediation": "Add .card-captured-flip and .capture-shockwave-ring when a card capture occurs."
+  },
+  {
+    "id": "core.next_gen_tabletop.02",
+    "skill": "disciplines/game-feel",
+    "rule": "Directional Clash Callout Beams & Math Pill: capturing an adjacent unit renders .clash-beam-connector and .clash-math-pill with the competing directional values.",
+    "source": "skills/disciplines/game-feel/SKILL.md:62",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); state.grid[0][1] = { r: 0, c: 1, cardId: 'e_eclipse', owner: 'ai', nesw: [1, 1, 1, 1], justFlipped: false }; state.hand[0] = 'h_archangel'; state.selectedHandIdx = 0; handleSlotClick(0, 0); clearTimeout(state.bossTurnTimer); const capSlot = document.querySelectorAll('#grid-3x3 .board-slot')[1]; const beam = capSlot.querySelector('.clash-beam-connector'); const pill = capSlot.querySelector('.clash-math-pill'); const ok = !!beam && !!pill && pill.textContent.includes('CAPTURE!'); startStage(0); return ok; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1496-1522,4520-4535",
+    "remediation": "Render .clash-beam-connector and .clash-math-pill inside captured sockets."
+  },
+  {
+    "id": "core.next_gen_tabletop.03",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Clean Holo-Telegraph Socket Preview: target Boss socket renders .slot-telegraph-ghost with .telegraph-incoming-lip at the top and suppresses the underlying .slot-name-ribbon so all 4 directional stats remain unobstructed.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:88",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); const ghost = document.querySelector('.slot-telegraph-ghost'); if (!ghost) return false; const lip = ghost.querySelector('.telegraph-incoming-lip'); const ribbon = ghost.querySelector('.slot-name-ribbon'); const edges = ghost.querySelectorAll('.edge-num'); return !!lip && lip.textContent.includes('INCOMING') && ribbon && getComputedStyle(ribbon).display === 'none' && edges.length === 4; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1525-1562,4542-4555",
+    "remediation": "Render .slot-telegraph-ghost with .telegraph-incoming-lip and hide .slot-name-ribbon inside .slot-telegraph-ghost."
+  },
+  {
+    "id": "core.next_gen_tabletop.04",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "High-Contrast Stat Badges: directional .edge-num badges use dark high-contrast fill (rgba(8, 12, 22, >=0.92)), 1.5px metallic border, and text-shadow so numbers pop against bright card illustrations.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:112",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const edge = document.querySelector('.edge-num'); if (!edge) return false; const cs = getComputedStyle(edge); const m = cs.backgroundColor.match(/rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)(?:,\\s*([0-9.]+))?\\)/); const alpha = m ? (m[4] !== undefined ? parseFloat(m[4]) : 1) : 0; return alpha >= 0.92 && cs.textShadow !== 'none'; })()"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1205-1222",
+    "remediation": "Set .edge-num background to rgba(8, 12, 22, 0.94) with text-shadow."
+  },
+  {
+    "id": "core.next_gen_tabletop.05",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Scene A — Ivalice Citadel Campaign Map & Boss Dossier Overlay: openCampaignMapOverlay() renders #campaign-map-overlay with >= 5 Boss Act nodes and deploy buttons.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:45",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { openCampaignMapOverlay(); const ov = document.getElementById('campaign-map-overlay'); const nodes = document.querySelectorAll('#campaign-map-grid .campaign-node-card'); const ok = ov && getComputedStyle(ov).display === 'flex' && nodes.length >= 5 && state.activeScene === 'map'; closeCampaignMapOverlay(); return ok; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1880-1895,4125-4175",
+    "remediation": "Implement openCampaignMapOverlay() and renderCampaignMapNodes() with >= 5 Boss dossier nodes."
+  },
+  {
+    "id": "core.next_gen_tabletop.06",
+    "skill": "disciplines/game-feel",
+    "rule": "Diagonal Boss Cut-In Banner: triggerBossCutIn() activates #boss-cutin-banner with Boss avatar, Act title, and active Telegraph name.",
+    "source": "skills/disciplines/game-feel/SKILL.md:72",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { triggerBossCutIn(2); const b = document.getElementById('boss-cutin-banner'); const t = document.getElementById('cutin-boss-title'); const ok = b && b.classList.contains('active') && t && t.textContent.length > 5; if (b) b.classList.remove('active'); return ok; })()"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1572-1598,4108-4124",
+    "remediation": "Implement triggerBossCutIn(stageIdx) activating #boss-cutin-banner."
+  },
+  {
+    "id": "core.next_gen_tabletop.07",
+    "skill": "genres/card-game",
+    "rule": "Scene C — Post-Victory 3-Card Spoils Draft & Quick Evolution Forge: #victory-spoils-draft renders 3 claimable reward cards and forgeHeroStatFromVictory() upgrades the lead Hero's directional stats.",
+    "source": "skills/genres/card-game/SKILL.md:64",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); renderVictorySpoils(true); const cards = document.querySelectorAll('#victory-spoils-draft .spoils-draft-card'); const firstId = cards[0] ? cards[0].getAttribute('data-spoil-id') : null; if (firstId) claimVictorySpoilCard(firstId); const ok = cards.length === 3 && state.claimedSpoilThisStage === true && typeof forgeHeroStatFromVictory === 'function'; startStage(0); return ok; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1600-1638,4176-4226",
+    "remediation": "Render 3 .spoils-draft-card items in #victory-spoils-draft and wire claimVictorySpoilCard() + forgeHeroStatFromVictory()."
+  },
+  {
+    "id": "core.next_gen_tabletop.08",
+    "skill": "disciplines/game-feel",
+    "rule": "3-Axis Physical 3D Die Tumbling: nudging or rerolling column dice applies .die-tumbling-3d to the 3D cube inside .die-pedestal-ring and plays ProceduralSfx.",
+    "source": "skills/disciplines/game-feel/SKILL.md:63",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); nudgeColDie(0); const tumbling = document.querySelectorAll('.die-pedestal-ring .cube-3d.die-tumbling-3d').length >= 1; startStage(0); return tumbling && typeof ProceduralSfx === 'object' && typeof ProceduralSfx.nudge === 'function'; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1564-1571,3464-3495",
+    "remediation": "Apply .die-tumbling-3d to .cube-3d when nudgeColDie() or rerollAllDice() is called."
+  },
+  {
+    "id": "core.next_gen_tabletop.09",
+    "skill": "disciplines/audio-design",
+    "rule": "Dynamic Boss Phase Stinger & BGM Low-Pass Filter Tension: ProceduralBgm.updateTensionState(imminentTelegraph, openSlotsCount) shifts filter cutoff from 920 Hz to 1680 Hz under high board tension.",
+    "source": "skills/disciplines/audio-design/SKILL.md:52",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const calmHz = ProceduralBgm.updateTensionState(false, 6); const tenseHz = ProceduralBgm.updateTensionState(true, 2); ProceduralBgm.updateTensionState(false, 8); return calmHz === 920 && tenseHz === 1680 && typeof ProceduralSfx.phaseStinger === 'function'; })()"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:2482-2525",
+    "remediation": "Implement ProceduralBgm.updateTensionState(imminentTelegraph, openSlotsCount) modulating cutoffHz between 920 and 1680."
+  },
+  {
+    "id": "core.next_gen_tabletop.10",
+    "skill": "unity/unity-csharp-scripting",
+    "rule": "Unity 2022.3.40f1 Native Runtime Visual & Cinematics Sync: CardFrontUnifiedRuntime.cs defines TactileTabletopHudAndCinematicsBridge with EvaluateCaptureFlipRotation3D, EvaluateDieTumbleRotation3D, ComputeAudioTensionCutoffHz, and AdvanceCampaignScene.",
+    "source": "skills/unity/unity-csharp-scripting/SKILL.md:40",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "regex": "class\\s+TactileTabletopHudAndCinematicsBridge[\\s\\S]{0,1800}EvaluateCaptureFlipRotation3D[\\s\\S]{0,1200}EvaluateDieTumbleRotation3D[\\s\\S]{0,1200}AdvanceCampaignScene"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:914-1009",
+    "remediation": "Keep TactileTabletopHudAndCinematicsBridge synced in Assets/Scripts/Core/CardFrontUnifiedRuntime.cs."
+  },
+  {
+    "id": "core.next_gen_tabletop.11",
+    "skill": "disciplines/game-feel",
+    "rule": "AAA Studio Trigger / Omega Strikers Sakuga Telegraph Cut-In: #boss-cutin-banner renders .sakuga-speedlines-svg and .trigger-star-flare and triggerSakugaCardCutIn() activates the cut-in for any card.",
+    "source": "skills/disciplines/game-feel/SKILL.md:78",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const ok = typeof triggerSakugaCardCutIn === 'function' && triggerSakugaCardCutIn('h_seraph') === true && !!document.querySelector('#boss-cutin-banner .sakuga-speedlines-svg') && document.querySelectorAll('#boss-cutin-banner .trigger-star-flare').length >= 2; const b = document.getElementById('boss-cutin-banner'); if (b) b.classList.remove('active'); return ok; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1845-1860,4140-4160",
+    "remediation": "Include .sakuga-speedlines-svg and .trigger-star-flare in #boss-cutin-banner and expose triggerSakugaCardCutIn(cardId)."
+  },
+  {
+    "id": "core.next_gen_tabletop.12",
+    "skill": "disciplines/create-game-assets",
+    "rule": "PXG V100 Sakuga Telegraph Model Training & Keyframe Interpolation Manifest: Datasets/pxg_v100_sakuga_telegraph/v100_sakuga_manifest.json indexes all 53 (16 core + 37 Agent Deck) 600x800 library assets with float16 Volta sm_70 configuration.",
+    "source": "skills/disciplines/create-game-assets/SKILL.md:92",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "file": "Datasets/pxg_v100_sakuga_telegraph/v100_sakuga_manifest.json",
+      "json_path": "dataset_summary.total_library_assets"
+    },
+    "expect": "==53",
+    "priority": "P1",
+    "code_ref": "Backend/pxg_v100_anime_telegraph_trainer.py:1-190",
+    "remediation": "Run python3 Backend/pxg_v100_anime_telegraph_trainer.py to generate Datasets/pxg_v100_sakuga_telegraph/v100_sakuga_manifest.json."
   }
 ]

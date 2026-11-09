@@ -419,6 +419,9 @@
     opacity: 1;
     transform: translateX(-25%) translateY(0);
   }
+  .hand-grid:hover .hand-card-wrap.selected:not(:hover) .hand-card-tooltip {
+    opacity: 0;
+  }
 
   /* ==========================================================================
      CENTER STAGE: HEAD-TO-HEAD BOSS COMMANDER TOP BAR + 3x3 TABLETOP ARENA
@@ -525,6 +528,15 @@
     font-weight: 900;
   }
 
+  /* CARDFRONT ATELIER BESPOKE SVG ICON LIBRARY INLINE HELPER */
+  .cf-lib-icon {
+    display: inline-block;
+    vertical-align: -2.5px;
+    flex-shrink: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.85));
+  }
+
   .arena-3d-viewport {
     flex: 0 1 auto;
     width: 100%;
@@ -535,29 +547,8 @@
     position: relative;
     min-height: 0;
   }
-  /* PHYSICAL DARK TIMBER CITADEL TABLETOP SURFACE UNDER THE STONE BOARD */
-  .arena-3d-viewport::before {
-    content: "";
-    position: absolute;
-    width: min(1060px, 94vw);
-    height: min(530px, 72vh);
-    top: 53%;
-    left: 50%;
-    transform: translate(-50%, -48%) perspective(900px) rotateX(26deg);
-    background:
-      radial-gradient(ellipse at 50% 40%, rgba(62, 44, 28, 0.55) 0%, rgba(22, 16, 11, 0.96) 72%, rgba(10, 7, 5, 0.99) 100%),
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 2px, transparent 2px, transparent 48px);
-    border-top: 2px solid rgba(140, 102, 62, 0.45);
-    border-left: 3px solid rgba(92, 66, 38, 0.55);
-    border-right: 3px solid rgba(92, 66, 38, 0.55);
-    border-bottom: 10px solid #0b0805;
-    border-radius: 14px;
-    box-shadow: 0 36px 80px rgba(0, 0, 0, 0.98), inset 0 0 60px rgba(0, 0, 0, 0.85);
-    pointer-events: none;
-    z-index: 1;
-  }
 
-  /* CARVED CITADEL STONE & BRASS TABLETOP BOARD */
+  /* CARVED CITADEL STONE & BRASS 3x3 GAMEBOARD (STANDALONE 3D ARTIFACT) */
   .board-3d-slab {
     position: relative;
     z-index: 10;
@@ -576,13 +567,14 @@
         rgba(46, 40, 34, 0.98) 68.5%,
         rgba(38, 33, 28, 0.98) 100%);
     border: 3px solid #6e5a3e;
-    border-bottom: 6px solid #3d3020;
+    border-bottom: 7px solid #3d3020;
     border-radius: 14px;
     padding: 8px 26px 14px;
     box-shadow:
       0 6px 0 #261e14,
-      0 12px 0 #140f0a,
-      0 26px 52px rgba(0, 0, 0, 0.96),
+      0 13px 0 #140f0a,
+      0 32px 68px rgba(0, 0, 0, 0.96),
+      0 0 42px rgba(0, 229, 255, 0.08),
       inset 0 0 28px rgba(0, 0, 0, 0.85);
     display: flex;
     flex-direction: column;
@@ -612,53 +604,106 @@
     transform: translateY(-50%);
   }
 
-  /* PHYSICAL 3D DECK STACK ON THE WOODEN TABLE BESIDE THE BOARD */
-  .tabletop-deck-stack {
+  /* ==========================================================================
+     STANDALONE 60-CARD GRIMOIRE DECK SANCTUM (SEPARATE VISUAL OUTSIDE GAMEBOARD)
+     ========================================================================== */
+  .standalone-deck-sanctum {
     position: absolute;
-    right: -108px;
-    bottom: 8px;
-    width: 82px;
-    height: 112px;
-    border-radius: 8px;
+    right: clamp(14px, 2.6vw, 48px);
+    bottom: 12px;
+    z-index: 24;
+    perspective: 800px;
+    pointer-events: auto;
+  }
+  .tabletop-deck-stack {
+    position: relative;
+    width: 96px;
+    height: 142px;
+    border-radius: 12px;
+    padding: 6px 7px 7px;
     background:
-      radial-gradient(circle at 50% 48%, rgba(180, 140, 75, 0.22) 0%, rgba(28, 24, 18, 0.96) 68%),
-      linear-gradient(145deg, #2d251b 0%, #15110c 100%);
-    border: 2px solid #9a7b4f;
+      radial-gradient(circle at 50% 24%, rgba(0, 229, 255, 0.18) 0%, rgba(15, 23, 42, 0.96) 72%),
+      linear-gradient(160deg, #1b2438 0%, #090d18 100%);
+    border: 2px solid #d4a349;
     box-shadow:
-      0 3px 0 #6e5636,
-      0 6px 0 #4a3923,
-      0 9px 0 #6e5636,
-      0 12px 0 #332717,
-      0 15px 0 #59452b,
-      0 22px 32px rgba(0, 0, 0, 0.95);
+      0 4px 0 #78531b,
+      0 8px 0 #1e293b,
+      0 12px 0 #5c3f14,
+      0 22px 44px rgba(0, 0, 0, 0.96),
+      0 0 24px rgba(255, 184, 0, 0.24),
+      inset 0 0 16px rgba(0, 229, 255, 0.16);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 4px;
     cursor: pointer;
     pointer-events: auto;
-    transform: translateZ(8px);
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-  }
-  .tabletop-deck-stack::before {
-    content: "Deck (60)";
-    position: absolute;
-    top: -22px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 12px;
-    font-weight: 800;
-    color: #e2e8f0;
-    white-space: nowrap;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.95);
+    transform: rotateX(14deg) rotateY(-10deg) rotateZ(2deg);
+    transform-style: preserve-3d;
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, border-color 0.22s ease;
   }
   .tabletop-deck-stack:hover {
-    transform: translateZ(16px) translateY(-3px);
-    border-color: var(--gold);
+    transform: rotateX(6deg) rotateY(-4deg) rotateZ(0deg) translateY(-6px) scale(1.05);
+    border-color: #00e5ff;
+    box-shadow:
+      0 5px 0 #0284c7,
+      0 10px 0 #1e293b,
+      0 15px 0 #78531b,
+      0 28px 52px rgba(0, 0, 0, 0.98),
+      0 0 30px rgba(0, 229, 255, 0.52);
   }
-  @media (max-width: 1180px) {
-    .tabletop-deck-stack { display: none; }
+  .deck-reliquary-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1px 4px;
+    border-radius: 5px;
+    background: rgba(6, 10, 20, 0.94);
+    border: 1px solid rgba(255, 184, 0, 0.55);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+    color: #fef08a;
+    white-space: nowrap;
+  }
+  .deck-3d-card-monolith {
+    width: 72px;
+    height: 92px;
+    border-radius: 7px;
+    overflow: hidden;
+    position: relative;
+    border: 1.5px solid #fbbf24;
+    box-shadow:
+      2px 2px 0 #9a7b4f,
+      4px 4px 0 #47361f,
+      6px 6px 0 #9a7b4f,
+      8px 8px 0 #261c10,
+      0 10px 18px rgba(0, 0, 0, 0.92);
+  }
+  .deck-cardback-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+  .deck-reliquary-plinth {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+    color: #e0faff;
+    background: linear-gradient(90deg, rgba(2, 132, 199, 0.35), rgba(168, 85, 247, 0.35));
+    border: 1px solid rgba(0, 229, 255, 0.5);
+    border-radius: 5px;
+    padding: 1px 4px;
+    white-space: nowrap;
+  }
+  @media (max-width: 980px) {
+    .standalone-deck-sanctum { display: none; }
   }
 
   /* 3D GLOWING COLUMN DICE IN CIRCULAR STONE & BRASS SOCKETS ABOVE EACH LANE */
@@ -1165,12 +1210,13 @@
     width: 19px;
     height: 19px;
     border-radius: 5px;
-    background: rgba(5, 9, 18, 0.96);
-    border: 1.5px solid rgba(255, 255, 255, 0.88);
+    background: rgba(8, 12, 22, 0.94);
+    border: 1.5px solid rgba(255, 255, 255, 0.92);
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 12px;
     font-weight: 900;
     color: #fff;
+    text-shadow: 0 1px 3px #000, 0 0 6px rgba(0, 0, 0, 0.98);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1421,6 +1467,183 @@
     flex-direction: column;
     gap: 12px;
   }
+
+  /* ==========================================================================
+     NEXT-GEN TABLETOP CINEMATICS: 180° 3D CAPTURE FLIP, CLASH BEAMS, HOLO-TELEGRAPH,
+     3-AXIS DIE TUMBLE & 3-SCENE ROGUELIKE CAMPAIGN LOOP
+     ========================================================================== */
+  .board-slot.card-captured-flip .card-3d-unit {
+    animation: cardFlip180Capture 0.56s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes cardFlip180Capture {
+    0%   { transform: translateZ(34px) rotateY(180deg) scale(1.12); filter: brightness(1.75) saturate(1.35); }
+    50%  { transform: translateZ(26px) rotateY(90deg) scale(1.16); filter: brightness(2.0); }
+    100% { transform: translateZ(10px) rotateY(0deg) scale(1.0); filter: brightness(1.0); }
+  }
+  .capture-shockwave-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 12px;
+    border: 2.5px solid var(--blue-ally);
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.9), inset 0 0 18px rgba(255, 184, 0, 0.75);
+    pointer-events: none;
+    z-index: 16;
+    animation: captureShockwaveAnim 0.65s ease-out forwards;
+  }
+  @keyframes captureShockwaveAnim {
+    0%   { transform: scale(0.84); opacity: 1; }
+    100% { transform: scale(1.18); opacity: 0; }
+  }
+  .clash-beam-connector {
+    position: absolute;
+    pointer-events: none;
+    z-index: 17;
+    background: linear-gradient(90deg, rgba(255, 184, 0, 0.95), rgba(0, 229, 255, 0.95));
+    box-shadow: 0 0 14px rgba(255, 184, 0, 0.95), 0 0 22px rgba(0, 229, 255, 0.85);
+    border-radius: 99px;
+  }
+  .clash-beam-connector[data-clash-dir="N"] { top: -8px; left: 22%; right: 22%; height: 5px; }
+  .clash-beam-connector[data-clash-dir="S"] { bottom: -8px; left: 22%; right: 22%; height: 5px; }
+  .clash-beam-connector[data-clash-dir="E"] { right: -8px; top: 22%; bottom: 22%; width: 5px; }
+  .clash-beam-connector[data-clash-dir="W"] { left: -8px; top: 22%; bottom: 22%; width: 5px; }
+  .clash-math-pill {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(24px);
+    background: linear-gradient(135deg, rgba(12, 18, 32, 0.96), rgba(30, 58, 138, 0.94));
+    border: 1.5px solid var(--gold);
+    color: #fef08a;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+    z-index: 18;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.95), 0 0 12px rgba(255, 184, 0, 0.65);
+  }
+
+  /* CLEAN HOLO-TELEGRAPH SOCKET PREVIEW (TOP-LIP INCOMING PLAQUE + ZERO STAT OVERLAP) */
+  .slot-telegraph-ghost {
+    position: absolute;
+    inset: 3px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, rgba(88, 12, 28, 0.42) 0%, rgba(10, 14, 24, 0.68) 100%);
+    border: 1.5px solid rgba(255, 46, 84, 0.72);
+    pointer-events: none;
+    z-index: 4;
+  }
+  .slot-telegraph-ghost .card-3d-unit {
+    opacity: 0.48;
+    filter: saturate(0.8) contrast(1.12);
+    transform: translateZ(2px);
+  }
+  .slot-telegraph-ghost .slot-name-ribbon {
+    display: none !important;
+  }
+  .telegraph-incoming-lip {
+    position: absolute;
+    top: 2px;
+    left: 22px;
+    right: 2px;
+    background: linear-gradient(90deg, rgba(136, 19, 55, 0.96) 0%, rgba(76, 5, 25, 0.94) 100%);
+    border: 1px solid rgba(255, 184, 0, 0.78);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 12px;
+    font-weight: 900;
+    color: #fef08a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 11;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.92);
+  }
+
+  /* 3-AXIS PHYSICAL 3D DIE TUMBLING */
+  .cube-3d.die-tumbling-3d {
+    animation: dieTumble3D 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes dieTumble3D {
+    0%   { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.16); }
+    50%  { transform: rotateX(360deg) rotateY(540deg) rotateZ(180deg) scale(1.26); }
+    100% { transform: rotateX(-24deg) rotateY(0deg) rotateZ(0deg) scale(1.0); }
+  }
+
+  /* DIAGONAL BOSS CUT-IN BANNER (PERSONA / IVALICE STAGE ANNOUNCEMENT) */
+  .boss-cutin-banner {
+    position: fixed;
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%) skewX(-10deg) scale(0.92);
+    background: linear-gradient(90deg, rgba(15, 23, 42, 0.97) 0%, rgba(127, 29, 29, 0.96) 55%, rgba(15, 23, 42, 0.97) 100%);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    padding: 8px 24px;
+    display: none;
+    align-items: center;
+    gap: 14px;
+    z-index: 88;
+    pointer-events: none;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.95), 0 0 28px rgba(255, 46, 84, 0.65);
+  }
+  .boss-cutin-banner.active {
+    display: flex;
+    animation: bossCutInSlide 1.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes bossCutInSlide {
+    0%   { opacity: 0; transform: translateX(-65%) skewX(-10deg) scale(0.9); }
+    18%  { opacity: 1; transform: translateX(-50%) skewX(-10deg) scale(1.02); }
+    82%  { opacity: 1; transform: translateX(-50%) skewX(-10deg) scale(1.0); }
+    100% { opacity: 0; transform: translateX(-35%) skewX(-10deg) scale(0.95); }
+  }
+
+  /* POST-VICTORY 3-CARD SPOILS DRAFT & EVOLUTION FORGE */
+  .victory-spoils-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(9, 14, 28, 0.92);
+    border: 1px solid rgba(255, 184, 0, 0.48);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-top: 2px;
+    text-align: left;
+  }
+  .victory-spoils-draft {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .spoils-draft-card {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(8, 12, 24, 0.98));
+    border: 1.5px solid rgba(0, 229, 255, 0.55);
+    border-radius: 8px;
+    padding: 6px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #f8fafc;
+    transition: transform 0.16s ease, border-color 0.16s ease;
+  }
+  .spoils-draft-card:hover, .spoils-draft-card.claimed {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 184, 0, 0.35);
+  }
+  .victory-quick-forge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-top: 6px;
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
+    font-size: 12px;
+    color: #cbd5e1;
+  }
 </style>
 </head>
 <body>
@@ -1452,18 +1675,74 @@
   </div>
 
   <div class="header-right">
-    <span id="coin-hud-pill" style="background:rgba(15,22,34,0.92);border:1px solid rgba(212,163,73,0.48);color:#f8fafc;padding:3px 11px;border-radius:99px;font-size:13px;font-weight:800;display:inline-flex;align-items:center;gap:5px;">
-      <span style="color:var(--gold);">🪙</span> <span id="player-coins">380</span>
+    <!-- Hidden shared SVG gradient defs for CARDFRONT Atelier Icon Library -->
+    <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+      <defs>
+        <linearGradient id="cf-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFF3B0"/><stop offset="35%" stop-color="#FFB800"/><stop offset="75%" stop-color="#C87D0A"/><stop offset="100%" stop-color="#6E3F04"/>
+        </linearGradient>
+        <linearGradient id="cf-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#E0FFFF"/><stop offset="40%" stop-color="#00E5FF"/><stop offset="80%" stop-color="#0284C7"/><stop offset="100%" stop-color="#0F172A"/>
+        </linearGradient>
+        <linearGradient id="cf-crimson-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFD1DC"/><stop offset="38%" stop-color="#FF2E54"/><stop offset="78%" stop-color="#9F1239"/><stop offset="100%" stop-color="#3B0714"/>
+        </linearGradient>
+        <linearGradient id="cf-violet-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#F3E8FF"/><stop offset="40%" stop-color="#A855F7"/><stop offset="82%" stop-color="#581C87"/><stop offset="100%" stop-color="#1E1B4B"/>
+        </linearGradient>
+        <linearGradient id="cf-jade-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#CCFBF1"/><stop offset="42%" stop-color="#2EE6D3"/><stop offset="85%" stop-color="#0F766E"/><stop offset="100%" stop-color="#042F2E"/>
+        </linearGradient>
+        <linearGradient id="cf-obsidian-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#1E293B"/><stop offset="50%" stop-color="#0F172A"/><stop offset="100%" stop-color="#050811"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <span id="coin-hud-pill" style="background:rgba(15,22,34,0.92);border:1px solid rgba(212,163,73,0.48);color:#f8fafc;padding:3px 11px;border-radius:99px;font-size:13px;font-weight:800;display:inline-flex;align-items:center;gap:6px;">
+      <svg class="cf-lib-icon" data-icon-id="aether_coin" width="16" height="16" viewBox="0 0 256 256" fill="none" aria-hidden="true">
+        <polygon points="128,14 208,48 242,128 208,208 128,242 48,208 14,128 48,48" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="6"/>
+        <polygon points="128,32 196,60 224,128 196,196 128,224 60,196 32,128 60,60" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="5"/>
+        <polygon points="128,52 150,106 204,128 150,150 128,204 106,150 52,128 106,106" fill="url(#cf-gold-grad)"/>
+        <polygon points="128,84 148,128 128,172 108,128" fill="url(#cf-cyan-grad)"/>
+      </svg>
+      <span id="player-coins">380</span>
     </span>
-    <button class="dev-drawer-toggle" onclick="toggleDevCameraDrawer()" title="Camera, Stage, Deck & Dev Settings">⚙️</button>
-    <button class="hud-square-icon-btn" onclick="toggleAdaptiveBgm()" title="Toggle Adaptive BGM">🔈</button>
-    <button class="hud-square-icon-btn" onclick="toggleMuteAudio()" title="Toggle Master SFX">🔊</button>
+    <button class="dev-drawer-toggle" onclick="toggleDevCameraDrawer()" title="Camera, Stage, Deck & Dev Settings" aria-label="Settings">
+      <svg class="cf-lib-icon" data-icon-id="citadel_gear" width="17" height="17" viewBox="0 0 256 256" fill="none" aria-hidden="true">
+        <g stroke="url(#cf-gold-grad)" stroke-width="20" stroke-linecap="round">
+          <line x1="128" y1="16" x2="128" y2="240"/><line x1="16" y1="128" x2="240" y2="128"/>
+          <line x1="49" y1="49" x2="207" y2="207"/><line x1="207" y1="49" x2="49" y2="207"/>
+        </g>
+        <circle cx="128" cy="128" r="82" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="14"/>
+        <polygon points="128,68 146,110 188,128 146,146 128,188 110,146 68,128 110,110" fill="url(#cf-gold-grad)"/>
+        <circle cx="128" cy="128" r="24" fill="url(#cf-cyan-grad)"/>
+      </svg>
+    </button>
+    <button class="hud-square-icon-btn" id="top-bgm-icon-btn" onclick="toggleAdaptiveBgm()" title="Toggle Adaptive BGM" aria-label="Toggle Adaptive BGM">
+      <svg class="cf-lib-icon" data-icon-id="bgm_chime" width="16" height="16" viewBox="0 0 256 256" fill="none" aria-hidden="true">
+        <circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8"/>
+        <path d="M76,188 C58,148 64,88 94,54 L112,72 C92,98 88,142 102,174 Z" fill="url(#cf-gold-grad)"/>
+        <path d="M180,188 C198,148 192,88 162,54 L144,72 C164,98 168,142 154,174 Z" fill="url(#cf-gold-grad)"/>
+        <rect x="72" y="182" width="112" height="20" rx="8" fill="url(#cf-gold-grad)"/>
+        <line x1="112" y1="68" x2="112" y2="182" stroke="url(#cf-cyan-grad)" stroke-width="8"/>
+        <line x1="144" y1="68" x2="144" y2="182" stroke="url(#cf-cyan-grad)" stroke-width="8"/>
+      </svg>
+    </button>
+    <button class="hud-square-icon-btn" id="top-sfx-icon-btn" onclick="toggleMuteAudio()" title="Toggle Master SFX" aria-label="Toggle Master SFX">
+      <svg class="cf-lib-icon" data-icon-id="sfx_horn" width="16" height="16" viewBox="0 0 256 256" fill="none" aria-hidden="true">
+        <circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8"/>
+        <polygon points="46,104 86,104 138,60 138,196 86,152 46,152" fill="url(#cf-gold-grad)"/>
+        <path d="M160,92 C178,108 178,148 160,164" stroke="url(#cf-cyan-grad)" stroke-width="12" stroke-linecap="round"/>
+        <path d="M184,68 C212,98 212,158 184,188" stroke="url(#cf-cyan-grad)" stroke-width="12" stroke-linecap="round"/>
+      </svg>
+    </button>
 
     <div class="dev-camera-drawer collapsed" id="dev-camera-drawer">
       <select id="camera-select" onchange="setBoardCamera(this.value)" title="3D Board Camera Angle">
-        <option value="5,0">🎥 View: 3D Showcase (5°)</option>
-        <option value="0,0">🎥 View: Flat 2D (0°)</option>
-        <option value="14,0">🎥 View: Tabletop (14°)</option>
+        <option value="5,0">View: 3D Showcase (5°)</option>
+        <option value="0,0">View: Flat 2D (0°)</option>
+        <option value="14,0">View: Tabletop (14°)</option>
       </select>
       <select id="stage-select" onchange="startStage(parseInt(this.value, 10))">
         <option value="0">Act I-1: Skystone Sanctuary</option>
@@ -1482,13 +1761,15 @@
         <option value="13">Act V-14: Trigger Cross-Star</option>
         <option value="14">Act V-15: Omega Chronos Prime</option>
       </select>
-      <button onclick="openDeckbuilderModal()" style="border-color:var(--gold);color:var(--gold);">🃏 Deck (60)</button>
-      <button onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">🧊 3D Pawn</button>
-      <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking">🎵 BGM: OFF</button>
-      <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus">🔊 SFX</button>
-      <button id="reroll-btn" onclick="rerollAllDice()" style="background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;">🎲 Reroll (<span id="reroll-left">2</span>)</button>
-      <button onclick="triggerAllBoardTelegraphs()">⚡ Pulse</button>
-      <button onclick="startStage(state.stageIndex)">↻ Reset</button>
+      <button id="drawer-deck-btn" onclick="openDeckbuilderModal()" style="border-color:var(--gold);color:var(--gold);">Deck (60)</button>
+      <button id="drawer-map-btn" onclick="openCampaignMapOverlay()" style="border-color:#38bdf8;color:#7dd3fc;" title="Open Citadel Campaign Map & Boss Dossier">Campaign Map</button>
+      <button id="drawer-plugins-btn" onclick="equipSovereignPluginSquad()" style="border-color:#a855f7;color:#e9d5ff;" title="Equip the 4 Mythic Sovereign Agent Plugins into your active 5-card squad">Plugins (4)</button>
+      <button id="drawer-pawn-btn" onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">3D Pawn</button>
+      <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking">BGM: OFF</button>
+      <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus">SFX</button>
+      <button id="reroll-btn" onclick="rerollAllDice()" style="background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;"><span style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;">Roll All 3D Dice </span>Reroll (<span id="reroll-left">2</span>)</button>
+      <button id="drawer-pulse-btn" onclick="triggerAllBoardTelegraphs()">Pulse</button>
+      <button id="drawer-reset-btn" aria-label="↻ Reset" onclick="startStage(state.stageIndex)">Reset</button>
     </div>
   </div>
 </header>
@@ -1506,7 +1787,7 @@
             <span id="boss-name" style="display:none;">Eclipse Void Blade</span>
             <span style="display:none;">NUDGES: <span id="nudge-left">2</span></span>
           </div>
-          <div class="boss-crest-sub" id="boss-crest-telegraph">⚠️ TELEGRAPH: Sub-Zero Latitude - Next Construct: Cryo Interface</div>
+          <div class="boss-crest-sub" id="boss-crest-telegraph">TELEGRAPH: Sub-Zero Latitude - Next Construct: Cryo Interface</div>
           <div id="boss-telegraph-label" style="display:none;">Telegraph: Sub-Zero Latitude</div>
           <div id="boss-intent-preview" style="display:none;">Next Construct incoming on target tile.</div>
         </div>
@@ -1519,14 +1800,23 @@
     </div>
 
     <div class="arena-3d-viewport" id="arena-viewport">
+      <!-- STANDALONE 3x3 CITADEL GAMEBOARD -->
       <div class="board-3d-slab" id="board-3d-slab">
         <div class="col-headers" id="col-headers"></div>
         <div class="grid-3x3" id="grid-3x3" role="grid" aria-label="3 by 3 tactical card board"></div>
-        <div class="tabletop-deck-stack" onclick="openDeckbuilderModal()" title="Open 60-Card Set 1 Deckbuilder">
-          <svg width="44" height="44" viewBox="0 0 44 44" style="opacity:0.65;">
-            <circle cx="22" cy="22" r="16" fill="none" stroke="#9a7b4f" stroke-width="1.5"/>
-            <path d="M 22 9 A 13 13 0 1 0 34 26 A 10 10 0 1 1 22 9 Z" fill="#9a7b4f"/>
-          </svg>
+      </div>
+
+      <!-- STANDALONE 60-CARD GRIMOIRE DECK SANCTUM (SEPARATE VISUAL OUTSIDE THE GAMEBOARD) -->
+      <div class="standalone-deck-sanctum" id="standalone-deck-sanctum">
+        <div class="tabletop-deck-stack" id="tabletop-deck-stack" onclick="openDeckbuilderModal()" title="Open 60-Card Set 1 Deckbuilder">
+          <div class="deck-reliquary-header">
+            <span>DECK</span>
+            <span id="tabletop-deck-count-pill">60</span>
+          </div>
+          <div class="deck-3d-card-monolith">
+            <img src="./GeneratedArt/Icons/cf_cardback_astrolabe.svg" alt="Cradle of Echoes Astrolabe Card Back" class="deck-cardback-svg" draggable="false" />
+          </div>
+          <div class="deck-reliquary-plinth">GRIMOIRE</div>
         </div>
       </div>
     </div>
@@ -1552,19 +1842,60 @@
   </aside>
 </main>
 
+<div id="boss-cutin-banner" class="boss-cutin-banner" aria-live="polite">
+  <svg class="sakuga-speedlines-svg" viewBox="0 0 600 90" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.55;mix-blend-mode:screen;">
+    <line x1="0" y1="12" x2="600" y2="4" stroke="url(#cf-cyan-grad)" stroke-width="2.5" stroke-dasharray="90 30"/>
+    <line x1="0" y1="45" x2="600" y2="38" stroke="url(#cf-gold-grad)" stroke-width="3.5" stroke-dasharray="140 40"/>
+    <line x1="0" y1="78" x2="600" y2="70" stroke="url(#cf-crimson-grad)" stroke-width="2.5" stroke-dasharray="110 35"/>
+    <polygon class="trigger-star-flare" points="540,45 552,39 558,22 564,39 580,45 564,51 558,68 552,51" fill="url(#cf-gold-grad)"/>
+    <polygon class="trigger-star-flare" points="48,24 54,20 58,10 62,20 72,24 62,28 58,38 54,28" fill="url(#cf-cyan-grad)"/>
+  </svg>
+  <img id="cutin-boss-avatar" src="./GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss Cut-In" style="width:52px;height:52px;border-radius:50%;border:2.5px solid var(--gold);object-fit:cover;z-index:2;box-shadow:0 0 18px rgba(0,229,255,0.8);" />
+  <div style="z-index:2;">
+    <div id="cutin-stage-kicker" style="font-size:12px;font-weight:900;color:var(--gold);letter-spacing:1.4px;text-transform:uppercase;">STUDIO TRIGGER · OMEGA SAKUGA TELEGRAPH CUT-IN</div>
+    <div id="cutin-boss-title" style="font-size:17px;font-weight:900;color:#fff;text-shadow:2px 0 #ff2e54, -2px 0 #00e5ff;">Eclipse Void Blade — Telegraph Active</div>
+  </div>
+</div>
+
 <div id="last-move-banner" class="hint-toast-floating" aria-live="polite">
-  💡 Drag a Hero Card onto any open tile (or click a card, then click a tile).<br/>Drag your Blue board cards 1 tile to Tactical Slide.
+  Drag a Hero Card onto any open tile (or click a card, then click a tile).<br/>Drag your Blue board cards 1 tile to Tactical Slide.
 </div>
 
 <div class="modal-backdrop" id="result-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal-box">
+  <div class="modal-box" style="max-width:580px;">
     <div id="modal-kicker" style="font-size:12px;font-weight:900;color:var(--gold);letter-spacing:1.2px;">MATCH COMPLETE</div>
     <h2 id="modal-title" style="font-size:24px;font-weight:900;">VICTORY!</h2>
     <p id="modal-desc" style="font-size:13px;color:#cbd5e1;line-height:1.45;"></p>
-    <div style="display:flex;gap:10px;justify-content:center;margin-top:4px;">
-      <button id="play-again-btn" onclick="closeModal(false)">Play Again</button>
-      <button id="next-stage-btn" onclick="closeModal(true)" style="background:linear-gradient(135deg,#00e5ff,#0072ff);border-color:#fff;">Next Stage ▶</button>
+    <div id="victory-spoils-panel" class="victory-spoils-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:900;color:var(--gold);">
+        <span>SCENE C · POST-VICTORY SPOILS DRAFT (PICK 1 OF 3)</span>
+        <span id="victory-spoils-status" style="color:#7dd3fc;">Select a reward card or forge +1 stat</span>
+      </div>
+      <div id="victory-spoils-draft" class="victory-spoils-draft"></div>
+      <div id="victory-quick-forge" class="victory-quick-forge">
+        <span>CardCraft Quick Forge: Upgrade Lead Hero (+1 All Sides)</span>
+        <button id="victory-forge-btn" onclick="forgeHeroStatFromVictory()" style="background:linear-gradient(135deg,#8b5cf6,#4c1d95);border-color:#c4b5fd;font-size:12px;padding:4px 10px;">Forge +1 (100 Coins)</button>
+      </div>
     </div>
+    <div style="display:flex;gap:10px;justify-content:center;margin-top:4px;flex-wrap:wrap;">
+      <button id="play-again-btn" onclick="closeModal(false)">Play Again</button>
+      <button id="victory-map-btn" onclick="openCampaignMapOverlay()" style="border-color:#38bdf8;color:#7dd3fc;">Campaign Map</button>
+      <button id="next-stage-btn" aria-label="Next Stage ▶" onclick="closeModal(true)" style="background:linear-gradient(135deg,#00e5ff,#0072ff);border-color:#fff;">Next Stage</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCENE A: IVALICE CITADEL CAMPAIGN MAP & BOSS DOSSIER OVERLAY -->
+<div class="modal-backdrop" id="campaign-map-overlay" role="dialog" aria-modal="true" aria-labelledby="campaign-map-title">
+  <div class="modal-box" style="max-width:820px;width:95%;max-height:86vh;overflow-y:auto;text-align:left;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2b4478;padding-bottom:8px;flex-wrap:wrap;gap:8px;">
+      <div>
+        <div style="font-size:12px;font-weight:900;color:var(--gold);letter-spacing:1px;">SCENE A · IVALICE CITADEL TACTICAL PROGRESSION</div>
+        <h3 id="campaign-map-title" style="font-size:18px;font-weight:900;color:#fff;">5-Act Boss Dossier &amp; Stage Select</h3>
+      </div>
+      <button onclick="closeCampaignMapOverlay()">Close Map</button>
+    </div>
+    <div id="campaign-map-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:6px 0;"></div>
   </div>
 </div>
 
@@ -1577,10 +1908,11 @@
         <h3 style="font-size:16px;font-weight:900;color:#fff;">60-Card Deckbuilder, Booster Pack &amp; CardCraft Forge</h3>
       </div>
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-        <button id="deck-autobuild-btn" onclick="autoBuildBestSquad()" style="background:linear-gradient(135deg,#0284c7,#0369a1);border-color:#7dd3fc;">⚡ Auto-Build Best 5</button>
-        <button onclick="openBoosterPackUI()" style="background:linear-gradient(135deg,#f59e0b,#b45309);border-color:#fde68a;">🎁 Open Pack (100 🪙)</button>
-        <button onclick="evolveCardCraftUI()" style="background:linear-gradient(135deg,#8b5cf6,#4c1d95);border-color:#c4b5fd;">⚒️ CardCraft +1 (150 🪙)</button>
-        <button onclick="closeDeckbuilderModal()">✕ Close</button>
+        <button id="deck-autobuild-btn" onclick="autoBuildBestSquad()" style="background:linear-gradient(135deg,#0284c7,#0369a1);border-color:#7dd3fc;">Auto-Build Best 5</button>
+        <button id="deck-sovereign-plugins-btn" onclick="equipSovereignPluginSquad()" style="background:linear-gradient(135deg,#7e22ce,#4c1d95);border-color:#e9d5ff;">Equip Sovereign Plugins (4)</button>
+        <button id="deck-booster-btn" onclick="openBoosterPackUI()" style="background:linear-gradient(135deg,#f59e0b,#b45309);border-color:#fde68a;">Open Pack (100)</button>
+        <button id="deck-cardcraft-btn" onclick="evolveCardCraftUI()" style="background:linear-gradient(135deg,#8b5cf6,#4c1d95);border-color:#c4b5fd;">CardCraft +1 (150)</button>
+        <button onclick="closeDeckbuilderModal()">Close</button>
       </div>
     </div>
     <div id="deckbuilder-squad-summary" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12px;color:#e2e8f0;background:rgba(15,23,42,0.92);padding:7px 10px;border-radius:8px;border:1px solid rgba(0,229,255,0.4);"></div>
@@ -1609,7 +1941,7 @@
         <div style="font-size:12px;font-weight:900;color:var(--blue-ally);letter-spacing:1px;">HI3DGEN + TRELLIS 2.0 WATERTIGHT MESH INSPECTOR</div>
         <h3 id="pawn3d-title" style="font-size:16px;font-weight:900;color:#fff;">3D .glb / .q3gs Hologram Pawn</h3>
       </div>
-      <button onclick="close3DPawnInspectorModal()">✕ Close</button>
+      <button onclick="close3DPawnInspectorModal()">Close</button>
     </div>
     <canvas id="pawn3d-canvas" width="520" height="300" style="width:100%;height:260px;background:radial-gradient(circle,#122449 0%,#050914 85%);border-radius:12px;border:1px solid #304d85;cursor:grab;"></canvas>
     <div id="pawn3d-telemetry" style="font-family:ui-monospace,monospace;font-size:12px;color:#93c5fd;background:#070c18;padding:8px 10px;border-radius:8px;border:1px solid #1e3a8a;text-align:left;"></div>
@@ -1618,6 +1950,39 @@
 
 <script>
 if (location.search.includes("dragtest=1")) { window.addEventListener("error", (e) => { fetch("/__osascript_report__?name=dragerr", { method: "POST", body: JSON.stringify({ msg: e.message, line: e.lineno, col: e.colno }) }); }); }
+
+// ============================================================================
+// 0. CARDFRONT ATELIER BESPOKE SVG ICON & EMBLEM LIBRARY (ZERO GENERIC EMOJIS)
+// ============================================================================
+const CF_ICON_BODIES = {
+  aether_coin: `<polygon points="128,14 208,48 242,128 208,208 128,242 48,208 14,128 48,48" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="6"/><polygon points="128,32 196,60 224,128 196,196 128,224 60,196 32,128 60,60" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="5"/><polygon points="128,52 150,106 204,128 150,150 128,204 106,150 52,128 106,106" fill="url(#cf-gold-grad)"/><polygon points="128,84 148,128 128,172 108,128" fill="url(#cf-cyan-grad)"/>`,
+  citadel_gear: `<g stroke="url(#cf-gold-grad)" stroke-width="20" stroke-linecap="round"><line x1="128" y1="16" x2="128" y2="240"/><line x1="16" y1="128" x2="240" y2="128"/><line x1="49" y1="49" x2="207" y2="207"/><line x1="207" y1="49" x2="49" y2="207"/></g><circle cx="128" cy="128" r="82" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="14"/><polygon points="128,68 146,110 188,128 146,146 128,188 110,146 68,128 110,110" fill="url(#cf-gold-grad)"/><circle cx="128" cy="128" r="24" fill="url(#cf-cyan-grad)"/>`,
+  bgm_chime: `<circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8"/><path d="M76,188 C58,148 64,88 94,54 L112,72 C92,98 88,142 102,174 Z" fill="url(#cf-gold-grad)"/><path d="M180,188 C198,148 192,88 162,54 L144,72 C164,98 168,142 154,174 Z" fill="url(#cf-gold-grad)"/><rect x="72" y="182" width="112" height="20" rx="8" fill="url(#cf-gold-grad)"/><line x1="112" y1="68" x2="112" y2="182" stroke="url(#cf-cyan-grad)" stroke-width="8"/><line x1="144" y1="68" x2="144" y2="182" stroke="url(#cf-cyan-grad)" stroke-width="8"/>`,
+  sfx_horn: `<circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8"/><polygon points="46,104 86,104 138,60 138,196 86,152 46,152" fill="url(#cf-gold-grad)"/><path d="M160,92 C178,108 178,148 160,164" stroke="url(#cf-cyan-grad)" stroke-width="12" stroke-linecap="round"/><path d="M184,68 C212,98 212,158 184,188" stroke="url(#cf-cyan-grad)" stroke-width="12" stroke-linecap="round"/>`,
+  sfx_muted: `<circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-crimson-grad)" stroke-width="8"/><polygon points="46,104 86,104 138,60 138,196 86,152 46,152" fill="url(#cf-gold-grad)" opacity="0.6"/><line x1="162" y1="96" x2="210" y2="160" stroke="url(#cf-crimson-grad)" stroke-width="16" stroke-linecap="round"/><line x1="210" y1="96" x2="162" y2="160" stroke="url(#cf-crimson-grad)" stroke-width="16" stroke-linecap="round"/>`,
+  telegraph_hazard: `<polygon points="128,16 240,128 128,240 16,128" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="12"/><polygon points="128,44 212,128 128,212 44,128" fill="url(#cf-obsidian-grad)"/><polygon points="128,66 144,84 136,150 120,150 112,84" fill="url(#cf-gold-grad)"/><circle cx="128" cy="178" r="14" fill="url(#cf-gold-grad)"/>`,
+  astral_surge: `<polygon points="128,20 222,74 222,182 128,236 34,182 34,74" fill="url(#cf-obsidian-grad)" stroke="url(#cf-cyan-grad)" stroke-width="10"/><polygon points="148,18 66,136 124,136 102,238 194,114 134,114" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="5" stroke-linejoin="round"/><polygon points="142,46 88,128 128,128 114,202 172,120 132,120" fill="url(#cf-cyan-grad)"/>`,
+  grimoire_deck: `<rect x="44" y="42" width="112" height="164" rx="12" transform="rotate(-12 100 124)" fill="url(#cf-obsidian-grad)" stroke="url(#cf-violet-grad)" stroke-width="8"/><rect x="100" y="42" width="112" height="164" rx="12" transform="rotate(12 156 124)" fill="url(#cf-obsidian-grad)" stroke="url(#cf-cyan-grad)" stroke-width="8"/><rect x="68" y="34" width="120" height="172" rx="14" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><polygon points="128,74 142,106 174,118 142,130 128,162 114,130 82,118 114,106" fill="url(#cf-cyan-grad)"/>`,
+  staccs_die: `<polygon points="128,20 228,76 128,132 28,76" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="5"/><polygon points="28,76 128,132 128,236 28,180" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8"/><polygon points="228,76 128,132 128,236 228,180" fill="#131C31" stroke="url(#cf-cyan-grad)" stroke-width="8"/><circle cx="128" cy="76" r="14" fill="#0F172A"/><circle cx="74" cy="148" r="12" fill="url(#cf-gold-grad)"/><circle cx="178" cy="156" r="12" fill="url(#cf-cyan-grad)"/>`,
+  tactical_lantern: `<polygon points="128,20 186,96 160,188 96,188 70,96" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="8" stroke-linejoin="round"/><polygon points="128,20 156,96 128,188 100,96" fill="#E0FFFF" opacity="0.6"/><rect x="88" y="196" width="80" height="22" rx="6" fill="url(#cf-gold-grad)"/>`,
+  victory_laurel: `<path d="M40,68 C18,118 42,178 96,204 C64,164 58,116 74,76 Z" fill="url(#cf-gold-grad)"/><path d="M216,68 C238,118 214,178 160,204 C192,164 198,116 182,76 Z" fill="url(#cf-gold-grad)"/><path d="M76,44 H180 L166,136 C162,162 94,162 90,136 Z" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="6"/><rect x="114" y="154" width="28" height="44" fill="url(#cf-gold-grad)"/><polygon points="80,200 176,200 190,228 66,228" fill="url(#cf-gold-grad)"/><polygon points="128,62 138,88 166,98 138,108 128,134 118,108 90,98 118,88" fill="url(#cf-cyan-grad)"/>`,
+  defeat_shatter: `<polygon points="128,14 156,74 222,42 184,104 242,142 174,158 202,226 138,184 102,242 94,172 24,194 68,132 18,82 88,84" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="6"/><polygon points="128,54 146,98 190,82 162,122 198,150 152,158 166,200 128,170 92,202 98,154 54,162 86,124 58,92 104,96" fill="url(#cf-obsidian-grad)"/>`,
+  judge_aegis: `<path d="M128,18 L220,56 V128 C220,184 178,222 128,242 C78,222 36,184 36,128 V56 Z" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="12"/><polygon points="128,54 142,114 186,128 142,142 128,202 114,142 70,128 114,114" fill="url(#cf-gold-grad)"/><circle cx="128" cy="128" r="16" fill="url(#cf-cyan-grad)"/>`,
+  booster_reliquary: `<polygon points="48,92 128,44 208,92 208,204 48,204" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><polygon points="40,96 128,48 216,96 196,124 60,124" fill="url(#cf-gold-grad)"/><rect x="64" y="124" width="128" height="76" rx="6" fill="url(#cf-violet-grad)" stroke="url(#cf-gold-grad)" stroke-width="6"/><polygon points="128,94 148,124 128,154 108,124" fill="url(#cf-cyan-grad)"/>`,
+  cardcraft_anvil: `<line x1="64" y1="164" x2="188" y2="40" stroke="url(#cf-gold-grad)" stroke-width="16" stroke-linecap="round"/><polygon points="148,24 224,64 200,98 124,58" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="6"/><path d="M36,156 H220 L194,188 H164 L180,224 H76 L92,188 H62 Z" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/>`,
+  hologram_prism: `<ellipse cx="128" cy="218" rx="76" ry="18" fill="none" stroke="url(#cf-gold-grad)" stroke-width="6"/><polygon points="128,20 218,122 128,206 38,122" fill="url(#cf-cyan-grad)" opacity="0.4" stroke="url(#cf-cyan-grad)" stroke-width="10"/><line x1="128" y1="20" x2="128" y2="206" stroke="#E0FFFF" stroke-width="6"/><line x1="38" y1="122" x2="218" y2="122" stroke="#E0FFFF" stroke-width="6"/><circle cx="128" cy="122" r="16" fill="url(#cf-gold-grad)"/>`,
+  lock_seal: `<path d="M84,112 V78 C84,50 104,32 128,32 C152,32 172,50 172,78 V112" stroke="url(#cf-gold-grad)" stroke-width="18" stroke-linecap="round"/><rect x="52" y="108" width="152" height="118" rx="18" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><circle cx="128" cy="154" r="18" fill="url(#cf-gold-grad)"/><polygon points="118,162 138,162 144,200 112,200" fill="url(#cf-gold-grad)"/>`,
+  sovereign_crown: `<polygon points="28,188 46,78 92,132 128,44 164,132 210,78 228,188" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="6" stroke-linejoin="round"/><rect x="36" y="188" width="184" height="26" rx="8" fill="url(#cf-violet-grad)" stroke="url(#cf-gold-grad)" stroke-width="6"/><circle cx="128" cy="144" r="16" fill="url(#cf-cyan-grad)"/>`,
+  faction_link: `<circle cx="96" cy="128" r="56" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="18"/><circle cx="160" cy="128" r="56" fill="none" stroke="url(#cf-gold-grad)" stroke-width="18"/><polygon points="128,88 142,118 172,128 142,138 128,168 114,138 84,128 114,118" fill="url(#cf-jade-grad)"/>`,
+  ally_crest: `<polygon points="128,16 232,128 128,240 24,128" fill="url(#cf-cyan-grad)" stroke="url(#cf-gold-grad)" stroke-width="12"/><polygon points="128,56 192,128 128,200 64,128" fill="url(#cf-obsidian-grad)"/><circle cx="128" cy="128" r="24" fill="url(#cf-cyan-grad)"/>`,
+  boss_crest: `<polygon points="128,14 236,82 198,232 58,232 20,82" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="12"/><polygon points="128,48 198,96 172,202 84,202 58,96" fill="url(#cf-obsidian-grad)"/><polygon points="128,76 156,136 128,186 100,136" fill="url(#cf-crimson-grad)"/>`
+};
+
+function cfIcon(name, size = 14, extraStyle = "") {
+  const body = CF_ICON_BODIES[name] || CF_ICON_BODIES.astral_surge;
+  return `<svg class="cf-lib-icon" data-icon-id="${name}" width="${size}" height="${size}" viewBox="0 0 256 256" fill="none" aria-hidden="true" style="${extraStyle}">${body}</svg>`;
+}
+
 // ============================================================================
 // 1. 16 CARDS WITH UNIQUE DYNAMIC TELEGRAPH PROFILES & SVG ANIMATION GENERATORS
 // ============================================================================
@@ -1805,6 +2170,70 @@ const ENEMY_MECHS = [
 
 const ALL_CARDS = {};
 [...PLAYER_HEROES, ...ENEMY_MECHS].forEach(c => { ALL_CARDS[c.id] = c; });
+
+const SOVEREIGN_AGENT_PLUGINS = [
+  {
+    id: "plugin_01_tcg_creative_designer",
+    name: "Grand Arcanist of CardCraft",
+    faction: "Aether",
+    nesw: [8, 7, 6, 7],
+    starCost: 2,
+    art: "./GeneratedArt/AgentDeck/Cards/plugin_01_tcg_creative_designer.png",
+    glbRelic: "Assets/Resources/Models3D/AgentDeck/agent_01_grand_arcanist_designer.glb",
+    telegraphName: "3×3 Atelier Prism Lock",
+    telegraphType: "PLUGIN · tcg-creative-game-designer",
+    telegraphColor: "#A855F7",
+    telegraphPattern: "prism_laser",
+    telegraphDesc: "Compiles 8-block morphological art briefs, 600×800 portraits, & 256×256 SVG telegraphs."
+  },
+  {
+    id: "plugin_02_parallel_swarm_orchestrator",
+    name: "Chronos Swarm Commander",
+    faction: "Chronos",
+    nesw: [7, 8, 6, 7],
+    starCost: 2,
+    art: "./GeneratedArt/AgentDeck/Cards/plugin_02_parallel_swarm_orchestrator.png",
+    glbRelic: "Assets/Resources/Models3D/AgentDeck/agent_02_chronos_swarm_commander.glb",
+    telegraphName: "Tri-Portal Worktree Fan-Out",
+    telegraphType: "PLUGIN · parallel-swarm-orchestrator",
+    telegraphColor: "#F97316",
+    telegraphPattern: "chrono_gear",
+    telegraphDesc: "Summons parallel subagents in isolated git worktrees (share/branch) with shared memory."
+  },
+  {
+    id: "plugin_03_jev_system_one",
+    name: "Hallowed Arbiter of System One",
+    faction: "Solaris",
+    nesw: [8, 6, 8, 6],
+    starCost: 2,
+    art: "./GeneratedArt/AgentDeck/Cards/plugin_03_jev_system_one.png",
+    glbRelic: "Assets/Resources/Models3D/AgentDeck/agent_03_hallowed_arbiter_jev.glb",
+    telegraphName: "Octagonal Law-Seal Gate",
+    telegraphType: "PLUGIN · jev-system-one (jev.dev)",
+    telegraphColor: "#2EE6D3",
+    telegraphPattern: "judge_hex",
+    telegraphDesc: "Screens untrusted input (jev_screen) & gates diffs with calibrated probabilities (jev_gate)."
+  },
+  {
+    id: "plugin_04_mlx_apple_silicon",
+    name: "A18 Pro Metal Forge Sovereign",
+    faction: "Valkyria",
+    nesw: [7, 7, 7, 7],
+    starCost: 2,
+    art: "./GeneratedArt/AgentDeck/Cards/plugin_04_mlx_apple_silicon.png",
+    glbRelic: "Assets/Resources/Models3D/AgentDeck/agent_04_a18_pro_metal_sovereign.glb",
+    telegraphName: "Single-Pass Logit Diamond",
+    telegraphType: "PLUGIN · mlx-apple-silicon (jevmlx)",
+    telegraphColor: "#00E5FF",
+    telegraphPattern: "trigger_star",
+    telegraphDesc: "Executes zero-latency Choice, Score & Noul decisions on Apple Silicon Metal GPU."
+  }
+];
+const AGENT_PLUGIN_CARDS_BY_ID = {};
+SOVEREIGN_AGENT_PLUGINS.forEach(p => {
+  AGENT_PLUGIN_CARDS_BY_ID[p.id] = p;
+  Object.defineProperty(ALL_CARDS, p.id, { value: p, enumerable: false, writable: true, configurable: true });
+});
 
 // ============================================================================
 // 2. UNIQUE DYNAMIC SVG TELEGRAPH GENERATOR FOR EACH OF THE 16 CARDS
@@ -2005,6 +2434,7 @@ let actx = null;
 let masterGain = null;
 let masterBusGain = null;
 let musicDuckBusGain = null;
+let bgmFilterNode = null;
 let sfxBus = null;
 let sfxBusGain = null;
 let sfxCompressor = null;
@@ -2031,6 +2461,10 @@ function ensureAudioMixer() {
       masterBusGain = actx.createGain();
       masterGain = masterBusGain;
       musicDuckBusGain = actx.createGain();
+      bgmFilterNode = actx.createBiquadFilter();
+      bgmFilterNode.type = "lowpass";
+      bgmFilterNode.frequency.setValueAtTime(920, actx.currentTime);
+      bgmFilterNode.Q.setValueAtTime(1.4, actx.currentTime);
       sfxBusGain = actx.createGain();
       sfxBus = sfxBusGain;
       sfxCompressor = actx.createDynamicsCompressor();
@@ -2042,7 +2476,8 @@ function ensureAudioMixer() {
       masterBusGain.gain.value = state.muted ? 0.0 : dbToLinearGain(slider01ToDb(0.85));
       musicDuckBusGain.gain.value = dbToLinearGain(slider01ToDb(0.65));
       sfxBusGain.gain.value = dbToLinearGain(slider01ToDb(0.88));
-      musicDuckBusGain.connect(masterBusGain);
+      musicDuckBusGain.connect(bgmFilterNode);
+      bgmFilterNode.connect(masterBusGain);
       sfxBusGain.connect(sfxCompressor);
       sfxCompressor.connect(masterBusGain);
       masterBusGain.connect(actx.destination);
@@ -2051,6 +2486,45 @@ function ensureAudioMixer() {
   if (actx && actx.state === "suspended") actx.resume();
 }
 
+const ProceduralSfx = {
+  nudge(pip = 4) {
+    playTone(4 + pip, "sine", 0.14);
+    setTimeout(() => playTone(11 + pip, "triangle", 0.09), 45);
+  },
+  reroll() {
+    playTone(6, "triangle", 0.12);
+    setTimeout(() => playTone(9, "sine", 0.12), 55);
+    setTimeout(() => playTone(12, "triangle", 0.16), 110);
+  },
+  phaseStinger() {
+    playTone(-2, "sawtooth", 0.18, true);
+    setTimeout(() => playTone(5, "triangle", 0.22), 70);
+  }
+};
+
+const ProceduralBgm = {
+  cutoffHz: 920,
+  tensionActive: false,
+  updateTensionState(imminentTelegraph, openSlotsCount) {
+    const highTension = Boolean(imminentTelegraph) || (typeof openSlotsCount === "number" && openSlotsCount <= 2);
+    const targetHz = highTension ? 1680 : 920;
+    const prevTension = this.tensionActive;
+    this.tensionActive = highTension;
+    this.cutoffHz = targetHz;
+    if (typeof state === "object" && state) {
+      state.audioTensionCutoffHz = targetHz;
+      state.audioTensionActive = highTension;
+    }
+    if (actx && bgmFilterNode) {
+      bgmFilterNode.frequency.setTargetAtTime(targetHz, actx.currentTime, 0.08);
+    }
+    if (highTension && !prevTension) {
+      ProceduralSfx.phaseStinger();
+    }
+    return targetHz;
+  }
+};
+
 function toggleMuteAudio() {
   state.muted = !state.muted;
   ensureAudioMixer();
@@ -2058,7 +2532,9 @@ function toggleMuteAudio() {
     masterGain.gain.setValueAtTime(state.muted ? 0.0 : dbToLinearGain(slider01ToDb(0.85)), actx.currentTime);
   }
   const btn = document.getElementById("mute-toggle-btn");
-  if (btn) btn.textContent = state.muted ? "🔇 Muted" : "🔊 SFX";
+  if (btn) btn.innerHTML = state.muted ? `${cfIcon("sfx_muted", 13)} Muted` : `${cfIcon("sfx_horn", 13)} SFX`;
+  const topBtn = document.getElementById("top-sfx-icon-btn");
+  if (topBtn) topBtn.innerHTML = cfIcon(state.muted ? "sfx_muted" : "sfx_horn", 16);
   saveProgressV1();
 }
 
@@ -2102,7 +2578,7 @@ function toggleAdaptiveBgm() {
   if (bgmTimer) {
     clearInterval(bgmTimer);
     bgmTimer = null;
-    if (btn) btn.textContent = "🎵 BGM: OFF";
+    if (btn) btn.innerHTML = `${cfIcon("bgm_chime", 13)} BGM: OFF`;
     return;
   }
   // Sakimoto-Yamada 128 BPM ostinato in D Dorian / Minor
@@ -2126,7 +2602,7 @@ function toggleAdaptiveBgm() {
     o.start(now);
     o.stop(now + 0.22);
   }, 234);
-  if (btn) btn.textContent = "🎵 BGM: ON";
+  if (btn) btn.innerHTML = `${cfIcon("bgm_chime", 13)} BGM: ON`;
 }
 
 // ============================================================================
@@ -2196,7 +2672,30 @@ function enforceSquadStarCap() {
 }
 
 function getCardMeta(cardId) {
-  return ALL_CARDS[cardId] || SET1_CARDS_BY_ID[cardId] || PLAYER_HEROES[0];
+  return ALL_CARDS[cardId] || AGENT_PLUGIN_CARDS_BY_ID[cardId] || SET1_CARDS_BY_ID[cardId] || PLAYER_HEROES[0];
+}
+
+function equipSovereignPluginSquad() {
+  const pluginIds = SOVEREIGN_AGENT_PLUGINS.map(p => p.id);
+  pluginIds.forEach(pid => {
+    if (!state.unlockedCards.includes(pid)) state.unlockedCards.push(pid);
+  });
+  state.activeDeck = [...pluginIds, "h_archangel"];
+  state.customDeckEquipped = true;
+  state.selectedDeckCardId = pluginIds[0];
+  if (state.isPlayerTurn && state.hand.length === 5 && !state.gameOver) {
+    state.hand = [...state.activeDeck];
+    updateTelegraphHud(state.hand[state.selectedHandIdx] || state.hand[0]);
+  }
+  saveProgressionV3();
+  const stEl = document.getElementById("deckbuilder-status");
+  if (stEl) {
+    const names = state.activeDeck.map(id => getCardMeta(id).name).join(" · ");
+    stEl.innerHTML = `${cfIcon("sovereign_crown", 14)} <b>Sovereign Agent Plugin Squad Equipped:</b> <b style="color:#e9d5ff;">${names}</b> (Ready on 3×3 Board).`;
+  }
+  playTone(12, "triangle", 0.22, true);
+  renderDeckbuilderGrid();
+  renderAll();
 }
 
 function fnv1a64Hex(str) {
@@ -2451,7 +2950,7 @@ function autoBuildBestSquad() {
     const totalStars = getSquadTotalStars(best5);
     const stEl = document.getElementById("deckbuilder-status");
     if (stEl) {
-      stEl.innerHTML = `⚡ <b>Auto-Built Synergy Squad (${totalStars}/${MAX_SQUAD_STARS}★):</b> <b style="color:var(--gold);">${names}</b> (Equipped to Hand).`;
+      stEl.innerHTML = `${cfIcon("astral_surge", 14)} <b>Auto-Built Synergy Squad (${totalStars}/${MAX_SQUAD_STARS}★):</b> <b style="color:var(--gold);">${names}</b> (Equipped to Hand).`;
     }
     renderDeckbuilderGrid();
     renderAll();
@@ -2463,7 +2962,7 @@ function toggleDeckCard(cid) {
   if (!state.unlockedCards.includes(cid)) {
     const stEl = document.getElementById("deckbuilder-status");
     if (stEl) {
-      stEl.innerHTML = `🔒 <b>${cardMeta ? cardMeta.name : cid}</b> is locked! Click <b>🎁 Open Pack (100 🪙)</b> or win matches to unlock Set 1 cards (${state.unlockedCards.length}/60 owned).`;
+      stEl.innerHTML = `${cfIcon("lock_seal", 14)} <b>${cardMeta ? cardMeta.name : cid}</b> is locked! Click <b>${cfIcon("booster_reliquary", 13)} Open Pack (100 ${cfIcon("aether_coin", 12)})</b> or win matches to unlock Set 1 cards (${state.unlockedCards.length}/60 owned).`;
     }
     playTone(-4, "sawtooth", 0.12);
     return;
@@ -2502,7 +3001,7 @@ function toggleDeckCard(cid) {
   if (stEl) {
     const squadNames = state.activeDeck.map(id => getCardMeta(id).name).join(" · ");
     const totalStars = getSquadTotalStars(state.activeDeck);
-    stEl.innerHTML = `✅ <b>Active Squad (${state.activeDeck.length}/5 · ${totalStars}/${MAX_SQUAD_STARS}★):</b> <b style="color:var(--gold);">${squadNames}</b>`;
+    stEl.innerHTML = `${cfIcon("faction_link", 14)} <b>Active Squad (${state.activeDeck.length}/5 · ${totalStars}/${MAX_SQUAD_STARS}★):</b> <b style="color:var(--gold);">${squadNames}</b>`;
   }
   renderDeckbuilderGrid();
   renderAll();
@@ -2510,7 +3009,7 @@ function toggleDeckCard(cid) {
 
 function openBoosterPackUI() {
   if (state.coins < 100) {
-    document.getElementById("deckbuilder-status").innerHTML = "⚠️ Need <b>100 🪙</b> to open a Set 1 Booster Pack! Win matches to earn coins.";
+    document.getElementById("deckbuilder-status").innerHTML = `${cfIcon("telegraph_hazard", 14)} Need <b>100 ${cfIcon("aether_coin", 13)}</b> to open a Set 1 Booster Pack! Win matches to earn coins.`;
     playTone(-4, "sawtooth", 0.16);
     return;
   }
@@ -2524,20 +3023,20 @@ function openBoosterPackUI() {
   playTone(10, "triangle", 0.25, true);
   saveProgressionV3();
   document.getElementById("deckbuilder-status").innerHTML =
-    `🎁 <b>Booster Pack Opened!</b> Unlocked: <b style="color:var(--gold);">${pulled.join(", ")}</b> (${state.unlockedCards.length}/60 Set 1 Cards Owned).`;
+    `${cfIcon("booster_reliquary", 14)} <b>Booster Pack Opened!</b> Unlocked: <b style="color:var(--gold);">${pulled.join(", ")}</b> (${state.unlockedCards.length}/60 Set 1 Cards Owned).`;
   renderDeckbuilderGrid();
 }
 
 function evolveCardCraftUI() {
   if (state.coins < 150) {
-    document.getElementById("deckbuilder-status").innerHTML = "⚠️ Need <b>150 🪙</b> for CardCraft +1 Stat Evolution!";
+    document.getElementById("deckbuilder-status").innerHTML = `${cfIcon("telegraph_hazard", 14)} Need <b>150 ${cfIcon("aether_coin", 13)}</b> for CardCraft +1 Stat Evolution!`;
     playTone(-4, "sawtooth", 0.16);
     return;
   }
   const targetCid = state.selectedDeckCardId || state.activeDeck[0] || "h_archangel";
   state.coins -= 150;
   state.cardEvolutions[targetCid] = (state.cardEvolutions[targetCid] || 0) + 1;
-  const c = ALL_CARDS[targetCid];
+  const c = ALL_CARDS[targetCid] || AGENT_PLUGIN_CARDS_BY_ID[targetCid];
   if (c) c.nesw = c.nesw.map(v => Math.min(9, v + 1));
   const sc = SET1_CARDS_BY_ID[targetCid];
   if (sc && sc !== c) sc.nesw = sc.nesw.map(v => Math.min(9, v + 1));
@@ -2549,7 +3048,7 @@ function evolveCardCraftUI() {
   saveProgressionV3();
   const meta = getCardMeta(targetCid);
   document.getElementById("deckbuilder-status").innerHTML =
-    `⚒️ <b>CardCraft Evolution!</b> Upgraded <b style="color:var(--blue-ally);">${meta ? meta.name : targetCid}</b> (+1 All Sides, Lv.${state.cardEvolutions[targetCid]} · ${getCardStarCost(targetCid)}★).`;
+    `${cfIcon("cardcraft_anvil", 14)} <b>CardCraft Evolution!</b> Upgraded <b style="color:var(--blue-ally);">${meta ? meta.name : targetCid}</b> (+1 All Sides, Lv.${state.cardEvolutions[targetCid]} · ${getCardStarCost(targetCid)}★).`;
   renderDeckbuilderGrid();
   renderAll();
 }
@@ -2595,10 +3094,10 @@ function renderDeckbuilderGrid() {
     item.onclick = () => toggleDeckCard(c.id);
     item.innerHTML = `
       <div style="font-weight:800;color:${inDeck ? "var(--gold)" : "#f8fafc"};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-        ${inDeck ? "★ " : owned ? "" : "🔒 "}${c.name}${evoLv > 0 ? " +" + evoLv : ""}
+        ${inDeck ? "★ " : owned ? "" : cfIcon("lock_seal", 12) + " "}${c.name}${evoLv > 0 ? " +" + evoLv : ""}
       </div>
       <div style="color:#94a3b8;font-size:12px;">${star}★ · ${c.faction} · [${c.nesw.join("/")}]</div>
-      <div style="color:${c.telegraphColor};font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">⚡ ${c.telegraphName}</div>
+      <div style="color:${c.telegraphColor};font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${cfIcon("astral_surge", 11)} ${c.telegraphName}</div>
     `;
     grid.appendChild(item);
   });
@@ -2609,10 +3108,11 @@ function open3DPawnInspectorModal() {
   const modal = document.getElementById("pawn3d-modal");
   if (!modal) return;
   const activeCid = state.hand[state.selectedHandIdx] || state.activeDeck[0] || "h_archangel";
-  const card = ALL_CARDS[activeCid] || PLAYER_HEROES[0];
+  const card = getCardMeta(activeCid);
+  const glbPath = card.glbRelic || `Assets/Resources/Models3D/HighPoly10K/cf_01_mystic_mage_10k.glb (${activeCid.replace(/^set1_c\d+_/, "")}.glb)`;
   document.getElementById("pawn3d-title").textContent = `${card.name} — Watertight 3D .glb + .q3gs Pawn`;
   document.getElementById("pawn3d-telemetry").innerHTML =
-    `Mesh: <b>Assets/Resources/Models3D/HighPoly10K/cf_01_mystic_mage_10k.glb (${activeCid.replace(/^set1_c\d+_/, "")}.glb)</b> | Splat: <b>.q3gs</b><br/>` +
+    `Mesh: <b>${glbPath}</b> | Splat: <b>.q3gs</b><br/>` +
     `Topology: <b>V=5,186 · E=15,552 · F=10,368 · Euler χ = V - E + F = 2 (Watertight Manifold · 91-SKILL HARNESS ACTIVE)</b> | Telegraph: <b>${card.telegraphName}</b>`;
   modal.style.display = "flex";
 
@@ -2891,8 +3391,11 @@ function startStage(idx) {
   teardownDrag();
   const rm = document.getElementById("result-modal");
   if (rm) rm.style.display = "none";
+  const cm = document.getElementById("campaign-map-overlay");
+  if (cm) cm.style.display = "none";
 
   state.stageIndex = idx;
+  state.activeScene = "duel";
   state.isPlayerTurn = true;
   state.gameOver = false;
   state.colDice = [4, 2, 5];
@@ -2905,6 +3408,10 @@ function startStage(idx) {
   state.hoveredSlot = null;
   state.focusedSlotIndex = 4;
   state.keyboardFocusIdx = 4;
+  state.lastCaptureEvents = [];
+  state.tumblingCols = [false, false, false];
+  state.claimedSpoilThisStage = false;
+  ProceduralBgm.updateTensionState(false, 8);
 
   const st = STAGES[idx % STAGES.length];
   const campSt = CAMPAIGN_STAGES[idx] || st;
@@ -2954,7 +3461,7 @@ function startStage(idx) {
   if (bannerEl) {
     bannerEl.classList.remove("dismissed");
     bannerEl.innerHTML =
-      `💡 Drag a Hero Card onto any open tile (or click a card, then click a tile).<br/>Drag your Blue board cards 1 tile to Tactical Slide.`;
+      `${cfIcon("tactical_lantern", 15, "margin-right:4px;")}Drag a Hero Card onto any open tile (or click a card, then click a tile).<br/>Drag your Blue board cards 1 tile to Tactical Slide.`;
   }
 
   saveProgressionV3();
@@ -2970,9 +3477,14 @@ function nudgeColDie(colIdx) {
   state.nudgesLeft--;
   state.colDice[colIdx] = (state.colDice[colIdx] % 6) + 1;
   state.surgingCol = colIdx;
+  state.tumblingCols = state.tumblingCols || [false, false, false];
+  state.tumblingCols[colIdx] = true;
+  state.lastTumbledCol = colIdx;
   clearTimeout(state.surgeTimer);
   state.surgeTimer = setTimeout(() => { state.surgingCol = -1; }, 560);
-  playTone(4 + state.colDice[colIdx], "sine", 0.15);
+  clearTimeout(state.tumbleTimer);
+  state.tumbleTimer = setTimeout(() => { state.tumblingCols = [false, false, false]; }, 520);
+  ProceduralSfx.nudge(state.colDice[colIdx]);
   recalcBoardStats();
   renderAll();
 }
@@ -2981,7 +3493,11 @@ function rerollAllDice() {
   if (!state.isPlayerTurn || state.gameOver || state.rerollsLeft <= 0) return;
   state.rerollsLeft--;
   state.colDice = state.colDice.map(() => Math.floor(seededRng() * 6) + 1);
-  playTone(8, "triangle", 0.24);
+  state.tumblingCols = [true, true, true];
+  state.lastTumbledCol = 0;
+  clearTimeout(state.tumbleTimer);
+  state.tumbleTimer = setTimeout(() => { state.tumblingCols = [false, false, false]; }, 520);
+  ProceduralSfx.reroll();
   recalcBoardStats();
   renderAll();
 }
@@ -3222,6 +3738,9 @@ function handleSlotClick(r, c) {
 
       applyFactionLinkSynergy(r, c, cell.cardId, "player");
       const flips = findCaptures(r, c, cell.nesw, "player");
+      state.lastCaptureEvents = flips.map(f => ({
+        nr: f.nr, nc: f.nc, fromR: r, fromC: c, myVal: f.myVal, theirVal: f.theirVal, dirName: f.dirName, owner: "player"
+      }));
       flips.forEach(f => {
         state.grid[f.nr][f.nc].owner = "player";
         state.grid[f.nr][f.nc].justFlipped = true;
@@ -3267,6 +3786,9 @@ function handleSlotClick(r, c) {
   const facLinks = applyFactionLinkSynergy(r, c, cardId, "player");
 
   const flips = findCaptures(r, c, cell.nesw, "player");
+  state.lastCaptureEvents = flips.map(f => ({
+    nr: f.nr, nc: f.nc, fromR: r, fromC: c, myVal: f.myVal, theirVal: f.theirVal, dirName: f.dirName, owner: "player"
+  }));
   flips.forEach(f => {
     state.grid[f.nr][f.nc].owner = "player";
     state.grid[f.nr][f.nc].justFlipped = true;
@@ -3278,16 +3800,18 @@ function handleSlotClick(r, c) {
   } else {
     addTrauma(0.18);
   }
+  const { empty: remEmpty } = getScores();
+  ProceduralBgm.updateTensionState(Boolean(state.bossTargetSlot && remEmpty <= 4), remEmpty);
 
   const deployedCard = getCardMeta(cardId);
   updateTelegraphHud(cardId);
   playTone(flips.length > 0 ? 9 : 3, "triangle", 0.24, flips.length > 0);
   const bannerEl = document.getElementById("last-move-banner");
   if (bannerEl) {
-    const linkTag = facLinks > 0 ? ` · 🔗 +${facLinks} Faction Link` : "";
+    const linkTag = facLinks > 0 ? ` · ${cfIcon("faction_link", 13)} +${facLinks} Faction Link` : "";
     bannerEl.innerHTML = flips.length > 0
-      ? `⚡ <b>${teleEffectLabel}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)${linkTag}!`
-      : `🟦 Deployed <b>${deployedCard.name}</b> (${teleEffectLabel}${linkTag}) to Col ${c + 1}.`;
+      ? `${cfIcon("astral_surge", 15)} <b>${teleEffectLabel}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)${linkTag}!`
+      : `${cfIcon("ally_crest", 14)} Deployed <b>${deployedCard.name}</b> (${teleEffectLabel}${linkTag}) to Col ${c + 1}.`;
     clearTimeout(state.hintDismissTimer);
     state.hintDismissTimer = setTimeout(() => { bannerEl.classList.add("dismissed"); }, 2200);
   }
@@ -3354,14 +3878,14 @@ function telegraphBossIntent() {
   if (!nextId) {
     state.bossTargetSlot = null;
     if (prevEl) prevEl.textContent = "Reserve exhausted — final clash.";
-    if (crestTeleEl) crestTeleEl.textContent = "⚠️ TELEGRAPH: Reserve exhausted — final clash.";
+    if (crestTeleEl) crestTeleEl.innerHTML = `${cfIcon("telegraph_hazard", 14, "margin-right:4px;")}TELEGRAPH: Reserve exhausted — final clash.`;
     return;
   }
   const nextCard = getCardMeta(nextId);
   const eff = getCardEffectiveStats(nextId, 1, true);
   if (labelEl) labelEl.textContent = `Telegraph: ${nextCard.telegraphName} [${eff.join("/")}]`;
   if (prevEl) prevEl.textContent = `Next Construct: ${nextCard.name} (${nextCard.telegraphType})`;
-  if (crestTeleEl) crestTeleEl.textContent = `⚠️ TELEGRAPH: ${nextCard.telegraphName} - Next Construct: ${nextCard.name}`;
+  if (crestTeleEl) crestTeleEl.innerHTML = `${cfIcon("telegraph_hazard", 14, "margin-right:4px;")}TELEGRAPH: ${nextCard.telegraphName} - Next Construct: ${nextCard.name}`;
 
   let targetSlot = null;
   let bestScore = -Infinity;
@@ -3494,6 +4018,11 @@ function executeBossTurn() {
   applyFactionLinkSynergy(bestSlot.r, bestSlot.c, aiCardId, "ai");
 
   const flips = findCaptures(bestSlot.r, bestSlot.c, cell.nesw, "ai");
+  if (flips.length > 0) {
+    state.lastCaptureEvents = flips.map(f => ({
+      nr: f.nr, nc: f.nc, fromR: bestSlot.r, fromC: bestSlot.c, myVal: f.myVal, theirVal: f.theirVal, dirName: f.dirName, owner: "ai"
+    }));
+  }
   flips.forEach(f => {
     state.grid[f.nr][f.nc].owner = "ai";
     state.grid[f.nr][f.nc].justFlipped = true;
@@ -3506,11 +4035,13 @@ function executeBossTurn() {
   const aiCard = getCardMeta(aiCardId);
   updateTelegraphHud(aiCardId);
   telegraphBossIntent();
+  const { empty: remOpen } = getScores();
+  ProceduralBgm.updateTensionState(Boolean(state.bossTargetSlot && remOpen <= 3), remOpen);
   playTone(flips.length > 0 ? -4 : -1, "sawtooth", 0.22, flips.length > 0);
-  const disruptPrefix = wasDisrupted ? "🛡️ <b>TELEGRAPH DISRUPTED (-1)!</b> " : "";
+  const disruptPrefix = wasDisrupted ? `${cfIcon("judge_aegis", 14)} <b>TELEGRAPH DISRUPTED (-1)!</b> ` : "";
   document.getElementById("last-move-banner").innerHTML = flips.length > 0
-    ? `${disruptPrefix}⚠️ <b>${bossTeleLabel}:</b> <b>${aiCard.name}</b> flipped <b>${flips.length}</b> of your cards!`
-    : `${disruptPrefix}🟥 Boss deployed <b>${aiCard.name}</b> (${bossTeleLabel}) at (${bestSlot.r + 1},${bestSlot.c + 1}).`;
+    ? `${disruptPrefix}${cfIcon("telegraph_hazard", 14)} <b>${bossTeleLabel}:</b> <b>${aiCard.name}</b> flipped <b>${flips.length}</b> of your cards!`
+    : `${disruptPrefix}${cfIcon("boss_crest", 14)} Boss deployed <b>${aiCard.name}</b> (${bossTeleLabel}) at (${bestSlot.r + 1},${bestSlot.c + 1}).`;
 
   state.isPlayerTurn = true;
   state.usedSlideThisTurn = false;
@@ -3540,6 +4071,7 @@ function checkGameOver() {
   state.matchesPlayed++;
   if (win) {
     state.wins++;
+    state.activeScene = "spoils";
     state.unlockedStage = Math.max(state.unlockedStage, state.stageIndex + 1);
     const st = CAMPAIGN_STAGES[state.stageIndex] || STAGES[state.stageIndex % STAGES.length];
     state.coins += st ? (st.rewardCoins || 100) : 100;
@@ -3548,15 +4080,19 @@ function checkGameOver() {
     state.losses++;
   }
   saveProgressionV3();
+  renderVictorySpoils(win);
 
   state.modalTimer = setTimeout(() => {
     const modal = document.getElementById("result-modal");
     document.getElementById("modal-kicker").textContent = win ? "STAGE CLEARED" : "STAGE LOST";
-    document.getElementById("modal-title").textContent = win ? `🏆 VICTORY (${blue} – ${red})!` : `💥 DEFEAT (${blue} – ${red})`;
+    document.getElementById("modal-title").innerHTML = win
+      ? `${cfIcon("victory_laurel", 22, "margin-right:6px;")}VICTORY (${blue} – ${red})!`
+      : `${cfIcon("defeat_shatter", 22, "margin-right:6px;")}DEFEAT (${blue} – ${red})`;
     document.getElementById("modal-title").style.color = win ? "#00E5FF" : "#FF2E54";
     document.getElementById("modal-desc").textContent = win
       ? `You controlled ${blue} Blue 3D cards vs ${red} Red cards on the tabletop!`
       : `The Boss controlled ${red} Red cards vs ${blue} Blue cards. Use your 3D Column Dice Boost (+1 All Sides) before deploying!`;
+    renderVictorySpoils(win);
     const nextBtn = document.getElementById("next-stage-btn");
     const againBtn = document.getElementById("play-again-btn");
     if (nextBtn) nextBtn.style.display = win ? "inline-flex" : "none";
@@ -3576,6 +4112,159 @@ function closeModal(nextStage) {
     document.getElementById("stage-select").value = state.stageIndex;
   }
   startStage(state.stageIndex);
+  if (nextStage) triggerBossCutIn(state.stageIndex);
+}
+
+// ============================================================================
+// 3-SCENE ROGUELIKE CAMPAIGN LOOP: SCENE A (CITADEL MAP), CUT-IN & SCENE C (SPOILS)
+// ============================================================================
+function triggerBossCutIn(stageIdx = state.stageIndex) {
+  const banner = document.getElementById("boss-cutin-banner");
+  if (!banner) return;
+  const campSt = CAMPAIGN_STAGES[stageIdx] || STAGES[stageIdx % STAGES.length];
+  const bossCard = getCardMeta(campSt.bossId);
+  const av = document.getElementById("cutin-boss-avatar");
+  const kick = document.getElementById("cutin-stage-kicker");
+  const tit = document.getElementById("cutin-boss-title");
+  if (av) av.src = campSt.avatar;
+  if (kick) kick.textContent = `${campSt.name.toUpperCase()} · SAKUGA TELEGRAPH CUT-IN`;
+  if (tit) tit.textContent = `${bossCard.name} — ${bossCard.telegraphName}`;
+  banner.classList.remove("active");
+  void banner.offsetWidth;
+  banner.classList.add("active");
+  ProceduralSfx.phaseStinger();
+  clearTimeout(state.cutInTimer);
+  state.cutInTimer = setTimeout(() => banner.classList.remove("active"), 1500);
+}
+
+function triggerSakugaCardCutIn(cardId) {
+  const banner = document.getElementById("boss-cutin-banner");
+  if (!banner) return false;
+  const card = getCardMeta(cardId || state.hand[state.selectedHandIdx] || "h_archangel");
+  const av = document.getElementById("cutin-boss-avatar");
+  const kick = document.getElementById("cutin-stage-kicker");
+  const tit = document.getElementById("cutin-boss-title");
+  if (av) av.src = card.art;
+  if (kick) kick.textContent = `OMEGA SAKUGA CUT-IN · ${card.telegraphType.toUpperCase()}`;
+  if (tit) tit.textContent = `${card.name} — ${card.telegraphName}!`;
+  banner.classList.remove("active");
+  void banner.offsetWidth;
+  banner.classList.add("active");
+  ProceduralSfx.phaseStinger();
+  clearTimeout(state.cutInTimer);
+  state.cutInTimer = setTimeout(() => banner.classList.remove("active"), 1500);
+  return true;
+}
+
+function renderCampaignMapNodes() {
+  const grid = document.getElementById("campaign-map-grid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  const featuredIndices = [0, 1, 2, 3, 6, 14];
+  featuredIndices.forEach(idx => {
+    const st = CAMPAIGN_STAGES[idx] || STAGES[idx % STAGES.length];
+    const boss = getCardMeta(st.bossId);
+    const isCleared = state.clearedStages.includes(idx);
+    const isCurrent = state.stageIndex === idx;
+    const node = document.createElement("div");
+    node.className = "campaign-node-card";
+    node.style.cssText = `background:linear-gradient(145deg,rgba(15,23,42,0.95),rgba(8,12,24,0.98));border:1.5px solid ${isCurrent ? "var(--gold)" : (isCleared ? "var(--emerald)" : "#3b82f6")};border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px;`;
+    node.innerHTML = `
+      <div style="display:flex;align-items:center;gap:8px;">
+        <img src="${st.avatar}" alt="${boss.name}" style="width:38px;height:38px;border-radius:50%;border:2px solid var(--red-enemy);object-fit:cover;" />
+        <div style="min-width:0;">
+          <div style="font-size:12px;font-weight:900;color:${isCurrent ? "var(--gold)" : "#f8fafc"};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${st.name}</div>
+          <div style="font-size:12px;color:#94a3b8;">Boss: <b style="color:#fda4af;">${boss.name}</b> · +${st.rewardCoins || 100} Coins</div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:#cbd5e1;background:rgba(30,41,59,0.65);padding:4px 7px;border-radius:6px;">
+        <b>Telegraph:</b> <span style="color:#fef08a;">${boss.telegraphName}</span> [${boss.nesw.join("/")}]
+      </div>
+      <button onclick="deployFromCampaignMap(${idx})" style="margin-top:2px;font-size:12px;background:linear-gradient(135deg,#0284c7,#1d4ed8);border-color:#7dd3fc;">
+        ${isCleared ? "Replay Stage" : "Deploy to Stage"}
+      </button>
+    `;
+    grid.appendChild(node);
+  });
+}
+
+function openCampaignMapOverlay() {
+  const rm = document.getElementById("result-modal");
+  if (rm) rm.style.display = "none";
+  const ov = document.getElementById("campaign-map-overlay");
+  if (!ov) return;
+  state.activeScene = "map";
+  renderCampaignMapNodes();
+  ov.style.display = "flex";
+}
+
+function closeCampaignMapOverlay() {
+  const ov = document.getElementById("campaign-map-overlay");
+  if (ov) ov.style.display = "none";
+  state.activeScene = "duel";
+}
+
+function deployFromCampaignMap(stageIdx) {
+  closeCampaignMapOverlay();
+  const sel = document.getElementById("stage-select");
+  if (sel) sel.value = String(stageIdx);
+  startStage(stageIdx);
+  triggerBossCutIn(stageIdx);
+}
+
+function renderVictorySpoils(showPanel = true) {
+  const panel = document.getElementById("victory-spoils-panel");
+  const draftEl = document.getElementById("victory-spoils-draft");
+  if (!panel || !draftEl) return;
+  panel.style.display = showPanel ? "flex" : "none";
+  draftEl.innerHTML = "";
+  const candidates = SET1_60_CATALOG.slice(0, 12);
+  const picks = [
+    candidates[(state.stageIndex * 3) % candidates.length],
+    candidates[(state.stageIndex * 3 + 1) % candidates.length],
+    candidates[(state.stageIndex * 3 + 2) % candidates.length]
+  ];
+  picks.forEach(c => {
+    const cardDiv = document.createElement("div");
+    cardDiv.className = "spoils-draft-card";
+    cardDiv.setAttribute("data-spoil-id", c.id);
+    cardDiv.onclick = () => claimVictorySpoilCard(c.id);
+    cardDiv.innerHTML = `
+      <div style="font-weight:900;color:var(--gold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.name}</div>
+      <div style="color:#93c5fd;font-size:12px;">${c.faction} · [${c.nesw.join("/")}]</div>
+      <div style="color:#cbd5e1;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.telegraphName}</div>
+    `;
+    draftEl.appendChild(cardDiv);
+  });
+}
+
+function claimVictorySpoilCard(cardId) {
+  if (!state.unlockedCards.includes(cardId)) {
+    state.unlockedCards.push(cardId);
+  }
+  state.claimedSpoilThisStage = true;
+  const c = getCardMeta(cardId);
+  const stEl = document.getElementById("victory-spoils-status");
+  if (stEl) stEl.textContent = `Claimed: ${c.name} (+Unlocked in Set 1)!`;
+  document.querySelectorAll("#victory-spoils-draft .spoils-draft-card").forEach(el => {
+    el.classList.toggle("claimed", el.getAttribute("data-spoil-id") === cardId);
+  });
+  playTone(10, "triangle", 0.2, true);
+  saveProgressionV3();
+}
+
+function forgeHeroStatFromVictory() {
+  const targetCid = state.activeDeck[0] || "h_archangel";
+  if (state.coins >= 100) state.coins -= 100;
+  state.cardEvolutions[targetCid] = (state.cardEvolutions[targetCid] || 0) + 1;
+  const c = getCardMeta(targetCid);
+  if (c && Array.isArray(c.nesw)) {
+    c.nesw = c.nesw.map(v => Math.min(9, v + 1));
+  }
+  const stEl = document.getElementById("victory-spoils-status");
+  if (stEl) stEl.textContent = `Forged +1 All Sides on ${c.name} (Lv.${state.cardEvolutions[targetCid]})!`;
+  playTone(12, "sine", 0.24, true);
+  saveProgressionV3();
 }
 
 function build3DCardHTML(cardId, nesw, owner, isBoosted = false) {
@@ -3664,10 +4353,11 @@ function renderAll() {
     const subLabel = c === 0
       ? `Nudges: ${state.nudgesLeft}`
       : (c === 1 ? `Rerolls: ${state.rerollsLeft}` : (boosted ? "+1 BOOST" : "Nudge +1"));
+    const isTumbling = Boolean(state.tumblingCols && state.tumblingCols[c]);
     d.innerHTML = `
       <div class="die-pedestal-ring">
         <div class="cube-scene col-header-die-badge">
-          <div class="cube-3d" style="transform: rotateX(-24deg) rotateY(0deg);">
+          <div class="cube-3d${isTumbling ? " die-tumbling-3d" : ""}" style="transform: rotateX(-24deg) rotateY(0deg);">
             <div class="cube-face f-1">${pip}</div>
             <div class="cube-face f-2">${pip}</div>
             <div class="cube-face f-3">${pip}</div>
@@ -3707,7 +4397,7 @@ function renderAll() {
     row.innerHTML = `
       <div style="min-width:0;">
         <div style="font-weight:800;font-size:12px;color:${boosted ? "var(--gold)" : "#f8fafc"};white-space:nowrap;">
-          Col ${c + 1}: ${boosted ? "⚡ +1 Boost" : "Pip " + pip}
+          Col ${c + 1}: ${boosted ? `${cfIcon("astral_surge", 13)} +1 Boost` : "Pip " + pip}
         </div>
       </div>
       <div class="cube-scene">
@@ -3734,13 +4424,13 @@ function renderAll() {
         const { r: sr, c: sc } = state.selectedBoardSlot;
         if (Math.abs(hr - sr) + Math.abs(hc - sc) === 1) {
           const cid = state.grid[sr][sc].cardId;
-          activePreviewCard = ALL_CARDS[cid];
+          activePreviewCard = getCardMeta(cid);
           const slideStats = getCardEffectiveStats(cid, hc, false);
           previewClashes = findClashes(hr, hc, slideStats, "player");
         }
       } else if (state.hand[state.selectedHandIdx]) {
         const cid = state.hand[state.selectedHandIdx];
-        activePreviewCard = ALL_CARDS[cid];
+        activePreviewCard = getCardMeta(cid);
         const effStats = getCardEffectiveStats(cid, hc, false);
         previewClashes = findClashes(hr, hc, effStats, "player");
       }
@@ -3776,6 +4466,7 @@ function renderAll() {
       const clashObj = previewClashes.find(cl => cl.nr === r && cl.nc === c);
       const willFlip = clashObj && clashObj.willFlip;
 
+      const capEvt = (state.lastCaptureEvents || []).find(ev => ev.nr === r && ev.nc === c);
       let cls = "board-slot";
       if (isColBoosted(c)) cls += " col-boosted-lane";
       if (state.surgingCol === c) cls += " col-surge-active";
@@ -3785,8 +4476,8 @@ function renderAll() {
       if (isSelUnit) cls += " selected-unit";
       if (isSlideTarget) cls += " slide-target";
       if (willFlip) cls += " will-flip";
-      if (cell.justFlipped) {
-        cls += " just-flipped";
+      if (cell.justFlipped || capEvt) {
+        cls += " just-flipped card-captured-flip";
         cell.justFlipped = false;
       }
       if (cell.justPlaced) {
@@ -3853,12 +4544,20 @@ function renderAll() {
 
       if (cell.cardId) {
         slot.innerHTML = build3DCardHTML(cell.cardId, cell.nesw, cell.owner, cell.owner === "player" && isColBoosted(c));
+        if (capEvt) {
+          slot.insertAdjacentHTML(
+            "beforeend",
+            `<div class="capture-shockwave-ring"></div>` +
+            `<div class="clash-beam-connector" data-clash-dir="${capEvt.dirName || 'N'}"></div>` +
+            `<div class="clash-math-pill">${cfIcon("astral_surge", 11)} ${capEvt.myVal}&gt;${capEvt.theirVal} CAPTURE!</div>`
+          );
+        }
         if (clashObj) {
           const tag = document.createElement("div");
           tag.className = clashObj.willFlip ? "flip-tag" : "defend-tag";
-          tag.textContent = clashObj.willFlip
-            ? `⚡ ${clashObj.myVal}>${clashObj.theirVal} FLIP!`
-            : `🛡️ ${clashObj.myVal}≤${clashObj.theirVal}`;
+          tag.innerHTML = clashObj.willFlip
+            ? `${cfIcon("astral_surge", 12)} ${clashObj.myVal}&gt;${clashObj.theirVal} FLIP!`
+            : `${cfIcon("judge_aegis", 12)} ${clashObj.myVal}&le;${clashObj.theirVal}`;
           slot.appendChild(tag);
         }
       } else if (isSlideTarget) {
@@ -3870,6 +4569,18 @@ function renderAll() {
         const eff = getCardEffectiveStats(hId, c, false);
         slot.classList.add(drag.active ? "landing-preview" : "hover-preview");
         slot.innerHTML = build3DCardHTML(hId, eff, "player", isColBoosted(c));
+      } else if (state.bossTargetSlot && state.bossTargetSlot.r === r && state.bossTargetSlot.c === c) {
+        const boostLip = (isColBoosted(c) && (r === 2 || r === 0))
+          ? `<div class="socket-boost-lip">+1 BOOST</div>`
+          : "";
+        const ghostEff = state.bossTargetSlot.eff || getCardEffectiveStats(state.bossTargetSlot.cardId, c, true);
+        slot.innerHTML = `
+          <div class="slot-telegraph-ghost">
+            <div class="telegraph-incoming-lip">${cfIcon("telegraph_hazard", 11, "margin-right:3px;")}INCOMING · ${state.bossTargetSlot.name}</div>
+            ${build3DCardHTML(state.bossTargetSlot.cardId, ghostEff, "ai", false)}
+          </div>
+          <div class="socket-open-label" style="z-index:8;opacity:0.55;">OPEN</div>${boostLip}
+        `;
       } else {
         const boostLip = (isColBoosted(c) && (r === 2 || r === 0))
           ? `<div class="socket-boost-lip">+1 BOOST</div>`
@@ -3917,7 +4628,7 @@ function renderAll() {
     wrap.innerHTML = `
       ${build3DCardHTML(cid, cardMeta.nesw, "player")}
       <div class="hand-card-tooltip">
-        <div style="font-size:12px;font-weight:900;color:${cardMeta.telegraphColor};">⚡ ${cardMeta.telegraphName}</div>
+        <div style="font-size:12px;font-weight:900;color:${cardMeta.telegraphColor};display:flex;align-items:center;gap:4px;">${cfIcon("astral_surge", 13)}<span>${cardMeta.telegraphName}</span></div>
         <div style="font-size:12px;color:#cbd5e1;margin-top:2px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${cardMeta.telegraphType}: ${cardMeta.telegraphDesc}</div>
         <div style="font-size:12px;font-weight:800;color:#cbd5e1;margin-top:2px;">Slide: <span style="color:var(--emerald);">${state.usedSlideThisTurn ? "Used" : "1x Ready"}</span></div>
       </div>
@@ -3979,7 +4690,7 @@ function startDrag(e) {
     drag.cardId = state.hand[p.spec.idx];
     state.selectedHandIdx = p.spec.idx;
     state.selectedBoardSlot = null;
-    nesw = ALL_CARDS[drag.cardId].nesw;
+    nesw = getCardMeta(drag.cardId).nesw;
   } else {
     drag.handIdx = -1;
     drag.src = { r: p.spec.r, c: p.spec.c };
@@ -4056,7 +4767,7 @@ function refreshGhostStats() {
   let nesw;
   if (col >= 0) nesw = getCardEffectiveStats(drag.cardId, col, false);
   else if (drag.kind === "board") nesw = state.grid[drag.src.r][drag.src.c].nesw;
-  else nesw = ALL_CARDS[drag.cardId].nesw;
+  else nesw = getCardMeta(drag.cardId).nesw;
   drag.ghost.innerHTML = build3DCardHTML(drag.cardId, nesw, "player");
 }
 
@@ -4244,7 +4955,31 @@ window.addEventListener("blur", () => {
   }
 });
 
+function hydrateAtelierButtonIcons() {
+  const map = [
+    ["drawer-deck-btn", "grimoire_deck", `Deck (<span id="deck-owned-count">60</span>)`],
+    ["drawer-plugins-btn", "sovereign_crown", "Plugins (4)"],
+    ["drawer-pawn-btn", "hologram_prism", "3D Pawn"],
+    ["bgm-toggle-btn", "bgm_chime", "BGM: OFF"],
+    ["mute-toggle-btn", "sfx_horn", "SFX"],
+    ["drawer-pulse-btn", "astral_surge", "Pulse"],
+    ["deck-autobuild-btn", "astral_surge", "Auto-Build Best 5"],
+    ["deck-sovereign-plugins-btn", "sovereign_crown", "Equip Sovereign Plugins (4)"],
+    ["deck-booster-btn", "booster_reliquary", `Open Pack (100 ${cfIcon("aether_coin", 12)})`],
+    ["deck-cardcraft-btn", "cardcraft_anvil", `CardCraft +1 (150 ${cfIcon("aether_coin", 12)})`]
+  ];
+  map.forEach(([id, iconName, labelHtml]) => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = `${cfIcon(iconName, 14, "margin-right:4px;")}${labelHtml}`;
+  });
+  const rerollEl = document.getElementById("reroll-btn");
+  if (rerollEl) {
+    rerollEl.innerHTML = `<span style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;">Roll All 3D Dice </span>${cfIcon("staccs_die", 14, "margin-right:4px;")}Reroll (<span id="reroll-left">${state.rerollsLeft}</span>)`;
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
+  hydrateAtelierButtonIcons();
   loadProgressionV3();
   startStage(0);
   const urlParams = new URLSearchParams(window.location.search);

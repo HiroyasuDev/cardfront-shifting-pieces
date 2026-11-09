@@ -1,14 +1,14 @@
 {
-  "iteration": 39,
-  "timestamp_utc": "2026-11-09T01:41:41Z",
+  "iteration": 52,
+  "timestamp_utc": "2026-11-09T02:29:57Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
     "autotest_title": "TEST_COMPLETE:6-3:SINGLETON=true:IMG=true",
-    "total_checks": 110,
-    "passed_checks": 110,
+    "total_checks": 125,
+    "passed_checks": 125,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -95,6 +95,18 @@
       "core.game_ui_ux.03",
       "core.game_ui_ux.04",
       "core.input_systems.01",
+      "core.next_gen_tabletop.01",
+      "core.next_gen_tabletop.02",
+      "core.next_gen_tabletop.03",
+      "core.next_gen_tabletop.04",
+      "core.next_gen_tabletop.05",
+      "core.next_gen_tabletop.06",
+      "core.next_gen_tabletop.07",
+      "core.next_gen_tabletop.08",
+      "core.next_gen_tabletop.09",
+      "core.next_gen_tabletop.10",
+      "core.next_gen_tabletop.11",
+      "core.next_gen_tabletop.12",
       "core.performance.01",
       "core.save_systems.01",
       "core.tabletop_real_estate.01",
@@ -109,6 +121,9 @@
       "core.tabletop_real_estate.10",
       "core.tabletop_real_estate.11",
       "core.tabletop_real_estate.12",
+      "core.tcg_creative_designer.01",
+      "core.tcg_creative_designer.02",
+      "core.tcg_creative_designer.03",
       "core.unity_so.01",
       "core.unity_so.02",
       "feel_audio_camera_perf.1",
@@ -135,11 +150,15 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 38,
-    "newly_passing_checks": [],
+    "previous_iteration": 51,
+    "newly_passing_checks": [
+      "core.next_gen_tabletop.11",
+      "core.next_gen_tabletop.12",
+      "core.tabletop_real_estate.12"
+    ],
     "newly_failing_checks": [],
-    "pass_count_delta": 0,
-    "total_checks_delta": 0
+    "pass_count_delta": 3,
+    "total_checks_delta": 2
   },
   "step_a_router": {
     "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
@@ -239,7 +258,7 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 6310.9
+      "elapsed_ms": 6794.3
     },
     "autotest": {
       "ran": true,
@@ -248,17 +267,17 @@
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8495,
+      "elapsed_ms": 8509,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T01:41:31.108Z",
+        "timestamp": "2026-11-09T02:29:46.663Z",
         "steps": [
           {
             "step": "Initial Stage Load",
             "stage": "Eclipse Void Blade",
             "handCount": 5,
-            "imagesChecked": 6,
-            "telegraphSVGsRendered": 6
+            "imagesChecked": 7,
+            "telegraphSVGsRendered": 7
           },
           {
             "step": "Turn 1 Deploy",
@@ -321,7 +340,7 @@
               2,
               1
             ],
-            "immediateCaptures": 2,
+            "immediateCaptures": 1,
             "scoreAfterTurn": {
               "player": 6,
               "boss": 3
@@ -344,7 +363,7 @@
           "rerollAllDice()"
         ],
         "turnsPlayed": 4,
-        "capturesTriggered": 5,
+        "capturesTriggered": 4,
         "tacticalSlideTested": true,
         "modalDisplayed": true,
         "finalScore": {
@@ -928,6 +947,246 @@
         "priority": "P0",
         "code_ref": "Tools/skill_harness/assess_tabletop_real_estate.js:1-140",
         "remediation": "Run Tools/skill_harness/assess_tabletop_real_estate.js across all 5 viewports and verify 100% pass rate.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tcg_creative_designer.01",
+        "skill": "art-direction/tcg-creative-game-designer",
+        "rule": "Complete 37-card Agent Command Deck manifest (4 Mythic Sovereign Plugins, 12 Arcane Skills, 12 Tool-Calling Spells, 9 MCP Conduits) with 100% 600x800 portrait compliance and zero asset_report.py problems.",
+        "source": "skills/art-direction/tcg-creative-game-designer/SKILL.md:30",
+        "target": "both",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Backend/render_tcg_agent_deck_graphics.py:87-610,992-1016",
+        "remediation": "Run Backend/render_tcg_agent_deck_graphics.py and asset_report.py to verify all 37 Agent Deck 600x800 cards and 256x256 SVGs.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tcg_creative_designer.02",
+        "skill": "art-direction/tcg-creative-game-designer",
+        "rule": "6 watertight (V=4,034, E=12,096, F=8,064, Euler V-E+F=2) 4-bone skeletal-rigged PBR .glb and .q3gs 3D tabletop relics generated for the Agent Command Deck.",
+        "source": "skills/art-direction/tcg-creative-game-designer/SKILL.md:58",
+        "target": "both",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "Backend/generate_agent_deck_3d_glb.py:45-248",
+        "remediation": "Run Backend/generate_agent_deck_3d_glb.py to generate and verify all 6 watertight skeletal-rigged .glb and .q3gs relics.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tcg_creative_designer.03",
+        "skill": "art-direction/tcg-creative-game-designer",
+        "rule": "Playable 4 Mythic Sovereign Agent Plugin cards (SOVEREIGN_AGENT_PLUGINS) and equipSovereignPluginSquad() are integrated into the 3x3 tabletop client and Unity C# AgentCommandDeckRegistry.",
+        "source": "skills/art-direction/tcg-creative-game-designer/SKILL.md:82",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1810-1870,2261-2285",
+        "remediation": "Keep SOVEREIGN_AGENT_PLUGINS (4 cards) and equipSovereignPluginSquad() wired in WebPlayable/cardfront_cradle_of_echoes_playable.html.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.01",
+        "skill": "disciplines/game-feel",
+        "rule": "180\u00b0 3D Y-Axis Capture Flip & Shockwave: capturing an adjacent Boss card triggers .card-captured-flip and .capture-shockwave-ring on the captured socket.",
+        "source": "skills/disciplines/game-feel/SKILL.md:54",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1470-1495,4450-4535",
+        "remediation": "Add .card-captured-flip and .capture-shockwave-ring when a card capture occurs.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.02",
+        "skill": "disciplines/game-feel",
+        "rule": "Directional Clash Callout Beams & Math Pill: capturing an adjacent unit renders .clash-beam-connector and .clash-math-pill with the competing directional values.",
+        "source": "skills/disciplines/game-feel/SKILL.md:62",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1496-1522,4520-4535",
+        "remediation": "Render .clash-beam-connector and .clash-math-pill inside captured sockets.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.03",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Clean Holo-Telegraph Socket Preview: target Boss socket renders .slot-telegraph-ghost with .telegraph-incoming-lip at the top and suppresses the underlying .slot-name-ribbon so all 4 directional stats remain unobstructed.",
+        "source": "skills/disciplines/game-ui-ux/SKILL.md:88",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1525-1562,4542-4555",
+        "remediation": "Render .slot-telegraph-ghost with .telegraph-incoming-lip and hide .slot-name-ribbon inside .slot-telegraph-ghost.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.04",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "High-Contrast Stat Badges: directional .edge-num badges use dark high-contrast fill (rgba(8, 12, 22, >=0.92)), 1.5px metallic border, and text-shadow so numbers pop against bright card illustrations.",
+        "source": "skills/disciplines/game-ui-ux/SKILL.md:112",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P2",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1205-1222",
+        "remediation": "Set .edge-num background to rgba(8, 12, 22, 0.94) with text-shadow.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.05",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Scene A \u2014 Ivalice Citadel Campaign Map & Boss Dossier Overlay: openCampaignMapOverlay() renders #campaign-map-overlay with >= 5 Boss Act nodes and deploy buttons.",
+        "source": "skills/disciplines/game-ui-ux/SKILL.md:45",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1880-1895,4125-4175",
+        "remediation": "Implement openCampaignMapOverlay() and renderCampaignMapNodes() with >= 5 Boss dossier nodes.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.06",
+        "skill": "disciplines/game-feel",
+        "rule": "Diagonal Boss Cut-In Banner: triggerBossCutIn() activates #boss-cutin-banner with Boss avatar, Act title, and active Telegraph name.",
+        "source": "skills/disciplines/game-feel/SKILL.md:72",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P2",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1572-1598,4108-4124",
+        "remediation": "Implement triggerBossCutIn(stageIdx) activating #boss-cutin-banner.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.07",
+        "skill": "genres/card-game",
+        "rule": "Scene C \u2014 Post-Victory 3-Card Spoils Draft & Quick Evolution Forge: #victory-spoils-draft renders 3 claimable reward cards and forgeHeroStatFromVictory() upgrades the lead Hero's directional stats.",
+        "source": "skills/genres/card-game/SKILL.md:64",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1600-1638,4176-4226",
+        "remediation": "Render 3 .spoils-draft-card items in #victory-spoils-draft and wire claimVictorySpoilCard() + forgeHeroStatFromVictory().",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.08",
+        "skill": "disciplines/game-feel",
+        "rule": "3-Axis Physical 3D Die Tumbling: nudging or rerolling column dice applies .die-tumbling-3d to the 3D cube inside .die-pedestal-ring and plays ProceduralSfx.",
+        "source": "skills/disciplines/game-feel/SKILL.md:63",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1564-1571,3464-3495",
+        "remediation": "Apply .die-tumbling-3d to .cube-3d when nudgeColDie() or rerollAllDice() is called.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.09",
+        "skill": "disciplines/audio-design",
+        "rule": "Dynamic Boss Phase Stinger & BGM Low-Pass Filter Tension: ProceduralBgm.updateTensionState(imminentTelegraph, openSlotsCount) shifts filter cutoff from 920 Hz to 1680 Hz under high board tension.",
+        "source": "skills/disciplines/audio-design/SKILL.md:52",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P2",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:2482-2525",
+        "remediation": "Implement ProceduralBgm.updateTensionState(imminentTelegraph, openSlotsCount) modulating cutoffHz between 920 and 1680.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.10",
+        "skill": "unity/unity-csharp-scripting",
+        "rule": "Unity 2022.3.40f1 Native Runtime Visual & Cinematics Sync: CardFrontUnifiedRuntime.cs defines TactileTabletopHudAndCinematicsBridge with EvaluateCaptureFlipRotation3D, EvaluateDieTumbleRotation3D, ComputeAudioTensionCutoffHz, and AdvanceCampaignScene.",
+        "source": "skills/unity/unity-csharp-scripting/SKILL.md:40",
+        "target": "unity",
+        "method": "static_regex",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:914-1009",
+        "remediation": "Keep TactileTabletopHudAndCinematicsBridge synced in Assets/Scripts/Core/CardFrontUnifiedRuntime.cs.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.11",
+        "skill": "disciplines/game-feel",
+        "rule": "AAA Studio Trigger / Omega Strikers Sakuga Telegraph Cut-In: #boss-cutin-banner renders .sakuga-speedlines-svg and .trigger-star-flare and triggerSakugaCardCutIn() activates the cut-in for any card.",
+        "source": "skills/disciplines/game-feel/SKILL.md:78",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1845-1860,4140-4160",
+        "remediation": "Include .sakuga-speedlines-svg and .trigger-star-flare in #boss-cutin-banner and expose triggerSakugaCardCutIn(cardId).",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.next_gen_tabletop.12",
+        "skill": "disciplines/create-game-assets",
+        "rule": "PXG V100 Sakuga Telegraph Model Training & Keyframe Interpolation Manifest: Datasets/pxg_v100_sakuga_telegraph/v100_sakuga_manifest.json indexes all 53 (16 core + 37 Agent Deck) 600x800 library assets with float16 Volta sm_70 configuration.",
+        "source": "skills/disciplines/create-game-assets/SKILL.md:92",
+        "target": "both",
+        "method": "metric",
+        "expect": "==53",
+        "actual": 53,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "Backend/pxg_v100_anime_telegraph_trainer.py:1-190",
+        "remediation": "Run python3 Backend/pxg_v100_anime_telegraph_trainer.py to generate Datasets/pxg_v100_sakuga_telegraph/v100_sakuga_manifest.json.",
         "origin": "Tools/skill_harness/core_checks.json",
         "error": null
       },
@@ -2226,7 +2485,7 @@
         "modal_auto_focused": true,
         "tabletop_real_estate_gate": null,
         "tabletop_real_estate_pass_rate_pct": 100,
-        "tabletop_real_estate_checks": "40/40",
+        "tabletop_real_estate_checks": "50/50",
         "tabletop_real_estate_viewports": 5
       },
       "personas": {
@@ -2266,32 +2525,32 @@
     "per_skill": {
       "genres/card-game": {
         "skill": "genres/card-game",
-        "total": 15,
-        "passed": 15,
+        "total": 16,
+        "passed": 16,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "disciplines/game-feel": {
         "skill": "disciplines/game-feel",
-        "total": 13,
-        "passed": 13,
-        "failed": 0,
-        "pass_rate": 100.0,
-        "failed_ids": []
-      },
-      "disciplines/game-ui-ux": {
-        "skill": "disciplines/game-ui-ux",
         "total": 18,
         "passed": 18,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
+      "disciplines/game-ui-ux": {
+        "skill": "disciplines/game-ui-ux",
+        "total": 21,
+        "passed": 21,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
       "disciplines/create-game-assets": {
         "skill": "disciplines/create-game-assets",
-        "total": 15,
-        "passed": 15,
+        "total": 16,
+        "passed": 16,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2314,8 +2573,8 @@
       },
       "disciplines/audio-design": {
         "skill": "disciplines/audio-design",
-        "total": 5,
-        "passed": 5,
+        "total": 6,
+        "passed": 6,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2348,6 +2607,22 @@
         "skill": "disciplines/art-direction",
         "total": 2,
         "passed": 2,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "art-direction/tcg-creative-game-designer": {
+        "skill": "art-direction/tcg-creative-game-designer",
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "unity/unity-csharp-scripting": {
+        "skill": "unity/unity-csharp-scripting",
+        "total": 1,
+        "passed": 1,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2410,5 +2685,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 23486.3
+  "elapsed_ms": 24601.1
 }
