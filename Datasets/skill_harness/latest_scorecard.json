@@ -1,14 +1,14 @@
 {
-  "iteration": 181,
-  "timestamp_utc": "2026-11-09T12:07:42Z",
+  "iteration": 195,
+  "timestamp_utc": "2026-11-09T13:03:39Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
-    "autotest_title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
-    "total_checks": 142,
-    "passed_checks": 142,
+    "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
+    "total_checks": 150,
+    "passed_checks": 150,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -112,6 +112,12 @@
       "core.next_gen_tabletop.11",
       "core.next_gen_tabletop.12",
       "core.performance.01",
+      "core.production_upgrades.01",
+      "core.production_upgrades.02",
+      "core.production_upgrades.03",
+      "core.production_upgrades.04",
+      "core.production_upgrades.05",
+      "core.production_upgrades.06",
       "core.release_pkg.01",
       "core.sakuga_v100.01",
       "core.sakuga_v100.02",
@@ -141,6 +147,8 @@
       "core.unity6_tcg_rea_baseline.04",
       "core.unity6_tcg_rea_baseline.05",
       "core.unity6_tcg_rea_baseline.06",
+      "core.unity6_tcg_rea_baseline.07",
+      "core.unity6_tcg_rea_baseline.08",
       "core.unity_so.01",
       "core.unity_so.02",
       "feel_audio_camera_perf.1",
@@ -167,10 +175,13 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 180,
-    "newly_passing_checks": [],
+    "previous_iteration": 194,
+    "newly_passing_checks": [
+      "core.production_upgrades.02",
+      "core.production_upgrades.05"
+    ],
     "newly_failing_checks": [],
-    "pass_count_delta": 0,
+    "pass_count_delta": 2,
     "total_checks_delta": 0
   },
   "step_a_router": {
@@ -271,19 +282,19 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 7549.5
+      "elapsed_ms": 6884.3
     },
     "autotest": {
       "ran": true,
-      "title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
+      "title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
       "pass": true,
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 9289,
+      "elapsed_ms": 8566,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T12:07:29.662Z",
+        "timestamp": "2026-11-09T13:03:27.470Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -327,8 +338,8 @@
             ],
             "immediateCaptures": 1,
             "scoreAfterTurn": {
-              "player": 3,
-              "boss": 2
+              "player": 0,
+              "boss": 5
             }
           },
           {
@@ -336,13 +347,13 @@
             "cardPlayed": "h_chronos",
             "telegraph": "Temporal Gear Lock",
             "socket": [
-              1,
-              1
+              0,
+              0
             ],
             "immediateCaptures": 1,
             "scoreAfterTurn": {
-              "player": 4,
-              "boss": 3
+              "player": 2,
+              "boss": 5
             }
           },
           {
@@ -355,8 +366,8 @@
             ],
             "immediateCaptures": 1,
             "scoreAfterTurn": {
-              "player": 5,
-              "boss": 4
+              "player": 4,
+              "boss": 5
             }
           }
         ],
@@ -380,10 +391,10 @@
         "tacticalSlideTested": true,
         "modalDisplayed": true,
         "finalScore": {
-          "player": 5,
-          "boss": 4
+          "player": 4,
+          "boss": 5
         },
-        "outcome": "VICTORY"
+        "outcome": "DEFEAT"
       }
     },
     "checks": [
@@ -1476,6 +1487,134 @@
         "error": null
       },
       {
+        "id": "core.unity6_tcg_rea_baseline.07",
+        "skill": "unity/unity-build-pipeline",
+        "rule": "Unpacked Full 3D TCG Engine Project (tcg-engine-unpacked) compiles in Unity 6000.6.8f1, imports 269 CardData assets & 3 Starter Decks, wires 3x3 BoardSlots into Game3D.unity & Game.unity, and builds CARDFRONT_TcgEngine_Full3D.app with 0 errors and FNV-1a lockstep hash 4C837E02F2035A25.",
+        "source": "Logs/unpacked_tcg_engine_full3d_build_report.json:1",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Logs/unpacked_tcg_engine_full3d_build_report.json:1-34",
+        "remediation": "Run CardFrontTcgEngineImporter.BuildFullTcgEngineProductionScenesAndStandaloneApp in Unity 6000.6.8f1 on tcg-engine-unpacked.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.08",
+        "skill": "unity/unity-netcode-multiplayer",
+        "rule": "Owned 45-File Node.js TcgEngineAPI Backend is seeded with all 155 TcgEngine cards, 3 starter decks, and Pack_Sovereign_Genesis, and passes HTTP loopback verification (register, pack opening, and match completion with HMAC-SHA256 TxLock).",
+        "source": "Logs/tcg_engine_api_45file_verification_report.json:1",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Logs/tcg_engine_api_45file_verification_report.json:1-23",
+        "remediation": "Run TcgEngineAPI/verify_and_seed_tcg_engine_api.js to seed and verify the 45-file Node.js TcgEngineAPI backend.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.01",
+        "skill": "unity/unity-netcode-multiplayer",
+        "rule": "True 2-MacBook Human-vs-Human LAN Duel (Seat 1 Host Blue vs Seat 2 Challenger Red): joinLanRoomAsSeat() and LanDuelSync module serialize and apply full 3x3 board state, column dice, and turnSeat handoff while suppressing local AI in human1v1 mode.",
+        "source": "skills/unity/unity-netcode-multiplayer/SKILL.md:82",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/lan_duel_sync.js:1-95",
+        "remediation": "Load WebPlayable/modules/lan_duel_sync.js and implement joinLanRoomAsSeat(role, roomId) with human1v1 turn handoff.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.02",
+        "skill": "genres/card-game",
+        "rule": "Triple Triad SAME + PLUS + COMBO CASCADE & Singleton Deck-Draw-on-Turn: RulesPlusSame.evaluatePlusAndSameCaptures() flips 2+ equal-edge (SAME) or equal-sum (PLUS) orthogonal neighbors and cascades high-pip captures, and drawCardFromDeckPool() draws singleton cards.",
+        "source": "skills/genres/card-game/SKILL.md:104",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/rules_plus_same.js:1-195",
+        "remediation": "Implement evaluatePlusAndSameCaptures and initDeckDrawPool in WebPlayable/modules/rules_plus_same.js.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.03",
+        "skill": "disciplines/create-game-assets",
+        "rule": "60 / 60 Cryptographically Unique Set 1 600x800 Card Portraits: all 60 cards in SET1_60_CATALOG have 60 distinct portrait paths (zero reused art paths) and 60 distinct SHA-256 hashes verified at 600x800 RGB opaque.",
+        "source": "Datasets/set1_60_unique_portraits_manifest.json:1",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Backend/generate_set1_60_unique_portraits.py:1-220",
+        "remediation": "Run Backend/generate_set1_60_unique_portraits.py to generate all 44 Mk.2/Mk.3/Mk.4 Set 1 portraits.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.04",
+        "skill": "game-audio-implementation",
+        "rule": "Mastered Multi-Layer .WAV Foley & BGM Audio Stems (44.1kHz 16-bit Stereo): card_slam_stone.wav, dice_tumble_brass.wav, crystal_capture_shatter.wav, sakuga_impact_subdrop.wav, and bgm_citadel_tactical_loop.wav are synthesized, mastered, and wired into FoleyAudioBank.",
+        "source": "Datasets/mastered_audio_stems_manifest.json:1",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "Backend/synthesize_mastered_foley_and_stems.py:1-240",
+        "remediation": "Run Backend/synthesize_mastered_foley_and_stems.py and load WebPlayable/modules/foley_audio_bank.js.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.05",
+        "skill": "unity/unity-scriptableobjects",
+        "rule": "Unity C# EvaluatePlusAndSameCaptures3x3 & DrawReplacementCardOnTurn: CardFrontUnifiedRuntime.cs implements Triple Triad SAME, PLUS, COMBO CASCADE, and Deck-Draw-on-Turn in C#.",
+        "source": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:184",
+        "target": "unity",
+        "method": "static_regex",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:184-312",
+        "remediation": "Implement EvaluatePlusAndSameCaptures3x3 and DrawReplacementCardOnTurn in CardFrontUnifiedRuntime.cs.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.06",
+        "skill": "ship/itch-release",
+        "rule": "SET1_60_CATALOG In-Browser Uniqueness & FoleyAudioBank Wiring: all 60 cards in SET1_60_CATALOG have 60 distinct .art URLs in live browser memory and FoleyAudioBank is loaded.",
+        "source": "WebPlayable/cardfront_cradle_of_echoes_playable.html:2695",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:2695-2745",
+        "remediation": "Assign unique art paths to all 60 cards in SET1_60_CATALOG and load FoleyAudioBank.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
         "id": "ai_save_ship.1",
         "skill": "disciplines/game-ai",
         "rule": "Dedicated Boss AI decision entrypoint exists in the Web playable runtime",
@@ -2427,7 +2566,7 @@
         "target": "web",
         "method": "static_regex",
         "expect": ">=3 call sites (hand deploy, slide capture, boss capture)",
-        "actual": 6,
+        "actual": 8,
         "passed": true,
         "priority": "P2",
         "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
@@ -2459,7 +2598,7 @@
         "target": "web",
         "method": "static_regex",
         "expect": ">=1 match",
-        "actual": 16,
+        "actual": 21,
         "passed": true,
         "priority": "P1",
         "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
@@ -2810,8 +2949,8 @@
     "per_skill": {
       "genres/card-game": {
         "skill": "genres/card-game",
-        "total": 18,
-        "passed": 18,
+        "total": 19,
+        "passed": 19,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2834,16 +2973,16 @@
       },
       "disciplines/create-game-assets": {
         "skill": "disciplines/create-game-assets",
-        "total": 19,
-        "passed": 19,
+        "total": 20,
+        "passed": 20,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "unity/unity-scriptableobjects": {
         "skill": "unity/unity-scriptableobjects",
-        "total": 6,
-        "passed": 6,
+        "total": 7,
+        "passed": 7,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2922,16 +3061,16 @@
       },
       "unity/unity-build-pipeline": {
         "skill": "unity/unity-build-pipeline",
-        "total": 2,
-        "passed": 2,
+        "total": 3,
+        "passed": 3,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "unity/unity-netcode-multiplayer": {
         "skill": "unity/unity-netcode-multiplayer",
-        "total": 4,
-        "passed": 4,
+        "total": 6,
+        "passed": 6,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2940,6 +3079,22 @@
         "skill": "workflows/itch-publish",
         "total": 3,
         "passed": 3,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "game-audio-implementation": {
+        "skill": "game-audio-implementation",
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "ship/itch-release": {
+        "skill": "ship/itch-release",
+        "total": 1,
+        "passed": 1,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2994,5 +3149,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 28217.8
+  "elapsed_ms": 25387.0
 }

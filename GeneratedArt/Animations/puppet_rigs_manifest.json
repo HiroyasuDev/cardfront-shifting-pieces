@@ -1,0 +1,2320 @@
+{
+  "engine": "Synapse-Sakuga-AnimEngine",
+  "version": "1.0",
+  "rig_count": 16,
+  "card_ids": [
+    "h_kai",
+    "h_seraph",
+    "h_valkyrie",
+    "h_oracle",
+    "h_chronos",
+    "h_bastion",
+    "h_shinobi",
+    "h_archon",
+    "e_dreadnought",
+    "e_cryo",
+    "e_shinobi",
+    "e_behemoth",
+    "e_valkyrie",
+    "e_chronos",
+    "e_leviathan",
+    "e_eclipse"
+  ],
+  "parallax_layer_depths": {
+    "bg_layer": -0.35,
+    "mid_layer": -0.12,
+    "actor_layer": 0.18,
+    "vfx_frame_break_layer": 0.45
+  },
+  "rigs": {
+    "h_kai": {
+      "card_id": "h_kai",
+      "faction": "Astral_Conduit",
+      "primary_chroma_hex": "#00E5FF",
+      "accent_chroma_hex": "#FFB800",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "directional_clash_lunge",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": -2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": -0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": 1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": 3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              74.0
+            ],
+            [
+              2.0,
+              90.0
+            ]
+          ],
+          "bone_lengths": [
+            18.0,
+            16.12452
+          ],
+          "total_length": 34.12452
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              28.0
+            ],
+            [
+              0.0,
+              56.0
+            ]
+          ],
+          "bone_lengths": [
+            28.0,
+            28.0
+          ],
+          "total_length": 56.0
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              28.0,
+              38.0
+            ],
+            [
+              46.0,
+              28.0
+            ],
+            [
+              62.0,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            17.88854,
+            20.59126,
+            17.08801
+          ],
+          "total_length": 55.56781
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -26.0,
+              32.0
+            ],
+            [
+              -44.0,
+              14.0
+            ],
+            [
+              -58.0,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            22.62742,
+            25.45584,
+            24.41311
+          ],
+          "total_length": 72.49637
+        }
+      },
+      "fnv1a_64_checksum": "0x1168ea24ea6b61ac"
+    },
+    "h_seraph": {
+      "card_id": "h_seraph",
+      "faction": "Astral_Conduit",
+      "primary_chroma_hex": "#00E5FF",
+      "accent_chroma_hex": "#FFB800",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "directional_clash_lunge",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": -2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": -0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": 1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": 3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              77.7
+            ],
+            [
+              2.0,
+              94.5
+            ]
+          ],
+          "bone_lengths": [
+            21.7,
+            16.91863
+          ],
+          "total_length": 38.61863
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              29.400000000000002
+            ],
+            [
+              0.0,
+              58.800000000000004
+            ]
+          ],
+          "bone_lengths": [
+            29.4,
+            29.4
+          ],
+          "total_length": 58.8
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              29.400000000000002,
+              38.0
+            ],
+            [
+              48.300000000000004,
+              28.0
+            ],
+            [
+              65.10000000000001,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            19.15098,
+            21.38247,
+            17.83928
+          ],
+          "total_length": 58.37273
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -27.3,
+              32.0
+            ],
+            [
+              -46.2,
+              14.0
+            ],
+            [
+              -60.900000000000006,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            23.56459,
+            26.1,
+            24.82116
+          ],
+          "total_length": 74.48575
+        }
+      },
+      "fnv1a_64_checksum": "0x0ddf797231ca9ead"
+    },
+    "h_valkyrie": {
+      "card_id": "h_valkyrie",
+      "faction": "Astral_Conduit",
+      "primary_chroma_hex": "#00E5FF",
+      "accent_chroma_hex": "#FFB800",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "directional_clash_lunge",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": -2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": -0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": 1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": 3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              81.4
+            ],
+            [
+              2.0,
+              99.00000000000001
+            ]
+          ],
+          "bone_lengths": [
+            25.4,
+            17.71327
+          ],
+          "total_length": 43.11327
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              30.800000000000004
+            ],
+            [
+              0.0,
+              61.60000000000001
+            ]
+          ],
+          "bone_lengths": [
+            30.8,
+            30.8
+          ],
+          "total_length": 61.6
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              30.800000000000004,
+              38.0
+            ],
+            [
+              50.6,
+              28.0
+            ],
+            [
+              68.2,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            20.43135,
+            22.18197,
+            18.59462
+          ],
+          "total_length": 61.20795
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -28.6,
+              32.0
+            ],
+            [
+              -48.400000000000006,
+              14.0
+            ],
+            [
+              -63.800000000000004,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            24.53487,
+            26.75892,
+            25.24203
+          ],
+          "total_length": 76.53583
+        }
+      },
+      "fnv1a_64_checksum": "0x8da7c29f7796139f"
+    },
+    "h_oracle": {
+      "card_id": "h_oracle",
+      "faction": "Astral_Conduit",
+      "primary_chroma_hex": "#00E5FF",
+      "accent_chroma_hex": "#FFB800",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "directional_clash_lunge",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": -2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": -0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": 1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": 3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              85.1
+            ],
+            [
+              2.0,
+              103.49999999999999
+            ]
+          ],
+          "bone_lengths": [
+            29.1,
+            18.50838
+          ],
+          "total_length": 47.60838
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              32.199999999999996
+            ],
+            [
+              0.0,
+              64.39999999999999
+            ]
+          ],
+          "bone_lengths": [
+            32.2,
+            32.2
+          ],
+          "total_length": 64.4
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              32.199999999999996,
+              38.0
+            ],
+            [
+              52.9,
+              28.0
+            ],
+            [
+              71.3,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            21.72648,
+            22.98891,
+            19.35355
+          ],
+          "total_length": 64.06894
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -29.9,
+              32.0
+            ],
+            [
+              -50.599999999999994,
+              14.0
+            ],
+            [
+              -66.69999999999999,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            25.53449,
+            27.43155,
+            25.67509
+          ],
+          "total_length": 78.64112
+        }
+      },
+      "fnv1a_64_checksum": "0x37dd91ed7d683629"
+    },
+    "h_chronos": {
+      "card_id": "h_chronos",
+      "faction": "Astral_Conduit",
+      "primary_chroma_hex": "#00E5FF",
+      "accent_chroma_hex": "#FFB800",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "directional_clash_lunge",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": -2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": -0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": 1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": 3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              74.0
+            ],
+            [
+              2.0,
+              90.0
+            ]
+          ],
+          "bone_lengths": [
+            18.0,
+            16.12452
+          ],
+          "total_length": 34.12452
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              28.0
+            ],
+            [
+              0.0,
+              56.0
+            ]
+          ],
+          "bone_lengths": [
+            28.0,
+            28.0
+          ],
+          "total_length": 56.0
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              28.0,
+              38.0
+            ],
+            [
+              46.0,
+              28.0
+            ],
+            [
+              62.0,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            17.88854,
+            20.59126,
+            17.08801
+          ],
+          "total_length": 55.56781
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -26.0,
+              32.0
+            ],
+            [
+              -44.0,
+              14.0
+            ],
+            [
+              -58.0,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            22.62742,
+            25.45584,
+            24.41311
+          ],
+          "total_length": 72.49637
+        }
+      },
+      "fnv1a_64_checksum": "0x2412c03dad8a1aa9"
+    },
+    "h_bastion": {
+      "card_id": "h_bastion",
+      "faction": "Astral_Conduit",
+      "primary_chroma_hex": "#00E5FF",
+      "accent_chroma_hex": "#FFB800",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "directional_clash_lunge",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": -2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": -0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": 1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": 3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              77.7
+            ],
+            [
+              2.0,
+              94.5
+            ]
+          ],
+          "bone_lengths": [
+            21.7,
+            16.91863
+          ],
+          "total_length": 38.61863
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              29.400000000000002
+            ],
+            [
+              0.0,
+              58.800000000000004
+            ]
+          ],
+          "bone_lengths": [
+            29.4,
+            29.4
+          ],
+          "total_length": 58.8
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              29.400000000000002,
+              38.0
+            ],
+            [
+              48.300000000000004,
+              28.0
+            ],
+            [
+              65.10000000000001,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            19.15098,
+            21.38247,
+            17.83928
+          ],
+          "total_length": 58.37273
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -27.3,
+              32.0
+            ],
+            [
+              -46.2,
+              14.0
+            ],
+            [
+              -60.900000000000006,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            23.56459,
+            26.1,
+            24.82116
+          ],
+          "total_length": 74.48575
+        }
+      },
+      "fnv1a_64_checksum": "0x87f08ec4dc8bc16e"
+    },
+    "h_shinobi": {
+      "card_id": "h_shinobi",
+      "faction": "Astral_Conduit",
+      "primary_chroma_hex": "#00E5FF",
+      "accent_chroma_hex": "#FFB800",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "directional_clash_lunge",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": -2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": -0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": 1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": 3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              81.4
+            ],
+            [
+              2.0,
+              99.00000000000001
+            ]
+          ],
+          "bone_lengths": [
+            25.4,
+            17.71327
+          ],
+          "total_length": 43.11327
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              30.800000000000004
+            ],
+            [
+              0.0,
+              61.60000000000001
+            ]
+          ],
+          "bone_lengths": [
+            30.8,
+            30.8
+          ],
+          "total_length": 61.6
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              30.800000000000004,
+              38.0
+            ],
+            [
+              50.6,
+              28.0
+            ],
+            [
+              68.2,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            20.43135,
+            22.18197,
+            18.59462
+          ],
+          "total_length": 61.20795
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -28.6,
+              32.0
+            ],
+            [
+              -48.400000000000006,
+              14.0
+            ],
+            [
+              -63.800000000000004,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            24.53487,
+            26.75892,
+            25.24203
+          ],
+          "total_length": 76.53583
+        }
+      },
+      "fnv1a_64_checksum": "0xb59b0a341b7d5dc8"
+    },
+    "h_archon": {
+      "card_id": "h_archon",
+      "faction": "Astral_Conduit",
+      "primary_chroma_hex": "#00E5FF",
+      "accent_chroma_hex": "#FFB800",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "directional_clash_lunge",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": -2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": -0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": 1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": 3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              85.1
+            ],
+            [
+              2.0,
+              103.49999999999999
+            ]
+          ],
+          "bone_lengths": [
+            29.1,
+            18.50838
+          ],
+          "total_length": 47.60838
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              32.199999999999996
+            ],
+            [
+              0.0,
+              64.39999999999999
+            ]
+          ],
+          "bone_lengths": [
+            32.2,
+            32.2
+          ],
+          "total_length": 64.4
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              32.199999999999996,
+              38.0
+            ],
+            [
+              52.9,
+              28.0
+            ],
+            [
+              71.3,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            21.72648,
+            22.98891,
+            19.35355
+          ],
+          "total_length": 64.06894
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -29.9,
+              32.0
+            ],
+            [
+              -50.599999999999994,
+              14.0
+            ],
+            [
+              -66.69999999999999,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            25.53449,
+            27.43155,
+            25.67509
+          ],
+          "total_length": 78.64112
+        }
+      },
+      "fnv1a_64_checksum": "0x603ae030c60b6300"
+    },
+    "e_dreadnought": {
+      "card_id": "e_dreadnought",
+      "faction": "Obsidian_Swarm",
+      "primary_chroma_hex": "#FF2E54",
+      "accent_chroma_hex": "#F97316",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "boss_telegraph_pulse",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": 2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": 0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": -1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": -3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              74.0
+            ],
+            [
+              2.0,
+              90.0
+            ]
+          ],
+          "bone_lengths": [
+            18.0,
+            16.12452
+          ],
+          "total_length": 34.12452
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              28.0
+            ],
+            [
+              0.0,
+              56.0
+            ]
+          ],
+          "bone_lengths": [
+            28.0,
+            28.0
+          ],
+          "total_length": 56.0
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              28.0,
+              38.0
+            ],
+            [
+              46.0,
+              28.0
+            ],
+            [
+              62.0,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            17.88854,
+            20.59126,
+            17.08801
+          ],
+          "total_length": 55.56781
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -26.0,
+              32.0
+            ],
+            [
+              -44.0,
+              14.0
+            ],
+            [
+              -58.0,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            22.62742,
+            25.45584,
+            24.41311
+          ],
+          "total_length": 72.49637
+        }
+      },
+      "fnv1a_64_checksum": "0x6e726123dcf63293"
+    },
+    "e_cryo": {
+      "card_id": "e_cryo",
+      "faction": "Obsidian_Swarm",
+      "primary_chroma_hex": "#FF2E54",
+      "accent_chroma_hex": "#F97316",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "boss_telegraph_pulse",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": 2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": 0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": -1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": -3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              77.7
+            ],
+            [
+              2.0,
+              94.5
+            ]
+          ],
+          "bone_lengths": [
+            21.7,
+            16.91863
+          ],
+          "total_length": 38.61863
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              29.400000000000002
+            ],
+            [
+              0.0,
+              58.800000000000004
+            ]
+          ],
+          "bone_lengths": [
+            29.4,
+            29.4
+          ],
+          "total_length": 58.8
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              29.400000000000002,
+              38.0
+            ],
+            [
+              48.300000000000004,
+              28.0
+            ],
+            [
+              65.10000000000001,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            19.15098,
+            21.38247,
+            17.83928
+          ],
+          "total_length": 58.37273
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -27.3,
+              32.0
+            ],
+            [
+              -46.2,
+              14.0
+            ],
+            [
+              -60.900000000000006,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            23.56459,
+            26.1,
+            24.82116
+          ],
+          "total_length": 74.48575
+        }
+      },
+      "fnv1a_64_checksum": "0xfd80270a980bda22"
+    },
+    "e_shinobi": {
+      "card_id": "e_shinobi",
+      "faction": "Obsidian_Swarm",
+      "primary_chroma_hex": "#FF2E54",
+      "accent_chroma_hex": "#F97316",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "boss_telegraph_pulse",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": 2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": 0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": -1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": -3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              81.4
+            ],
+            [
+              2.0,
+              99.00000000000001
+            ]
+          ],
+          "bone_lengths": [
+            25.4,
+            17.71327
+          ],
+          "total_length": 43.11327
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              30.800000000000004
+            ],
+            [
+              0.0,
+              61.60000000000001
+            ]
+          ],
+          "bone_lengths": [
+            30.8,
+            30.8
+          ],
+          "total_length": 61.6
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              30.800000000000004,
+              38.0
+            ],
+            [
+              50.6,
+              28.0
+            ],
+            [
+              68.2,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            20.43135,
+            22.18197,
+            18.59462
+          ],
+          "total_length": 61.20795
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -28.6,
+              32.0
+            ],
+            [
+              -48.400000000000006,
+              14.0
+            ],
+            [
+              -63.800000000000004,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            24.53487,
+            26.75892,
+            25.24203
+          ],
+          "total_length": 76.53583
+        }
+      },
+      "fnv1a_64_checksum": "0xd5ea9a85254539fb"
+    },
+    "e_behemoth": {
+      "card_id": "e_behemoth",
+      "faction": "Obsidian_Swarm",
+      "primary_chroma_hex": "#FF2E54",
+      "accent_chroma_hex": "#F97316",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "boss_telegraph_pulse",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": 2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": 0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": -1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": -3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              85.1
+            ],
+            [
+              2.0,
+              103.49999999999999
+            ]
+          ],
+          "bone_lengths": [
+            29.1,
+            18.50838
+          ],
+          "total_length": 47.60838
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              32.199999999999996
+            ],
+            [
+              0.0,
+              64.39999999999999
+            ]
+          ],
+          "bone_lengths": [
+            32.2,
+            32.2
+          ],
+          "total_length": 64.4
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              32.199999999999996,
+              38.0
+            ],
+            [
+              52.9,
+              28.0
+            ],
+            [
+              71.3,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            21.72648,
+            22.98891,
+            19.35355
+          ],
+          "total_length": 64.06894
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -29.9,
+              32.0
+            ],
+            [
+              -50.599999999999994,
+              14.0
+            ],
+            [
+              -66.69999999999999,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            25.53449,
+            27.43155,
+            25.67509
+          ],
+          "total_length": 78.64112
+        }
+      },
+      "fnv1a_64_checksum": "0x1dcc69170aaf9e8a"
+    },
+    "e_valkyrie": {
+      "card_id": "e_valkyrie",
+      "faction": "Obsidian_Swarm",
+      "primary_chroma_hex": "#FF2E54",
+      "accent_chroma_hex": "#F97316",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "boss_telegraph_pulse",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": 2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": 0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": -1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": -3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              74.0
+            ],
+            [
+              2.0,
+              90.0
+            ]
+          ],
+          "bone_lengths": [
+            18.0,
+            16.12452
+          ],
+          "total_length": 34.12452
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              28.0
+            ],
+            [
+              0.0,
+              56.0
+            ]
+          ],
+          "bone_lengths": [
+            28.0,
+            28.0
+          ],
+          "total_length": 56.0
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              28.0,
+              38.0
+            ],
+            [
+              46.0,
+              28.0
+            ],
+            [
+              62.0,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            17.88854,
+            20.59126,
+            17.08801
+          ],
+          "total_length": 55.56781
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -26.0,
+              32.0
+            ],
+            [
+              -44.0,
+              14.0
+            ],
+            [
+              -58.0,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            22.62742,
+            25.45584,
+            24.41311
+          ],
+          "total_length": 72.49637
+        }
+      },
+      "fnv1a_64_checksum": "0xae949d1fad43c58d"
+    },
+    "e_chronos": {
+      "card_id": "e_chronos",
+      "faction": "Obsidian_Swarm",
+      "primary_chroma_hex": "#FF2E54",
+      "accent_chroma_hex": "#F97316",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "boss_telegraph_pulse",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": 2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": 0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": -1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": -3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              77.7
+            ],
+            [
+              2.0,
+              94.5
+            ]
+          ],
+          "bone_lengths": [
+            21.7,
+            16.91863
+          ],
+          "total_length": 38.61863
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              29.400000000000002
+            ],
+            [
+              0.0,
+              58.800000000000004
+            ]
+          ],
+          "bone_lengths": [
+            29.4,
+            29.4
+          ],
+          "total_length": 58.8
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              29.400000000000002,
+              38.0
+            ],
+            [
+              48.300000000000004,
+              28.0
+            ],
+            [
+              65.10000000000001,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            19.15098,
+            21.38247,
+            17.83928
+          ],
+          "total_length": 58.37273
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -27.3,
+              32.0
+            ],
+            [
+              -46.2,
+              14.0
+            ],
+            [
+              -60.900000000000006,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            23.56459,
+            26.1,
+            24.82116
+          ],
+          "total_length": 74.48575
+        }
+      },
+      "fnv1a_64_checksum": "0x64b81e97b36aed89"
+    },
+    "e_leviathan": {
+      "card_id": "e_leviathan",
+      "faction": "Obsidian_Swarm",
+      "primary_chroma_hex": "#FF2E54",
+      "accent_chroma_hex": "#F97316",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "boss_telegraph_pulse",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": 2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": 0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": -1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": -3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              81.4
+            ],
+            [
+              2.0,
+              99.00000000000001
+            ]
+          ],
+          "bone_lengths": [
+            25.4,
+            17.71327
+          ],
+          "total_length": 43.11327
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              30.800000000000004
+            ],
+            [
+              0.0,
+              61.60000000000001
+            ]
+          ],
+          "bone_lengths": [
+            30.8,
+            30.8
+          ],
+          "total_length": 61.6
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              30.800000000000004,
+              38.0
+            ],
+            [
+              50.6,
+              28.0
+            ],
+            [
+              68.2,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            20.43135,
+            22.18197,
+            18.59462
+          ],
+          "total_length": 61.20795
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -28.6,
+              32.0
+            ],
+            [
+              -48.400000000000006,
+              14.0
+            ],
+            [
+              -63.800000000000004,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            24.53487,
+            26.75892,
+            25.24203
+          ],
+          "total_length": 76.53583
+        }
+      },
+      "fnv1a_64_checksum": "0x48699d1b50166f2d"
+    },
+    "e_eclipse": {
+      "card_id": "e_eclipse",
+      "faction": "Obsidian_Swarm",
+      "primary_chroma_hex": "#FF2E54",
+      "accent_chroma_hex": "#F97316",
+      "portrait_resolution": [
+        600,
+        800
+      ],
+      "default_clip_id": "idle_breathe_25d",
+      "combat_clip_id": "boss_telegraph_pulse",
+      "parallax_layers": {
+        "depths": {
+          "bg_layer": -0.35,
+          "mid_layer": -0.12,
+          "actor_layer": 0.18,
+          "vfx_frame_break_layer": 0.45
+        },
+        "default_preview_offsets": {
+          "bg_layer": {
+            "depth_coeff": -0.35,
+            "offset_x": 2.45,
+            "offset_y": -1.764,
+            "scale_factor": 1.021
+          },
+          "mid_layer": {
+            "depth_coeff": -0.12,
+            "offset_x": 0.84,
+            "offset_y": -0.6048,
+            "scale_factor": 1.0072
+          },
+          "actor_layer": {
+            "depth_coeff": 0.18,
+            "offset_x": -1.26,
+            "offset_y": 0.9072,
+            "scale_factor": 1.0108
+          },
+          "vfx_frame_break_layer": {
+            "depth_coeff": 0.45,
+            "offset_x": -3.15,
+            "offset_y": 2.268,
+            "scale_factor": 1.027
+          }
+        }
+      },
+      "bone_chains": {
+        "Head": {
+          "bind_joints": [
+            [
+              0.0,
+              56.0
+            ],
+            [
+              0.0,
+              85.1
+            ],
+            [
+              2.0,
+              103.49999999999999
+            ]
+          ],
+          "bone_lengths": [
+            29.1,
+            18.50838
+          ],
+          "total_length": 47.60838
+        },
+        "Torso": {
+          "bind_joints": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              32.199999999999996
+            ],
+            [
+              0.0,
+              64.39999999999999
+            ]
+          ],
+          "bone_lengths": [
+            32.2,
+            32.2
+          ],
+          "total_length": 64.4
+        },
+        "WeaponArm": {
+          "bind_joints": [
+            [
+              12.0,
+              46.0
+            ],
+            [
+              32.199999999999996,
+              38.0
+            ],
+            [
+              52.9,
+              28.0
+            ],
+            [
+              71.3,
+              22.0
+            ]
+          ],
+          "bone_lengths": [
+            21.72648,
+            22.98891,
+            19.35355
+          ],
+          "total_length": 64.06894
+        },
+        "Cape/Wing": {
+          "bind_joints": [
+            [
+              -10.0,
+              48.0
+            ],
+            [
+              -29.9,
+              32.0
+            ],
+            [
+              -50.599999999999994,
+              14.0
+            ],
+            [
+              -66.69999999999999,
+              -6.0
+            ]
+          ],
+          "bone_lengths": [
+            25.53449,
+            27.43155,
+            25.67509
+          ],
+          "total_length": 78.64112
+        }
+      },
+      "fnv1a_64_checksum": "0x2fef23411c075e41"
+    }
+  },
+  "fnv1a_64_checksum": "0xf0f38c50c243a21b"
+}

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <g id="cf_puppet_rig">
+    <polygon points="128,14 236,68 128,122 20,68" fill="#0B0F1F" fill-opacity="0.85" stroke="#A855F7" stroke-width="2" stroke-dasharray="6 4"/>
+    <polygon points="128,74 236,128 128,182 20,128" fill="#0F172A" fill-opacity="0.78" stroke="#2EE6D3" stroke-width="2" opacity="0.8"/>
+    <polygon points="128,134 236,188 128,242 20,188" fill="#090D1A" fill-opacity="0.9" stroke="#FFE082" stroke-width="2.5"/>
+    <line x1="20" y1="68" x2="20" y2="188" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.65"/>
+    <line x1="236" y1="68" x2="236" y2="188" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.65"/>
+    <line x1="128" y1="14" x2="128" y2="242" stroke="#2EE6D3" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.45"/>
+    <path d="M 42,96 A 92,92 0 0 1 128,38" stroke="#2EE6D3" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+    <path d="M 214,96 A 92,92 0 0 0 128,38" stroke="#2EE6D3" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+    <path d="M 52,186 A 84,84 0 0 0 204,186" stroke="#A855F7" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+    <polygon points="128,76 144,108 128,164 112,108" fill="#A855F7" stroke="#FFE082" stroke-width="2.2" stroke-linejoin="round"/>
+    <polygon points="128,76 96,104 56,112 88,84" fill="#A855F7" stroke="#FFE082" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="56,112 58,144 40,176 42,138" fill="#2EE6D3" stroke="#FFE082" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="128,76 168,80 200,104 160,98" fill="#A855F7" stroke="#FFE082" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="200,104 198,74 216,48 214,80" fill="#2EE6D3" stroke="#FFE082" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="128,164 114,196 82,222 100,186" fill="#A855F7" stroke="#FFE082" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="128,164 156,186 174,222 142,196" fill="#A855F7" stroke="#FFE082" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="128,20 144,38 128,56 112,38" fill="#090D1A" stroke="#FFE082" stroke-width="2.5"/>
+    <circle cx="128" cy="38" r="6" fill="#2EE6D3"/>
+    <circle cx="128" cy="76" r="11" fill="#090D1A" stroke="#FFE082" stroke-width="3"/>
+    <circle cx="128" cy="76" r="5" fill="#2EE6D3"/>
+    <polygon points="128,148 144,164 128,180 112,164" fill="#090D1A" stroke="#2EE6D3" stroke-width="2.5"/>
+    <circle cx="128" cy="164" r="5" fill="#FFE082"/>
+    <circle cx="56" cy="112" r="8" fill="#090D1A" stroke="#2EE6D3" stroke-width="2.5"/>
+    <circle cx="56" cy="112" r="3.5" fill="#FFE082"/>
+    <circle cx="200" cy="104" r="8" fill="#090D1A" stroke="#2EE6D3" stroke-width="2.5"/>
+    <circle cx="200" cy="104" r="3.5" fill="#FFE082"/>
+    <polygon points="40,162 54,176 40,190 26,176" fill="#FFE082" stroke="#090D1A" stroke-width="2"/>
+    <circle cx="40" cy="176" r="4" fill="#A855F7"/>
+    <polygon points="216,34 230,48 216,62 202,48" fill="#FFE082" stroke="#090D1A" stroke-width="2"/>
+    <circle cx="216" cy="48" r="4" fill="#A855F7"/>
+    <polygon points="82,211 93,222 82,233 71,222" fill="#2EE6D3" stroke="#FFE082" stroke-width="2"/>
+    <polygon points="174,211 185,222 174,233 163,222" fill="#2EE6D3" stroke="#FFE082" stroke-width="2"/>
+  </g>
+</svg>

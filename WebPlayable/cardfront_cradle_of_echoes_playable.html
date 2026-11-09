@@ -1941,13 +1941,15 @@
         <div style="font-size:12px;font-weight:900;color:#2ee6d3;letter-spacing:1px;">TCG ENGINE NETWORK · LIVE 2-MACBOOK LAN &amp; ECHO-GHOST PVP</div>
         <h3 id="lan-pvp-title" style="font-size:18px;font-weight:900;color:#fff;">Room CITADEL-1 (0.0.0.0:8096) &amp; HMAC-SHA256 Ghost Roster</h3>
       </div>
-      <div style="display:flex;gap:8px;align-items:center;">
-        <button id="lan-upload-ghost-btn" onclick="saveLanEchoGhostSnapshot('MacBook-Sovereign')" style="background:linear-gradient(135deg,#0284c7,#1d4ed8);border-color:#7dd3fc;">Upload My Squad as Echo-Ghost</button>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+        <button id="lan-seat1-host-btn" onclick="joinLanRoomAsSeat('host', 'CITADEL-1')" style="background:linear-gradient(135deg,#0284c7,#1d4ed8);border-color:#7dd3fc;">Seat 1 (Host · Blue)</button>
+        <button id="lan-seat2-challenger-btn" onclick="joinLanRoomAsSeat('challenger', 'CITADEL-1')" style="background:linear-gradient(135deg,#be123c,#9f1239);border-color:#fda4af;">Seat 2 (MacBook #2 · Red)</button>
+        <button id="lan-upload-ghost-btn" onclick="saveLanEchoGhostSnapshot('MacBook-Sovereign')" style="background:linear-gradient(135deg,#0d9488,#0f766e);border-color:#5eead4;">Upload Squad as Echo-Ghost</button>
         <button onclick="closeLanGhostLobbyModal()">Close</button>
       </div>
     </div>
     <div id="lan-room-status-banner" style="font-size:12px;color:#e2e8f0;background:rgba(15,23,42,0.92);padding:8px 10px;border-radius:8px;border:1px solid rgba(46,230,211,0.45);margin:6px 0;">
-      LAN Room: <b>CITADEL-1</b> · Endpoint: <b>http://192.168.86.125:8096</b> · Status: Ready for 2-MacBook Duel
+      LAN Room: <b>CITADEL-1</b> · Endpoint: <b>http://192.168.86.125:8096</b> · Mode: <b>2-MacBook Human 1v1 (Seat 1 Blue vs Seat 2 Red)</b>
     </div>
     <div id="lan-ghost-roster-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;padding:6px 0;"></div>
   </div>
@@ -2002,6 +2004,9 @@
   </div>
 </div>
 
+<script src="./modules/rules_plus_same.js"></script>
+<script src="./modules/lan_duel_sync.js"></script>
+<script src="./modules/foley_audio_bank.js"></script>
 <script>
 if (location.search.includes("dragtest=1")) { window.addEventListener("error", (e) => { fetch("/__osascript_report__?name=dragerr", { method: "POST", body: JSON.stringify({ msg: e.message, line: e.lineno, col: e.colno }) }); }); }
 
@@ -2541,6 +2546,9 @@ function ensureAudioMixer() {
       sfxBusGain.connect(sfxCompressor);
       sfxCompressor.connect(masterBusGain);
       masterBusGain.connect(actx.destination);
+      if (window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
+        window.CardFrontModules.FoleyAudioBank.preloadAllStems(actx);
+      }
     }
   }
   if (actx && actx.state === "suspended") actx.resume();
@@ -2548,15 +2556,39 @@ function ensureAudioMixer() {
 
 const ProceduralSfx = {
   nudge(pip = 4) {
+    ensureAudioMixer();
+    if (!state.muted && window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
+      window.CardFrontModules.FoleyAudioBank.playSample("dice_tumble_brass", actx, sfxBus, 0.92 + pip * 0.03, 0.72);
+    }
     playTone(4 + pip, "sine", 0.14);
     setTimeout(() => playTone(11 + pip, "triangle", 0.09), 45);
   },
   reroll() {
+    ensureAudioMixer();
+    if (!state.muted && window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
+      window.CardFrontModules.FoleyAudioBank.playSample("dice_tumble_brass", actx, sfxBus, 1.0, 0.85);
+    }
     playTone(6, "triangle", 0.12);
     setTimeout(() => playTone(9, "sine", 0.12), 55);
     setTimeout(() => playTone(12, "triangle", 0.16), 110);
   },
+  cardSlam() {
+    ensureAudioMixer();
+    if (!state.muted && window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
+      window.CardFrontModules.FoleyAudioBank.playSample("card_slam_stone", actx, sfxBus, 1.0, 0.85);
+    }
+  },
+  captureShatter() {
+    ensureAudioMixer();
+    if (!state.muted && window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
+      window.CardFrontModules.FoleyAudioBank.playSample("crystal_capture_shatter", actx, sfxBus, 1.0, 0.9);
+    }
+  },
   phaseStinger() {
+    ensureAudioMixer();
+    if (!state.muted && window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
+      window.CardFrontModules.FoleyAudioBank.playSample("sakuga_impact_subdrop", actx, sfxBus, 1.0, 0.88);
+    }
     playTone(-2, "sawtooth", 0.18, true);
     setTimeout(() => playTone(5, "triangle", 0.22), 70);
   }
@@ -2638,8 +2670,14 @@ function toggleAdaptiveBgm() {
   if (bgmTimer) {
     clearInterval(bgmTimer);
     bgmTimer = null;
+    if (window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
+      window.CardFrontModules.FoleyAudioBank.stopBgmLoop();
+    }
     if (btn) btn.innerHTML = `${cfIcon("bgm_chime", 13)} BGM: OFF`;
     return;
+  }
+  if (window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
+    window.CardFrontModules.FoleyAudioBank.startBgmLoop(actx, musicDuckBusGain, 0.52);
   }
   // Sakimoto-Yamada 128 BPM ostinato in D Dorian / Minor
   const ostinatoNotes = [-7, -5, -4, 0, -2, -4, -5, -7, -12, -5, -4, 2, 0, -4, -5, -9];
@@ -2686,12 +2724,16 @@ const SET1_CARDS_BY_ID = {};
     const neswArr = template.nesw.map((v, idx) => Math.min(9, v + ((i + idx) % 2 === 0 && i >= 16 ? 1 : 0)));
     const statSum = neswArr.reduce((s, v) => s + v, 0);
     const starCost = statSum >= 30 ? 3 : statSum >= 28 ? 2 : 1;
+    const uniqueArtPath = i < baseRoster.length
+      ? template.art
+      : `./GeneratedArt/MasteredCards/${cid}.png`;
     const cardObj = {
       ...template,
       id: cid,
       name: i < baseRoster.length ? template.name : `${template.name} Mk.${tier}`,
       faction: factions[i % factions.length],
       nesw: neswArr,
+      art: uniqueArtPath,
       starCost
     };
     SET1_60_CATALOG.push(cardObj);
@@ -3516,6 +3558,15 @@ function startStage(idx) {
     }
   }
 
+  if (window.CardFrontModules && window.CardFrontModules.RulesPlusSame) {
+    window.CardFrontModules.RulesPlusSame.initDeckDrawPool(
+      state,
+      SET1_60_CATALOG.map(c => c.id)
+    );
+  } else {
+    state.deckDrawPool = SET1_60_CATALOG.map(c => c.id).filter(id => !state.hand.includes(id) && id !== firstEnemy.id);
+  }
+
   updateTelegraphHud(state.hand[0]);
   telegraphBossIntent();
   const bannerEl = document.getElementById("last-move-banner");
@@ -3527,6 +3578,23 @@ function startStage(idx) {
 
   saveProgressionV3();
   renderAll();
+}
+
+function drawNextDeckCardOnTurn() {
+  if (!window.CardFrontModules || !window.CardFrontModules.RulesPlusSame) return null;
+  const drawnId = window.CardFrontModules.RulesPlusSame.drawCardFromDeckPool(state);
+  if (drawnId) {
+    ProceduralSfx.cardSlam();
+    renderAll();
+  }
+  return drawnId;
+}
+
+function evaluatePlusAndSameCaptures(r, c, nesw, owner) {
+  if (window.CardFrontModules && window.CardFrontModules.RulesPlusSame) {
+    return window.CardFrontModules.RulesPlusSame.evaluatePlusAndSameCaptures(state.grid, r, c, nesw, owner);
+  }
+  return { sameFlips: [], plusFlips: [], comboFlips: [], allSpecialFlips: [] };
 }
 
 function nudgeColDie(colIdx) {
@@ -3593,6 +3661,7 @@ function findCaptures(r, c, nesw, owner) {
   ];
   const tieSurge = !!(state && state.forceOkitsuTieSurge);
   const captured = [];
+  const seenCoords = new Set();
   dirs.forEach(d => {
     const nr = r + d.dr, nc = c + d.dc;
     if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3) {
@@ -3601,10 +3670,25 @@ function findCaptures(r, c, nesw, owner) {
         ? (nesw[d.myEdge] >= nb.nesw[d.theirEdge])
         : (nesw[d.myEdge] > nb.nesw[d.theirEdge]);
       if (nb.cardId && nb.owner !== owner && beatsNeighbor) {
-        captured.push({ nr, nc, myVal: nesw[d.myEdge], theirVal: nb.nesw[d.theirEdge], dirName: d.dirName });
+        seenCoords.add(`${nr},${nc}`);
+        captured.push({ nr, nc, myVal: nesw[d.myEdge], theirVal: nb.nesw[d.theirEdge], dirName: d.dirName, rule: "HIGH_PIP" });
       }
     }
   });
+
+  // Evaluate Triple Triad SAME (2+ equal opposing edges), PLUS (2+ matching edge sums), and COMBO CASCADE
+  const special = evaluatePlusAndSameCaptures(r, c, nesw, owner);
+  if (special && Array.isArray(special.allSpecialFlips) && special.allSpecialFlips.length > 0) {
+    state.plusSameCapturesTriggered = (state.plusSameCapturesTriggered || 0) + special.sameFlips.length + special.plusFlips.length;
+    state.comboCascadeCapturesTriggered = (state.comboCascadeCapturesTriggered || 0) + special.comboFlips.length;
+    for (const sf of special.allSpecialFlips) {
+      const key = `${sf.nr},${sf.nc}`;
+      if (!seenCoords.has(key)) {
+        seenCoords.add(key);
+        captured.push(sf);
+      }
+    }
+  }
   return captured;
 }
 
@@ -3816,16 +3900,18 @@ function handleSlotClick(r, c) {
         if (flips.length > 0) window.CardFrontHaptics.trigger("card_flip", { r, c, flips: flips.length, slide: true });
       }
       state.lastCaptureEvents = flips.map(f => ({
-        nr: f.nr, nc: f.nc, fromR: r, fromC: c, myVal: f.myVal, theirVal: f.theirVal, dirName: f.dirName, owner: "player"
+        nr: f.nr, nc: f.nc, fromR: r, fromC: c, myVal: f.myVal, theirVal: f.theirVal, dirName: f.dirName, owner: "player", rule: f.rule || "HIGH_PIP"
       }));
       flips.forEach(f => {
         state.grid[f.nr][f.nc].owner = "player";
         state.grid[f.nr][f.nc].justFlipped = true;
       });
       if (flips.length > 0) {
+        ProceduralSfx.captureShatter();
         triggerHitStop(65);
         addTrauma(0.28 + flips.length * 0.15);
       } else {
+        ProceduralSfx.cardSlam();
         addTrauma(0.12);
       }
       playTone(7, "triangle", 0.22);
@@ -3864,15 +3950,12 @@ function handleSlotClick(r, c) {
   const facLinks = applyFactionLinkSynergy(r, c, cardId, "player");
 
   const flips = findCaptures(r, c, cell.nesw, "player");
-  if (state.lanMultiplayer && state.lanMultiplayer.enabled) {
-    pushLanRoomUpdate("play_card", `Deployed ${cardId} to (${r + 1},${c + 1})`);
-  }
   if (window.CardFrontHaptics) {
     window.CardFrontHaptics.trigger("card_place", { r, c, cardId });
     if (flips.length > 0) window.CardFrontHaptics.trigger("card_flip", { r, c, flips: flips.length });
   }
   state.lastCaptureEvents = flips.map(f => ({
-    nr: f.nr, nc: f.nc, fromR: r, fromC: c, myVal: f.myVal, theirVal: f.theirVal, dirName: f.dirName, owner: "player"
+    nr: f.nr, nc: f.nc, fromR: r, fromC: c, myVal: f.myVal, theirVal: f.theirVal, dirName: f.dirName, owner: "player", rule: f.rule || "HIGH_PIP"
   }));
   flips.forEach(f => {
     state.grid[f.nr][f.nc].owner = "player";
@@ -3880,10 +3963,12 @@ function handleSlotClick(r, c) {
   });
 
   if (flips.length > 0) {
+    ProceduralSfx.captureShatter();
     triggerHitStop(80);
     addTrauma(0.38 + flips.length * 0.2);
     triggerSakugaCardCutIn(cardId);
   } else {
+    ProceduralSfx.cardSlam();
     addTrauma(0.18);
   }
   const { empty: remEmpty } = getScores();
@@ -3895,17 +3980,26 @@ function handleSlotClick(r, c) {
   const bannerEl = document.getElementById("last-move-banner");
   if (bannerEl) {
     const linkTag = facLinks > 0 ? ` · ${cfIcon("faction_link", 13)} +${facLinks} Faction Link` : "";
+    const specialRules = Array.from(new Set(flips.map(f => f.rule).filter(rl => rl && rl !== "HIGH_PIP")));
+    const ruleTag = specialRules.length > 0 ? ` · <b>[${specialRules.join("+")}]</b>` : "";
     bannerEl.innerHTML = flips.length > 0
-      ? `${cfIcon("astral_surge", 15)} <b>${teleEffectLabel}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)${linkTag}!`
+      ? `${cfIcon("astral_surge", 15)} <b>${teleEffectLabel}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)${ruleTag}${linkTag}!`
       : `${cfIcon("ally_crest", 14)} Deployed <b>${deployedCard.name}</b> (${teleEffectLabel}${linkTag}) to Col ${c + 1}.`;
     clearTimeout(state.hintDismissTimer);
     state.hintDismissTimer = setTimeout(() => { bannerEl.classList.add("dismissed"); }, 2200);
   }
 
   state.isPlayerTurn = false;
+  if (state.lanMultiplayer && state.lanMultiplayer.enabled) {
+    const nextSeat = state.lanMultiplayer.role === "host" ? "challenger" : "host";
+    pushLanRoomUpdate("play_card", `Deployed ${cardId} to (${r + 1},${c + 1})`, nextSeat);
+  }
   renderAll();
 
   if (checkGameOver()) return;
+  if (state.lanMultiplayer && state.lanMultiplayer.enabled && state.lanMultiplayer.human1v1) {
+    return;
+  }
   state.bossTurnTimer = setTimeout(executeBossTurn, 650);
   bossTurnTimer = state.bossTurnTimer;
 }
@@ -4360,6 +4454,7 @@ function evaluateStageTabletopMutator(stageIdx = state.stageIndex) {
 
 state.lanMultiplayer = {
   enabled: false,
+  human1v1: true,
   roomId: "CITADEL-1",
   revision: 1,
   role: "host",
@@ -4378,7 +4473,19 @@ async function syncLanRoomState(roomId = "CITADEL-1") {
       state.lanMultiplayer.roomId = data.room.room_id;
       if (data.room.revision > (state.lanMultiplayer.revision || 0)) {
         state.lanMultiplayer.revision = data.room.revision;
-        if (Array.isArray(data.room.colDice) && data.room.colDice.length === 3) {
+        if (window.CardFrontModules && window.CardFrontModules.LanDuelSync) {
+          const diff = window.CardFrontModules.LanDuelSync.applyLanBoardToLocalGrid(data.room, state);
+          if (diff.flippedCells > 0) {
+            ProceduralSfx.captureShatter();
+            triggerHitStop(60);
+            addTrauma(0.28);
+          } else if (diff.updatedCells > 0) {
+            ProceduralSfx.cardSlam();
+            addTrauma(0.14);
+          }
+          renderAll();
+          checkGameOver();
+        } else if (Array.isArray(data.room.colDice) && data.room.colDice.length === 3) {
           state.colDice = data.room.colDice.slice();
         }
       }
@@ -4388,23 +4495,31 @@ async function syncLanRoomState(roomId = "CITADEL-1") {
   return null;
 }
 
-async function pushLanRoomUpdate(actionType = "sync_state", summary = "Tabletop state updated") {
+async function pushLanRoomUpdate(actionType = "sync_state", summary = "Tabletop state updated", nextTurnSeat = null) {
   try {
     const scores = getScores();
     const mut = evaluateStageTabletopMutator(state.stageIndex);
-    const flatBoard = (state.grid ? state.grid.flat() : []).map(cell =>
-      cell && cell.cardId ? { id: cell.cardId, owner: cell.owner, nesw: cell.nesw } : null
-    );
+    const myRole = state.lanMultiplayer.role || "host";
+    const flatBoard = (window.CardFrontModules && window.CardFrontModules.LanDuelSync)
+      ? window.CardFrontModules.LanDuelSync.serializeGridForLan(state.grid, myRole)
+      : (state.grid ? state.grid.flat() : []).map(cell =>
+          cell && cell.cardId ? { id: cell.cardId, owner: cell.owner, canonicalOwner: myRole, nesw: cell.nesw } : null
+        );
+    const turnSeat = nextTurnSeat || (state.isPlayerTurn ? myRole : (myRole === "host" ? "challenger" : "host"));
     const payload = {
       room_id: state.lanMultiplayer.roomId || "CITADEL-1",
       action: actionType,
-      actor: state.lanMultiplayer.role || "host",
+      actor: myRole,
+      role: myRole,
+      human1v1: Boolean(state.lanMultiplayer.human1v1),
       turn: state.isPlayerTurn ? "player" : "ai",
+      turnSeat,
       stageIndex: state.stageIndex,
       activeMutator: mut.mutatorId,
       colDice: state.colDice.slice(),
       scores: { player: scores.blue, enemy: scores.red },
       board: flatBoard,
+      lastCaptureEvents: state.lastCaptureEvents || [],
       summary
     };
     const res = await fetch("/api/lan/room", {
@@ -4421,6 +4536,44 @@ async function pushLanRoomUpdate(actionType = "sync_state", summary = "Tabletop 
     }
   } catch (_e) {}
   return null;
+}
+
+async function joinLanRoomAsSeat(role = "host", roomId = "CITADEL-1") {
+  const cleanRole = role === "challenger" ? "challenger" : "host";
+  state.lanMultiplayer.enabled = true;
+  state.lanMultiplayer.human1v1 = true;
+  state.lanMultiplayer.role = cleanRole;
+  state.lanMultiplayer.roomId = roomId;
+  clearTimeout(state.bossTurnTimer);
+  clearInterval(state.lanMultiplayer.pollTimer);
+
+  const btn = document.getElementById("drawer-lan-btn");
+  if (btn) {
+    btn.textContent = `LAN 1v1: ${roomId} (${cleanRole === "host" ? "Seat 1" : "Seat 2"})`;
+  }
+  const banner = document.getElementById("lan-room-status-banner");
+  if (banner) {
+    banner.innerHTML = `LAN Room: <b>${roomId}</b> · Active Seat: <b>${cleanRole === "host" ? "Seat 1 (Host · Blue)" : "Seat 2 (Challenger · Red)"}</b> · Real-Time 2-MacBook 3x3 Sync Active`;
+  }
+  const crestName = document.getElementById("boss-crest-name");
+  if (crestName) {
+    crestName.textContent = cleanRole === "host"
+      ? "SEAT 2 · MACBOOK CHALLENGER (RED)"
+      : "SEAT 1 · MACBOOK HOST (BLUE)";
+  }
+
+  if (cleanRole === "host") {
+    state.isPlayerTurn = true;
+    await pushLanRoomUpdate("join_seat_host", "Seat 1 (Host) initialized 2-MacBook Duel", "host");
+  } else {
+    state.lanMultiplayer.revision = 0;
+    await syncLanRoomState(roomId);
+  }
+  state.lanMultiplayer.pollTimer = setInterval(() => {
+    syncLanRoomState(state.lanMultiplayer.roomId);
+  }, 800);
+  renderAll();
+  return state.lanMultiplayer;
 }
 
 function applyStageMutatorToSocket(r, c, stageIdx = state.stageIndex) {

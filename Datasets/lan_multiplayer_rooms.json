@@ -4,7 +4,9 @@
       "room_id": "CITADEL-1",
       "revision": 1,
       "status": "READY_FOR_LAN_DUEL",
+      "human1v1": true,
       "turn": "player",
+      "turnSeat": "host",
       "stageIndex": 0,
       "activeMutator": "ACT_I_SOLAR_SPIRE",
       "colDice": [
@@ -17,8 +19,8 @@
         "enemy": 1
       },
       "players": {
-        "host": "MacBook-Host (Astral Cyan)",
-        "challenger": "MacBook-LAN (Crimson Construct)"
+        "host": "MacBook-Host (Seat 1 \u00b7 Blue)",
+        "challenger": "MacBook-LAN (Seat 2 \u00b7 Red)"
       },
       "board": [
         null,
@@ -31,14 +33,15 @@
         null,
         null
       ],
+      "lastCaptureEvents": [],
       "lastAction": {
         "type": "room_init",
         "actor": "system",
         "summary": "LAN Room CITADEL-1 initialized on 0.0.0.0:8096",
-        "timestamp_ms": 1794221462944
+        "timestamp_ms": 1794228827624
       },
-      "updated_at_ms": 1794221462944
+      "updated_at_ms": 1794228827624
     }
   },
-  "updated_at_ms": 1794221462944
+  "updated_at_ms": 1794228827625
 }

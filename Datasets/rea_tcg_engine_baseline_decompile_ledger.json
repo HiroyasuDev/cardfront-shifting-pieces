@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-09T11:54:44Z",
-  "elapsed_ms": 7179.1,
+  "generated_at": "2026-11-09T12:10:34Z",
+  "elapsed_ms": 8220.4,
   "summary": {
     "status": "PASS_ALL_GATES",
     "unity_editor_version": "6000.6.8f1",
@@ -25,7 +25,11 @@
     "lan_multiplayer_tcp_packets": 51,
     "lan_multiplayer_state_hash_hex": "4C837E02F2035A25",
     "lan_multiplayer_lockstep_parity": true,
-    "standalone_player_runtime_verified": true
+    "standalone_player_runtime_verified": true,
+    "unpacked_full3d_build_status": "PASS_UNPACKED_TCG_ENGINE_FULL3D_BUILD_AND_SCENES",
+    "unpacked_full3d_app_size_bytes": 308367290,
+    "tcg_engine_api_status": "PASS_TCG_ENGINE_API_SEEDED_AND_VERIFIED",
+    "tcg_engine_api_cards_seeded": 155
   },
   "asset_ingestion": {
     "ok": true,
@@ -737,14 +741,14 @@
       },
       "tcg-engine-unpacked/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll": {
         "path": "/Users/frederickamina/Documents/Projects/synapse/tcg-engine-unpacked/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll",
-        "size_bytes": 11776,
-        "sha256": "bc4fb6dcad610815f0573288b38ca48951c655dbb7650c75bad2f08ee3169b82",
+        "size_bytes": 20480,
+        "sha256": "6c5f490c755e044f689406f08fb8acddea79f2cfe8fcb5d2c31b5addf67906f4",
         "rea_inspect": {
-          "evidence_id": "ev_f379e566aec34de60ea2bbae8d688712dc2e7cedf83ca67af1f96f1e3c4edff4",
+          "evidence_id": "ev_9d244479bfba7f3a89d484565f953295031e3d5f4b89856a1035f5bfe22b1998",
           "subject": {
             "name": "Assembly-CSharp-Editor.dll",
             "digest": {
-              "sha256": "bc4fb6dcad610815f0573288b38ca48951c655dbb7650c75bad2f08ee3169b82"
+              "sha256": "6c5f490c755e044f689406f08fb8acddea79f2cfe8fcb5d2c31b5addf67906f4"
             },
             "local_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll",
             "format": "pe",
@@ -764,25 +768,25 @@
           },
           "raw_result": null,
           "normalized_result": {
-            "inspection_id": "ai_81af968655db9ef1f7397b72bf7df53f87a0961b06cf5191ac74eea73510134f",
+            "inspection_id": "ai_5ecb1dec2c6c888eebe0da76ba3fcf51040e492a82b72af469f4de923139d4d7",
             "subject": {
-              "manifest_id": "agm_a7426d3bc5110827fb55e65270690979daa712d3350e86bbe305ad870b119ca2",
-              "root_artifact_id": "art_e3ad554803a6d07e96189b4d04d33cd8951a5f4d73e2e3e83166e70f4b9f37e8",
-              "root_sha256": "bc4fb6dcad610815f0573288b38ca48951c655dbb7650c75bad2f08ee3169b82",
+              "manifest_id": "agm_259c4db0f12c478bd23faaaee95673650c19641207cfca5df580b69ba70f52f6",
+              "root_artifact_id": "art_82ab065e0dfe3adb28a743c0f5844c72c1df3cacae52ac512e64cd5568dff362",
+              "root_sha256": "6c5f490c755e044f689406f08fb8acddea79f2cfe8fcb5d2c31b5addf67906f4",
               "root_format": "pe"
             },
             "substeps": [
               {
-                "substep_id": "ais_425a5e230db509dd6050736b346b9eaa6e08de5cac09ed17a8ce98951a09df06",
+                "substep_id": "ais_39ff7e44ed65e00114d25a1afa95881190897118445a7c7c52f43bd3c6035683",
                 "operation": "inventory_artifact",
                 "status": "completed",
-                "evidence_id": "ev_a0a3b806e378d52e6655d3de152105b28db17fb1bb6b1b0d9ee3013ebbbafc54",
+                "evidence_id": "ev_4d0a5e133f32c15a78e3394fae93e277ce4779a6c1e92f7d9bf8d2c36c72f57f",
                 "evidence": {
-                  "evidence_id": "ev_a0a3b806e378d52e6655d3de152105b28db17fb1bb6b1b0d9ee3013ebbbafc54",
+                  "evidence_id": "ev_4d0a5e133f32c15a78e3394fae93e277ce4779a6c1e92f7d9bf8d2c36c72f57f",
                   "subject": {
                     "name": "Assembly-CSharp-Editor.dll",
                     "digest": {
-                      "sha256": "bc4fb6dcad610815f0573288b38ca48951c655dbb7650c75bad2f08ee3169b82"
+                      "sha256": "6c5f490c755e044f689406f08fb8acddea79f2cfe8fcb5d2c31b5addf67906f4"
                     },
                     "local_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll",
                     "format": "pe",
@@ -802,21 +806,21 @@
                   "raw_result": null,
                   "normalized_result": {
                     "manifest": {
-                      "manifest_id": "agm_a7426d3bc5110827fb55e65270690979daa712d3350e86bbe305ad870b119ca2",
-                      "root_artifact_id": "art_e3ad554803a6d07e96189b4d04d33cd8951a5f4d73e2e3e83166e70f4b9f37e8",
-                      "root_sha256": "bc4fb6dcad610815f0573288b38ca48951c655dbb7650c75bad2f08ee3169b82",
+                      "manifest_id": "agm_259c4db0f12c478bd23faaaee95673650c19641207cfca5df580b69ba70f52f6",
+                      "root_artifact_id": "art_82ab065e0dfe3adb28a743c0f5844c72c1df3cacae52ac512e64cd5568dff362",
+                      "root_sha256": "6c5f490c755e044f689406f08fb8acddea79f2cfe8fcb5d2c31b5addf67906f4",
                       "root_format": "pe",
-                      "graph_sha256": "1374fa6561b2e40ad3692ab55b5573532fe587be253d6522c5b4f82c3ec8e11e",
+                      "graph_sha256": "c89fb4ec21de10c53ee0eabeee178e17a8cf3d3bc7de86833d50a5f3f1e9a2f5",
                       "node_count": 1,
                       "occurrence_count": 1,
                       "edge_count": 0
                     },
                     "nodes": [
                       {
-                        "artifact_id": "art_e3ad554803a6d07e96189b4d04d33cd8951a5f4d73e2e3e83166e70f4b9f37e8",
+                        "artifact_id": "art_82ab065e0dfe3adb28a743c0f5844c72c1df3cacae52ac512e64cd5568dff362",
                         "format": "pe",
-                        "sha256": "bc4fb6dcad610815f0573288b38ca48951c655dbb7650c75bad2f08ee3169b82",
-                        "size": 11776,
+                        "sha256": "6c5f490c755e044f689406f08fb8acddea79f2cfe8fcb5d2c31b5addf67906f4",
+                        "size": 20480,
                         "media_type": null,
                         "architecture": null,
                         "content_state": "materialized",
@@ -825,14 +829,14 @@
                     ],
                     "occurrences": [
                       {
-                        "occurrence_id": "occ_7bd0a6ae16a4a53c82ddc96381b6cd69f176fc3a791e9d72255e705fe26ab4ce",
-                        "artifact_id": "art_e3ad554803a6d07e96189b4d04d33cd8951a5f4d73e2e3e83166e70f4b9f37e8",
+                        "occurrence_id": "occ_9e853457e794c885554420712ab49aabf7db25a795692bbeb99875d13fc13e92",
+                        "artifact_id": "art_82ab065e0dfe3adb28a743c0f5844c72c1df3cacae52ac512e64cd5568dff362",
                         "parent_occurrence_id": null,
                         "logical_path": ".",
                         "entry_kind": "file",
                         "artifact_kind": "executable",
                         "artifact_format": "pe",
-                        "declared_size": 11776,
+                        "declared_size": 20480,
                         "compressed_size": null,
                         "executable": false,
                         "encrypted": false,
@@ -866,29 +870,29 @@
             ],
             "observations": [
               {
-                "observation_id": "aio_c90e2a7bcb46a27d35da9ef1e9d3568e5f83f3f7c8e2eb6a508769452831f9e2",
+                "observation_id": "aio_4f1b1ec8873e8c9bb5a703d662baf7d63f650ef3d6d7691eb63bbc0f843a91e6",
                 "kind": "root-manifest",
-                "subject": "art_e3ad554803a6d07e96189b4d04d33cd8951a5f4d73e2e3e83166e70f4b9f37e8",
+                "subject": "art_82ab065e0dfe3adb28a743c0f5844c72c1df3cacae52ac512e64cd5568dff362",
                 "value": {
-                  "manifest_id": "agm_a7426d3bc5110827fb55e65270690979daa712d3350e86bbe305ad870b119ca2",
-                  "root_artifact_id": "art_e3ad554803a6d07e96189b4d04d33cd8951a5f4d73e2e3e83166e70f4b9f37e8",
-                  "root_sha256": "bc4fb6dcad610815f0573288b38ca48951c655dbb7650c75bad2f08ee3169b82",
+                  "manifest_id": "agm_259c4db0f12c478bd23faaaee95673650c19641207cfca5df580b69ba70f52f6",
+                  "root_artifact_id": "art_82ab065e0dfe3adb28a743c0f5844c72c1df3cacae52ac512e64cd5568dff362",
+                  "root_sha256": "6c5f490c755e044f689406f08fb8acddea79f2cfe8fcb5d2c31b5addf67906f4",
                   "root_format": "pe",
-                  "graph_sha256": "1374fa6561b2e40ad3692ab55b5573532fe587be253d6522c5b4f82c3ec8e11e",
+                  "graph_sha256": "c89fb4ec21de10c53ee0eabeee178e17a8cf3d3bc7de86833d50a5f3f1e9a2f5",
                   "node_count": 1,
                   "occurrence_count": 1,
                   "edge_count": 0
                 },
-                "evidence_id": "ev_a0a3b806e378d52e6655d3de152105b28db17fb1bb6b1b0d9ee3013ebbbafc54"
+                "evidence_id": "ev_4d0a5e133f32c15a78e3394fae93e277ce4779a6c1e92f7d9bf8d2c36c72f57f"
               }
             ],
             "hypotheses": [
               {
-                "hypothesis_id": "aih_5e8e88de9155063ad7da7f68acb8d62f59d2ef97b857a54ac9dd00411f30e43a",
+                "hypothesis_id": "aih_f7609e2b308c427e265de5dec88bf19fa1a04a809f9b6dce87bd2e85edbd92ac",
                 "statement": "The PE artifact may contain managed CLI metadata or native code; inventory bytes alone do not distinguish them.",
                 "confidence": "low",
                 "basis_evidence_ids": [
-                  "ev_a0a3b806e378d52e6655d3de152105b28db17fb1bb6b1b0d9ee3013ebbbafc54"
+                  "ev_4d0a5e133f32c15a78e3394fae93e277ce4779a6c1e92f7d9bf8d2c36c72f57f"
                 ],
                 "limitation": "Format classification proposes a bounded follow-up; it is not semantic proof."
               }
@@ -896,7 +900,7 @@
             "contradictions": [],
             "unexplored_branches": [
               {
-                "branch_id": "aib_b347952b824c6c5e02e123c4cb7dc2753f4e1a6679ffe163ad67f7b6f775f87d",
+                "branch_id": "aib_0ae4077693992bae6a5c8184028eae1f7159cbcedc8708c5b06ffcdb846a9210",
                 "reason": "format-specific-analysis-required",
                 "detail": "inspect_managed_artifact was not run by provider-neutral artifact inspection.",
                 "next_probe": {
@@ -904,10 +908,10 @@
                   "rationale": "Check execution-free CLI metadata before choosing a deep native provider.",
                   "authority": "managed-static-analysis"
                 },
-                "evidence_id": "ev_a0a3b806e378d52e6655d3de152105b28db17fb1bb6b1b0d9ee3013ebbbafc54"
+                "evidence_id": "ev_4d0a5e133f32c15a78e3394fae93e277ce4779a6c1e92f7d9bf8d2c36c72f57f"
               },
               {
-                "branch_id": "aib_9a887e04b747afffa9c7e9c2ac8a17cf5ad7489c908b87eee085e1bb309e101e",
+                "branch_id": "aib_eee525f4c0fd7bcd14e27d88f281da19081ff34e9198df977c3453c1a6f205a4",
                 "reason": "format-specific-analysis-required",
                 "detail": "open_binary was not run by provider-neutral artifact inspection.",
                 "next_probe": {
@@ -915,7 +919,7 @@
                   "rationale": "Open as native code only when managed inspection reports a native or mixed boundary.",
                   "authority": "native-analysis-provider"
                 },
-                "evidence_id": "ev_a0a3b806e378d52e6655d3de152105b28db17fb1bb6b1b0d9ee3013ebbbafc54"
+                "evidence_id": "ev_4d0a5e133f32c15a78e3394fae93e277ce4779a6c1e92f7d9bf8d2c36c72f57f"
               }
             ],
             "next_probes": [
@@ -943,7 +947,7 @@
               "next_probes_omitted": 0
             },
             "evidence_links": [
-              "ev_a0a3b806e378d52e6655d3de152105b28db17fb1bb6b1b0d9ee3013ebbbafc54"
+              "ev_4d0a5e133f32c15a78e3394fae93e277ce4779a6c1e92f7d9bf8d2c36c72f57f"
             ],
             "limitations": [
               "Inspection derives bounded static hypotheses and next probes; it does not execute the artifact or claim format-specific semantics.",
@@ -960,7 +964,7 @@
           "relationship_coverage": null,
           "locations": [],
           "evidence_links": [
-            "ev_a0a3b806e378d52e6655d3de152105b28db17fb1bb6b1b0d9ee3013ebbbafc54"
+            "ev_4d0a5e133f32c15a78e3394fae93e277ce4779a6c1e92f7d9bf8d2c36c72f57f"
           ],
           "caller_input_path": "/Users/frederickamina/Documents/Projects/synapse/tcg-engine-unpacked/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll"
         }
@@ -1397,6 +1401,236 @@
             "ev_bc799276570a458f989d0a7bbaa58564cc3e634e3a8ea05140baf2c84e6cda07"
           ],
           "caller_input_path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/Builds/MacOS/CARDFRONT_CradleOfEchoes.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll"
+        }
+      },
+      "CARDFRONT_TcgEngine_Full3D.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll": {
+        "path": "/Users/frederickamina/Documents/Projects/synapse/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+        "size_bytes": 429568,
+        "sha256": "6e03b8c4c46a444906b8924ec596c326f10c75da0032d89bcffe7e59d3f46faf",
+        "rea_inspect": {
+          "evidence_id": "ev_425bca69ba4dca04513c56b630030db7c7a51efb1ea9e3f862b02739bdf2b895",
+          "subject": {
+            "name": "Assembly-CSharp.dll",
+            "digest": {
+              "sha256": "6e03b8c4c46a444906b8924ec596c326f10c75da0032d89bcffe7e59d3f46faf"
+            },
+            "local_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+            "format": "pe",
+            "architecture": null
+          },
+          "provider": {
+            "id": "rea-artifact-graph",
+            "name": "REA safe artifact graph provider",
+            "version": "1"
+          },
+          "analysis_profile": null,
+          "predicate_type": "rea.analysis",
+          "operation": "inspect_artifact",
+          "parameters": {
+            "integrity_policy": "fail",
+            "input_path": "/Users/frederickamina/Documents/Projects/synapse/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll"
+          },
+          "raw_result": null,
+          "normalized_result": {
+            "inspection_id": "ai_42245789e3d8ec32f91c746d560b43b6a65416477347a1f914e6cc13f2974952",
+            "subject": {
+              "manifest_id": "agm_e3b4dcfb20244cae23f511181958972238446419f2e28adb74b5d07904c497d8",
+              "root_artifact_id": "art_97118ff05e2b0ffa55bc4e792e09a08308dbf7dc8ae453b0108d49c3ab803e82",
+              "root_sha256": "6e03b8c4c46a444906b8924ec596c326f10c75da0032d89bcffe7e59d3f46faf",
+              "root_format": "pe"
+            },
+            "substeps": [
+              {
+                "substep_id": "ais_59ebec7994db5454caa64d5ec0ae70a1cd6d5bffb199c4c8f86638c953ddd261",
+                "operation": "inventory_artifact",
+                "status": "completed",
+                "evidence_id": "ev_edc674dc76e835c0a3464a04cf91bc2be3f63ed8c1271841451ace683517c0d4",
+                "evidence": {
+                  "evidence_id": "ev_edc674dc76e835c0a3464a04cf91bc2be3f63ed8c1271841451ace683517c0d4",
+                  "subject": {
+                    "name": "Assembly-CSharp.dll",
+                    "digest": {
+                      "sha256": "6e03b8c4c46a444906b8924ec596c326f10c75da0032d89bcffe7e59d3f46faf"
+                    },
+                    "local_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+                    "format": "pe",
+                    "architecture": null
+                  },
+                  "provider": {
+                    "id": "rea-artifact-graph",
+                    "name": "REA safe artifact graph provider",
+                    "version": "1"
+                  },
+                  "analysis_profile": null,
+                  "predicate_type": "rea.analysis",
+                  "operation": "inventory_artifact",
+                  "parameters": {
+                    "integrity_policy": "fail"
+                  },
+                  "raw_result": null,
+                  "normalized_result": {
+                    "manifest": {
+                      "manifest_id": "agm_e3b4dcfb20244cae23f511181958972238446419f2e28adb74b5d07904c497d8",
+                      "root_artifact_id": "art_97118ff05e2b0ffa55bc4e792e09a08308dbf7dc8ae453b0108d49c3ab803e82",
+                      "root_sha256": "6e03b8c4c46a444906b8924ec596c326f10c75da0032d89bcffe7e59d3f46faf",
+                      "root_format": "pe",
+                      "graph_sha256": "a6f883997d45a0689113ffe14d4365342bc7b4714a99a026b5c28b0479bd160d",
+                      "node_count": 1,
+                      "occurrence_count": 1,
+                      "edge_count": 0
+                    },
+                    "nodes": [
+                      {
+                        "artifact_id": "art_97118ff05e2b0ffa55bc4e792e09a08308dbf7dc8ae453b0108d49c3ab803e82",
+                        "format": "pe",
+                        "sha256": "6e03b8c4c46a444906b8924ec596c326f10c75da0032d89bcffe7e59d3f46faf",
+                        "size": 429568,
+                        "media_type": null,
+                        "architecture": null,
+                        "content_state": "materialized",
+                        "limitations": []
+                      }
+                    ],
+                    "occurrences": [
+                      {
+                        "occurrence_id": "occ_7e8be53a3e813c788c1ec2e037e41896aeb6210797ad018610f1632b20c56ad3",
+                        "artifact_id": "art_97118ff05e2b0ffa55bc4e792e09a08308dbf7dc8ae453b0108d49c3ab803e82",
+                        "parent_occurrence_id": null,
+                        "logical_path": ".",
+                        "entry_kind": "file",
+                        "artifact_kind": "executable",
+                        "artifact_format": "pe",
+                        "declared_size": 429568,
+                        "compressed_size": null,
+                        "executable": false,
+                        "encrypted": false,
+                        "hash_status": "verified",
+                        "source_location": null,
+                        "limitations": []
+                      }
+                    ],
+                    "edges": [],
+                    "provenance": [],
+                    "integrity_contradictions": [],
+                    "coverage": {
+                      "scope": "root",
+                      "status": "complete"
+                    },
+                    "limitations": [
+                      "Inventory covers root bytes only; child container entries were not examined."
+                    ]
+                  },
+                  "confidence": "observed",
+                  "authority": "shipped-artifact",
+                  "environment": null,
+                  "limitations": [
+                    "Inventory covers root bytes only; child container entries were not examined."
+                  ],
+                  "relationship_coverage": null,
+                  "locations": [],
+                  "evidence_links": []
+                }
+              }
+            ],
+            "observations": [
+              {
+                "observation_id": "aio_9090a03eb5edb6d02af0c43f37286fd158c5be6524e4a0b1a4e1ee79e0f37a6a",
+                "kind": "root-manifest",
+                "subject": "art_97118ff05e2b0ffa55bc4e792e09a08308dbf7dc8ae453b0108d49c3ab803e82",
+                "value": {
+                  "manifest_id": "agm_e3b4dcfb20244cae23f511181958972238446419f2e28adb74b5d07904c497d8",
+                  "root_artifact_id": "art_97118ff05e2b0ffa55bc4e792e09a08308dbf7dc8ae453b0108d49c3ab803e82",
+                  "root_sha256": "6e03b8c4c46a444906b8924ec596c326f10c75da0032d89bcffe7e59d3f46faf",
+                  "root_format": "pe",
+                  "graph_sha256": "a6f883997d45a0689113ffe14d4365342bc7b4714a99a026b5c28b0479bd160d",
+                  "node_count": 1,
+                  "occurrence_count": 1,
+                  "edge_count": 0
+                },
+                "evidence_id": "ev_edc674dc76e835c0a3464a04cf91bc2be3f63ed8c1271841451ace683517c0d4"
+              }
+            ],
+            "hypotheses": [
+              {
+                "hypothesis_id": "aih_7a02673e64dc8bbf9d6d11002b5b9584e514ca40e9e3221edcf2f933e31f0e7b",
+                "statement": "The PE artifact may contain managed CLI metadata or native code; inventory bytes alone do not distinguish them.",
+                "confidence": "low",
+                "basis_evidence_ids": [
+                  "ev_edc674dc76e835c0a3464a04cf91bc2be3f63ed8c1271841451ace683517c0d4"
+                ],
+                "limitation": "Format classification proposes a bounded follow-up; it is not semantic proof."
+              }
+            ],
+            "contradictions": [],
+            "unexplored_branches": [
+              {
+                "branch_id": "aib_8481ca9501c06251faf8259b364d0e30c20f2b35c55aa6617f2e30b8c968a0fe",
+                "reason": "format-specific-analysis-required",
+                "detail": "inspect_managed_artifact was not run by provider-neutral artifact inspection.",
+                "next_probe": {
+                  "operation": "inspect_managed_artifact",
+                  "rationale": "Check execution-free CLI metadata before choosing a deep native provider.",
+                  "authority": "managed-static-analysis"
+                },
+                "evidence_id": "ev_edc674dc76e835c0a3464a04cf91bc2be3f63ed8c1271841451ace683517c0d4"
+              },
+              {
+                "branch_id": "aib_207f3fe96947f6bdf1fcdb81877d795569bfaa1820310c7de611c5badbe86d43",
+                "reason": "format-specific-analysis-required",
+                "detail": "open_binary was not run by provider-neutral artifact inspection.",
+                "next_probe": {
+                  "operation": "open_binary",
+                  "rationale": "Open as native code only when managed inspection reports a native or mixed boundary.",
+                  "authority": "native-analysis-provider"
+                },
+                "evidence_id": "ev_edc674dc76e835c0a3464a04cf91bc2be3f63ed8c1271841451ace683517c0d4"
+              }
+            ],
+            "next_probes": [
+              {
+                "operation": "inspect_managed_artifact",
+                "rationale": "Check execution-free CLI metadata before choosing a deep native provider.",
+                "authority": "managed-static-analysis"
+              },
+              {
+                "operation": "open_binary",
+                "rationale": "Open as native code only when managed inspection reports a native or mixed boundary.",
+                "authority": "native-analysis-provider"
+              }
+            ],
+            "coverage": {
+              "status": "complete-within-substeps",
+              "substeps_completed": 1,
+              "observations_retained": 1,
+              "observations_omitted": 0,
+              "hypotheses_retained": 1,
+              "hypotheses_omitted": 0,
+              "unexplored_branches_retained": 2,
+              "unexplored_branches_omitted": 0,
+              "next_probes_retained": 2,
+              "next_probes_omitted": 0
+            },
+            "evidence_links": [
+              "ev_edc674dc76e835c0a3464a04cf91bc2be3f63ed8c1271841451ace683517c0d4"
+            ],
+            "limitations": [
+              "Inspection derives bounded static hypotheses and next probes; it does not execute the artifact or claim format-specific semantics.",
+              "Inventory covers root bytes only; child container entries were not examined."
+            ]
+          },
+          "confidence": "observed",
+          "authority": "shipped-artifact",
+          "environment": null,
+          "limitations": [
+            "Inspection derives bounded static hypotheses and next probes; it does not execute the artifact or claim format-specific semantics.",
+            "Inventory covers root bytes only; child container entries were not examined."
+          ],
+          "relationship_coverage": null,
+          "locations": [],
+          "evidence_links": [
+            "ev_edc674dc76e835c0a3464a04cf91bc2be3f63ed8c1271841451ace683517c0d4"
+          ],
+          "caller_input_path": "/Users/frederickamina/Documents/Projects/synapse/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll"
         }
       }
     },
@@ -142671,6 +142905,63 @@
       }
     ],
     "status": "PASS_HEADLESS_LAN_MULTIPLAYER_SIMULATION"
+  },
+  "unpacked_tcg_engine_full3d_build_report": {
+    "timestampUtc": "2026-11-09T12:09:06.6832500Z",
+    "unityVersion": "6000.6.8f1",
+    "projectPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked",
+    "cardsImportedCount": 113,
+    "totalCardDataAssetsInResources": 269,
+    "starterDecksConfigured": [
+      "deck_sovereign_agent_command",
+      "deck_cardfront_astral_vanguard",
+      "deck_cradle_of_echoes_boss_swarm"
+    ],
+    "packConfigured": "pack_sovereign_genesis",
+    "game3DBoardSlotsConfigured": 9,
+    "game2DBoardSlotsConfigured": 9,
+    "cardFrontTabletopControllerAttached": true,
+    "buildTarget": "StandaloneOSX",
+    "outputAppPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app",
+    "executableBinaryPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app/Contents/MacOS/TcgEngine",
+    "managedAssemblyCSharpPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+    "buildResult": "Succeeded",
+    "totalSizeBytes": 308367290,
+    "totalTimeSeconds": 88.81,
+    "totalErrors": 0,
+    "scenesIncluded": [
+      "Assets/TcgEngine/Scenes/Menu/Menu.unity",
+      "Assets/TcgEngine/Scenes/Game/Game3D.unity",
+      "Assets/TcgEngine/Scenes/Game/Game.unity",
+      "Assets/TcgEngine/Scenes/Menu/OpenPack.unity",
+      "Assets/TcgEngine/Scenes/Server/Server.unity"
+    ],
+    "lanSimulationStatus": "PASS_HEADLESS_LAN_MULTIPLAYER_SIMULATION",
+    "lanStateHashHex": "4C837E02F2035A25",
+    "status": "PASS_UNPACKED_TCG_ENGINE_FULL3D_BUILD_AND_SCENES"
+  },
+  "tcg_engine_api_45file_verification_report": {
+    "timestamp_utc": "2026-11-09T12:07:23.334Z",
+    "elapsed_ms": 27,
+    "api_title": "TCG Engine API",
+    "api_version": "1.09",
+    "loopback_port_tested": 52887,
+    "secure_config_verified": true,
+    "tx_lock_hmac_verified": true,
+    "tx_lock_sample_receipt": "38ba6aa5e678451e467eb7dafb0862ca6dad63125656155cdb4937a6549f7865",
+    "cards_seeded_count": 155,
+    "decks_seeded_count": 3,
+    "packs_seeded_count": 1,
+    "starter_deck_ids": [
+      "deck_sovereign_agent_command",
+      "deck_cardfront_astral_vanguard",
+      "deck_cradle_of_echoes_boss_swarm"
+    ],
+    "pack_open_cards_drawn": 5,
+    "post_match_elo": 1025,
+    "post_match_coins": 5100,
+    "seed_file_path": "/Users/frederickamina/Documents/Projects/synapse/tcg-engine-unpacked/TcgEngineAPI/seed_catalog_155_cards.json",
+    "status": "PASS_TCG_ENGINE_API_SEEDED_AND_VERIFIED"
   },
   "mcp_servers_registered": [
     "unity-tcg-headless (/Users/frederickamina/.gemini/config/plugins/tcg-creative-game-designer/scripts/unity_tcg_headless_mcp.py --mcp)",

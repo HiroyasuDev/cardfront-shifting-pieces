@@ -77,16 +77,19 @@ def create_default_room(room_id: str = "CITADEL-1") -> dict:
         "room_id": room_id,
         "revision": 1,
         "status": "READY_FOR_LAN_DUEL",
+        "human1v1": True,
         "turn": "player",
+        "turnSeat": "host",
         "stageIndex": 0,
         "activeMutator": "ACT_I_SOLAR_SPIRE",
         "colDice": [4, 2, 5],
         "scores": {"player": 0, "enemy": 1},
         "players": {
-            "host": "MacBook-Host (Astral Cyan)",
-            "challenger": "MacBook-LAN (Crimson Construct)",
+            "host": "MacBook-Host (Seat 1 · Blue)",
+            "challenger": "MacBook-LAN (Seat 2 · Red)",
         },
         "board": [None] * 9,
+        "lastCaptureEvents": [],
         "lastAction": {
             "type": "room_init",
             "actor": "system",
@@ -206,12 +209,18 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
 
                 if "turn" in data:
                     room["turn"] = data["turn"]
+                if "turnSeat" in data:
+                    room["turnSeat"] = str(data["turnSeat"])
+                if "human1v1" in data:
+                    room["human1v1"] = bool(data["human1v1"])
                 if "colDice" in data and isinstance(data["colDice"], list) and len(data["colDice"]) == 3:
                     room["colDice"] = data["colDice"]
                 if "scores" in data and isinstance(data["scores"], dict):
                     room["scores"] = data["scores"]
                 if "board" in data and isinstance(data["board"], list) and len(data["board"]) == 9:
                     room["board"] = data["board"]
+                if "lastCaptureEvents" in data and isinstance(data["lastCaptureEvents"], list):
+                    room["lastCaptureEvents"] = data["lastCaptureEvents"]
                 if "stageIndex" in data:
                     room["stageIndex"] = int(data["stageIndex"])
                 if "activeMutator" in data:

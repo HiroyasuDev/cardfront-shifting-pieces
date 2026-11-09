@@ -1,6 +1,6 @@
 {
   "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-  "timestamp": "2026-11-09T12:07:29.662Z",
+  "timestamp": "2026-11-09T13:03:27.470Z",
   "steps": [
     {
       "step": "Initial Stage Load",
@@ -44,8 +44,8 @@
       ],
       "immediateCaptures": 1,
       "scoreAfterTurn": {
-        "player": 3,
-        "boss": 2
+        "player": 0,
+        "boss": 5
       }
     },
     {
@@ -53,13 +53,13 @@
       "cardPlayed": "h_chronos",
       "telegraph": "Temporal Gear Lock",
       "socket": [
-        1,
-        1
+        0,
+        0
       ],
       "immediateCaptures": 1,
       "scoreAfterTurn": {
-        "player": 4,
-        "boss": 3
+        "player": 2,
+        "boss": 5
       }
     },
     {
@@ -72,8 +72,8 @@
       ],
       "immediateCaptures": 1,
       "scoreAfterTurn": {
-        "player": 5,
-        "boss": 4
+        "player": 4,
+        "boss": 5
       }
     }
   ],
@@ -97,8 +97,8 @@
   "tacticalSlideTested": true,
   "modalDisplayed": true,
   "finalScore": {
-    "player": 5,
-    "boss": 4
+    "player": 4,
+    "boss": 5
   },
-  "outcome": "VICTORY"
+  "outcome": "DEFEAT"
 }

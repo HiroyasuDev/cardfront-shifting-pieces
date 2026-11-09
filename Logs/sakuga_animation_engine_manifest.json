@@ -1,0 +1,133 @@
+{
+  "engine": "Synapse-Sakuga-AnimEngine",
+  "version": "1.0",
+  "status": "VERIFIED",
+  "generated_at_utc": "2026-11-09T13:03:30.126841+00:00",
+  "physics_hz": 120,
+  "sakuga_fps": 24,
+  "clip_count": 8,
+  "puppet_rig_count": 16,
+  "parallax_layer_depths": {
+    "bg_layer": -0.35,
+    "mid_layer": -0.12,
+    "actor_layer": 0.18,
+    "vfx_frame_break_layer": 0.45
+  },
+  "unity_animations_dir": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Animations",
+  "web_animations_dir": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Animations",
+  "clips": [
+    {
+      "clip_id": "idle_breathe_25d",
+      "filename": "idle_breathe_25d.cfanim",
+      "duration_sec": 2.0,
+      "physics_hz": 120,
+      "sakuga_fps": 24,
+      "keyframe_count": 49,
+      "fnv1a_64_checksum": "0xb05276d12d771165",
+      "unity_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Animations/idle_breathe_25d.cfanim",
+      "web_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Animations/idle_breathe_25d.cfanim"
+    },
+    {
+      "clip_id": "deploy_orbital_slam",
+      "filename": "deploy_orbital_slam.cfanim",
+      "duration_sec": 0.85,
+      "physics_hz": 120,
+      "sakuga_fps": 24,
+      "keyframe_count": 21,
+      "fnv1a_64_checksum": "0x414c7b320b3735c0",
+      "unity_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Animations/deploy_orbital_slam.cfanim",
+      "web_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Animations/deploy_orbital_slam.cfanim"
+    },
+    {
+      "clip_id": "directional_clash_lunge",
+      "filename": "directional_clash_lunge.cfanim",
+      "duration_sec": 0.75,
+      "physics_hz": 120,
+      "sakuga_fps": 24,
+      "keyframe_count": 19,
+      "fnv1a_64_checksum": "0xad640a8f76b8049d",
+      "unity_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Animations/directional_clash_lunge.cfanim",
+      "web_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Animations/directional_clash_lunge.cfanim"
+    },
+    {
+      "clip_id": "capture_flip_180",
+      "filename": "capture_flip_180.cfanim",
+      "duration_sec": 0.65,
+      "physics_hz": 120,
+      "sakuga_fps": 24,
+      "keyframe_count": 17,
+      "fnv1a_64_checksum": "0xc0fc1ced30e44cc0",
+      "unity_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Animations/capture_flip_180.cfanim",
+      "web_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Animations/capture_flip_180.cfanim"
+    },
+    {
+      "clip_id": "tactical_slide_bank",
+      "filename": "tactical_slide_bank.cfanim",
+      "duration_sec": 0.55,
+      "physics_hz": 120,
+      "sakuga_fps": 24,
+      "keyframe_count": 14,
+      "fnv1a_64_checksum": "0x7b0e92d16f4f09ae",
+      "unity_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Animations/tactical_slide_bank.cfanim",
+      "web_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Animations/tactical_slide_bank.cfanim"
+    },
+    {
+      "clip_id": "column_die_nudge_surge",
+      "filename": "column_die_nudge_surge.cfanim",
+      "duration_sec": 0.6,
+      "physics_hz": 120,
+      "sakuga_fps": 24,
+      "keyframe_count": 15,
+      "fnv1a_64_checksum": "0x7569f84d64918b60",
+      "unity_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Animations/column_die_nudge_surge.cfanim",
+      "web_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Animations/column_die_nudge_surge.cfanim"
+    },
+    {
+      "clip_id": "sakuga_impact_flash_2f",
+      "filename": "sakuga_impact_flash_2f.cfanim",
+      "duration_sec": 0.5,
+      "physics_hz": 120,
+      "sakuga_fps": 24,
+      "keyframe_count": 13,
+      "fnv1a_64_checksum": "0xbbe8aba78e86c174",
+      "unity_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Animations/sakuga_impact_flash_2f.cfanim",
+      "web_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Animations/sakuga_impact_flash_2f.cfanim"
+    },
+    {
+      "clip_id": "boss_telegraph_pulse",
+      "filename": "boss_telegraph_pulse.cfanim",
+      "duration_sec": 1.1,
+      "physics_hz": 120,
+      "sakuga_fps": 24,
+      "keyframe_count": 27,
+      "fnv1a_64_checksum": "0x1d8987000abdf36c",
+      "unity_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Animations/boss_telegraph_pulse.cfanim",
+      "web_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Animations/boss_telegraph_pulse.cfanim"
+    }
+  ],
+  "puppet_rigs_manifest": {
+    "unity_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Animations/puppet_rigs_manifest.json",
+    "web_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Animations/puppet_rigs_manifest.json",
+    "rig_count": 16,
+    "card_ids": [
+      "h_kai",
+      "h_seraph",
+      "h_valkyrie",
+      "h_oracle",
+      "h_chronos",
+      "h_bastion",
+      "h_shinobi",
+      "h_archon",
+      "e_dreadnought",
+      "e_cryo",
+      "e_shinobi",
+      "e_behemoth",
+      "e_valkyrie",
+      "e_chronos",
+      "e_leviathan",
+      "e_eclipse"
+    ],
+    "fnv1a_64_checksum": "0xf0f38c50c243a21b"
+  },
+  "fnv1a_64_checksum": "0x0a118c12d91fca08"
+}

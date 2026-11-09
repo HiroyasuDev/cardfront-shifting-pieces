@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <defs>
+    <radialGradient id="cf-sakuga-bg" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#0E172A"/>
+      <stop offset="70%" stop-color="#070B16"/>
+      <stop offset="100%" stop-color="#03050B"/>
+    </radialGradient>
+    <linearGradient id="cf-sakuga-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="50%" stop-color="#FFB800"/>
+      <stop offset="100%" stop-color="#C67D00"/>
+    </linearGradient>
+    <linearGradient id="cf-sakuga-cyan" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#E0FFFF"/>
+      <stop offset="40%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#0077B6"/>
+    </linearGradient>
+  </defs>
+  <g id="cf_sakuga_spark">
+    <polygon points="76,12 180,12 244,76 244,180 180,244 76,244 12,180 12,76" fill="url(#cf-sakuga-bg)" stroke="#FFB800" stroke-width="4" stroke-linejoin="bevel"/>
+    <polygon points="82,22 174,22 234,82 234,174 174,234 82,234 22,174 22,82" fill="none" stroke="#FFE082" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.65"/>
+    <g stroke-linecap="round">
+      <line x1="26" y1="212" x2="112" y2="126" stroke="#00E5FF" stroke-width="3.5" opacity="0.55"/>
+      <line x1="146" y1="118" x2="230" y2="34" stroke="#00E5FF" stroke-width="3.5" opacity="0.55"/>
+      <line x1="20" y1="176" x2="88" y2="108" stroke="#FFB800" stroke-width="2.5" opacity="0.75"/>
+      <line x1="168" y1="148" x2="236" y2="80" stroke="#FFB800" stroke-width="2.5" opacity="0.75"/>
+      <polygon points="18,238 92,152 80,144" fill="#00E5FF" opacity="0.8"/>
+      <polygon points="238,18 164,104 176,112" fill="#00E5FF" opacity="0.8"/>
+      <polygon points="44,236 106,166 98,160" fill="#FFE082" opacity="0.85"/>
+      <polygon points="212,20 150,90 158,96" fill="#FFE082" opacity="0.85"/>
+    </g>
+    <polygon points="128,8 146,92 238,34 166,114 248,136 162,148 214,234 134,168 118,248 106,162 22,222 90,140 8,120 94,106 42,24 118,88" fill="#FFB800" stroke="#FFE082" stroke-width="2.5" stroke-linejoin="miter"/>
+    <polygon points="128,22 142,98 220,48 158,118 232,135 155,144 198,218 132,160 120,234 110,155 36,208 98,136 22,121 100,110 56,40 120,94" fill="#070B16"/>
+    <polygon points="128,32 139,103 208,58 152,120 220,134 149,141 186,204 130,154 121,220 113,150 48,196 103,134 34,122 105,113 68,52 122,99" fill="#00E5FF" stroke="#E0FFFF" stroke-width="2"/>
+    <polygon points="128,74 146,114 186,128 146,142 128,182 110,142 70,128 110,114" fill="#FFE082"/>
+    <polygon points="128,92 138,118 164,128 138,138 128,164 118,138 92,128 118,118" fill="#FFFFFF"/>
+    <circle cx="128" cy="128" r="6" fill="#00E5FF"/>
+    <polygon points="128,4 134,12 128,20 122,12" fill="#FFE082"/>
+    <polygon points="128,236 134,244 128,252 122,244" fill="#FFE082"/>
+    <polygon points="4,128 12,122 20,128 12,134" fill="#00E5FF"/>
+    <polygon points="236,128 244,122 252,128 244,134" fill="#00E5FF"/>
+  </g>
+</svg>

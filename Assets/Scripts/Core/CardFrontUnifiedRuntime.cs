@@ -179,6 +179,135 @@ namespace Synapse.TcgEngine.Core
         }
 
         /// <summary>
+        /// Evaluates Triple Triad SAME (2+ orthogonal neighbors have equal opposing edge values),
+        /// PLUS (2+ orthogonal neighbors share an identical opposing edge sum), and COMBO CASCADE
+        /// chain captures on the 3x3 board.
+        /// </summary>
+        public static int EvaluatePlusAndSameCaptures3x3(Game game_data, Card played_card, Slot slot, int eff_n, int eff_e, int eff_s, int eff_w)
+        {
+            if (game_data == null || played_card == null)
+                return 0;
+
+            int[] dx = new int[] { 0, 1, 0, -1 };
+            int[] dy = new int[] { 1, 0, -1, 0 };
+            int[] myEdges = new int[] { eff_n, eff_e, eff_s, eff_w };
+
+            List<Card> neighborCards = new List<Card>();
+            List<int> edgeSums = new List<int>();
+            List<bool> edgeEquals = new List<bool>();
+
+            for (int d = 0; d < 4; d++)
+            {
+                int nx = slot.x + dx[d];
+                int ny = slot.y + dy[d];
+                if (nx >= 1 && nx <= 3 && ny >= 1 && ny <= 3)
+                {
+                    Card nb = game_data.GetSlotCard(new Slot(nx, ny, slot.p));
+                    if (nb != null && nb.CardData != null)
+                    {
+                        int theirEdge = d == 0 ? nb.CardData.dir_south
+                            : (d == 1 ? nb.CardData.dir_west
+                            : (d == 2 ? nb.CardData.dir_north : nb.CardData.dir_east));
+                        neighborCards.Add(nb);
+                        edgeSums.Add(myEdges[d] + theirEdge);
+                        edgeEquals.Add(myEdges[d] == theirEdge);
+                    }
+                }
+            }
+
+            int equalCount = 0;
+            for (int i = 0; i < edgeEquals.Count; i++)
+            {
+                if (edgeEquals[i]) equalCount++;
+            }
+
+            List<Card> newlyFlipped = new List<Card>();
+            if (equalCount >= 2)
+            {
+                for (int i = 0; i < neighborCards.Count; i++)
+                {
+                    if (edgeEquals[i] && neighborCards[i].player_id != played_card.player_id && !newlyFlipped.Contains(neighborCards[i]))
+                    {
+                        neighborCards[i].player_id = played_card.player_id;
+                        newlyFlipped.Add(neighborCards[i]);
+                    }
+                }
+            }
+
+            for (int i = 0; i < edgeSums.Count; i++)
+            {
+                int sumVal = edgeSums[i];
+                int sumMatches = 0;
+                for (int j = 0; j < edgeSums.Count; j++)
+                {
+                    if (edgeSums[j] == sumVal) sumMatches++;
+                }
+                if (sumMatches >= 2)
+                {
+                    for (int j = 0; j < neighborCards.Count; j++)
+                    {
+                        if (edgeSums[j] == sumVal && neighborCards[j].player_id != played_card.player_id && !newlyFlipped.Contains(neighborCards[j]))
+                        {
+                            neighborCards[j].player_id = played_card.player_id;
+                            newlyFlipped.Add(neighborCards[j]);
+                        }
+                    }
+                }
+            }
+
+            // Combo Cascade: each newly flipped card evaluates high-pip captures on its own neighbors
+            Queue<Card> cascadeQueue = new Queue<Card>(newlyFlipped);
+            while (cascadeQueue.Count > 0)
+            {
+                Card src = cascadeQueue.Dequeue();
+                if (src == null || src.CardData == null) continue;
+                int[] srcEdges = new int[] { src.CardData.dir_north, src.CardData.dir_east, src.CardData.dir_south, src.CardData.dir_west };
+                for (int d = 0; d < 4; d++)
+                {
+                    int ax = src.slot.x + dx[d];
+                    int ay = src.slot.y + dy[d];
+                    if (ax >= 1 && ax <= 3 && ay >= 1 && ay <= 3)
+                    {
+                        Card adj = game_data.GetSlotCard(new Slot(ax, ay, src.slot.p));
+                        if (adj != null && adj.CardData != null && adj.player_id != played_card.player_id && !newlyFlipped.Contains(adj))
+                        {
+                            int adjEdge = d == 0 ? adj.CardData.dir_south
+                                : (d == 1 ? adj.CardData.dir_west
+                                : (d == 2 ? adj.CardData.dir_north : adj.CardData.dir_east));
+                            if (srcEdges[d] > adjEdge)
+                            {
+                                adj.player_id = played_card.player_id;
+                                newlyFlipped.Add(adj);
+                                cascadeQueue.Enqueue(adj);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return newlyFlipped.Count;
+        }
+
+        /// <summary>
+        /// Draws 1 replacement card from <see cref="Player.cards_deck"/> into <see cref="Player.cards_hand"/>
+        /// when the player's hand has fewer than 5 cards, cycling the full 20-60 card Set 1 deck across turns.
+        /// </summary>
+        public static Card DrawReplacementCardOnTurn(Game game_data, int player_id)
+        {
+            if (game_data == null)
+                return null;
+            Player player = game_data.GetPlayer(player_id);
+            if (player == null || player.cards_hand == null || player.cards_deck == null)
+                return null;
+            if (player.cards_hand.Count >= 5 || player.cards_deck.Count == 0)
+                return null;
+            Card drawn = player.cards_deck[0];
+            player.cards_deck.RemoveAt(0);
+            player.cards_hand.Add(drawn);
+            return drawn;
+        }
+
+        /// <summary>
         /// Rolls the 5-dice Dicevaders row at the start of a turn, refreshing Budge tokens and Chrono charges
         /// according to the active chapter's progressive pacing profile, and evaluates the active resonance multiplier.
         /// </summary>

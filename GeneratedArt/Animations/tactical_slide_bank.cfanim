@@ -1,0 +1,1111 @@
+{
+  "clip_id": "tactical_slide_bank",
+  "version": "1.0",
+  "description": "Grid tile relocation slide with aerodynamic roll banking and under-damped arrival settle.",
+  "duration_sec": 0.55,
+  "physics_hz": 120,
+  "sakuga_fps": 24,
+  "spring_params": {
+    "stiffness": 340.0,
+    "damping": 26.0,
+    "mass": 1.0,
+    "zeta": 0.705024,
+    "regime": "under-damped"
+  },
+  "sakuga_params": {
+    "anticipation_frames": 2,
+    "anticipation_dip": -0.18,
+    "lunge_frames": 2,
+    "impact_peak": 1.05,
+    "hitstop_frames": 3
+  },
+  "parallax_layer_depths": {
+    "bg_layer": -0.35,
+    "mid_layer": -0.12,
+    "actor_layer": 0.18,
+    "vfx_frame_break_layer": 0.45
+  },
+  "events": {
+    "onAnticipation": {
+      "event_name": "onAnticipation",
+      "frame_index": 2,
+      "time_sec": 0.083333,
+      "dip_value": -0.18,
+      "sfx_cue": "sfx_tactical_slide_bank_windup"
+    },
+    "onHitStop": {
+      "event_name": "onHitStop",
+      "frame_index": 4,
+      "time_sec": 0.166667,
+      "hold_frames": 3,
+      "sfx_cue": "sfx_tactical_slide_bank_impact"
+    },
+    "onCaptureFlip": {
+      "event_name": "onCaptureFlip",
+      "frame_index": 6,
+      "time_sec": 0.25,
+      "flip_degrees": 0.0,
+      "active": false
+    },
+    "onHapticTrigger": {
+      "event_name": "onHapticTrigger",
+      "frame_index": 4,
+      "time_sec": 0.166667,
+      "intensity": 0.85,
+      "duration_ms": 35
+    }
+  },
+  "keyframes": [
+    {
+      "frame_index": 0,
+      "time_sec": 0.0,
+      "phase": "anticipation",
+      "in_hitstop": false,
+      "sakuga_scalar": 0.0,
+      "spring_pos_120hz": 0.0,
+      "spring_vel_120hz": 0.0,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -0.0,
+          "offset_y": 0.0,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -0.0,
+          "offset_y": 0.0,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 0.0,
+          "offset_y": -0.0,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 0.0,
+          "offset_y": -0.0,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          36.0,
+          24.0
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            14.522706,
+            16.034058
+          ],
+          [
+            32.704997,
+            10.993791
+          ],
+          [
+            35.999831,
+            23.999331
+          ]
+        ],
+        "error": 0.00069
+      }
+    },
+    {
+      "frame_index": 1,
+      "time_sec": 0.041667,
+      "phase": "anticipation",
+      "in_hitstop": false,
+      "sakuga_scalar": -0.127279,
+      "spring_pos_120hz": 0.2027,
+      "spring_vel_120hz": 7.840085,
+      "position": [
+        -5.3457,
+        -0.5091,
+        -0.0
+      ],
+      "rotation_deg": [
+        -0.0,
+        0.5091,
+        1.2092
+      ],
+      "scale": [
+        0.99618,
+        1.00255,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": 0.68603,
+          "offset_y": -0.1871,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": 0.23521,
+          "offset_y": -0.06415,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": -0.35282,
+          "offset_y": 0.09622,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": -0.88204,
+          "offset_y": 0.24056,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          34.98177,
+          23.23633
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            12.431724,
+            17.704582
+          ],
+          [
+            29.985093,
+            10.785099
+          ],
+          [
+            34.98177,
+            23.236332
+          ]
+        ],
+        "error": 6e-06
+      }
+    },
+    {
+      "frame_index": 2,
+      "time_sec": 0.083333,
+      "phase": "anticipation",
+      "in_hitstop": false,
+      "sakuga_scalar": -0.18,
+      "spring_pos_120hz": 0.54509,
+      "spring_vel_120hz": 7.801437,
+      "position": [
+        -7.56,
+        -0.72,
+        -0.0
+      ],
+      "rotation_deg": [
+        -0.0,
+        0.72,
+        1.71
+      ],
+      "scale": [
+        0.9946,
+        1.0036,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": 0.9702,
+          "offset_y": -0.2646,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": 0.33264,
+          "offset_y": -0.09072,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": -0.49896,
+          "offset_y": 0.13608,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": -1.2474,
+          "offset_y": 0.3402,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          34.56,
+          22.92
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            12.39165,
+            17.732654
+          ],
+          [
+            29.771146,
+            10.387375
+          ],
+          [
+            34.560003,
+            22.920007
+          ]
+        ],
+        "error": 7e-06
+      }
+    },
+    {
+      "frame_index": 3,
+      "time_sec": 0.125,
+      "phase": "snap_lunge",
+      "in_hitstop": false,
+      "sakuga_scalar": 0.435,
+      "spring_pos_120hz": 0.817194,
+      "spring_vel_120hz": 5.109379,
+      "position": [
+        18.27,
+        1.74,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -1.74,
+        -4.1325
+      ],
+      "scale": [
+        1.01305,
+        0.9913,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -2.34465,
+          "offset_y": 0.63945,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -0.80388,
+          "offset_y": 0.21924,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 1.20582,
+          "offset_y": -0.32886,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 3.01455,
+          "offset_y": -0.82215,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          39.48,
+          26.61
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            15.600255,
+            14.98773
+          ],
+          [
+            34.450599,
+            14.172551
+          ],
+          [
+            39.480209,
+            26.610518
+          ]
+        ],
+        "error": 0.000559
+      }
+    },
+    {
+      "frame_index": 4,
+      "time_sec": 0.166667,
+      "phase": "snap_lunge",
+      "in_hitstop": false,
+      "sakuga_scalar": 1.05,
+      "spring_pos_120hz": 0.972066,
+      "spring_vel_120hz": 2.443666,
+      "position": [
+        44.1,
+        4.2,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -4.2,
+        -9.975
+      ],
+      "scale": [
+        1.0315,
+        0.979,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -5.6595,
+          "offset_y": 1.5435,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -1.9404,
+          "offset_y": 0.5292,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 2.9106,
+          "offset_y": -0.7938,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 7.2765,
+          "offset_y": -1.9845,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          44.4,
+          30.3
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            17.976135,
+            12.035721
+          ],
+          [
+            34.078572,
+            21.869922
+          ],
+          [
+            44.469561,
+            30.356815
+          ]
+        ],
+        "error": 0.089815
+      }
+    },
+    {
+      "frame_index": 5,
+      "time_sec": 0.208333,
+      "phase": "hitstop",
+      "in_hitstop": true,
+      "sakuga_scalar": 1.05,
+      "spring_pos_120hz": 1.034076,
+      "spring_vel_120hz": 0.702302,
+      "position": [
+        44.1,
+        4.2,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -4.2,
+        -9.975
+      ],
+      "scale": [
+        1.0315,
+        0.979,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -5.6595,
+          "offset_y": 1.5435,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -1.9404,
+          "offset_y": 0.5292,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 2.9106,
+          "offset_y": -0.7938,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 7.2765,
+          "offset_y": -1.9845,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          44.4,
+          30.3
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            17.976135,
+            12.035721
+          ],
+          [
+            34.078572,
+            21.869922
+          ],
+          [
+            44.469561,
+            30.356815
+          ]
+        ],
+        "error": 0.089815
+      }
+    },
+    {
+      "frame_index": 6,
+      "time_sec": 0.25,
+      "phase": "hitstop",
+      "in_hitstop": true,
+      "sakuga_scalar": 1.05,
+      "spring_pos_120hz": 1.043364,
+      "spring_vel_120hz": -0.128272,
+      "position": [
+        44.1,
+        4.2,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -4.2,
+        -9.975
+      ],
+      "scale": [
+        1.0315,
+        0.979,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -5.6595,
+          "offset_y": 1.5435,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -1.9404,
+          "offset_y": 0.5292,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 2.9106,
+          "offset_y": -0.7938,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 7.2765,
+          "offset_y": -1.9845,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          44.4,
+          30.3
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            17.976135,
+            12.035721
+          ],
+          [
+            34.078572,
+            21.869922
+          ],
+          [
+            44.469561,
+            30.356815
+          ]
+        ],
+        "error": 0.089815
+      }
+    },
+    {
+      "frame_index": 7,
+      "time_sec": 0.291667,
+      "phase": "hitstop",
+      "in_hitstop": true,
+      "sakuga_scalar": 1.05,
+      "spring_pos_120hz": 1.031616,
+      "spring_vel_120hz": -0.365342,
+      "position": [
+        44.1,
+        4.2,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -4.2,
+        -9.975
+      ],
+      "scale": [
+        1.0315,
+        0.979,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -5.6595,
+          "offset_y": 1.5435,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -1.9404,
+          "offset_y": 0.5292,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 2.9106,
+          "offset_y": -0.7938,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 7.2765,
+          "offset_y": -1.9845,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          44.4,
+          30.3
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            17.976135,
+            12.035721
+          ],
+          [
+            34.078572,
+            21.869922
+          ],
+          [
+            44.469561,
+            30.356815
+          ]
+        ],
+        "error": 0.089815
+      }
+    },
+    {
+      "frame_index": 8,
+      "time_sec": 0.333333,
+      "phase": "settle",
+      "in_hitstop": false,
+      "sakuga_scalar": 1.039865,
+      "spring_pos_120hz": 1.016783,
+      "spring_vel_120hz": -0.320126,
+      "position": [
+        43.6743,
+        4.1595,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -4.1595,
+        -9.8787
+      ],
+      "scale": [
+        1.0312,
+        0.9792,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -5.60487,
+          "offset_y": 1.5286,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -1.92167,
+          "offset_y": 0.52409,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 2.88251,
+          "offset_y": -0.78614,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 7.20626,
+          "offset_y": -1.96534,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          44.31892,
+          30.23919
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            17.946447,
+            12.079944
+          ],
+          [
+            34.159519,
+            21.730658
+          ],
+          [
+            44.445164,
+            30.34492
+          ]
+        ],
+        "error": 0.164671
+      }
+    },
+    {
+      "frame_index": 9,
+      "time_sec": 0.375,
+      "phase": "settle",
+      "in_hitstop": false,
+      "sakuga_scalar": 1.022745,
+      "spring_pos_120hz": 1.006,
+      "spring_vel_120hz": -0.194892,
+      "position": [
+        42.9553,
+        4.091,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -4.091,
+        -9.7161
+      ],
+      "scale": [
+        1.03068,
+        0.97955,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -5.5126,
+          "offset_y": 1.50344,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -1.89003,
+          "offset_y": 0.51546,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 2.83505,
+          "offset_y": -0.7732,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 7.08762,
+          "offset_y": -1.93299,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          44.18196,
+          30.13647
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            17.876652,
+            12.182992
+          ],
+          [
+            34.313975,
+            21.446601
+          ],
+          [
+            44.382795,
+            30.313328
+          ]
+        ],
+        "error": 0.267607
+      }
+    },
+    {
+      "frame_index": 10,
+      "time_sec": 0.416667,
+      "phase": "settle",
+      "in_hitstop": false,
+      "sakuga_scalar": 1.00914,
+      "spring_pos_120hz": 1.000289,
+      "spring_vel_120hz": -0.085579,
+      "position": [
+        42.3839,
+        4.0366,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -4.0366,
+        -9.5868
+      ],
+      "scale": [
+        1.03027,
+        0.97982,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -5.43926,
+          "offset_y": 1.48344,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -1.86489,
+          "offset_y": 0.50861,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 2.79734,
+          "offset_y": -0.76291,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 6.99334,
+          "offset_y": -1.90727,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          44.07312,
+          30.05484
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            17.80223,
+            12.291485
+          ],
+          [
+            34.4481,
+            21.174897
+          ],
+          [
+            44.308918,
+            30.272384
+          ]
+        ],
+        "error": 0.320821
+      }
+    },
+    {
+      "frame_index": 11,
+      "time_sec": 0.458333,
+      "phase": "settle",
+      "in_hitstop": false,
+      "sakuga_scalar": 1.001397,
+      "spring_pos_120hz": 0.998257,
+      "spring_vel_120hz": -0.019194,
+      "position": [
+        42.0587,
+        4.0056,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -4.0056,
+        -9.5133
+      ],
+      "scale": [
+        1.03004,
+        0.97997,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -5.39753,
+          "offset_y": 1.47205,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -1.85058,
+          "offset_y": 0.5047,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 2.77587,
+          "offset_y": -0.75706,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 6.93968,
+          "offset_y": -1.89264,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          44.01118,
+          30.00838
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            17.752635,
+            12.363007
+          ],
+          [
+            34.526065,
+            21.00315
+          ],
+          [
+            44.255833,
+            30.240661
+          ]
+        ],
+        "error": 0.337358
+      }
+    },
+    {
+      "frame_index": 12,
+      "time_sec": 0.5,
+      "phase": "settle",
+      "in_hitstop": false,
+      "sakuga_scalar": 0.998296,
+      "spring_pos_120hz": 0.998168,
+      "spring_vel_120hz": 0.009866,
+      "position": [
+        41.9284,
+        3.9932,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -3.9932,
+        -9.4838
+      ],
+      "scale": [
+        1.02995,
+        0.98003,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -5.38082,
+          "offset_y": 1.4675,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -1.84485,
+          "offset_y": 0.50314,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 2.76728,
+          "offset_y": -0.75471,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 6.91819,
+          "offset_y": -1.88678,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          43.98637,
+          29.98978
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            17.731446,
+            12.393378
+          ],
+          [
+            34.557135,
+            20.931305
+          ],
+          [
+            44.232276,
+            30.226015
+          ]
+        ],
+        "error": 0.340998
+      }
+    },
+    {
+      "frame_index": 13,
+      "time_sec": 0.541667,
+      "phase": "settle",
+      "in_hitstop": false,
+      "sakuga_scalar": 0.997832,
+      "spring_pos_120hz": 0.998767,
+      "spring_vel_120hz": 0.016314,
+      "position": [
+        41.9089,
+        3.9913,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        -3.9913,
+        -9.4794
+      ],
+      "scale": [
+        1.02993,
+        0.98004,
+        1.0
+      ],
+      "parallax_layers": {
+        "bg_layer": {
+          "depth_coeff": -0.35,
+          "offset_x": -5.37831,
+          "offset_y": 1.46681,
+          "scale_factor": 1.021
+        },
+        "mid_layer": {
+          "depth_coeff": -0.12,
+          "offset_x": -1.84399,
+          "offset_y": 0.50291,
+          "scale_factor": 1.0072
+        },
+        "actor_layer": {
+          "depth_coeff": 0.18,
+          "offset_x": 2.76599,
+          "offset_y": -0.75436,
+          "scale_factor": 1.0108
+        },
+        "vfx_frame_break_layer": {
+          "depth_coeff": 0.45,
+          "offset_x": 6.91498,
+          "offset_y": -1.8859,
+          "scale_factor": 1.027
+        }
+      },
+      "weapon_arm_ik": {
+        "target": [
+          43.98266,
+          29.98699
+        ],
+        "joints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            17.728215,
+            12.397999
+          ],
+          [
+            34.561764,
+            20.920418
+          ],
+          [
+            44.22864,
+            30.223725
+          ]
+        ],
+        "error": 0.341395
+      }
+    }
+  ],
+  "fnv1a_64_checksum": "0x7b0e92d16f4f09ae"
+}

@@ -1,13 +1,13 @@
 {
   "latest_iteration": {
-    "iteration": 180,
-    "timestamp_utc": "2026-11-09T12:02:00Z",
+    "iteration": 193,
+    "timestamp_utc": "2026-11-09T12:52:04Z",
     "video_id": "t13A2XFGoOc",
     "target_model": "gemini-4-argon",
     "active_track": {
-      "track_id": "track_02_art_direction_assets",
-      "focus": "Cohesive Game Asset Pipeline, Raster QA & Tactical Illustrator Library",
-      "prompt": "Validate cohesive game assets, sprite sheet silhouettes, shader outline grading, and ScriptableObject card data in Unity"
+      "track_id": "track_01_card_game_feel_ui",
+      "focus": "Card-Game Single-Zone Invariant, Game-Feel Trauma\u00b2 Shake & 80ms Hit-Stop, and Responsive UI/UX",
+      "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance"
     },
     "routed_skill_stack": {
       "primary_web_engine": "Custom HTML5/CSS3/JS Tabletop Engine",
@@ -15,9 +15,8 @@
       "unity_version": "6000.6.8f1",
       "selected_skill_names": [
         "unity-scriptableobjects",
-        "unity-csharp-scripting",
-        "create-game-assets",
-        "shader-programming",
+        "game-feel",
+        "game-ui-ux",
         "card-game"
       ],
       "skill_stack_order": "Engine Fundamentals -> Discipline(s) -> Genre -> Workflow",
@@ -25,12 +24,11 @@
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/SKILL.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/references/custom-engines.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/shader-programming/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md"
       ],
-      "composed_system_prompt_chars": 23257
+      "composed_system_prompt_chars": 32872
     },
     "primary_tcg_stack": {
       "selected_skill_names": [
@@ -45,8 +43,8 @@
       "drag_e2e_passed": true,
       "autotest_e2e_passed": true,
       "autotest_title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
-      "total_checks": 142,
-      "passed_checks": 142,
+      "total_checks": 144,
+      "passed_checks": 144,
       "failed_checks": 0,
       "pass_rate_pct": 100.0,
       "p0_failures": 0,
@@ -179,6 +177,8 @@
         "core.unity6_tcg_rea_baseline.04",
         "core.unity6_tcg_rea_baseline.05",
         "core.unity6_tcg_rea_baseline.06",
+        "core.unity6_tcg_rea_baseline.07",
+        "core.unity6_tcg_rea_baseline.08",
         "core.unity_so.01",
         "core.unity_so.02",
         "feel_audio_camera_perf.1",
@@ -332,16 +332,16 @@
       },
       "unity/unity-build-pipeline": {
         "skill": "unity/unity-build-pipeline",
-        "total": 2,
-        "passed": 2,
+        "total": 3,
+        "passed": 3,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "unity/unity-netcode-multiplayer": {
         "skill": "unity/unity-netcode-multiplayer",
-        "total": 4,
-        "passed": 4,
+        "total": 5,
+        "passed": 5,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -542,7 +542,7 @@
       "upstream_gamedev_skills_count": 77,
       "custom_synapse_skills_count": 15
     },
-    "elapsed_ms": 24520.62
+    "elapsed_ms": 25299.61
   },
   "video_and_catalog": {
     "video_analysis": {

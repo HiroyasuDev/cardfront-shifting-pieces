@@ -263,6 +263,17 @@ def inspect_compiled_assemblies_with_rea() -> Dict[str, Any]:
     )
     unpacked_runtime_dll = TCG_UNPACKED_PROJECT / "Library" / "ScriptAssemblies" / "Assembly-CSharp.dll"
     unpacked_editor_dll = TCG_UNPACKED_PROJECT / "Library" / "ScriptAssemblies" / "Assembly-CSharp-Editor.dll"
+    unpacked_full3d_app_dll = (
+        TCG_UNPACKED_PROJECT
+        / "Builds"
+        / "MacOS"
+        / "CARDFRONT_TcgEngine_Full3D.app"
+        / "Contents"
+        / "Resources"
+        / "Data"
+        / "Managed"
+        / "Assembly-CSharp.dll"
+    )
 
     inspected: Dict[str, Any] = {}
     for label, path in [
@@ -272,6 +283,7 @@ def inspect_compiled_assemblies_with_rea() -> Dict[str, Any]:
         ("tcg-engine-unpacked/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll", unpacked_editor_dll),
         ("CARDFRONT_CradleOfEchoes.app/Contents/MacOS/unity-tcg-engine", macos_app_exe),
         ("CARDFRONT_CradleOfEchoes.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll", macos_app_dll),
+        ("CARDFRONT_TcgEngine_Full3D.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll", unpacked_full3d_app_dll),
     ]:
         if path.exists():
             sha = hashlib.sha256(path.read_bytes()).hexdigest()
@@ -353,6 +365,23 @@ def main() -> None:
         except Exception:
             pass
 
+    unpacked_full3d_path = TCG_UNPACKED_PROJECT / "Logs" / "unpacked_tcg_engine_full3d_build_report.json"
+    unpacked_full3d_report = {}
+    if unpacked_full3d_path.exists():
+        try:
+            unpacked_full3d_report = json.loads(unpacked_full3d_path.read_text(encoding="utf-8"))
+            shutil.copy2(unpacked_full3d_path, UNITY_TCG_PROJECT / "Logs" / "unpacked_tcg_engine_full3d_build_report.json")
+        except Exception:
+            pass
+
+    tcg_api_report_path = UNITY_TCG_PROJECT / "Logs" / "tcg_engine_api_45file_verification_report.json"
+    tcg_api_report = {}
+    if tcg_api_report_path.exists():
+        try:
+            tcg_api_report = json.loads(tcg_api_report_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
     owned_pkg = OWNED_PACKAGES_DIR / "TCG Engine - Online Card Game.unitypackage"
     ccg_pkg = OWNED_PACKAGES_DIR / "CCG Kit.unitypackage"
     mirror_pkg = OWNED_PACKAGES_DIR / "Mirror.unitypackage"
@@ -389,6 +418,10 @@ def main() -> None:
             "lan_multiplayer_state_hash_hex": lan_report.get("finalServerStateHashHex", ""),
             "lan_multiplayer_lockstep_parity": lan_report.get("stateHashLockstepParity", False),
             "standalone_player_runtime_verified": standalone_runtime_report.get("stateHashLockstepParity", False),
+            "unpacked_full3d_build_status": unpacked_full3d_report.get("status", "N/A"),
+            "unpacked_full3d_app_size_bytes": unpacked_full3d_report.get("totalSizeBytes", 0),
+            "tcg_engine_api_status": tcg_api_report.get("status", "N/A"),
+            "tcg_engine_api_cards_seeded": tcg_api_report.get("cards_seeded_count", 0),
         },
         "asset_ingestion": asset_res,
         "rea_decompile_and_inspection": rea_res,
@@ -396,6 +429,8 @@ def main() -> None:
         "unity_6000_macos_standalone_build_report": macos_build_report,
         "unity_6000_lan_multiplayer_simulation_report": lan_report,
         "macos_standalone_player_runtime_verification": standalone_runtime_report,
+        "unpacked_tcg_engine_full3d_build_report": unpacked_full3d_report,
+        "tcg_engine_api_45file_verification_report": tcg_api_report,
         "mcp_servers_registered": [
             "unity-tcg-headless (/Users/frederickamina/.gemini/config/plugins/tcg-creative-game-designer/scripts/unity_tcg_headless_mcp.py --mcp)",
             "rea-reverse-engineer (/Users/frederickamina/.local/bin/rea --mcp)",

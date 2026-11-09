@@ -58,6 +58,15 @@ def build_itch_webgl_zip() -> dict:
                 zf.write(f, f"Models3D/AgentDeck/{f.name}")
                 files_added += 1
 
+        # Include modular ES scripts (WebPlayable/modules/*.js) and mastered .wav stems (WebPlayable/Audio/*.wav)
+        for sub_name in ["modules", "Audio"]:
+            sub_dir = ROOT_DIR / "WebPlayable" / sub_name
+            if sub_dir.exists():
+                for f in sorted(sub_dir.rglob("*")):
+                    if f.is_file() and not f.name.startswith("."):
+                        zf.write(f, f"{sub_name}/{f.name}")
+                        files_added += 1
+
     return {
         "zip_path": str(ITCH_ZIP_PATH.relative_to(ROOT_DIR)),
         "zip_size_bytes": ITCH_ZIP_PATH.stat().st_size,

@@ -1045,5 +1045,130 @@
     "priority": "P1",
     "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:3584-3606,4410-4424",
     "remediation": "Implement applyStageMutatorToSocket(r, c, stageIdx) in WebPlayable."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.07",
+    "skill": "unity/unity-build-pipeline",
+    "rule": "Unpacked Full 3D TCG Engine Project (tcg-engine-unpacked) compiles in Unity 6000.6.8f1, imports 269 CardData assets & 3 Starter Decks, wires 3x3 BoardSlots into Game3D.unity & Game.unity, and builds CARDFRONT_TcgEngine_Full3D.app with 0 errors and FNV-1a lockstep hash 4C837E02F2035A25.",
+    "source": "Logs/unpacked_tcg_engine_full3d_build_report.json:1",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/unpacked_tcg_engine_full3d_build_report.json",
+      "expression": "data['status'] == 'PASS_UNPACKED_TCG_ENGINE_FULL3D_BUILD_AND_SCENES' and data['totalErrors'] == 0 and data['totalCardDataAssetsInResources'] >= 269 and data['lanStateHashHex'] == '4C837E02F2035A25'"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Logs/unpacked_tcg_engine_full3d_build_report.json:1-34",
+    "remediation": "Run CardFrontTcgEngineImporter.BuildFullTcgEngineProductionScenesAndStandaloneApp in Unity 6000.6.8f1 on tcg-engine-unpacked."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.08",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "Owned 45-File Node.js TcgEngineAPI Backend is seeded with all 155 TcgEngine cards, 3 starter decks, and Pack_Sovereign_Genesis, and passes HTTP loopback verification (register, pack opening, and match completion with HMAC-SHA256 TxLock).",
+    "source": "Logs/tcg_engine_api_45file_verification_report.json:1",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/tcg_engine_api_45file_verification_report.json",
+      "expression": "data['status'] == 'PASS_TCG_ENGINE_API_SEEDED_AND_VERIFIED' and data['cards_seeded_count'] == 155 and data['decks_seeded_count'] == 3 and data['tx_lock_hmac_verified'] is True"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Logs/tcg_engine_api_45file_verification_report.json:1-23",
+    "remediation": "Run TcgEngineAPI/verify_and_seed_tcg_engine_api.js to seed and verify the 45-file Node.js TcgEngineAPI backend."
+  },
+  {
+    "id": "core.production_upgrades.01",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "True 2-MacBook Human-vs-Human LAN Duel (Seat 1 Host Blue vs Seat 2 Challenger Red): joinLanRoomAsSeat() and LanDuelSync module serialize and apply full 3x3 board state, column dice, and turnSeat handoff while suppressing local AI in human1v1 mode.",
+    "source": "skills/unity/unity-netcode-multiplayer/SKILL.md:82",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { if (!window.CardFrontModules || !window.CardFrontModules.LanDuelSync || typeof joinLanRoomAsSeat !== 'function') return false; const flat = window.CardFrontModules.LanDuelSync.serializeGridForLan(state.grid, 'host'); return Array.isArray(flat) && flat.length === 9 && Boolean(state.lanMultiplayer && state.lanMultiplayer.human1v1 === true); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/lan_duel_sync.js:1-95",
+    "remediation": "Load WebPlayable/modules/lan_duel_sync.js and implement joinLanRoomAsSeat(role, roomId) with human1v1 turn handoff."
+  },
+  {
+    "id": "core.production_upgrades.02",
+    "skill": "genres/card-game",
+    "rule": "Triple Triad SAME + PLUS + COMBO CASCADE & Singleton Deck-Draw-on-Turn: RulesPlusSame.evaluatePlusAndSameCaptures() flips 2+ equal-edge (SAME) or equal-sum (PLUS) orthogonal neighbors and cascades high-pip captures, and drawCardFromDeckPool() draws singleton cards.",
+    "source": "skills/genres/card-game/SKILL.md:104",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { if (!window.CardFrontModules || !window.CardFrontModules.RulesPlusSame) return false; const testGrid = [ [{cardId:null,owner:null,nesw:[0,0,0,0]},{cardId:'e_eclipse',owner:'ai',nesw:[5,5,7,5]},{cardId:null,owner:null,nesw:[0,0,0,0]}], [{cardId:'e_archon',owner:'ai',nesw:[5,6,5,5]},{cardId:null,owner:null,nesw:[0,0,0,0]},{cardId:null,owner:null,nesw:[0,0,0,0]}], [{cardId:null,owner:null,nesw:[0,0,0,0]},{cardId:null,owner:null,nesw:[0,0,0,0]},{cardId:null,owner:null,nesw:[0,0,0,0]}] ]; const res = window.CardFrontModules.RulesPlusSame.evaluatePlusAndSameCaptures(testGrid, 1, 1, [7, 5, 5, 8], 'player'); return Boolean(res && res.plusFlips.length === 2 && Array.isArray(state.deckDrawPool) && state.deckDrawPool.length >= 40); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/rules_plus_same.js:1-195",
+    "remediation": "Implement evaluatePlusAndSameCaptures and initDeckDrawPool in WebPlayable/modules/rules_plus_same.js."
+  },
+  {
+    "id": "core.production_upgrades.03",
+    "skill": "create-game-assets",
+    "rule": "60 / 60 Cryptographically Unique Set 1 600x800 Card Portraits: all 60 cards in SET1_60_CATALOG have 60 distinct portrait paths (zero reused art paths) and 60 distinct SHA-256 hashes verified at 600x800 RGB opaque.",
+    "source": "Datasets/set1_60_unique_portraits_manifest.json:1",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/set1_60_unique_portraits_manifest.json",
+      "expression": "data['total_set1_cards'] == 60 and data['unique_sha256_count'] == 60 and data['all_60_cryptographically_unique'] is True and data['all_60_600x800_rgb_opaque_full_bleed'] is True"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/generate_set1_60_unique_portraits.py:1-220",
+    "remediation": "Run Backend/generate_set1_60_unique_portraits.py to generate all 44 Mk.2/Mk.3/Mk.4 Set 1 portraits."
+  },
+  {
+    "id": "core.production_upgrades.04",
+    "skill": "game-audio-implementation",
+    "rule": "Mastered Multi-Layer .WAV Foley & BGM Audio Stems (44.1kHz 16-bit Stereo): card_slam_stone.wav, dice_tumble_brass.wav, crystal_capture_shatter.wav, sakuga_impact_subdrop.wav, and bgm_citadel_tactical_loop.wav are synthesized, mastered, and wired into FoleyAudioBank.",
+    "source": "Datasets/mastered_audio_stems_manifest.json:1",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/mastered_audio_stems_manifest.json",
+      "expression": "data['total_stems'] == 5 and data['format']['sample_rate'] == 44100 and len(data['stems']) == 5"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Backend/synthesize_mastered_foley_and_stems.py:1-240",
+    "remediation": "Run Backend/synthesize_mastered_foley_and_stems.py and load WebPlayable/modules/foley_audio_bank.js."
+  },
+  {
+    "id": "core.production_upgrades.05",
+    "skill": "unity/unity-scriptableobjects",
+    "rule": "Unity C# EvaluatePlusAndSameCaptures3x3 & DrawReplacementCardOnTurn: CardFrontUnifiedRuntime.cs implements Triple Triad SAME, PLUS, COMBO CASCADE, and Deck-Draw-on-Turn in C#.",
+    "source": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:184",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "regex": "EvaluatePlusAndSameCaptures3x3[\\s\\S]*DrawReplacementCardOnTurn"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:184-312",
+    "remediation": "Implement EvaluatePlusAndSameCaptures3x3 and DrawReplacementCardOnTurn in CardFrontUnifiedRuntime.cs."
+  },
+  {
+    "id": "core.production_upgrades.06",
+    "skill": "ship/itch-release",
+    "rule": "SET1_60_CATALOG In-Browser Uniqueness & FoleyAudioBank Wiring: all 60 cards in SET1_60_CATALOG have 60 distinct .art URLs in live browser memory and FoleyAudioBank is loaded.",
+    "source": "WebPlayable/cardfront_cradle_of_echoes_playable.html:2695",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { if (!Array.isArray(SET1_60_CATALOG) || SET1_60_CATALOG.length !== 60) return false; const uniqueArts = new Set(SET1_60_CATALOG.map(c => c.art)); return uniqueArts.size === 60 && Boolean(window.CardFrontModules && window.CardFrontModules.FoleyAudioBank); })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:2695-2745",
+    "remediation": "Assign unique art paths to all 60 cards in SET1_60_CATALOG and load FoleyAudioBank."
   }
 ]
