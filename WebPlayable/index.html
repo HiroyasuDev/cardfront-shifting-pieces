@@ -20,13 +20,13 @@
     --text-dim: #94A3B8;
 
     /* ========================================================================
-       PROPORTIONAL VIEWPORT-SAFE SIZING (FITS 1280x800 SAFARI WITH ZERO CLIPPING)
+       TACTILE TABLETOP VIEWPORT SIZING (FULL-SCREEN 3D + BOTTOM HAND ARC)
        ======================================================================== */
-    --slot-h: clamp(156px, 21.6vh, 206px);
-    --slot-w: calc(var(--slot-h) * 0.76);
+    --slot-h: clamp(114px, 15.8vh, 158px);
+    --slot-w: calc(var(--slot-h) * 0.78);
 
-    --hand-h: clamp(122px, 18.6vh, 160px);
-    --hand-w: calc(var(--hand-h) * 0.75);
+    --hand-h: clamp(104px, 14.5vh, 138px);
+    --hand-w: calc(var(--hand-h) * 0.76);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
@@ -46,8 +46,8 @@
     max-height: 100vh;
     overflow: hidden;
     background:
-      radial-gradient(circle at 50% 45%, rgba(20, 35, 72, 0.72) 0%, rgba(4, 7, 15, 0.97) 78%),
-      url("./GeneratedArt/env_isamu_kamikokuryo_skystone.png") center/cover no-repeat;
+      radial-gradient(circle at 50% 42%, rgba(16, 28, 58, 0.45) 0%, rgba(4, 7, 15, 0.92) 84%),
+      url("./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png") center/cover no-repeat;
     color: var(--text-main);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
     display: flex;
@@ -56,234 +56,416 @@
   }
 
   /* ==========================================================================
-     CRISP SINGLE-LINE TOP COMMAND BAR (44px — ZERO WRAPPING OR OVERLAPPING TEXT)
+     DECLUTTERED FLOATING GLASSMORPHIC TOP HUD (PLAYER VS BOSS + ⚙️ DEV DRAWER)
      ========================================================================== */
   header {
     height: 44px;
     width: 100%;
     max-width: 100vw;
-    overflow: hidden;
-    background: rgba(6, 9, 19, 0.96);
-    border-bottom: 1px solid #243866;
-    padding: env(safe-area-inset-top, 0px) max(10px, env(safe-area-inset-right, 10px)) 0 max(10px, env(safe-area-inset-left, 10px));
+    overflow: visible;
+    background: linear-gradient(180deg, rgba(6, 10, 22, 0.88) 0%, rgba(6, 10, 22, 0.52) 100%);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212, 163, 73, 0.28);
+    padding: env(safe-area-inset-top, 0px) max(14px, env(safe-area-inset-right, 14px)) 0 max(14px, env(safe-area-inset-left, 14px));
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 6px;
+    gap: 8px;
     flex-shrink: 0;
-    z-index: 40;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+    z-index: 60;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
   }
   .brand {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     min-width: 0;
     flex-shrink: 1;
-    overflow: hidden;
   }
   .brand-badge {
-    background: linear-gradient(135deg, var(--red-enemy), #7c3aed);
-    padding: 3px 7px;
-    border-radius: 5px;
+    background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+    border: 1px solid rgba(255, 184, 0, 0.65);
+    color: #ffffff;
+    padding: 3px 9px;
+    border-radius: 6px;
     font-size: 12px;
     font-weight: 900;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.8px;
     white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
   }
   .brand-title {
     font-size: 12px;
     font-weight: 800;
-    color: #e2e8f0;
+    color: #cbd5e1;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    letter-spacing: 0.3px;
   }
 
   .scoreboard {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: #0a1122;
-    border: 1px solid #2e477a;
-    padding: 3px 12px;
+    gap: 12px;
+    background: rgba(8, 13, 26, 0.86);
+    border: 1px solid rgba(212, 163, 73, 0.45);
+    padding: 4px 16px;
     border-radius: 99px;
     flex-shrink: 0;
     white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.65), inset 0 0 10px rgba(255, 184, 0, 0.1);
   }
   .score-side {
     display: flex;
     align-items: center;
-    gap: 5px;
-    font-weight: 800;
+    gap: 6px;
+    font-weight: 900;
     font-size: 12px;
     white-space: nowrap;
   }
   .score-dot {
     width: 9px;
     height: 9px;
-    border-radius: 2px;
+    transform: rotate(45deg);
     flex-shrink: 0;
   }
-  .score-dot.blue { background: var(--blue-ally); box-shadow: 0 0 6px var(--blue-ally); }
-  .score-dot.red { background: var(--red-enemy); box-shadow: 0 0 6px var(--red-enemy); }
+  .score-dot.blue { background: var(--blue-ally); box-shadow: 0 0 8px var(--blue-ally); }
+  .score-dot.red { background: var(--red-enemy); box-shadow: 0 0 8px var(--red-enemy); }
 
   .header-right {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     flex-shrink: 0;
+    position: relative;
   }
   select, button {
-    background: #131e38;
+    background: rgba(16, 26, 48, 0.9);
     color: #f8fafc;
-    border: 1px solid #324c80;
-    border-radius: 6px;
-    padding: 3px 6px;
+    border: 1px solid rgba(100, 140, 200, 0.45);
+    border-radius: 7px;
+    padding: 4px 8px;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.15s ease;
   }
   select:hover, button:hover:not(:disabled) {
-    border-color: var(--blue-ally);
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.35);
+    border-color: var(--gold);
+    box-shadow: 0 0 12px rgba(255, 184, 0, 0.35);
+  }
+
+  /* COLLAPSIBLE CAMERA / DEV GEAR DRAWER (TOP-RIGHT) */
+  .dev-drawer-toggle {
+    background: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(212, 163, 73, 0.55);
+    color: #fde68a;
+    border-radius: 99px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .dev-camera-drawer {
+    position: absolute;
+    top: 38px;
+    right: 0;
+    background: rgba(8, 13, 26, 0.96);
+    backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(212, 163, 73, 0.55);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    width: max-content;
+    max-width: min(560px, 94vw);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.92);
+    z-index: 120;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  .dev-camera-drawer.collapsed {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px) scale(0.98);
   }
 
   /* ==========================================================================
-     3-COLUMN STAGE (264px | 1fr | 264px — GUARANTEED ZERO RIGHT-EDGE CLIPPING)
+     FULL-VIEWPORT 3D TABLETOP ARENA + FLOATING GLASSMORPHIC HUD (ZERO SOLID SIDEBARS)
      ========================================================================== */
   main {
     flex: 1;
     display: grid;
-    grid-template-columns: 248px minmax(0, 1fr) 248px;
-    gap: 10px;
-    padding: 8px max(12px, env(safe-area-inset-right, 12px)) max(8px, env(safe-area-inset-bottom, 8px)) max(12px, env(safe-area-inset-left, 12px));
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 4px;
+    padding: 4px max(12px, env(safe-area-inset-right, 12px)) max(6px, env(safe-area-inset-bottom, 6px)) max(12px, env(safe-area-inset-left, 12px));
     width: 100%;
-    max-width: min(1640px, 100vw);
+    max-width: 100vw;
     margin: 0 auto;
     align-items: center;
+    justify-items: center;
     min-height: 0;
+    position: relative;
     overflow: hidden;
   }
 
   @media (max-width: 1360px) {
-    main {
-      grid-template-columns: 240px minmax(0, 1fr) 240px;
-      gap: 8px;
-      padding: 6px 10px;
+    :root {
+      --slot-h: clamp(108px, 15.2vh, 148px);
+      --hand-h: clamp(96px, 13.5vh, 128px);
     }
   }
 
   @media (max-width: 1100px) {
-    main {
-      grid-template-columns: 210px minmax(0, 1fr) 210px;
-      gap: 6px;
-      padding: 4px 8px;
+    :root {
+      --slot-h: clamp(98px, 14.4vh, 136px);
+      --hand-h: clamp(88px, 12.6vh, 116px);
+    }
+    .brand-title { display: none; }
+  }
+
+  @media (max-width: 900px) {
+    :root {
+      --slot-h: clamp(88px, 13.2vh, 122px);
+      --hand-h: clamp(78px, 11.2vh, 102px);
+    }
+    header { gap: 4px; padding: 0 6px; }
+    .scoreboard { padding: 2px 8px; gap: 6px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+    .fx-spin, .fx-spin-rev, .fx-pulse, .fx-slash, .fx-radar, .fx-scan, .fx-star,
+    .telegraph-vector-line, .board-slot.will-flip .card-3d-unit, .board-slot.drop-valid, .flip-tag {
+      animation: none !important;
     }
   }
 
+  /* FLOATING GLASSMORPHIC HUD PANELS (NO SOLID COLUMN BORDERS) */
   .side-box {
-    background: rgba(9, 15, 30, 0.92);
-    border: 1px solid #263a66;
-    border-radius: 14px;
-    padding: 10px 12px;
+    background: rgba(8, 14, 28, 0.72);
+    border: 1px solid rgba(212, 163, 73, 0.35);
+    border-radius: 16px;
+    padding: 6px 12px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 8px;
-    height: 100%;
-    max-height: calc(100vh - 60px);
+    gap: 4px;
     min-width: 0;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 220, 140, 0.16);
     backdrop-filter: blur(12px);
-    z-index: 20;
-    overflow: hidden;
+    z-index: 35;
+    overflow: visible;
   }
+
+  /* BOTTOM HORIZONTAL FAN DOCK FOR HERO HAND */
+  .bottom-hand-dock {
+    grid-row: 2;
+    grid-column: 1;
+    width: auto;
+    max-width: min(960px, 96vw);
+    padding: 6px 18px 8px;
+    background: linear-gradient(180deg, rgba(10, 16, 32, 0.68) 0%, rgba(5, 9, 20, 0.88) 100%);
+    border: 1px solid rgba(0, 229, 255, 0.32);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 -6px 28px rgba(0, 0, 0, 0.75), 0 0 20px rgba(0, 229, 255, 0.12);
+    backdrop-filter: blur(12px);
+  }
+  .hand-dock-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #cbd5e1;
+  }
+
+  /* FLOATING TOP-LEFT DICE & TELEGRAPH HUD PILL (COMPACT CORNER OVERLAY) */
+  .floating-corner-hud {
+    position: absolute;
+    top: 8px;
+    left: 14px;
+    width: auto;
+    max-width: 224px;
+    padding: 8px 10px;
+    background: rgba(8, 13, 26, 0.68);
+    border: 1px solid rgba(212, 163, 73, 0.35);
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+    z-index: 32;
+  }
+  @media (max-width: 1120px) {
+    .floating-corner-hud {
+      position: static;
+      display: none;
+    }
+  }
+
   .box-title {
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: var(--blue-ally);
-    border-bottom: 1px solid #1f3156;
-    padding-bottom: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 8px;
     white-space: nowrap;
     flex-shrink: 0;
   }
 
   /* ==========================================================================
-     LEFT PANEL: 2x3 HAND GALLERY (5 HEROES + 1 TELEGRAPH/SLIDE STATUS CARD)
+     BOTTOM EDGE HERO HAND: HORIZONTAL OVERLAPPING FAN + EXPANDED HOVER TOOLTIP
      ========================================================================== */
   .hand-grid {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(2, var(--hand-w));
-    grid-template-rows: repeat(3, var(--hand-h));
-    gap: 8px 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
     justify-content: center;
-    align-content: center;
-    min-height: 0;
+    gap: 12px;
+    min-height: calc(var(--hand-h) + 12px);
+    padding: 12px 8px 2px;
   }
   .hand-card-wrap {
     width: var(--hand-w);
     height: var(--hand-h);
-    cursor: pointer;
+    cursor: grab;
     position: relative;
     border-radius: 10px;
-    transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(var(--fan-y, 0px)) rotate(var(--fan-rot, 0deg));
+    transform-origin: 50% 110%;
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
   }
+  .hand-card-wrap:nth-child(1) { --fan-rot: -5deg;   --fan-y: 5px; }
+  .hand-card-wrap:nth-child(2) { --fan-rot: -2.5deg; --fan-y: 1px; }
+  .hand-card-wrap:nth-child(3) { --fan-rot: 0deg;    --fan-y: 0px; }
+  .hand-card-wrap:nth-child(4) { --fan-rot: 2.5deg;  --fan-y: 1px; }
+  .hand-card-wrap:nth-child(5) { --fan-rot: 5deg;    --fan-y: 5px; }
+
   .hand-card-wrap:hover {
-    transform: translateY(-3px) scale(1.03);
-    z-index: 30;
+    transform: translateY(-24px) scale(1.15) rotate(0deg) !important;
+    z-index: 50;
   }
   .hand-card-wrap.selected {
-    transform: translateY(-3px) scale(1.04);
-    z-index: 35;
+    transform: translateY(-10px) scale(1.06) rotate(0deg);
+    z-index: 42;
   }
   .hand-card-wrap.selected .card-3d-unit {
     border: 2px solid var(--gold) !important;
     box-shadow:
-      0 0 0 2px rgba(255, 184, 0, 0.35),
-      0 8px 18px rgba(0, 0, 0, 0.9),
-      0 0 14px rgba(255, 184, 0, 0.7) !important;
+      0 0 0 2px rgba(255, 184, 0, 0.38),
+      0 10px 22px rgba(0, 0, 0, 0.92),
+      0 0 18px rgba(255, 184, 0, 0.75) !important;
   }
 
-  .tactical-slide-card {
-    width: var(--hand-w);
-    height: var(--hand-h);
+  /* EXPANDED ABILITY TOOLTIP ON HOVER (REPLACES 6TH GRID SLOT) */
+  .hand-card-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    width: 210px;
+    background: rgba(6, 10, 22, 0.96);
+    border: 1.5px solid var(--gold);
     border-radius: 10px;
-    background: linear-gradient(155deg, rgba(0, 229, 255, 0.1), rgba(8, 15, 32, 0.95));
-    border: 1px dashed rgba(0, 229, 255, 0.45);
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 4px;
-    overflow: hidden;
+    padding: 7px 9px;
+    text-align: left;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.16s ease, transform 0.16s ease;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.92);
+    z-index: 90;
+  }
+  .hand-card-wrap:hover .hand-card-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ==========================================================================
-     CENTER STAGE: 3x3 TABLETOP ARENA + TELEGRAPH HUD BAR
+     CENTER STAGE: HEAD-TO-HEAD BOSS COMMANDER TOP BAR + 3x3 TABLETOP ARENA
      ========================================================================== */
   .center-zone {
+    grid-row: 1;
+    grid-column: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-    max-height: calc(100vh - 60px);
     width: 100%;
     min-width: 0;
     position: relative;
-    gap: 6px;
+    gap: 5px;
     min-height: 0;
+  }
+
+  /* INTEGRATED BOSS COMMANDER DUEL HEADER DIRECTLY ABOVE THE 3x3 BOARD */
+  .boss-tabletop-crest {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    max-width: 640px;
+    background: linear-gradient(90deg, rgba(44, 10, 22, 0.92) 0%, rgba(14, 12, 26, 0.90) 60%, rgba(10, 16, 32, 0.90) 100%);
+    border: 1.5px solid rgba(255, 46, 84, 0.65);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.82), 0 0 18px rgba(255, 46, 84, 0.22);
+    border-radius: 16px;
+    padding: 5px 14px 5px 8px;
+    backdrop-filter: blur(12px);
+    z-index: 30;
+  }
+  .boss-crest-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1;
+  }
+  .boss-crest-medallion, .boss-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    object-fit: cover;
+    box-shadow: 0 0 12px rgba(255, 46, 84, 0.7);
+    flex-shrink: 0;
+  }
+  .boss-crest-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .boss-crest-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 900;
+    color: #ffe4e8;
+    letter-spacing: 0.4px;
+  }
+  .boss-crest-sub {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 800;
+    line-height: 1.15;
   }
 
   /* LIVE TELEGRAPH BANNER ABOVE BOARD */
@@ -291,21 +473,30 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(8, 14, 29, 0.94);
-    border: 1px solid #304c82;
+    background: rgba(8, 14, 29, 0.84);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 163, 73, 0.42);
     border-radius: 99px;
-    padding: 4px 14px;
+    padding: 3px 12px;
     font-size: 12px;
     color: #e2e8f0;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.65);
-    white-space: nowrap;
-    max-width: 96%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.68);
+    width: 100%;
+    max-width: 640px;
+    min-width: 0;
     z-index: 30;
   }
+  #telegraph-hud-desc {
+    min-width: 0;
+    flex: 1;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .telegraph-tag-badge {
-    padding: 2px 7px;
+    flex-shrink: 0;
+    padding: 2px 8px;
     border-radius: 99px;
     font-size: 12px;
     font-weight: 900;
@@ -322,56 +513,136 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 1300px;
+    perspective: 1250px;
     position: relative;
     min-height: 0;
   }
 
+  /* CARVED CITADEL OBSIDIAN & BRass TABLETOP SLAB */
   .board-3d-slab {
     position: relative;
     transform-style: preserve-3d;
     transform: rotateX(var(--board-tilt-x, 5deg)) rotateZ(var(--board-tilt-z, 0deg));
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
     background:
-      radial-gradient(circle at 50% 45%, #1a2d57 0%, #080f20 100%);
-    border: 2.5px solid #4162a6;
-    border-radius: 20px;
-    padding: 10px 16px 14px;
+      radial-gradient(circle at 50% 35%, rgba(52, 40, 24, 0.58) 0%, rgba(12, 16, 28, 0.98) 74%),
+      linear-gradient(180deg, #1d2336 0%, #090d18 100%);
+    border: 3px solid #c69a4b;
+    border-radius: 22px;
+    padding: 8px 18px 14px;
     box-shadow:
-      0 3px 0 #2b406e,
-      0 6px 0 #203154,
-      0 9px 0 #15213a,
-      0 22px 48px rgba(0, 0, 0, 0.92),
-      inset 0 0 32px rgba(0, 229, 255, 0.14);
+      0 4px 0 #82622a,
+      0 8px 0 #4d3917,
+      0 12px 0 #1f1709,
+      0 28px 60px rgba(0, 0, 0, 0.95),
+      inset 0 0 32px rgba(255, 184, 0, 0.18);
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
+  .board-3d-slab::before,
+  .board-3d-slab::after {
+    content: "ᛟ ᚱ ᚦ · CITADEL CONDUIT · ᚲ ᚷ ᛉ";
+    position: absolute;
+    top: 54%;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: rgba(255, 184, 0, 0.45);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .board-3d-slab::before {
+    left: -24px;
+    transform: translateY(-50%) rotate(180deg);
+  }
+  .board-3d-slab::after {
+    right: -24px;
+    transform: translateY(-50%);
+  }
 
+  /* PHYSICAL 3D DECK STACK BESIDE THE TABLETOP BOARD */
+  .tabletop-deck-stack {
+    position: absolute;
+    right: -92px;
+    bottom: 14px;
+    width: 72px;
+    height: 98px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #2b2112 0%, #120e08 100%);
+    border: 2px solid #d4a349;
+    box-shadow:
+      0 3px 0 #8c6828,
+      0 6px 0 #5c4318,
+      0 9px 0 #38280d,
+      0 12px 0 #1e1506,
+      0 18px 28px rgba(0, 0, 0, 0.92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    pointer-events: auto;
+    transform: translateZ(10px);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .tabletop-deck-stack:hover {
+    transform: translateZ(18px) translateY(-3px);
+    box-shadow:
+      0 3px 0 #d4a349,
+      0 6px 0 #8c6828,
+      0 18px 28px rgba(0, 0, 0, 0.95),
+      0 0 18px rgba(255, 184, 0, 0.55);
+  }
+  @media (max-width: 1180px) {
+    .tabletop-deck-stack, .board-3d-slab::before, .board-3d-slab::after { display: none; }
+  }
+
+  /* 3D TUMBLING DICE DIRECTLY IN THE COLUMN HEADERS ABOVE THE 3x3 BOARD */
   .col-headers {
     display: grid;
     grid-template-columns: repeat(3, var(--slot-w));
     gap: 12px;
     text-align: center;
+    pointer-events: none;
   }
   .col-header-pill {
+    pointer-events: auto;
+    cursor: pointer;
     font-size: 12px;
     font-weight: 800;
-    padding: 4px 6px;
-    border-radius: 6px;
-    background: rgba(11, 18, 36, 0.95);
-    color: #94a3b8;
-    border: 1px solid #30497d;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 5px 8px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(20, 28, 48, 0.96) 0%, rgba(9, 13, 24, 0.98) 100%);
+    color: #cbd5e1;
+    border: 1.5px solid rgba(100, 135, 195, 0.55);
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.8), 0 4px 10px rgba(0,0,0,0.65);
+    transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  }
+  .col-header-pill:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold);
   }
   .col-header-pill.boosted {
-    background: rgba(255, 184, 0, 0.18);
+    background: linear-gradient(180deg, rgba(68, 48, 12, 0.96) 0%, rgba(26, 18, 5, 0.98) 100%);
     border-color: var(--gold);
     color: var(--gold);
-    box-shadow: 0 0 10px rgba(255, 184, 0, 0.3);
+    box-shadow: 0 0 18px rgba(255, 184, 0, 0.45), inset 0 0 10px rgba(255, 184, 0, 0.25);
+  }
+  .col-header-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
   }
 
   .grid-3x3 {
@@ -382,15 +653,23 @@
     transform-style: preserve-3d;
     transform: translateZ(4px);
     position: relative;
+    pointer-events: none;
   }
 
+  /* RECESSED STONE, OBSIDIAN & BRASS-INLAID SOCKETS (ZERO DASHED LINES) */
   .board-slot {
+    pointer-events: auto;
     width: var(--slot-w);
     height: var(--slot-h);
     border-radius: 12px;
-    background: rgba(6, 11, 24, 0.9);
-    border: 1.5px dashed #2e4678;
-    box-shadow: inset 0 5px 14px rgba(0, 0, 0, 0.85);
+    background:
+      radial-gradient(circle at 50% 50%, rgba(22, 30, 52, 0.92) 0%, rgba(6, 9, 19, 0.98) 100%);
+    border: 2px solid rgba(198, 154, 75, 0.52);
+    box-shadow:
+      inset 0 8px 18px rgba(0, 0, 0, 0.95),
+      inset 0 -2px 6px rgba(255, 215, 130, 0.14),
+      inset 0 0 0 1px rgba(255, 215, 130, 0.2),
+      0 2px 0 rgba(198, 154, 75, 0.28);
     position: relative;
     cursor: pointer;
     transform-style: preserve-3d;
@@ -400,18 +679,96 @@
     align-items: center;
     justify-content: center;
   }
+  /* Golden energy conduit trim along boosted columns (clean socket centers) */
+  .board-slot.col-boosted-lane {
+    border-left: 2.5px solid rgba(255, 184, 0, 0.88);
+    border-right: 2.5px solid rgba(255, 184, 0, 0.88);
+    box-shadow:
+      inset 0 8px 18px rgba(0, 0, 0, 0.92),
+      inset 0 0 18px rgba(255, 184, 0, 0.22),
+      -3px 0 12px rgba(255, 184, 0, 0.25),
+      3px 0 12px rgba(255, 184, 0, 0.25);
+  }
+  .board-slot.col-surge-active {
+    animation: columnSurgeGlow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes columnSurgeGlow {
+    0%   { box-shadow: inset 0 0 42px rgba(255, 215, 0, 0.95), 0 0 34px rgba(255, 184, 0, 0.95); border-color: #fef08a; transform: translateZ(12px); }
+    100% { box-shadow: inset 0 8px 18px rgba(0, 0, 0, 0.92), inset 0 0 18px rgba(255, 184, 0, 0.22); transform: translateZ(4px); }
+  }
+  .socket-rune-sigil {
+    font-size: 16px;
+    color: rgba(198, 154, 75, 0.28);
+    font-weight: 900;
+    pointer-events: none;
+  }
+  .board-slot.col-boosted-lane .socket-rune-sigil {
+    color: rgba(255, 184, 0, 0.52);
+    text-shadow: 0 0 10px rgba(255, 184, 0, 0.45);
+  }
+
+  /* BOSS TELEGRAPH RENDERED DIRECTLY ON TARGET TILE + GHOST CONSTRUCT PREVIEW */
+  .board-slot.boss-target-slot:not(.occupied) {
+    border-color: rgba(255, 46, 84, 0.88);
+    box-shadow:
+      inset 0 8px 18px rgba(0, 0, 0, 0.92),
+      inset 0 0 24px rgba(255, 46, 84, 0.38),
+      0 0 16px rgba(255, 46, 84, 0.35);
+  }
+  .boss-ghost-construct {
+    position: absolute;
+    inset: 4px;
+    border-radius: 9px;
+    overflow: hidden;
+    opacity: 0.34;
+    filter: saturate(0.75) contrast(1.15);
+    border: 1.5px solid rgba(255, 46, 84, 0.75);
+    pointer-events: none;
+  }
+  .boss-reticle-badge {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 7px;
+    border-radius: 99px;
+    background: rgba(68, 10, 26, 0.95);
+    border: 1px solid rgba(255, 46, 84, 0.85);
+    color: #fecdd3;
+    font-size: 12px;
+    font-weight: 900;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.85);
+  }
   .board-slot.occupied {
     border-style: solid;
     border-color: transparent;
   }
   .board-slot:hover {
     border-color: var(--blue-ally);
-    box-shadow: inset 0 0 16px rgba(0, 229, 255, 0.25), 0 0 14px rgba(0, 229, 255, 0.3);
+    box-shadow: inset 0 0 18px rgba(0, 229, 255, 0.28), 0 0 16px rgba(0, 229, 255, 0.35);
   }
   .board-slot.slide-target {
     border: 2px solid var(--emerald);
-    background: rgba(0, 230, 118, 0.14);
-    box-shadow: 0 0 18px rgba(0, 230, 118, 0.45);
+    background: rgba(0, 230, 118, 0.16);
+    box-shadow: inset 0 0 18px rgba(0, 230, 118, 0.35), 0 0 20px rgba(0, 230, 118, 0.5);
+  }
+  .slide-arrow-call {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--emerald);
+    font-weight: 900;
+    font-size: 12px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+    animation: slideArrowBounce 0.6s ease-in-out infinite alternate;
+  }
+  @keyframes slideArrowBounce {
+    from { transform: scale(0.95); }
+    to   { transform: scale(1.08); }
   }
   .board-slot.focused-slot {
     outline: 2px solid var(--blue-ally);
@@ -428,7 +785,7 @@
   }
 
   /* ==========================================================================
-     CARD UNIT — CLEAN RECTANGULAR FRAME, COMPACT NON-OVERLAPPING TYPOGRAPHY
+     CARD UNIT — 3D BEVELED FACTION OWNERSHIP RIM + FULL NAMEPLATE + DIAMOND STATS
      ========================================================================== */
   .card-3d-unit {
     width: 100%;
@@ -446,13 +803,24 @@
   .board-slot:hover .card-3d-unit {
     transform: translateZ(18px) scale(1.02);
   }
+  /* Unmistakable 3D beveled card-edge thickness + team emissive underglow */
   .card-3d-unit.owner-player {
     border: 2px solid var(--blue-ally);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.88), 0 0 12px var(--blue-glow);
+    box-shadow:
+      0 3px 0 #0284c7,
+      0 6px 0 #0369a1,
+      0 10px 20px rgba(0, 0, 0, 0.92),
+      0 0 18px var(--blue-glow),
+      inset 0 0 12px rgba(0, 229, 255, 0.28);
   }
   .card-3d-unit.owner-ai {
     border: 2px solid var(--red-enemy);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.88), 0 0 12px var(--red-glow);
+    box-shadow:
+      0 3px 0 #be123c,
+      0 6px 0 #881337,
+      0 10px 20px rgba(0, 0, 0, 0.92),
+      0 0 18px var(--red-glow),
+      inset 0 0 12px rgba(255, 46, 84, 0.28);
   }
   .board-slot.selected-unit .card-3d-unit {
     border: 2.5px solid var(--gold) !important;
@@ -479,6 +847,7 @@
      NATURAL DRAG & DROP (pointer-driven ghost, magnet snap, landing shadow)
      ========================================================================== */
   .slot-art { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+  .board-slot *, .hand-card-wrap * { pointer-events: none; }
   .board-telegraph-svg { pointer-events: none; }
   .hand-card-wrap { touch-action: none; cursor: grab; }
   .board-slot.owner-draggable { cursor: grab; touch-action: none; }
@@ -520,19 +889,19 @@
   }
 
   .board-slot.drop-valid {
-    border-color: rgba(0, 229, 255, 0.55);
-    background: rgba(0, 229, 255, 0.06);
+    border-color: rgba(0, 229, 255, 0.65);
+    background: rgba(0, 229, 255, 0.08);
     animation: dropValidPulse 1.1s ease-in-out infinite;
   }
   .board-slot.drop-hover {
     border: 2px solid var(--gold);
-    background: rgba(255, 184, 0, 0.1);
+    background: rgba(255, 184, 0, 0.14);
     box-shadow: inset 0 0 22px rgba(255, 184, 0, 0.35), 0 0 22px rgba(255, 184, 0, 0.5);
     animation: none;
   }
   @keyframes dropValidPulse {
-    0%, 100% { box-shadow: inset 0 5px 14px rgba(0, 0, 0, 0.85); }
-    50%      { box-shadow: inset 0 0 14px rgba(0, 229, 255, 0.22), 0 0 12px rgba(0, 229, 255, 0.28); }
+    0%, 100% { box-shadow: inset 0 8px 18px rgba(0, 0, 0, 0.88); }
+    50%      { box-shadow: inset 0 0 16px rgba(0, 229, 255, 0.25), 0 0 14px rgba(0, 229, 255, 0.32); }
   }
 
   /* Landing shadow shown in the target socket while the ghost hovers above it */
@@ -544,13 +913,26 @@
   }
   .board-slot.hover-preview .card-3d-unit { opacity: 0.9; }
 
-  /* Placed card lands with a short squash instead of a 180° flip */
+  /* Placed card lands with a short squash + radial socket dust burst */
   .board-slot.just-placed .card-3d-unit {
-    animation: cardDropLand 0.36s cubic-bezier(0.22, 1.4, 0.36, 1);
+    animation: cardDropLand 0.38s cubic-bezier(0.22, 1.4, 0.36, 1);
+  }
+  .board-slot.just-placed::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 14px;
+    border: 2px solid var(--gold);
+    pointer-events: none;
+    animation: socketImpactBurst 0.42s ease-out forwards;
+  }
+  @keyframes socketImpactBurst {
+    0%   { opacity: 0.95; transform: scale(0.92); box-shadow: 0 0 24px rgba(255, 184, 0, 0.85); }
+    100% { opacity: 0; transform: scale(1.16); box-shadow: 0 0 0 rgba(255, 184, 0, 0); }
   }
   @keyframes cardDropLand {
-    0%   { transform: translateZ(34px) scale(1.06); }
-    55%  { transform: translateZ(4px) scale(0.97); }
+    0%   { transform: translateZ(36px) scale(1.08); }
+    55%  { transform: translateZ(3px) scale(0.96); }
     100% { transform: translateZ(10px) scale(1.0); }
   }
   .board-3d-slab.thud { animation: slabThud 0.26s ease-out; }
@@ -577,10 +959,10 @@
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(4, 7, 16, 0.32) 0%,
-      transparent 18%,
-      transparent 66%,
-      rgba(4, 7, 16, 0.94) 100%
+      rgba(4, 7, 16, 0.28) 0%,
+      transparent 20%,
+      transparent 62%,
+      rgba(4, 7, 16, 0.95) 100%
     );
     pointer-events: none;
   }
@@ -643,41 +1025,38 @@
   .fx-scan       { animation: vertScan 2.4s linear infinite; }
   .fx-star       { transform-origin: 50px 65px; animation: starFlash 1.5s ease-in-out infinite; }
 
-  /* COMPACT NON-OVERLAPPING BOTTOM NAME & TELEGRAPH FOOTER */
+  /* FULL-WIDTH NON-CLIPPING NAMEPLATE RIBBON */
   .slot-name-ribbon {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 20px;
-    background: rgba(5, 9, 20, 0.95);
-    border-top: 1px solid rgba(255,255,255,0.18);
-    padding: 0 5px;
+    min-height: 22px;
+    background: linear-gradient(180deg, rgba(6, 10, 22, 0.92) 0%, rgba(3, 6, 14, 0.98) 100%);
+    border-top: 1px solid rgba(212, 163, 73, 0.52);
+    padding: 2px 2px;
     font-size: 12px;
     font-weight: 800;
-    letter-spacing: 0.1px;
+    letter-spacing: -0.35px;
+    line-height: 1.02;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     color: #f8fafc;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: visible;
     z-index: 6;
   }
-  .hand-card-wrap .slot-name-ribbon {
-    height: 18px;
-    font-size: 12px;
-  }
 
-  /* SLEEK COMPACT INSET DIRECTIONAL STAT GEMS (ZERO OVERLAP) */
+  /* DIRECTIONAL GEOMETRIC DIAMOND / ARROWHEAD STAT BADGES */
   .edge-num {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 5px;
-    background: rgba(5, 9, 20, 0.92);
-    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    width: 23px;
+    height: 23px;
+    clip-path: polygon(50% 0%, 100% 28%, 100% 72%, 50% 100%, 0% 72%, 0% 28%);
+    background: rgba(4, 8, 18, 0.96);
+    border: 1.5px solid rgba(255, 255, 255, 0.92);
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 12px;
     font-weight: 900;
@@ -685,14 +1064,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.95);
     z-index: 7;
   }
   .hand-card-wrap .edge-num {
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
     font-size: 12px;
-    border-radius: 4px;
   }
   .owner-player .edge-num {
     border-color: var(--blue-ally);
@@ -702,13 +1080,58 @@
     border-color: var(--red-enemy);
     color: #ffe4e8;
   }
+  .edge-num.edge-boosted {
+    border-color: var(--gold) !important;
+    color: #fef08a !important;
+    background: linear-gradient(145deg, #78350f, #1c1306) !important;
+    box-shadow: 0 0 10px rgba(255, 184, 0, 0.75);
+  }
+  .boost-pop-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    padding: 1px 5px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #fde047, #f59e0b);
+    color: #090d16;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+    z-index: 8;
+    pointer-events: none;
+    animation: boostPopAnim 0.45s cubic-bezier(0.22, 1.4, 0.36, 1);
+  }
+  @keyframes boostPopAnim {
+    0%   { transform: scale(0.5) translateY(6px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  .owner-badge {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+    z-index: 8;
+    pointer-events: none;
+  }
+  .owner-player .owner-badge {
+    background: rgba(0, 229, 255, 0.92);
+    color: #04101c;
+  }
+  .owner-ai .owner-badge {
+    background: rgba(255, 46, 84, 0.95);
+    color: #ffffff;
+  }
 
-  .edge-top    { top: 4px;    left: 50%; transform: translateX(-50%); }
-  .edge-bottom { bottom: 22px; left: 50%; transform: translateX(-50%); }
-  .edge-left   { left: 4px;   top: calc(50% - 8px); transform: translateY(-50%); }
-  .edge-right  { right: 4px;  top: calc(50% - 8px); transform: translateY(-50%); }
+  .edge-top    { top: 3px;    left: 50%; transform: translateX(-50%); }
+  .edge-bottom { bottom: 23px; left: 50%; transform: translateX(-50%); }
+  .edge-left   { left: 3px;   top: calc(50% - 9px); transform: translateY(-50%); }
+  .edge-right  { right: 3px;  top: calc(50% - 9px); transform: translateY(-50%); }
 
-  .hand-card-wrap .edge-bottom { bottom: 19px; }
+  .hand-card-wrap .edge-bottom { bottom: 22px; }
 
   /* DIRECTIONAL CLASH TELEGRAPH PILL ON TARGET NEIGHBORS */
   .flip-tag {
@@ -769,22 +1192,22 @@
   }
 
   /* ==========================================================================
-     RIGHT PANEL: 3D DICE CUBES + BOSS PROFILE (COMPACT & NON-CLIPPING)
+     3D TUMBLING DICE CUBES (USED BOTH IN COLUMN HEADERS & FLOATING CORNER HUD)
      ========================================================================== */
   .dice-column-list {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 5px;
   }
   .col-die-row {
-    background: rgba(7, 11, 24, 0.94);
+    background: rgba(7, 11, 24, 0.88);
     border: 1px solid #2b406e;
-    border-radius: 10px;
-    padding: 7px 10px;
+    border-radius: 8px;
+    padding: 4px 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: 6px;
     cursor: pointer;
     transition: all 0.16s ease;
   }
@@ -793,86 +1216,99 @@
   }
   .col-die-row.charged {
     border-color: var(--gold);
-    background: linear-gradient(90deg, rgba(255, 184, 0, 0.16), rgba(7, 11, 24, 0.96));
+    background: linear-gradient(90deg, rgba(255, 184, 0, 0.16), rgba(7, 11, 24, 0.94));
   }
   .cube-scene {
-    width: 32px;
-    height: 32px;
-    perspective: 180px;
+    width: 24px;
+    height: 24px;
+    perspective: 160px;
     flex-shrink: 0;
-    margin-right: 2px;
   }
   .cube-3d {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .cube-face {
     position: absolute;
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
     background: linear-gradient(145deg, #243763, #0e172c);
-    border: 1.5px solid #5678bd;
+    border: 1.5px solid #60a5fa;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 900;
     color: #fff;
   }
+  .col-header-pill.boosted .cube-face,
   .col-die-row.charged .cube-face {
     border-color: var(--gold);
     color: var(--gold);
-    background: linear-gradient(145deg, #42300d, #1c1306);
+    background: linear-gradient(145deg, #78350f, #1c1306);
   }
-  .cube-face.f-1 { transform: rotateY(  0deg) translateZ(16px); }
-  .cube-face.f-2 { transform: rotateY(180deg) translateZ(16px); }
-  .cube-face.f-3 { transform: rotateY( 90deg) translateZ(16px); }
-  .cube-face.f-4 { transform: rotateY(-90deg) translateZ(16px); }
-  .cube-face.f-5 { transform: rotateX( 90deg) translateZ(16px); }
-  .cube-face.f-6 { transform: rotateX(-90deg) translateZ(16px); }
+  .cube-face.f-1 { transform: rotateY(  0deg) translateZ(12px); }
+  .cube-face.f-2 { transform: rotateY(180deg) translateZ(12px); }
+  .cube-face.f-3 { transform: rotateY( 90deg) translateZ(12px); }
+  .cube-face.f-4 { transform: rotateY(-90deg) translateZ(12px); }
+  .cube-face.f-5 { transform: rotateX( 90deg) translateZ(12px); }
+  .cube-face.f-6 { transform: rotateX(-90deg) translateZ(12px); }
 
-  .boss-profile {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    background: rgba(52, 12, 26, 0.65);
-    border: 1px solid var(--red-enemy);
-    border-radius: 10px;
-    padding: 8px 9px;
+  /* DISMISSIBLE HOW-TO-PLAY HINT TOAST (BOTTOM-RIGHT) */
+  .hint-toast-floating {
+    position: fixed;
+    bottom: 14px;
+    right: 14px;
+    max-width: 270px;
+    background: rgba(8, 13, 26, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 229, 255, 0.42);
+    border-radius: 12px;
+    padding: 8px 11px;
+    font-size: 12px;
+    color: #e2e8f0;
+    line-height: 1.3;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.8);
+    z-index: 45;
+    transition: opacity 0.25s ease, transform 0.25s ease;
   }
-  .boss-avatar {
-    width: 44px;
-    height: 58px;
-    border-radius: 6px;
-    object-fit: cover;
-    border: 1.5px solid var(--gold);
-    flex-shrink: 0;
+  .hint-toast-floating.dismissed {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
   }
 
-  /* MODAL */
+  /* PERSONA 5 / TACTILE SHARD STAGE CLEAR OVERLAY */
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(4, 7, 15, 0.86);
-    backdrop-filter: blur(8px);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255, 46, 84, 0.24) 0%, transparent 45%),
+      radial-gradient(circle at 80% 80%, rgba(0, 229, 255, 0.24) 0%, transparent 45%),
+      rgba(4, 7, 15, 0.88);
+    backdrop-filter: blur(10px);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 100;
   }
   .modal-box {
-    background: linear-gradient(145deg, #162447, #090e1c);
-    border: 2px solid var(--gold);
-    border-radius: 18px;
-    padding: 24px 30px;
+    background: linear-gradient(135deg, #0f172a 0%, #050811 55%, #1e1b4b 100%);
+    border: 2.5px solid var(--gold);
+    border-radius: 14px;
+    transform: skewX(-4deg);
+    padding: 26px 34px;
     text-align: center;
-    max-width: 420px;
-    width: 90%;
-    box-shadow: 0 24px 70px rgba(0,0,0,0.9);
+    max-width: 480px;
+    width: 92%;
+    box-shadow:
+      8px 8px 0 rgba(255, 46, 84, 0.75),
+      -6px -6px 0 rgba(0, 229, 255, 0.55),
+      0 28px 70px rgba(0,0,0,0.95);
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -884,7 +1320,7 @@
 <header>
   <div class="brand">
     <span class="brand-badge">CARDFRONT 3D</span>
-    <span class="brand-title">Dynamic Telegraph Tabletop Clash</span>
+    <span class="brand-title">Tactile Tabletop Card Battler</span>
   </div>
 
   <div class="scoreboard">
@@ -892,59 +1328,81 @@
       <span class="score-dot blue"></span>
       <span>YOU: <span id="player-score">0</span></span>
     </div>
-    <span style="color:#64748b;font-weight:800;font-size:12px;">VS</span>
+    <span style="color:#cbd5e1;font-weight:800;font-size:12px;">VS</span>
     <div class="score-side" style="color:var(--red-enemy);">
       <span>BOSS: <span id="ai-score">1</span></span>
       <span class="score-dot red"></span>
     </div>
+    <span style="color:rgba(255,255,255,0.25);">|</span>
+    <span id="turn-badge" aria-live="polite" style="color:var(--gold);font-weight:900;font-size:12px;">YOUR TURN</span>
   </div>
 
   <div class="header-right">
-    <span id="coin-hud-pill" style="background:#1e293b;border:1px solid var(--gold);color:var(--gold);padding:3px 9px;border-radius:99px;font-size:12px;font-weight:900;">🪙 <span id="player-coins">300</span></span>
-    <select id="camera-select" onchange="setBoardCamera(this.value)" title="3D Board Camera Angle">
-      <option value="5,0">🎥 View: 3D Showcase (5°)</option>
-      <option value="0,0">🎥 View: Flat 2D (0°)</option>
-      <option value="14,0">🎥 View: Tabletop (14°)</option>
-    </select>
-    <select id="stage-select" onchange="startStage(parseInt(this.value, 10))">
-      <option value="0">Act I-1: Skystone Sanctuary</option>
-      <option value="1">Act I-2: Ivalice Citadel</option>
-      <option value="2">Act I-3: Solar Spire</option>
-      <option value="3">Act II-4: Neo-Arcadia Highway</option>
-      <option value="4">Act II-5: Orbital Mecha Bay</option>
-      <option value="5">Act II-6: Solid Eye Bunker</option>
-      <option value="6">Act III-7: Breach Rift Alpha</option>
-      <option value="7">Act III-8: STACCS Spire</option>
-      <option value="8">Act III-9: Cryo Core</option>
-      <option value="9">Act IV-10: Umbra Singularity</option>
-      <option value="10">Act IV-11: Blood Rune Altar</option>
-      <option value="11">Act IV-12: Hellfire Foundry</option>
-      <option value="12">Act V-13: Prism Octahedron</option>
-      <option value="13">Act V-14: Trigger Cross-Star</option>
-      <option value="14">Act V-15: Omega Chronos Prime</option>
-    </select>
-    <button onclick="openDeckbuilderModal()" style="border-color:var(--gold);color:var(--gold);">🃏 Deck (60)</button>
-    <button onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">🧊 3D Pawn</button>
-    <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking">🎵 BGM: OFF</button>
-    <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus">🔊 SFX</button>
-    <button onclick="triggerAllBoardTelegraphs()">⚡ Pulse</button>
-    <button onclick="startStage(state.stageIndex)">↻ Reset</button>
+    <span id="coin-hud-pill" style="background:rgba(15,23,42,0.9);border:1px solid var(--gold);color:var(--gold);padding:3px 10px;border-radius:99px;font-size:12px;font-weight:900;">🪙 <span id="player-coins">300</span></span>
+    <button onclick="toggleHintToast()" title="Toggle How-to-Play Hint">❓ Hint</button>
+    <button class="dev-drawer-toggle" onclick="toggleDevCameraDrawer()" title="Camera, Stage, Audio & Dev Controls">⚙️ View &amp; Deck ▾</button>
+
+    <div class="dev-camera-drawer collapsed" id="dev-camera-drawer">
+      <select id="camera-select" onchange="setBoardCamera(this.value)" title="3D Board Camera Angle">
+        <option value="5,0">🎥 View: 3D Showcase (5°)</option>
+        <option value="0,0">🎥 View: Flat 2D (0°)</option>
+        <option value="14,0">🎥 View: Tabletop (14°)</option>
+      </select>
+      <select id="stage-select" onchange="startStage(parseInt(this.value, 10))">
+        <option value="0">Act I-1: Skystone Sanctuary</option>
+        <option value="1">Act I-2: Ivalice Citadel</option>
+        <option value="2">Act I-3: Solar Spire</option>
+        <option value="3">Act II-4: Neo-Arcadia Highway</option>
+        <option value="4">Act II-5: Orbital Mecha Bay</option>
+        <option value="5">Act II-6: Solid Eye Bunker</option>
+        <option value="6">Act III-7: Breach Rift Alpha</option>
+        <option value="7">Act III-8: STACCS Spire</option>
+        <option value="8">Act III-9: Cryo Core</option>
+        <option value="9">Act IV-10: Umbra Singularity</option>
+        <option value="10">Act IV-11: Blood Rune Altar</option>
+        <option value="11">Act IV-12: Hellfire Foundry</option>
+        <option value="12">Act V-13: Prism Octahedron</option>
+        <option value="13">Act V-14: Trigger Cross-Star</option>
+        <option value="14">Act V-15: Omega Chronos Prime</option>
+      </select>
+      <button onclick="openDeckbuilderModal()" style="border-color:var(--gold);color:var(--gold);">🃏 Deck (60)</button>
+      <button onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">🧊 3D Pawn</button>
+      <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking">🎵 BGM: OFF</button>
+      <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus">🔊 SFX</button>
+      <button onclick="triggerAllBoardTelegraphs()">⚡ Pulse</button>
+      <button onclick="startStage(state.stageIndex)">↻ Reset</button>
+    </div>
   </div>
 </header>
 
 <main>
-  <!-- LEFT PANEL: CLEAN 2x3 HAND GALLERY -->
-  <aside class="side-box">
-    <div class="box-title">
-      <span>Hero Hand</span>
-      <span id="hand-count-badge" style="color:var(--gold);">5 CARDS</span>
+  <!-- CENTER: INTEGRATED BOSS COMMANDER AT TOP OF BOARD + 3x3 TABLETOP ARENA -->
+  <section class="center-zone">
+    <div class="boss-tabletop-crest" id="boss-tabletop-crest">
+      <div class="boss-crest-left">
+        <img id="boss-crest-avatar" class="boss-crest-medallion" src="./GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss Commander" />
+        <img id="boss-avatar" class="boss-avatar" src="./GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss" style="display:none;" />
+        <div class="boss-crest-body">
+          <div class="boss-crest-top">
+            <span id="boss-crest-name">BOSS COMMANDER · Eclipse Void Blade</span>
+            <span id="boss-name" style="display:none;">Eclipse Void Blade</span>
+            <span style="color:var(--red-enemy);font-size:12px;">▲ BOSS COMMANDER</span>
+          </div>
+          <div class="boss-crest-sub" id="boss-crest-telegraph">⚠️ TELEGRAPH: Umbra Singularity</div>
+          <div id="boss-telegraph-label" style="display:none;">Telegraph: Umbra Singularity</div>
+          <div id="boss-intent-preview" style="font-size:12px;color:#cbd5e1;line-height:1.15;">Next Construct incoming on target tile.</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">
+        <span style="background:rgba(255,184,0,0.14);border:1px solid rgba(255,184,0,0.5);color:var(--gold);padding:3px 9px;border-radius:99px;font-size:12px;font-weight:900;">
+          🎲 NUDGES: <span id="nudge-left">2</span>
+        </span>
+        <button id="reroll-btn" onclick="rerollAllDice()" style="padding:4px 9px;background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;font-size:12px;">
+          🎲 Reroll (<span id="reroll-left">2</span>)
+        </button>
+      </div>
     </div>
 
-    <div class="hand-grid" id="hand-bar"></div>
-  </aside>
-
-  <!-- CENTER: LIVE TELEGRAPH HUD + 3x3 TABLETOP ARENA -->
-  <section class="center-zone">
     <div class="telegraph-hud-pill" id="telegraph-hud-pill">
       <span class="telegraph-tag-badge" id="telegraph-hud-badge">TELEGRAPH READY</span>
       <span id="telegraph-hud-desc">Hover any socket on the 3×3 board to preview card-specific dynamic telegraph vectors.</span>
@@ -953,53 +1411,44 @@
     <div class="arena-3d-viewport" id="arena-viewport">
       <div class="board-3d-slab" id="board-3d-slab">
         <div class="col-headers" id="col-headers"></div>
-        <div class="grid-3x3" id="grid-3x3"></div>
+        <div class="grid-3x3" id="grid-3x3" role="grid" aria-label="3 by 3 tactical card board"></div>
+        <div class="tabletop-deck-stack" onclick="openDeckbuilderModal()" title="Open 60-Card Set 1 Deckbuilder">
+          <div style="font-size:18px;color:var(--gold);line-height:1;">🃏</div>
+          <div style="font-size:12px;font-weight:900;color:#fef08a;line-height:1.1;">Deck (60)</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- RIGHT PANEL: 3D COLUMN DICE + ENEMY COMMANDER -->
-  <aside class="side-box">
-    <div style="display:flex;flex-direction:column;gap:7px;">
-      <div class="box-title">
-        <span>Column Dice Boost</span>
-        <span style="color:var(--gold);">NUDGES: <span id="nudge-left">2</span></span>
+  <!-- BOTTOM EDGE: HORIZONTAL HERO HAND FAN DOCK (HOVER SCALES UP + SHOWS TOOLTIP) -->
+  <aside class="side-box bottom-hand-dock">
+    <div class="hand-dock-header">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="color:var(--blue-ally);text-transform:uppercase;letter-spacing:0.6px;">◆ Hero Hand</span>
+        <span id="hand-count-badge" style="color:var(--gold);">5 CARDS</span>
       </div>
-
-      <div style="font-size:12px;color:#cbd5e1;line-height:1.28;">
-        Click a 3D die to <b>+1 Nudge</b>. Pip <b style="color:var(--gold);">4–6</b> grants <b style="color:var(--gold);">+1 All Sides</b> in that Column.
-      </div>
-
-      <div class="dice-column-list" id="dice-column-list"></div>
-
-      <button onclick="rerollAllDice()" style="width:100%;padding:7px;background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;font-size:12px;">
-        🎲 Roll All 3D Dice (<span id="reroll-left">2</span> left)
-      </button>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:7px;">
-      <div class="box-title">
-        <span>Boss Commander</span>
-        <span id="turn-badge" style="color:var(--gold);">YOUR TURN</span>
-      </div>
-
-      <div class="boss-profile">
-        <img id="boss-avatar" class="boss-avatar" src="./GeneratedArt/MasteredCards/e_eclipse.png" alt="Boss" />
-        <div style="min-width:0;">
-          <div id="boss-name" style="font-weight:800;font-size:12px;color:#ff859a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Eclipse Void Blade</div>
-          <div id="boss-telegraph-label" style="font-size:12px;color:var(--gold);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Telegraph: Umbra Singularity</div>
-          <div id="boss-intent-preview" style="font-size:12px;color:#94a3b8;margin-top:2px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Counters after each move.</div>
-        </div>
-      </div>
-
-      <div id="last-move-banner" style="background:#080d1a;border:1px solid #283e69;border-radius:9px;padding:8px;font-size:12px;color:#e2e8f0;line-height:1.3;">
-        💡 Select a Hero Card on the left and hover any tile to see its unique dynamic telegraph animation.
+      <div id="slide-status-pill" style="color:var(--emerald);font-weight:900;font-size:12px;">
+        ⇄ Tactical Slide: 1× Ready (Drag any placed Blue card 1 tile)
       </div>
     </div>
+    <div class="hand-grid" id="hand-bar"></div>
+  </aside>
+
+  <!-- FLOATING GLASSMORPHIC CORNER HUD (COMPACT DICE INSPECTOR + DISMISSIBLE HINT TOAST) -->
+  <aside class="side-box floating-corner-hud">
+    <div class="box-title">
+      <span>3D Lane Dice</span>
+      <span style="color:var(--gold);font-size:12px;">Pip 4–6 = +1</span>
+    </div>
+    <div class="dice-column-list" id="dice-column-list"></div>
   </aside>
 </main>
 
-<div class="modal-backdrop" id="result-modal">
+<div id="last-move-banner" class="hint-toast-floating" aria-live="polite">
+  💡 <b>Drag</b> a Hero Card from your bottom hand onto the 3×3 board, or click a 3D Die above any column to <b>Nudge +1</b>.
+</div>
+
+<div class="modal-backdrop" id="result-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal-box">
     <div id="modal-kicker" style="font-size:12px;font-weight:900;color:var(--gold);letter-spacing:1.2px;">MATCH COMPLETE</div>
     <h2 id="modal-title" style="font-size:24px;font-weight:900;">VICTORY!</h2>
@@ -1014,16 +1463,28 @@
 <!-- PRODUCTION STAGE 2 MODAL 1: 60-CARD SET 1 DECKBUILDER, BOOSTER PACKS & CARDCRAFT FORGE -->
 <div class="modal-backdrop" id="deckbuilder-modal">
   <div class="modal-box" style="max-width:860px;width:95%;max-height:86vh;overflow-y:auto;text-align:left;">
-    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2b4478;padding-bottom:8px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2b4478;padding-bottom:8px;flex-wrap:wrap;gap:8px;">
       <div>
         <div style="font-size:12px;font-weight:900;color:var(--gold);letter-spacing:1px;">SET 1: CRADLE OF ECHOES · SAVE SCHEMA V3 (FNV-1A)</div>
         <h3 style="font-size:16px;font-weight:900;color:#fff;">60-Card Deckbuilder, Booster Pack &amp; CardCraft Forge</h3>
       </div>
-      <div style="display:flex;gap:8px;align-items:center;">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+        <button id="deck-autobuild-btn" onclick="autoBuildBestSquad()" style="background:linear-gradient(135deg,#0284c7,#0369a1);border-color:#7dd3fc;">⚡ Auto-Build Best 5</button>
         <button onclick="openBoosterPackUI()" style="background:linear-gradient(135deg,#f59e0b,#b45309);border-color:#fde68a;">🎁 Open Pack (100 🪙)</button>
         <button onclick="evolveCardCraftUI()" style="background:linear-gradient(135deg,#8b5cf6,#4c1d95);border-color:#c4b5fd;">⚒️ CardCraft +1 (150 🪙)</button>
         <button onclick="closeDeckbuilderModal()">✕ Close</button>
       </div>
+    </div>
+    <div id="deckbuilder-squad-summary" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12px;color:#e2e8f0;background:rgba(15,23,42,0.92);padding:7px 10px;border-radius:8px;border:1px solid rgba(0,229,255,0.4);"></div>
+    <div id="deckbuilder-filter-bar" style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+      <button onclick="setDeckFilter('ALL')" style="padding:3px 8px;font-size:12px;">All (60)</button>
+      <button onclick="setDeckFilter('OWNED')" style="padding:3px 8px;font-size:12px;">Owned</button>
+      <button onclick="setDeckFilter('SQUAD')" style="padding:3px 8px;font-size:12px;">In Squad (5)</button>
+      <button onclick="setDeckFilter('Aether')" style="padding:3px 8px;font-size:12px;">Aether</button>
+      <button onclick="setDeckFilter('Solaris')" style="padding:3px 8px;font-size:12px;">Solaris</button>
+      <button onclick="setDeckFilter('Valkyria')" style="padding:3px 8px;font-size:12px;">Valkyria</button>
+      <button onclick="setDeckFilter('Chronos')" style="padding:3px 8px;font-size:12px;">Chronos</button>
+      <button onclick="setDeckFilter('Abyss')" style="padding:3px 8px;font-size:12px;">Abyss</button>
     </div>
     <div id="deckbuilder-status" style="font-size:12px;color:#cbd5e1;background:#0a1122;padding:7px 10px;border-radius:8px;border:1px solid #283e69;">
       Click any Set 1 card to toggle it into your 5-Card Active Squad. Progression auto-saves to Atomic Save Slot v3.
@@ -1770,8 +2231,50 @@ function closeDeckbuilderModal() {
   if (modal) modal.style.display = "none";
 }
 
+function setDeckFilter(mode) {
+  state.deckFilter = mode || "ALL";
+  renderDeckbuilderGrid();
+}
+
+function autoBuildBestSquad() {
+  const ownedObjs = SET1_60_CATALOG.filter(c => state.unlockedCards.includes(c.id));
+  ownedObjs.sort((a, b) => {
+    const sumA = a.nesw.reduce((s, v) => s + v, 0);
+    const sumB = b.nesw.reduce((s, v) => s + v, 0);
+    return sumB - sumA;
+  });
+  const best5 = ownedObjs.slice(0, 5).map(c => c.id);
+  if (best5.length === 5) {
+    state.activeDeck = best5;
+    state.customDeckEquipped = true;
+    state.selectedDeckCardId = best5[0];
+    if (state.isPlayerTurn && state.hand.length === 5 && !state.gameOver) {
+      state.hand = [...state.activeDeck];
+      updateTelegraphHud(state.hand[state.selectedHandIdx] || state.hand[0]);
+    }
+    saveProgressionV3();
+    const names = best5.map(id => getCardMeta(id).name).join(" · ");
+    const stEl = document.getElementById("deckbuilder-status");
+    if (stEl) {
+      stEl.innerHTML = `⚡ <b>Auto-Built Optimal 5-Card Squad:</b> <b style="color:var(--gold);">${names}</b> (Equipped to Hand).`;
+    }
+    renderDeckbuilderGrid();
+    renderAll();
+  }
+}
+
 function toggleDeckCard(cid) {
-  if (!state.unlockedCards.includes(cid)) return;
+  const cardMeta = getCardMeta(cid);
+  if (!state.unlockedCards.includes(cid)) {
+    const stEl = document.getElementById("deckbuilder-status");
+    if (stEl) {
+      stEl.innerHTML = `🔒 <b>${cardMeta ? cardMeta.name : cid}</b> is locked! Click <b>🎁 Open Pack (100 🪙)</b> or win matches to unlock Set 1 cards (${state.unlockedCards.length}/60 owned).`;
+    }
+    playTone(-4, "sawtooth", 0.12);
+    return;
+  }
+  state.selectedDeckCardId = cid;
+  state.customDeckEquipped = true;
   const idx = state.activeDeck.indexOf(cid);
   if (idx >= 0) {
     if (state.activeDeck.length <= 1) return;
@@ -1780,8 +2283,18 @@ function toggleDeckCard(cid) {
     if (state.activeDeck.length >= 5) state.activeDeck.shift();
     state.activeDeck.push(cid);
   }
+  if (state.isPlayerTurn && state.hand.length === 5 && state.activeDeck.length === 5 && !state.gameOver) {
+    state.hand = [...state.activeDeck];
+    updateTelegraphHud(state.hand[state.selectedHandIdx] || state.hand[0]);
+  }
   saveProgressionV3();
+  const stEl = document.getElementById("deckbuilder-status");
+  if (stEl) {
+    const squadNames = state.activeDeck.map(id => getCardMeta(id).name).join(" · ");
+    stEl.innerHTML = `✅ <b>Active Squad (${state.activeDeck.length}/5):</b> <b style="color:var(--gold);">${squadNames}</b>`;
+  }
   renderDeckbuilderGrid();
+  renderAll();
 }
 
 function openBoosterPackUI() {
@@ -1810,15 +2323,18 @@ function evolveCardCraftUI() {
     playTone(-4, "sawtooth", 0.16);
     return;
   }
-  const targetCid = state.activeDeck[0] || "h_archangel";
+  const targetCid = state.selectedDeckCardId || state.activeDeck[0] || "h_archangel";
   state.coins -= 150;
   state.cardEvolutions[targetCid] = (state.cardEvolutions[targetCid] || 0) + 1;
   const c = ALL_CARDS[targetCid];
   if (c) c.nesw = c.nesw.map(v => Math.min(9, v + 1));
+  const sc = SET1_CARDS_BY_ID[targetCid];
+  if (sc && sc !== c) sc.nesw = sc.nesw.map(v => Math.min(9, v + 1));
   playTone(12, "sine", 0.28, true);
   saveProgressionV3();
+  const meta = getCardMeta(targetCid);
   document.getElementById("deckbuilder-status").innerHTML =
-    `⚒️ <b>CardCraft Evolution!</b> Upgraded <b style="color:var(--blue-ally);">${c ? c.name : targetCid}</b> (+1 All Sides, Lv.${state.cardEvolutions[targetCid]}).`;
+    `⚒️ <b>CardCraft Evolution!</b> Upgraded <b style="color:var(--blue-ally);">${meta ? meta.name : targetCid}</b> (+1 All Sides, Lv.${state.cardEvolutions[targetCid]}).`;
   renderDeckbuilderGrid();
   renderAll();
 }
@@ -1827,16 +2343,39 @@ function renderDeckbuilderGrid() {
   const grid = document.getElementById("deckbuilder-grid");
   if (!grid) return;
   grid.innerHTML = "";
-  SET1_60_CATALOG.forEach(c => {
+  const sumEl = document.getElementById("deckbuilder-squad-summary");
+  if (sumEl) {
+    const deckCards = state.activeDeck.map(id => getCardMeta(id)).filter(Boolean);
+    const cnt = Math.max(1, deckCards.length);
+    const avg = [0, 1, 2, 3].map(d => (deckCards.reduce((s, c) => s + (c.nesw[d] || 0), 0) / cnt).toFixed(1));
+    const chips = deckCards.map(c => `<span style="background:rgba(0,229,255,0.18);border:1px solid var(--gold);color:#fef08a;padding:2px 6px;border-radius:6px;font-weight:800;">★ ${c.name}</span>`).join(" ");
+    sumEl.innerHTML = `
+      <div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;">
+        <b style="color:var(--blue-ally);">SQUAD (${state.activeDeck.length}/5):</b> ${chips}
+      </div>
+      <div style="color:#cbd5e1;font-weight:800;">
+        Avg Stats: <span style="color:var(--gold);">N ${avg[0]} · E ${avg[1]} · S ${avg[2]} · W ${avg[3]}</span> · Owned: <b>${state.unlockedCards.length}/60</b>
+      </div>
+    `;
+  }
+  const filterMode = state.deckFilter || "ALL";
+  const filtered = SET1_60_CATALOG.filter(c => {
+    if (filterMode === "OWNED") return state.unlockedCards.includes(c.id);
+    if (filterMode === "SQUAD") return state.activeDeck.includes(c.id);
+    if (filterMode !== "ALL") return c.faction === filterMode;
+    return true;
+  });
+  filtered.forEach(c => {
     const owned = state.unlockedCards.includes(c.id);
     const inDeck = state.activeDeck.includes(c.id);
     const evoLv = state.cardEvolutions[c.id] || 0;
     const item = document.createElement("div");
+    item.setAttribute("data-card-id", c.id);
     item.style.cssText = `background:${inDeck ? "rgba(0,229,255,0.16)" : "rgba(15,23,42,0.85)"};border:1.5px solid ${inDeck ? "var(--gold)" : owned ? "#3b82f6" : "#1e293b"};border-radius:8px;padding:6px;cursor:${owned ? "pointer" : "not-allowed"};opacity:${owned ? "1" : "0.45"};font-size:12px;`;
     item.onclick = () => toggleDeckCard(c.id);
     item.innerHTML = `
       <div style="font-weight:800;color:${inDeck ? "var(--gold)" : "#f8fafc"};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-        ${inDeck ? "★ " : ""}${c.name}${evoLv > 0 ? " +" + evoLv : ""}
+        ${inDeck ? "★ " : owned ? "" : "🔒 "}${c.name}${evoLv > 0 ? " +" + evoLv : ""}
       </div>
       <div style="color:#94a3b8;font-size:12px;">${c.faction} · [${c.nesw.join("/")}]</div>
       <div style="color:${c.telegraphColor};font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">⚡ ${c.telegraphName}</div>
@@ -1966,6 +2505,7 @@ function pollGamepadInput() {
 
 function handleHarnessKeyDown(e) {
   if (e.repeat) return;
+  if ((drag.active || drag.pending || drag.dropping) && e.key !== "Escape") return;
   if (["SELECT", "BUTTON", "INPUT"].includes(e.target.tagName)) return;
   const isWasdCode = e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD";
   if (e.key >= "1" && e.key <= "5") {
@@ -1986,6 +2526,10 @@ function handleHarnessKeyDown(e) {
   else if (act === "MOVE_LEFT") { c = (c + 2) % 3; }
   else if (act === "MOVE_RIGHT") { c = (c + 1) % 3; }
   else if (act === "CONFIRM") {
+    if (drag.active || drag.pending) {
+      detachDragListeners();
+      teardownDrag();
+    }
     handleSlotClick(r, c);
     return;
   } else if (act === "NUDGE_0") {
@@ -1995,7 +2539,7 @@ function handleHarnessKeyDown(e) {
     nudgeColDie(1);
     return;
   } else if (act === "REROLL") {
-    rerollAllDice();
+    if (e.shiftKey) rerollAllDice();
     return;
   } else {
     return;
@@ -2082,6 +2626,16 @@ function getCardEffectiveStats(cardId, colIndex, isAi = false) {
   return base.map(v => Math.min(9, v + boost));
 }
 
+function toggleDevCameraDrawer() {
+  const drawer = document.getElementById("dev-camera-drawer");
+  if (drawer) drawer.classList.toggle("collapsed");
+}
+
+function toggleHintToast() {
+  const toast = document.getElementById("last-move-banner");
+  if (toast) toast.classList.toggle("dismissed");
+}
+
 function updateTelegraphHud(cardId) {
   const c = getCardMeta(cardId);
   if (!c) return;
@@ -2107,9 +2661,11 @@ function triggerAllBoardTelegraphs() {
 }
 
 function startStage(idx) {
+  state.matchGen = (state.matchGen || 0) + 1;
   clearTimeout(state.bossTurnTimer);
   clearTimeout(bossTurnTimer);
   clearTimeout(state.modalTimer);
+  clearTimeout(state.snapTimer);
   detachDragListeners();
   teardownDrag();
   const rm = document.getElementById("result-modal");
@@ -2124,6 +2680,7 @@ function startStage(idx) {
   state.usedSlideThisTurn = false;
   state.selectedHandIdx = 0;
   state.selectedBoardSlot = null;
+  state.hoveredBoardUnit = null;
   state.hoveredSlot = null;
   state.focusedSlotIndex = 4;
   state.keyboardFocusIdx = 4;
@@ -2134,7 +2691,7 @@ function startStage(idx) {
   document.getElementById("boss-name").textContent = campSt.name;
   document.getElementById("boss-avatar").src = campSt.avatar;
   document.getElementById("boss-telegraph-label").textContent = `Telegraph: ${bossCard.telegraphName}`;
-  document.body.style.backgroundImage = `radial-gradient(circle at 50% 45%, rgba(20, 35, 72, 0.72) 0%, rgba(4, 7, 15, 0.97) 78%), url("${campSt.bg}")`;
+  document.body.style.backgroundImage = `radial-gradient(circle at 50% 42%, rgba(16, 28, 58, 0.45) 0%, rgba(4, 7, 15, 0.92) 84%), url("${campSt.bg}")`;
 
   const heroes = shuffle(PLAYER_HEROES);
   const enemies = shuffle(ENEMY_MECHS);
@@ -2153,12 +2710,26 @@ function startStage(idx) {
   state.grid[0][1].owner = "ai";
   state.grid[0][1].nesw = getCardEffectiveStats(firstEnemy.id, 1, true);
 
-  state.hand = heroes.slice(0, 5).map(h => h.id);
+  state.hand = (state.customDeckEquipped && Array.isArray(state.activeDeck) && state.activeDeck.length === 5)
+    ? [...state.activeDeck]
+    : heroes.slice(0, 5).map(h => h.id);
   state.aiPool = enemies.slice(0, 5).map(e => e.id);
+  const reqBossIds = Array.from(new Set([campSt && campSt.bossId, st && st.bossId].filter(Boolean)));
+  let replacePos = state.aiPool.length - 1;
+  for (const bid of reqBossIds) {
+    if (firstEnemy.id !== bid && !state.aiPool.includes(bid) && replacePos >= 0) {
+      state.aiPool[replacePos--] = bid;
+    }
+  }
 
   updateTelegraphHud(state.hand[0]);
-  document.getElementById("last-move-banner").innerHTML =
-    `💡 <b>Drag</b> a Hero Card onto any open tile (or click a card, then click a tile). Drag your Blue board cards 1 tile to Tactical Slide.`;
+  telegraphBossIntent();
+  const bannerEl = document.getElementById("last-move-banner");
+  if (bannerEl) {
+    bannerEl.classList.remove("dismissed");
+    bannerEl.innerHTML =
+      `💡 <b>Drag</b> a Hero Card from your bottom hand onto the 3×3 board, or click a 3D Die above any column to <b>Nudge +1</b>.`;
+  }
 
   saveProgressionV3();
   renderAll();
@@ -2172,6 +2743,9 @@ function nudgeColDie(colIdx) {
   }
   state.nudgesLeft--;
   state.colDice[colIdx] = (state.colDice[colIdx] % 6) + 1;
+  state.surgingCol = colIdx;
+  clearTimeout(state.surgeTimer);
+  state.surgeTimer = setTimeout(() => { state.surgingCol = -1; }, 560);
   playTone(4 + state.colDice[colIdx], "sine", 0.15);
   recalcBoardStats();
   renderAll();
@@ -2191,7 +2765,7 @@ function recalcBoardStats() {
     for (let c = 0; c < 3; c++) {
       const cell = state.grid[r][c];
       if (cell.cardId) {
-        const isEnemyOrigin = cell.owner === "ai" || String(cell.cardId).startsWith("e_");
+        const isEnemyOrigin = String(cell.cardId).startsWith("e_");
         const baseStats = getCardEffectiveStats(cell.cardId, c, isEnemyOrigin);
         if (cell.owner === "player" && isEnemyOrigin && isColBoosted(c)) {
           cell.nesw = baseStats.map(v => Math.min(9, v + 1));
@@ -2251,12 +2825,16 @@ function findClashes(r, c, nesw, owner) {
 
 function handleSlotClick(r, c) {
   if (!state.isPlayerTurn || state.gameOver) return;
+  if (drag.active || drag.pending) {
+    detachDragListeners();
+    teardownDrag();
+  }
   const cell = state.grid[r][c];
 
   if (cell.cardId && cell.owner === "player") {
     if (state.selectedBoardSlot && state.selectedBoardSlot.r === r && state.selectedBoardSlot.c === c) {
       state.selectedBoardSlot = null;
-    } else {
+    } else if (!state.usedSlideThisTurn) {
       state.selectedBoardSlot = { r, c };
       updateTelegraphHud(cell.cardId);
       playTone(5, "sine", 0.12);
@@ -2267,9 +2845,14 @@ function handleSlotClick(r, c) {
 
   if (state.selectedBoardSlot && !cell.cardId) {
     const { r: sr, c: sc } = state.selectedBoardSlot;
+    const src = state.grid[sr] && state.grid[sr][sc];
+    if (!src || !src.cardId || !(src.owner === "player")) {
+      state.selectedBoardSlot = null;
+      renderAll();
+      return;
+    }
     if (Math.abs(r - sr) + Math.abs(c - sc) === 1 && !state.usedSlideThisTurn) {
       state.usedSlideThisTurn = true;
-      const src = state.grid[sr][sc];
       cell.cardId = src.cardId;
       cell.owner = "player";
       cell.nesw = getCardEffectiveStats(cell.cardId, c, false);
@@ -2299,11 +2882,18 @@ function handleSlotClick(r, c) {
       renderAll();
       return;
     }
+    state.selectedBoardSlot = null;
+    renderAll();
+    return;
   }
 
   if (cell.cardId || state.hand.length === 0) return;
+  if (state.selectedHandIdx < 0 || state.selectedHandIdx >= state.hand.length) {
+    state.selectedHandIdx = 0;
+  }
 
   const cardId = state.hand[state.selectedHandIdx];
+  if (!cardId) return;
   state.hand.splice(state.selectedHandIdx, 1);
   if (state.selectedHandIdx >= state.hand.length) {
     state.selectedHandIdx = Math.max(0, state.hand.length - 1);
@@ -2331,9 +2921,14 @@ function handleSlotClick(r, c) {
   const deployedCard = getCardMeta(cardId);
   updateTelegraphHud(cardId);
   playTone(flips.length > 0 ? 9 : 3, "triangle", 0.24, flips.length > 0);
-  document.getElementById("last-move-banner").innerHTML = flips.length > 0
-    ? `⚡ <b>${deployedCard.telegraphName}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)!`
-    : `🟦 Deployed <b>${deployedCard.name}</b> (${deployedCard.telegraphName}) to Col ${c + 1}.`;
+  const bannerEl = document.getElementById("last-move-banner");
+  if (bannerEl) {
+    bannerEl.innerHTML = flips.length > 0
+      ? `⚡ <b>${deployedCard.telegraphName}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)!`
+      : `🟦 Deployed <b>${deployedCard.name}</b> (${deployedCard.telegraphName}) to Col ${c + 1}.`;
+    clearTimeout(state.hintDismissTimer);
+    state.hintDismissTimer = setTimeout(() => { bannerEl.classList.add("dismissed"); }, 2200);
+  }
 
   state.isPlayerTurn = false;
   renderAll();
@@ -2341,6 +2936,44 @@ function handleSlotClick(r, c) {
   if (checkGameOver()) return;
   state.bossTurnTimer = setTimeout(executeBossTurn, 650);
   bossTurnTimer = state.bossTurnTimer;
+}
+
+function telegraphBossIntent() {
+  const nextId = state.aiPool && state.aiPool.length > 0 ? state.aiPool[state.aiPool.length - 1] : null;
+  const labelEl = document.getElementById("boss-telegraph-label");
+  const prevEl = document.getElementById("boss-intent-preview");
+  const crestNameEl = document.getElementById("boss-crest-name");
+  const crestAvatarEl = document.getElementById("boss-crest-avatar");
+  const crestTeleEl = document.getElementById("boss-crest-telegraph");
+  const campSt = CAMPAIGN_STAGES[state.stageIndex] || STAGES[state.stageIndex % STAGES.length];
+  if (crestNameEl && campSt) crestNameEl.textContent = `BOSS COMMANDER · ${campSt.name}`;
+  if (crestAvatarEl && campSt) crestAvatarEl.src = campSt.avatar;
+  if (!nextId) {
+    state.bossTargetSlot = null;
+    if (prevEl) prevEl.textContent = "Reserve exhausted — final clash.";
+    if (crestTeleEl) crestTeleEl.textContent = "⚠️ TELEGRAPH: Reserve exhausted — final clash.";
+    return;
+  }
+  const nextCard = getCardMeta(nextId);
+  const eff = getCardEffectiveStats(nextId, 1, true);
+  if (labelEl) labelEl.textContent = `Telegraph: ${nextCard.telegraphName} [${eff.join("/")}]`;
+  if (prevEl) prevEl.textContent = `Next Construct: ${nextCard.name} (${nextCard.telegraphType})`;
+  if (crestTeleEl) crestTeleEl.textContent = `⚠️ TELEGRAPH: ${nextCard.telegraphName} — Next Construct: ${nextCard.name}`;
+
+  let targetSlot = null;
+  let bestFlips = -1;
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      if (state.grid && state.grid[r] && state.grid[r][c] && !state.grid[r][c].cardId) {
+        const flips = findCaptures(r, c, eff, "ai").length;
+        if (flips > bestFlips) {
+          bestFlips = flips;
+          targetSlot = { r, c, cardId: nextId, name: nextCard.name, eff };
+        }
+      }
+    }
+  }
+  state.bossTargetSlot = targetSlot;
 }
 
 function compensate(score, factorCount) {
@@ -2368,12 +3001,14 @@ function executeBossTurn() {
   let bestCardIdx = state.aiPool.length - 1;
   let bestUtility = -Infinity;
 
-  for (let pIdx = 0; pIdx < state.aiPool.length; pIdx++) {
+  const candidateIndices = [state.aiPool.length - 1];
+  for (const pIdx of candidateIndices) {
     const candidateId = state.aiPool[pIdx];
     for (let sIdx = 0; sIdx < open.length; sIdx++) {
       const slot = open[sIdx];
       const stats = getCardEffectiveStats(candidateId, slot.c, true);
-      const captures = findCaptures(slot.r, slot.c, stats, "ai").length;
+      const immediateFlips = findCaptures(slot.r, slot.c, stats, "ai").length;
+      const captures = immediateFlips;
       const dirs = [
         { dr: -1, dc: 0, edge: 0 },
         { dr: 0,  dc: 1, edge: 1 },
@@ -2391,11 +3026,14 @@ function executeBossTurn() {
           edgeSafetySum += 1.0;
         }
       });
+      const edgeExposure = exposedEdges / 4.0;
+      const cornerControl = (slot.r !== 1 && slot.c !== 1) ? 0.08 : 0.0;
+      const centerControl = (slot.r === 1 && slot.c === 1) ? 0.06 : 0.0;
       const cCapture = Math.min(1.0, (captures + 0.25) / 3.25);
       const cEdgeSafety = edgeSafetySum / 4.0;
-      const cCounterResistance = 1.0 - (exposedEdges / 4.0) * 0.35;
+      const cCounterResistance = 1.0 - edgeExposure * 0.35;
       const combined = cCapture * (cEdgeSafety + 0.15) * cCounterResistance;
-      const utilityScore = compensate(Math.min(1.0, combined), 3) + captures * 0.45;
+      const utilityScore = compensate(Math.min(1.0, combined), 3) + immediateFlips * 0.45 + cornerControl + centerControl;
       const tieBreak = seededRng() * 0.015;
       const totalScore = utilityScore + tieBreak;
       if (totalScore > bestUtility) {
@@ -2425,6 +3063,7 @@ function executeBossTurn() {
 
   const aiCard = getCardMeta(aiCardId);
   updateTelegraphHud(aiCardId);
+  telegraphBossIntent();
   playTone(flips.length > 0 ? -4 : -1, "sawtooth", 0.22, flips.length > 0);
   document.getElementById("last-move-banner").innerHTML = flips.length > 0
     ? `⚠️ <b>${aiCard.telegraphName}:</b> <b>${aiCard.name}</b> flipped <b>${flips.length}</b> of your cards!`
@@ -2488,28 +3127,34 @@ function checkGameOver() {
 
 function closeModal(nextStage) {
   document.getElementById("result-modal").style.display = "none";
-  if (nextStage) {
-    state.stageIndex = (state.stageIndex + 1) % CAMPAIGN_STAGES.length;
+  const { blue, red } = getScores();
+  if (nextStage && blue > red) {
+    state.stageIndex = Math.min(CAMPAIGN_STAGES.length - 1, state.stageIndex + 1);
     document.getElementById("stage-select").value = state.stageIndex;
   }
   startStage(state.stageIndex);
 }
 
-function build3DCardHTML(cardId, nesw, owner) {
+function build3DCardHTML(cardId, nesw, owner, isBoosted = false) {
   const card = getCardMeta(cardId);
   const [top, right, bottom, left] = nesw;
   const ownerCls = owner === "ai" ? "owner-ai" : "owner-player";
+  const ownerBadge = owner === "ai" ? "▲" : "◆";
+  const boostCls = isBoosted ? " edge-boosted" : "";
+  const boostPop = isBoosted ? `<div class="boost-pop-badge">+1</div>` : "";
   return `
     <div class="card-3d-unit ${ownerCls}">
       <div class="card-art-frame">
         <img class="slot-art" src="${card.art}" alt="${card.name}" draggable="false" />
         <div class="slot-vignette"></div>
       </div>
+      <div class="owner-badge">${ownerBadge}</div>
+      ${boostPop}
       ${buildUniqueTelegraphSVG(card)}
-      <div class="edge-num edge-top">${top}</div>
-      <div class="edge-num edge-right">${right}</div>
-      <div class="edge-num edge-bottom">${bottom}</div>
-      <div class="edge-num edge-left">${left}</div>
+      <div class="edge-num edge-top${boostCls}">${top}</div>
+      <div class="edge-num edge-right${boostCls}">${right}</div>
+      <div class="edge-num edge-bottom${boostCls}">${bottom}</div>
+      <div class="edge-num edge-left${boostCls}">${left}</div>
       <div class="slot-name-ribbon">${card.name}</div>
     </div>
   `;
@@ -2546,22 +3191,53 @@ function renderAll() {
   document.getElementById("reroll-left").textContent = state.rerollsLeft;
   document.getElementById("hand-count-badge").textContent = `${state.hand.length} CARDS`;
 
-  const turnBadge = document.getElementById("turn-badge");
-  turnBadge.textContent = state.isPlayerTurn ? "YOUR TURN" : "BOSS TURN";
-  turnBadge.style.color = state.isPlayerTurn ? "#FFB800" : "#FF2E54";
+  const rerollBtn = document.getElementById("reroll-btn");
+  if (rerollBtn) {
+    const canReroll = state.isPlayerTurn && !state.gameOver && state.rerollsLeft > 0;
+    rerollBtn.disabled = !canReroll;
+    rerollBtn.style.opacity = canReroll ? "1" : "0.45";
+    rerollBtn.style.cursor = canReroll ? "pointer" : "not-allowed";
+  }
 
-  // 1. Column Headers
+  const turnBadge = document.getElementById("turn-badge");
+  if (state.gameOver) {
+    turnBadge.textContent = blue > red ? "VICTORY" : (blue < red ? "DEFEAT" : "MATCH OVER");
+    turnBadge.style.color = blue > red ? "#00E5FF" : "#FF2E54";
+  } else {
+    turnBadge.textContent = state.isPlayerTurn ? "YOUR TURN" : "BOSS TURN";
+    turnBadge.style.color = state.isPlayerTurn ? "#FFB800" : "#FF2E54";
+  }
+
+  // 1. Column Headers (Actual 3D Tumbling Dice Cubes directly above Columns 1–3)
   const colHeadersEl = document.getElementById("col-headers");
   colHeadersEl.innerHTML = "";
   for (let c = 0; c < 3; c++) {
+    const pip = state.colDice[c];
     const boosted = isColBoosted(c);
     const d = document.createElement("div");
     d.className = "col-header-pill" + (boosted ? " boosted" : "");
-    d.textContent = boosted ? `⚡ COL ${c + 1} (+1 ALL)` : `COL ${c + 1} (DIE: ${state.colDice[c]})`;
+    d.title = "Click 3D Die above Column to Nudge +1";
+    d.onclick = () => nudgeColDie(c);
+    d.innerHTML = `
+      <div class="cube-scene">
+        <div class="cube-3d" style="transform: ${CUBE_ROTATIONS[pip]};">
+          <div class="cube-face f-1">1</div>
+          <div class="cube-face f-2">2</div>
+          <div class="cube-face f-3">3</div>
+          <div class="cube-face f-4">4</div>
+          <div class="cube-face f-5">5</div>
+          <div class="cube-face f-6">6</div>
+        </div>
+      </div>
+      <div class="col-header-meta">
+        <span style="font-size:12px;font-weight:900;">COL ${c + 1}</span>
+        <span style="font-size:12px;font-weight:800;color:${boosted ? "var(--gold)" : "#94a3b8"};">${boosted ? "⚡ +1 ALL" : "Nudge +1"}</span>
+      </div>
+    `;
     colHeadersEl.appendChild(d);
   }
 
-  // 2. Real 3D CSS Tumbling Dice Cubes
+  // 2. Floating Corner 3D Dice Inspector
   const diceListEl = document.getElementById("dice-column-list");
   diceListEl.innerHTML = "";
   for (let c = 0; c < 3; c++) {
@@ -2569,14 +3245,23 @@ function renderAll() {
     const boosted = pip >= 4;
     const row = document.createElement("div");
     row.className = "col-die-row" + (boosted ? " charged" : "");
+    row.tabIndex = 0;
+    row.setAttribute("role", "button");
+    const canNudge = state.isPlayerTurn && !state.gameOver && state.nudgesLeft > 0;
+    row.setAttribute("aria-disabled", canNudge ? "false" : "true");
+    row.style.opacity = canNudge ? "1" : "0.55";
+    row.style.cursor = canNudge ? "pointer" : "not-allowed";
     row.onclick = () => nudgeColDie(c);
+    row.onkeydown = (e) => {
+      if (KEY_ACTION_MAP[e.code] === "CONFIRM" || KEY_ACTION_MAP[e.key] === "CONFIRM") {
+        e.preventDefault();
+        nudgeColDie(c);
+      }
+    };
     row.innerHTML = `
       <div style="min-width:0;">
         <div style="font-weight:800;font-size:12px;color:${boosted ? "var(--gold)" : "#f8fafc"};white-space:nowrap;">
-          Column ${c + 1} Die
-        </div>
-        <div style="font-size:12px;color:${boosted ? "var(--gold)" : "#94a3b8"};margin-top:1px;white-space:nowrap;">
-          ${boosted ? "⚡ +1 All 4 Sides" : "Click to Nudge +1"}
+          Col ${c + 1}: ${boosted ? "⚡ +1 Boost" : "Pip " + pip}
         </div>
       </div>
       <div class="cube-scene">
@@ -2616,7 +3301,7 @@ function renderAll() {
     }
   }
 
-  // 4. Render 3x3 3D Sockets & Portrait Cards (Pooled DOM slots — zero slot node recreation)
+  // 4. Render 3x3 Recessed Citadel Sockets & Portrait Cards (Pooled DOM slots)
   const gridEl = document.getElementById("grid-3x3");
   let existingSlots = gridEl.querySelectorAll(".board-slot");
   if (existingSlots.length !== 9) {
@@ -2646,6 +3331,9 @@ function renderAll() {
       const willFlip = clashObj && clashObj.willFlip;
 
       let cls = "board-slot";
+      if (isColBoosted(c)) cls += " col-boosted-lane";
+      if (state.surgingCol === c) cls += " col-surge-active";
+      if (state.bossTargetSlot && state.bossTargetSlot.r === r && state.bossTargetSlot.c === c && !cell.cardId) cls += " boss-target-slot";
       if (r * 3 + c === state.focusedSlotIndex) cls += " focused-slot";
       if (cell.cardId) cls += " occupied";
       if (isSelUnit) cls += " selected-unit";
@@ -2668,6 +3356,7 @@ function renderAll() {
         if (drag.kind === "board" && drag.src && drag.src.r === r && drag.src.c === c) cls += " drag-source";
       }
       slot.className = cls;
+      slot.setAttribute("role", "gridcell");
       slot.dataset.r = r;
       slot.dataset.c = c;
 
@@ -2675,6 +3364,17 @@ function renderAll() {
         if (drag.active || drag.dropping) return;
         if (cell.cardId) {
           updateTelegraphHud(cell.cardId);
+          // Highlight valid adjacent orthogonal tiles with directional arrows on hover
+          if (cell.owner === "player" && state.isPlayerTurn && !state.usedSlideThisTurn) {
+            existingSlots.forEach(nbSlot => {
+              const nr = Number(nbSlot.dataset.r), nc = Number(nbSlot.dataset.c);
+              if (!state.grid[nr][nc].cardId && Math.abs(nr - r) + Math.abs(nc - c) === 1) {
+                nbSlot.classList.add("slide-target");
+                const arrow = nr < r ? "▲" : (nr > r ? "▼" : (nc < c ? "◀" : "▶"));
+                nbSlot.innerHTML = `<div class="slide-arrow-call"><span>${arrow}</span><span>SLIDE</span></div>`;
+              }
+            });
+          }
         } else {
           if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c) return;
           state.hoveredSlot = { r, c };
@@ -2686,6 +3386,10 @@ function renderAll() {
       };
       slot.onmouseleave = () => {
         if (drag.active || drag.dropping) return;
+        if (cell.cardId && cell.owner === "player") {
+          renderAll();
+          return;
+        }
         if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c) {
           state.hoveredSlot = null;
           renderAll();
@@ -2702,7 +3406,7 @@ function renderAll() {
       }
 
       if (cell.cardId) {
-        slot.innerHTML = build3DCardHTML(cell.cardId, cell.nesw, cell.owner);
+        slot.innerHTML = build3DCardHTML(cell.cardId, cell.nesw, cell.owner, cell.owner === "player" && isColBoosted(c));
         if (clashObj) {
           const tag = document.createElement("div");
           tag.className = clashObj.willFlip ? "flip-tag" : "defend-tag";
@@ -2712,14 +3416,21 @@ function renderAll() {
           slot.appendChild(tag);
         }
       } else if (isSlideTarget) {
-        slot.innerHTML = `<div style="color:var(--emerald);font-weight:800;font-size:12px;text-align:center;">⇄ SLIDE<br/>HERE</div>`;
+        const sr = state.selectedBoardSlot.r, sc = state.selectedBoardSlot.c;
+        const arrow = r < sr ? "▲" : (r > sr ? "▼" : (c < sc ? "◀" : "▶"));
+        slot.innerHTML = `<div class="slide-arrow-call"><span>${arrow}</span><span>SLIDE</span></div>`;
       } else if (state.hoveredSlot && state.hoveredSlot.r === r && state.hoveredSlot.c === c && state.hand[state.selectedHandIdx]) {
         const hId = state.hand[state.selectedHandIdx];
         const eff = getCardEffectiveStats(hId, c, false);
         slot.classList.add(drag.active ? "landing-preview" : "hover-preview");
-        slot.innerHTML = build3DCardHTML(hId, eff, "player");
+        slot.innerHTML = build3DCardHTML(hId, eff, "player", isColBoosted(c));
+      } else if (state.bossTargetSlot && state.bossTargetSlot.r === r && state.bossTargetSlot.c === c) {
+        const ghostCard = state.bossTargetSlot.cardId
+          ? `<div class="boss-ghost-construct">${build3DCardHTML(state.bossTargetSlot.cardId, state.bossTargetSlot.eff || [6,6,6,6], "ai", false)}</div>`
+          : "";
+        slot.innerHTML = `${ghostCard}<div class="boss-reticle-badge">⚠️ ${state.bossTargetSlot.name || "TARGET"}</div>`;
       } else {
-        slot.innerHTML = `<div style="color:rgba(148,163,184,0.34);font-weight:800;font-size:12px;">${isColBoosted(c) ? "⚡ +1 BOOST" : "OPEN"}</div>`;
+        slot.innerHTML = `<div class="socket-rune-sigil">❖</div>`;
       }
     }
   }
@@ -2732,10 +3443,19 @@ function renderAll() {
     );
   }
 
-  // 5. Render Left 2x3 Grid: 5 Hero Cards + 1 Telegraph/Slide Info Card
+  // 5. Render Bottom Edge Horizontal Hero Hand Fan + Hover Expanded Ability Tooltips
+  const slidePillEl = document.getElementById("slide-status-pill");
+  if (slidePillEl) {
+    slidePillEl.textContent = state.usedSlideThisTurn
+      ? "⇄ Tactical Slide: Used This Turn"
+      : "⇄ Tactical Slide: 1× Ready (Hover or drag any placed Blue card)";
+    slidePillEl.style.color = state.usedSlideThisTurn ? "#94a3b8" : "var(--emerald)";
+  }
+
   const handEl = document.getElementById("hand-bar");
   handEl.innerHTML = "";
   state.hand.forEach((cid, idx) => {
+    const cardMeta = getCardMeta(cid);
     const isSel = idx === state.selectedHandIdx && !state.selectedBoardSlot;
     const wrap = document.createElement("div");
     const isDragSrc = drag.active && drag.kind === "hand" && drag.handIdx === idx;
@@ -2750,25 +3470,16 @@ function renderAll() {
       playTone(3 + idx, "sine", 0.1);
       renderAll();
     };
-    wrap.innerHTML = build3DCardHTML(cid, ALL_CARDS[cid].nesw, "player");
+    wrap.innerHTML = `
+      ${build3DCardHTML(cid, cardMeta.nesw, "player")}
+      <div class="hand-card-tooltip">
+        <div style="font-size:12px;font-weight:900;color:${cardMeta.telegraphColor};">⚡ ${cardMeta.telegraphName}</div>
+        <div style="font-size:12px;font-weight:800;color:#fde68a;margin-top:2px;">${cardMeta.telegraphType}</div>
+        <div style="font-size:12px;color:#cbd5e1;margin-top:2px;line-height:1.25;">${cardMeta.telegraphDesc}</div>
+      </div>
+    `;
     handEl.appendChild(wrap);
   });
-
-  const activeHero = ALL_CARDS[state.hand[state.selectedHandIdx]] || PLAYER_HEROES[0];
-  const slideCard = document.createElement("div");
-  slideCard.className = "tactical-slide-card";
-  slideCard.innerHTML = `
-    <div style="font-size:12px;font-weight:900;color:${activeHero.telegraphColor};letter-spacing:0.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">
-      ⚡ ${activeHero.telegraphName}
-    </div>
-    <div style="font-size:12px;color:#cbd5e1;line-height:1.25;">
-      ${activeHero.telegraphType}
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.12);width:100%;padding-top:4px;margin-top:2px;font-size:12px;color:var(--emerald);font-weight:800;">
-      ⇄ Slide: ${state.usedSlideThisTurn ? "Used" : "1× Ready"}
-    </div>
-  `;
-  handEl.appendChild(slideCard);
 }
 
 /* ==========================================================================
@@ -2798,6 +3509,7 @@ function beginPointerDrag(e, spec) {
   if (spec.kind === "board" && state.usedSlideThisTurn) return; // click-select still works
   e.preventDefault(); // block native image drag / text selection
   const el = e.currentTarget;
+  drag.pointerId = e.pointerId;
   drag.pending = { spec, rect: el.getBoundingClientRect(), x: e.clientX, y: e.clientY };
   window.addEventListener("pointermove", onDragPointerMove);
   window.addEventListener("pointerup", onDragPointerUp);
@@ -2864,6 +3576,13 @@ function startDrag(e) {
 }
 
 function findDropTarget(x, y) {
+  const gridEl = document.getElementById("grid-3x3");
+  if (gridEl) {
+    const gr = gridEl.getBoundingClientRect();
+    if (x < gr.left - 8 || x > gr.right + 8 || y < gr.top - 8 || y > gr.bottom + 8) {
+      return null;
+    }
+  }
   const slots = document.querySelectorAll("#grid-3x3 .board-slot");
   let best = null;
   let bestDist = Infinity;
@@ -2898,6 +3617,7 @@ function refreshGhostStats() {
 }
 
 function onDragPointerMove(e) {
+  if (drag.pointerId !== undefined && e && e.pointerId !== undefined && e.pointerId !== drag.pointerId) return;
   if (drag.pending && !drag.active) {
     if (Math.hypot(e.clientX - drag.pending.x, e.clientY - drag.pending.y) < DRAG_THRESHOLD_PX) return;
     startDrag(e);
@@ -2979,7 +3699,11 @@ function animateGhostTo(rect, ms, easing, done) {
   g.style.transition = `transform ${ms}ms ${easing}`;
   void g.offsetWidth;
   applyGhostTransform();
-  setTimeout(done, ms + 10);
+  const gen = state.matchGen;
+  state.snapTimer = setTimeout(() => {
+    if (gen !== state.matchGen) return;
+    done();
+  }, ms + 10);
 }
 
 function teardownDrag() {
@@ -2989,6 +3713,7 @@ function teardownDrag() {
   drag.dropping = false;
   drag.target = null;
   drag.pending = null;
+  drag.pointerId = undefined;
   document.body.classList.remove("is-dragging");
   drag.suppressClick = true;
   setTimeout(() => { drag.suppressClick = false; }, 80);
@@ -3022,26 +3747,31 @@ function returnGhostHome() {
   });
 }
 
-function onDragPointerUp() {
+function onDragPointerUp(e) {
+  if (drag.pointerId !== undefined && e && e.pointerId !== undefined && e.pointerId !== drag.pointerId) return;
   detachDragListeners();
-  if (drag.pending && !drag.active) { drag.pending = null; return; } // plain click → onclick handles it
+  if (drag.pending && !drag.active) { drag.pending = null; drag.pointerId = undefined; return; } // plain click → onclick handles it
   if (!drag.active || drag.dropping) return;
 
+  if (!drag.target && e && typeof e.clientX === "number") {
+    drag.target = findDropTarget(e.clientX, e.clientY);
+  }
   const t = drag.target && isValidDropTarget(drag.target.r, drag.target.c) ? drag.target : null;
   if (!t) { returnGhostHome(); return; }
 
   const el = document.querySelector(`#grid-3x3 .board-slot[data-r="${t.r}"][data-c="${t.c}"]`);
   const rect = el ? el.getBoundingClientRect() : t.rect;
   animateGhostTo(rect, 120, "cubic-bezier(0.3, 1.3, 0.5, 1)", () => {
-    const kind = drag.kind, src = drag.src, idx = drag.handIdx;
+    const kind = drag.kind, src = drag.src, idx = drag.handIdx, dragCardId = drag.cardId;
     teardownDrag();
     state.hoveredSlot = null;
     if (!state.isPlayerTurn || state.gameOver) return;
     if (kind === "board") {
       const srcCell = state.grid[src.r][src.c];
-      if (!srcCell || !(srcCell.owner === "player")) return;
+      if (!srcCell || !(srcCell.owner === "player") || srcCell.cardId !== dragCardId) return;
       state.selectedBoardSlot = { r: src.r, c: src.c };
     } else {
+      if (!state.hand[idx] || state.hand[idx] !== dragCardId) return;
       state.selectedHandIdx = idx;
       state.selectedBoardSlot = null;
     }
@@ -3050,9 +3780,10 @@ function onDragPointerUp() {
   });
 }
 
-function onDragPointerCancel() {
+function onDragPointerCancel(e) {
+  if (drag.pointerId !== undefined && e && e.pointerId !== undefined && e.pointerId !== drag.pointerId) return;
   detachDragListeners();
-  if (drag.pending && !drag.active) { drag.pending = null; return; }
+  if (drag.pending && !drag.active) { drag.pending = null; drag.pointerId = undefined; return; }
   if (drag.active && !drag.dropping) returnGhostHome();
 }
 
@@ -3072,10 +3803,11 @@ window.addEventListener("blur", () => {
 window.addEventListener("DOMContentLoaded", () => {
   loadProgressionV3();
   startStage(0);
-  if (window.location.search.includes("autotest=1") && typeof runVisualAutomatedPlaytest === "function") {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("autotest") === "1" && typeof runVisualAutomatedPlaytest === "function") {
     setTimeout(() => runVisualAutomatedPlaytest(), 500);
   }
-  if (window.location.search.includes("dragtest=1") && typeof runDragDropTest === "function") {
+  if (urlParams.get("dragtest") === "1" && typeof runDragDropTest === "function") {
     setTimeout(() => runDragDropTest().catch((err) => {
       fetch("/__osascript_report__?name=dragdrop", { method: "POST", body: JSON.stringify({ error: String(err), stack: err && err.stack }) });
       document.title = "DRAGTEST_ERROR";

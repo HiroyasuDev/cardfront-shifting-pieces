@@ -1,12 +1,12 @@
 {
-  "iteration": 11,
-  "timestamp_utc": "2026-11-08T13:16:16Z",
+  "iteration": 29,
+  "timestamp_utc": "2026-11-09T00:54:44Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
-    "autotest_title": "TEST_COMPLETE:6-3:SINGLETON=true:IMG=true",
+    "autotest_title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
     "total_checks": 98,
     "passed_checks": 98,
     "failed_checks": 0,
@@ -123,14 +123,14 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 10,
+    "previous_iteration": 28,
     "newly_passing_checks": [],
     "newly_failing_checks": [],
     "pass_count_delta": 0,
     "total_checks_delta": 0
   },
   "step_a_router": {
-    "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
+    "prompt": "Tactile Tabletop HUD: Bottom Hand Arc, 3D Column Header Dice, Top Boss Commander, Recessed Brass Sockets, and Collapsible Dev Drawer",
     "target_model": "gemini-4-argon",
     "dual_engine_detection": {
       "primary_target": {
@@ -161,17 +161,9 @@
       {
         "slot": "engine",
         "category": "unity",
-        "name": "unity-scriptableobjects",
-        "skill_id": "unity/unity-scriptableobjects",
-        "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
-        "source": "pxg-gamedev-harness"
-      },
-      {
-        "slot": "discipline",
-        "category": "disciplines",
-        "name": "game-feel",
-        "skill_id": "disciplines/game-feel",
-        "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md",
+        "name": "unity-csharp-scripting",
+        "skill_id": "unity/unity-csharp-scripting",
+        "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md",
         "source": "pxg-gamedev-harness"
       },
       {
@@ -183,30 +175,36 @@
         "source": "pxg-gamedev-harness"
       },
       {
+        "slot": "discipline",
+        "category": "disciplines",
+        "name": "game-ai",
+        "skill_id": "disciplines/game-ai",
+        "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md",
+        "source": "router/SKILL.md_verification"
+      },
+      {
         "slot": "genre",
         "category": "genres",
         "name": "card-game",
         "skill_id": "genres/card-game",
         "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md",
-        "source": "pxg-gamedev-harness"
+        "source": "router/SKILL.md_verification"
       }
     ],
     "exact_skill_files_to_load": [
       "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/SKILL.md",
       "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/references/custom-engines.md",
-      "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
-      "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md",
+      "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md",
       "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md",
+      "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md",
       "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md"
     ],
     "pxg_cli_raw": {
       "detect_engine": "Unity",
       "detect_version": "2022.3.40f1",
       "cli_selected_skills": [
-        "unity-scriptableobjects",
-        "game-feel",
-        "game-ui-ux",
-        "card-game"
+        "unity-csharp-scripting",
+        "game-ui-ux"
       ]
     }
   },
@@ -227,26 +225,26 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 5884.5
+      "elapsed_ms": 6003.4
     },
     "autotest": {
       "ran": true,
-      "title": "TEST_COMPLETE:6-3:SINGLETON=true:IMG=true",
+      "title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
       "pass": true,
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8481,
+      "elapsed_ms": 8533,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-08T13:16:06.299Z",
+        "timestamp": "2026-11-09T00:54:34.392Z",
         "steps": [
           {
             "step": "Initial Stage Load",
             "stage": "Eclipse Void Blade",
             "handCount": 5,
-            "imagesChecked": 6,
-            "telegraphSVGsRendered": 6
+            "imagesChecked": 7,
+            "telegraphSVGsRendered": 7
           },
           {
             "step": "Turn 1 Deploy",
@@ -258,8 +256,8 @@
             ],
             "immediateCaptures": 1,
             "scoreAfterTurn": {
-              "player": 1,
-              "boss": 2
+              "player": 2,
+              "boss": 1
             }
           },
           {
@@ -278,8 +276,8 @@
             "cardPlayed": "h_kai",
             "telegraph": "Solid Eye Target Lock",
             "socket": [
-              0,
-              0
+              1,
+              2
             ],
             "immediateCaptures": 1,
             "scoreAfterTurn": {
@@ -293,12 +291,12 @@
             "telegraph": "Temporal Gear Lock",
             "socket": [
               1,
-              2
+              1
             ],
             "immediateCaptures": 1,
             "scoreAfterTurn": {
-              "player": 5,
-              "boss": 2
+              "player": 4,
+              "boss": 3
             }
           },
           {
@@ -307,12 +305,12 @@
             "telegraph": "Ember Wing Sweep",
             "socket": [
               2,
-              2
+              1
             ],
             "immediateCaptures": 1,
             "scoreAfterTurn": {
-              "player": 6,
-              "boss": 3
+              "player": 5,
+              "boss": 4
             }
           }
         ],
@@ -336,8 +334,8 @@
         "tacticalSlideTested": true,
         "modalDisplayed": true,
         "finalScore": {
-          "player": 6,
-          "boss": 3
+          "player": 5,
+          "boss": 4
         },
         "outcome": "VICTORY"
       }
@@ -1375,7 +1373,7 @@
         "target": "web",
         "method": "static_regex",
         "expect": ">=1 match",
-        "actual": 2,
+        "actual": 6,
         "passed": true,
         "priority": "P1",
         "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
@@ -1695,7 +1693,7 @@
         "target": "web",
         "method": "static_regex",
         "expect": ">=1 match",
-        "actual": 4,
+        "actual": 5,
         "passed": true,
         "priority": "P2",
         "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
@@ -1954,32 +1952,32 @@
       },
       "rules_audit": {
         "total_repro_probes": 11,
-        "reproduced_count": 10,
+        "reproduced_count": 0,
         "findings": [
           {
             "id": "R01_stale_boss_turn_after_reset",
             "title": "Pending boss turn survives Reset/stage-select",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R02_boss_tiebreak_deterministic",
             "title": "Boss tie-break always picks first row-major slot",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R03_stale_hand_drag_undefined_card",
             "title": "Stale hand-drag drop after keyboard deploy corrupts board",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R04_stale_board_drag_steals_card",
             "title": "Stale slide-drag moves & converts a boss-captured card",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R05_selected_unit_misclick_deploys",
             "title": "Mis-click while a board unit is selected deploys from hand",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R06_empty_tile_click_swallowed",
@@ -1989,27 +1987,27 @@
           {
             "id": "R07_recalc_asymmetry_captured_cards",
             "title": "Captured cards re-statted inconsistently on dice change",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R08_next_stage_after_defeat_wraps",
             "title": "Next Stage after defeat, 4->1 wrap, end-state badge",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R09_stale_result_modal_after_reset",
             "title": "Old result modal pops over a new game after Reset",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R10_global_hotkeys_hijack_space",
             "title": "Space/Enter/r global hotkeys override focused controls",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R11_debug_hooks_in_production",
             "title": "autotest/dragtest hooks reachable from URL",
-            "reproduced": true
+            "reproduced": false
           }
         ]
       },
@@ -2019,7 +2017,7 @@
         "renderAll_avg_ms": 0.47,
         "broken_images_count": 0,
         "keyboard_only_game_completed": true,
-        "modal_auto_focused": false
+        "modal_auto_focused": true
       },
       "personas": {
         "matches_recorded": 120,
@@ -2035,7 +2033,7 @@
           "p09",
           "p10"
         ],
-        "wins_recorded": 0
+        "wins_recorded": 113
       },
       "benchmark": {
         "hero_cards_count": 8,
@@ -2189,5 +2187,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 14
   },
-  "elapsed_ms": 17359.8
+  "elapsed_ms": 17616.0
 }

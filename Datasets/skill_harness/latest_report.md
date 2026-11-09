@@ -1,16 +1,16 @@
-# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #11)
+# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #29)
 
-- **Timestamp (UTC)**: `2026-11-08T13:16:16Z`
+- **Timestamp (UTC)**: `2026-11-09T00:54:44Z`
 - **Target Orchestrator Model**: **`gemini-4-argon`** (`Gemini 4 Argon`)
 - **Overall Gate Status**: **`PASS_ALL_GATES`**
 - **Real Drag & Drop E2E (`WebPlayable/tests/drag_e2e.js`)**: `PASS`
-- **Real In-Page Playtest (`?autotest=1`)**: `PASS` (`TEST_COMPLETE:6-3:SINGLETON=true:IMG=true`)
+- **Real In-Page Playtest (`?autotest=1`)**: `PASS` (`TEST_COMPLETE:5-4:SINGLETON=true:IMG=true`)
 - **Grounded Skill Checks**: **98 / 98 PASS (100.0%)** — `0 P0`, `0 P1` failures
 - **Check Suites Merged**: `Tools/skill_harness/core_checks.json, Datasets/mirofish_gameplay/skills_ai_save_ship/checks.json, Datasets/mirofish_gameplay/skills_art_direction/checks.json, Datasets/mirofish_gameplay/skills_cardgame_ui_input/checks.json, Datasets/mirofish_gameplay/skills_feel_audio_camera_perf/checks.json`
 
 ## 1. Step A — Router & Dual-Engine Composition (`router/SKILL.md`)
 
-- **Change Request Prompt**: `Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance`
+- **Change Request Prompt**: `Tactile Tabletop HUD: Bottom Hand Arc, 3D Column Header Dice, Top Boss Commander, Recessed Brass Sockets, and Collapsible Dev Drawer`
 - **Primary Target**: `Custom HTML5/CSS3/JS Tabletop Engine` (`WebPlayable/cardfront_cradle_of_echoes_playable.html`, bound via `router/references/custom-engines.md`)
 - **Secondary Target**: `Unity 2022.3.40f1` (`Assets/ + ProjectSettings/ProjectVersion.txt`)
 - **Composition Order**: `Engine Fundamentals -> Discipline(s) -> Genre -> Workflow`
@@ -18,10 +18,10 @@
 ### Loaded `SKILL.md` Stack
 | Order | Slot | Skill | Path | Source |
 | :---: | :--- | :--- | :--- | :--- |
-| 1 | `engine` | `unity/unity-scriptableobjects` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md` | `pxg-gamedev-harness` |
-| 2 | `discipline` | `disciplines/game-feel` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md` | `pxg-gamedev-harness` |
-| 3 | `discipline` | `disciplines/game-ui-ux` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md` | `pxg-gamedev-harness` |
-| 4 | `genre` | `genres/card-game` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md` | `pxg-gamedev-harness` |
+| 1 | `engine` | `unity/unity-csharp-scripting` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md` | `pxg-gamedev-harness` |
+| 2 | `discipline` | `disciplines/game-ui-ux` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md` | `pxg-gamedev-harness` |
+| 3 | `discipline` | `disciplines/game-ai` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md` | `router/SKILL.md_verification` |
+| 4 | `genre` | `genres/card-game` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md` | `router/SKILL.md_verification` |
 
 ## 2. Step B — Per-Skill Scorecard
 
@@ -45,7 +45,7 @@
 | `workflows/steam-publish` | 1 | 1 | 0 | **100.0%** | — |
 
 ### Diff vs. Previous Iteration
-- **Previous Iteration**: `10`
+- **Previous Iteration**: `28`
 - **Pass Count Delta**: `+0` (Total checks delta: `+0`)
 - **Newly Passing Checks**: `None`
 - **Newly Failing Checks**: `None`
@@ -53,9 +53,9 @@
 ### Ingested MiroFish Gameplay Telemetry
 - **Active Workstreams**: `balance, rules_audit, ux_qa, personas, benchmark, skills_art_direction`
 - **Balance / Engine Parity**: `166 matches`, `975 actions`, `100% agreement`
-- **Rules Audit**: `10 / 11` edge-case repro probes reproduced (`R01..R11`)
+- **Rules Audit**: `0 / 11` edge-case repro probes reproduced (`R01..R11`)
 - **UX / Perf QA**: Drag p95 frame time `16.7 ms`, long tasks `0`, `renderAll` avg `0.47 ms`, keyboard-only game completed `True`
-- **Persona Playtesters**: `120 matches` across `p01, p02, p03, p04, p05, p06, p07, p08, p09, p10` (`0 wins`)
+- **Persona Playtesters**: `120 matches` across `p01, p02, p03, p04, p05, p06, p07, p08, p09, p10` (`113 wins`)
 - **Art Direction Raster QA**: `ok=True`, `16 card portraits verified (600x800)`
 
 ## 3. Step C — Prioritized P0 → P3 Remediation Backlog
