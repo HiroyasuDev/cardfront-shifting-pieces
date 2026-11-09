@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-11-09T13:06:44.822Z",
-  "elapsed_ms": 2858,
-  "api_daemon_port": 61605,
+  "timestamp_utc": "2026-11-09T14:17:58.487Z",
+  "elapsed_ms": 3335,
+  "api_daemon_port": 61777,
   "secure_config_verified": true,
   "standalone_macho_executed": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/Builds/MacOS/CARDFRONT_CradleOfEchoes.app/Contents/MacOS/unity-tcg-engine",
   "full3d_macho_present": true,

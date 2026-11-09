@@ -1312,5 +1312,51 @@
     "priority": "P0",
     "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4580-4615",
     "remediation": "Implement getMacBook2ShareUrl() in WebPlayable and /api/lan/info in WebPlayable/serve_playtest.py."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.16",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Live Unity 6 (6000.6.8f1) + REA 6.8.0 Telemetry Inspector in WebPlayable: getUnity6ReaTelemetryStatus() returns 100.0% 9-subsystem reconstruction coverage, FNV-1a lockstep hash 4C837E02F2035A25, 113 unique sprites, and 155 seeded API cards.",
+    "source": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4644",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { if (typeof getUnity6ReaTelemetryStatus !== 'function') return false; const t = getUnity6ReaTelemetryStatus(); return Boolean(t && t.unityEditorVersion === '6000.6.8f1' && t.reaVersion === 'rea@6.8.0' && t.reconstructionCoveragePct === 100.0 && t.verifiedSubsystemsCount === 9 && t.lockstepFnv1aStateHash === '4C837E02F2035A25' && t.cardFrontUniqueSpritesBound === 113); })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4644-4660",
+    "remediation": "Implement getUnity6ReaTelemetryStatus() in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+  },
+  {
+    "id": "core.production_upgrades.09",
+    "skill": "tcg-creative-game-designer",
+    "rule": "13-Model Anime & Manga Illustration LoRA Zoo (including Kubrart Vector-Cel) + 16 Fresh RTX 4080 Animagine XL 3.1 SDXL Renders & 60/60 Genuine SDXL Set 1 Portraits.",
+    "source": "Datasets/anime_manga_illustration_models_manifest.json:1",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/anime_manga_illustration_models_manifest.json",
+      "expression": "data['total_safetensors_in_lora_dir'] == 13 and data['illustration_adapters_count'] == 12 and data['zero_living_artist_names'] is True and any(m.get('id') == 'kubrart_vector_cel_ink_v1' for m in data.get('adapters', []))"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/build_anime_manga_illustration_models.py:1-260",
+    "remediation": "Run python3 Backend/build_anime_manga_illustration_models.py and Backend/render_rtx4080_anime_manga_set1_portraits.py."
+  },
+  {
+    "id": "core.production_upgrades.10",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Live In-Game Anime & Manga Illustration Model Studio (#anime-manga-studio-modal) & Kubrart Vector-Cel Tabletop Shader Switcher.",
+    "source": "WebPlayable/modules/anime_manga_studio.js:1",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { if (!window.CardFrontAnimeMangaStudio || typeof openAnimeMangaStudioModal !== 'function' || typeof selectAnimeMangaStudioModel !== 'function') return false; const opened = openAnimeMangaStudioModal('kubrart_vector_cel_ink_v1'); const sel = selectAnimeMangaStudioModel('kubrart_vector_cel_ink_v1'); closeAnimeMangaStudioModal(); return Boolean(opened && sel && sel.model && sel.model.id === 'kubrart_vector_cel_ink_v1' && window.CardFrontAnimeMangaStudio.ANIME_MANGA_ILLUSTRATION_MODELS.length === 13); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/anime_manga_studio.js:1-220",
+    "remediation": "Wire WebPlayable/modules/anime_manga_studio.js and #anime-manga-studio-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
   }
 ]

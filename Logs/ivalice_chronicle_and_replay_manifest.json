@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "module_id": "Synapse-Ivalice-Chronicle-Replay-MCTS-i18n",
-  "generated_at_utc": "2026-11-09T13:50:49.940609+00:00",
+  "generated_at_utc": "2026-11-09T13:52:54.364660+00:00",
   "status": "VERIFIED",
   "stages_count": 15,
   "acts_count": 3,
@@ -1869,5 +1869,5 @@
       "fnv1a_64_checksum": "0x55eb02af12c7d534"
     }
   ],
-  "fnv1a_64_checksum": "0x05cc715f35f2ec79"
+  "fnv1a_64_checksum": "0x4043f9a73bb65d7c"
 }

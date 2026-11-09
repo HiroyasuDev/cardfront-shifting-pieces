@@ -1,11 +1,12 @@
 {
-  "manifest_id": "synapse_sovereign_lora_safetensors_v1",
-  "timestamp_utc": "2026-11-08T10:34:02Z",
+  "manifest_id": "synapse_sovereign_lora_safetensors_v2_anime_manga_zoo",
+  "timestamp_utc": "2026-11-09T14:12:39Z",
   "house_style": "Synapse-Aether-Cel v1.0",
+  "zero_living_artist_names": true,
   "corpus_statistics": {
     "corpus_total_lines": 1000,
     "corpus_reference_records": 721,
-    "epoch_runs_logged": 79,
+    "epoch_runs_logged": 165,
     "latest_ce_loss": 0.4748,
     "latest_kl_div": 0.1146,
     "mean_shader_vector": {
@@ -15,20 +16,32 @@
       "saturation": 0.79934,
       "bevel": 0.5027
     },
-    "corpus_sha256_seed": "8cd4f8f4a960771a82c3e1f3fca058ea41cc9a6bd22c6778f87692a3241e8391"
+    "corpus_sha256_seed": "37abd9b93f4e4bfe50b89f5203bce60a4ecb6d0b348681abc81247c2a2562eea"
   },
-  "checkpoints_count": 4,
+  "illustration_adapters_count": 12,
+  "checkpoints_count": 13,
   "checkpoints": [
     {
+      "id": "synapse_aether_cel_v1",
       "filename": "synapse_aether_cel_v1_lora.safetensors",
       "adapter_id": "synapse_aether_cel_v1_lora",
-      "base_model": "cagliostrolab/animagine-xl-3.1",
+      "name": "Ivalice Watercolor Cel-Wash & Tapered Gauntlet Proportions",
+      "category": "Tactical Fantasy Cel-Wash & Filigree",
+      "base_model": "animagineXLV31_v31.safetensors",
       "architecture": "SDXL_DoRA_Rank16_AetherCel",
-      "header_byte_length_N": 1368,
+      "shader_preset": "cel_astral_gold",
+      "color_signature": [
+        "#00E5FF",
+        "#FFB800",
+        "#1E293B",
+        "#FFE082"
+      ],
+      "morphological_prompt": "stylized 6.5-to-7.5-head proportions, tapered gauntlets/boots, pen-and-ink G-pen crosshatching over warm parchment-gold filigree, vibrant watercolor cel-wash, high-contrast faction silhouettes, astral cyan and cobalt-gold rim lighting",
+      "header_byte_length_N": 1848,
       "weight_buffer_byte_length": 16384,
-      "total_file_bytes": 17760,
-      "sha256": "84c7b8819c3344d7933fb018b17b9a4cfe5f97fa4f6c1d07ceef31eb6bf3e858",
-      "sha256_seed": "0e798b5b73871d8c62332db648f0708de487b9f7252826f263949e98cce26b85",
+      "total_file_bytes": 18240,
+      "sha256": "4efb445207812e78e09aad2224632b85f40e7407301f8623859c62c73e72a6da",
+      "sha256_seed": "27b214981e40d34a4a238a1175aa7c63a59373a9bb5b34cb5713ae68e1b2bb43",
       "tensor_count": 8,
       "zero_nans_or_infs": true,
       "tensors": [
@@ -148,15 +161,26 @@
       "verified_on_disk": true
     },
     {
+      "id": "hi3d_trellis2_nirne_norld",
       "filename": "hi3d_trellis2_nirne_norld_adapter.safetensors",
       "adapter_id": "hi3d_trellis2_nirne_norld_adapter",
-      "base_model": "Stable-X/trellis-normal-v0-1+JeffreyXiang/TRELLIS-image-large",
+      "name": "Hi3D Normal-Bridge & Sparse Voxel Manga Silhouette",
+      "category": "2.5D Normal-Bridge & Sparse Voxel Cel",
+      "base_model": "Stable-X/trellis-normal-v0-1",
       "architecture": "Hi3DGen_NiRNE_NoRLD_OVoxel_Bridge_Rank16",
-      "header_byte_length_N": 1416,
+      "shader_preset": "mecha_blueprint_halftone",
+      "color_signature": [
+        "#2EE6D3",
+        "#00E5FF",
+        "#0F172A",
+        "#94A3B8"
+      ],
+      "morphological_prompt": "isometric 2.5D normal-bridge relief, sparse voxel manga silhouette, sleek beveled cyber-magicite armor edges, stylized 7-head tactical unit proportions, crisp G-pen contour linework, jade-teal and cyan normal-mapped rim lighting",
+      "header_byte_length_N": 1864,
       "weight_buffer_byte_length": 16384,
-      "total_file_bytes": 17808,
-      "sha256": "021de181b1a14152478fba7932ba2443f95d831dd2ce58e470df6d75a41893ba",
-      "sha256_seed": "81208b4cf1c2b49d2a1f510fdb68566485a730156b30cde5863caae3c3f63b74",
+      "total_file_bytes": 18256,
+      "sha256": "595f8f97aa2215b45bedbae27380fb265b765a34da7d21aab1ab2f76194f071d",
+      "sha256_seed": "cf40b7f27fc7f3ee768f0475e3a867b2bcf424710bbfd4cb13d5ce43d39f3410",
       "tensor_count": 8,
       "zero_nans_or_infs": true,
       "tensors": [
@@ -276,15 +300,26 @@
       "verified_on_disk": true
     },
     {
+      "id": "mga2_solideye_halftone",
       "filename": "mga2_solideye_halftone_shader_lora.safetensors",
       "adapter_id": "mga2_solideye_halftone_shader_lora",
+      "name": "CMYK Screentone Halftone Dot-Matrix & Kagenashi Cel Shadow",
+      "category": "CMYK Screentone Halftone & Kagenashi Cel",
       "base_model": "KBlueLeaf/Kohaku-XL-Zeta",
       "architecture": "SolidEye_CMYK_Halftone_Kagenashi_Rank16",
-      "header_byte_length_N": 1384,
+      "shader_preset": "manga_gpen_screentone",
+      "color_signature": [
+        "#00E5FF",
+        "#FF2E54",
+        "#FFB800",
+        "#0F172A"
+      ],
+      "morphological_prompt": "CMYK halftone screentone dot-matrix, 24fps kagenashi key-animation rim lighting, stylized 7-head tactical espionage proportions, razor-sharp G-pen ink outlines, flat graphic cel shadow planes, high-contrast faction silhouettes",
+      "header_byte_length_N": 1864,
       "weight_buffer_byte_length": 16384,
-      "total_file_bytes": 17776,
-      "sha256": "e2b7da61bc0318bd1c50f095176b61f164541142e2067be0a8b1755b3f234d2e",
-      "sha256_seed": "d10e14cd8a029ccb737362513045a25919ff1d31e5cd99632b9b8e62274a5ccf",
+      "total_file_bytes": 18256,
+      "sha256": "236bd39b1307896043f77e26a691c068093c780e1de124089fd96b1edbcbb188",
+      "sha256_seed": "3a965a0e97781536ed21bcbc48c26de4f26a707e8cf3d652eb6644232d160499",
       "tensor_count": 8,
       "zero_nans_or_infs": true,
       "tensors": [
@@ -404,15 +439,26 @@
       "verified_on_disk": true
     },
     {
+      "id": "ties_merged_master_soup_v1",
       "filename": "ties_merged_master_soup_v1.safetensors",
       "adapter_id": "ties_merged_master_soup_v1",
-      "base_model": "PxG-Sovereign-12Master-TIES-Soup-XL",
-      "architecture": "TIES_Merging_Density0.6_12Master_Soup_Rank16",
-      "header_byte_length_N": 1392,
+      "name": "12-Lineage TIES-Merged Anime/Manga Model Soup",
+      "category": "12-Lineage TIES-Merged House Style",
+      "base_model": "animagineXLV31_v31.safetensors",
+      "architecture": "TIES_Merging_Density0.6_12Lineage_Soup_Rank16",
+      "shader_preset": "cel_astral_gold",
+      "color_signature": [
+        "#FFB800",
+        "#00E5FF",
+        "#A855F7",
+        "#2EE6D3"
+      ],
+      "morphological_prompt": "12-lineage TIES-merged anime/manga model soup, stylized 6.5-to-7.5-head proportions, tapered gauntlets/boots, pen-and-ink G-pen crosshatching over warm parchment-gold filigree, vibrant watercolor cel-wash, sleek beveled cyber-magicite armor edges",
+      "header_byte_length_N": 1864,
       "weight_buffer_byte_length": 16384,
-      "total_file_bytes": 17784,
-      "sha256": "e940e7c2f5bd281323498072bf1f646a6a828780111515c598191b17190caaf5",
-      "sha256_seed": "a4b34bc3297a70217d69855415bbca1746d1b1342fb11e05c0f6085cd54da545",
+      "total_file_bytes": 18256,
+      "sha256": "999ff31ca1e9f68c7d1bb2a77f0fe1efeccc56016151efa163b6ce36a9e212d6",
+      "sha256_seed": "05fd7307d1e0745b0513af85ef9daac104c373790e0ccbce58ba90f6b42831d8",
       "tensor_count": 8,
       "zero_nans_or_infs": true,
       "tensors": [
@@ -524,6 +570,1299 @@
           "data_offsets": [
             14336,
             16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "id": "anime_sakuga_kagenashi_v2",
+      "filename": "anime_sakuga_kagenashi_keyframe_v2_lora.safetensors",
+      "adapter_id": "anime_sakuga_kagenashi_keyframe_v2_lora",
+      "name": "24fps TV Anime Key-Animation Kagenashi Rim-Light & Star-Flare",
+      "category": "24fps TV Anime Sakuga & Star-Flare",
+      "base_model": "animagineXLV31_v31.safetensors",
+      "architecture": "Sakuga_24fps_Kagenashi_Impact_Rank16",
+      "shader_preset": "sakuga_kagenashi_flare",
+      "color_signature": [
+        "#FF2E54",
+        "#FFB800",
+        "#00E5FF",
+        "#FFFFFF"
+      ],
+      "morphological_prompt": "24fps kagenashi key-animation rim lighting, four-point star-flare burst, stylized 7-head anime hero proportions, unshaded flat cel shadow blocks, kinetic smear-frame motion arcs, high-contrast faction silhouettes, crimson-flame and astral cyan highlights",
+      "header_byte_length_N": 1904,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 18296,
+      "sha256": "702d4787eba786e64ce6897d20a3b169de17478576f0a88e91f7467f48853986",
+      "sha256_seed": "03af5912da1899291811933a29a43cddfd1c100077d926238fed6782f0d8bfe7",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "id": "manga_sumi_ink_seinen_v1",
+      "filename": "manga_sumi_ink_crosshatch_seinen_v1_lora.safetensors",
+      "adapter_id": "manga_sumi_ink_crosshatch_seinen_v1_lora",
+      "name": "High-Contrast G-Pen Sumi-e Ink Crosshatching & Baroque Armor Filigree",
+      "category": "Seinen G-Pen Sumi-e & Baroque Crosshatch",
+      "base_model": "animagineXLV31_v31.safetensors",
+      "architecture": "Seinen_GPen_SumiInk_Crosshatch_Rank16",
+      "shader_preset": "manga_gpen_screentone",
+      "color_signature": [
+        "#F8FAFC",
+        "#0F172A",
+        "#FFE082",
+        "#94A3B8"
+      ],
+      "morphological_prompt": "pen-and-ink G-pen crosshatching over warm parchment-gold filigree, high-contrast sumi-e dry-brush ink strokes, baroque engraved plate armor, monochrome screentone dot-matrix gradients, stylized 7.5-head dark fantasy proportions, stark silhouette",
+      "header_byte_length_N": 1904,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 18296,
+      "sha256": "a3add1262d3bd613ee916d567d7cb4c7718528c87fac7d611099cc629f7d32d1",
+      "sha256_seed": "cc1e7d066a8f8fe356c91a4f29c4439b167cea98c0fff77fcbdd6ee90ac1b5a8",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "id": "cyber_mecha_orthographic_v1",
+      "filename": "cyber_mecha_orthographic_cel_v1_lora.safetensors",
+      "adapter_id": "cyber_mecha_orthographic_cel_v1_lora",
+      "name": "7.5-Head Cyber-Magicite Mecha Frame, Beveled Energy Wings & Cockpit Visor",
+      "category": "Cyber-Magicite Mecha & Orthographic Cel",
+      "base_model": "flux1-dev-fp8.safetensors",
+      "architecture": "CyberMecha_7_5Head_Orthographic_Rank16",
+      "shader_preset": "mecha_blueprint_halftone",
+      "color_signature": [
+        "#00E5FF",
+        "#2EE6D3",
+        "#F97316",
+        "#0F172A"
+      ],
+      "morphological_prompt": "stylized 7.5-head cyber-magicite mecha frame, sleek beveled cyber-magicite armor edges, tapered gauntlets/boots, translucent astral energy wings, luminous cockpit visor, precision orthographic panel-line drafting, high-contrast faction silhouettes",
+      "header_byte_length_N": 1912,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 18304,
+      "sha256": "b6d246208c612c319f935b43974b4951c6c9ea47f72a02f5a592713368364be7",
+      "sha256_seed": "4f8374186ad3d45b169b0379251cfcce3ecc537dcd438313ceb485b794732ae5",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "id": "dark_occult_tarot_v1",
+      "filename": "dark_occult_tarot_monolith_v1_lora.safetensors",
+      "adapter_id": "dark_occult_tarot_monolith_v1_lora",
+      "name": "Chiaroscuro Obsidian-Ivory Tarot Iconography & Astral Halo Linework",
+      "category": "Occult Tarot Chiaroscuro & Gilded Foil",
+      "base_model": "animagineXLV31_v31.safetensors",
+      "architecture": "OccultTarot_Chiaroscuro_Monolith_Rank16",
+      "shader_preset": "tarot_chiaroscuro_foil",
+      "color_signature": [
+        "#A855F7",
+        "#FFE082",
+        "#090D16",
+        "#FFB800"
+      ],
+      "morphological_prompt": "chiaroscuro obsidian-ivory tarot iconography, concentric astral halo linework, pen-and-ink G-pen crosshatching over warm parchment-gold filigree, stylized 7-head arcane monolith silhouette, tarot violet and gilded foil accents",
+      "header_byte_length_N": 1880,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 18272,
+      "sha256": "eb6c4da807d7458b935e81049db0925dfe6210668564fe37992c611ad9f140a0",
+      "sha256_seed": "2b639f0e640808dd71796148b8779856f827e9e466160ec78e2ad2ffca43e8fd",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "id": "storybook_gouache_citadel_v1",
+      "filename": "storybook_gouache_sky_citadel_v1_lora.safetensors",
+      "adapter_id": "storybook_gouache_sky_citadel_v1_lora",
+      "name": "Luminous Gouache Cloudscape, Brass Astrolabe Filigree & Jewel-Tone Wash",
+      "category": "Storybook Gouache & Sky-Citadel Wash",
+      "base_model": "flux1-dev-fp8.safetensors",
+      "architecture": "Storybook_Gouache_SkyCitadel_Rank16",
+      "shader_preset": "cel_astral_gold",
+      "color_signature": [
+        "#38BDF8",
+        "#FFE082",
+        "#2EE6D3",
+        "#1E293B"
+      ],
+      "morphological_prompt": "vibrant watercolor cel-wash and luminous gouache cloudscape, brass astrolabe rings over warm parchment-gold filigree, stylized 6.5-to-7.5-head proportions, jewel-tone atmospheric depth, crisp sepia ink contour lines",
+      "header_byte_length_N": 1864,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 18256,
+      "sha256": "a710542e16db4fa725506a8c9fad63222a02644448288608adcace512013d747",
+      "sha256_seed": "3312366e41168d0537b99775dbc1fb337cef626928cbd7ec7f0ddb9e961d1cd3",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "id": "tactical_chibi_commander_v1",
+      "filename": "tactical_chibi_commander_vanguard_v1_lora.safetensors",
+      "adapter_id": "tactical_chibi_commander_vanguard_v1_lora",
+      "name": "Crisp 6.5-Head Tactical Unit Commander, Bold Vector Outlines & Faction Visor",
+      "category": "Tactical 6.5-Head Commander & Vector Cel",
+      "base_model": "animagineXLV31_v31.safetensors",
+      "architecture": "TacticalCommander_6_5Head_Cel_Rank16",
+      "shader_preset": "cel_astral_gold",
+      "color_signature": [
+        "#00E5FF",
+        "#FFB800",
+        "#FF2E54",
+        "#0F172A"
+      ],
+      "morphological_prompt": "stylized 6.5-head tactical unit commander proportions, tapered gauntlets/boots, bold variable-width vector ink outlines, vibrant watercolor cel-wash, luminous faction visor, high-contrast faction silhouettes",
+      "header_byte_length_N": 1872,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 18264,
+      "sha256": "537e7fcc3bcea30239cacd2d87237981d289b5f5f19e7ef1d799bdcb42b2b19c",
+      "sha256_seed": "7318f59ed0ac1308b40d0f6d7b2e54dfa76015620c6d7e149bef0bc469b057a8",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "id": "shonen_astral_burst_v1",
+      "filename": "shonen_astral_burst_speedline_v1_lora.safetensors",
+      "adapter_id": "shonen_astral_burst_speedline_v1_lora",
+      "name": "Dynamic Foreshortened Blade Lunge, Radial Manga Speedlines & Chroma Split",
+      "category": "Shonen Radial Speedline & Chroma Burst",
+      "base_model": "animagineXLV31_v31.safetensors",
+      "architecture": "Shonen_RadialSpeedline_Burst_Rank16",
+      "shader_preset": "sakuga_kagenashi_flare",
+      "color_signature": [
+        "#00E5FF",
+        "#FF2E54",
+        "#F97316",
+        "#FFFFFF"
+      ],
+      "morphological_prompt": "dynamic foreshortened blade lunge, dense radial manga convergence speedlines, CMYK halftone screentone dot-matrix, 24fps kagenashi key-animation rim lighting, chromatic aberration edge split, high-contrast faction silhouettes",
+      "header_byte_length_N": 1880,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 18272,
+      "sha256": "b57654acbf391943191a73bec41470ef9cff4427542c162688e96047345994aa",
+      "sha256_seed": "514d2464570e6b5baa7bc77e0b33e1bf39fa9bef66281ca86fa4edfc4c8819eb",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "id": "kubrart_vector_cel_ink_v1",
+      "filename": "kubrart_vector_cel_ink_v1_lora.safetensors",
+      "adapter_id": "kubrart_vector_cel_ink_v1",
+      "name": "Kubrart Graphic Vector-Cel & Stark Ink Silhouette",
+      "category": "Graphic Vector-Cel & Negative-Space Manga Ink",
+      "base_model": "animagineXLV31_v31.safetensors",
+      "architecture": "Kubrart_VectorCel_StarkInk_Rank16",
+      "shader_preset": "manga_gpen_screentone",
+      "color_signature": [
+        "#0F172A",
+        "#00E5FF",
+        "#FF2E54",
+        "#F8FAFC"
+      ],
+      "morphological_prompt": "stark negative-space sumi-ink blocks, razor-sharp vector-cel contours, 7-head stylized anime/manga silhouette, luminous chromatic rim-light, flat graphic kagenashi shadow planes, high-contrast faction silhouettes",
+      "header_byte_length_N": 1840,
+      "weight_buffer_byte_length": 16384,
+      "total_file_bytes": 18232,
+      "sha256": "d89517c1132e5a20903db8cf0a35bd2dc08e9f0eb246d1f89056e027b09bcef1",
+      "sha256_seed": "85ef5a50a42921badfbc3036e28594b5bdef705289eae186e1ba9c0310832207",
+      "tensor_count": 8,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            0,
+            2048
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            2048,
+            4096
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            4096,
+            6144
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            6144,
+            8192
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            8192,
+            10240
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            10240,
+            12288
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            12288,
+            14336
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            14336,
+            16384
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        }
+      ],
+      "verified_on_disk": true
+    },
+    {
+      "id": "synapse_alphazero_policy_value_v1",
+      "filename": "synapse_alphazero_policy_value_v1.safetensors",
+      "adapter_id": "synapse_alphazero_policy_value_v1",
+      "name": "Synapse AlphaZero PUCT Policy-Value & Tactical Telegraph Adapter",
+      "category": "AlphaZero Tactical Policy-Value & Telegraph Conditioning",
+      "base_model": "animagineXLV31_v31.safetensors",
+      "architecture": "AlphaZero_PUCT_DualHead_96x48x72",
+      "shader_preset": "cel_astral_gold",
+      "color_signature": [
+        "#00E5FF",
+        "#FFB800",
+        "#A855F7",
+        "#2EE6D3"
+      ],
+      "morphological_prompt": "tactical 3x3 directional grid policy-value telemetry visualization, crisp vector telegraph lines, stylized 7-head unit silhouettes, astral cyan and law-gold rim lighting",
+      "header_byte_length_N": 1960,
+      "weight_buffer_byte_length": 48832,
+      "total_file_bytes": 50800,
+      "sha256": "5666089a41c33fab627839467ab59a734e453e5cf19bcc6e39a8ff8d8743899d",
+      "sha256_seed": "5cadbcc965fc8662c470ba03ec5633b28772ca39d977fdddd8843209c0ac191d",
+      "tensor_count": 11,
+      "zero_nans_or_infs": true,
+      "tensors": [
+        {
+          "name": "encoder_w",
+          "dtype": "F32",
+          "shape": [
+            96,
+            48
+          ],
+          "data_offsets": [
+            0,
+            18432
+          ],
+          "num_elements": 4608,
+          "byte_length": 18432
+        },
+        {
+          "name": "policy_head_w",
+          "dtype": "F32",
+          "shape": [
+            48,
+            72
+          ],
+          "data_offsets": [
+            18432,
+            32256
+          ],
+          "num_elements": 3456,
+          "byte_length": 13824
+        },
+        {
+          "name": "value_head_w",
+          "dtype": "F32",
+          "shape": [
+            48,
+            1
+          ],
+          "data_offsets": [
+            32256,
+            32448
+          ],
+          "num_elements": 48,
+          "byte_length": 192
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            32448,
+            34496
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            34496,
+            36544
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            36544,
+            38592
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            38592,
+            40640
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            40640,
+            42688
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            42688,
+            44736
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+          "dtype": "F16",
+          "shape": [
+            16,
+            64
+          ],
+          "data_offsets": [
+            44736,
+            46784
+          ],
+          "num_elements": 1024,
+          "byte_length": 2048
+        },
+        {
+          "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+          "dtype": "F16",
+          "shape": [
+            64,
+            16
+          ],
+          "data_offsets": [
+            46784,
+            48832
           ],
           "num_elements": 1024,
           "byte_length": 2048

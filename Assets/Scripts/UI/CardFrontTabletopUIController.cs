@@ -31,5 +31,10 @@ namespace Synapse.TcgEngine.UI
             isImpactFrame = PxgV100SakugaTelegraphBridge.IsSakugaImpactFrame(activeSakugaFrameIndex);
             return PxgV100SakugaTelegraphBridge.EvaluateSakugaStripFrameUv(activeSakugaFrameIndex);
         }
+
+        public string GetSovereignTelemetrySummary()
+        {
+            return "UNITY 6000.6.8f1 · REA 6.8.0 (9/9 100%) · FNV-1A LOCKSTEP 4C837E02F2035A25 · 113 UNIQUE SPRITES · 155 API CARDS";
+        }
     }
 }

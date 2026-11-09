@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-09T13:50:41Z",
-  "elapsed_ms": 11304.7,
+  "generated_at": "2026-11-09T14:18:09Z",
+  "elapsed_ms": 10802.0,
   "summary": {
     "status": "PASS_ALL_GATES",
     "unity_editor_version": "6000.6.8f1",
@@ -143226,9 +143226,9 @@
     "status": "PASS_TCG_ENGINE_API_SEEDED_AND_VERIFIED"
   },
   "fullstack_live_duel_and_echo_ghost_report": {
-    "timestamp_utc": "2026-11-09T13:06:44.822Z",
-    "elapsed_ms": 2858,
-    "api_daemon_port": 61605,
+    "timestamp_utc": "2026-11-09T14:17:58.487Z",
+    "elapsed_ms": 3335,
+    "api_daemon_port": 61777,
     "secure_config_verified": true,
     "standalone_macho_executed": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/Builds/MacOS/CARDFRONT_CradleOfEchoes.app/Contents/MacOS/unity-tcg-engine",
     "full3d_macho_present": true,

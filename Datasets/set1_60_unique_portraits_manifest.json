@@ -1,14 +1,40 @@
 {
-  "schema_version": "1.0.0",
-  "generator": "Backend/generate_set1_60_unique_portraits.py",
+  "schema_version": "2.0.0",
+  "generator": "Backend/render_rtx4080_anime_manga_set1_portraits.py",
   "total_set1_cards": 60,
   "base_portraits_count": 16,
   "generated_unique_portraits_count": 44,
   "unique_sha256_count": 60,
   "all_60_cryptographically_unique": true,
   "all_60_600x800_rgb_opaque_full_bleed": true,
+  "sdxl_anime_manga_backed": true,
+  "rtx4080_fresh_renders_count": 16,
+  "existing_sdxl_anime_manga_sources_count": 28,
+  "total_sdxl_anime_manga_sources_for_c17_c60": 44,
+  "kubrart_style_included": true,
+  "rtx4080_comfyui_url": "http://192.168.86.30:8188",
+  "rtx4080_checkpoint": "animagineXLV31_v31.safetensors",
+  "rtx4080_render_params": {
+    "width": 768,
+    "height": 1024,
+    "steps": 12,
+    "cfg": 6.5,
+    "sampler_name": "euler_ancestral",
+    "scheduler": "normal"
+  },
+  "rtx4080_fresh_render_time_s": 80.2,
+  "total_pipeline_wall_time_s": 88.68,
   "web_playable_sync_mode": "symlink_shared",
   "web_playable_accessible_count": 60,
+  "showcase_atlas": {
+    "width": 2400,
+    "height": 1600,
+    "grid": "10x6",
+    "brain_showcase_path": "/Users/frederickamina/.gemini/antigravity-cli/brain/d934b222-0e48-433e-b635-1a692b802f46/anime_manga_60_set1_showcase.png",
+    "local_showcase_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/anime_manga_60_set1_showcase.png",
+    "sha256": "a61b0f9bd9c29b47cb98b5ba2ddf607f456460e1ae8fed2f56704a79e0609ecd",
+    "bytes": 6493593
+  },
   "factions": [
     "Aether",
     "Solaris",
@@ -34,6 +60,200 @@
     "e_cryo",
     "e_shinobi"
   ],
+  "rtx4080_fresh_renders": [
+    {
+      "id": "anime_rtx4080_01",
+      "faction": "Aether",
+      "morphological_style": "aether_tarot_cel_ink",
+      "prompt_id": "3fbdf4d7-be3a-4e07-b7e4-9d7a87182d11",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_01.png",
+      "bytes": 1291585,
+      "sha256": "377b7d42b15c7bf92e227daeaaa6834c840b55d9ceee2013faf44362ca9fe3e0",
+      "elapsed_s": 4.35,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime and manga trading card illustration, stylized 7-head anime character proportions, tapered gauntlets and oversized boots, dense G-pen sumi-e ink crosshatching over warm parchment-gold filigree, vibrant watercolor cel-wash, tarot violet and gilded gold palette, luminous arcane halo, high-contrast faction silhouette, arcane anime grand magus floating inside a glowing violet and gold astrolabe ring, levitating grimoire pages, constellation mana threads, dramatic rim lighting"
+    },
+    {
+      "id": "anime_rtx4080_02",
+      "faction": "Aether",
+      "morphological_style": "aether_tarot_cel_ink",
+      "prompt_id": "84a48e5b-15e3-488f-9543-d6c689cd5422",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_02.png",
+      "bytes": 1507394,
+      "sha256": "5ddf9d6feba39bac8f7b301d23edee4defbe6883b5cc8489b67896f31da03ffb",
+      "elapsed_s": 3.54,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime and manga trading card illustration, stylized 7-head anime character proportions, tapered gauntlets and oversized boots, dense G-pen sumi-e ink crosshatching over warm parchment-gold filigree, vibrant watercolor cel-wash, tarot violet and gilded gold palette, luminous arcane halo, high-contrast faction silhouette, astrolabe summoner high priestess channeling luminous tarot arcana cards and crystalline violet prisms, flowing astral silk robes with gilded parchment filigree, starlight observatory backdrop"
+    },
+    {
+      "id": "anime_rtx4080_03",
+      "faction": "Aether",
+      "morphological_style": "aether_tarot_cel_ink",
+      "prompt_id": "28f211b4-913c-44de-be3d-20b21b83a565",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_03.png",
+      "bytes": 1334510,
+      "sha256": "aa8c6c489fbba8e55d2a141be0b3d6b2253a08fd7dcc5ea7f7c83667eeaa38f9",
+      "elapsed_s": 3.65,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime and manga trading card illustration, stylized 7-head anime character proportions, tapered gauntlets and oversized boots, dense G-pen sumi-e ink crosshatching over warm parchment-gold filigree, vibrant watercolor cel-wash, tarot violet and gilded gold palette, luminous arcane halo, high-contrast faction silhouette, ink-brush calligrapher warrior-scholar wielding a giant celestial sumi-e brush sweeping living ink coils and golden geometric sigils across the air, dynamic anime action pose"
+    },
+    {
+      "id": "anime_rtx4080_04",
+      "faction": "Solaris",
+      "morphological_style": "solaris_law_baroque_cel",
+      "prompt_id": "0c6179ee-f281-4760-9075-f838a8464071",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_04.png",
+      "bytes": 1304450,
+      "sha256": "bbc5f61826ff859c9821d8ea9a55a51ad6af5ab44a23edc4f63e5a848b43d581",
+      "elapsed_s": 3.77,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime and manga tactical RPG character illustration, stylized 7-head heroic proportions, ornate medieval-tactical law paladin armor filigree, intricate pen-and-ink crosshatching over warm parchment sepia and sovereign gold with jade-teal magicite accents, sculptural cloth folds, stained-glass divine halo, crisp cel shading, baroque paladin supreme law judge in ornate gold-filigree plate armor and white cape, holding a radiant law greatsword and floating golden scales, sacred geometry halo"
+    },
+    {
+      "id": "anime_rtx4080_05",
+      "faction": "Solaris",
+      "morphological_style": "solaris_law_baroque_cel",
+      "prompt_id": "81b679fd-06c1-4182-adb3-f65972bb7c07",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_05.png",
+      "bytes": 1304971,
+      "sha256": "1fa79f5c0dcbad5397067b3b986418e0bd59fa2a75aab4a3836f5e87255625aa",
+      "elapsed_s": 3.57,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime and manga tactical RPG character illustration, stylized 7-head heroic proportions, ornate medieval-tactical law paladin armor filigree, intricate pen-and-ink crosshatching over warm parchment sepia and sovereign gold with jade-teal magicite accents, sculptural cloth folds, stained-glass divine halo, crisp cel shading, stained-glass seraphim valkyrie knight with six crystalline gold and jade-teal wings descending in a cathedral sunbeam aura, ornate spear and shield"
+    },
+    {
+      "id": "anime_rtx4080_06",
+      "faction": "Solaris",
+      "morphological_style": "solaris_law_baroque_cel",
+      "prompt_id": "f9b62de7-7dff-468e-b1b7-02c04195a496",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_06.png",
+      "bytes": 1434247,
+      "sha256": "44d5fde230ee71e68bcf072708622f2a9e3c33556fb566f6a4e50baafe6a52fc",
+      "elapsed_s": 3.67,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime and manga tactical RPG character illustration, stylized 7-head heroic proportions, ornate medieval-tactical law paladin armor filigree, intricate pen-and-ink crosshatching over warm parchment sepia and sovereign gold with jade-teal magicite accents, sculptural cloth folds, stained-glass divine halo, crisp cel shading, sunforge colossus divine sentinel forged of articulated sovereign-gold armor plates and glowing jade-teal magicite reactor core, towering heroic low-angle composition"
+    },
+    {
+      "id": "anime_rtx4080_07",
+      "faction": "Valkyria",
+      "morphological_style": "valkyria_cyber_magicite_mecha",
+      "prompt_id": "fcc19ca0-d414-408c-af52-56a70282a318",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_07.png",
+      "bytes": 1184020,
+      "sha256": "2cb237cfa9e4d54fb5057ccf31a13170975402bc36784548c1785cd31322b003",
+      "elapsed_s": 3.69,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime mecha and dragoon character illustration, stylized 7.5-head cyber-magicite mecha armor proportions, sleek beveled armor edges, tapered gauntlets and oversized mechanical boots, bold triangular silhouette shapes, stark black ink shadow blocks with glowing astral cyan and cobalt-gold energy conduits, crisp anime cel shading, cyber-magicite mecha interceptor pilot in sleek beveled white and cobalt flight armor with twin astral-cyan energy wings and holographic targeting visor"
+    },
+    {
+      "id": "anime_rtx4080_08",
+      "faction": "Valkyria",
+      "morphological_style": "valkyria_cyber_magicite_mecha",
+      "prompt_id": "5b454988-7207-4007-984c-9fb5077794ee",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_08.png",
+      "bytes": 1415028,
+      "sha256": "ecff0dc138e2486d1b33cf546ecea9af64046b96da82c64babbcbad764f97ccc",
+      "elapsed_s": 3.64,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime mecha and dragoon character illustration, stylized 7.5-head cyber-magicite mecha armor proportions, sleek beveled armor edges, tapered gauntlets and oversized mechanical boots, bold triangular silhouette shapes, stark black ink shadow blocks with glowing astral cyan and cobalt-gold energy conduits, crisp anime cel shading, railgun dragoon aerial lancer aiming a hyper-velocity electromagnetic lance crackling with astral cyan and cobalt-gold plasma arcs above a cloudsea citadel"
+    },
+    {
+      "id": "anime_rtx4080_09",
+      "faction": "Valkyria",
+      "morphological_style": "valkyria_cyber_magicite_mecha",
+      "prompt_id": "fa09c6fa-d704-48de-b475-f92e920d6a02",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_09.png",
+      "bytes": 1358608,
+      "sha256": "5f1713c0e02c5d634bffa3864830490ac85279c3beccbbbfec56bd65a9c12b80",
+      "elapsed_s": 3.67,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime mecha and dragoon character illustration, stylized 7.5-head cyber-magicite mecha armor proportions, sleek beveled armor edges, tapered gauntlets and oversized mechanical boots, bold triangular silhouette shapes, stark black ink shadow blocks with glowing astral cyan and cobalt-gold energy conduits, crisp anime cel shading, skyfarer lancer captain standing on an armored airship prow with a glowing cyan skystone halberd and billowing cobalt-gold commander coat"
+    },
+    {
+      "id": "anime_rtx4080_10",
+      "faction": "Chronos",
+      "morphological_style": "chronos_clockwork_atelier",
+      "prompt_id": "e7afc591-6a6f-4857-8357-1344d4762a27",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_10.png",
+      "bytes": 1328927,
+      "sha256": "c57299970a8b3550921117c1b9fac5318a3275826e5cde172e273016124ddbc8",
+      "elapsed_s": 3.92,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime and manga chronomancer character illustration, stylized 6.5-to-7-head anime proportions, tapered gauntlets, intricate brass clockwork gears and floating hourglasses, vibrant watercolor cel-wash over crisp G-pen ink linework, warm amber-bronze and solar brass lighting bloom, clockwork gear-mage artificer surrounded by interlocking brass planetary gears, floating astrolabe rings, and glowing amber-bronze chrono-sigils"
+    },
+    {
+      "id": "anime_rtx4080_11",
+      "faction": "Chronos",
+      "morphological_style": "chronos_clockwork_atelier",
+      "prompt_id": "0edd69d9-408d-493c-8a28-219150bdb162",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_11.png",
+      "bytes": 1468477,
+      "sha256": "148a478e1b89657d1bcabf3d5c9930324a94ff874cd7c9d97eff18a11bfeb746",
+      "elapsed_s": 3.59,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime and manga chronomancer character illustration, stylized 6.5-to-7-head anime proportions, tapered gauntlets, intricate brass clockwork gears and floating hourglasses, vibrant watercolor cel-wash over crisp G-pen ink linework, warm amber-bronze and solar brass lighting bloom, temporal hourglass sentinel knight in beveled bronze-and-brass armor guarding a shattered crystalline time-rift with a glowing solar-brass pendulum polearm"
+    },
+    {
+      "id": "anime_rtx4080_12",
+      "faction": "Chronos",
+      "morphological_style": "chronos_clockwork_atelier",
+      "prompt_id": "4263859f-3f8a-4c89-9ef1-27ba01c6d4bf",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_12.png",
+      "bytes": 1583906,
+      "sha256": "104c6960c9c3b517e96f3a76fe54a935fd9fb09956204809699afba1a3e69667",
+      "elapsed_s": 3.5,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official anime and manga chronomancer character illustration, stylized 6.5-to-7-head anime proportions, tapered gauntlets, intricate brass clockwork gears and floating hourglasses, vibrant watercolor cel-wash over crisp G-pen ink linework, warm amber-bronze and solar brass lighting bloom, hover-tank commander in stylized tactical coat atop an arcane-mechanical hover-bastion turret, amber holographic rangefinder optics and golden sparks"
+    },
+    {
+      "id": "anime_rtx4080_13",
+      "faction": "Abyss",
+      "morphological_style": "abyss_seinen_manga_screentone",
+      "prompt_id": "e74d6234-b847-4564-a167-fedabb84b209",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_13.png",
+      "bytes": 613418,
+      "sha256": "6fc962704b6c85f1ceac8b57deb19ed62309e3a664b869ef60703e787d9eeea7",
+      "elapsed_s": 3.64,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official seinen manga and dark anime character illustration, stylized 7-head sleek stealth proportions, dense G-pen sumi-e ink crosshatching, CMYK halftone screentone shading, stark chiaroscuro negative space, crimson-obsidian and void amethyst glowing rim light, dynamic action silhouette, seinen manga ink-crosshatched obsidian ronin drawing a crimson-edged katana amidst swirling void ink petals and stark black-and-crimson chiaroscuro lighting"
+    },
+    {
+      "id": "anime_rtx4080_14",
+      "faction": "Abyss",
+      "morphological_style": "abyss_seinen_manga_screentone",
+      "prompt_id": "145f559f-97dd-407e-a450-976406025220",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_14.png",
+      "bytes": 734643,
+      "sha256": "f8ddfaab3a793254a52319279b442acba9abee7f42c1fdcd720a153c762d01e4",
+      "elapsed_s": 24.65,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official seinen manga and dark anime character illustration, stylized 7-head sleek stealth proportions, dense G-pen sumi-e ink crosshatching, CMYK halftone screentone shading, stark chiaroscuro negative space, crimson-obsidian and void amethyst glowing rim light, dynamic action silhouette, kunoichi mirage infiltrator materializing from halftone shadow smoke with twin void-amethyst phase kunai and glowing crimson scarf trails"
+    },
+    {
+      "id": "anime_rtx4080_15",
+      "faction": "Abyss",
+      "morphological_style": "abyss_seinen_manga_screentone",
+      "prompt_id": "4a21ed5a-bd0e-4864-925f-6348228aee37",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_15.png",
+      "bytes": 767621,
+      "sha256": "ff682e644c13bdbe64335364d83b3fd98348ec1ec8768cd16a6619100f4eb108",
+      "elapsed_s": 3.67,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official seinen manga and dark anime character illustration, stylized 7-head sleek stealth proportions, dense G-pen sumi-e ink crosshatching, CMYK halftone screentone shading, stark chiaroscuro negative space, crimson-obsidian and void amethyst glowing rim light, dynamic action silhouette, optic-camo sniper operative perched on a dark gothic cyber-spire with hexagonal stealth cloak, long-barrel antimateriel rifle, and glowing crimson-amethyst optics"
+    },
+    {
+      "id": "anime_rtx4080_16",
+      "faction": "Aether",
+      "morphological_style": "kubrart_vector_cel_ink",
+      "prompt_id": "79f8a8e7-da1a-4acf-a056-cf83a74e375b",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/anime_rtx4080_16.png",
+      "bytes": 1420451,
+      "sha256": "f7dcb9204166995703bfbbec17f22375eedaeffa52e7923cafa666827c04a3a7",
+      "elapsed_s": 3.68,
+      "cached": false,
+      "prompt": "masterpiece, best quality, official graphic anime and manga character illustration, stark negative-space ink blocks, razor-sharp graphic vector-cel contours, 7-head stylized anime and manga character silhouette, tapered gauntlets and oversized boots, bold geometric shadow planes, CMYK halftone screentone accents, luminous chromatic rim-light, high-contrast faction silhouette, sovereign vector-cel ink spellblade duelist surrounded by floating geometric polyhedra and arcane blades, stark negative-space ink blocks, razor-sharp graphic vector-cel contours, luminous violet-cyan-gold rim light"
+    }
+  ],
   "portraits": [
     {
       "filename": "h_archangel.png",
@@ -54,7 +274,10 @@
       "card_id": "set1_c01_h_archangel",
       "base_id": "h_archangel",
       "faction": "Aether",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "h_archangel.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "h_phoenix.png",
@@ -75,7 +298,10 @@
       "card_id": "set1_c02_h_phoenix",
       "base_id": "h_phoenix",
       "faction": "Solaris",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "h_phoenix.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "h_oracle.png",
@@ -96,7 +322,10 @@
       "card_id": "set1_c03_h_oracle",
       "base_id": "h_oracle",
       "faction": "Valkyria",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "h_oracle.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "h_chronos.png",
@@ -117,7 +346,10 @@
       "card_id": "set1_c04_h_chronos",
       "base_id": "h_chronos",
       "faction": "Chronos",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "h_chronos.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "h_seraph.png",
@@ -138,7 +370,10 @@
       "card_id": "set1_c05_h_seraph",
       "base_id": "h_seraph",
       "faction": "Abyss",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "h_seraph.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "h_kai.png",
@@ -159,7 +394,10 @@
       "card_id": "set1_c06_h_kai",
       "base_id": "h_kai",
       "faction": "Aether",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "h_kai.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "h_valkyrie.png",
@@ -180,7 +418,10 @@
       "card_id": "set1_c07_h_valkyrie",
       "base_id": "h_valkyrie",
       "faction": "Solaris",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "h_valkyrie.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "h_arbiter.png",
@@ -201,7 +442,10 @@
       "card_id": "set1_c08_h_arbiter",
       "base_id": "h_arbiter",
       "faction": "Valkyria",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "h_arbiter.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "e_eclipse.png",
@@ -222,7 +466,10 @@
       "card_id": "set1_c09_e_eclipse",
       "base_id": "e_eclipse",
       "faction": "Chronos",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "e_eclipse.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "e_archon.png",
@@ -243,7 +490,10 @@
       "card_id": "set1_c10_e_archon",
       "base_id": "e_archon",
       "faction": "Abyss",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "e_archon.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "e_inferno.png",
@@ -264,7 +514,10 @@
       "card_id": "set1_c11_e_inferno",
       "base_id": "e_inferno",
       "faction": "Aether",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "e_inferno.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "e_reaper.png",
@@ -285,7 +538,10 @@
       "card_id": "set1_c12_e_reaper",
       "base_id": "e_reaper",
       "faction": "Solaris",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "e_reaper.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "e_titan.png",
@@ -306,7 +562,10 @@
       "card_id": "set1_c13_e_titan",
       "base_id": "e_titan",
       "faction": "Valkyria",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "e_titan.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "e_colossus.png",
@@ -327,7 +586,10 @@
       "card_id": "set1_c14_e_colossus",
       "base_id": "e_colossus",
       "faction": "Chronos",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "e_colossus.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "e_cryo.png",
@@ -348,7 +610,10 @@
       "card_id": "set1_c15_e_cryo",
       "base_id": "e_cryo",
       "faction": "Abyss",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "e_cryo.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "e_shinobi.png",
@@ -369,7 +634,10 @@
       "card_id": "set1_c16_e_shinobi",
       "base_id": "e_shinobi",
       "faction": "Aether",
-      "tier": "Mk.1"
+      "tier": "Mk.1",
+      "sdxl_source_file": "e_shinobi.png",
+      "morphological_style": "sdxl_rtx4080_base_roster",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c17_h_archangel.png",
@@ -384,13 +652,17 @@
         600,
         800
       ],
-      "sha256": "d003115d8416df2314b51426106a6263c92bfc822b137c5fec334e760b4da77e",
-      "file_size_bytes": 845502,
+      "sha256": "7ffad26c32cc35634576ef4cce6d13faaa445c2ac7e86e1f536d103724eab063",
+      "file_size_bytes": 788320,
       "catalog_index": 17,
       "card_id": "set1_c17_h_archangel",
+      "s1_portrait_slug": "s1_17_servo_bastion_mk2",
       "base_id": "h_archangel",
       "faction": "Solaris",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_01.png",
+      "morphological_style": "aether_tarot_cel_ink",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c18_h_phoenix.png",
@@ -405,13 +677,17 @@
         600,
         800
       ],
-      "sha256": "8a8ce1ff46eeec1c1930b83923b4299cfd1a36b11674c3c216bcbefe03f0740f",
-      "file_size_bytes": 805109,
+      "sha256": "7ed640f28f248c8d44feda773da5da59247158987debae8333e23dbe4e397f30",
+      "file_size_bytes": 890597,
       "catalog_index": 18,
       "card_id": "set1_c18_h_phoenix",
+      "s1_portrait_slug": "s1_18_orbital_relay_drone",
       "base_id": "h_phoenix",
       "faction": "Valkyria",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_02.png",
+      "morphological_style": "aether_tarot_cel_ink",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c19_h_oracle.png",
@@ -426,13 +702,17 @@
         600,
         800
       ],
-      "sha256": "0461c02a23dc98e08e68b1e02a04370fc2e9f7537b7dbfa356683f765253c897",
-      "file_size_bytes": 797925,
+      "sha256": "8e87648ebdccef29125fe01c52f2562ce21d20d3f364f5dd34cb00d7583e058d",
+      "file_size_bytes": 788860,
       "catalog_index": 19,
       "card_id": "set1_c19_h_oracle",
+      "s1_portrait_slug": "s1_19_plasma_halberdier",
       "base_id": "h_oracle",
       "faction": "Chronos",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_03.png",
+      "morphological_style": "aether_tarot_cel_ink",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c20_h_chronos.png",
@@ -447,13 +727,17 @@
         600,
         800
       ],
-      "sha256": "a2f0dd3e4deb7223fc2c8491a45c81807af62909ec371fbeda3755b83dc85099",
-      "file_size_bytes": 963689,
+      "sha256": "6a918e595b07b18d3b0a2ebab390525c9ff27022c5cec991aef3d5adc17cb48d",
+      "file_size_bytes": 818360,
       "catalog_index": 20,
       "card_id": "set1_c20_h_chronos",
+      "s1_portrait_slug": "s1_20_chronos_hover_tank",
       "base_id": "h_chronos",
       "faction": "Abyss",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_04.png",
+      "morphological_style": "solaris_law_baroque_cel",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c21_h_seraph.png",
@@ -468,13 +752,17 @@
         600,
         800
       ],
-      "sha256": "fdcb2320c265423550d5c3bd50300892c14d2e2312190270403d0b7238d4e886",
-      "file_size_bytes": 856324,
+      "sha256": "59c912f911d020abea047fe6dd5aa01f802de7c9d9b98909875c5b89f7d172aa",
+      "file_size_bytes": 773393,
       "catalog_index": 21,
       "card_id": "set1_c21_h_seraph",
+      "s1_portrait_slug": "s1_21_nanoforge_engineer",
       "base_id": "h_seraph",
       "faction": "Aether",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_05.png",
+      "morphological_style": "solaris_law_baroque_cel",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c22_h_kai.png",
@@ -489,13 +777,17 @@
         600,
         800
       ],
-      "sha256": "b7b38a07ebf31e33d2cd7c9c04d7605f5b2ccf1b2fd95363c69ac6bab14aca50",
-      "file_size_bytes": 725604,
+      "sha256": "b3d3c459a33bfc7c0d85f1fe0e7a5d4d774702589d19084f9e0ba1970145d059",
+      "file_size_bytes": 850246,
       "catalog_index": 22,
       "card_id": "set1_c22_h_kai",
+      "s1_portrait_slug": "s1_22_tesla_siege_walker",
       "base_id": "h_kai",
       "faction": "Solaris",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_06.png",
+      "morphological_style": "solaris_law_baroque_cel",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c23_h_valkyrie.png",
@@ -510,13 +802,17 @@
         600,
         800
       ],
-      "sha256": "e4db603d6562f83695c0e781fa7cf3cf4a1ee3ef00f5432368e8e3fe804a261e",
-      "file_size_bytes": 828167,
+      "sha256": "88bd44dbbf3010d06bbbc13823cd6d1facb71f39a036f01d4627193d0cd5cf31",
+      "file_size_bytes": 723461,
       "catalog_index": 23,
       "card_id": "set1_c23_h_valkyrie",
+      "s1_portrait_slug": "s1_23_valkyrie_interceptor",
       "base_id": "h_valkyrie",
       "faction": "Valkyria",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_07.png",
+      "morphological_style": "valkyria_cyber_magicite_mecha",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c24_h_arbiter.png",
@@ -531,13 +827,17 @@
         600,
         800
       ],
-      "sha256": "3343e988da70514f8842f78fe29c61c4a59c249a84f923311df46dd6fa4d5cb3",
-      "file_size_bytes": 832045,
+      "sha256": "1269378be0b6d2f9da60b722494df125705b5238ecab074d51ec5a740514ee68",
+      "file_size_bytes": 839375,
       "catalog_index": 24,
       "card_id": "set1_c24_h_arbiter",
+      "s1_portrait_slug": "s1_24_rex_metal_colossus",
       "base_id": "h_arbiter",
       "faction": "Chronos",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_08.png",
+      "morphological_style": "valkyria_cyber_magicite_mecha",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c25_e_eclipse.png",
@@ -552,13 +852,17 @@
         600,
         800
       ],
-      "sha256": "39c7573ca694c7b846b3f3eeeb0d781bd5df1756508e883fdb334cfc81fcc69a",
-      "file_size_bytes": 766293,
+      "sha256": "d94da322f4d3005c4c9ac80fe03be4f4a1300ab4077ca25d61c39b2a893fed74",
+      "file_size_bytes": 802072,
       "catalog_index": 25,
       "card_id": "set1_c25_e_eclipse",
+      "s1_portrait_slug": "s1_25_astral_scholar",
       "base_id": "e_eclipse",
       "faction": "Abyss",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_09.png",
+      "morphological_style": "valkyria_cyber_magicite_mecha",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c26_e_archon.png",
@@ -573,13 +877,17 @@
         600,
         800
       ],
-      "sha256": "0dcec16d3b8e44a51e6e43a7886cbc34b10393d2b1217c150b2db309da06b33c",
-      "file_size_bytes": 822826,
+      "sha256": "a3bd6c4891872c0ad91139eed6240c12ab5a5c6525bae6912ac043201553c1fd",
+      "file_size_bytes": 842834,
       "catalog_index": 26,
       "card_id": "set1_c26_e_archon",
+      "s1_portrait_slug": "s1_26_void_weaver",
       "base_id": "e_archon",
       "faction": "Aether",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_10.png",
+      "morphological_style": "chronos_clockwork_atelier",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c27_e_inferno.png",
@@ -594,13 +902,17 @@
         600,
         800
       ],
-      "sha256": "b6c22d2ed88ca96dd1841f4580d2ab535b3b00e50ef1d6cb7c3c0c947106e85c",
-      "file_size_bytes": 861101,
+      "sha256": "460a532888c8781c226b1e9acc243ae999d0839996bf0ba5f787f5469dccdc2e",
+      "file_size_bytes": 870814,
       "catalog_index": 27,
       "card_id": "set1_c27_e_inferno",
+      "s1_portrait_slug": "s1_27_pendulum_alchemist",
       "base_id": "e_inferno",
       "faction": "Solaris",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_11.png",
+      "morphological_style": "chronos_clockwork_atelier",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c28_e_reaper.png",
@@ -615,13 +927,17 @@
         600,
         800
       ],
-      "sha256": "8c71efe03a00bf213c43991e7936bd7be4126cdc24597e18ead87b10e8851573",
-      "file_size_bytes": 560197,
+      "sha256": "19efe2e5989b596e043fe1b251246335936bd2bcd6f76a4498c87311be0dfa6e",
+      "file_size_bytes": 936731,
       "catalog_index": 28,
       "card_id": "set1_c28_e_reaper",
+      "s1_portrait_slug": "s1_28_rift_archon",
       "base_id": "e_reaper",
       "faction": "Valkyria",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_12.png",
+      "morphological_style": "chronos_clockwork_atelier",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c29_e_titan.png",
@@ -636,13 +952,17 @@
         600,
         800
       ],
-      "sha256": "ae149bebec2c3957c6dba2fb443debbd34f6d680a91ba11a8334f91e2c7eb543",
-      "file_size_bytes": 817469,
+      "sha256": "ba84be3ac9f0d503cd025f4440c2d7e616a5a091006c6c695c8c586d648ef9cd",
+      "file_size_bytes": 452551,
       "catalog_index": 29,
       "card_id": "set1_c29_e_titan",
+      "s1_portrait_slug": "s1_29_spellblade_duelist",
       "base_id": "e_titan",
       "faction": "Chronos",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_13.png",
+      "morphological_style": "abyss_seinen_manga_screentone",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c30_e_colossus.png",
@@ -657,13 +977,17 @@
         600,
         800
       ],
-      "sha256": "597a0714795b6b5c50569cdb58cda2c4ea449ed89277728880ea0c2762744de0",
-      "file_size_bytes": 780510,
+      "sha256": "0c17a5e06f7c6c9e074f86ed0c8f0bd717af9a13f42293919a89c04284f57561",
+      "file_size_bytes": 494976,
       "catalog_index": 30,
       "card_id": "set1_c30_e_colossus",
+      "s1_portrait_slug": "s1_30_starlight_diviner",
       "base_id": "e_colossus",
       "faction": "Abyss",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_14.png",
+      "morphological_style": "abyss_seinen_manga_screentone",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c31_e_cryo.png",
@@ -678,13 +1002,17 @@
         600,
         800
       ],
-      "sha256": "77de2bd3385f136a070ed498f5c8aa9834f8516200c7803b887916fdce507d9a",
-      "file_size_bytes": 836397,
+      "sha256": "c00cdd82b37a60623cc853da06f368a79db815dd8913a0c7be5f9b30f71f0eff",
+      "file_size_bytes": 528677,
       "catalog_index": 31,
       "card_id": "set1_c31_e_cryo",
+      "s1_portrait_slug": "s1_31_aeon_hourglass_mage",
       "base_id": "e_cryo",
       "faction": "Aether",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_15.png",
+      "morphological_style": "abyss_seinen_manga_screentone",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c32_e_shinobi.png",
@@ -699,13 +1027,17 @@
         600,
         800
       ],
-      "sha256": "a8faf4999dc9deacfbcdd91ca9f6b0396e52573c3848b025183d896e4c677e40",
-      "file_size_bytes": 814152,
+      "sha256": "f7028cb7911a1cfd3dbd3da4262663de77992ca314ef405a065a610c95a99579",
+      "file_size_bytes": 787317,
       "catalog_index": 32,
       "card_id": "set1_c32_e_shinobi",
+      "s1_portrait_slug": "s1_32_grimoire_sentinel",
       "base_id": "e_shinobi",
       "faction": "Solaris",
-      "tier": "Mk.2"
+      "tier": "Mk.2",
+      "sdxl_source_file": "anime_rtx4080_16.png",
+      "morphological_style": "kubrart_vector_cel_ink",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c33_h_archangel.png",
@@ -720,13 +1052,17 @@
         600,
         800
       ],
-      "sha256": "196597b6628d4f98f45c6efc7b60a089a249467efe5aafbf16ab07eb10945f93",
-      "file_size_bytes": 852349,
+      "sha256": "69d2deef41e0197a68e671ced381c3c3aec09aad363ca22d01c174b422062a49",
+      "file_size_bytes": 828419,
       "catalog_index": 33,
       "card_id": "set1_c33_h_archangel",
+      "s1_portrait_slug": "s1_33_chronos_grand_magus",
       "base_id": "h_archangel",
       "faction": "Valkyria",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cf_01_mystic_mage.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c34_h_phoenix.png",
@@ -741,13 +1077,17 @@
         600,
         800
       ],
-      "sha256": "82c8155f03941f3d15fea6e6b8375ab525ebaebf4e8d4677427109d638538d94",
-      "file_size_bytes": 781310,
+      "sha256": "6d7c71942125e0bc882dc2c2a8b67cd070231ab6d1a19095ebf2565abcd3830a",
+      "file_size_bytes": 786367,
       "catalog_index": 34,
       "card_id": "set1_c34_h_phoenix",
+      "s1_portrait_slug": "s1_34_dawn_templar",
       "base_id": "h_phoenix",
       "faction": "Chronos",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cf_02_mech_knight.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c35_h_oracle.png",
@@ -762,13 +1102,17 @@
         600,
         800
       ],
-      "sha256": "28bb226b160721b2be39e384b5d17bae000c8b60e7a4b71d150d7e6c0eefc6e7",
-      "file_size_bytes": 799254,
+      "sha256": "91a48d72821e200e5cd0058cb1ade359f011305d4410f0f4b9d067c4413c6099",
+      "file_size_bytes": 852892,
       "catalog_index": 35,
       "card_id": "set1_c35_h_oracle",
+      "s1_portrait_slug": "s1_35_seraphic_lancer",
       "base_id": "h_oracle",
       "faction": "Abyss",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cf_03_celestial_guardian.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c36_h_chronos.png",
@@ -783,13 +1127,17 @@
         600,
         800
       ],
-      "sha256": "97fe1263727e5373d502156c1b54bcaae23183cc787c3e0eaaa48ac9f995c13e",
-      "file_size_bytes": 960625,
+      "sha256": "d8d2c69bba3a18bfe310fc4ffa45fe48052e15112e45d34527df4e72f4b17667",
+      "file_size_bytes": 766131,
       "catalog_index": 36,
       "card_id": "set1_c36_h_chronos",
+      "s1_portrait_slug": "s1_36_aegis_hierophant",
       "base_id": "h_chronos",
       "faction": "Aether",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cf_04_shadow_assassin.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c37_h_seraph.png",
@@ -804,13 +1152,17 @@
         600,
         800
       ],
-      "sha256": "1607f923bd260052446a421b84fcd815feae3035a3415f9c0b8e3f99e901404b",
-      "file_size_bytes": 856519,
+      "sha256": "4607a115d287e882b90f5ed79cf9e1c36347ade9b3348277a4da0e83b458fa4d",
+      "file_size_bytes": 819531,
       "catalog_index": 37,
       "card_id": "set1_c37_h_seraph",
+      "s1_portrait_slug": "s1_37_radiant_valkyrie",
       "base_id": "h_seraph",
       "faction": "Solaris",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cf_05_elemental_sprite.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c38_h_kai.png",
@@ -825,13 +1177,17 @@
         600,
         800
       ],
-      "sha256": "ada2d6fe96bc430d6f3c67a4fc11d0740cc438fc56c004df198941761dddc946",
-      "file_size_bytes": 727353,
+      "sha256": "ab368ac79c1d6eac9d82d4f2563d9d98824688b506b61888c83ed37e8c1f51d3",
+      "file_size_bytes": 779467,
       "catalog_index": 38,
       "card_id": "set1_c38_h_kai",
+      "s1_portrait_slug": "s1_38_solaris_inquisitor",
       "base_id": "h_kai",
       "faction": "Valkyria",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cf_06_galactic_explorer.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c39_h_valkyrie.png",
@@ -846,13 +1202,17 @@
         600,
         800
       ],
-      "sha256": "b93fa82fed561911f9fdba85737e9d9e376a352e4423215433acd0f21160605a",
-      "file_size_bytes": 840502,
+      "sha256": "12704ba40f24f96f82c3b21dd56981e60c4dceef0b2324cd568641307e9b6293",
+      "file_size_bytes": 881674,
       "catalog_index": 39,
       "card_id": "set1_c39_h_valkyrie",
+      "s1_portrait_slug": "s1_39_eclipse_paladin",
       "base_id": "h_valkyrie",
       "faction": "Chronos",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cf_07_clockwork_sorcerer.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c40_h_arbiter.png",
@@ -867,13 +1227,17 @@
         600,
         800
       ],
-      "sha256": "a099b55921487569c3119f552837139891111c422a7e32a1dc72b13192e8bbc6",
-      "file_size_bytes": 829684,
+      "sha256": "bb7a737a9f1663ba05d2a4ae41a32b13cef6bb6a6e0254efb0cd8bb0699b11e9",
+      "file_size_bytes": 791785,
       "catalog_index": 40,
       "card_id": "set1_c40_h_arbiter",
+      "s1_portrait_slug": "s1_40_choir_chronicle_bard",
       "base_id": "h_arbiter",
       "faction": "Abyss",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cf_08_phoenix_guardian.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c41_e_eclipse.png",
@@ -888,13 +1252,17 @@
         600,
         800
       ],
-      "sha256": "7941c06708ccf112010b6a4fb5add20b340de09e9d8d271240801ff2a021e847",
-      "file_size_bytes": 777259,
+      "sha256": "4d70488e82ef8eb5954984409e617cc47f5736de585743d99a52b390b8db13d8",
+      "file_size_bytes": 845446,
       "catalog_index": 41,
       "card_id": "set1_c41_e_eclipse",
+      "s1_portrait_slug": "s1_41_archangel_judicator",
       "base_id": "e_eclipse",
       "faction": "Aether",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cf_09_cyber_ninja.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c42_e_archon.png",
@@ -909,13 +1277,17 @@
         600,
         800
       ],
-      "sha256": "6c58e9676b3bbfb655444354af6c1735f9f600e1c31300ef8582f4cba1105e68",
-      "file_size_bytes": 825768,
+      "sha256": "fa906f1d26d17d5a243a638e3c0b9998449c8785549378997313dbfd3746a485",
+      "file_size_bytes": 788182,
       "catalog_index": 42,
       "card_id": "set1_c42_e_archon",
+      "s1_portrait_slug": "s1_42_sunforge_colossus",
       "base_id": "e_archon",
       "faction": "Solaris",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cf_10_lunar_oracle.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c43_e_inferno.png",
@@ -930,13 +1302,17 @@
         600,
         800
       ],
-      "sha256": "726d83895b429072f52c3d69dff6ae6164dc22aa53a8a1aba79b09fb2974c26d",
-      "file_size_bytes": 853738,
+      "sha256": "9a4f72977a6daf424cf5e410b7b49109112a677281467a6b1ae3e6c8c9c669df",
+      "file_size_bytes": 847005,
       "catalog_index": 43,
       "card_id": "set1_c43_e_inferno",
+      "s1_portrait_slug": "s1_43_whisper_infiltrator",
       "base_id": "e_inferno",
       "faction": "Valkyria",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cc_01_sketching.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c44_e_reaper.png",
@@ -951,13 +1327,17 @@
         600,
         800
       ],
-      "sha256": "0c32ffbb0eabc3c709b3ece5056d282159ecf0eb836b1d761eabceedd4ac6f00",
-      "file_size_bytes": 526760,
+      "sha256": "467fac04263113c8eba3260c7e1498a9c02310fc2c519645dbf2d18b2f0c3bc5",
+      "file_size_bytes": 807636,
       "catalog_index": 44,
       "card_id": "set1_c44_e_reaper",
+      "s1_portrait_slug": "s1_44_kunoichi_mirage",
       "base_id": "e_reaper",
       "faction": "Chronos",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cc_02_concept_art.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c45_e_titan.png",
@@ -972,13 +1352,17 @@
         600,
         800
       ],
-      "sha256": "197b9d1effe8daae4b932f5ef6ed1aba677d646c51e9298a9c41223914181bf5",
-      "file_size_bytes": 807300,
+      "sha256": "59bdb05e85eadf2beed004e23df15cd63390e699cae3fa15ffc2bae9f77b9974",
+      "file_size_bytes": 828053,
       "catalog_index": 45,
       "card_id": "set1_c45_e_titan",
+      "s1_portrait_slug": "s1_45_optic_camo_sniper",
       "base_id": "e_titan",
       "faction": "Abyss",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cc_03_storyboard.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c46_e_colossus.png",
@@ -993,13 +1377,17 @@
         600,
         800
       ],
-      "sha256": "46e4116b63a80559243129ef24e2e8673408e5586ac27bf76f4b15cd59f68f9b",
-      "file_size_bytes": 790980,
+      "sha256": "1ff8ea2528046f139d79b0d445fa28b31558f21edb7decc8a5445c3bae8ec913",
+      "file_size_bytes": 842929,
       "catalog_index": 46,
       "card_id": "set1_c46_e_colossus",
+      "s1_portrait_slug": "s1_46_smoke_veil_saboteur",
       "base_id": "e_colossus",
       "faction": "Aether",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "cc_04_animatic.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c47_e_cryo.png",
@@ -1014,13 +1402,17 @@
         600,
         800
       ],
-      "sha256": "d5fa700eaaf10f8478ef356741a1abc3ba895e7218611b19bb2a8fee8d1af847",
-      "file_size_bytes": 838001,
+      "sha256": "f6ddb28fbdc5b62548a7925cf468ca0747efefb1919c81e90ef7847114a16f5c",
+      "file_size_bytes": 688200,
       "catalog_index": 47,
       "card_id": "set1_c47_e_cryo",
+      "s1_portrait_slug": "s1_47_phantom_cqc_operative",
       "base_id": "e_cryo",
       "faction": "Solaris",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "sp_01_kai_nakamura_rtx4080.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c48_e_shinobi.png",
@@ -1035,13 +1427,17 @@
         600,
         800
       ],
-      "sha256": "fa36641a2076f1772c973df1f0899a5458dbc44254a068b678c0de148532660d",
-      "file_size_bytes": 796884,
+      "sha256": "4fba2f54108366c92fd02d83c9753433ab5494ece9b9e54b58f752624966d078",
+      "file_size_bytes": 597890,
       "catalog_index": 48,
       "card_id": "set1_c48_e_shinobi",
+      "s1_portrait_slug": "s1_48_nightshade_stalker",
       "base_id": "e_shinobi",
       "faction": "Valkyria",
-      "tier": "Mk.3"
+      "tier": "Mk.3",
+      "sdxl_source_file": "sp_02_aiko_nakamura_scarf_rtx4080.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c49_h_archangel.png",
@@ -1056,13 +1452,17 @@
         600,
         800
       ],
-      "sha256": "9b275bac76ee1dc7c426cc689e386b207bc305b9bb91a1efca882596ee1eb423",
-      "file_size_bytes": 834177,
+      "sha256": "01aba94d7d4bb7906443869cd915b455d9430d18b32c3d00dc29272ad0d3f2aa",
+      "file_size_bytes": 798131,
       "catalog_index": 49,
       "card_id": "set1_c49_h_archangel",
+      "s1_portrait_slug": "s1_49_zero_pulse_hacker",
       "base_id": "h_archangel",
       "faction": "Chronos",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "sp_03_mnemosyne_fox_rtx4080.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c50_h_phoenix.png",
@@ -1077,13 +1477,17 @@
         600,
         800
       ],
-      "sha256": "421c9523c777695ccc518be2b299b1a08595bff18f6ee722b34507ae3b93b4c8",
-      "file_size_bytes": 785870,
+      "sha256": "433cc04c66a3fed6505a7e1f174d47043a789bc9f84652d33f1b842f74c36118",
+      "file_size_bytes": 1015178,
       "catalog_index": 50,
       "card_id": "set1_c50_h_phoenix",
+      "s1_portrait_slug": "s1_50_obsidian_ronin",
       "base_id": "h_phoenix",
       "faction": "Abyss",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "sp_04_luna_tarot_rtx4080.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c51_h_oracle.png",
@@ -1098,13 +1502,17 @@
         600,
         800
       ],
-      "sha256": "feb946a19a0580e8c890b0024e4d6e323228f689f2c3d72d3cbb4f5a490e2e1e",
-      "file_size_bytes": 794855,
+      "sha256": "53c0ce585f582aaa792ba5e7bcf45da7b6dcb4e4f2b79c8f46b7f4c2c3773880",
+      "file_size_bytes": 813962,
       "catalog_index": 51,
       "card_id": "set1_c51_h_oracle",
+      "s1_portrait_slug": "s1_51_eclipse_wire_agent",
       "base_id": "h_oracle",
       "faction": "Aether",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "sp_05_taro_fujimoto_rtx4080.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c52_h_chronos.png",
@@ -1119,13 +1527,17 @@
         600,
         800
       ],
-      "sha256": "9f463c2eb7024ec9ab2376c6b5df10182a17a26cbb1f56daf05f42207b163dfc",
-      "file_size_bytes": 962861,
+      "sha256": "490c26f8850f604d75752e00c525a3b7dbf3374add45cc3b3221d84d9ee89441",
+      "file_size_bytes": 550410,
       "catalog_index": 52,
       "card_id": "set1_c52_h_chronos",
+      "s1_portrait_slug": "s1_52_viper_solid_eye_prime",
       "base_id": "h_chronos",
       "faction": "Solaris",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "sp_06_dr_rina_asakura_rtx4080.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c53_h_seraph.png",
@@ -1140,13 +1552,17 @@
         600,
         800
       ],
-      "sha256": "44ed53fe259cb3fcede45ff3fb1c48171001827f044eea34e760a9afb9a7c3f5",
-      "file_size_bytes": 851531,
+      "sha256": "7f3d3d8702add3ec440d6648a8ae94fdba63348c9732a2a5e345226c774428eb",
+      "file_size_bytes": 777028,
       "catalog_index": 53,
       "card_id": "set1_c53_h_seraph",
+      "s1_portrait_slug": "s1_53_ink_brush_calligrapher",
       "base_id": "h_seraph",
       "faction": "Valkyria",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "style_akihiko_yoshida_judge.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c54_h_kai.png",
@@ -1161,13 +1577,17 @@
         600,
         800
       ],
-      "sha256": "46065b2c84fdd4c72f5ddd52cdb9334f189c754f72a368c545f220570179ba02",
-      "file_size_bytes": 717735,
+      "sha256": "9799b65dac301e6c1fd4b30a67d1aeded743a75ef5be174c7a72ff2fce65db4d",
+      "file_size_bytes": 831346,
       "catalog_index": 54,
       "card_id": "set1_c54_h_kai",
+      "s1_portrait_slug": "s1_54_halftone_pop_stylist",
       "base_id": "h_kai",
       "faction": "Chronos",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "style_ryoma_ito_ffta.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c55_h_valkyrie.png",
@@ -1182,13 +1602,17 @@
         600,
         800
       ],
-      "sha256": "86b0792d7c0a9686dcfbe613d3a751c8a44cf5ff63eb6a9f0a5384bf9b563e13",
-      "file_size_bytes": 837272,
+      "sha256": "5e1c35fedde89bb280bf4b815d7ff8705f243afa5ee6e35fd0b0a7680954c797",
+      "file_size_bytes": 876868,
       "catalog_index": 55,
       "card_id": "set1_c55_h_valkyrie",
+      "s1_portrait_slug": "s1_55_sakuga_key_animator",
       "base_id": "h_valkyrie",
       "faction": "Abyss",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "style_hideo_minaba_storybook.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c56_h_arbiter.png",
@@ -1203,13 +1627,17 @@
         600,
         800
       ],
-      "sha256": "f01dfeb7cb56db07ffbae813b50cb6a96662f46c7f24813817534b0bab44f0a8",
-      "file_size_bytes": 843473,
+      "sha256": "b212f858dfbfedef513ce8270bf7e3c1b75ad80380e51628f8fa277579657e30",
+      "file_size_bytes": 803001,
       "catalog_index": 56,
       "card_id": "set1_c56_h_arbiter",
+      "s1_portrait_slug": "s1_56_parchment_cartographer",
       "base_id": "h_arbiter",
       "faction": "Aether",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "style_ryo_hirata_advance_wars.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c57_e_eclipse.png",
@@ -1224,13 +1652,17 @@
         600,
         800
       ],
-      "sha256": "c91855dcd631c97060b8023a8a2a885fd84f0b387fdcac982f41878b7cbf02f3",
-      "file_size_bytes": 771597,
+      "sha256": "aec6bb7664885a7e4ffb0bee5ee5c3bece3f3b4c3e1d794459fba6377b1bdd9a",
+      "file_size_bytes": 817823,
       "catalog_index": 57,
       "card_id": "set1_c57_e_eclipse",
+      "s1_portrait_slug": "s1_57_voxel_sculptor_hi3d",
       "base_id": "e_eclipse",
       "faction": "Solaris",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "style_toru_nakayama_mmz.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c58_e_archon.png",
@@ -1245,13 +1677,17 @@
         600,
         800
       ],
-      "sha256": "d17baf97342dbbaffc5fadc38f7397e6273632008451774f517a820924589b02",
-      "file_size_bytes": 816138,
+      "sha256": "286bf846f3656907e34d795adcf57d195e6b0ad287d0c06b79fd0a43156aae87",
+      "file_size_bytes": 742297,
       "catalog_index": 58,
       "card_id": "set1_c58_e_archon",
+      "s1_portrait_slug": "s1_58_palette_harmonizer",
       "base_id": "e_archon",
       "faction": "Valkyria",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "style_yoji_shinkawa_mecha.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c59_e_inferno.png",
@@ -1266,13 +1702,17 @@
         600,
         800
       ],
-      "sha256": "73d8b624bc015e008282ec5fe98e28f00c267dfb4033b5a8e504f361f64b682d",
-      "file_size_bytes": 817344,
+      "sha256": "c1077be94d11109f123b2038d98746486903990a80c35f2821865509baaf0719",
+      "file_size_bytes": 563552,
       "catalog_index": 59,
       "card_id": "set1_c59_e_inferno",
+      "s1_portrait_slug": "s1_59_atelier_master_director",
       "base_id": "e_inferno",
       "faction": "Chronos",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "style_kazuma_kaneko_occult_cyber.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     },
     {
       "filename": "set1_c60_e_reaper.png",
@@ -1287,13 +1727,17 @@
         600,
         800
       ],
-      "sha256": "3ab906736bc3df52d0f3361df6fbc12435a1f0faa00de93d67434f502b9a3292",
-      "file_size_bytes": 543498,
+      "sha256": "90c1984c312ea19bb4e21d5ad19884aec353aad013181d01f58641cda2f729fc",
+      "file_size_bytes": 871401,
       "catalog_index": 60,
       "card_id": "set1_c60_e_reaper",
+      "s1_portrait_slug": "s1_60_omega_chronos_prime",
       "base_id": "e_reaper",
       "faction": "Abyss",
-      "tier": "Mk.4"
+      "tier": "Mk.4",
+      "sdxl_source_file": "style_terada_suzuki_ikaruga.png",
+      "morphological_style": "sdxl_rtx4080_atelier_corpus",
+      "sdxl_anime_manga_backed": true
     }
   ]
 }

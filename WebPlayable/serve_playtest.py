@@ -202,6 +202,26 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
                 self._send_json({"ok": True, "ghosts": ECHO_GHOSTS})
             return
 
+        if parsed.path == "/api/anime/models":
+            manifest_path = os.path.join(ROOT_DIR, "Datasets", "anime_manga_illustration_models_manifest.json")
+            if os.path.exists(manifest_path):
+                try:
+                    with open(manifest_path, "r", encoding="utf-8") as mf:
+                        self._send_json({"ok": True, "manifest": json.load(mf)})
+                    return
+                except Exception:
+                    pass
+            self._send_json({
+                "ok": True,
+                "manifest": {
+                    "adapters_count": 12,
+                    "rtx4080_comfyui_url": "http://192.168.86.30:8188",
+                    "base_checkpoints": ["animagineXLV31_v31.safetensors", "flux1-dev-fp8.safetensors"],
+                    "vision_models": ["pxg-lumenforge:12b-tutor", "qwen2.5vl:3b", "granite3.2-vision:latest"],
+                }
+            })
+            return
+
         super().do_GET()
 
     def do_POST(self):

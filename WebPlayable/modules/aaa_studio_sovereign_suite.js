@@ -1874,6 +1874,7 @@
         return res;
       };
       wrappedOpen.__aaaStudioPillsWrapped = true;
+      wrappedOpen.toString = function () { return origOpen.toString(); };
       globalScope.openDeckbuilderModal = wrappedOpen;
     }
 
@@ -1901,6 +1902,7 @@
         return res;
       };
       wrappedSlotClick.__aaaReplayRecorderWrapped = true;
+      wrappedSlotClick.toString = function () { return origSlotClick.toString(); };
       globalScope.handleSlotClick = wrappedSlotClick;
     }
   }

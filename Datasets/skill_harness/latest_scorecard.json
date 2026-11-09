@@ -1,14 +1,14 @@
 {
-  "iteration": 207,
-  "timestamp_utc": "2026-11-09T13:51:07Z",
+  "iteration": 217,
+  "timestamp_utc": "2026-11-09T14:17:05Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
     "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
-    "total_checks": 159,
-    "passed_checks": 159,
+    "total_checks": 162,
+    "passed_checks": 162,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -120,6 +120,8 @@
       "core.production_upgrades.06",
       "core.production_upgrades.07",
       "core.production_upgrades.08",
+      "core.production_upgrades.09",
+      "core.production_upgrades.10",
       "core.release_pkg.01",
       "core.sakuga_v100.01",
       "core.sakuga_v100.02",
@@ -158,6 +160,7 @@
       "core.unity6_tcg_rea_baseline.13",
       "core.unity6_tcg_rea_baseline.14",
       "core.unity6_tcg_rea_baseline.15",
+      "core.unity6_tcg_rea_baseline.16",
       "core.unity_so.01",
       "core.unity_so.02",
       "feel_audio_camera_perf.1",
@@ -184,13 +187,14 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 206,
+    "previous_iteration": 216,
     "newly_passing_checks": [
-      "core.production_upgrades.08"
+      "core.production_upgrades.09",
+      "core.production_upgrades.10"
     ],
     "newly_failing_checks": [],
-    "pass_count_delta": 1,
-    "total_checks_delta": 1
+    "pass_count_delta": 2,
+    "total_checks_delta": 2
   },
   "step_a_router": {
     "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
@@ -290,7 +294,7 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 7467.3
+      "elapsed_ms": 7182.0
     },
     "autotest": {
       "ran": true,
@@ -299,10 +303,10 @@
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8676,
+      "elapsed_ms": 8632,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T13:50:55.971Z",
+        "timestamp": "2026-11-09T14:16:53.613Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -1767,6 +1771,54 @@
         "error": null
       },
       {
+        "id": "core.unity6_tcg_rea_baseline.16",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Live Unity 6 (6000.6.8f1) + REA 6.8.0 Telemetry Inspector in WebPlayable: getUnity6ReaTelemetryStatus() returns 100.0% 9-subsystem reconstruction coverage, FNV-1a lockstep hash 4C837E02F2035A25, 113 unique sprites, and 155 seeded API cards.",
+        "source": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4644",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4644-4660",
+        "remediation": "Implement getUnity6ReaTelemetryStatus() in WebPlayable/cardfront_cradle_of_echoes_playable.html.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.09",
+        "skill": "tcg-creative-game-designer",
+        "rule": "13-Model Anime & Manga Illustration LoRA Zoo (including Kubrart Vector-Cel) + 16 Fresh RTX 4080 Animagine XL 3.1 SDXL Renders & 60/60 Genuine SDXL Set 1 Portraits.",
+        "source": "Datasets/anime_manga_illustration_models_manifest.json:1",
+        "target": "both",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Backend/build_anime_manga_illustration_models.py:1-260",
+        "remediation": "Run python3 Backend/build_anime_manga_illustration_models.py and Backend/render_rtx4080_anime_manga_set1_portraits.py.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.10",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Live In-Game Anime & Manga Illustration Model Studio (#anime-manga-studio-modal) & Kubrart Vector-Cel Tabletop Shader Switcher.",
+        "source": "WebPlayable/modules/anime_manga_studio.js:1",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/anime_manga_studio.js:1-220",
+        "remediation": "Wire WebPlayable/modules/anime_manga_studio.js and #anime-manga-studio-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
         "id": "ai_save_ship.1",
         "skill": "disciplines/game-ai",
         "rule": "Dedicated Boss AI decision entrypoint exists in the Web playable runtime",
@@ -3117,8 +3169,8 @@
       },
       "disciplines/game-ui-ux": {
         "skill": "disciplines/game-ui-ux",
-        "total": 21,
-        "passed": 21,
+        "total": 23,
+        "passed": 23,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -3267,6 +3319,14 @@
         "pass_rate": 100.0,
         "failed_ids": []
       },
+      "tcg-creative-game-designer": {
+        "skill": "tcg-creative-game-designer",
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
       "disciplines/ai-behavior-trees-utility-ai": {
         "skill": "disciplines/ai-behavior-trees-utility-ai",
         "total": 5,
@@ -3317,5 +3377,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 26722.1
+  "elapsed_ms": 26182.6
 }

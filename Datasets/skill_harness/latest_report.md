@@ -1,11 +1,11 @@
-# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #207)
+# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #217)
 
-- **Timestamp (UTC)**: `2026-11-09T13:51:07Z`
+- **Timestamp (UTC)**: `2026-11-09T14:17:05Z`
 - **Target Orchestrator Model**: **`gemini-4-argon`** (`Gemini 4 Argon`)
 - **Overall Gate Status**: **`PASS_ALL_GATES`**
 - **Real Drag & Drop E2E (`WebPlayable/tests/drag_e2e.js`)**: `PASS`
 - **Real In-Page Playtest (`?autotest=1`)**: `PASS` (`TEST_COMPLETE:4-5:SINGLETON=true:IMG=true`)
-- **Grounded Skill Checks**: **159 / 159 PASS (100.0%)** — `0 P0`, `0 P1` failures
+- **Grounded Skill Checks**: **162 / 162 PASS (100.0%)** — `0 P0`, `0 P1` failures
 - **Check Suites Merged**: `Tools/skill_harness/core_checks.json, Datasets/mirofish_gameplay/skills_ai_save_ship/checks.json, Datasets/mirofish_gameplay/skills_art_direction/checks.json, Datasets/mirofish_gameplay/skills_cardgame_ui_input/checks.json, Datasets/mirofish_gameplay/skills_feel_audio_camera_perf/checks.json`
 
 ## 1. Step A — Router & Dual-Engine Composition (`router/SKILL.md`)
@@ -36,7 +36,7 @@
 | `disciplines/create-game-assets` | 20 | 20 | 0 | **100.0%** | — |
 | `disciplines/game-ai` | 4 | 4 | 0 | **100.0%** | — |
 | `disciplines/game-feel` | 19 | 19 | 0 | **100.0%** | — |
-| `disciplines/game-ui-ux` | 21 | 21 | 0 | **100.0%** | — |
+| `disciplines/game-ui-ux` | 23 | 23 | 0 | **100.0%** | — |
 | `disciplines/input-systems` | 6 | 6 | 0 | **100.0%** | — |
 | `disciplines/performance-optimization` | 6 | 6 | 0 | **100.0%** | — |
 | `disciplines/save-systems` | 6 | 6 | 0 | **100.0%** | — |
@@ -46,6 +46,7 @@
 | `genres/card-game` | 20 | 20 | 0 | **100.0%** | — |
 | `rea-reverse-engineer` | 1 | 1 | 0 | **100.0%** | — |
 | `ship/itch-release` | 1 | 1 | 0 | **100.0%** | — |
+| `tcg-creative-game-designer` | 1 | 1 | 0 | **100.0%** | — |
 | `unity/unity-build-pipeline` | 3 | 3 | 0 | **100.0%** | — |
 | `unity/unity-csharp-scripting` | 3 | 3 | 0 | **100.0%** | — |
 | `unity/unity-netcode-multiplayer` | 10 | 10 | 0 | **100.0%** | — |
@@ -55,9 +56,9 @@
 | `workflows/steam-publish` | 1 | 1 | 0 | **100.0%** | — |
 
 ### Diff vs. Previous Iteration
-- **Previous Iteration**: `206`
-- **Pass Count Delta**: `+1` (Total checks delta: `+1`)
-- **Newly Passing Checks**: `core.production_upgrades.08`
+- **Previous Iteration**: `216`
+- **Pass Count Delta**: `+2` (Total checks delta: `+2`)
+- **Newly Passing Checks**: `core.production_upgrades.09, core.production_upgrades.10`
 - **Newly Failing Checks**: `None`
 
 ### Ingested MiroFish Gameplay Telemetry
@@ -162,6 +163,9 @@
 | `core.unity6_tcg_rea_baseline.14` | PASS | `P0` | `genres/card-game` | `metric` | `Logs/unpacked_tcg_engine_full3d_build_report.json:1` | `Assets/TcgEngine/Scripts/Editor/CardFrontTcgEngineImporter.cs:315-350` |
 | `core.unity6_tcg_rea_baseline.15` | PASS | `P1` | `disciplines/shader-programming` | `static_regex` | `Assets/Shaders/SynapseHoloCard.shader:1` | `Assets/Shaders/SynapseHoloCard.shader:14-125` |
 | `core.production_upgrades.08` | PASS | `P0` | `unity/unity-netcode-multiplayer` | `playwright` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:4580` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:4580-4615` |
+| `core.unity6_tcg_rea_baseline.16` | PASS | `P1` | `disciplines/game-ui-ux` | `playwright` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:4644` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:4644-4660` |
+| `core.production_upgrades.09` | PASS | `P0` | `tcg-creative-game-designer` | `metric` | `Datasets/anime_manga_illustration_models_manifest.json:1` | `Backend/build_anime_manga_illustration_models.py:1-260` |
+| `core.production_upgrades.10` | PASS | `P0` | `disciplines/game-ui-ux` | `playwright` | `WebPlayable/modules/anime_manga_studio.js:1` | `WebPlayable/modules/anime_manga_studio.js:1-220` |
 | `ai_save_ship.1` | PASS | `P0` | `disciplines/game-ai` | `static_regex` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md:57-67` | `WebPlayable/cardfront_cradle_of_echoes_playable.html` |
 | `ai_save_ship.2` | PASS | `P1` | `disciplines/ai-behavior-trees-utility-ai` | `static_regex` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:45-57` | `WebPlayable/cardfront_cradle_of_echoes_playable.html` |
 | `ai_save_ship.3` | PASS | `P1` | `disciplines/ai-behavior-trees-utility-ai` | `static_regex` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:126-139` | `WebPlayable/cardfront_cradle_of_echoes_playable.html` |

@@ -18,11 +18,13 @@ from typing import Dict, List, Optional, Set, Tuple
 
 ROOT_DIR = Path("/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine")
 BACKEND_DIR = ROOT_DIR / "Backend"
+TESTS_DIR = ROOT_DIR / "Tests"
 SCRIPTS_DIR = ROOT_DIR / "Assets" / "Scripts"
 CARD_ART_DIR = ROOT_DIR / "Assets" / "Resources" / "CardArt"
 
-if str(BACKEND_DIR) not in sys.path:
-    sys.path.insert(0, str(BACKEND_DIR))
+for _p in (str(BACKEND_DIR), str(TESTS_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from synapse_tcg_backend import (  # noqa: E402
     AdvanceWarsFftaDynamicsSimulator,
@@ -2239,6 +2241,91 @@ class TestSynapseTcgSuite(unittest.TestCase):
         self.assertIn("synapse_sakuga_anim_engine.js", html_src)
         self.assertIn("sakuga_spark:", html_src)
         self.assertIn("puppet_rig:", html_src)
+
+    def test_109_aaa_studio_25d_parallax_maps_and_36_atelier_svg_emblems(self) -> None:
+        """Verify 16 2.5D Depth + Specular Foil Parallax Maps and 4 new bespoke Atelier SVG emblems (36 total, 0 generic emojis)."""
+        manifest_path = ROOT_DIR / "GeneratedArt" / "ParallaxMaps" / "parallax_maps_manifest.json"
+        self.assertTrue(manifest_path.is_file(), f"Missing {manifest_path}")
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(manifest.get("status"), "VERIFIED")
+        self.assertEqual(manifest.get("count"), 16)
+        pngs = list((ROOT_DIR / "GeneratedArt" / "ParallaxMaps").glob("*_parallax_foil.png"))
+        self.assertGreaterEqual(len(pngs), 16)
+        for icon_name in ("cf_globe_i18n.svg", "cf_mcts_brain.svg", "cf_chronicle_map.svg", "cf_replay_film.svg"):
+            p1 = ROOT_DIR / "WebPlayable" / "GeneratedArt" / "Icons" / icon_name
+            p2 = ROOT_DIR / "Assets" / "Resources" / "UI" / "Icons" / icon_name
+            self.assertTrue(p1.is_file(), f"Missing {p1}")
+            self.assertTrue(p2.is_file(), f"Missing {p2}")
+            self.assertIn('viewBox="0 0 256 256"', p1.read_text(encoding="utf-8"))
+
+    def test_110_aaa_studio_60_set1_3d_miniatures_and_urp_hlsl_shaders(self) -> None:
+        """Verify 60/60 Set 1 .glb & .q3gs 3D miniatures and 3 Unity URP HLSL shaders (`SynapseHolographicFoil`, `SynapseSakugaImpactFrame`, `SynapseAetherCelOutline`)."""
+        manifest_path = ROOT_DIR / "Logs" / "hi3d_60_miniatures_and_shaders_manifest.json"
+        self.assertTrue(manifest_path.is_file(), f"Missing {manifest_path}")
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(manifest.get("status"), "VERIFIED")
+        self.assertGreaterEqual(manifest.get("total_glb_count", 0), 60)
+        self.assertGreaterEqual(manifest.get("total_q3gs_count", 0), 60)
+        self.assertEqual(manifest.get("shaders_count"), 3)
+        for shader_file in (
+            "SynapseHolographicFoil.shader",
+            "SynapseSakugaImpactFrame.shader",
+            "SynapseAetherCelOutline.shader",
+        ):
+            sp = ROOT_DIR / "Assets" / "Resources" / "Shaders" / shader_file
+            self.assertTrue(sp.is_file(), f"Missing {sp}")
+            self.assertIn("HLSLPROGRAM", sp.read_text(encoding="utf-8"))
+
+    def test_111_aaa_studio_alphazero_mcts_policy_value_net_and_safetensors(self) -> None:
+        """Verify AlphaZero MCTS Policy-Value Network (`synapse_alphazero_policy_value_net.py`), `.safetensors` weights, benchmark JSON, and Unity C# bridge."""
+        py_path = ROOT_DIR / "Backend" / "synapse_alphazero_policy_value_net.py"
+        st_path = ROOT_DIR / "Models" / "LoRA" / "synapse_alphazero_policy_value_v1.safetensors"
+        bm_path = ROOT_DIR / "Logs" / "alphazero_mcts_benchmark.json"
+        cs_path = ROOT_DIR / "Assets" / "Scripts" / "Core" / "SynapseAlphaZeroPolicyNet.cs"
+        for p in (py_path, st_path, bm_path, cs_path):
+            self.assertTrue(p.is_file(), f"Missing {p}")
+        self.assertGreater(st_path.stat().st_size, 10000)
+        bm = json.loads(bm_path.read_text(encoding="utf-8"))
+        self.assertEqual(bm.get("status"), "VERIFIED")
+        self.assertGreaterEqual(bm.get("episodes_trained", 0), 200)
+        self.assertGreater(bm.get("win_rate_vs_greedy", 0.0), 0.65)
+        cs_src = cs_path.read_text(encoding="utf-8")
+        self.assertIn("namespace Synapse.TcgEngine.Core", cs_src)
+        self.assertIn("SynapseAlphaZeroPolicyNet", cs_src)
+        self.assertEqual(cs_src.count("{"), cs_src.count("}"))
+
+    def test_112_aaa_studio_ivalice_chronicle_replay_ladder_and_10lang_i18n(self) -> None:
+        """Verify 15-Stage Ivalice Overworld Chronicle Map, Deterministic CF-RPL1 Replay & Ghost Ladder, and 10-Language i18n + Colorblind Accessibility."""
+        i18n_path = ROOT_DIR / "Assets" / "Resources" / "Localization" / "i18n_strings_10lang.json"
+        manifest_path = ROOT_DIR / "Logs" / "ivalice_chronicle_and_replay_manifest.json"
+        js_path = ROOT_DIR / "WebPlayable" / "modules" / "aaa_studio_sovereign_suite.js"
+        for p in (i18n_path, manifest_path, js_path):
+            self.assertTrue(p.is_file(), f"Missing {p}")
+        i18n_data = json.loads(i18n_path.read_text(encoding="utf-8"))
+        langs = i18n_data.get("languages", i18n_data)
+        for code in ("EN", "JA", "KO", "ZH-Hans", "ZH-Hant", "FR", "DE", "ES", "PT-BR", "IT"):
+            self.assertIn(code, json.dumps(langs), f"Missing language {code}")
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(manifest.get("status"), "VERIFIED")
+        self.assertEqual(manifest.get("stages_count"), 15)
+        self.assertEqual(manifest.get("acts_count"), 3)
+        self.assertGreaterEqual(manifest.get("ghost_ladder_count", 0), 10)
+        self.assertGreaterEqual(manifest.get("daily_puzzles_count", 0), 7)
+        js_src = js_path.read_text(encoding="utf-8")
+        for sym in (
+            "SynapseAlphaZeroMCTS",
+            "SynapseIvaliceChronicleMap",
+            "SynapseReplayGhostLadder",
+            "SynapseI18nAccessibility",
+            "injectAaaStudioCommandPills",
+        ):
+            self.assertIn(sym, js_src, f"Missing {sym} in aaa_studio_sovereign_suite.js")
+        html_src = (ROOT_DIR / "WebPlayable" / "cardfront_cradle_of_echoes_playable.html").read_text(encoding="utf-8")
+        self.assertIn("aaa_studio_sovereign_suite.js", html_src)
+        self.assertIn("globe_i18n:", html_src)
+        self.assertIn("mcts_brain:", html_src)
+        self.assertIn("chronicle_map:", html_src)
+        self.assertIn("replay_film:", html_src)
 
 
 
