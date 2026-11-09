@@ -97,9 +97,56 @@
     return { updatedCells, flippedCells };
   }
 
+  let activeSseSource = null;
+
+  function connectLanSseStream(roomId = "CITADEL-1", onRoomUpdate = null, onHoverUpdate = null) {
+    const cleanRoom = String(roomId || "CITADEL-1").trim().toUpperCase();
+    if (activeSseSource) {
+      try { activeSseSource.close(); } catch (_e) {}
+      activeSseSource = null;
+    }
+    if (typeof EventSource === "undefined") {
+      return { connected: false, reason: "EventSource_unavailable" };
+    }
+    try {
+      const es = new EventSource(`/api/lan/stream?room=${encodeURIComponent(cleanRoom)}`);
+      es.onmessage = (ev) => {
+        try {
+          const payload = JSON.parse(ev.data);
+          if (payload && payload.room && typeof onRoomUpdate === "function") {
+            onRoomUpdate(payload.room);
+          }
+          if (payload && payload.hover && typeof onHoverUpdate === "function") {
+            onHoverUpdate(payload.hover);
+          }
+        } catch (_err) {}
+      };
+      activeSseSource = es;
+      return { connected: true, roomId: cleanRoom, transport: "SSE_SUB20MS" };
+    } catch (e) {
+      return { connected: false, error: String(e) };
+    }
+  }
+
+  async function broadcastLanHover(roomId = "CITADEL-1", seat = "host", r = 0, c = 0, cardId = "h_archangel") {
+    try {
+      const res = await fetch("/api/lan/hover", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ room_id: roomId, seat, r, c, cardId })
+      });
+      if (!res.ok) return { ok: false };
+      return await res.json();
+    } catch (_e) {
+      return { ok: false };
+    }
+  }
+
   const LanDuelSyncModule = {
     serializeGridForLan,
-    applyLanBoardToLocalGrid
+    applyLanBoardToLocalGrid,
+    connectLanSseStream,
+    broadcastLanHover
   };
 
   root.CardFrontModules = root.CardFrontModules || {};

@@ -1,14 +1,14 @@
 {
-  "iteration": 217,
-  "timestamp_utc": "2026-11-09T14:17:05Z",
+  "iteration": 362,
+  "timestamp_utc": "2026-11-09T23:23:05Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
     "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
-    "total_checks": 162,
-    "passed_checks": 162,
+    "total_checks": 165,
+    "passed_checks": 165,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -122,6 +122,9 @@
       "core.production_upgrades.08",
       "core.production_upgrades.09",
       "core.production_upgrades.10",
+      "core.production_upgrades.11",
+      "core.production_upgrades.12",
+      "core.production_upgrades.13",
       "core.release_pkg.01",
       "core.sakuga_v100.01",
       "core.sakuga_v100.02",
@@ -187,14 +190,13 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 216,
+    "previous_iteration": 361,
     "newly_passing_checks": [
-      "core.production_upgrades.09",
-      "core.production_upgrades.10"
+      "core.unity6_tcg_rea_baseline.12"
     ],
     "newly_failing_checks": [],
-    "pass_count_delta": 2,
-    "total_checks_delta": 2
+    "pass_count_delta": 1,
+    "total_checks_delta": 0
   },
   "step_a_router": {
     "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
@@ -294,7 +296,7 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 7182.0
+      "elapsed_ms": 6655.3
     },
     "autotest": {
       "ran": true,
@@ -303,10 +305,10 @@
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8632,
+      "elapsed_ms": 8639,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T14:16:53.613Z",
+        "timestamp": "2026-11-09T23:22:53.048Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -1819,6 +1821,54 @@
         "error": null
       },
       {
+        "id": "core.production_upgrades.11",
+        "skill": "tcg-creative-game-designer",
+        "rule": "Set 2 'Kubrart Astral Eclipse & Manga Vanguard' 20-Card RTX 4080 Expansion (20 unique 600x800 RGB portraits) + 19-Chapter 3-Panel Manga Cutscene Engine + 5-Round 117-Card Roguelite Arena Draft.",
+        "source": "Datasets/set2_kubrart_manga_expansion_manifest.json:1",
+        "target": "both",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/manga_story_and_arena_draft.js:1-320",
+        "remediation": "Run python3 Backend/render_flux_animagine_set2_expansion.py and wire WebPlayable/modules/manga_story_and_arena_draft.js.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.12",
+        "skill": "mlx-apple-silicon",
+        "rule": "Google DeepMind Genie 4 Interactive World Model & Action-Conditioned Causal-DiT Inference Engine (ST-ViViT Tokenizer + 16-Code VQ LAM + 4-Step Flow-Matching Causal-DiT + 1440-Frame KV-Cache + 6 Promptable World Events).",
+        "source": "Datasets/genie4_world_model_inference_report.json:1",
+        "target": "both",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/genie4_world_model_engine.js:1-280",
+        "remediation": "Run python3 Backend/synapse_genie4_world_model_inference.py and wire WebPlayable/modules/genie4_world_model_engine.js.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.13",
+        "skill": "unity/unity-netcode-multiplayer",
+        "rule": "Unity 6 (6000.6.8f1) C# Parity for Kubrart Shader Pass (_KUBRART_VECTOR_CEL), Roguelite Arena Draft Squad, and 19-Chapter Manga Cutscenes + Sub-20ms SSE LAN Stream (/api/lan/stream & /api/lan/hover).",
+        "source": "Logs/unpacked_tcg_engine_full3d_build_report.json:1",
+        "target": "both",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:311-545",
+        "remediation": "Compile Unity 6 C# assemblies and run RunFull3DSceneAndBuildVerification.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
         "id": "ai_save_ship.1",
         "skill": "disciplines/game-ai",
         "rule": "Dedicated Boss AI decision entrypoint exists in the Web playable runtime",
@@ -3273,8 +3323,8 @@
       },
       "unity/unity-netcode-multiplayer": {
         "skill": "unity/unity-netcode-multiplayer",
-        "total": 10,
-        "passed": 10,
+        "total": 11,
+        "passed": 11,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -3321,6 +3371,14 @@
       },
       "tcg-creative-game-designer": {
         "skill": "tcg-creative-game-designer",
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "mlx-apple-silicon": {
+        "skill": "mlx-apple-silicon",
         "total": 1,
         "passed": 1,
         "failed": 0,
@@ -3377,5 +3435,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 26182.6
+  "elapsed_ms": 26063.5
 }

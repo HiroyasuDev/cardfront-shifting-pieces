@@ -1,0 +1,1805 @@
+{
+  "manifest_id": "cardfront_manga_cutscene_and_arena_draft_v1",
+  "timestamp_utc": "2026-11-09T23:10:00Z",
+  "status": "VERIFIED",
+  "module_path": "WebPlayable/modules/manga_story_and_arena_draft.js",
+  "zero_raw_unicode_emojis": true,
+  "chapters_count": 19,
+  "total_manga_panels": 57,
+  "total_draftable_cards": 117,
+  "set1_cards_count": 60,
+  "set2_kubrart_cards_count": 20,
+  "sovereign_agent_cards_count": 37,
+  "manga_cutscene_engine": {
+    "chapters_count": 19,
+    "panels_per_chapter": 3,
+    "total_manga_panels": 57,
+    "style_presets": [
+      "kubrart_vector_cel",
+      "seinen_gpen_ink",
+      "sakuga_24fps_flare"
+    ],
+    "acts_breakdown": [
+      {
+        "act": 1,
+        "title": "[ACT I] OKITSU DISCOVERY — AWAKENING THE SYSTEM",
+        "chapters": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "act": 2,
+        "title": "[ACT II] MEMORY THEATRE & SHADOW MAZE — FRACTURED MEMORIES",
+        "chapters": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "act": 3,
+        "title": "[ACT III] HALL OF SELVES & RED SCARF CONVERGENCE",
+        "chapters": [
+          16,
+          17,
+          18,
+          19
+        ]
+      }
+    ],
+    "chapters": [
+      {
+        "chapter": 1,
+        "actTitle": "[ACT I] OKITSU DISCOVERY — AWAKENING THE SYSTEM",
+        "chapterTitle": "Ch 01: Fragments of Dust (Disconnected in Okitsu)",
+        "stageIndex": 0,
+        "stylePreset": "seinen_gpen_ink",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Taro Fujimoto [Intercom]",
+            "portraitUrl": "./GeneratedArt/sp_05_taro_fujimoto_rtx4080.png",
+            "dialogue": "Kai? I left warm curry and green tea by the door. The rain is coming in off the Okitsu seawall — do not stay locked inside all week.",
+            "sfxKatakanaRomanized": "ZAAA // SEAWALL RAIN",
+            "speedlineAngle": -18,
+            "halftoneDensity": 0.32
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "Three months since Aiko vanished, and every Rubik cube in this apartment is already solved... except the neural headset she left on my desk.",
+            "sfxKatakanaRomanized": "DOKUN // HEARTBEAT",
+            "speedlineAngle": 14,
+            "halftoneDensity": 0.28
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Mnemosyne Terminal",
+            "portraitUrl": "./GeneratedArt/sp_03_mnemosyne_fox_rtx4080.png",
+            "dialogue": "[ENCRYPTED HANDSHAKE VERIFIED] Welcome to Mnemosyne. A tactical game of memory — designed exclusively for you.",
+            "sfxKatakanaRomanized": "DOOM // ZASHU",
+            "speedlineAngle": -26,
+            "halftoneDensity": 0.38
+          }
+        ]
+      },
+      {
+        "chapter": 2,
+        "actTitle": "[ACT I] OKITSU DISCOVERY — AWAKENING THE SYSTEM",
+        "chapterTitle": "Ch 02: Residual Code (Aiko's Lacquered Puzzle Box)",
+        "stageIndex": 1,
+        "stylePreset": "kubrart_vector_cel",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Aiko Nakamura [Hologram]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "Happy thirteenth birthday, Kai! Remember the rule: you are only allowed to unseal this puzzle box when you are ready to be honest with yourself.",
+            "sfxKatakanaRomanized": "KIRAN // HOLOGRAM",
+            "speedlineAngle": -12,
+            "halftoneDensity": 0.24
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Taro Fujimoto",
+            "portraitUrl": "./GeneratedArt/sp_05_taro_fujimoto_rtx4080.png",
+            "dialogue": "That neural tree etched into your visor is not commercial firmware, Kai. Whatever Aiko built before she disappeared, it is waking up.",
+            "sfxKatakanaRomanized": "GOGOGO // HUM",
+            "speedlineAngle": 20,
+            "halftoneDensity": 0.3
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "The 4-directional latch sequence matches our cliffside hex hike. She did not leave a goodbye note — she left coordinates.",
+            "sfxKatakanaRomanized": "KACHIN // UNSEAL",
+            "speedlineAngle": -22,
+            "halftoneDensity": 0.34
+          }
+        ]
+      },
+      {
+        "chapter": 3,
+        "actTitle": "[ACT I] OKITSU DISCOVERY — AWAKENING THE SYSTEM",
+        "chapterTitle": "Ch 03: Invitation to Mnemosyne (Station of Awakening)",
+        "stageIndex": 2,
+        "stylePreset": "sakuga_24fps_flare",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "LUNA [Cradle of Echoes]",
+            "portraitUrl": "./GeneratedArt/sp_04_luna_tarot_rtx4080.png",
+            "dialogue": "Step onto the stained-glass floor of Nocturna, seeker. Three tarot archetypes orbit your awakening: Conviction, Sanctuary, and Eternity.",
+            "sfxKatakanaRomanized": "SHUWA // ASTRAL BELL",
+            "speedlineAngle": -15,
+            "halftoneDensity": 0.26
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "The directional glyphs stop spinning when I slow my breathing. Brute force scrambles the lock — emotional calm aligns the stained glass.",
+            "sfxKatakanaRomanized": "SUUU // FOCUS",
+            "speedlineAngle": 10,
+            "halftoneDensity": 0.22
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "LUNA [Cradle of Echoes]",
+            "portraitUrl": "./GeneratedArt/sp_04_luna_tarot_rtx4080.png",
+            "dialogue": "Your 95% Persona Seal is bound to The Strategist and The Architect. Enter the Memory Architecture System.",
+            "sfxKatakanaRomanized": "DOOM // ZASHU",
+            "speedlineAngle": -28,
+            "halftoneDensity": 0.36
+          }
+        ]
+      },
+      {
+        "chapter": 4,
+        "actTitle": "[ACT I] OKITSU DISCOVERY — AWAKENING THE SYSTEM",
+        "chapterTitle": "Ch 04: The First Level (Cliffside Red Scarf Reveal)",
+        "stageIndex": 3,
+        "stylePreset": "kubrart_vector_cel",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Mnemosyne Core",
+            "portraitUrl": "./GeneratedArt/sp_03_mnemosyne_fox_rtx4080.png",
+            "dialogue": "CHAMBER 01: ORDER FROM CHAOS. Align the floating stone and glass vectors above the starless Okitsu sea.",
+            "sfxKatakanaRomanized": "GOGOGO // TECTONIC",
+            "speedlineAngle": -20,
+            "halftoneDensity": 0.3
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Aiko Nakamura [Memory Echo]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "Look at the waves below the seawall, Kai. Even when the tide looks chaotic, there is a rhythm underneath. You found the pattern.",
+            "sfxKatakanaRomanized": "HYUUU // SEA WIND",
+            "speedlineAngle": 16,
+            "halftoneDensity": 0.25
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "Her crimson scarf (#D12D3A)... the wind off the cliff felt completely real. That was not a pre-rendered cutscene — she is inside the code.",
+            "sfxKatakanaRomanized": "BA-DUMP // SCARF SNAP",
+            "speedlineAngle": -24,
+            "halftoneDensity": 0.35
+          }
+        ]
+      },
+      {
+        "chapter": 5,
+        "actTitle": "[ACT I] OKITSU DISCOVERY — AWAKENING THE SYSTEM",
+        "chapterTitle": "Ch 05: Flicker (Rain-Slicked Lantern Alley)",
+        "stageIndex": 4,
+        "stylePreset": "seinen_gpen_ink",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "The neon kanji on the wet pavement are flickering at 42 Hz — the exact clock frequency of Aiko's neural compiler.",
+            "sfxKatakanaRomanized": "BZZT // 42HZ STATIC",
+            "speedlineAngle": -14,
+            "halftoneDensity": 0.34
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Taro Fujimoto [Voiceover]",
+            "portraitUrl": "./GeneratedArt/sp_05_taro_fujimoto_rtx4080.png",
+            "dialogue": "Promise me you will not chase a ghost so deep into the grid that you forget how to breathe real air, Kai.",
+            "sfxKatakanaRomanized": "ZAAA // DOWNPOUR",
+            "speedlineAngle": 18,
+            "halftoneDensity": 0.31
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Aiko Nakamura [Flicker Echo]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "Follow the crimson thread through the static, little brother... before Sector 05 overwrites.",
+            "sfxKatakanaRomanized": "SHING // RED THREAD",
+            "speedlineAngle": -25,
+            "halftoneDensity": 0.38
+          }
+        ]
+      },
+      {
+        "chapter": 6,
+        "actTitle": "[ACT I] OKITSU DISCOVERY — AWAKENING THE SYSTEM",
+        "chapterTitle": "Ch 06: Phantom Signals & Memory Bloom",
+        "stageIndex": 5,
+        "stylePreset": "sakuga_24fps_flare",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "Wind chimes from grandmother's porch, the Okitsu rail crossing, the surf against the breakwater... each sound maps to a shadow game Aiko taught me.",
+            "sfxKatakanaRomanized": "CHIRIN // WIND CHIME",
+            "speedlineAngle": -10,
+            "halftoneDensity": 0.22
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Aiko Nakamura [Live Signal]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "You remembered the chime sequence, Kai... You actually found me across the conservatory.",
+            "sfxKatakanaRomanized": "DOKUN // RESONANCE",
+            "speedlineAngle": 22,
+            "halftoneDensity": 0.28
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Mnemosyne Core",
+            "portraitUrl": "./GeneratedArt/sp_03_mnemosyne_fox_rtx4080.png",
+            "dialogue": "[ACT I COMPLETE — MEMORY BLOOM UNLOCKED] Card Acquired: Aiko Nakamura, Red Scarf Echo (#D12D3A).",
+            "sfxKatakanaRomanized": "DOOM // ZASHU",
+            "speedlineAngle": -30,
+            "halftoneDensity": 0.36
+          }
+        ]
+      },
+      {
+        "chapter": 7,
+        "actTitle": "[ACT II] MEMORY THEATRE & SHADOW MAZE — FRACTURED MEMORIES",
+        "chapterTitle": "Ch 07: Memory Theatre (Summer Festival Lanterns)",
+        "stageIndex": 6,
+        "stylePreset": "sakuga_24fps_flare",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Mnemosyne Stage Director",
+            "portraitUrl": "./GeneratedArt/sp_03_mnemosyne_fox_rtx4080.png",
+            "dialogue": "ACT II: FRACTURED MEMORIES. Chronology is a cage; arrange these festival lanterns by the emotional weight they left on your heart.",
+            "sfxKatakanaRomanized": "DON // TAIKO DRUM",
+            "speedlineAngle": -16,
+            "halftoneDensity": 0.26
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "Paper lanterns (#FFB648) rising over the deep ocean (#0A2230)... Aiko held my hand when I lost sight of grandmother in the crowd.",
+            "sfxKatakanaRomanized": "FUWA // LANTERN GLOW",
+            "speedlineAngle": 14,
+            "halftoneDensity": 0.24
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Aiko Nakamura [Echo]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "Joy hurts the sharpest when you look back at it from the dark, Kai. Do not look away.",
+            "sfxKatakanaRomanized": "SHING // FLARE",
+            "speedlineAngle": -22,
+            "halftoneDensity": 0.32
+          }
+        ]
+      },
+      {
+        "chapter": 8,
+        "actTitle": "[ACT II] MEMORY THEATRE & SHADOW MAZE — FRACTURED MEMORIES",
+        "chapterTitle": "Ch 08: Artifacts (Kitchen Table Contradiction)",
+        "stageIndex": 7,
+        "stylePreset": "seinen_gpen_ink",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "Wait. In this replay, Father is smiling and the porcelain teacup is not cracked. Why did Mnemosyne edit out the shouting match?",
+            "sfxKatakanaRomanized": "PISHI // HAIRLINE CRACK",
+            "speedlineAngle": -19,
+            "halftoneDensity": 0.35
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Aiko Nakamura [Echo]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "The system tries to anesthetize regret so test subjects stay compliant. If we want the truth, we must choose the cracked cup.",
+            "sfxKatakanaRomanized": "GOGOGO // GLITCH",
+            "speedlineAngle": 17,
+            "halftoneDensity": 0.33
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "I do not want a painless lie. Restore the unedited memory!",
+            "sfxKatakanaRomanized": "GASHAAN // SHATTER",
+            "speedlineAngle": -28,
+            "halftoneDensity": 0.4
+          }
+        ]
+      },
+      {
+        "chapter": 9,
+        "actTitle": "[ACT II] MEMORY THEATRE & SHADOW MAZE — FRACTURED MEMORIES",
+        "chapterTitle": "Ch 09: Recalibration (VR Cafe Confrontation)",
+        "stageIndex": 8,
+        "stylePreset": "kubrart_vector_cel",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Taro Fujimoto",
+            "portraitUrl": "./GeneratedArt/sp_05_taro_fujimoto_rtx4080.png",
+            "dialogue": "Look at your hands, Kai! Your pulse spikes every time you unplug. You are treating the real world like a loading screen!",
+            "sfxKatakanaRomanized": "BAM // DESK SLAM",
+            "speedlineAngle": -21,
+            "halftoneDensity": 0.3
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "You think I want to be stuck here?! If I stop solving the 3x3 grid, Aiko's consciousness fragments for good!",
+            "sfxKatakanaRomanized": "ZASHU // SPARK",
+            "speedlineAngle": 24,
+            "halftoneDensity": 0.34
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Taro Fujimoto",
+            "portraitUrl": "./GeneratedArt/sp_05_taro_fujimoto_rtx4080.png",
+            "dialogue": "Then let me anchor the external diagnostics from the VR Cafe. You do not have to carry the whole server dome alone.",
+            "sfxKatakanaRomanized": "KACHIN // ANCHOR LOCK",
+            "speedlineAngle": -14,
+            "halftoneDensity": 0.26
+          }
+        ]
+      },
+      {
+        "chapter": 10,
+        "actTitle": "[ACT II] MEMORY THEATRE & SHADOW MAZE — FRACTURED MEMORIES",
+        "chapterTitle": "Ch 10: Displacement (Refractive Mirror Match)",
+        "stageIndex": 9,
+        "stylePreset": "seinen_gpen_ink",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Doppelganger Kai [Mirror]",
+            "portraitUrl": "./GeneratedArt/MasteredCards/e_eclipse.png",
+            "dialogue": "Why did you not walk her to the research lab that rainy morning at Okitsu Station? You were too busy staring at a Rubik cube.",
+            "sfxKatakanaRomanized": "GIN // MIRROR GLARE",
+            "speedlineAngle": -24,
+            "halftoneDensity": 0.38
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "I edited that morning out of my own memory... I told myself I was at school, but I was standing right on the platform.",
+            "sfxKatakanaRomanized": "DOKUN // CONFESSION",
+            "speedlineAngle": 15,
+            "halftoneDensity": 0.32
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "LUNA [Cradle of Echoes]",
+            "portraitUrl": "./GeneratedArt/sp_04_luna_tarot_rtx4080.png",
+            "dialogue": "Guilt acknowledged is no longer a trapdoor. The refractive mirror stabilizes.",
+            "sfxKatakanaRomanized": "SHUWA // CLEAR",
+            "speedlineAngle": -18,
+            "halftoneDensity": 0.25
+          }
+        ]
+      },
+      {
+        "chapter": 11,
+        "actTitle": "[ACT II] MEMORY THEATRE & SHADOW MAZE — FRACTURED MEMORIES",
+        "chapterTitle": "Ch 11: The Shadow Maze (Rooftop Stargazing)",
+        "stageIndex": 10,
+        "stylePreset": "kubrart_vector_cel",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Aiko Nakamura [Memory]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "When the house got too loud after Mom and Dad split up, we would climb onto the roof and connect five amber stars into a fox.",
+            "sfxKatakanaRomanized": "KIRARI // STARLIGHT",
+            "speedlineAngle": -12,
+            "halftoneDensity": 0.24
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "If I rotate the suspended debris by one degree — a single +1 Budge — the shadow on the far wall forms the Constellation Fox!",
+            "sfxKatakanaRomanized": "GACHI // ALIGNMENT",
+            "speedlineAngle": 20,
+            "halftoneDensity": 0.29
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Mnemosyne Core",
+            "portraitUrl": "./GeneratedArt/sp_03_mnemosyne_fox_rtx4080.png",
+            "dialogue": "SHADOW MAZE SOLVED. Warning: Sub-stratum dual-waveform audio anomaly detected.",
+            "sfxKatakanaRomanized": "DOOM // ZASHU",
+            "speedlineAngle": -26,
+            "halftoneDensity": 0.35
+          }
+        ]
+      },
+      {
+        "chapter": 12,
+        "actTitle": "[ACT II] MEMORY THEATRE & SHADOW MAZE — FRACTURED MEMORIES",
+        "chapterTitle": "Ch 12: Echo AI (Dual-Voice Waveform Sync)",
+        "stageIndex": 11,
+        "stylePreset": "sakuga_24fps_flare",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Echo AI [Distorted Track B]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "Kai — do not complete the final compiler — Dr. Rina Asakura is waiting on the outside to harvest the core!",
+            "sfxKatakanaRomanized": "BZZT // PHASE SHIFT",
+            "speedlineAngle": -22,
+            "halftoneDensity": 0.34
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Aiko Nakamura [Track A]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "Two recordings of my voice overlapping out of phase... Synchronize the waveform peaks, Kai!",
+            "sfxKatakanaRomanized": "SHING // HARMONIC",
+            "speedlineAngle": 18,
+            "halftoneDensity": 0.28
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "Got it! Both waveforms locked in phase — wait, someone just breached Sector 09 from the corporate intranet!",
+            "sfxKatakanaRomanized": "GYUUN // BREACH ALARM",
+            "speedlineAngle": -28,
+            "halftoneDensity": 0.37
+          }
+        ]
+      },
+      {
+        "chapter": 13,
+        "actTitle": "[ACT II] MEMORY THEATRE & SHADOW MAZE — FRACTURED MEMORIES",
+        "chapterTitle": "Ch 13: System Update (Asakura Firewall Intrusion)",
+        "stageIndex": 12,
+        "stylePreset": "kubrart_vector_cel",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Dr. Rina Asakura",
+            "portraitUrl": "./GeneratedArt/sp_06_dr_rina_asakura_rtx4080.png",
+            "dialogue": "Impressive neural plasticity, Kai Nakamura. Your sister's MAS architecture was dormant until your grief indexed it for us.",
+            "sfxKatakanaRomanized": "GOGOGO // FIREWALL",
+            "speedlineAngle": -24,
+            "halftoneDensity": 0.36
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "Aiko is not your corporate intellectual property! You are tearing the memory sectors apart!",
+            "sfxKatakanaRomanized": "ZASHU // OVERDRIVE",
+            "speedlineAngle": 22,
+            "halftoneDensity": 0.32
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Aiko Nakamura [Echo]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "Grab Encrypted Journal [Log: A-09] from the center node, Kai! Do not let her extraction daemon quarantine it!",
+            "sfxKatakanaRomanized": "DOOM // ZASHU",
+            "speedlineAngle": -30,
+            "halftoneDensity": 0.39
+          }
+        ]
+      },
+      {
+        "chapter": 14,
+        "actTitle": "[ACT II] MEMORY THEATRE & SHADOW MAZE — FRACTURED MEMORIES",
+        "chapterTitle": "Ch 14: Reconciliation Loop (The Unspoken Truth)",
+        "stageIndex": 13,
+        "stylePreset": "seinen_gpen_ink",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Memory Replay [Loop #14]",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "'I am fine, Aiko! Go to your lab!' — [TIMELINE RESET: DEFENSIVE LIE DETECTED].",
+            "sfxKatakanaRomanized": "KACHIN // REWIND",
+            "speedlineAngle": -18,
+            "halftoneDensity": 0.36
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "Every time I repeat what I actually said that night, the corridor resets. The lock is asking for what I hid.",
+            "sfxKatakanaRomanized": "DOKUN // PULSE",
+            "speedlineAngle": 14,
+            "halftoneDensity": 0.32
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "I was terrified you were leaving me behind, Aiko! I was angry, and I was scared, and I never got to say I am sorry!",
+            "sfxKatakanaRomanized": "PARIN // LOOP SHATTER",
+            "speedlineAngle": -28,
+            "halftoneDensity": 0.4
+          }
+        ]
+      },
+      {
+        "chapter": 15,
+        "actTitle": "[ACT II] MEMORY THEATRE & SHADOW MAZE — FRACTURED MEMORIES",
+        "chapterTitle": "Ch 15: The Core Fracture & The Unchosen Memory",
+        "stageIndex": 14,
+        "stylePreset": "sakuga_24fps_flare",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Dr. Rina Asakura",
+            "portraitUrl": "./GeneratedArt/sp_06_dr_rina_asakura_rtx4080.png",
+            "dialogue": "Core containment at 18%. Sever the brother's neural link and extract the Mnemosyne kernel now!",
+            "sfxKatakanaRomanized": "GA-GA-GA // TECTONIC",
+            "speedlineAngle": -25,
+            "halftoneDensity": 0.35
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "The lab floor is shattering into void polygons — if I bridge the diagonal shards, I can shield Aiko's core!",
+            "sfxKatakanaRomanized": "SHING // BRIDGE",
+            "speedlineAngle": 20,
+            "halftoneDensity": 0.3
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Aiko Nakamura [Interlude]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "Before the fall... remember the quiet rooftop night when we did not solve anything at all? We just watched the Constellation Fox (#FFB648) until dawn.",
+            "sfxKatakanaRomanized": "FUWA // DAWN STAR",
+            "speedlineAngle": -12,
+            "halftoneDensity": 0.22
+          }
+        ]
+      },
+      {
+        "chapter": 16,
+        "actTitle": "[ACT III] HALL OF SELVES & RED SCARF CONVERGENCE",
+        "chapterTitle": "Ch 16: Awakening (Ocean of Broken Data Shards)",
+        "stageIndex": 15,
+        "stylePreset": "kubrart_vector_cel",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "ACT III. The simulated town is gone — just an endless ocean of violet static (#8A5BFF) and broken hexagonal data shards.",
+            "sfxKatakanaRomanized": "ZAAA // VIOLET VOID",
+            "speedlineAngle": -20,
+            "halftoneDensity": 0.32
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Taro Fujimoto [External Comms]",
+            "portraitUrl": "./GeneratedArt/sp_05_taro_fujimoto_rtx4080.png",
+            "dialogue": "Kai, I am reading your bio-telemetry from the cafe! Stop calculating the tiles like an algorithm — feel where Aiko's crimson scarf thread is pulling!",
+            "sfxKatakanaRomanized": "PI-PI-PI // TELEMETRY",
+            "speedlineAngle": 18,
+            "halftoneDensity": 0.28
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "When I trust emotional intuition instead of cold math, the hex platforms lock beneath my feet. The Hall of Selves is straight ahead.",
+            "sfxKatakanaRomanized": "DOOM // ZASHU",
+            "speedlineAngle": -26,
+            "halftoneDensity": 0.36
+          }
+        ]
+      },
+      {
+        "chapter": 17,
+        "actTitle": "[ACT III] HALL OF SELVES & RED SCARF CONVERGENCE",
+        "chapterTitle": "Ch 17: The Hall of Selves (Four Doors of Denial)",
+        "stageIndex": 16,
+        "stylePreset": "seinen_gpen_ink",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Fractured Selves [Doors I-IV]",
+            "portraitUrl": "./GeneratedArt/MasteredCards/e_eclipse.png",
+            "dialogue": "Door I: Indifference. Door II: Anger. Door III: Fear. Door IV: Mirror Kai walking away forever.",
+            "sfxKatakanaRomanized": "GOGOGO // FOUR DOORS",
+            "speedlineAngle": -24,
+            "halftoneDensity": 0.38
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "You are not enemies I have to delete. You are all parts of me that tried to survive losing her.",
+            "sfxKatakanaRomanized": "DOKUN // INTEGRATION",
+            "speedlineAngle": 16,
+            "halftoneDensity": 0.3
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Mnemosyne Core",
+            "portraitUrl": "./GeneratedArt/sp_03_mnemosyne_fox_rtx4080.png",
+            "dialogue": "[FOURFOLD SELF INTEGRATED] The center mirror shatters beneath the Constellation Fox. The Sanctum of the Memory Architect opens.",
+            "sfxKatakanaRomanized": "GASHAAN // UNSEAL",
+            "speedlineAngle": -30,
+            "halftoneDensity": 0.39
+          }
+        ]
+      },
+      {
+        "chapter": 18,
+        "actTitle": "[ACT III] HALL OF SELVES & RED SCARF CONVERGENCE",
+        "chapterTitle": "Ch 18: The Memory Architect (Logs A-09, A-14, A-21)",
+        "stageIndex": 17,
+        "stylePreset": "sakuga_24fps_flare",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Aiko Nakamura [Memory Architect]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "Welcome to the compiler, Kai. Every puzzle you solved across Mnemosyne wove another thread of my scattered neural imprint back together.",
+            "sfxKatakanaRomanized": "SHUWA // JASMINE SANCTUM",
+            "speedlineAngle": -14,
+            "halftoneDensity": 0.25
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "Log A-09, Log A-14, Log A-21... You did not vanish by accident. You uploaded your own neural pattern into the MAS core to shield the beta subjects!",
+            "sfxKatakanaRomanized": "ZASHU // REVELATION",
+            "speedlineAngle": 22,
+            "halftoneDensity": 0.32
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Aiko Nakamura [Log: A-21]",
+            "portraitUrl": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+            "dialogue": "[Log: A-21] 'Even if I am only an echo of code and crimson thread... maybe he will remember how it felt to be loved. That is enough.'",
+            "sfxKatakanaRomanized": "DOOM // ZASHU",
+            "speedlineAngle": -28,
+            "halftoneDensity": 0.36
+          }
+        ]
+      },
+      {
+        "chapter": 19,
+        "actTitle": "[ACT III] HALL OF SELVES & RED SCARF CONVERGENCE",
+        "chapterTitle": "Ch 19: The Shifting Truth (Convergence & Triad Choice)",
+        "stageIndex": 18,
+        "stylePreset": "kubrart_vector_cel",
+        "panels": [
+          {
+            "panelNumber": 1,
+            "speaker": "Dr. Rina Asakura",
+            "portraitUrl": "./GeneratedArt/sp_06_dr_rina_asakura_rtx4080.png",
+            "dialogue": "She is a finite simulation, Kai! Let the corporation archive her kernel, or the entire Mnemosyne lattice will collapse under its own recursion!",
+            "sfxKatakanaRomanized": "GOGOGO // CORE OVERLOAD",
+            "speedlineAngle": -26,
+            "halftoneDensity": 0.37
+          },
+          {
+            "panelNumber": 2,
+            "speaker": "Kai Nakamura",
+            "portraitUrl": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+            "dialogue": "Memory is not corporate property, Dr. Asakura — and grief is not a bug to be patched out. Connection is what makes us real!",
+            "sfxKatakanaRomanized": "SHING // GOLDEN FOX",
+            "speedlineAngle": 20,
+            "halftoneDensity": 0.3
+          },
+          {
+            "panelNumber": 3,
+            "speaker": "Aiko Nakamura & LUNA",
+            "portraitUrl": "./GeneratedArt/sp_03_mnemosyne_fox_rtx4080.png",
+            "dialogue": "The Three Gates open before you, Kai: [GATE I: MERGE], [GATE II: PRESERVE], [GATE III: AWAKEN IN OKITSU WITH THE GOLDEN FOX TILE (#FFB648)].",
+            "sfxKatakanaRomanized": "DOOM // ZASHU",
+            "speedlineAngle": -32,
+            "halftoneDensity": 0.4
+          }
+        ]
+      }
+    ]
+  },
+  "roguelite_arena_draft": {
+    "max_rounds": 5,
+    "pack_size_per_round": 3,
+    "starting_elo_rating": 1600,
+    "total_draftable_cards": 117,
+    "pools_breakdown": {
+      "set1_cradle_of_echoes_count": 60,
+      "set2_kubrart_astral_eclipse_count": 20,
+      "sovereign_agent_cards_count": 37
+    },
+    "set2_kubrart_astral_eclipse_cards": [
+      {
+        "id": "kubrart_s2_01_astral_ronin",
+        "name": "Kubrart Astral Ronin Zero",
+        "faction": "Abyss",
+        "nesw": [
+          9,
+          8,
+          6,
+          7
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AnimeMangaModels/style_kubrart_vector_cel_ink.png",
+        "telegraphName": "Stark Sumi-Ink Diagonal Iai",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_02_eclipse_valkyrie",
+        "name": "Eclipse Kagenashi Valkyrie",
+        "faction": "Valkyria",
+        "nesw": [
+          8,
+          9,
+          6,
+          7
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_01.png",
+        "telegraphName": "24fps Kagenashi Wing Sweep",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_03_sumi_judge_arbiter",
+        "name": "Sumi-e Law Arbiter VII",
+        "faction": "Solaris",
+        "nesw": [
+          8,
+          7,
+          8,
+          7
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_02.png",
+        "telegraphName": "G-Pen Crosshatch Decree",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_04_vector_cel_seraph",
+        "name": "Vector-Cel Crimson Seraph",
+        "faction": "Valkyria",
+        "nesw": [
+          9,
+          7,
+          7,
+          7
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_03.png",
+        "telegraphName": "Chromatic Rim-Light Pierce",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_05_halftone_phantom",
+        "name": "60-LPI Screentone Phantom",
+        "faction": "Abyss",
+        "nesw": [
+          7,
+          8,
+          7,
+          8
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_04.png",
+        "telegraphName": "CMYK Dot-Matrix Cloak",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_06_nocturna_tarot_weaver",
+        "name": "Nocturna Chiaroscuro Weaver",
+        "faction": "Aether",
+        "nesw": [
+          8,
+          6,
+          8,
+          8
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_05.png",
+        "telegraphName": "Obsidian-Ivory Tarot Ring",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_07_cyber_magicite_dragoon",
+        "name": "Cyber-Magicite Apex Dragoon",
+        "faction": "Chronos",
+        "nesw": [
+          9,
+          8,
+          5,
+          7
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_06.png",
+        "telegraphName": "Beveled Gauntlet Sky-Drop",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_08_okitsu_red_scarf_vanguard",
+        "name": "Okitsu Red Scarf Vanguard",
+        "faction": "Aether",
+        "nesw": [
+          8,
+          8,
+          7,
+          7
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_07.png",
+        "telegraphName": "Crimson Thread Counter-Flip",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_09_constellation_fox_archon",
+        "name": "Constellation Fox Sovereign",
+        "faction": "Solaris",
+        "nesw": [
+          7,
+          9,
+          8,
+          6
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_08.png",
+        "telegraphName": "Five-Star Amber Refraction",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_10_mnemosyne_mirror_duelist",
+        "name": "Mnemosyne Mirror Duelist",
+        "faction": "Abyss",
+        "nesw": [
+          8,
+          7,
+          7,
+          8
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_09.png",
+        "telegraphName": "Hall of Selves Symmetry",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_11_gpen_crosshatch_paladin",
+        "name": "G-Pen Filigree Paladin",
+        "faction": "Solaris",
+        "nesw": [
+          8,
+          8,
+          6,
+          7
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_10.png",
+        "telegraphName": "Parchment-Gold Aegis",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_12_speedline_shonen_striker",
+        "name": "Radial Speedline Striker",
+        "faction": "Valkyria",
+        "nesw": [
+          9,
+          7,
+          6,
+          7
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_11.png",
+        "telegraphName": "Foreshortened Blade Lunge",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_13_orthographic_mecha_sentinel",
+        "name": "Orthographic Mecha Sentinel",
+        "faction": "Chronos",
+        "nesw": [
+          7,
+          8,
+          8,
+          6
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_12.png",
+        "telegraphName": "7.5-Head Panel-Line Lock",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_14_gouache_citadel_astrolabe",
+        "name": "Sky-Citadel Astrolabe Sage",
+        "faction": "Aether",
+        "nesw": [
+          7,
+          7,
+          8,
+          7
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_13.png",
+        "telegraphName": "Luminous Gouache Orbit",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_15_sparse_voxel_interceptor",
+        "name": "Hi3D Normal-Bridge Interceptor",
+        "faction": "Chronos",
+        "nesw": [
+          8,
+          7,
+          6,
+          8
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_14.png",
+        "telegraphName": "2.5D Normal-Mapped Relief",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_16_starflare_kagenashi_ace",
+        "name": "Star-Flare Kagenashi Ace",
+        "faction": "Valkyria",
+        "nesw": [
+          8,
+          9,
+          5,
+          7
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_15.png",
+        "telegraphName": "Four-Point Star-Flare Arc",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_17_negative_space_assassin",
+        "name": "Negative-Space Ink Assassin",
+        "faction": "Abyss",
+        "nesw": [
+          9,
+          6,
+          7,
+          8
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AnimeMangaModels/anime_rtx4080_16.png",
+        "telegraphName": "Sumi-e Silhouette Ambush",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_18_ties_soup_grandmaster",
+        "name": "12-Lineage TIES Grandmaster",
+        "faction": "Solaris",
+        "nesw": [
+          8,
+          8,
+          8,
+          6
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/sp_01_kai_nakamura_rtx4080.png",
+        "telegraphName": "TIES-Merged Vector Convergence",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_19_crimson_thread_architect",
+        "name": "Aiko, Crimson Thread Architect",
+        "faction": "Aether",
+        "nesw": [
+          9,
+          7,
+          8,
+          8
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/sp_02_aiko_nakamura_scarf_rtx4080.png",
+        "telegraphName": "Compiler Log A-21 Overwrite",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      },
+      {
+        "id": "kubrart_s2_20_eclipse_monolith",
+        "name": "Kubrart Astral Eclipse Monolith",
+        "faction": "Abyss",
+        "nesw": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/sp_04_luna_tarot_rtx4080.png",
+        "telegraphName": "Omni-Directional Eclipse Seal",
+        "poolSet": "SET2_KUBRART_ASTRAL_ECLIPSE",
+        "poolBadge": "[SET 2 KUBRART]"
+      }
+    ],
+    "sovereign_agent_cards": [
+      {
+        "id": "plugin_01_tcg_creative_designer",
+        "name": "Grand Arcanist of CardCraft",
+        "faction": "Aether",
+        "nesw": [
+          8,
+          7,
+          6,
+          7
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AgentDeck/Cards/plugin_01_tcg_creative_designer.png",
+        "telegraphName": "3x3 Atelier Prism Lock",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "plugin_02_parallel_swarm_orchestrator",
+        "name": "Chronos Swarm Commander",
+        "faction": "Chronos",
+        "nesw": [
+          7,
+          8,
+          6,
+          7
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AgentDeck/Cards/plugin_02_parallel_swarm_orchestrator.png",
+        "telegraphName": "Tri-Portal Worktree Fan-Out",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "plugin_03_jev_system_one",
+        "name": "Hallowed Arbiter of System One",
+        "faction": "Solaris",
+        "nesw": [
+          8,
+          6,
+          8,
+          6
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AgentDeck/Cards/plugin_03_jev_system_one.png",
+        "telegraphName": "Octagonal Law-Seal Gate",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "plugin_04_mlx_apple_silicon",
+        "name": "A18 Pro Metal Forge Sovereign",
+        "faction": "Valkyria",
+        "nesw": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "starCost": 3,
+        "art": "./GeneratedArt/AgentDeck/Cards/plugin_04_mlx_apple_silicon.png",
+        "telegraphName": "Single-Pass Logit Diamond",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_01_master_router",
+        "name": "Compass of the 93 Realms",
+        "faction": "Solaris",
+        "nesw": [
+          7,
+          6,
+          6,
+          6
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_01_master_router.png",
+        "telegraphName": "4-Slot Disclosure Vector",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_02_tactical_illustrator_library",
+        "name": "Twelve-Master Atelier Grimoire",
+        "faction": "Aether",
+        "nesw": [
+          7,
+          7,
+          5,
+          7
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_02_tactical_illustrator_library.png",
+        "telegraphName": "Crosshatch & Cel-Wash Aura",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_03_create_game_assets",
+        "name": "Aegis of Deterministic Raster QA",
+        "faction": "Aether",
+        "nesw": [
+          6,
+          7,
+          7,
+          6
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_03_create_game_assets.png",
+        "telegraphName": "600x800 Contrast Envelope",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_04_card_game_genre",
+        "name": "Chronicle of the Single Zone",
+        "faction": "Solaris",
+        "nesw": [
+          8,
+          6,
+          6,
+          6
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_04_card_game_genre.png",
+        "telegraphName": "3x3 Directional Capture Cross",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_05_game_feel_juice",
+        "name": "Valkyrie of Kinetic Impact",
+        "faction": "Valkyria",
+        "nesw": [
+          7,
+          7,
+          5,
+          5
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_05_game_feel_juice.png",
+        "telegraphName": "48ms Hit-Stop Wave",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_06_game_ui_ux",
+        "name": "Oracle of Responsive Anchors",
+        "faction": "Aether",
+        "nesw": [
+          6,
+          6,
+          7,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_06_game_ui_ux.png",
+        "telegraphName": "Safe-Area Focus Grid",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_07_ai_utility_behavior",
+        "name": "Archon of Utility & Negamax",
+        "faction": "Abyss",
+        "nesw": [
+          7,
+          8,
+          5,
+          6
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_07_ai_utility_behavior.png",
+        "telegraphName": "Alpha-Beta Pruning Scan",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_08_shader_camera_audio",
+        "name": "Seraph of Halftone & Harmony",
+        "faction": "Valkyria",
+        "nesw": [
+          6,
+          7,
+          6,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_08_shader_camera_audio.png",
+        "telegraphName": "Cel-Outline & Audio Duck Ring",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_09_save_procgen_dialogue",
+        "name": "Keeper of Mnemosyne Vaults",
+        "faction": "Chronos",
+        "nesw": [
+          6,
+          5,
+          7,
+          7
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_09_save_procgen_dialogue.png",
+        "telegraphName": "Versioned Save Lattice",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_10_multi_engine_codex",
+        "name": "Titan of the Twelve Engines",
+        "faction": "Chronos",
+        "nesw": [
+          7,
+          6,
+          7,
+          6
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_10_multi_engine_codex.png",
+        "telegraphName": "Dual-Engine Contract",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_11_decompilation_hi3d_rea",
+        "name": "Sovereign of Hi3D & Decompilation",
+        "faction": "Abyss",
+        "nesw": [
+          8,
+          7,
+          6,
+          6
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_11_decompilation_hi3d_rea.png",
+        "telegraphName": "Watertight Manifold Scan",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "skill_12_workflows_and_agent_core",
+        "name": "Herald of the Golden Master",
+        "faction": "Solaris",
+        "nesw": [
+          6,
+          6,
+          6,
+          7
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/skill_12_workflows_and_agent_core.png",
+        "telegraphName": "Release Readiness Arc",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_01_invoke_subagent",
+        "name": "Summon Parallel Phantom",
+        "faction": "Chronos",
+        "nesw": [
+          7,
+          7,
+          5,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_01_invoke_subagent.png",
+        "telegraphName": "Async Subagent Worktree",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_02_define_subagent",
+        "name": "Forge Specialist Construct",
+        "faction": "Aether",
+        "nesw": [
+          6,
+          7,
+          6,
+          5
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_02_define_subagent.png",
+        "telegraphName": "Agent Blueprint Inscription",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_03_manage_subagents",
+        "name": "Tactical Swarm Overwatch",
+        "faction": "Chronos",
+        "nesw": [
+          6,
+          5,
+          6,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_03_manage_subagents.png",
+        "telegraphName": "Fleet Status Sweep",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_04_send_message",
+        "name": "Astral Telepathic Relay",
+        "faction": "Aether",
+        "nesw": [
+          5,
+          6,
+          5,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_04_send_message.png",
+        "telegraphName": "Direct Peer Message Vector",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_05_call_mcp_tool",
+        "name": "Channel Arcane MCP Conduit",
+        "faction": "Solaris",
+        "nesw": [
+          7,
+          6,
+          7,
+          5
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_05_call_mcp_tool.png",
+        "telegraphName": "Schema-Validated MCP Pulse",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_06_mcp_resources",
+        "name": "Scry Nexus Resource Archive",
+        "faction": "Aether",
+        "nesw": [
+          5,
+          6,
+          6,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_06_mcp_resources.png",
+        "telegraphName": "URI Resource Discovery Cone",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_07_run_command",
+        "name": "Incantation of the Zsh Shell",
+        "faction": "Valkyria",
+        "nesw": [
+          8,
+          6,
+          5,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_07_run_command.png",
+        "telegraphName": "Daemon Execution Strike",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_08_manage_task",
+        "name": "Chrono Daemon Tether",
+        "faction": "Chronos",
+        "nesw": [
+          5,
+          6,
+          6,
+          5
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_08_manage_task.png",
+        "telegraphName": "Task Stream Monitor",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_09_read_file",
+        "name": "True-Sight Omniscient Lens",
+        "faction": "Solaris",
+        "nesw": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_09_read_file.png",
+        "telegraphName": "Multimodal Asset Scan",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_10_write_file",
+        "name": "Inscribe Sovereign Grimoire",
+        "faction": "Aether",
+        "nesw": [
+          7,
+          6,
+          6,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_10_write_file.png",
+        "telegraphName": "Atomic File Creation Seal",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_11_edit_file",
+        "name": "Precision Rune Scalpel",
+        "faction": "Valkyria",
+        "nesw": [
+          7,
+          7,
+          5,
+          5
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_11_edit_file.png",
+        "telegraphName": "Contiguous AST Splice",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "tool_12_search_schedule_ask",
+        "name": "Astral Horizon & Oracle's Call",
+        "faction": "Solaris",
+        "nesw": [
+          6,
+          5,
+          6,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/tool_12_search_schedule_ask.png",
+        "telegraphName": "Web Citation & Timer Wakeup",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "mcp_01_jev_system_one",
+        "name": "Jev System One Tribunal",
+        "faction": "Solaris",
+        "nesw": [
+          8,
+          6,
+          7,
+          6
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/mcp_01_jev_system_one.png",
+        "telegraphName": "12-Point Calibrated Ring",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "mcp_02_jev_py_verifier",
+        "name": "Jev-Py Deterministic Verifier",
+        "faction": "Solaris",
+        "nesw": [
+          7,
+          7,
+          7,
+          6
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/mcp_02_jev_py_verifier.png",
+        "telegraphName": "Dual-Runtime Diff Gate",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "mcp_03_mlx_apple_silicon",
+        "name": "MLX Metal GPU Matrix",
+        "faction": "Valkyria",
+        "nesw": [
+          7,
+          8,
+          6,
+          6
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/mcp_03_mlx_apple_silicon.png",
+        "telegraphName": "Unified-Memory Tensor Bus",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "mcp_04_prime_rlm_swarm",
+        "name": "Prime Vision & RLM Swarm Core",
+        "faction": "Abyss",
+        "nesw": [
+          7,
+          7,
+          6,
+          7
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/mcp_04_prime_rlm_swarm.png",
+        "telegraphName": "Parallel Local Vision Dispatch",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "mcp_05_sequential_thinking",
+        "name": "Astrolabe of Sequential Thought",
+        "faction": "Chronos",
+        "nesw": [
+          6,
+          6,
+          7,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/mcp_05_sequential_thinking.png",
+        "telegraphName": "Task Decomposition Lattice",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "mcp_06_knowledge_graph_mem",
+        "name": "Nexus of the Memory Graph",
+        "faction": "Aether",
+        "nesw": [
+          6,
+          7,
+          6,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/mcp_06_knowledge_graph_mem.png",
+        "telegraphName": "Entity-Relation Constellation",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "mcp_07_git_time_chronicle",
+        "name": "Chrono-Branch Git Arbiter",
+        "faction": "Chronos",
+        "nesw": [
+          6,
+          6,
+          6,
+          7
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/mcp_07_git_time_chronicle.png",
+        "telegraphName": "Worktree Branch Timeline",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "mcp_08_filesystem_and_fetch",
+        "name": "Citadel of Vault & Astral Fetch",
+        "faction": "Aether",
+        "nesw": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "starCost": 1,
+        "art": "./GeneratedArt/AgentDeck/Cards/mcp_08_filesystem_and_fetch.png",
+        "telegraphName": "Sandboxed IO Conduit",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      },
+      {
+        "id": "mcp_09_tcg_creative_studio",
+        "name": "Atelier of CardCraft MCP",
+        "faction": "Aether",
+        "nesw": [
+          8,
+          7,
+          6,
+          7
+        ],
+        "starCost": 2,
+        "art": "./GeneratedArt/AgentDeck/Cards/mcp_09_tcg_creative_studio.png",
+        "telegraphName": "Card Concept + SVG Synthesizer",
+        "poolSet": "SOVEREIGN_AGENT_37",
+        "poolBadge": "[SOVEREIGN AGENT]"
+      }
+    ],
+    "draft_pool_card_ids": [
+      "h_archangel",
+      "h_phoenix",
+      "h_oracle",
+      "h_chronos",
+      "h_seraph",
+      "h_kai",
+      "h_valkyrie",
+      "h_arbiter",
+      "e_eclipse",
+      "e_archon",
+      "e_inferno",
+      "e_reaper",
+      "e_titan",
+      "e_colossus",
+      "e_cryo",
+      "e_shinobi",
+      "set1_c17_h_archangel",
+      "set1_c18_h_phoenix",
+      "set1_c19_h_oracle",
+      "set1_c20_h_chronos",
+      "set1_c21_h_seraph",
+      "set1_c22_h_kai",
+      "set1_c23_h_valkyrie",
+      "set1_c24_h_arbiter",
+      "set1_c25_e_eclipse",
+      "set1_c26_e_archon",
+      "set1_c27_e_inferno",
+      "set1_c28_e_reaper",
+      "set1_c29_e_titan",
+      "set1_c30_e_colossus",
+      "set1_c31_e_cryo",
+      "set1_c32_e_shinobi",
+      "set1_c33_h_archangel",
+      "set1_c34_h_phoenix",
+      "set1_c35_h_oracle",
+      "set1_c36_h_chronos",
+      "set1_c37_h_seraph",
+      "set1_c38_h_kai",
+      "set1_c39_h_valkyrie",
+      "set1_c40_h_arbiter",
+      "set1_c41_e_eclipse",
+      "set1_c42_e_archon",
+      "set1_c43_e_inferno",
+      "set1_c44_e_reaper",
+      "set1_c45_e_titan",
+      "set1_c46_e_colossus",
+      "set1_c47_e_cryo",
+      "set1_c48_e_shinobi",
+      "set1_c49_h_archangel",
+      "set1_c50_h_phoenix",
+      "set1_c51_h_oracle",
+      "set1_c52_h_chronos",
+      "set1_c53_h_seraph",
+      "set1_c54_h_kai",
+      "set1_c55_h_valkyrie",
+      "set1_c56_h_arbiter",
+      "set1_c57_e_eclipse",
+      "set1_c58_e_archon",
+      "set1_c59_e_inferno",
+      "set1_c60_e_reaper",
+      "kubrart_s2_01_astral_ronin",
+      "kubrart_s2_02_eclipse_valkyrie",
+      "kubrart_s2_03_sumi_judge_arbiter",
+      "kubrart_s2_04_vector_cel_seraph",
+      "kubrart_s2_05_halftone_phantom",
+      "kubrart_s2_06_nocturna_tarot_weaver",
+      "kubrart_s2_07_cyber_magicite_dragoon",
+      "kubrart_s2_08_okitsu_red_scarf_vanguard",
+      "kubrart_s2_09_constellation_fox_archon",
+      "kubrart_s2_10_mnemosyne_mirror_duelist",
+      "kubrart_s2_11_gpen_crosshatch_paladin",
+      "kubrart_s2_12_speedline_shonen_striker",
+      "kubrart_s2_13_orthographic_mecha_sentinel",
+      "kubrart_s2_14_gouache_citadel_astrolabe",
+      "kubrart_s2_15_sparse_voxel_interceptor",
+      "kubrart_s2_16_starflare_kagenashi_ace",
+      "kubrart_s2_17_negative_space_assassin",
+      "kubrart_s2_18_ties_soup_grandmaster",
+      "kubrart_s2_19_crimson_thread_architect",
+      "kubrart_s2_20_eclipse_monolith",
+      "plugin_01_tcg_creative_designer",
+      "plugin_02_parallel_swarm_orchestrator",
+      "plugin_03_jev_system_one",
+      "plugin_04_mlx_apple_silicon",
+      "skill_01_master_router",
+      "skill_02_tactical_illustrator_library",
+      "skill_03_create_game_assets",
+      "skill_04_card_game_genre",
+      "skill_05_game_feel_juice",
+      "skill_06_game_ui_ux",
+      "skill_07_ai_utility_behavior",
+      "skill_08_shader_camera_audio",
+      "skill_09_save_procgen_dialogue",
+      "skill_10_multi_engine_codex",
+      "skill_11_decompilation_hi3d_rea",
+      "skill_12_workflows_and_agent_core",
+      "tool_01_invoke_subagent",
+      "tool_02_define_subagent",
+      "tool_03_manage_subagents",
+      "tool_04_send_message",
+      "tool_05_call_mcp_tool",
+      "tool_06_mcp_resources",
+      "tool_07_run_command",
+      "tool_08_manage_task",
+      "tool_09_read_file",
+      "tool_10_write_file",
+      "tool_11_edit_file",
+      "tool_12_search_schedule_ask",
+      "mcp_01_jev_system_one",
+      "mcp_02_jev_py_verifier",
+      "mcp_03_mlx_apple_silicon",
+      "mcp_04_prime_rlm_swarm",
+      "mcp_05_sequential_thinking",
+      "mcp_06_knowledge_graph_mem",
+      "mcp_07_git_time_chronicle",
+      "mcp_08_filesystem_and_fetch",
+      "mcp_09_tcg_creative_studio"
+    ]
+  },
+  "verification_results": {
+    "cutscene_panel_progression_ok": true,
+    "arena_draft_5_round_squad_equipped_ok": true,
+    "sample_drafted_squad": [
+      "set1_c22_h_kai",
+      "set1_c23_h_valkyrie",
+      "set1_c38_h_kai",
+      "set1_c34_h_phoenix",
+      "h_kai"
+    ]
+  }
+}

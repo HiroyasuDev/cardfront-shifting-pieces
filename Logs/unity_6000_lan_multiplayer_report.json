@@ -1,8 +1,8 @@
 {
-    "timestampUtc": "2026-11-09T10:53:16.0496360Z",
+    "timestampUtc": "2026-11-09T23:16:42.9655000Z",
     "unityVersion": "6000.6.8f1",
     "transport": "TCP/IPv4 Loopback (127.0.0.1) + IndieMarcNetcodeServerBridge",
-    "loopbackPort": 58892,
+    "loopbackPort": 50881,
     "tcpClientsConnected": 2,
     "tcpPacketsExchanged": 51,
     "tcpBytesTransferred": 11742,

@@ -1,36 +1,36 @@
 {
   "latest_iteration": {
-    "iteration": 216,
-    "timestamp_utc": "2026-11-09T14:11:55Z",
+    "iteration": 360,
+    "timestamp_utc": "2026-11-09T23:22:01Z",
     "video_id": "t13A2XFGoOc",
     "target_model": "gemini-4-argon",
     "active_track": {
-      "track_id": "track_05_save_and_audio",
-      "focus": "Deterministic Save Systems, Seeded Replay RNG & Adaptive Audio Ducking",
-      "prompt": "Implement deterministic save slots with version migration and adaptive audio mixer ducking for our Unity card game"
+      "track_id": "track_06_steam_and_itch_ship",
+      "focus": "Unity Build Pipeline, Performance Profiling & Steam/Itch Release Readiness",
+      "prompt": "Profile draw calls and GC spikes to optimize FPS and publish our Unity card game on Steam"
     },
     "routed_skill_stack": {
       "primary_web_engine": "Custom HTML5/CSS3/JS Tabletop Engine",
       "unity_engine": "Unity",
       "unity_version": "6000.6.8f1",
       "selected_skill_names": [
-        "unity-scriptableobjects",
         "unity-csharp-scripting",
-        "save-systems",
-        "audio-design",
-        "card-game"
+        "performance-optimization",
+        "fps-shooter",
+        "card-game",
+        "steam-publish"
       ],
       "skill_stack_order": "Engine Fundamentals -> Discipline(s) -> Genre -> Workflow",
       "exact_skill_files_to_load": [
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/SKILL.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/references/custom-engines.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/save-systems/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/audio-design/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md"
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/performance-optimization/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/fps-shooter/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/steam-publish/SKILL.md"
       ],
-      "composed_system_prompt_chars": 32441
+      "composed_system_prompt_chars": 38978
     },
     "primary_tcg_stack": {
       "selected_skill_names": [
@@ -45,11 +45,11 @@
       "drag_e2e_passed": true,
       "autotest_e2e_passed": true,
       "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
-      "total_checks": 160,
-      "passed_checks": 160,
-      "failed_checks": 0,
-      "pass_rate_pct": 100.0,
-      "p0_failures": 0,
+      "total_checks": 165,
+      "passed_checks": 164,
+      "failed_checks": 1,
+      "pass_rate_pct": 99.4,
+      "p0_failures": 1,
       "p1_failures": 0,
       "check_sources_loaded": [
         "Tools/skill_harness/core_checks.json",
@@ -158,6 +158,11 @@
         "core.production_upgrades.06",
         "core.production_upgrades.07",
         "core.production_upgrades.08",
+        "core.production_upgrades.09",
+        "core.production_upgrades.10",
+        "core.production_upgrades.11",
+        "core.production_upgrades.12",
+        "core.production_upgrades.13",
         "core.release_pkg.01",
         "core.sakuga_v100.01",
         "core.sakuga_v100.02",
@@ -192,7 +197,6 @@
         "core.unity6_tcg_rea_baseline.09",
         "core.unity6_tcg_rea_baseline.10",
         "core.unity6_tcg_rea_baseline.11",
-        "core.unity6_tcg_rea_baseline.12",
         "core.unity6_tcg_rea_baseline.13",
         "core.unity6_tcg_rea_baseline.14",
         "core.unity6_tcg_rea_baseline.15",
@@ -220,9 +224,11 @@
         "feel_audio_camera_perf.8",
         "feel_audio_camera_perf.9"
       ],
-      "failed_check_ids": []
+      "failed_check_ids": [
+        "core.unity6_tcg_rea_baseline.12"
+      ]
     },
-    "gate_status": "PASS_ALL_GATES",
+    "gate_status": "FAIL_P0_BLOCKERS",
     "quality_gates": {
       "all_gates_passed": true,
       "card_game_invariants": {
@@ -254,8 +260,8 @@
       },
       "disciplines/game-ui-ux": {
         "skill": "disciplines/game-ui-ux",
-        "total": 22,
-        "passed": 22,
+        "total": 23,
+        "passed": 23,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -358,8 +364,8 @@
       },
       "unity/unity-netcode-multiplayer": {
         "skill": "unity/unity-netcode-multiplayer",
-        "total": 10,
-        "passed": 10,
+        "total": 11,
+        "passed": 11,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -391,13 +397,31 @@
       "rea-reverse-engineer": {
         "skill": "rea-reverse-engineer",
         "total": 1,
+        "passed": 0,
+        "failed": 1,
+        "pass_rate": 0.0,
+        "failed_ids": [
+          "core.unity6_tcg_rea_baseline.12"
+        ]
+      },
+      "disciplines/shader-programming": {
+        "skill": "disciplines/shader-programming",
+        "total": 1,
         "passed": 1,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
-      "disciplines/shader-programming": {
-        "skill": "disciplines/shader-programming",
+      "tcg-creative-game-designer": {
+        "skill": "tcg-creative-game-designer",
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "mlx-apple-silicon": {
+        "skill": "mlx-apple-silicon",
         "total": 1,
         "passed": 1,
         "failed": 0,
@@ -445,7 +469,21 @@
         "failed_ids": []
       }
     },
-    "prioritized_backlog": [],
+    "prioritized_backlog": [
+      {
+        "rank": 1,
+        "priority": "P0",
+        "check_id": "core.unity6_tcg_rea_baseline.12",
+        "skill": "rea-reverse-engineer",
+        "skill_source": "Datasets/rea_tcg_engine_baseline_decompile_ledger.json:1",
+        "target": "unity",
+        "code_ref": "Backend/synapse_unity6_tcg_engine_rea_pipeline.py:385-510",
+        "rule": "REA 6.8.0 9-Subsystem Reconstruction Obligation & Symbol Parity Ledger: 100.0% coverage across all 9 TcgEngine subsystems (GameLogic, GameServer, GameClient, AIPlayerMM, ApiClient, CardData, DeckData, PackData, BoardSlot).",
+        "observed": false,
+        "expected": "true",
+        "remediation": "Run Backend/synapse_unity6_tcg_engine_rea_pipeline.py to generate the 9-subsystem REA 6.8.0 reconstruction obligation ledger."
+      }
+    ],
     "mirofish_telemetry": {
       "workstreams_present": [
         "balance",
@@ -592,7 +630,7 @@
       "upstream_gamedev_skills_count": 77,
       "custom_synapse_skills_count": 15
     },
-    "elapsed_ms": 25388.11
+    "elapsed_ms": 29001.72
   },
   "video_and_catalog": {
     "video_analysis": {

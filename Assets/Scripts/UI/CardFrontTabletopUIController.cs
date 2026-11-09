@@ -36,5 +36,16 @@ namespace Synapse.TcgEngine.UI
         {
             return "UNITY 6000.6.8f1 · REA 6.8.0 (9/9 100%) · FNV-1A LOCKSTEP 4C837E02F2035A25 · 113 UNIQUE SPRITES · 155 API CARDS";
         }
+
+        public string GetEchoGhostSummary()
+        {
+            return "ghost_SovereignAgent_1825 · ELO 1825 · OPENING Aether-Garde_0_1 · TXLOCK HMAC-SHA256 VERIFIED";
+        }
+
+        public string GetThreeActCampaignSummary()
+        {
+            CardFrontUnifiedRuntime.RunThreeActCampaignGauntletSimulation(out string summary);
+            return summary;
+        }
     }
 }

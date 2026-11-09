@@ -187,6 +187,8 @@ def write_unity_editor_importer() -> str:
     editor_dir = UNPACKED_ROOT / "Assets" / "TcgEngine" / "Scripts" / "Editor"
     editor_dir.mkdir(parents=True, exist_ok=True)
     importer_path = editor_dir / "CardFrontTcgEngineImporter.cs"
+    if importer_path.exists() and "BuildFullTcgEngineProductionScenesAndStandaloneApp" in importer_path.read_text(encoding="utf-8"):
+        return str(importer_path)
 
     code = """#if UNITY_EDITOR
 using System;

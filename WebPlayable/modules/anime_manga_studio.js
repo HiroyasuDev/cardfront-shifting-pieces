@@ -274,6 +274,357 @@
     "granite3.2-vision:latest"
   ];
 
+  /**
+   * Set 2: "Kubrart Astral Eclipse & Manga Vanguard" Expansion (20 Cards: set2_k01 .. set2_k20)
+   * Spanning 4 Anime/Manga Illustration Lineages:
+   *   - set2_k01..set2_k05: Kubrart Vector-Cel & Negative-Space Prism (`kubrart_vector_cel_ink_v1`)
+   *   - set2_k06..set2_k10: Seinen Sumi-e G-Pen Crosshatch & Crimson Ink (`manga_sumi_ink_seinen_v1`)
+   *   - set2_k11..set2_k15: 24fps Trigger Kagenashi Keyframe & Star-Flare (`anime_sakuga_kagenashi_v2`)
+   *   - set2_k16..set2_k20: Cyber-Magicite Mecha Orthographic & Blueprint Halftone (`cyber_mecha_orthographic_v1`)
+   */
+  const SET2_KUBRART_MANGA_CARDS = [
+    {
+      id: "set2_k01",
+      name: "Kubrart Eclipse Sovereign",
+      faction: "Aether",
+      nesw: [9, 8, 6, 8],
+      cost: 4,
+      tier: 4,
+      modelId: "kubrart_vector_cel_ink_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k01_kubrart_eclipse_sovereign.png",
+      ability: {
+        id: "ab_eclipse_prism_dominion",
+        name: "Negative-Space Prism Dominion",
+        text: "On Deploy: Flips adjacent orthogonal units if their opposing directional rank is Prime (2, 3, 5, 7) and grants +1 N/E to Allied Aether conduits."
+      },
+      morphologicalPrompt:
+        "stark negative-space sumi-ink blocks, razor-sharp graphic vector-cel contours, floating polyhedral crystal shards, stylized 7-head anime character proportions, luminous violet #A855F7 and astral cyan #00E5FF rim-wash"
+    },
+    {
+      id: "set2_k02",
+      name: "Vector-Prism Spellblade",
+      faction: "Aether",
+      nesw: [7, 7, 5, 6],
+      cost: 2,
+      tier: 2,
+      modelId: "kubrart_vector_cel_ink_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k02_vector_prism_duelist.png",
+      ability: {
+        id: "ab_vector_cel_riposte",
+        name: "Vector-Cel Riposte",
+        text: "Plus-Wall Trigger: Gains +2 East and +2 West when placed adjacent to an obsidian rift or corner tile."
+      },
+      morphologicalPrompt:
+        "agile anime spellblade duelist with twin crystalline vector-cel rapiers, stark obsidian negative-space shadow blocks, floating violet and cyan polyhedral shards, tapered gauntlets"
+    },
+    {
+      id: "set2_k03",
+      name: "Obsidian Shard Oracle",
+      faction: "Aether",
+      nesw: [8, 6, 8, 6],
+      cost: 3,
+      tier: 3,
+      modelId: "kubrart_vector_cel_ink_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k03_obsidian_shard_oracle.png",
+      ability: {
+        id: "ab_polyhedral_foresight",
+        name: "Polyhedral Foresight",
+        text: "On Deploy: Reveals the top card of the opponent deck and projects a luminous +1 N/S astral prism barrier."
+      },
+      morphologicalPrompt:
+        "astral oracle priestess surrounded by levitating obsidian icosahedrons and glowing tarot rings, stark vector-cel negative space, violet and cyan rim lighting"
+    },
+    {
+      id: "set2_k04",
+      name: "Negative-Space Astral Valkyrie",
+      faction: "Valkyria",
+      nesw: [8, 8, 5, 7],
+      cost: 3,
+      tier: 3,
+      modelId: "kubrart_vector_cel_ink_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k04_negative_space_valkyrie.png",
+      ability: {
+        id: "ab_kubrart_sky_dive",
+        name: "Chromatic Sky-Shear",
+        text: "Aerial Rush: Ignores terrain elevation penalties and reduces adjacent enemy North armor by 1."
+      },
+      morphologicalPrompt:
+        "winged astral valkyrie lancer silhouetted in stark obsidian negative-space ink with glowing cyan and violet geometric wing feathers, razor-sharp vector-cel spear contour"
+    },
+    {
+      id: "set2_k05",
+      name: "Polyhedral Rift Arbiter",
+      faction: "Solaris",
+      nesw: [7, 8, 7, 7],
+      cost: 3,
+      tier: 3,
+      modelId: "kubrart_vector_cel_ink_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k05_polyhedral_rift_arbiter.png",
+      ability: {
+        id: "ab_law_prism_edict",
+        name: "Law-Prism Edict",
+        text: "Same/Plus Decree: Locks equal-sum orthogonal clashes in your favor and fortifies all 4 sides by +1."
+      },
+      morphologicalPrompt:
+        "armored law arbiter floating inside an interlocking polyhedral crystal cage, stark sumi-ink negative space contrasted with luminous violet, cyan, and gold vector-cel planes"
+    },
+    {
+      id: "set2_k06",
+      name: "Sumi-e Crimson Ronin",
+      faction: "Abyss",
+      nesw: [8, 9, 5, 6],
+      cost: 3,
+      tier: 3,
+      modelId: "manga_sumi_ink_seinen_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k06_sumi_crimson_ronin.png",
+      ability: {
+        id: "ab_crimson_iaijutsu",
+        name: "Crimson G-Pen Iaijutsu",
+        text: "First Strike: Slashes the East orthogonal target for -2 West defense before directional comparison."
+      },
+      morphologicalPrompt:
+        "seinen manga wandering ronin mid-iaijutsu sword draw, dense monochrome G-pen crosshatching on warm bone-ivory #F2ECE1 parchment, vivid crimson #FF2E54 ink blade trail"
+    },
+    {
+      id: "set2_k07",
+      name: "G-Pen Ivory Inquisitor",
+      faction: "Solaris",
+      nesw: [6, 8, 6, 5],
+      cost: 2,
+      tier: 2,
+      modelId: "manga_sumi_ink_seinen_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k07_gpen_ivory_inquisitor.png",
+      ability: {
+        id: "ab_crosshatch_penance",
+        name: "Crosshatched Verdict",
+        text: "On Capture: Drains 1 Aether Charge from the opponent and converts it into a bone-ivory ward."
+      },
+      morphologicalPrompt:
+        "baroque cathedral inquisitor knight rendered in intricate G-pen sumi-e ink crosshatching on bone-ivory paper, engraved plate armor with vivid crimson ink accents"
+    },
+    {
+      id: "set2_k08",
+      name: "Crosshatch Crimson Kunoichi",
+      faction: "Abyss",
+      nesw: [7, 6, 5, 8],
+      cost: 2,
+      tier: 2,
+      modelId: "manga_sumi_ink_seinen_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k08_crosshatch_blood_kunoichi.png",
+      ability: {
+        id: "ab_sumi_smoke_step",
+        name: "Sumi-e Smoke Step",
+        text: "Stealth Infiltration: Can swap positions with an uncontested allied card once per match."
+      },
+      morphologicalPrompt:
+        "stealth kunoichi assassin leaping through dense G-pen crosshatched sumi-e ink smoke on bone-ivory paper, long flowing crimson scarf trail and twin chained kunai"
+    },
+    {
+      id: "set2_k09",
+      name: "Baroque Sumi-Ink Cenobite",
+      faction: "Abyss",
+      nesw: [7, 7, 8, 6],
+      cost: 3,
+      tier: 3,
+      modelId: "manga_sumi_ink_seinen_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k09_baroque_ink_cenobite.png",
+      ability: {
+        id: "ab_obsidian_chain_bind",
+        name: "Obsidian Chain Bind",
+        text: "Aura: Prevents adjacent enemy cards from triggering Combo chain flips."
+      },
+      morphologicalPrompt:
+        "dark fantasy baroque cenobite guardian in heavily crosshatched G-pen plate armor, bone-ivory halo ring and vivid crimson ink lantern chains"
+    },
+    {
+      id: "set2_k10",
+      name: "Seinen Ash Executioner",
+      faction: "Abyss",
+      nesw: [9, 8, 7, 7],
+      cost: 4,
+      tier: 4,
+      modelId: "manga_sumi_ink_seinen_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k10_seinen_ash_executioner.png",
+      ability: {
+        id: "ab_crimson_guillotine_cleave",
+        name: "Crimson Greatsword Cleave",
+        text: "Overpower: When capturing a North or East target, deals 1 splash rank reduction to remaining enemy neighbors."
+      },
+      morphologicalPrompt:
+        "colossal dark fantasy executioner knight with serrated greatsword, dense seinen G-pen crosshatching on bone-ivory paper with dramatic crimson ink slash accents"
+    },
+    {
+      id: "set2_k11",
+      name: "Kagenashi Star-Flare Vanguard",
+      faction: "Solaris",
+      nesw: [9, 7, 6, 7],
+      cost: 3,
+      tier: 3,
+      modelId: "anime_sakuga_kagenashi_v2",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k11_kagenashi_starflare_phoenix.png",
+      ability: {
+        id: "ab_24fps_ignition_burst",
+        name: "24fps Star-Flare Ignition",
+        text: "Sakuga Cut-In: Gains +2 North on the turn it is deployed and emits a 4-point gold flare shield."
+      },
+      morphologicalPrompt:
+        "24fps TV anime key-animation solar vanguard hero launching upward in an explosion of four-point gold #FFB800 star-flares, hard kagenashi shadow blocks, chromatic aberration edges"
+    },
+    {
+      id: "set2_k12",
+      name: "24fps Sakuga Smear Bladerunner",
+      faction: "Valkyria",
+      nesw: [6, 8, 5, 7],
+      cost: 2,
+      tier: 2,
+      modelId: "anime_sakuga_kagenashi_v2",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k12_sakuga_smear_bladerunner.png",
+      ability: {
+        id: "ab_smear_frame_dash",
+        name: "Key-Frame Smear Dash",
+        text: "Haste: Treats East and West values as +1 higher when attacking on odd-numbered turns."
+      },
+      morphologicalPrompt:
+        "dynamic foreshortened anime cyber-bladerunner mid-slash with kinetic smear-frame plasma arc, hard kagenashi shadow planes, four-point gold and cyan star-flares"
+    },
+    {
+      id: "set2_k13",
+      name: "Chroma-Split Impact Chronomancer",
+      faction: "Chronos",
+      nesw: [7, 7, 8, 7],
+      cost: 3,
+      tier: 3,
+      modelId: "anime_sakuga_kagenashi_v2",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k13_chroma_split_chronomancer.png",
+      ability: {
+        id: "ab_frame_skip_rewind",
+        name: "24fps Frame-Skip Rewind",
+        text: "Temporal Lock: Once per game, negates an enemy Plus/Same chain flip against this card."
+      },
+      morphologicalPrompt:
+        "anime chronomancer shattering a giant golden clockface in a 24fps sakuga impact frame, chromatic aberration RGB split, hard kagenashi cel shadows, four-point star flares"
+    },
+    {
+      id: "set2_k14",
+      name: "Four-Point Starflare Seraph",
+      faction: "Solaris",
+      nesw: [9, 8, 8, 6],
+      cost: 4,
+      tier: 4,
+      modelId: "anime_sakuga_kagenashi_v2",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k14_hyper_flare_seraph.png",
+      ability: {
+        id: "ab_celestial_sakuga_chorus",
+        name: "Celestial Sakuga Finale",
+        text: "Ascension: If you control 3+ Solaris or Valkyria cards, all allied cards gain +1 to their lowest direction."
+      },
+      morphologicalPrompt:
+        "radiant six-winged anime seraph knight unleashing a blinding four-point gold star-flare beam, 24fps kagenashi keyframe shading, bold crimson and cyan rim highlights"
+    },
+    {
+      id: "set2_k15",
+      name: "Impact-Frame Astral Striker",
+      faction: "Aether",
+      nesw: [8, 6, 5, 6],
+      cost: 2,
+      tier: 2,
+      modelId: "anime_sakuga_kagenashi_v2",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k15_impact_frame_berserker.png",
+      ability: {
+        id: "ab_kagenashi_meteor_fist",
+        name: "Kagenashi Meteor Impact",
+        text: "Breach: Ignores Shield tokens on the North target during deployment resolution."
+      },
+      morphologicalPrompt:
+        "tapered-gauntlet anime astral brawler delivering a foreshortened impact-frame punch, 24fps kagenashi shadow blocks, gold four-point star flare and chromatic edge split"
+    },
+    {
+      id: "set2_k16",
+      name: "Cyber-Magicite Archon Mk.IV",
+      faction: "Valkyria",
+      nesw: [8, 9, 7, 8],
+      cost: 4,
+      tier: 4,
+      modelId: "cyber_mecha_orthographic_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k16_cyber_magicite_archon_mk4.png",
+      ability: {
+        id: "ab_orthographic_target_lock",
+        name: "Orthographic Target Lock",
+        text: "Mecha Overdrive: Scans all orthogonal lanes and grants +1 to every direction facing a Boss or Construct."
+      },
+      morphologicalPrompt:
+        "7.5-head cyber-magicite archon mecha unit with sleek beveled white-and-cobalt armor plates, translucent astral cyan energy wings, luminous jade-teal cockpit visor, CMYK screentone dot-matrix"
+    },
+    {
+      id: "set2_k17",
+      name: "Orthographic Railgun Dragoon",
+      faction: "Valkyria",
+      nesw: [9, 7, 5, 7],
+      cost: 3,
+      tier: 3,
+      modelId: "cyber_mecha_orthographic_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k17_orthographic_railgun_valkyrie.png",
+      ability: {
+        id: "ab_hypervelocity_rail_pierce",
+        name: "Hyper-Velocity Rail Pierce",
+        text: "Line Snipe: Can contest an enemy card 2 tiles North across an empty center square."
+      },
+      morphologicalPrompt:
+        "7.5-head cyber-magicite aerial dragoon mecha aiming a long-barrel electromagnetic rail-lance, beveled energy wings, glowing cyan visor, CMYK halftone screentone dot-matrix"
+    },
+    {
+      id: "set2_k18",
+      name: "Blueprint Halftone Aegis Titan",
+      faction: "Chronos",
+      nesw: [6, 8, 9, 6],
+      cost: 3,
+      tier: 3,
+      modelId: "cyber_mecha_orthographic_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k18_blueprint_halftone_bastion.png",
+      ability: {
+        id: "ab_normal_bridge_bulwark",
+        name: "Orthographic Aegis Bulwark",
+        text: "Fortify: Cannot be flipped from the South or East during the first turn after deployment."
+      },
+      morphologicalPrompt:
+        "heavy 7.5-head cyber-magicite bastion mecha frame deploying interlocking hexagonal energy shields, orthographic blueprint reticle lines, CMYK halftone screentone dot-matrix"
+    },
+    {
+      id: "set2_k19",
+      name: "Beveled Energy-Wing Interceptor",
+      faction: "Valkyria",
+      nesw: [7, 7, 5, 7],
+      cost: 2,
+      tier: 2,
+      modelId: "cyber_mecha_orthographic_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k19_beveled_wing_interceptor.png",
+      ability: {
+        id: "ab_vectored_thruster_pivot",
+        name: "Vectored Thruster Pivot",
+        text: "On Deploy: May rotate its NESW directional values 90 degrees clockwise to match tactical threats."
+      },
+      morphologicalPrompt:
+        "high-speed 7.5-head cyber-magicite interceptor mecha with six beveled jade-cyan energy wings, tapered thruster boots, crisp orthographic panel linework"
+    },
+    {
+      id: "set2_k20",
+      name: "CMYK Screentone Omega Frame",
+      faction: "Chronos",
+      nesw: [9, 9, 8, 7],
+      cost: 4,
+      tier: 4,
+      modelId: "cyber_mecha_orthographic_v1",
+      art: "./GeneratedArt/Set2KubrartManga/set2_k20_cmyk_screentone_omega_core.png",
+      ability: {
+        id: "ab_omega_chronos_synchrony",
+        name: "Omega Reactor Synchrony",
+        text: "Apex Construct: Gains +1 to all directions if your deck contains Cards from all 4 Set 2 Anime/Manga Lineages."
+      },
+      morphologicalPrompt:
+        "sovereign 7.5-head omega cyber-magicite mecha commander with twin solar-amber and astral-cyan reactor halos, beveled energy wings, CMYK screentone dot-matrix"
+    }
+  ];
+
   function resolveIllustrationModel(modelIdOrKey) {
     if (!modelIdOrKey) {
       return ANIME_MANGA_ILLUSTRATION_MODELS[0];
@@ -706,7 +1057,9 @@
         model.colorSignature[1] || preset.secondaryColor
       );
 
-      const previewCanvas = document.getElementById("anime-manga-preview-canvas");
+      const previewCanvas =
+        document.getElementById("anime-studio-preview-canvas") ||
+        document.getElementById("anime-manga-preview-canvas");
       if (previewCanvas) {
         renderMangaStylePreviewCanvas(previewCanvas, model.id);
       }
@@ -725,24 +1078,155 @@
     };
   }
 
+  /**
+   * Requests a live or cached RTX 4080 ComfyUI (`http://192.168.86.30:8188`) card portrait
+   * render via `POST /api/anime/generate` and updates `#anime-studio-preview-canvas` and
+   * `#anime-studio-active-meta` with the live RTX 4080 render telemetry.
+   */
+  async function requestLiveRtx4080CardRender(
+    modelId = "kubrart_vector_cel_ink_v1",
+    cardId = "set2_k01",
+    customPrompt = ""
+  ) {
+    const model = resolveIllustrationModel(modelId);
+    const card =
+      SET2_KUBRART_MANGA_CARDS.find((c) => c.id === cardId) ||
+      SET2_KUBRART_MANGA_CARDS.find((c) => c.modelId === model.id) ||
+      SET2_KUBRART_MANGA_CARDS[0];
+
+    const promptText =
+      (customPrompt && String(customPrompt).trim()) ||
+      (card && card.morphologicalPrompt) ||
+      model.morphologicalPrompt;
+
+    const payload = {
+      modelId: model.id,
+      model_id: model.id,
+      adapterId: model.adapterId,
+      loraFile: model.loraFile,
+      baseCheckpoint: model.baseCheckpoint,
+      shaderPreset: model.shaderPreset,
+      cardId: card ? card.id : cardId,
+      card_id: card ? card.id : cardId,
+      cardName: card ? card.name : cardId,
+      faction: card ? card.faction : "Aether",
+      prompt: promptText,
+      width: 600,
+      height: 800
+    };
+
+    let apiResponse = null;
+    const t0 = typeof performance !== "undefined" ? performance.now() : Date.now();
+    if (typeof fetch === "function") {
+      try {
+        const resp = await fetch("/api/anime/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        if (resp && resp.ok) {
+          apiResponse = await resp.json();
+        }
+      } catch (_fetchErr) {
+        apiResponse = null;
+      }
+    }
+    const elapsedMs = Math.max(
+      1,
+      Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - t0)
+    );
+
+    const resolvedArt =
+      (apiResponse &&
+        (apiResponse.artUrl ||
+          apiResponse.image_url ||
+          apiResponse.art ||
+          (apiResponse.card && apiResponse.card.art))) ||
+      (card ? card.art : "./GeneratedArt/Set2KubrartManga/set2_k01_kubrart_eclipse_sovereign.png");
+
+    let previewCanvas = null;
+    let metaEl = null;
+    if (typeof document !== "undefined") {
+      previewCanvas =
+        document.getElementById("anime-studio-preview-canvas") ||
+        document.getElementById("anime-manga-preview-canvas");
+      metaEl = document.getElementById("anime-studio-active-meta");
+
+      if (previewCanvas) {
+        renderMangaStylePreviewCanvas(previewCanvas, model.id);
+        if (typeof Image !== "undefined" && resolvedArt) {
+          try {
+            const img = new Image();
+            img.crossOrigin = "anonymous";
+            img.onload = function onSet2ArtLoaded() {
+              renderMangaStylePreviewCanvas(previewCanvas, model.id, img);
+            };
+            img.src = resolvedArt;
+          } catch (_imgErr) {
+            // Procedural + screentone canvas already rendered above
+          }
+        }
+      }
+
+      if (metaEl) {
+        const checkpointUsed =
+          (apiResponse && (apiResponse.checkpoint || apiResponse.baseCheckpoint)) ||
+          model.baseCheckpoint;
+        const shaShort =
+          apiResponse && apiResponse.sha256 ? String(apiResponse.sha256).slice(0, 12) : "600x800-RGB";
+        metaEl.innerHTML =
+          `Active Model: <b style="color:var(--gold);">${model.name}</b><br/>` +
+          `<span style="color:#94a3b8;font-size:11px;">` +
+          `Set 2 Card: <b style="color:#38bdf8;">${card ? card.id : cardId} · ${card ? card.name : ""}</b> · ` +
+          `RTX 4080 (${checkpointUsed}) · ${elapsedMs}ms · ${shaShort}` +
+          `</span>`;
+        metaEl.dataset.lastRenderedModelId = model.id;
+        metaEl.dataset.lastRenderedCardId = card ? card.id : cardId;
+        metaEl.dataset.lastRenderedArt = resolvedArt;
+      }
+    }
+
+    return {
+      ok: true,
+      rendered: true,
+      modelId: model.id,
+      cardId: card ? card.id : cardId,
+      cardName: card ? card.name : cardId,
+      faction: card ? card.faction : "Aether",
+      baseCheckpoint: model.baseCheckpoint,
+      loraFile: model.loraFile,
+      shaderPreset: model.shaderPreset,
+      art: resolvedArt,
+      comfyUiEndpoint: "http://192.168.86.30:8188",
+      elapsedMs: elapsedMs,
+      canvasUpdated: Boolean(previewCanvas),
+      metaUpdated: Boolean(metaEl),
+      apiResponse: apiResponse
+    };
+  }
+
   const CardFrontAnimeMangaStudio = {
-    version: "1.0.0",
+    version: "2.0.0",
     zeroLivingArtistNames: true,
     comfyUiEndpoint: "http://192.168.86.30:8188",
     LIVE_COMFYUI_BASE_CHECKPOINTS: LIVE_COMFYUI_BASE_CHECKPOINTS,
     MULTIMODAL_VISION_CRITICS: MULTIMODAL_VISION_CRITICS,
     ANIME_MANGA_ILLUSTRATION_MODELS: ANIME_MANGA_ILLUSTRATION_MODELS,
     MANGA_SCREENTONE_SHADERS: MANGA_SCREENTONE_SHADERS,
+    SET2_KUBRART_MANGA_CARDS: SET2_KUBRART_MANGA_CARDS,
     resolveIllustrationModel: resolveIllustrationModel,
     renderMangaStylePreviewCanvas: renderMangaStylePreviewCanvas,
-    applyIllustrationModelToTabletop: applyIllustrationModelToTabletop
+    applyIllustrationModelToTabletop: applyIllustrationModelToTabletop,
+    requestLiveRtx4080CardRender: requestLiveRtx4080CardRender
   };
 
   globalScope.CardFrontAnimeMangaStudio = CardFrontAnimeMangaStudio;
   globalScope.ANIME_MANGA_ILLUSTRATION_MODELS = ANIME_MANGA_ILLUSTRATION_MODELS;
   globalScope.MANGA_SCREENTONE_SHADERS = MANGA_SCREENTONE_SHADERS;
+  globalScope.SET2_KUBRART_MANGA_CARDS = SET2_KUBRART_MANGA_CARDS;
   globalScope.renderMangaStylePreviewCanvas = renderMangaStylePreviewCanvas;
   globalScope.applyIllustrationModelToTabletop = applyIllustrationModelToTabletop;
+  globalScope.requestLiveRtx4080CardRender = requestLiveRtx4080CardRender;
 
   globalScope.CardFrontModules = globalScope.CardFrontModules || {};
   globalScope.CardFrontModules.AnimeMangaStudio = CardFrontAnimeMangaStudio;

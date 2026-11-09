@@ -1,5 +1,5 @@
 {
-    "timestampUtc": "2026-11-09T13:07:42.0070430Z",
+    "timestampUtc": "2026-11-09T23:16:24.7720380Z",
     "unityVersion": "6000.6.8f1",
     "graphicsDeviceType": "Null",
     "projectPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked",
@@ -53,5 +53,17 @@
     "cardsWithAudioStemsBound": 113,
     "plusSameCascadeVerified": true,
     "plusSameCascadeFlipsCount": 2,
-    "drawReplacementCardVerified": true
+    "drawReplacementCardVerified": true,
+    "kubrartShaderPassVerified": true,
+    "activeIllustrationShaderKeyword": "_KUBRART_VECTOR_CEL",
+    "arenaDraftSquadVerified": true,
+    "arenaDraftSquadCards": [
+        "set2_01_kubrart_sun_seraph",
+        "set2_02_sumi_blade_ronin",
+        "set2_03_sakuga_apex_valkyrie",
+        "set2_04_mecha_halberd_zero",
+        "set2_05_tarot_arcana_empress"
+    ],
+    "mangaCutscene19ChaptersVerified": true,
+    "mangaCutsceneChapter1Summary": "CH01[ACT_I_SOLAR_SPIRE]:P1=Solar Spire Threshold Wide Shot|P2=Valerius Ignites Astral Conduit Slash (ドドド)|P3=Vespera's Echo Relic Awakens (ゴゴゴ)"
 }

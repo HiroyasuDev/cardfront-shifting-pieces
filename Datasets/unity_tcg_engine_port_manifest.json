@@ -23,7 +23,7 @@
   "runtime_sync": {
     "primary_cs": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
     "unpacked_cs": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Scripts/CardFront/CardFrontUnifiedRuntime.cs",
-    "bytes_synced": 74236
+    "bytes_synced": 87664
   },
   "art_sync": {
     "sakuga_strips_synced": 53,

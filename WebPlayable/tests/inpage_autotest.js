@@ -116,16 +116,25 @@ async function runVisualAutomatedPlaytest() {
       }
       seen.add(cid);
     }
-    const imgs = Array.from(document.querySelectorAll(".slot-art"));
-    await Promise.all(imgs.filter(i => !i.complete).map(i => new Promise(r => { i.onload = i.onerror = r; setTimeout(r, 400); })));
+    let imgs = Array.from(document.querySelectorAll(".slot-art"));
+    await Promise.all(imgs.map(i => {
+      if (i.complete && i.naturalWidth > 0) return Promise.resolve();
+      if (typeof i.decode === "function") return i.decode().catch(() => {});
+      return new Promise(r => { i.onload = i.onerror = r; setTimeout(r, 1200); });
+    }));
+    imgs = Array.from(document.querySelectorAll(".slot-art"));
     report.imagesChecked = Math.max(report.imagesChecked, imgs.length);
+    let currentAllLoaded = true;
+    let currentDimsOk = true;
     for (const img of imgs) {
       if (!img.complete || img.naturalWidth === 0) {
-        report.allImagesLoaded = false;
+        currentAllLoaded = false;
       } else if (img.naturalWidth !== 600 || img.naturalHeight !== 800) {
-        report.imageDimensionsVerified = false;
+        currentDimsOk = false;
       }
     }
+    report.allImagesLoaded = currentAllLoaded;
+    report.imageDimensionsVerified = currentDimsOk;
     const telegraphs = document.querySelectorAll(".card-telegraph-fx");
     report.telegraphSVGsRendered = Math.max(report.telegraphSVGsRendered, telegraphs.length);
   }

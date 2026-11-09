@@ -1,0 +1,555 @@
+{
+  "status": "PASS_GENIE4_WORLD_MODEL_INFERENCE",
+  "model_id": "genie4_world_model_causal_dit_v1",
+  "architecture": "Google DeepMind Genie 4 Interactive World Model (ST-ViViT + VQ-LAM + Causal-DiT + Audio-Visual Decoder)",
+  "spatial_latent_shape": [
+    36,
+    64
+  ],
+  "vq_action_codebook_size": 16,
+  "kv_memory_horizon_frames": 1440,
+  "flow_matching_steps": 4,
+  "target_fps": 24,
+  "frame_budget_ms": 41.6667,
+  "avg_frame_latency_ms": 3.8734,
+  "max_frame_latency_ms": 4.3976,
+  "within_24fps_budget": true,
+  "spatial_memory_revisit_consistency": {
+    "kv_memory_hit": true,
+    "cosine_similarity": 0.999898,
+    "consistent": true
+  },
+  "stages": {
+    "stage_1_st_vivit_tokenizer": {
+      "patch_grid": "6x6 spatial patches (2x2 per 3x3 board slot)",
+      "latent_tokens_shape": [
+        36,
+        64
+      ],
+      "causal_temporal_masking": true
+    },
+    "stage_2_unsupervised_lam_vq_vae": {
+      "codebook_size": 16,
+      "embedding_dim": 64,
+      "action_catalog": [
+        {
+          "code": 0,
+          "action_name": "PLACE_CARD_0",
+          "slot": 0,
+          "category": "BOARD_DEPLOY",
+          "description": "Deploy unit to Top-Left slot (0,0)"
+        },
+        {
+          "code": 1,
+          "action_name": "PLACE_CARD_1",
+          "slot": 1,
+          "category": "BOARD_DEPLOY",
+          "description": "Deploy unit to Top-Center slot (0,1)"
+        },
+        {
+          "code": 2,
+          "action_name": "PLACE_CARD_2",
+          "slot": 2,
+          "category": "BOARD_DEPLOY",
+          "description": "Deploy unit to Top-Right slot (0,2)"
+        },
+        {
+          "code": 3,
+          "action_name": "PLACE_CARD_3",
+          "slot": 3,
+          "category": "BOARD_DEPLOY",
+          "description": "Deploy unit to Mid-Left slot (1,0)"
+        },
+        {
+          "code": 4,
+          "action_name": "PLACE_CARD_4",
+          "slot": 4,
+          "category": "BOARD_DEPLOY",
+          "description": "Deploy unit to Center Beacon slot (1,1)"
+        },
+        {
+          "code": 5,
+          "action_name": "PLACE_CARD_5",
+          "slot": 5,
+          "category": "BOARD_DEPLOY",
+          "description": "Deploy unit to Mid-Right slot (1,2)"
+        },
+        {
+          "code": 6,
+          "action_name": "PLACE_CARD_6",
+          "slot": 6,
+          "category": "BOARD_DEPLOY",
+          "description": "Deploy unit to Bottom-Left slot (2,0)"
+        },
+        {
+          "code": 7,
+          "action_name": "PLACE_CARD_7",
+          "slot": 7,
+          "category": "BOARD_DEPLOY",
+          "description": "Deploy unit to Bottom-Center slot (2,1)"
+        },
+        {
+          "code": 8,
+          "action_name": "PLACE_CARD_8",
+          "slot": 8,
+          "category": "BOARD_DEPLOY",
+          "description": "Deploy unit to Bottom-Right slot (2,2)"
+        },
+        {
+          "code": 9,
+          "action_name": "TACTICAL_SLIDE_N",
+          "slot": -1,
+          "category": "ORTHO_SLIDE",
+          "description": "1x Tactical Slide Northward shift"
+        },
+        {
+          "code": 10,
+          "action_name": "TACTICAL_SLIDE_E",
+          "slot": -1,
+          "category": "ORTHO_SLIDE",
+          "description": "1x Tactical Slide Eastward shift"
+        },
+        {
+          "code": 11,
+          "action_name": "TACTICAL_SLIDE_S",
+          "slot": -1,
+          "category": "ORTHO_SLIDE",
+          "description": "1x Tactical Slide Southward shift"
+        },
+        {
+          "code": 12,
+          "action_name": "TACTICAL_SLIDE_W",
+          "slot": -1,
+          "category": "ORTHO_SLIDE",
+          "description": "1x Tactical Slide Westward shift"
+        },
+        {
+          "code": 13,
+          "action_name": "COLUMN_DIE_NUDGE",
+          "slot": -1,
+          "category": "DICE_MUTATION",
+          "description": "DiceVaders Column Die parity/multiplier nudge"
+        },
+        {
+          "code": 14,
+          "action_name": "SAME_PLUS_CASCADE",
+          "slot": -1,
+          "category": "RULE_CASCADE",
+          "description": "Triple Triad SAME / PLUS / COMBO_CASCADE wave"
+        },
+        {
+          "code": 15,
+          "action_name": "PROMPT_WORLD_EVENT",
+          "slot": -1,
+          "category": "WORLD_EVENT",
+          "description": "Promptable World Event & Causal-DiT Arena Mutation"
+        }
+      ]
+    },
+    "stage_3_action_conditioned_causal_dit": {
+      "conditioning": "AdaLN-Zero Action + Natural-Language Prompt Conditioning",
+      "flow_matching_steps": 4,
+      "kv_memory_horizon_frames": 1440,
+      "active_kv_cache_entries": 24
+    },
+    "stage_4_promptable_world_events": {
+      "event_count": 6,
+      "in_the_loop_tactical_mutation": true
+    },
+    "stage_5_multimodal_av_decoder": {
+      "target_fps": 24,
+      "frame_budget_ms": 41.6667,
+      "avg_latency_ms": 3.8734,
+      "procedural_audio_sync": true
+    }
+  },
+  "safetensors_checkpoint": {
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Models/LoRA/genie4_world_model_causal_dit_v1.safetensors",
+    "filename": "genie4_world_model_causal_dit_v1.safetensors",
+    "header_byte_length": 880,
+    "weight_buffer_byte_length": 43520,
+    "total_file_bytes": 44408,
+    "sha256": "1f214d603a87e59afa19b722829a8a07319fec8f2c61715773aee65601c8d3a1",
+    "tensor_count": 6,
+    "zero_nans_or_infs": true,
+    "tensors": [
+      {
+        "name": "st_tokenizer_patch_embed.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          36
+        ],
+        "num_elements": 2304,
+        "data_offsets": [
+          0,
+          4608
+        ],
+        "byte_length": 4608
+      },
+      {
+        "name": "lam_vq_codebook.weight",
+        "dtype": "F16",
+        "shape": [
+          16,
+          64
+        ],
+        "num_elements": 1024,
+        "data_offsets": [
+          4608,
+          6656
+        ],
+        "byte_length": 2048
+      },
+      {
+        "name": "causal_dit_block_0_attn_qkv.weight",
+        "dtype": "F16",
+        "shape": [
+          192,
+          64
+        ],
+        "num_elements": 12288,
+        "data_offsets": [
+          6656,
+          31232
+        ],
+        "byte_length": 24576
+      },
+      {
+        "name": "causal_dit_adaLN_action_mod.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          16
+        ],
+        "num_elements": 1024,
+        "data_offsets": [
+          31232,
+          33280
+        ],
+        "byte_length": 2048
+      },
+      {
+        "name": "kv_memory_horizon_proj.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          64
+        ],
+        "num_elements": 4096,
+        "data_offsets": [
+          33280,
+          41472
+        ],
+        "byte_length": 8192
+      },
+      {
+        "name": "multimodal_audio_head.weight",
+        "dtype": "F16",
+        "shape": [
+          16,
+          64
+        ],
+        "num_elements": 1024,
+        "data_offsets": [
+          41472,
+          43520
+        ],
+        "byte_length": 2048
+      }
+    ]
+  },
+  "promptable_world_events": [
+    {
+      "id": "ASTRAL_SOLAR_FLARE",
+      "name": "Astral Solar Flare & Law-Gold Corona",
+      "prompt_text": "Ignite an astral cyan and law-gold solar flare across the sky citadel, boosting North and South directional vectors by +1 and charging column dice.",
+      "morphological_art_direction": "stylized 7-head astral vanguard silhouette, vibrant watercolor cel-wash, pen-and-ink crosshatching over warm parchment-gold filigree, luminous solar corona rim light",
+      "latent_action_code": 15,
+      "tactical_effect": {
+        "summary": "+1 N and +1 S directional pips on all active board cards; Column 0 die boosted by +1 (max 6).",
+        "delta_nesw": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "target_filter": "all_units",
+        "col_dice_delta": [
+          1,
+          0,
+          0
+        ],
+        "refresh_slide": false
+      },
+      "mutated_slots_count": 5,
+      "updated_col_dice": [
+        4,
+        4,
+        2
+      ],
+      "visual_palette": [
+        "#00E5FF",
+        "#FFB800",
+        "#FFE082",
+        "#0F172A"
+      ],
+      "audio_freq_hz": 528.0,
+      "audio_synth_profile": {
+        "waveform": "triangle",
+        "carrier_hz": 528.0,
+        "sub_harmonic_hz": 264.0,
+        "lfo_rate_hz": 4.5,
+        "reverb_decay_s": 1.6
+      },
+      "post_event_latent_norm": 4.71503,
+      "inference_latency_ms": 3.6877,
+      "verified": true
+    },
+    {
+      "id": "KUBRART_PRISM_SHATTER",
+      "name": "Kubrart Vector-Cel Prism Shatter",
+      "prompt_text": "Shatter the arena into stark sumi-ink negative space and razor-sharp vector-cel prisms, amplifying East and West edges by +1 for SAME/PLUS cascades.",
+      "morphological_art_direction": "stark negative-space sumi-ink blocks, razor-sharp vector-cel contours, 7-head stylized silhouette, chromatic cyan-and-crimson rim split, flat kagenashi shadow planes",
+      "latent_action_code": 14,
+      "tactical_effect": {
+        "summary": "+1 E and +1 W directional pips on all active board cards; Column 1 die aligned for SAME/PLUS resonance.",
+        "delta_nesw": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "target_filter": "all_units",
+        "col_dice_delta": [
+          0,
+          1,
+          0
+        ],
+        "refresh_slide": false
+      },
+      "mutated_slots_count": 5,
+      "updated_col_dice": [
+        3,
+        5,
+        2
+      ],
+      "visual_palette": [
+        "#090D16",
+        "#00E5FF",
+        "#FF2E54",
+        "#F8FAFC"
+      ],
+      "audio_freq_hz": 660.0,
+      "audio_synth_profile": {
+        "waveform": "sawtooth",
+        "carrier_hz": 660.0,
+        "sub_harmonic_hz": 330.0,
+        "lfo_rate_hz": 8.0,
+        "reverb_decay_s": 1.2
+      },
+      "post_event_latent_norm": 4.73103,
+      "inference_latency_ms": 4.256,
+      "verified": true
+    },
+    {
+      "id": "ABYSSAL_BLOOD_ECLIPSE",
+      "name": "Abyssal Obsidian Blood Eclipse",
+      "prompt_text": "Summon an obsidian crimson-flame blood eclipse over the monolith, draining 1 pip from enemy North edges while empowering player South/West edges by +1.",
+      "morphological_art_direction": "chiaroscuro obsidian-ivory tarot monolith, concentric eclipse halo linework, crimson-flame and tarot violet cel wash, high-contrast faction silhouettes",
+      "latent_action_code": 15,
+      "tactical_effect": {
+        "summary": "-1 N pip on enemy cards (min 1); +1 S and +1 W pips on player cards; Column 2 die charged to 6.",
+        "delta_nesw": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "enemy_delta_nesw": [
+          -1,
+          0,
+          0,
+          0
+        ],
+        "target_filter": "faction_split",
+        "col_dice_delta": [
+          0,
+          0,
+          2
+        ],
+        "refresh_slide": false
+      },
+      "mutated_slots_count": 5,
+      "updated_col_dice": [
+        3,
+        4,
+        4
+      ],
+      "visual_palette": [
+        "#FF2E54",
+        "#F97316",
+        "#090D16",
+        "#A855F7"
+      ],
+      "audio_freq_hz": 196.0,
+      "audio_synth_profile": {
+        "waveform": "sawtooth",
+        "carrier_hz": 196.0,
+        "sub_harmonic_hz": 98.0,
+        "lfo_rate_hz": 2.4,
+        "reverb_decay_s": 2.2
+      },
+      "post_event_latent_norm": 4.813016,
+      "inference_latency_ms": 3.434,
+      "verified": true
+    },
+    {
+      "id": "CHRONOS_TIME_DILATION",
+      "name": "Chronos 1440-Frame Time Dilation",
+      "prompt_text": "Dilate the brass astrolabe time stream across the 1440-frame KV-memory horizon, restoring the player's 1x Tactical Slide charge and advancing all column dice.",
+      "morphological_art_direction": "brass astrolabe rings over warm parchment-gold filigree, stylized 6.5-to-7.5-head chronomancer proportions, luminous jade-teal temporal ripples",
+      "latent_action_code": 13,
+      "tactical_effect": {
+        "summary": "Restores 1x Tactical Slide charge (slideUsed = false) and increments all 3 column dice by +1.",
+        "delta_nesw": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "target_filter": "player_units",
+        "col_dice_delta": [
+          1,
+          1,
+          1
+        ],
+        "refresh_slide": true
+      },
+      "mutated_slots_count": 3,
+      "updated_col_dice": [
+        4,
+        5,
+        3
+      ],
+      "visual_palette": [
+        "#FFB800",
+        "#2EE6D3",
+        "#38BDF8",
+        "#1E293B"
+      ],
+      "audio_freq_hz": 432.0,
+      "audio_synth_profile": {
+        "waveform": "sine",
+        "carrier_hz": 432.0,
+        "sub_harmonic_hz": 216.0,
+        "lfo_rate_hz": 3.0,
+        "reverb_decay_s": 2.5
+      },
+      "post_event_latent_norm": 4.986342,
+      "inference_latency_ms": 4.1487,
+      "verified": true
+    },
+    {
+      "id": "NEO_ARCADIA_CYBER_RAIN",
+      "name": "Neo-Arcadia Cyber-Magicite Rain",
+      "prompt_text": "Project neon jade-teal cyber-magicite rain and orthographic hologram grids across the 3x3 tabletop, boosting center beacon and corner units by +1 all directions.",
+      "morphological_art_direction": "stylized 7.5-head cyber-magicite mecha frame, sleek beveled armor edges, precision orthographic panel-line drafting, jade-teal and astral cyan hologram rain",
+      "latent_action_code": 4,
+      "tactical_effect": {
+        "summary": "+1 N/E/S/W pips on center slot (1,1) and corner slots; stabilizes lowest column die to >= 5.",
+        "delta_nesw": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "target_filter": "center_and_corners",
+        "col_dice_delta": [
+          0,
+          1,
+          1
+        ],
+        "refresh_slide": false
+      },
+      "mutated_slots_count": 5,
+      "updated_col_dice": [
+        3,
+        5,
+        3
+      ],
+      "visual_palette": [
+        "#2EE6D3",
+        "#00E5FF",
+        "#A855F7",
+        "#0B132B"
+      ],
+      "audio_freq_hz": 587.33,
+      "audio_synth_profile": {
+        "waveform": "triangle",
+        "carrier_hz": 587.33,
+        "sub_harmonic_hz": 293.66,
+        "lfo_rate_hz": 6.0,
+        "reverb_decay_s": 1.8
+      },
+      "post_event_latent_norm": 5.157944,
+      "inference_latency_ms": 3.9367,
+      "verified": true
+    },
+    {
+      "id": "SAKUGA_24FPS_OVERDRIVE",
+      "name": "Sakuga 24fps Kagenashi Overdrive",
+      "prompt_text": "Unleash 24fps kagenashi key-animation impact frames and four-point star-flares, granting +1 across all four directional edges on player vanguard units.",
+      "morphological_art_direction": "24fps kagenashi key-animation rim lighting, four-point star-flare burst, dense radial shonen convergence speedlines, high-contrast faction silhouettes",
+      "latent_action_code": 15,
+      "tactical_effect": {
+        "summary": "+1 N/E/S/W directional pips on all player-owned units; sets all column dice >= 4.",
+        "delta_nesw": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "target_filter": "player_units",
+        "col_dice_delta": [
+          1,
+          1,
+          1
+        ],
+        "refresh_slide": true
+      },
+      "mutated_slots_count": 3,
+      "updated_col_dice": [
+        4,
+        5,
+        4
+      ],
+      "visual_palette": [
+        "#FF2E54",
+        "#00E5FF",
+        "#FFB800",
+        "#FFFFFF"
+      ],
+      "audio_freq_hz": 783.99,
+      "audio_synth_profile": {
+        "waveform": "sawtooth",
+        "carrier_hz": 783.99,
+        "sub_harmonic_hz": 392.0,
+        "lfo_rate_hz": 12.0,
+        "reverb_decay_s": 1.4
+      },
+      "post_event_latent_norm": 5.305195,
+      "inference_latency_ms": 3.8369,
+      "verified": true
+    }
+  ],
+  "verified_world_events": [
+    "ASTRAL_SOLAR_FLARE",
+    "KUBRART_PRISM_SHATTER",
+    "ABYSSAL_BLOOD_ECLIPSE",
+    "CHRONOS_TIME_DILATION",
+    "NEO_ARCADIA_CYBER_RAIN",
+    "SAKUGA_24FPS_OVERDRIVE"
+  ],
+  "sample_rollout_steps": 17
+}

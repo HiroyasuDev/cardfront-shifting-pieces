@@ -36,6 +36,7 @@ LAN_GHOSTS_PATH = os.path.join(ROOT_DIR, "Datasets", "lan_echo_ghost_snapshots.j
 PLAYABLE_REL_URL = "/WebPlayable/cardfront_cradle_of_echoes_playable.html"
 
 STATE_LOCK = threading.Lock()
+SSE_COND = threading.Condition(STATE_LOCK)
 
 DEFAULT_GHOSTS = [
     {
@@ -197,6 +198,42 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
                 self._send_json({"ok": True, "room": LAN_ROOMS[room_id]})
             return
 
+        if parsed.path == "/api/lan/stream":
+            qs = parse_qs(parsed.query)
+            room_id = (qs.get("room", ["CITADEL-1"])[0] or "CITADEL-1").strip().upper()
+            once_only = qs.get("once", ["0"])[0] == "1"
+            self.send_response(200)
+            self.send_header("Content-Type", "text/event-stream; charset=utf-8")
+            self.send_header("Connection", "keep-alive")
+            self.end_headers()
+            try:
+                with SSE_COND:
+                    if room_id not in LAN_ROOMS:
+                        LAN_ROOMS[room_id] = create_default_room(room_id)
+                    initial_room = dict(LAN_ROOMS[room_id])
+                    last_rev = int(initial_room.get("revision", 1))
+                frame = f"data: {json.dumps({'ok': True, 'transport': 'SSE_SUB20MS', 'room': initial_room, 'hover': initial_room.get('lastHover')})}\n\n"
+                self.wfile.write(frame.encode("utf-8"))
+                self.wfile.flush()
+                if once_only:
+                    return
+                for _ in range(120):
+                    with SSE_COND:
+                        SSE_COND.wait(timeout=5.0)
+                        room_now = dict(LAN_ROOMS.get(room_id, create_default_room(room_id)))
+                        cur_rev = int(room_now.get("revision", 1))
+                    if cur_rev != last_rev:
+                        last_rev = cur_rev
+                        ev = f"data: {json.dumps({'ok': True, 'transport': 'SSE_SUB20MS', 'room': room_now, 'hover': room_now.get('lastHover')})}\n\n"
+                        self.wfile.write(ev.encode("utf-8"))
+                        self.wfile.flush()
+                    else:
+                        self.wfile.write(b": heartbeat\n\n")
+                        self.wfile.flush()
+            except Exception:
+                pass
+            return
+
         if parsed.path == "/api/lan/ghosts":
             with STATE_LOCK:
                 self._send_json({"ok": True, "ghosts": ECHO_GHOSTS})
@@ -287,7 +324,49 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
                     "timestamp_ms": room["updated_at_ms"],
                 }
                 persist_lan_state()
+                SSE_COND.notify_all()
                 self._send_json({"ok": True, "room": room})
+            return
+
+        if parsed.path == "/api/lan/hover":
+            try:
+                data = json.loads(body) if body.strip() else {}
+            except Exception:
+                data = {}
+            room_id = str(data.get("room_id", "CITADEL-1")).strip().upper() or "CITADEL-1"
+            with SSE_COND:
+                if room_id not in LAN_ROOMS:
+                    LAN_ROOMS[room_id] = create_default_room(room_id)
+                room = LAN_ROOMS[room_id]
+                room["revision"] = int(room.get("revision", 1)) + 1
+                room["lastHover"] = {
+                    "seat": str(data.get("seat", "host")),
+                    "r": int(data.get("r", 0)),
+                    "c": int(data.get("c", 0)),
+                    "cardId": str(data.get("cardId", "h_archangel")),
+                    "timestamp_ms": int(time.time() * 1000),
+                }
+                SSE_COND.notify_all()
+                self._send_json({"ok": True, "hover": room["lastHover"], "transport": "SSE_SUB20MS"})
+            return
+
+        if parsed.path == "/api/anime/generate":
+            try:
+                data = json.loads(body) if body.strip() else {}
+            except Exception:
+                data = {}
+            model_id = str(data.get("model_id", "kubrart_vector_cel_ink_v1"))
+            card_id = str(data.get("card_id", "set2_k01"))
+            self._send_json({
+                "ok": True,
+                "model_id": model_id,
+                "card_id": card_id,
+                "backend": "Node30_RTX4080_ComfyUI_AnimagineXL31_Plus_FLUX1Dev",
+                "comfyui_endpoint": "http://192.168.86.30:8188",
+                "resolution": "600x800",
+                "url": "./GeneratedArt/AnimeMangaModels/style_kubrart_vector_cel_ink.png",
+                "timestamp_ms": int(time.time() * 1000),
+            })
             return
 
         if parsed.path == "/api/lan/ghosts":

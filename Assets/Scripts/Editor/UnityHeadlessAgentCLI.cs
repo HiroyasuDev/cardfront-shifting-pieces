@@ -31,6 +31,8 @@ namespace Synapse.TcgEngine.EditorTools
         public string lanSimulationStatus;
         public string lanStateHashHex;
         public int lanTcpPacketsExchanged;
+        public bool threeActCampaignVerified;
+        public string threeActCampaignSummary;
         public string status;
     }
     [Serializable]
@@ -52,6 +54,8 @@ namespace Synapse.TcgEngine.EditorTools
         public float diceResonanceSampleMultiplier;
         public int directionalFlipsVerified;
         public string echoGhostSampleHmac;
+        public bool threeActCampaignVerified;
+        public string threeActCampaignSummary;
         public string status;
     }
 
@@ -125,6 +129,8 @@ namespace Synapse.TcgEngine.EditorTools
 
             EchoGhostSnapshot ghost = EchoGhostPvPManager.CaptureGhostSnapshot(baselineGame.players[0], 1850, 12);
             var sovereignPlugins = AgentCommandDeckRegistry.GetSovereignPluginCards();
+            string campaignSummary;
+            bool campaignVerified = CardFrontUnifiedRuntime.RunThreeActCampaignGauntletSimulation(out campaignSummary);
 
             UnityHeadlessAgentReport report = new UnityHeadlessAgentReport
             {
@@ -144,6 +150,8 @@ namespace Synapse.TcgEngine.EditorTools
                 diceResonanceSampleMultiplier = playRes.resonance_multiplier,
                 directionalFlipsVerified = playRes.adjacent_enemy_cards_flipped,
                 echoGhostSampleHmac = ghost.snapshot_hmac_sha256,
+                threeActCampaignVerified = campaignVerified,
+                threeActCampaignSummary = campaignSummary,
                 status = "PASS_UNITY_6000_HEADLESS_AGENT_PIPELINE"
             };
 
@@ -227,6 +235,9 @@ namespace Synapse.TcgEngine.EditorTools
             }
             string managedDllPath = Path.Combine(appBundlePath, "Contents/Resources/Data/Managed/Assembly-CSharp.dll");
 
+            string campaignSummary;
+            bool campaignVerified = CardFrontUnifiedRuntime.RunThreeActCampaignGauntletSimulation(out campaignSummary);
+
             MacOSStandaloneBuildReport macReport = new MacOSStandaloneBuildReport
             {
                 timestampUtc = DateTime.UtcNow.ToString("o"),
@@ -244,6 +255,8 @@ namespace Synapse.TcgEngine.EditorTools
                 lanSimulationStatus = lanReport.status,
                 lanStateHashHex = lanReport.finalServerStateHashHex,
                 lanTcpPacketsExchanged = lanReport.tcpPacketsExchanged,
+                threeActCampaignVerified = campaignVerified,
+                threeActCampaignSummary = campaignSummary,
                 status = summary.result == BuildResult.Succeeded && lanReport.stateHashLockstepParity
                     ? "PASS_MACOS_STANDALONE_BUILD_AND_LAN_MULTIPLAYER"
                     : $"BUILD_{summary.result}"

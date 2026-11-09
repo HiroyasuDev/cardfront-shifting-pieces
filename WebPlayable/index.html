@@ -1814,6 +1814,9 @@
       <button id="drawer-map-btn" onclick="openCampaignMapOverlay()" style="border-color:#38bdf8;color:#7dd3fc;" title="Open Citadel Campaign Map & Boss Dossier">Campaign Map</button>
       <button id="drawer-plugins-btn" onclick="equipSovereignPluginSquad()" style="border-color:#a855f7;color:#e9d5ff;" title="Equip the 4 Mythic Sovereign Agent Plugins into your active 5-card squad">Plugins (4)</button>
       <button id="drawer-anime-studio-btn" onclick="openAnimeMangaStudioModal()" style="border-color:#f43f5e;color:#fda4af;" title="Open 13-Model Anime & Manga Illustration Studio (Animagine XL 3.1, FLUX.1-dev, Kubrart Vector-Cel, Seinen G-Pen, 24fps Sakuga)">Anime Studio (13)</button>
+      <button id="drawer-manga-story-btn" onclick="openMangaChapterCutscene(state.stageIndex || 0)" style="border-color:#f59e0b;color:#fde68a;" title="Open 19-Chapter 3-Panel Slanted Manga Story Cutscene">Manga Story (19)</button>
+      <button id="drawer-arena-draft-btn" onclick="openRogueliteArenaDraftModal()" style="border-color:#10b981;color:#6ee7b7;" title="Open 5-Round Roguelite Arena Draft (117 Cards: Set 1 + Set 2 Kubrart + Sovereign Agent)">Arena Draft (117)</button>
+      <button id="drawer-genie4-btn" onclick="window.CardFrontGenie4Engine && window.CardFrontGenie4Engine.openGenie4WorldModelModal(state)" style="border-color:#38bdf8;color:#bae6fd;" title="Open Google Genie 4 Action-Conditioned Causal-DiT World Model Engine">Genie 4 World</button>
       <button id="drawer-lan-btn" onclick="toggleLanMultiplayerDuel()" style="border-color:#2ee6d3;color:#2ee6d3;" title="Live 2-MacBook LAN 1v1 Sync & Echo-Ghost PvP">LAN 1v1: OFF</button>
       <button id="drawer-pawn-btn" onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">3D Pawn</button>
       <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking">BGM: OFF</button>
@@ -2036,6 +2039,7 @@
         <button id="anime-studio-kubrart-btn" onclick="selectAnimeMangaStudioModel('kubrart_vector_cel_ink_v1')" style="background:linear-gradient(135deg,#e11d48,#881337);border-color:#fda4af;">Kubrart Vector-Cel</button>
         <button id="anime-studio-seinen-btn" onclick="selectAnimeMangaStudioModel('manga_sumi_ink_seinen_v1')" style="background:linear-gradient(135deg,#334155,#0f172a);border-color:#cbd5e1;">Seinen Sumi-e Ink</button>
         <button id="anime-studio-sakuga-btn" onclick="selectAnimeMangaStudioModel('anime_sakuga_kagenashi_v2')" style="background:linear-gradient(135deg,#0284c7,#1e3a8a);border-color:#7dd3fc;">24fps Sakuga Flare</button>
+        <button id="anime-studio-rtx4080-render-btn" onclick="window.CardFrontAnimeMangaStudio && window.CardFrontAnimeMangaStudio.requestLiveRtx4080CardRender(state.activeIllustrationModelId || 'kubrart_vector_cel_ink_v1', 'set2_k01')" style="background:linear-gradient(135deg,#7c3aed,#4c1d95);border-color:#ddd6fe;">Render Live on RTX 4080</button>
         <button onclick="closeAnimeMangaStudioModal()">Close</button>
       </div>
     </div>
@@ -2055,6 +2059,8 @@
 <script src="./modules/lan_duel_sync.js"></script>
 <script src="./modules/foley_audio_bank.js"></script>
 <script src="./modules/anime_manga_studio.js"></script>
+<script src="./modules/manga_story_and_arena_draft.js"></script>
+<script src="./modules/genie4_world_model_engine.js"></script>
 <script>
 if (location.search.includes("dragtest=1")) { window.addEventListener("error", (e) => { fetch("/__osascript_report__?name=dragerr", { method: "POST", body: JSON.stringify({ msg: e.message, line: e.lineno, col: e.colno }) }); }); }
 

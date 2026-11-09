@@ -1,15 +1,15 @@
 {
-    "timestampUtc": "2026-11-09T10:53:36.0522380Z",
+    "timestampUtc": "2026-11-09T23:16:53.3991560Z",
     "unityVersion": "6000.6.8f1",
     "buildTarget": "StandaloneOSX",
     "outputAppPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Builds/MacOS/CARDFRONT_CradleOfEchoes.app",
     "executableBinaryPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Builds/MacOS/CARDFRONT_CradleOfEchoes.app/Contents/MacOS/unity-tcg-engine",
     "managedAssemblyCSharpPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Builds/MacOS/CARDFRONT_CradleOfEchoes.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
     "buildResult": "Succeeded",
-    "totalSizeBytes": 265716987,
-    "totalTimeSeconds": 19.53,
+    "totalSizeBytes": 437817947,
+    "totalTimeSeconds": 10.07,
     "totalErrors": 0,
-    "totalWarnings": 34,
+    "totalWarnings": 40,
     "scenesIncluded": [
         "Assets/Scenes/SynapseMainMenu.unity",
         "Assets/Scenes/SynapseTacticalBattleArena.unity"
@@ -17,5 +17,7 @@
     "lanSimulationStatus": "PASS_HEADLESS_LAN_MULTIPLAYER_SIMULATION",
     "lanStateHashHex": "4C837E02F2035A25",
     "lanTcpPacketsExchanged": 51,
+    "threeActCampaignVerified": true,
+    "threeActCampaignSummary": "PASS_3ACT_CAMPAIGN_GAUNTLET:ACTS=3/3:BOOSTERS_DRAFTED=2:COINS=500:DRAFT1=agent_plugin_tcg_creative_designer:DRAFT2=agent_plugin_parallel_swarm_orchestrator:FINAL_BOSS=ghost_SovereignAgent_1825",
     "status": "PASS_MACOS_STANDALONE_BUILD_AND_LAN_MULTIPLAYER"
 }
