@@ -20,10 +20,10 @@
     --text-dim: #94A3B8;
 
     /* ========================================================================
-       TACTILE TABLETOP VIEWPORT SIZING (FULL 3x3 BOARD + LOW BOTTOM HAND FAN)
+       TACTILE TABLETOP VIEWPORT SIZING (WIDE 3-COLUMN STONE BOARD + LOW HAND FAN)
        ======================================================================== */
-    --slot-h: clamp(86px, 11.8vh, 112px);
-    --slot-w: clamp(118px, 14.8vh, 144px);
+    --slot-h: clamp(98px, 13.4vh, 126px);
+    --slot-w: clamp(154px, 15.6vw, 196px);
 
     --hand-h: clamp(98px, 13.4vh, 124px);
     --hand-w: calc(var(--hand-h) * 0.94);
@@ -213,8 +213,8 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 6px;
-    width: max-content;
-    max-width: min(560px, 94vw);
+    width: 264px;
+    max-width: min(264px, 92vw);
     box-shadow: 0 18px 42px rgba(0, 0, 0, 0.92);
     z-index: 120;
     transition: opacity 0.18s ease, transform 0.18s ease;
@@ -248,7 +248,7 @@
   @media (max-width: 1360px) {
     :root {
       --slot-h: clamp(78px, 11.0vh, 102px);
-      --slot-w: clamp(92px, 11.8vh, 116px);
+      --slot-w: clamp(134px, 14.2vw, 168px);
       --hand-h: clamp(88px, 12.4vh, 112px);
     }
   }
@@ -256,7 +256,7 @@
   @media (max-width: 1100px) {
     :root {
       --slot-h: clamp(74px, 10.6vh, 96px);
-      --slot-w: clamp(86px, 11.2vh, 110px);
+      --slot-w: clamp(118px, 13.5vw, 148px);
       --hand-h: clamp(82px, 11.8vh, 104px);
     }
   }
@@ -264,7 +264,7 @@
   @media (max-width: 900px) {
     :root {
       --slot-h: clamp(68px, 10.0vh, 88px);
-      --slot-w: clamp(80px, 10.6vh, 102px);
+      --slot-w: clamp(98px, 12.5vw, 124px);
       --hand-h: clamp(74px, 10.8vh, 94px);
     }
     header { gap: 4px; padding: 0 6px; }
@@ -434,7 +434,7 @@
     width: 100%;
     min-width: 0;
     position: relative;
-    gap: 5px;
+    gap: 6px;
     min-height: 0;
   }
 
@@ -445,11 +445,11 @@
     justify-content: space-between;
     gap: 0px;
     width: 100%;
-    max-width: 540px;
+    max-width: 560px;
     position: relative;
     padding-left: 28px;
     z-index: 30;
-    margin-bottom: 2px;
+    margin-bottom: -4px;
   }
   .boss-crest-left {
     display: flex;
@@ -526,7 +526,7 @@
   }
 
   .arena-3d-viewport {
-    flex: 1;
+    flex: 0 1 auto;
     width: 100%;
     display: flex;
     align-items: center;
@@ -539,9 +539,9 @@
   .arena-3d-viewport::before {
     content: "";
     position: absolute;
-    width: min(1020px, 94vw);
-    height: min(490px, 68vh);
-    top: 52%;
+    width: min(1060px, 94vw);
+    height: min(530px, 72vh);
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -48%) perspective(900px) rotateX(26deg);
     background:
@@ -2130,28 +2130,51 @@ function toggleAdaptiveBgm() {
 }
 
 // ============================================================================
-// SET 1 60-CARD CATALOG, VERSIONED SAVE V1 + ATOMIC SAVE V3 (FNV-1A)
+// SET 1 60-CARD CATALOG, FACTION TAGS, STAR-COST CURVE (12★ CAP) & SAVE V3
 // ============================================================================
+const MAX_SQUAD_STARS = 12;
 const SET1_60_CATALOG = [];
 const SET1_CARDS_BY_ID = {};
 (function buildSet1Catalog60() {
   const factions = ["Aether", "Solaris", "Valkyria", "Chronos", "Abyss"];
   const baseRoster = [...PLAYER_HEROES, ...ENEMY_MECHS];
+  baseRoster.forEach((b, idx) => {
+    if (!b.faction) b.faction = factions[idx % factions.length];
+    const baseSum = b.nesw.reduce((s, v) => s + v, 0);
+    if (!b.starCost) b.starCost = baseSum >= 30 ? 3 : baseSum >= 28 ? 2 : 1;
+  });
   for (let i = 0; i < 60; i++) {
     const template = baseRoster[i % baseRoster.length];
     const tier = Math.floor(i / 16) + 1;
     const cid = i < baseRoster.length ? template.id : `set1_c${String(i + 1).padStart(2, "0")}_${template.id}`;
+    const neswArr = template.nesw.map((v, idx) => Math.min(9, v + ((i + idx) % 2 === 0 && i >= 16 ? 1 : 0)));
+    const statSum = neswArr.reduce((s, v) => s + v, 0);
+    const starCost = statSum >= 30 ? 3 : statSum >= 28 ? 2 : 1;
     const cardObj = {
       ...template,
       id: cid,
       name: i < baseRoster.length ? template.name : `${template.name} Mk.${tier}`,
       faction: factions[i % factions.length],
-      nesw: template.nesw.map((v, idx) => Math.min(9, v + ((i + idx) % 2 === 0 && i >= 16 ? 1 : 0)))
+      nesw: neswArr,
+      starCost
     };
     SET1_60_CATALOG.push(cardObj);
     SET1_CARDS_BY_ID[cid] = cardObj;
   }
 })();
+
+function getCardStarCost(cardId) {
+  const c = getCardMeta(cardId);
+  if (!c) return 2;
+  const evo = (typeof state !== "undefined" && state.cardEvolutions && state.cardEvolutions[cardId]) || 0;
+  const sum = c.nesw.reduce((s, v) => s + v, 0);
+  const raw = sum >= 30 || evo > 0 ? 3 : sum >= 28 ? 2 : 1;
+  return Math.max(1, Math.min(3, raw));
+}
+
+function getSquadTotalStars(deckIds) {
+  return (deckIds || []).reduce((sum, id) => sum + getCardStarCost(id), 0);
+}
 
 function getCardMeta(cardId) {
   return ALL_CARDS[cardId] || SET1_CARDS_BY_ID[cardId] || PLAYER_HEROES[0];
@@ -2346,12 +2369,56 @@ function setDeckFilter(mode) {
 
 function autoBuildBestSquad() {
   const ownedObjs = SET1_60_CATALOG.filter(c => state.unlockedCards.includes(c.id));
-  ownedObjs.sort((a, b) => {
-    const sumA = a.nesw.reduce((s, v) => s + v, 0);
-    const sumB = b.nesw.reduce((s, v) => s + v, 0);
-    return sumB - sumA;
-  });
-  const best5 = ownedObjs.slice(0, 5).map(c => c.id);
+  const factions = ["Aether", "Solaris", "Valkyria", "Chronos", "Abyss"];
+  let bestCombo = null;
+  let bestComboScore = -Infinity;
+
+  // Evaluate each faction-focused squad and balanced squad subject to MAX_SQUAD_STARS (12★)
+  for (const targetFaction of [...factions, null]) {
+    const scored = ownedObjs.map(c => {
+      const statSum = c.nesw.reduce((s, v) => s + v, 0);
+      const star = getCardStarCost(c.id);
+      const facBonus = targetFaction && c.faction === targetFaction ? 2.5 : 0;
+      const effRatio = (statSum + facBonus) / Math.max(1, star * 0.45 + 0.55);
+      return { card: c, statSum, star, facBonus, effRatio };
+    });
+    scored.sort((a, b) => b.effRatio - a.effRatio);
+
+    const chosen = [];
+    let stars = 0;
+    for (const item of scored) {
+      if (chosen.length >= 5) break;
+      const remSlots = 5 - chosen.length - 1;
+      // Ensure remaining slots can be filled within MAX_SQUAD_STARS (min 1★ per slot)
+      if (stars + item.star + remSlots * 1 <= MAX_SQUAD_STARS) {
+        chosen.push(item.card);
+        stars += item.star;
+      }
+    }
+    // Fallback fill with lowest-star owned cards if needed
+    if (chosen.length < 5) {
+      const byLowStar = [...ownedObjs].sort((a, b) => getCardStarCost(a.id) - getCardStarCost(b.id));
+      for (const c of byLowStar) {
+        if (chosen.length >= 5) break;
+        if (!chosen.some(x => x.id === c.id)) {
+          chosen.push(c);
+          stars += getCardStarCost(c.id);
+        }
+      }
+    }
+    if (chosen.length === 5) {
+      const facCounts = {};
+      chosen.forEach(c => { facCounts[c.faction] = (facCounts[c.faction] || 0) + 1; });
+      const maxFacLinks = Math.max(...Object.values(facCounts)) - 1;
+      const totalPower = chosen.reduce((s, c) => s + c.nesw.reduce((a, b) => a + b, 0), 0) + maxFacLinks * 2.2;
+      if (totalPower > bestComboScore && stars <= MAX_SQUAD_STARS) {
+        bestComboScore = totalPower;
+        bestCombo = chosen.map(c => c.id);
+      }
+    }
+  }
+
+  const best5 = bestCombo || ownedObjs.slice(0, 5).map(c => c.id);
   if (best5.length === 5) {
     state.activeDeck = best5;
     state.customDeckEquipped = true;
@@ -2362,9 +2429,10 @@ function autoBuildBestSquad() {
     }
     saveProgressionV3();
     const names = best5.map(id => getCardMeta(id).name).join(" · ");
+    const totalStars = getSquadTotalStars(best5);
     const stEl = document.getElementById("deckbuilder-status");
     if (stEl) {
-      stEl.innerHTML = `⚡ <b>Auto-Built Optimal 5-Card Squad:</b> <b style="color:var(--gold);">${names}</b> (Equipped to Hand).`;
+      stEl.innerHTML = `⚡ <b>Auto-Built Synergy Squad (${totalStars}/${MAX_SQUAD_STARS}★):</b> <b style="color:var(--gold);">${names}</b> (Equipped to Hand).`;
     }
     renderDeckbuilderGrid();
     renderAll();
@@ -2388,8 +2456,22 @@ function toggleDeckCard(cid) {
     if (state.activeDeck.length <= 1) return;
     state.activeDeck.splice(idx, 1);
   } else {
-    if (state.activeDeck.length >= 5) state.activeDeck.shift();
-    state.activeDeck.push(cid);
+    const candidateDeck = [...state.activeDeck];
+    if (candidateDeck.length >= 5) {
+      // Remove highest-cost card if needed to stay within MAX_SQUAD_STARS (12★), else FIFO shift
+      const newStar = getCardStarCost(cid);
+      let dropIdx = 0;
+      if (getSquadTotalStars(candidateDeck) - getCardStarCost(candidateDeck[0]) + newStar > MAX_SQUAD_STARS) {
+        let maxS = -1;
+        candidateDeck.forEach((id, i) => {
+          const s = getCardStarCost(id);
+          if (s > maxS) { maxS = s; dropIdx = i; }
+        });
+      }
+      candidateDeck.splice(dropIdx, 1);
+    }
+    candidateDeck.push(cid);
+    state.activeDeck = candidateDeck;
   }
   if (state.isPlayerTurn && state.hand.length === 5 && state.activeDeck.length === 5 && !state.gameOver) {
     state.hand = [...state.activeDeck];
@@ -2399,7 +2481,8 @@ function toggleDeckCard(cid) {
   const stEl = document.getElementById("deckbuilder-status");
   if (stEl) {
     const squadNames = state.activeDeck.map(id => getCardMeta(id).name).join(" · ");
-    stEl.innerHTML = `✅ <b>Active Squad (${state.activeDeck.length}/5):</b> <b style="color:var(--gold);">${squadNames}</b>`;
+    const totalStars = getSquadTotalStars(state.activeDeck);
+    stEl.innerHTML = `✅ <b>Active Squad (${state.activeDeck.length}/5 · ${totalStars}/${MAX_SQUAD_STARS}★):</b> <b style="color:var(--gold);">${squadNames}</b>`;
   }
   renderDeckbuilderGrid();
   renderAll();
@@ -2442,7 +2525,7 @@ function evolveCardCraftUI() {
   saveProgressionV3();
   const meta = getCardMeta(targetCid);
   document.getElementById("deckbuilder-status").innerHTML =
-    `⚒️ <b>CardCraft Evolution!</b> Upgraded <b style="color:var(--blue-ally);">${meta ? meta.name : targetCid}</b> (+1 All Sides, Lv.${state.cardEvolutions[targetCid]}).`;
+    `⚒️ <b>CardCraft Evolution!</b> Upgraded <b style="color:var(--blue-ally);">${meta ? meta.name : targetCid}</b> (+1 All Sides, Lv.${state.cardEvolutions[targetCid]} · ${getCardStarCost(targetCid)}★).`;
   renderDeckbuilderGrid();
   renderAll();
 }
@@ -2456,13 +2539,17 @@ function renderDeckbuilderGrid() {
     const deckCards = state.activeDeck.map(id => getCardMeta(id)).filter(Boolean);
     const cnt = Math.max(1, deckCards.length);
     const avg = [0, 1, 2, 3].map(d => (deckCards.reduce((s, c) => s + (c.nesw[d] || 0), 0) / cnt).toFixed(1));
-    const chips = deckCards.map(c => `<span style="background:rgba(0,229,255,0.18);border:1px solid var(--gold);color:#fef08a;padding:2px 6px;border-radius:6px;font-weight:800;">★ ${c.name}</span>`).join(" ");
+    const totalStars = getSquadTotalStars(state.activeDeck);
+    const facCounts = {};
+    deckCards.forEach(c => { facCounts[c.faction] = (facCounts[c.faction] || 0) + 1; });
+    const topFacEntry = Object.entries(facCounts).sort((a, b) => b[1] - a[1])[0] || ["Solaris", 1];
+    const chips = deckCards.map(c => `<span style="background:rgba(0,229,255,0.18);border:1px solid var(--gold);color:#fef08a;padding:2px 6px;border-radius:6px;font-weight:800;">${getCardStarCost(c.id)}★ ${c.name}</span>`).join(" ");
     sumEl.innerHTML = `
       <div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;">
-        <b style="color:var(--blue-ally);">SQUAD (${state.activeDeck.length}/5):</b> ${chips}
+        <b style="color:var(--blue-ally);">SQUAD (${state.activeDeck.length}/5 · ${totalStars}/${MAX_SQUAD_STARS}★):</b> ${chips}
       </div>
       <div style="color:#cbd5e1;font-weight:800;">
-        Avg Stats: <span style="color:var(--gold);">N ${avg[0]} · E ${avg[1]} · S ${avg[2]} · W ${avg[3]}</span> · Owned: <b>${state.unlockedCards.length}/60</b>
+        Synergy: <span style="color:#38bdf8;">${topFacEntry[0]} (${topFacEntry[1]}x Link)</span> · Avg Stats: <span style="color:var(--gold);">N ${avg[0]} · E ${avg[1]} · S ${avg[2]} · W ${avg[3]}</span> · Owned: <b>${state.unlockedCards.length}/60</b>
       </div>
     `;
   }
@@ -2477,6 +2564,7 @@ function renderDeckbuilderGrid() {
     const owned = state.unlockedCards.includes(c.id);
     const inDeck = state.activeDeck.includes(c.id);
     const evoLv = state.cardEvolutions[c.id] || 0;
+    const star = getCardStarCost(c.id);
     const item = document.createElement("div");
     item.setAttribute("data-card-id", c.id);
     item.style.cssText = `background:${inDeck ? "rgba(0,229,255,0.16)" : "rgba(15,23,42,0.85)"};border:1.5px solid ${inDeck ? "var(--gold)" : owned ? "#3b82f6" : "#1e293b"};border-radius:8px;padding:6px;cursor:${owned ? "pointer" : "not-allowed"};opacity:${owned ? "1" : "0.45"};font-size:12px;`;
@@ -2485,7 +2573,7 @@ function renderDeckbuilderGrid() {
       <div style="font-weight:800;color:${inDeck ? "var(--gold)" : "#f8fafc"};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
         ${inDeck ? "★ " : owned ? "" : "🔒 "}${c.name}${evoLv > 0 ? " +" + evoLv : ""}
       </div>
-      <div style="color:#94a3b8;font-size:12px;">${c.faction} · [${c.nesw.join("/")}]</div>
+      <div style="color:#94a3b8;font-size:12px;">${star}★ · ${c.faction} · [${c.nesw.join("/")}]</div>
       <div style="color:${c.telegraphColor};font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">⚡ ${c.telegraphName}</div>
     `;
     grid.appendChild(item);
