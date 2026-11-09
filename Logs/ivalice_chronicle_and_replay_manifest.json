@@ -1,0 +1,1873 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "Synapse-Ivalice-Chronicle-Replay-MCTS-i18n",
+  "generated_at_utc": "2026-11-09T13:50:49.940609+00:00",
+  "status": "VERIFIED",
+  "stages_count": 15,
+  "acts_count": 3,
+  "ghost_ladder_count": 10,
+  "daily_puzzles_count": 7,
+  "languages_count": 10,
+  "colorblind_palettes_count": 4,
+  "dag_verification": {
+    "valid_dag": true,
+    "stages_count": 15,
+    "acts_count": 3,
+    "reachable_from_root": 15,
+    "branching_nodes_count": 12,
+    "total_edges_count": 26
+  },
+  "i18n_verification": {
+    "verified": true,
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Localization/i18n_strings_10lang.json",
+    "languages_count": 10,
+    "core_keys_verified": 13,
+    "total_string_keys": 35,
+    "colorblind_palettes_count": 4,
+    "fnv1a_64_checksum": "0xa37301e5b1eaf919"
+  },
+  "mcts_oracle_sample": {
+    "winProbPct": 95.5,
+    "valueScore": 0.9472,
+    "simulationsRun": 64,
+    "cPuct": 1.414,
+    "topMoves": [
+      {
+        "actionType": "DEPLOY",
+        "label": "Deploy Solar Archangel -> (2,2)",
+        "slotIndex": 4,
+        "r": 1,
+        "c": 1,
+        "cardId": "h_archangel",
+        "cardName": "Solar Archangel",
+        "expectedGain": 3.28,
+        "visits": 22,
+        "qValue": 0.9472,
+        "flipsCount": 2,
+        "rulesTriggered": [
+          "HIGH_PIP"
+        ]
+      },
+      {
+        "actionType": "DEPLOY",
+        "label": "Deploy Kai Crimson Visor -> (2,2)",
+        "slotIndex": 4,
+        "r": 1,
+        "c": 1,
+        "cardId": "h_kai",
+        "cardName": "Kai Crimson Visor",
+        "expectedGain": 3.28,
+        "visits": 22,
+        "qValue": 0.9472,
+        "flipsCount": 2,
+        "rulesTriggered": [
+          "HIGH_PIP"
+        ]
+      },
+      {
+        "actionType": "DEPLOY",
+        "label": "Deploy Solar Archangel -> (1,1)",
+        "slotIndex": 0,
+        "r": 0,
+        "c": 0,
+        "cardId": "h_archangel",
+        "cardName": "Solar Archangel",
+        "expectedGain": 3.2,
+        "visits": 20,
+        "qValue": 0.9425,
+        "flipsCount": 2,
+        "rulesTriggered": [
+          "HIGH_PIP",
+          "PLUS"
+        ]
+      },
+      {
+        "actionType": "DEPLOY",
+        "label": "Deploy Kai Crimson Visor -> (1,1)",
+        "slotIndex": 0,
+        "r": 0,
+        "c": 0,
+        "cardId": "h_kai",
+        "cardName": "Kai Crimson Visor",
+        "expectedGain": 1.85,
+        "visits": 0,
+        "qValue": 0.0,
+        "flipsCount": 1,
+        "rulesTriggered": [
+          "HIGH_PIP"
+        ]
+      },
+      {
+        "actionType": "DEPLOY",
+        "label": "Deploy Solar Archangel -> (1,3)",
+        "slotIndex": 2,
+        "r": 0,
+        "c": 2,
+        "cardId": "h_archangel",
+        "cardName": "Solar Archangel",
+        "expectedGain": 1.8,
+        "visits": 0,
+        "qValue": 0.0,
+        "flipsCount": 1,
+        "rulesTriggered": [
+          "HIGH_PIP"
+        ]
+      }
+    ]
+  },
+  "acts": [
+    {
+      "act_id": "ACT_I",
+      "act_number": 1,
+      "title": "Act I: Sky-Stone Border",
+      "i18n_key": "act_1_title",
+      "stage_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "biome_theme": "Floating Limestone Citadels & Windmill Ridges",
+      "default_judge_law_id": "STANDARD_HIGH_PIP"
+    },
+    {
+      "act_id": "ACT_II",
+      "act_number": 2,
+      "title": "Act II: Clockwork Sanctum",
+      "i18n_key": "act_2_title",
+      "stage_indices": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "biome_theme": "Brass Astrolabe Vaults & Mnemosyne Resonance Nodes",
+      "default_judge_law_id": "MNEMOSYNE_NODE_RESONANCE"
+    },
+    {
+      "act_id": "ACT_III",
+      "act_number": 3,
+      "title": "Act III: Cradle of Echoes",
+      "i18n_key": "act_3_title",
+      "stage_indices": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "biome_theme": "Astral Singularity Rifts & Okitsu Sovereign Sanctum",
+      "default_judge_law_id": "OKITSU_TIE_SURGE"
+    }
+  ],
+  "stages": [
+    {
+      "stage_index": 0,
+      "stage_id": "stage_01",
+      "act_id": "ACT_I",
+      "act_title": "Act I: Sky-Stone Border",
+      "name": "Act I-1: Skystone Sanctuary",
+      "biome": "Sky-Stone Border",
+      "bg_art": "./GeneratedArt/env_isamu_kamikokuryo_skystone.png",
+      "x": 70,
+      "y": 260,
+      "edges": [
+        1,
+        2
+      ],
+      "boss_commander_id": "e_eclipse",
+      "boss_name": "Eclipse Void Blade",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",
+      "ai_bonus": 0,
+      "reward_coins": 80,
+      "judge_law": {
+        "law_id": "STANDARD_HIGH_PIP",
+        "name": "High-Pip & Faction Link Decree",
+        "banner_key": "judge_law_standard",
+        "banner": "JUDGE LAW: High-Pip & Faction Link Decree",
+        "rule_modifier": "Adjacent same-faction allies gain +1 on shared edges; Pip 4-6 Column Dice grant +1 All Sides."
+      },
+      "reward_relic": {
+        "relic_id": "relic_01_skystone_compass",
+        "name": "Skystone Astrolabe Compass",
+        "effect": "+1 Starting Column Die Nudge on Turn 1",
+        "bonus_coins": 80
+      },
+      "coordinates": {
+        "x": 70,
+        "y": 260
+      },
+      "next_stage_ids": [
+        "stage_02",
+        "stage_03"
+      ],
+      "fnv1a_64_checksum": "0x71896ab7602b0751"
+    },
+    {
+      "stage_index": 1,
+      "stage_id": "stage_02",
+      "act_id": "ACT_I",
+      "act_title": "Act I: Sky-Stone Border",
+      "name": "Act I-2: Ivalice Citadel",
+      "biome": "Sky-Stone Border",
+      "bg_art": "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png",
+      "x": 155,
+      "y": 155,
+      "edges": [
+        3
+      ],
+      "boss_commander_id": "e_archon",
+      "boss_name": "Prism Core Archon",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_archon.png?v=tele4",
+      "ai_bonus": 0,
+      "reward_coins": 90,
+      "judge_law": {
+        "law_id": "SAME_PLUS_CASCADE",
+        "name": "Ivalice Same / Plus & Combo Cascade",
+        "banner_key": "judge_law_same_plus",
+        "banner": "JUDGE LAW: Ivalice Same / Plus & Combo Cascade Active",
+        "rule_modifier": "Matching 2+ equal opposing edges (SAME) or 2+ identical edge sums (PLUS) triggers chain captures."
+      },
+      "reward_relic": {
+        "relic_id": "relic_02_citadel_signet",
+        "name": "Citadel Judge Signet",
+        "effect": "Grants +25 Bonus Aether Coins on SAME/PLUS captures",
+        "bonus_coins": 90
+      },
+      "coordinates": {
+        "x": 155,
+        "y": 155
+      },
+      "next_stage_ids": [
+        "stage_04"
+      ],
+      "fnv1a_64_checksum": "0x6f7793818380482e"
+    },
+    {
+      "stage_index": 2,
+      "stage_id": "stage_03",
+      "act_id": "ACT_I",
+      "act_title": "Act I: Sky-Stone Border",
+      "name": "Act I-3: Solar Spire",
+      "biome": "Sky-Stone Border",
+      "bg_art": "./GeneratedArt/env_isamu_kamikokuryo_skystone.png",
+      "x": 155,
+      "y": 365,
+      "edges": [
+        3,
+        4
+      ],
+      "boss_commander_id": "e_cryo",
+      "boss_name": "Cryo Interceptor",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_cryo.png?v=tele4",
+      "ai_bonus": 1,
+      "reward_coins": 100,
+      "judge_law": {
+        "law_id": "STANDARD_HIGH_PIP",
+        "name": "Solaris High-Pip Decree",
+        "banner_key": "judge_law_standard",
+        "banner": "JUDGE LAW: High-Pip & Faction Link Decree",
+        "rule_modifier": "Solaris and Aether cards gain +1 N/S resonance when deployed in boosted columns."
+      },
+      "reward_relic": {
+        "relic_id": "relic_03_solar_sunstone",
+        "name": "Sunstone Prism Lens",
+        "effect": "Column 1 Die starts at minimum Pip 4 (+1 Boost ready)",
+        "bonus_coins": 100
+      },
+      "coordinates": {
+        "x": 155,
+        "y": 365
+      },
+      "next_stage_ids": [
+        "stage_04",
+        "stage_05"
+      ],
+      "fnv1a_64_checksum": "0x60df5df3fd6050ca"
+    },
+    {
+      "stage_index": 3,
+      "stage_id": "stage_04",
+      "act_id": "ACT_I",
+      "act_title": "Act I: Sky-Stone Border",
+      "name": "Act I-4: Windmill Bastion",
+      "biome": "Sky-Stone Border",
+      "bg_art": "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png",
+      "x": 245,
+      "y": 200,
+      "edges": [
+        4,
+        5
+      ],
+      "boss_commander_id": "e_shinobi",
+      "boss_name": "Cyber Shinobi",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_shinobi.png?v=tele4",
+      "ai_bonus": 1,
+      "reward_coins": 110,
+      "judge_law": {
+        "law_id": "SAME_PLUS_CASCADE",
+        "name": "Windmill Tactical Slide Law",
+        "banner_key": "judge_law_same_plus",
+        "banner": "JUDGE LAW: Ivalice Same / Plus & Combo Cascade Active",
+        "rule_modifier": "Tactical Slide bank maneuvers trigger full SAME/PLUS directional evaluations."
+      },
+      "reward_relic": {
+        "relic_id": "relic_04_zephyr_pinion",
+        "name": "Zephyr Windmill Pinion",
+        "effect": "Tactical Slide grants +1 East/West edge guard for 1 turn",
+        "bonus_coins": 110
+      },
+      "coordinates": {
+        "x": 245,
+        "y": 200
+      },
+      "next_stage_ids": [
+        "stage_05",
+        "stage_06"
+      ],
+      "fnv1a_64_checksum": "0x54229fad00b0117f"
+    },
+    {
+      "stage_index": 4,
+      "stage_id": "stage_05",
+      "act_id": "ACT_I",
+      "act_title": "Act I: Sky-Stone Border",
+      "name": "Act I-5: Aetherial Sky-Bridge",
+      "biome": "Sky-Stone Border",
+      "bg_art": "./GeneratedArt/env_isamu_kamikokuryo_skystone.png",
+      "x": 325,
+      "y": 310,
+      "edges": [
+        5,
+        6
+      ],
+      "boss_commander_id": "e_colossus",
+      "boss_name": "Emerald Colossus",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4",
+      "ai_bonus": 1,
+      "reward_coins": 120,
+      "judge_law": {
+        "law_id": "STANDARD_HIGH_PIP",
+        "name": "Sky-Bridge Border Warden Law",
+        "banner_key": "judge_law_standard",
+        "banner": "JUDGE LAW: High-Pip & Faction Link Decree",
+        "rule_modifier": "Act I Finale: Disrupted Boss telegraphs suffer -1 on South & West defending edges."
+      },
+      "reward_relic": {
+        "relic_id": "relic_05_aether_keystone",
+        "name": "Aetherial Bridge Keystone",
+        "effect": "Unlocks Act II Clockwork Sanctum & +1 Reroll charge",
+        "bonus_coins": 120
+      },
+      "coordinates": {
+        "x": 325,
+        "y": 310
+      },
+      "next_stage_ids": [
+        "stage_06",
+        "stage_07"
+      ],
+      "fnv1a_64_checksum": "0x65026446c877df84"
+    },
+    {
+      "stage_index": 5,
+      "stage_id": "stage_06",
+      "act_id": "ACT_II",
+      "act_title": "Act II: Clockwork Sanctum",
+      "name": "Act II-6: Clockwork Sanctum Gate",
+      "biome": "Clockwork Sanctum",
+      "bg_art": "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png",
+      "x": 415,
+      "y": 165,
+      "edges": [
+        6,
+        7
+      ],
+      "boss_commander_id": "e_titan",
+      "boss_name": "Bastion Dreadnought",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_titan.png?v=tele4",
+      "ai_bonus": 1,
+      "reward_coins": 130,
+      "judge_law": {
+        "law_id": "MNEMOSYNE_NODE_RESONANCE",
+        "name": "Mnemosyne Center Sanctum (+1 All Stats & +50G)",
+        "banner_key": "judge_law_mnemosyne",
+        "banner": "JUDGE LAW: Mnemosyne Center Sanctum (+1 All Stats & +50G)",
+        "rule_modifier": "Deploying or sliding into Center Socket (2,2) grants +1 All Sides and +50 Aether Coins."
+      },
+      "reward_relic": {
+        "relic_id": "relic_06_chronos_escapement",
+        "name": "Brass Escapement Gear",
+        "effect": "Center Socket (2,2) resonance also fortifies adjacent allies",
+        "bonus_coins": 130
+      },
+      "coordinates": {
+        "x": 415,
+        "y": 165
+      },
+      "next_stage_ids": [
+        "stage_07",
+        "stage_08"
+      ],
+      "fnv1a_64_checksum": "0x0457fa0bf052ea59"
+    },
+    {
+      "stage_index": 6,
+      "stage_id": "stage_07",
+      "act_id": "ACT_II",
+      "act_title": "Act II: Clockwork Sanctum",
+      "name": "Act II-7: Orbital Mecha Bay",
+      "biome": "Clockwork Sanctum",
+      "bg_art": "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png",
+      "x": 495,
+      "y": 350,
+      "edges": [
+        7,
+        8
+      ],
+      "boss_commander_id": "e_colossus",
+      "boss_name": "Emerald Colossus",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4",
+      "ai_bonus": 1,
+      "reward_coins": 140,
+      "judge_law": {
+        "law_id": "MNEMOSYNE_NODE_RESONANCE",
+        "name": "Orbital Resonance Law",
+        "banner_key": "judge_law_mnemosyne",
+        "banner": "JUDGE LAW: Mnemosyne Center Sanctum (+1 All Stats & +50G)",
+        "rule_modifier": "Center Socket (2,2) amplifies orbital airstrike & railgun telegraphs by +1 All Stats."
+      },
+      "reward_relic": {
+        "relic_id": "relic_07_orbital_gyro",
+        "name": "Orbital Gyroscope Core",
+        "effect": "+1 North/East stat on Valkyria & Chronos constructs",
+        "bonus_coins": 140
+      },
+      "coordinates": {
+        "x": 495,
+        "y": 350
+      },
+      "next_stage_ids": [
+        "stage_08",
+        "stage_09"
+      ],
+      "fnv1a_64_checksum": "0x7e9f5c009dd4a35f"
+    },
+    {
+      "stage_index": 7,
+      "stage_id": "stage_08",
+      "act_id": "ACT_II",
+      "act_title": "Act II: Clockwork Sanctum",
+      "name": "Act II-8: Solid Eye Bunker",
+      "biome": "Clockwork Sanctum",
+      "bg_art": "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png",
+      "x": 565,
+      "y": 220,
+      "edges": [
+        8,
+        9
+      ],
+      "boss_commander_id": "e_shinobi",
+      "boss_name": "Cyber Shinobi",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_shinobi.png?v=tele4",
+      "ai_bonus": 1,
+      "reward_coins": 150,
+      "judge_law": {
+        "law_id": "SAME_PLUS_CASCADE",
+        "name": "Solid Eye Halftone Decree",
+        "banner_key": "judge_law_same_plus",
+        "banner": "JUDGE LAW: Ivalice Same / Plus & Combo Cascade Active",
+        "rule_modifier": "Horizontal sniper lock and PLUS/SAME combo cascades pierce enemy armor."
+      },
+      "reward_relic": {
+        "relic_id": "relic_08_solideye_visor",
+        "name": "MGA2 Tactical Visor Lens",
+        "effect": "Reveals top 2 MCTS Oracle lines with zero cost",
+        "bonus_coins": 150
+      },
+      "coordinates": {
+        "x": 565,
+        "y": 220
+      },
+      "next_stage_ids": [
+        "stage_09",
+        "stage_10"
+      ],
+      "fnv1a_64_checksum": "0xecd8920e883e25f1"
+    },
+    {
+      "stage_index": 8,
+      "stage_id": "stage_09",
+      "act_id": "ACT_II",
+      "act_title": "Act II: Clockwork Sanctum",
+      "name": "Act II-9: STACCS Chrono Spire",
+      "biome": "Clockwork Sanctum",
+      "bg_art": "./GeneratedArt/env_breach_staccs_isometric_tower.png",
+      "x": 640,
+      "y": 140,
+      "edges": [
+        9,
+        10
+      ],
+      "boss_commander_id": "e_reaper",
+      "boss_name": "Sigil Wraith",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_reaper.png?v=tele4",
+      "ai_bonus": 1,
+      "reward_coins": 165,
+      "judge_law": {
+        "law_id": "MNEMOSYNE_NODE_RESONANCE",
+        "name": "STACCS Column Conduit Law",
+        "banner_key": "judge_law_mnemosyne",
+        "banner": "JUDGE LAW: Mnemosyne Center Sanctum (+1 All Stats & +50G)",
+        "rule_modifier": "Center Socket (2,2) grants +1 All Stats & charges Column 2 Die."
+      },
+      "reward_relic": {
+        "relic_id": "relic_09_staccs_die_matrix",
+        "name": "STACCS Brass Die Matrix",
+        "effect": "Nudging a Column Die to Pip 6 triggers a 24fps Sakuga Surge",
+        "bonus_coins": 165
+      },
+      "coordinates": {
+        "x": 640,
+        "y": 140
+      },
+      "next_stage_ids": [
+        "stage_10",
+        "stage_11"
+      ],
+      "fnv1a_64_checksum": "0x35b3a4f21d570b0d"
+    },
+    {
+      "stage_index": 9,
+      "stage_id": "stage_10",
+      "act_id": "ACT_II",
+      "act_title": "Act II: Clockwork Sanctum",
+      "name": "Act II-10: Mnemosyne Gear Vault",
+      "biome": "Clockwork Sanctum",
+      "bg_art": "./GeneratedArt/env_nakayama_neo_arcadia_mmz.png",
+      "x": 650,
+      "y": 355,
+      "edges": [
+        10,
+        11
+      ],
+      "boss_commander_id": "e_inferno",
+      "boss_name": "Inferno Seraph",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",
+      "ai_bonus": 1,
+      "reward_coins": 180,
+      "judge_law": {
+        "law_id": "MNEMOSYNE_NODE_RESONANCE",
+        "name": "Mnemosyne Sovereign Vault Law",
+        "banner_key": "judge_law_mnemosyne",
+        "banner": "JUDGE LAW: Mnemosyne Center Sanctum (+1 All Stats & +50G)",
+        "rule_modifier": "Act II Finale: Center Socket (2,2) grants +1 All Stats & +50 Aether Coins."
+      },
+      "reward_relic": {
+        "relic_id": "relic_10_mnemosyne_pendulum",
+        "name": "Mnemosyne Golden Pendulum",
+        "effect": "Unlocks Act III Cradle of Echoes & Sovereign Plugin Synergy",
+        "bonus_coins": 180
+      },
+      "coordinates": {
+        "x": 650,
+        "y": 355
+      },
+      "next_stage_ids": [
+        "stage_11",
+        "stage_12"
+      ],
+      "fnv1a_64_checksum": "0x2111f7088cf7f032"
+    },
+    {
+      "stage_index": 10,
+      "stage_id": "stage_11",
+      "act_id": "ACT_III",
+      "act_title": "Act III: Cradle of Echoes",
+      "name": "Act III-11: Breach Rift Alpha",
+      "biome": "Cradle of Echoes",
+      "bg_art": "./GeneratedArt/env_breach_staccs_isometric_tower.png",
+      "x": 740,
+      "y": 215,
+      "edges": [
+        11,
+        12
+      ],
+      "boss_commander_id": "e_inferno",
+      "boss_name": "Inferno Seraph",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",
+      "ai_bonus": 1,
+      "reward_coins": 195,
+      "judge_law": {
+        "law_id": "OKITSU_TIE_SURGE",
+        "name": "Okitsu Tie-Surge Decree",
+        "banner_key": "judge_law_okitsu",
+        "banner": "JUDGE LAW: Okitsu Tie-Surge (Equal Edge Pips Capture!)",
+        "rule_modifier": "Equal opposing edge values (>=) trigger full directional captures in addition to SAME/PLUS."
+      },
+      "reward_relic": {
+        "relic_id": "relic_11_breach_capacitor",
+        "name": "Breach Rift Capacitor",
+        "effect": "Okitsu Tie-Surge captures grant +1 trauma screen impact & +20 Coins",
+        "bonus_coins": 195
+      },
+      "coordinates": {
+        "x": 740,
+        "y": 215
+      },
+      "next_stage_ids": [
+        "stage_12",
+        "stage_13"
+      ],
+      "fnv1a_64_checksum": "0x149b0a3892c600f1"
+    },
+    {
+      "stage_index": 11,
+      "stage_id": "stage_12",
+      "act_id": "ACT_III",
+      "act_title": "Act III: Cradle of Echoes",
+      "name": "Act III-12: Umbra Singularity",
+      "biome": "Cradle of Echoes",
+      "bg_art": "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png",
+      "x": 795,
+      "y": 360,
+      "edges": [
+        12,
+        13
+      ],
+      "boss_commander_id": "e_eclipse",
+      "boss_name": "Eclipse Void Blade",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_eclipse.png?v=tele4",
+      "ai_bonus": 1,
+      "reward_coins": 210,
+      "judge_law": {
+        "law_id": "OKITSU_TIE_SURGE",
+        "name": "Umbra Tie-Surge & Void Law",
+        "banner_key": "judge_law_okitsu",
+        "banner": "JUDGE LAW: Okitsu Tie-Surge (Equal Edge Pips Capture!)",
+        "rule_modifier": "Equal edge pips capture enemies; Center Socket (2,2) grants +1 All Stats."
+      },
+      "reward_relic": {
+        "relic_id": "relic_12_umbra_sigil",
+        "name": "Umbra Singularity Sigil",
+        "effect": "Abyss & Aether cards gain +1 West edge in corner sockets",
+        "bonus_coins": 210
+      },
+      "coordinates": {
+        "x": 795,
+        "y": 360
+      },
+      "next_stage_ids": [
+        "stage_13",
+        "stage_14"
+      ],
+      "fnv1a_64_checksum": "0xaca1acc6876ee981"
+    },
+    {
+      "stage_index": 12,
+      "stage_id": "stage_13",
+      "act_id": "ACT_III",
+      "act_title": "Act III: Cradle of Echoes",
+      "name": "Act III-13: Prism Octahedron",
+      "biome": "Cradle of Echoes",
+      "bg_art": "./GeneratedArt/env_isamu_kamikokuryo_skystone.png",
+      "x": 850,
+      "y": 145,
+      "edges": [
+        13,
+        14
+      ],
+      "boss_commander_id": "e_archon",
+      "boss_name": "Prism Core Archon",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_archon.png?v=tele4",
+      "ai_bonus": 2,
+      "reward_coins": 230,
+      "judge_law": {
+        "law_id": "OKITSU_TIE_SURGE",
+        "name": "Prism Octahedron Law",
+        "banner_key": "judge_law_okitsu",
+        "banner": "JUDGE LAW: Okitsu Tie-Surge (Equal Edge Pips Capture!)",
+        "rule_modifier": "Elite Boss (+2 AI Stat Bonus); Okitsu Tie-Surge & SAME/PLUS cascades active."
+      },
+      "reward_relic": {
+        "relic_id": "relic_13_prism_octahedron",
+        "name": "Refractive Octahedron Core",
+        "effect": "All 4 Sovereign Agent Plugins gain +1 Faction Link resonance",
+        "bonus_coins": 230
+      },
+      "coordinates": {
+        "x": 850,
+        "y": 145
+      },
+      "next_stage_ids": [
+        "stage_14",
+        "stage_15"
+      ],
+      "fnv1a_64_checksum": "0x1282484b801b3951"
+    },
+    {
+      "stage_index": 13,
+      "stage_id": "stage_14",
+      "act_id": "ACT_III",
+      "act_title": "Act III: Cradle of Echoes",
+      "name": "Act III-14: Trigger Cross-Star",
+      "biome": "Cradle of Echoes",
+      "bg_art": "./GeneratedArt/env_breach_staccs_isometric_tower.png",
+      "x": 885,
+      "y": 310,
+      "edges": [
+        14
+      ],
+      "boss_commander_id": "e_colossus",
+      "boss_name": "Emerald Colossus",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_colossus.png?v=tele4",
+      "ai_bonus": 2,
+      "reward_coins": 255,
+      "judge_law": {
+        "law_id": "OKITSU_TIE_SURGE",
+        "name": "Trigger 24fps Sakuga Law",
+        "banner_key": "judge_law_okitsu",
+        "banner": "JUDGE LAW: Okitsu Tie-Surge (Equal Edge Pips Capture!)",
+        "rule_modifier": "Corner sockets trigger 4-point Cross-Star surge; Equal Edge Pips Capture."
+      },
+      "reward_relic": {
+        "relic_id": "relic_14_trigger_star_core",
+        "name": "Studio Trigger Cross-Star Crest",
+        "effect": "Corner deployments trigger 2-frame Impact Flash & +1 N/W",
+        "bonus_coins": 255
+      },
+      "coordinates": {
+        "x": 885,
+        "y": 310
+      },
+      "next_stage_ids": [
+        "stage_15"
+      ],
+      "fnv1a_64_checksum": "0x7d566a6f8c1c815b"
+    },
+    {
+      "stage_index": 14,
+      "stage_id": "stage_15",
+      "act_id": "ACT_III",
+      "act_title": "Act III: Cradle of Echoes",
+      "name": "Act III-15: Omega Chronos Prime",
+      "biome": "Cradle of Echoes",
+      "bg_art": "./GeneratedArt/env_hiroshi_minagawa_ivalice_diorama.png",
+      "x": 945,
+      "y": 235,
+      "edges": [],
+      "boss_commander_id": "e_inferno",
+      "boss_name": "Inferno Seraph (Omega Chronos Prime)",
+      "boss_avatar": "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",
+      "ai_bonus": 2,
+      "reward_coins": 300,
+      "judge_law": {
+        "law_id": "OKITSU_TIE_SURGE",
+        "name": "Omega Sovereign Finale Law",
+        "banner_key": "judge_law_okitsu",
+        "banner": "JUDGE LAW: Okitsu Tie-Surge (Equal Edge Pips Capture!)",
+        "rule_modifier": "Grand Finale: Center Mnemosyne (+1 All Stats) + Okitsu Tie-Surge + Full SAME/PLUS/COMBO."
+      },
+      "reward_relic": {
+        "relic_id": "relic_15_crown_of_echoes",
+        "name": "Sovereign Crown of Echoes",
+        "effect": "Completes the 15-Stage Ivalice Chronicle & unlocks Grandmaster Ghost Tier",
+        "bonus_coins": 300
+      },
+      "coordinates": {
+        "x": 945,
+        "y": 235
+      },
+      "next_stage_ids": [],
+      "fnv1a_64_checksum": "0x33f51eb0d61b4428"
+    }
+  ],
+  "ghost_ladder": [
+    {
+      "ghost_id": "ghost_gm_01_alpha_sovereign",
+      "rank": 10,
+      "title": "Initiate of the Sky-Stone",
+      "player_username": "AlphaSovereign",
+      "elo_rating": 1650,
+      "stage_index": 0,
+      "faction_focus": "Solaris",
+      "judge_law_id": "STANDARD_HIGH_PIP",
+      "deck_card_ids": [
+        "h_archangel",
+        "h_valkyrie",
+        "h_oracle",
+        "h_kai",
+        "e_eclipse"
+      ],
+      "opening_book_moves": [
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "h_archangel",
+          "slotIndex": 4,
+          "r": 1,
+          "c": 1,
+          "flips": 1
+        },
+        {
+          "turn": 2,
+          "actor": "ai",
+          "action": "DEPLOY",
+          "cardId": "e_eclipse",
+          "slotIndex": 2,
+          "r": 0,
+          "c": 2,
+          "flips": 0
+        },
+        {
+          "turn": 3,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "h_valkyrie",
+          "slotIndex": 5,
+          "r": 1,
+          "c": 2,
+          "flips": 1
+        }
+      ],
+      "squad_stars": 9,
+      "sample_replay_cf_rpl1": "CF-RPL1:eyJkZWNrX2NhcmRfaWRzIjpbImhfYXJjaGFuZ2VsIiwiaF92YWxreXJpZSIsImhfb3JhY2xlIiwiaF9rYWkiLCJlX2VjbGlwc2UiXSwiZWxvX3JhdGluZyI6MTY1MCwiZm52MWFfNjRfY2hlY2tzdW0iOiIweDliMDRlNDM0Njg0OTZmYTMiLCJmb3JtYXQiOiJDRi1SUEwxIiwianVkZ2VfbGF3X2lkIjoiU1RBTkRBUkRfSElHSF9QSVAiLCJwbGF5ZXJfdXNlcm5hbWUiOiJBbHBoYVNvdmVyZWlnbiIsInJlcGxheV9pZCI6InJwbF9naG9zdF9nbV8wMV9hbHBoYV9zb3ZlcmVpZ24iLCJzZWVkIjoyMDI2MTExOSwic3RhZ2VfaW5kZXgiOjAsInR1cm5zIjpbeyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6InBsYXllciIsImMiOjEsImNhcmRJZCI6ImhfYXJjaGFuZ2VsIiwiZmxpcHMiOjEsInIiOjEsInNsb3RJbmRleCI6NCwidHVybiI6MX0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6ImFpIiwiYyI6MiwiY2FyZElkIjoiZV9lY2xpcHNlIiwiZmxpcHMiOjAsInIiOjAsInNsb3RJbmRleCI6MiwidHVybiI6Mn0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6InBsYXllciIsImMiOjIsImNhcmRJZCI6ImhfdmFsa3lyaWUiLCJmbGlwcyI6MSwiciI6MSwic2xvdEluZGV4Ijo1LCJ0dXJuIjozfV0sInZlcnNpb24iOjF9.0x9b04e43468496fa3",
+      "fnv1a_64_checksum": "0x6c73146e59fa25f1"
+    },
+    {
+      "ghost_id": "ghost_gm_02_valkyria_wing",
+      "rank": 9,
+      "title": "Windmill Lance Tactician",
+      "player_username": "ValkyriaSkylance",
+      "elo_rating": 1720,
+      "stage_index": 2,
+      "faction_focus": "Valkyria",
+      "judge_law_id": "SAME_PLUS_CASCADE",
+      "deck_card_ids": [
+        "h_phoenix",
+        "h_valkyrie",
+        "h_kai",
+        "h_chronos",
+        "e_cryo"
+      ],
+      "opening_book_moves": [
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "NUDGE_DIE",
+          "colIndex": 0,
+          "newPip": 5
+        },
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "h_phoenix",
+          "slotIndex": 3,
+          "r": 1,
+          "c": 0,
+          "flips": 1
+        },
+        {
+          "turn": 2,
+          "actor": "ai",
+          "action": "DEPLOY",
+          "cardId": "e_cryo",
+          "slotIndex": 0,
+          "r": 0,
+          "c": 0,
+          "flips": 0
+        }
+      ],
+      "squad_stars": 9,
+      "sample_replay_cf_rpl1": "CF-RPL1:eyJkZWNrX2NhcmRfaWRzIjpbImhfcGhvZW5peCIsImhfdmFsa3lyaWUiLCJoX2thaSIsImhfY2hyb25vcyIsImVfY3J5byJdLCJlbG9fcmF0aW5nIjoxNzIwLCJmbnYxYV82NF9jaGVja3N1bSI6IjB4YzMwNDc2OWIxNGU4NGU1NCIsImZvcm1hdCI6IkNGLVJQTDEiLCJqdWRnZV9sYXdfaWQiOiJTQU1FX1BMVVNfQ0FTQ0FERSIsInBsYXllcl91c2VybmFtZSI6IlZhbGt5cmlhU2t5bGFuY2UiLCJyZXBsYXlfaWQiOiJycGxfZ2hvc3RfZ21fMDJfdmFsa3lyaWFfd2luZyIsInNlZWQiOjIwMjYxMTE4LCJzdGFnZV9pbmRleCI6MiwidHVybnMiOlt7ImFjdGlvbiI6Ik5VREdFX0RJRSIsImFjdG9yIjoicGxheWVyIiwiY29sSW5kZXgiOjAsIm5ld1BpcCI6NSwidHVybiI6MX0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6InBsYXllciIsImMiOjAsImNhcmRJZCI6ImhfcGhvZW5peCIsImZsaXBzIjoxLCJyIjoxLCJzbG90SW5kZXgiOjMsInR1cm4iOjF9LHsiYWN0aW9uIjoiREVQTE9ZIiwiYWN0b3IiOiJhaSIsImMiOjAsImNhcmRJZCI6ImVfY3J5byIsImZsaXBzIjowLCJyIjowLCJzbG90SW5kZXgiOjAsInR1cm4iOjJ9XSwidmVyc2lvbiI6MX0.0xc304769b14e84e54",
+      "fnv1a_64_checksum": "0x7275d3af71a8dd6a"
+    },
+    {
+      "ghost_id": "ghost_gm_03_okitsu_arbiter",
+      "rank": 8,
+      "title": "Citadel Lawkeeper",
+      "player_username": "OkitsuArbiter",
+      "elo_rating": 1790,
+      "stage_index": 4,
+      "faction_focus": "Solaris",
+      "judge_law_id": "SAME_PLUS_CASCADE",
+      "deck_card_ids": [
+        "h_arbiter",
+        "h_archangel",
+        "h_oracle",
+        "h_seraph",
+        "e_archon"
+      ],
+      "opening_book_moves": [
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "h_arbiter",
+          "slotIndex": 4,
+          "r": 1,
+          "c": 1,
+          "flips": 1
+        },
+        {
+          "turn": 2,
+          "actor": "ai",
+          "action": "DEPLOY",
+          "cardId": "e_archon",
+          "slotIndex": 8,
+          "r": 2,
+          "c": 2,
+          "flips": 0
+        },
+        {
+          "turn": 3,
+          "actor": "player",
+          "action": "SLIDE",
+          "cardId": "h_arbiter",
+          "fromSlot": 4,
+          "toSlot": 5,
+          "flips": 1
+        }
+      ],
+      "squad_stars": 10,
+      "sample_replay_cf_rpl1": "CF-RPL1:eyJkZWNrX2NhcmRfaWRzIjpbImhfYXJiaXRlciIsImhfYXJjaGFuZ2VsIiwiaF9vcmFjbGUiLCJoX3NlcmFwaCIsImVfYXJjaG9uIl0sImVsb19yYXRpbmciOjE3OTAsImZudjFhXzY0X2NoZWNrc3VtIjoiMHgyMjRmYTczMTExNmIzYjZkIiwiZm9ybWF0IjoiQ0YtUlBMMSIsImp1ZGdlX2xhd19pZCI6IlNBTUVfUExVU19DQVNDQURFIiwicGxheWVyX3VzZXJuYW1lIjoiT2tpdHN1QXJiaXRlciIsInJlcGxheV9pZCI6InJwbF9naG9zdF9nbV8wM19va2l0c3VfYXJiaXRlciIsInNlZWQiOjIwMjYxMTE3LCJzdGFnZV9pbmRleCI6NCwidHVybnMiOlt7ImFjdGlvbiI6IkRFUExPWSIsImFjdG9yIjoicGxheWVyIiwiYyI6MSwiY2FyZElkIjoiaF9hcmJpdGVyIiwiZmxpcHMiOjEsInIiOjEsInNsb3RJbmRleCI6NCwidHVybiI6MX0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6ImFpIiwiYyI6MiwiY2FyZElkIjoiZV9hcmNob24iLCJmbGlwcyI6MCwiciI6Miwic2xvdEluZGV4Ijo4LCJ0dXJuIjoyfSx7ImFjdGlvbiI6IlNMSURFIiwiYWN0b3IiOiJwbGF5ZXIiLCJjYXJkSWQiOiJoX2FyYml0ZXIiLCJmbGlwcyI6MSwiZnJvbVNsb3QiOjQsInRvU2xvdCI6NSwidHVybiI6M31dLCJ2ZXJzaW9uIjoxfQ.0x224fa731116b3b6d",
+      "fnv1a_64_checksum": "0x7c76a1dab1f42d41"
+    },
+    {
+      "ghost_id": "ghost_gm_04_chronos_weaver",
+      "rank": 7,
+      "title": "Clockwork Sanctum Warden",
+      "player_username": "ChronosEscapement",
+      "elo_rating": 1860,
+      "stage_index": 5,
+      "faction_focus": "Chronos",
+      "judge_law_id": "MNEMOSYNE_NODE_RESONANCE",
+      "deck_card_ids": [
+        "h_chronos",
+        "plugin_02_parallel_swarm_orchestrator",
+        "h_kai",
+        "h_oracle",
+        "e_shinobi"
+      ],
+      "opening_book_moves": [
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "h_chronos",
+          "slotIndex": 4,
+          "r": 1,
+          "c": 1,
+          "flips": 1
+        },
+        {
+          "turn": 2,
+          "actor": "ai",
+          "action": "DEPLOY",
+          "cardId": "e_titan",
+          "slotIndex": 3,
+          "r": 1,
+          "c": 0,
+          "flips": 0
+        },
+        {
+          "turn": 3,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "plugin_02_parallel_swarm_orchestrator",
+          "slotIndex": 6,
+          "r": 2,
+          "c": 0,
+          "flips": 1
+        }
+      ],
+      "squad_stars": 9,
+      "sample_replay_cf_rpl1": "CF-RPL1:eyJkZWNrX2NhcmRfaWRzIjpbImhfY2hyb25vcyIsInBsdWdpbl8wMl9wYXJhbGxlbF9zd2FybV9vcmNoZXN0cmF0b3IiLCJoX2thaSIsImhfb3JhY2xlIiwiZV9zaGlub2JpIl0sImVsb19yYXRpbmciOjE4NjAsImZudjFhXzY0X2NoZWNrc3VtIjoiMHgzMjVmOGFmNDdjOTcxZmEzIiwiZm9ybWF0IjoiQ0YtUlBMMSIsImp1ZGdlX2xhd19pZCI6Ik1ORU1PU1lORV9OT0RFX1JFU09OQU5DRSIsInBsYXllcl91c2VybmFtZSI6IkNocm9ub3NFc2NhcGVtZW50IiwicmVwbGF5X2lkIjoicnBsX2dob3N0X2dtXzA0X2Nocm9ub3Nfd2VhdmVyIiwic2VlZCI6MjAyNjExMTYsInN0YWdlX2luZGV4Ijo1LCJ0dXJucyI6W3siYWN0aW9uIjoiREVQTE9ZIiwiYWN0b3IiOiJwbGF5ZXIiLCJjIjoxLCJjYXJkSWQiOiJoX2Nocm9ub3MiLCJmbGlwcyI6MSwiciI6MSwic2xvdEluZGV4Ijo0LCJ0dXJuIjoxfSx7ImFjdGlvbiI6IkRFUExPWSIsImFjdG9yIjoiYWkiLCJjIjowLCJjYXJkSWQiOiJlX3RpdGFuIiwiZmxpcHMiOjAsInIiOjEsInNsb3RJbmRleCI6MywidHVybiI6Mn0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6InBsYXllciIsImMiOjAsImNhcmRJZCI6InBsdWdpbl8wMl9wYXJhbGxlbF9zd2FybV9vcmNoZXN0cmF0b3IiLCJmbGlwcyI6MSwiciI6Miwic2xvdEluZGV4Ijo2LCJ0dXJuIjozfV0sInZlcnNpb24iOjF9.0x325f8af47c971fa3",
+      "fnv1a_64_checksum": "0xe9b7c766db323526"
+    },
+    {
+      "ghost_id": "ghost_gm_05_solideye_phantom",
+      "rank": 6,
+      "title": "Solid Eye Halftone Operative",
+      "player_username": "KaiHalftoneZero",
+      "elo_rating": 1940,
+      "stage_index": 7,
+      "faction_focus": "Aether",
+      "judge_law_id": "SAME_PLUS_CASCADE",
+      "deck_card_ids": [
+        "h_kai",
+        "h_oracle",
+        "plugin_01_tcg_creative_designer",
+        "h_valkyrie",
+        "e_colossus"
+      ],
+      "opening_book_moves": [
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "h_kai",
+          "slotIndex": 0,
+          "r": 0,
+          "c": 0,
+          "flips": 1
+        },
+        {
+          "turn": 2,
+          "actor": "ai",
+          "action": "DEPLOY",
+          "cardId": "e_shinobi",
+          "slotIndex": 2,
+          "r": 0,
+          "c": 2,
+          "flips": 0
+        },
+        {
+          "turn": 3,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "plugin_01_tcg_creative_designer",
+          "slotIndex": 4,
+          "r": 1,
+          "c": 1,
+          "flips": 2
+        }
+      ],
+      "squad_stars": 9,
+      "sample_replay_cf_rpl1": "CF-RPL1:eyJkZWNrX2NhcmRfaWRzIjpbImhfa2FpIiwiaF9vcmFjbGUiLCJwbHVnaW5fMDFfdGNnX2NyZWF0aXZlX2Rlc2lnbmVyIiwiaF92YWxreXJpZSIsImVfY29sb3NzdXMiXSwiZWxvX3JhdGluZyI6MTk0MCwiZm52MWFfNjRfY2hlY2tzdW0iOiIweDdiNjk1MGFmYWM0ZWU4YTMiLCJmb3JtYXQiOiJDRi1SUEwxIiwianVkZ2VfbGF3X2lkIjoiU0FNRV9QTFVTX0NBU0NBREUiLCJwbGF5ZXJfdXNlcm5hbWUiOiJLYWlIYWxmdG9uZVplcm8iLCJyZXBsYXlfaWQiOiJycGxfZ2hvc3RfZ21fMDVfc29saWRleWVfcGhhbnRvbSIsInNlZWQiOjIwMjYxMTE1LCJzdGFnZV9pbmRleCI6NywidHVybnMiOlt7ImFjdGlvbiI6IkRFUExPWSIsImFjdG9yIjoicGxheWVyIiwiYyI6MCwiY2FyZElkIjoiaF9rYWkiLCJmbGlwcyI6MSwiciI6MCwic2xvdEluZGV4IjowLCJ0dXJuIjoxfSx7ImFjdGlvbiI6IkRFUExPWSIsImFjdG9yIjoiYWkiLCJjIjoyLCJjYXJkSWQiOiJlX3NoaW5vYmkiLCJmbGlwcyI6MCwiciI6MCwic2xvdEluZGV4IjoyLCJ0dXJuIjoyfSx7ImFjdGlvbiI6IkRFUExPWSIsImFjdG9yIjoicGxheWVyIiwiYyI6MSwiY2FyZElkIjoicGx1Z2luXzAxX3RjZ19jcmVhdGl2ZV9kZXNpZ25lciIsImZsaXBzIjoyLCJyIjoxLCJzbG90SW5kZXgiOjQsInR1cm4iOjN9XSwidmVyc2lvbiI6MX0.0x7b6950afac4ee8a3",
+      "fnv1a_64_checksum": "0x32e806e0b9d3471b"
+    },
+    {
+      "ghost_id": "ghost_gm_06_mnemosyne_sage",
+      "rank": 5,
+      "title": "Archon of the Gear Vault",
+      "player_username": "MnemosyneOracle",
+      "elo_rating": 2030,
+      "stage_index": 9,
+      "faction_focus": "Aether",
+      "judge_law_id": "MNEMOSYNE_NODE_RESONANCE",
+      "deck_card_ids": [
+        "h_oracle",
+        "plugin_01_tcg_creative_designer",
+        "plugin_03_jev_system_one",
+        "h_archangel",
+        "e_cryo"
+      ],
+      "opening_book_moves": [
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "plugin_03_jev_system_one",
+          "slotIndex": 4,
+          "r": 1,
+          "c": 1,
+          "flips": 1
+        },
+        {
+          "turn": 2,
+          "actor": "ai",
+          "action": "DEPLOY",
+          "cardId": "e_inferno",
+          "slotIndex": 7,
+          "r": 2,
+          "c": 1,
+          "flips": 0
+        },
+        {
+          "turn": 3,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "h_oracle",
+          "slotIndex": 8,
+          "r": 2,
+          "c": 2,
+          "flips": 2
+        }
+      ],
+      "squad_stars": 9,
+      "sample_replay_cf_rpl1": "CF-RPL1:eyJkZWNrX2NhcmRfaWRzIjpbImhfb3JhY2xlIiwicGx1Z2luXzAxX3RjZ19jcmVhdGl2ZV9kZXNpZ25lciIsInBsdWdpbl8wM19qZXZfc3lzdGVtX29uZSIsImhfYXJjaGFuZ2VsIiwiZV9jcnlvIl0sImVsb19yYXRpbmciOjIwMzAsImZudjFhXzY0X2NoZWNrc3VtIjoiMHhlNzFjOWNlMTc0YWM1MGNlIiwiZm9ybWF0IjoiQ0YtUlBMMSIsImp1ZGdlX2xhd19pZCI6Ik1ORU1PU1lORV9OT0RFX1JFU09OQU5DRSIsInBsYXllcl91c2VybmFtZSI6Ik1uZW1vc3luZU9yYWNsZSIsInJlcGxheV9pZCI6InJwbF9naG9zdF9nbV8wNl9tbmVtb3N5bmVfc2FnZSIsInNlZWQiOjIwMjYxMTE0LCJzdGFnZV9pbmRleCI6OSwidHVybnMiOlt7ImFjdGlvbiI6IkRFUExPWSIsImFjdG9yIjoicGxheWVyIiwiYyI6MSwiY2FyZElkIjoicGx1Z2luXzAzX2pldl9zeXN0ZW1fb25lIiwiZmxpcHMiOjEsInIiOjEsInNsb3RJbmRleCI6NCwidHVybiI6MX0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6ImFpIiwiYyI6MSwiY2FyZElkIjoiZV9pbmZlcm5vIiwiZmxpcHMiOjAsInIiOjIsInNsb3RJbmRleCI6NywidHVybiI6Mn0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6InBsYXllciIsImMiOjIsImNhcmRJZCI6Imhfb3JhY2xlIiwiZmxpcHMiOjIsInIiOjIsInNsb3RJbmRleCI6OCwidHVybiI6M31dLCJ2ZXJzaW9uIjoxfQ.0xe71c9ce174ac50ce",
+      "fnv1a_64_checksum": "0x6517eea8c64bb80d"
+    },
+    {
+      "ghost_id": "ghost_gm_07_jev_gatekeeper",
+      "rank": 4,
+      "title": "System One Calibrated Judge",
+      "player_username": "JevSystemOneGM",
+      "elo_rating": 2120,
+      "stage_index": 11,
+      "faction_focus": "Solaris",
+      "judge_law_id": "OKITSU_TIE_SURGE",
+      "deck_card_ids": [
+        "plugin_03_jev_system_one",
+        "h_arbiter",
+        "h_archangel",
+        "plugin_04_mlx_apple_silicon",
+        "e_archon"
+      ],
+      "opening_book_moves": [
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "plugin_03_jev_system_one",
+          "slotIndex": 4,
+          "r": 1,
+          "c": 1,
+          "flips": 1
+        },
+        {
+          "turn": 2,
+          "actor": "ai",
+          "action": "DEPLOY",
+          "cardId": "e_eclipse",
+          "slotIndex": 3,
+          "r": 1,
+          "c": 0,
+          "flips": 0
+        },
+        {
+          "turn": 3,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "h_arbiter",
+          "slotIndex": 6,
+          "r": 2,
+          "c": 0,
+          "flips": 2
+        }
+      ],
+      "squad_stars": 10,
+      "sample_replay_cf_rpl1": "CF-RPL1:eyJkZWNrX2NhcmRfaWRzIjpbInBsdWdpbl8wM19qZXZfc3lzdGVtX29uZSIsImhfYXJiaXRlciIsImhfYXJjaGFuZ2VsIiwicGx1Z2luXzA0X21seF9hcHBsZV9zaWxpY29uIiwiZV9hcmNob24iXSwiZWxvX3JhdGluZyI6MjEyMCwiZm52MWFfNjRfY2hlY2tzdW0iOiIweDQwZmU2MTVmMGI0NTNjN2EiLCJmb3JtYXQiOiJDRi1SUEwxIiwianVkZ2VfbGF3X2lkIjoiT0tJVFNVX1RJRV9TVVJHRSIsInBsYXllcl91c2VybmFtZSI6IkpldlN5c3RlbU9uZUdNIiwicmVwbGF5X2lkIjoicnBsX2dob3N0X2dtXzA3X2pldl9nYXRla2VlcGVyIiwic2VlZCI6MjAyNjExMTMsInN0YWdlX2luZGV4IjoxMSwidHVybnMiOlt7ImFjdGlvbiI6IkRFUExPWSIsImFjdG9yIjoicGxheWVyIiwiYyI6MSwiY2FyZElkIjoicGx1Z2luXzAzX2pldl9zeXN0ZW1fb25lIiwiZmxpcHMiOjEsInIiOjEsInNsb3RJbmRleCI6NCwidHVybiI6MX0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6ImFpIiwiYyI6MCwiY2FyZElkIjoiZV9lY2xpcHNlIiwiZmxpcHMiOjAsInIiOjEsInNsb3RJbmRleCI6MywidHVybiI6Mn0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6InBsYXllciIsImMiOjAsImNhcmRJZCI6ImhfYXJiaXRlciIsImZsaXBzIjoyLCJyIjoyLCJzbG90SW5kZXgiOjYsInR1cm4iOjN9XSwidmVyc2lvbiI6MX0.0x40fe615f0b453c7a",
+      "fnv1a_64_checksum": "0x6f1f520baca28dd7"
+    },
+    {
+      "ghost_id": "ghost_gm_08_mlx_metal_titan",
+      "rank": 3,
+      "title": "A18 Pro Metal Sovereign",
+      "player_username": "MlxAppleSiliconGM",
+      "elo_rating": 2210,
+      "stage_index": 12,
+      "faction_focus": "Valkyria",
+      "judge_law_id": "OKITSU_TIE_SURGE",
+      "deck_card_ids": [
+        "plugin_04_mlx_apple_silicon",
+        "h_phoenix",
+        "h_valkyrie",
+        "plugin_02_parallel_swarm_orchestrator",
+        "e_inferno"
+      ],
+      "opening_book_moves": [
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "NUDGE_DIE",
+          "colIndex": 1,
+          "newPip": 4
+        },
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "plugin_04_mlx_apple_silicon",
+          "slotIndex": 4,
+          "r": 1,
+          "c": 1,
+          "flips": 1
+        },
+        {
+          "turn": 2,
+          "actor": "ai",
+          "action": "DEPLOY",
+          "cardId": "e_archon",
+          "slotIndex": 5,
+          "r": 1,
+          "c": 2,
+          "flips": 0
+        }
+      ],
+      "squad_stars": 9,
+      "sample_replay_cf_rpl1": "CF-RPL1:eyJkZWNrX2NhcmRfaWRzIjpbInBsdWdpbl8wNF9tbHhfYXBwbGVfc2lsaWNvbiIsImhfcGhvZW5peCIsImhfdmFsa3lyaWUiLCJwbHVnaW5fMDJfcGFyYWxsZWxfc3dhcm1fb3JjaGVzdHJhdG9yIiwiZV9pbmZlcm5vIl0sImVsb19yYXRpbmciOjIyMTAsImZudjFhXzY0X2NoZWNrc3VtIjoiMHg1MWRmZGVlNTEyODE4M2Q2IiwiZm9ybWF0IjoiQ0YtUlBMMSIsImp1ZGdlX2xhd19pZCI6Ik9LSVRTVV9USUVfU1VSR0UiLCJwbGF5ZXJfdXNlcm5hbWUiOiJNbHhBcHBsZVNpbGljb25HTSIsInJlcGxheV9pZCI6InJwbF9naG9zdF9nbV8wOF9tbHhfbWV0YWxfdGl0YW4iLCJzZWVkIjoyMDI2MTExMiwic3RhZ2VfaW5kZXgiOjEyLCJ0dXJucyI6W3siYWN0aW9uIjoiTlVER0VfRElFIiwiYWN0b3IiOiJwbGF5ZXIiLCJjb2xJbmRleCI6MSwibmV3UGlwIjo0LCJ0dXJuIjoxfSx7ImFjdGlvbiI6IkRFUExPWSIsImFjdG9yIjoicGxheWVyIiwiYyI6MSwiY2FyZElkIjoicGx1Z2luXzA0X21seF9hcHBsZV9zaWxpY29uIiwiZmxpcHMiOjEsInIiOjEsInNsb3RJbmRleCI6NCwidHVybiI6MX0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6ImFpIiwiYyI6MiwiY2FyZElkIjoiZV9hcmNob24iLCJmbGlwcyI6MCwiciI6MSwic2xvdEluZGV4Ijo1LCJ0dXJuIjoyfV0sInZlcnNpb24iOjF9.0x51dfdee5128183d6",
+      "fnv1a_64_checksum": "0x91f3681c55f5fe50"
+    },
+    {
+      "ghost_id": "ghost_gm_09_trigger_cross_star",
+      "rank": 2,
+      "title": "Studio Trigger 24fps Maestro",
+      "player_username": "SakugaCrossStarGM",
+      "elo_rating": 2310,
+      "stage_index": 13,
+      "faction_focus": "Abyss",
+      "judge_law_id": "OKITSU_TIE_SURGE",
+      "deck_card_ids": [
+        "h_seraph",
+        "plugin_01_tcg_creative_designer",
+        "plugin_02_parallel_swarm_orchestrator",
+        "h_chronos",
+        "e_reaper"
+      ],
+      "opening_book_moves": [
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "h_seraph",
+          "slotIndex": 8,
+          "r": 2,
+          "c": 2,
+          "flips": 1
+        },
+        {
+          "turn": 2,
+          "actor": "ai",
+          "action": "DEPLOY",
+          "cardId": "e_colossus",
+          "slotIndex": 5,
+          "r": 1,
+          "c": 2,
+          "flips": 0
+        },
+        {
+          "turn": 3,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "plugin_01_tcg_creative_designer",
+          "slotIndex": 4,
+          "r": 1,
+          "c": 1,
+          "flips": 2
+        }
+      ],
+      "squad_stars": 9,
+      "sample_replay_cf_rpl1": "CF-RPL1:eyJkZWNrX2NhcmRfaWRzIjpbImhfc2VyYXBoIiwicGx1Z2luXzAxX3RjZ19jcmVhdGl2ZV9kZXNpZ25lciIsInBsdWdpbl8wMl9wYXJhbGxlbF9zd2FybV9vcmNoZXN0cmF0b3IiLCJoX2Nocm9ub3MiLCJlX3JlYXBlciJdLCJlbG9fcmF0aW5nIjoyMzEwLCJmbnYxYV82NF9jaGVja3N1bSI6IjB4Y2ZiODM0OGM2NjU1MjdiOCIsImZvcm1hdCI6IkNGLVJQTDEiLCJqdWRnZV9sYXdfaWQiOiJPS0lUU1VfVElFX1NVUkdFIiwicGxheWVyX3VzZXJuYW1lIjoiU2FrdWdhQ3Jvc3NTdGFyR00iLCJyZXBsYXlfaWQiOiJycGxfZ2hvc3RfZ21fMDlfdHJpZ2dlcl9jcm9zc19zdGFyIiwic2VlZCI6MjAyNjExMTEsInN0YWdlX2luZGV4IjoxMywidHVybnMiOlt7ImFjdGlvbiI6IkRFUExPWSIsImFjdG9yIjoicGxheWVyIiwiYyI6MiwiY2FyZElkIjoiaF9zZXJhcGgiLCJmbGlwcyI6MSwiciI6Miwic2xvdEluZGV4Ijo4LCJ0dXJuIjoxfSx7ImFjdGlvbiI6IkRFUExPWSIsImFjdG9yIjoiYWkiLCJjIjoyLCJjYXJkSWQiOiJlX2NvbG9zc3VzIiwiZmxpcHMiOjAsInIiOjEsInNsb3RJbmRleCI6NSwidHVybiI6Mn0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6InBsYXllciIsImMiOjEsImNhcmRJZCI6InBsdWdpbl8wMV90Y2dfY3JlYXRpdmVfZGVzaWduZXIiLCJmbGlwcyI6MiwiciI6MSwic2xvdEluZGV4Ijo0LCJ0dXJuIjozfV0sInZlcnNpb24iOjF9.0xcfb8348c665527b8",
+      "fnv1a_64_checksum": "0x2191875e18351572"
+    },
+    {
+      "ghost_id": "ghost_gm_10_omega_chronos_prime",
+      "rank": 1,
+      "title": "Supreme Sovereign of Cradle of Echoes",
+      "player_username": "OmegaChronosPrime",
+      "elo_rating": 2420,
+      "stage_index": 14,
+      "faction_focus": "Aether",
+      "judge_law_id": "OKITSU_TIE_SURGE",
+      "deck_card_ids": [
+        "plugin_01_tcg_creative_designer",
+        "plugin_02_parallel_swarm_orchestrator",
+        "plugin_03_jev_system_one",
+        "plugin_04_mlx_apple_silicon",
+        "h_archangel"
+      ],
+      "opening_book_moves": [
+        {
+          "turn": 1,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "plugin_01_tcg_creative_designer",
+          "slotIndex": 4,
+          "r": 1,
+          "c": 1,
+          "flips": 1
+        },
+        {
+          "turn": 2,
+          "actor": "ai",
+          "action": "DEPLOY",
+          "cardId": "e_inferno",
+          "slotIndex": 2,
+          "r": 0,
+          "c": 2,
+          "flips": 0
+        },
+        {
+          "turn": 3,
+          "actor": "player",
+          "action": "DEPLOY",
+          "cardId": "plugin_03_jev_system_one",
+          "slotIndex": 5,
+          "r": 1,
+          "c": 2,
+          "flips": 2
+        }
+      ],
+      "squad_stars": 10,
+      "sample_replay_cf_rpl1": "CF-RPL1:eyJkZWNrX2NhcmRfaWRzIjpbInBsdWdpbl8wMV90Y2dfY3JlYXRpdmVfZGVzaWduZXIiLCJwbHVnaW5fMDJfcGFyYWxsZWxfc3dhcm1fb3JjaGVzdHJhdG9yIiwicGx1Z2luXzAzX2pldl9zeXN0ZW1fb25lIiwicGx1Z2luXzA0X21seF9hcHBsZV9zaWxpY29uIiwiaF9hcmNoYW5nZWwiXSwiZWxvX3JhdGluZyI6MjQyMCwiZm52MWFfNjRfY2hlY2tzdW0iOiIweDlmMjAzOTNhNDE5YmRiZDEiLCJmb3JtYXQiOiJDRi1SUEwxIiwianVkZ2VfbGF3X2lkIjoiT0tJVFNVX1RJRV9TVVJHRSIsInBsYXllcl91c2VybmFtZSI6Ik9tZWdhQ2hyb25vc1ByaW1lIiwicmVwbGF5X2lkIjoicnBsX2dob3N0X2dtXzEwX29tZWdhX2Nocm9ub3NfcHJpbWUiLCJzZWVkIjoyMDI2MTExMCwic3RhZ2VfaW5kZXgiOjE0LCJ0dXJucyI6W3siYWN0aW9uIjoiREVQTE9ZIiwiYWN0b3IiOiJwbGF5ZXIiLCJjIjoxLCJjYXJkSWQiOiJwbHVnaW5fMDFfdGNnX2NyZWF0aXZlX2Rlc2lnbmVyIiwiZmxpcHMiOjEsInIiOjEsInNsb3RJbmRleCI6NCwidHVybiI6MX0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6ImFpIiwiYyI6MiwiY2FyZElkIjoiZV9pbmZlcm5vIiwiZmxpcHMiOjAsInIiOjAsInNsb3RJbmRleCI6MiwidHVybiI6Mn0seyJhY3Rpb24iOiJERVBMT1kiLCJhY3RvciI6InBsYXllciIsImMiOjIsImNhcmRJZCI6InBsdWdpbl8wM19qZXZfc3lzdGVtX29uZSIsImZsaXBzIjoyLCJyIjoxLCJzbG90SW5kZXgiOjUsInR1cm4iOjN9XSwidmVyc2lvbiI6MX0.0x9f20393a419bdbd1",
+      "fnv1a_64_checksum": "0xab72f5a30a778891"
+    }
+  ],
+  "daily_puzzles": [
+    {
+      "puzzle_id": "daily_puzzle_01",
+      "day_index": 1,
+      "seed": 20261101,
+      "title": "Day 1: Solar Cruciform Double Capture",
+      "subtitle": "Deploy Solar Archangel into Center Socket (2,2) to flip North & West foes in 1 turn.",
+      "stage_index": 0,
+      "judge_law_id": "STANDARD_HIGH_PIP",
+      "okitsu_tie_surge": false,
+      "col_dice": [
+        4,
+        5,
+        2
+      ],
+      "nudges_left": 1,
+      "used_slide_this_turn": false,
+      "hand": [
+        "h_archangel",
+        "h_kai"
+      ],
+      "board_setup": [
+        {
+          "r": 0,
+          "c": 1,
+          "cardId": "e_eclipse",
+          "owner": "ai",
+          "nesw": [
+            6,
+            6,
+            5,
+            6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "cardId": "e_shinobi",
+          "owner": "ai",
+          "nesw": [
+            7,
+            6,
+            6,
+            5
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "cardId": "e_cryo",
+          "owner": "ai",
+          "nesw": [
+            5,
+            7,
+            6,
+            7
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "cardId": "h_oracle",
+          "owner": "player",
+          "nesw": [
+            7,
+            7,
+            8,
+            7
+          ]
+        }
+      ],
+      "winning_move": {
+        "action_type": "DEPLOY",
+        "hand_index": 0,
+        "card_id": "h_archangel",
+        "slot_index": 4,
+        "r": 1,
+        "c": 1,
+        "pre_nudge_col": null,
+        "flips_count": 2,
+        "rules_triggered": [
+          "HIGH_PIP"
+        ],
+        "final_score_blue": 4,
+        "final_score_red": 1
+      },
+      "verified_lethal_1_turn": true,
+      "fnv1a_64_checksum": "0x156342560ecfcd07"
+    },
+    {
+      "puzzle_id": "daily_puzzle_02",
+      "day_index": 2,
+      "seed": 20261102,
+      "title": "Day 2: Triple Triad SAME Rule Reversal",
+      "subtitle": "Match exact opposing edges (N=7 vs S=7 and E=7 vs W=7) to trigger a SAME double flip.",
+      "stage_index": 1,
+      "judge_law_id": "SAME_PLUS_CASCADE",
+      "okitsu_tie_surge": false,
+      "col_dice": [
+        2,
+        2,
+        2
+      ],
+      "nudges_left": 0,
+      "used_slide_this_turn": true,
+      "hand": [
+        "h_oracle",
+        "h_chronos"
+      ],
+      "board_setup": [
+        {
+          "r": 0,
+          "c": 1,
+          "cardId": "e_reaper",
+          "owner": "ai",
+          "nesw": [
+            6,
+            7,
+            7,
+            5
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "cardId": "e_cryo",
+          "owner": "ai",
+          "nesw": [
+            5,
+            7,
+            6,
+            7
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "cardId": "e_eclipse",
+          "owner": "ai",
+          "nesw": [
+            6,
+            6,
+            5,
+            6
+          ]
+        },
+        {
+          "r": 0,
+          "c": 0,
+          "cardId": "h_valkyrie",
+          "owner": "player",
+          "nesw": [
+            8,
+            8,
+            5,
+            6
+          ]
+        }
+      ],
+      "winning_move": {
+        "action_type": "DEPLOY",
+        "hand_index": 0,
+        "card_id": "h_oracle",
+        "slot_index": 4,
+        "r": 1,
+        "c": 1,
+        "pre_nudge_col": null,
+        "flips_count": 2,
+        "rules_triggered": [
+          "SAME"
+        ],
+        "final_score_blue": 4,
+        "final_score_red": 1
+      },
+      "verified_lethal_1_turn": true,
+      "fnv1a_64_checksum": "0x2e4d6be0c4651535"
+    },
+    {
+      "puzzle_id": "daily_puzzle_03",
+      "day_index": 3,
+      "seed": 20261103,
+      "title": "Day 3: Ivalice PLUS Rule & Combo Cascade",
+      "subtitle": "Match identical edge sums (8+5=13 North & 6+7=13 West) to trigger PLUS + Combo Cascade!",
+      "stage_index": 3,
+      "judge_law_id": "SAME_PLUS_CASCADE",
+      "okitsu_tie_surge": false,
+      "col_dice": [
+        2,
+        2,
+        2
+      ],
+      "nudges_left": 0,
+      "used_slide_this_turn": true,
+      "hand": [
+        "h_valkyrie",
+        "h_kai"
+      ],
+      "board_setup": [
+        {
+          "r": 0,
+          "c": 1,
+          "cardId": "e_eclipse",
+          "owner": "ai",
+          "nesw": [
+            6,
+            6,
+            5,
+            6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "cardId": "e_reaper",
+          "owner": "ai",
+          "nesw": [
+            8,
+            7,
+            7,
+            5
+          ]
+        },
+        {
+          "r": 0,
+          "c": 0,
+          "cardId": "e_archon",
+          "owner": "ai",
+          "nesw": [
+            7,
+            5,
+            5,
+            5
+          ]
+        }
+      ],
+      "winning_move": {
+        "action_type": "DEPLOY",
+        "hand_index": 0,
+        "card_id": "h_valkyrie",
+        "slot_index": 4,
+        "r": 1,
+        "c": 1,
+        "pre_nudge_col": null,
+        "flips_count": 3,
+        "rules_triggered": [
+          "COMBO_CASCADE",
+          "HIGH_PIP",
+          "PLUS"
+        ],
+        "final_score_blue": 4,
+        "final_score_red": 0
+      },
+      "verified_lethal_1_turn": true,
+      "fnv1a_64_checksum": "0x4aed7d19bda23cc8"
+    },
+    {
+      "puzzle_id": "daily_puzzle_04",
+      "day_index": 4,
+      "seed": 20261104,
+      "title": "Day 4: Column Die Nudge Surge +1 Lethal",
+      "subtitle": "Nudge Column 2 Die from Pip 3 -> Pip 4 (+1 All Sides), then deploy Phoenix Valkyrie!",
+      "stage_index": 5,
+      "judge_law_id": "MNEMOSYNE_NODE_RESONANCE",
+      "okitsu_tie_surge": false,
+      "col_dice": [
+        2,
+        3,
+        2
+      ],
+      "nudges_left": 1,
+      "used_slide_this_turn": true,
+      "hand": [
+        "h_phoenix"
+      ],
+      "board_setup": [
+        {
+          "r": 0,
+          "c": 1,
+          "cardId": "e_titan",
+          "owner": "ai",
+          "nesw": [
+            7,
+            5,
+            8,
+            6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "cardId": "e_colossus",
+          "owner": "ai",
+          "nesw": [
+            6,
+            8,
+            5,
+            8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "cardId": "h_kai",
+          "owner": "player",
+          "nesw": [
+            7,
+            8,
+            6,
+            7
+          ]
+        }
+      ],
+      "winning_move": {
+        "action_type": "NUDGE_AND_DEPLOY",
+        "hand_index": 0,
+        "card_id": "h_phoenix",
+        "slot_index": 4,
+        "r": 1,
+        "c": 1,
+        "pre_nudge_col": 1,
+        "flips_count": 2,
+        "rules_triggered": [
+          "HIGH_PIP"
+        ],
+        "final_score_blue": 4,
+        "final_score_red": 0
+      },
+      "verified_lethal_1_turn": true,
+      "fnv1a_64_checksum": "0x39f3c60461d14c46"
+    },
+    {
+      "puzzle_id": "daily_puzzle_05",
+      "day_index": 5,
+      "seed": 20261105,
+      "title": "Day 5: Sovereign Plugin Quad-Edge Sweep",
+      "subtitle": "Deploy Hallowed Arbiter of System One into (1,1) to capture North, South, and West foes.",
+      "stage_index": 8,
+      "judge_law_id": "MNEMOSYNE_NODE_RESONANCE",
+      "okitsu_tie_surge": false,
+      "col_dice": [
+        2,
+        5,
+        2
+      ],
+      "nudges_left": 0,
+      "used_slide_this_turn": true,
+      "hand": [
+        "plugin_03_jev_system_one",
+        "h_chronos"
+      ],
+      "board_setup": [
+        {
+          "r": 0,
+          "c": 1,
+          "cardId": "e_inferno",
+          "owner": "ai",
+          "nesw": [
+            7,
+            7,
+            6,
+            6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "cardId": "e_archon",
+          "owner": "ai",
+          "nesw": [
+            7,
+            6,
+            6,
+            5
+          ]
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "cardId": "e_eclipse",
+          "owner": "ai",
+          "nesw": [
+            6,
+            6,
+            5,
+            6
+          ]
+        }
+      ],
+      "winning_move": {
+        "action_type": "DEPLOY",
+        "hand_index": 0,
+        "card_id": "plugin_03_jev_system_one",
+        "slot_index": 4,
+        "r": 1,
+        "c": 1,
+        "pre_nudge_col": null,
+        "flips_count": 3,
+        "rules_triggered": [
+          "HIGH_PIP"
+        ],
+        "final_score_blue": 4,
+        "final_score_red": 0
+      },
+      "verified_lethal_1_turn": true,
+      "fnv1a_64_checksum": "0x6ff54905baf74448"
+    },
+    {
+      "puzzle_id": "daily_puzzle_06",
+      "day_index": 6,
+      "seed": 20261106,
+      "title": "Day 6: Okitsu Tie-Surge Equal-Pip Breakthrough",
+      "subtitle": "Under Act III Okitsu Law, equal opposing pips (>=) capture! Deploy A18 Pro Metal Sovereign.",
+      "stage_index": 11,
+      "judge_law_id": "OKITSU_TIE_SURGE",
+      "okitsu_tie_surge": true,
+      "col_dice": [
+        2,
+        2,
+        2
+      ],
+      "nudges_left": 0,
+      "used_slide_this_turn": true,
+      "hand": [
+        "plugin_04_mlx_apple_silicon"
+      ],
+      "board_setup": [
+        {
+          "r": 0,
+          "c": 1,
+          "cardId": "e_reaper",
+          "owner": "ai",
+          "nesw": [
+            6,
+            7,
+            7,
+            5
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "cardId": "e_cryo",
+          "owner": "ai",
+          "nesw": [
+            5,
+            7,
+            6,
+            7
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "cardId": "e_titan",
+          "owner": "ai",
+          "nesw": [
+            7,
+            5,
+            7,
+            6
+          ]
+        }
+      ],
+      "winning_move": {
+        "action_type": "DEPLOY",
+        "hand_index": 0,
+        "card_id": "plugin_04_mlx_apple_silicon",
+        "slot_index": 4,
+        "r": 1,
+        "c": 1,
+        "pre_nudge_col": null,
+        "flips_count": 3,
+        "rules_triggered": [
+          "OKITSU_TIE"
+        ],
+        "final_score_blue": 4,
+        "final_score_red": 0
+      },
+      "verified_lethal_1_turn": true,
+      "fnv1a_64_checksum": "0x65aa54d5ca0ba72e"
+    },
+    {
+      "puzzle_id": "daily_puzzle_07",
+      "day_index": 7,
+      "seed": 20261107,
+      "title": "Day 7: Omega Chronos Finale — Sun Arbiter Law Seal",
+      "subtitle": "Deploy Sun Arbiter into (0,2) with Column 3 Boost to capture South & West constructs.",
+      "stage_index": 14,
+      "judge_law_id": "OKITSU_TIE_SURGE",
+      "okitsu_tie_surge": true,
+      "col_dice": [
+        2,
+        2,
+        6
+      ],
+      "nudges_left": 1,
+      "used_slide_this_turn": false,
+      "hand": [
+        "h_arbiter",
+        "h_seraph"
+      ],
+      "board_setup": [
+        {
+          "r": 0,
+          "c": 1,
+          "cardId": "e_colossus",
+          "owner": "ai",
+          "nesw": [
+            6,
+            8,
+            5,
+            6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "cardId": "e_inferno",
+          "owner": "ai",
+          "nesw": [
+            8,
+            7,
+            5,
+            6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "cardId": "e_eclipse",
+          "owner": "ai",
+          "nesw": [
+            6,
+            6,
+            5,
+            6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "cardId": "h_archangel",
+          "owner": "player",
+          "nesw": [
+            8,
+            7,
+            6,
+            7
+          ]
+        }
+      ],
+      "winning_move": {
+        "action_type": "DEPLOY",
+        "hand_index": 0,
+        "card_id": "h_arbiter",
+        "slot_index": 2,
+        "r": 0,
+        "c": 2,
+        "pre_nudge_col": null,
+        "flips_count": 2,
+        "rules_triggered": [
+          "HIGH_PIP"
+        ],
+        "final_score_blue": 4,
+        "final_score_red": 1
+      },
+      "verified_lethal_1_turn": true,
+      "fnv1a_64_checksum": "0x55eb02af12c7d534"
+    }
+  ],
+  "fnv1a_64_checksum": "0x05cc715f35f2ec79"
+}

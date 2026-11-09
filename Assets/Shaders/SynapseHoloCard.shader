@@ -6,11 +6,15 @@ Shader "Synapse/TcgEngine/HoloTacticalCard"
         _FrameTex ("Tactical Bezel & Compass Overlay", 2D) = "black" {}
         _FoilMask ("Holographic Foil Mask", 2D) = "white" {}
         _FactionColor ("Faction Synergy Glow", Color) = (0.2, 0.7, 1.0, 1.0)
-        _OwnerTint ("Owner Control Border (Azure/Crimson)", Color) = (0.16, 0.58, 1.0, 1.0)
+        _OwnerTint ("Owner Control Border (Azure/Crimson/Sovereign)", Color) = (0.0, 0.898, 1.0, 1.0)
         _TiltXY ("Parallax Tilt XY", Vector) = (0, 0, 0, 0)
         _FoilIntensity ("Foil Iridescence Intensity", Range(0, 2)) = 0.5
         _SynergyPulse ("Active Synergy Pulse", Range(0, 1)) = 0.0
         _StealthCloak ("Vanish / TechnoStealth Cloak", Range(0, 1)) = 0.0
+        noise_fade ("BoardCardFX Dissolve Fade (1=Visible, 0=Dissolved)", Range(0, 1)) = 1.0
+        _DissolveThreshold ("Explicit Dissolve Threshold", Range(0, 1)) = 0.0
+        _DissolveEdgeWidth ("Dissolve Burn Edge Width", Range(0.01, 0.15)) = 0.055
+        _DissolveEdgeColor ("Dissolve Arcane Burn Color", Color) = (1.0, 0.72, 0.0, 1.0)
     }
     SubShader
     {
@@ -47,10 +51,26 @@ Shader "Synapse/TcgEngine/HoloTacticalCard"
             float _FoilIntensity;
             float _SynergyPulse;
             float _StealthCloak;
+            float noise_fade;
+            float _DissolveThreshold;
+            float _DissolveEdgeWidth;
+            float4 _DissolveEdgeColor;
 
             float3 SpectralIridescence(float t)
             {
                 return 0.5 + 0.5 * cos(6.28318 * (t + float3(0.0, 0.33, 0.67)));
+            }
+
+            float HashNoise2D(float2 p)
+            {
+                float2 i = floor(p);
+                float2 f = frac(p);
+                f = f * f * (3.0 - 2.0 * f);
+                float a = frac(sin(dot(i, float2(127.1, 311.7))) * 43758.5453);
+                float b = frac(sin(dot(i + float2(1.0, 0.0), float2(127.1, 311.7))) * 43758.5453);
+                float c = frac(sin(dot(i + float2(0.0, 1.0), float2(127.1, 311.7))) * 43758.5453);
+                float d = frac(sin(dot(i + float2(1.0, 1.0), float2(127.1, 311.7))) * 43758.5453);
+                return lerp(lerp(a, b, f.x), lerp(c, d, f.x), f.y);
             }
 
             v2f vert(appdata v)
@@ -79,8 +99,14 @@ Shader "Synapse/TcgEngine/HoloTacticalCard"
                 float pulse = 0.65 + 0.35 * sin(_Time.y * 5.0);
                 float3 borderGlow = lerp(_OwnerTint.rgb, _FactionColor.rgb * 1.5, _SynergyPulse * pulse) * borderMask;
 
-                float3 finalRgb = lerp(art.rgb + foilColor, frame.rgb, frame.a) + borderGlow;
-                float alpha = lerp(1.0, 0.42, _StealthCloak); // Semi-transparent refractive cloak when Vanish/TechnoStealth active
+                // Procedural multi-octave fragment dissolve (compatible with TcgEngine BoardCardFX noise_fade)
+                float dissolveCutoff = saturate(max(1.0 - noise_fade, _DissolveThreshold));
+                float n = 0.65 * HashNoise2D(i.uv * 18.0) + 0.35 * HashNoise2D(i.uv * 42.0);
+                float dissolveAlpha = smoothstep(dissolveCutoff - 0.01, dissolveCutoff + 0.01, n);
+                float burnRim = smoothstep(dissolveCutoff + _DissolveEdgeWidth, dissolveCutoff, n) * dissolveAlpha;
+
+                float3 finalRgb = lerp(art.rgb + foilColor, frame.rgb, frame.a) + borderGlow + (_DissolveEdgeColor.rgb * burnRim * 2.2);
+                float alpha = lerp(1.0, 0.42, _StealthCloak) * dissolveAlpha;
                 return fixed4(finalRgb, alpha);
             }
             ENDCG

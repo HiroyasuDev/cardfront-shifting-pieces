@@ -2182,6 +2182,64 @@ class TestSynapseTcgSuite(unittest.TestCase):
         mp.test_06_provably_fair_pack_receipt_tamper_and_seed_rejection()
         mp.test_07_cross_platform_crypto_sync_self_test_report_persisted()
 
+    def test_106_sakuga_animation_engine_spring_fabrik_and_cfanim_clips(self) -> None:
+        """Verify Sovereign CARDFRONT Animation Engine (`Synapse-Sakuga-AnimEngine v1.0`) Python solvers, 8 `.cfanim` clips, and 16 2.5D puppet rigs."""
+        from test_sakuga_animation_engine_suite import TestSynapseSakugaAnimationEngineSuite
+        suite = TestSynapseSakugaAnimationEngineSuite()
+        if hasattr(suite, "setUpClass"):
+            suite.setUpClass()
+        for name in dir(suite):
+            if name.startswith("test_"):
+                getattr(suite, name)()
+
+    def test_107_sakuga_animation_engine_unity_csharp_runtime(self) -> None:
+        """Verify Unity 6 C# `SynapseSakugaAnimationEngine.cs` runtime in `namespace Synapse.TcgEngine.Visuals`."""
+        cs_path = ROOT_DIR / "Assets" / "Scripts" / "Visuals" / "SynapseSakugaAnimationEngine.cs"
+        meta_path = ROOT_DIR / "Assets" / "Scripts" / "Visuals" / "SynapseSakugaAnimationEngine.cs.meta"
+        self.assertTrue(cs_path.is_file())
+        self.assertTrue(meta_path.is_file())
+        src = cs_path.read_text(encoding="utf-8")
+        self.assertIn("namespace Synapse.TcgEngine.Visuals", src)
+        self.assertIn("SynapseSpringHarmonicSolver", src)
+        self.assertIn("SynapseSakugaSteppedCurve", src)
+        self.assertIn("SynapseFabrikBoneChain2D", src)
+        self.assertIn("SynapsePawnKinematics3D", src)
+        self.assertIn("SynapseSakugaAnimationEngine", src)
+        self.assertEqual(src.count("{"), src.count("}"))
+
+    def test_108_sakuga_animation_engine_webgl_dom_js_and_svg_emblems(self) -> None:
+        """Verify `WebPlayable/synapse_sakuga_anim_engine.js`, bespoke `cf_sakuga_spark.svg` & `cf_puppet_rig.svg`, and playable HTML wiring."""
+        js_path = ROOT_DIR / "WebPlayable" / "synapse_sakuga_anim_engine.js"
+        self.assertTrue(js_path.is_file())
+        js_src = js_path.read_text(encoding="utf-8")
+        for sym in (
+            "SynapseSakugaAnimEngine",
+            "solveSpring1D",
+            "quantizeSakugaTime",
+            "solveFabrik2D",
+            "computeParallaxOffsets",
+            "scrubTo",
+            "attachLivePuppet25D",
+            "triggerDeploySlam",
+            "triggerDirectionalClashLunge",
+            "triggerCaptureFlip180",
+            "triggerTacticalSlideBank",
+            "triggerColumnDieSurge",
+            "triggerSakugaImpactFlash2F",
+            "injectSakugaAnimStudioBar",
+        ):
+            self.assertIn(sym, js_src, f"Missing {sym} in synapse_sakuga_anim_engine.js")
+        for icon_name in ("cf_sakuga_spark.svg", "cf_puppet_rig.svg"):
+            p1 = ROOT_DIR / "WebPlayable" / "GeneratedArt" / "Icons" / icon_name
+            p2 = ROOT_DIR / "Assets" / "Resources" / "UI" / "Icons" / icon_name
+            self.assertTrue(p1.is_file(), f"Missing {p1}")
+            self.assertTrue(p2.is_file(), f"Missing {p2}")
+            self.assertIn('viewBox="0 0 256 256"', p1.read_text(encoding="utf-8"))
+        html_src = (ROOT_DIR / "WebPlayable" / "cardfront_cradle_of_echoes_playable.html").read_text(encoding="utf-8")
+        self.assertIn("synapse_sakuga_anim_engine.js", html_src)
+        self.assertIn("sakuga_spark:", html_src)
+        self.assertIn("puppet_rig:", html_src)
+
 
 
 

@@ -1,14 +1,14 @@
 {
-  "iteration": 195,
-  "timestamp_utc": "2026-11-09T13:03:39Z",
+  "iteration": 207,
+  "timestamp_utc": "2026-11-09T13:51:07Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
     "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
-    "total_checks": 150,
-    "passed_checks": 150,
+    "total_checks": 159,
+    "passed_checks": 159,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -118,6 +118,8 @@
       "core.production_upgrades.04",
       "core.production_upgrades.05",
       "core.production_upgrades.06",
+      "core.production_upgrades.07",
+      "core.production_upgrades.08",
       "core.release_pkg.01",
       "core.sakuga_v100.01",
       "core.sakuga_v100.02",
@@ -149,6 +151,13 @@
       "core.unity6_tcg_rea_baseline.06",
       "core.unity6_tcg_rea_baseline.07",
       "core.unity6_tcg_rea_baseline.08",
+      "core.unity6_tcg_rea_baseline.09",
+      "core.unity6_tcg_rea_baseline.10",
+      "core.unity6_tcg_rea_baseline.11",
+      "core.unity6_tcg_rea_baseline.12",
+      "core.unity6_tcg_rea_baseline.13",
+      "core.unity6_tcg_rea_baseline.14",
+      "core.unity6_tcg_rea_baseline.15",
       "core.unity_so.01",
       "core.unity_so.02",
       "feel_audio_camera_perf.1",
@@ -175,14 +184,13 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 194,
+    "previous_iteration": 206,
     "newly_passing_checks": [
-      "core.production_upgrades.02",
-      "core.production_upgrades.05"
+      "core.production_upgrades.08"
     ],
     "newly_failing_checks": [],
-    "pass_count_delta": 2,
-    "total_checks_delta": 0
+    "pass_count_delta": 1,
+    "total_checks_delta": 1
   },
   "step_a_router": {
     "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
@@ -282,7 +290,7 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 6884.3
+      "elapsed_ms": 7467.3
     },
     "autotest": {
       "ran": true,
@@ -291,10 +299,10 @@
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8566,
+      "elapsed_ms": 8676,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T13:03:27.470Z",
+        "timestamp": "2026-11-09T13:50:55.971Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -1611,6 +1619,150 @@
         "priority": "P1",
         "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:2695-2745",
         "remediation": "Assign unique art paths to all 60 cards in SET1_60_CATALOG and load FoleyAudioBank.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.09",
+        "skill": "unity/unity-scriptableobjects",
+        "rule": "Full 3D Unpacked TCG Engine 600x800 Sprite Binding, TeamData & RarityData 100% Coverage (269/269), and 3 1920x1080 Scene Verification Renders (Game3D.unity, Game.unity, OpenPack.unity).",
+        "source": "Logs/unpacked_tcg_engine_full3d_build_report.json:1",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Logs/unpacked_tcg_engine_full3d_build_report.json:1-52",
+        "remediation": "Run CardFrontTcgEngineImporter.BuildFullTcgEngineProductionScenesAndStandaloneApp in Unity 6000.6.8f1.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.10",
+        "skill": "unity/unity-netcode-multiplayer",
+        "rule": "Full-Stack Live Duel Orchestration (CARDFRONT Standalone Mach-O <-> 45-File Node.js TcgEngineAPI Daemon): registers 2 players, opens Pack_Sovereign_Genesis, runs 2-instance TCP LAN 3x3 duel (hash 4C837E02F2035A25), settles TxLock HMAC-SHA256 match receipt, and exports Echo-Ghost ghost_SovereignAgent_1825.",
+        "source": "Logs/fullstack_live_duel_and_echo_ghost_report.json:1",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Logs/fullstack_live_duel_and_echo_ghost_report.json:1-65",
+        "remediation": "Run TcgEngineAPI/run_fullstack_live_duel.js or unity-tcg-agent full-stack-duel.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.11",
+        "skill": "unity/unity-netcode-multiplayer",
+        "rule": "Playable Web & Echo-Ghost PvP Sync for Sovereign Agent Command Deck: equipSovereignAgentCommandDeck() equips deck_sovereign_agent_command (37 cards) and challengeEchoGhost('ghost_SovereignAgent_1825') loads the Unity 6 Full 3D LAN Echo-Ghost with lockstep_state_hash 4C837E02F2035A25.",
+        "source": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4592",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4592-4665",
+        "remediation": "Implement equipSovereignAgentCommandDeck() and add ghost_SovereignAgent_1825 to challengeEchoGhost() in WebPlayable.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.12",
+        "skill": "rea-reverse-engineer",
+        "rule": "REA 6.8.0 9-Subsystem Reconstruction Obligation & Symbol Parity Ledger: 100.0% coverage across all 9 TcgEngine subsystems (GameLogic, GameServer, GameClient, AIPlayerMM, ApiClient, CardData, DeckData, PackData, BoardSlot).",
+        "source": "Datasets/rea_tcg_engine_baseline_decompile_ledger.json:1",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Backend/synapse_unity6_tcg_engine_rea_pipeline.py:385-510",
+        "remediation": "Run Backend/synapse_unity6_tcg_engine_rea_pipeline.py to generate the 9-subsystem REA 6.8.0 reconstruction obligation ledger.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.07",
+        "skill": "unity/unity-netcode-multiplayer",
+        "rule": "2-MacBook Dual-Browser LAN Duel E2E Lockstep Parity: Seat 1 (Host Blue on 127.0.0.1:8096) and Seat 2 (Challenger Red on 192.168.86.125:8096) play a live 1v1 turn-by-turn duel with 9/9 canonical 3x3 board lockstep parity, deck-draw verification, and suppressed local AI.",
+        "source": "Datasets/lan_2macbook_duel_e2e_report.json:1",
+        "target": "both",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Tools/skill_harness/verify_2macbook_lan_duel_e2e.js:1-140",
+        "remediation": "Run node Tools/skill_harness/verify_2macbook_lan_duel_e2e.js to verify dual-MacBook LAN 1v1 lockstep parity.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.13",
+        "skill": "unity/unity-scriptableobjects",
+        "rule": "100% 600x800 Unique Sprite & 44.1kHz WAV AudioClip Binding Across All 113 CardFront & Sovereign Agent CardData ScriptableObjects in tcg-engine-unpacked (cardFront113UniqueSpritesBound == 113, cardsWithAudioStemsBound == 113, cardsWithSpritesBound >= 209).",
+        "source": "Logs/unpacked_tcg_engine_full3d_build_report.json:1",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Assets/TcgEngine/Scripts/Editor/CardFrontTcgEngineImporter.cs:185-350",
+        "remediation": "Bind all 113 unique 600x800 Sprite GUIDs and 44.1kHz WAV AudioClip GUIDs across all CardFront CardData assets.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.14",
+        "skill": "genres/card-game",
+        "rule": "Unity 6 C# Triple Triad SAME + PLUS + COMBO CASCADE & Singleton DrawReplacementCardOnTurn Verification in tcg-engine-unpacked (plusSameCascadeVerified == True, plusSameCascadeFlipsCount >= 2, drawReplacementCardVerified == True).",
+        "source": "Logs/unpacked_tcg_engine_full3d_build_report.json:1",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Assets/TcgEngine/Scripts/Editor/CardFrontTcgEngineImporter.cs:315-350",
+        "remediation": "Verify EvaluatePlusAndSameCaptures3x3 and DrawReplacementCardOnTurn in CardFrontTcgEngineImporter.cs.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.15",
+        "skill": "disciplines/shader-programming",
+        "rule": "Unity 6 Fragment Shader Dissolve Outline (SynapseHoloCard.shader with noise_fade, _DissolveThreshold, HashNoise2D, _OwnerTint) & GameCamera 3x3 Orbit Framing + Hit-Stop Juice (TriggerHitStopJuice, UpdateOrbitFraming3x3).",
+        "source": "Assets/Shaders/SynapseHoloCard.shader:1",
+        "target": "unity",
+        "method": "static_regex",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "Assets/Shaders/SynapseHoloCard.shader:14-125",
+        "remediation": "Implement procedural fragment dissolve (noise_fade, HashNoise2D, _DissolveEdgeColor) in SynapseHoloCard.shader.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.08",
+        "skill": "unity/unity-netcode-multiplayer",
+        "rule": "MacBook #2 Wi-Fi Auto-Join URL Guard: getMacBook2ShareUrl('CITADEL-1') and /api/lan/info always generate a non-loopback LAN URL (http://192.168.86.125:8096/...?lan=1&seat=challenger&room=CITADEL-1) so MacBook #2 never hits 127.0.0.1 ERR_CONNECTION_REFUSED.",
+        "source": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4580",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4580-4615",
+        "remediation": "Implement getMacBook2ShareUrl() in WebPlayable and /api/lan/info in WebPlayable/serve_playtest.py.",
         "origin": "Tools/skill_harness/core_checks.json",
         "error": null
       },
@@ -2949,8 +3101,8 @@
     "per_skill": {
       "genres/card-game": {
         "skill": "genres/card-game",
-        "total": 19,
-        "passed": 19,
+        "total": 20,
+        "passed": 20,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2981,8 +3133,8 @@
       },
       "unity/unity-scriptableobjects": {
         "skill": "unity/unity-scriptableobjects",
-        "total": 7,
-        "passed": 7,
+        "total": 9,
+        "passed": 9,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -3069,8 +3221,8 @@
       },
       "unity/unity-netcode-multiplayer": {
         "skill": "unity/unity-netcode-multiplayer",
-        "total": 6,
-        "passed": 6,
+        "total": 10,
+        "passed": 10,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -3093,6 +3245,22 @@
       },
       "ship/itch-release": {
         "skill": "ship/itch-release",
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "rea-reverse-engineer": {
+        "skill": "rea-reverse-engineer",
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/shader-programming": {
+        "skill": "disciplines/shader-programming",
         "total": 1,
         "passed": 1,
         "failed": 0,
@@ -3149,5 +3317,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 25387.0
+  "elapsed_ms": 26722.1
 }

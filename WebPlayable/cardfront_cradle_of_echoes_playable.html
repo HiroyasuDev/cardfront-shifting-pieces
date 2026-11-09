@@ -1944,12 +1944,13 @@
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
         <button id="lan-seat1-host-btn" onclick="joinLanRoomAsSeat('host', 'CITADEL-1')" style="background:linear-gradient(135deg,#0284c7,#1d4ed8);border-color:#7dd3fc;">Seat 1 (Host · Blue)</button>
         <button id="lan-seat2-challenger-btn" onclick="joinLanRoomAsSeat('challenger', 'CITADEL-1')" style="background:linear-gradient(135deg,#be123c,#9f1239);border-color:#fda4af;">Seat 2 (MacBook #2 · Red)</button>
+        <button id="lan-copy-macbook2-url-btn" onclick="copyMacBook2LanUrl('CITADEL-1')" style="background:linear-gradient(135deg,#d97706,#b45309);border-color:#fde68a;">Copy MacBook #2 Link</button>
         <button id="lan-upload-ghost-btn" onclick="saveLanEchoGhostSnapshot('MacBook-Sovereign')" style="background:linear-gradient(135deg,#0d9488,#0f766e);border-color:#5eead4;">Upload Squad as Echo-Ghost</button>
         <button onclick="closeLanGhostLobbyModal()">Close</button>
       </div>
     </div>
     <div id="lan-room-status-banner" style="font-size:12px;color:#e2e8f0;background:rgba(15,23,42,0.92);padding:8px 10px;border-radius:8px;border:1px solid rgba(46,230,211,0.45);margin:6px 0;">
-      LAN Room: <b>CITADEL-1</b> · Endpoint: <b>http://192.168.86.125:8096</b> · Mode: <b>2-MacBook Human 1v1 (Seat 1 Blue vs Seat 2 Red)</b>
+      LAN Room: <b>CITADEL-1</b> · MacBook #2 Auto-Join URL: <b style="color:#fde68a;">http://192.168.86.125:8096/?lan=1&amp;seat=challenger</b> (Do NOT use 127.0.0.1 on MacBook #2)
     </div>
     <div id="lan-ghost-roster-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;padding:6px 0;"></div>
   </div>
@@ -2040,7 +2041,9 @@ const CF_ICON_BODIES = {
   platform_steam: `<g stroke="url(#cf-gold-grad)" stroke-width="18" stroke-linecap="round"><line x1="128" y1="16" x2="128" y2="240"/><line x1="16" y1="128" x2="240" y2="128"/><line x1="48" y1="48" x2="208" y2="208"/><line x1="208" y1="48" x2="48" y2="208"/></g><circle cx="128" cy="128" r="92" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="12"/><circle cx="128" cy="128" r="72" fill="none" stroke="#00E5FF" stroke-width="3" stroke-dasharray="10 6" opacity="0.65"/><path d="M68,168 L156,104" stroke="url(#cf-gold-grad)" stroke-width="22" stroke-linecap="round"/><path d="M78,182 L166,118" stroke="url(#cf-cyan-grad)" stroke-width="8" stroke-linecap="round"/><path d="M56,158 L112,188" stroke="url(#cf-gold-grad)" stroke-width="14" stroke-linecap="round"/><circle cx="160" cy="106" r="36" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><circle cx="160" cy="106" r="16" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="4"/><circle cx="74" cy="172" r="24" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8"/><circle cx="74" cy="172" r="10" fill="url(#cf-cyan-grad)"/>`,
   platform_pwa: `<circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="12"/><ellipse cx="128" cy="128" rx="52" ry="98" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="7"/><ellipse cx="128" cy="128" rx="98" ry="44" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="7"/><line x1="26" y1="128" x2="230" y2="128" stroke="#00E5FF" stroke-width="4" opacity="0.6"/><line x1="128" y1="26" x2="128" y2="230" stroke="#00E5FF" stroke-width="4" opacity="0.6"/><polygon points="128,34 148,108 222,128 148,148 128,222 108,148 34,128 108,108" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="4" stroke-linejoin="round"/><circle cx="128" cy="128" r="18" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="4"/>`,
   crypto_shield: `<path d="M128,16 L224,54 V126 C224,184 180,224 128,242 C76,224 32,184 32,126 V54 Z" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="12" stroke-linejoin="round"/><polygon points="128,42 192,78 192,152 128,188 64,152 64,78" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="6" stroke-linejoin="round"/><polygon points="128,58 176,86 176,144 128,172 80,144 80,86" fill="url(#cf-obsidian-grad)" stroke="url(#cf-jade-grad)" stroke-width="5" stroke-dasharray="12 6" stroke-linejoin="round"/><circle cx="128" cy="106" r="22" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="4"/><polygon points="116,118 140,118 148,166 108,166" fill="url(#cf-gold-grad)"/><path d="M92,192 L118,214 L172,164" fill="none" stroke="url(#cf-jade-grad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="106" r="9" fill="#0F172A"/>`,
-  pack_seal: `<polygon points="82,176 54,242 88,226 110,244 118,184" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="6" stroke-linejoin="round"/><polygon points="174,176 202,242 168,226 146,244 138,184" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="6" stroke-linejoin="round"/><polygon points="128,22 156,46 193,49 196,86 220,114 196,142 193,179 156,182 128,206 100,182 63,179 60,142 36,114 60,86 63,49 100,46" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="10" stroke-linejoin="round"/><circle cx="128" cy="114" r="58" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8"/><polygon points="128,64 166,114 128,164 90,114" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="5" stroke-linejoin="round"/><polygon points="128,64 146,114 128,164 110,114" fill="url(#cf-violet-grad)" opacity="0.65"/><circle cx="128" cy="114" r="12" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="3"/>`
+  pack_seal: `<polygon points="82,176 54,242 88,226 110,244 118,184" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="6" stroke-linejoin="round"/><polygon points="174,176 202,242 168,226 146,244 138,184" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="6" stroke-linejoin="round"/><polygon points="128,22 156,46 193,49 196,86 220,114 196,142 193,179 156,182 128,206 100,182 63,179 60,142 36,114 60,86 63,49 100,46" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="10" stroke-linejoin="round"/><circle cx="128" cy="114" r="58" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8"/><polygon points="128,64 166,114 128,164 90,114" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="5" stroke-linejoin="round"/><polygon points="128,64 146,114 128,164 110,114" fill="url(#cf-violet-grad)" opacity="0.65"/><circle cx="128" cy="114" r="12" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="3"/>`,
+  sakuga_spark: `<polygon points="76,12 180,12 244,76 244,180 180,244 76,244 12,180 12,76" fill="#070B16" stroke="#FFB800" stroke-width="4" stroke-linejoin="bevel"/><polygon points="128,8 146,92 238,34 166,114 248,136 162,148 214,234 134,168 118,248 106,162 22,222 90,140 8,120 94,106 42,24 118,88" fill="#FFB800" stroke="#FFE082" stroke-width="2.5"/><polygon points="128,32 139,103 208,58 152,120 220,134 149,141 186,204 130,154 121,220 113,150 48,196 103,134 34,122 105,113 68,52 122,99" fill="#00E5FF" stroke="#E0FFFF" stroke-width="2"/><polygon points="128,74 146,114 186,128 146,142 128,182 110,142 70,128 110,114" fill="#FFE082"/><circle cx="128" cy="128" r="6" fill="#00E5FF"/>`,
+  puppet_rig: `<polygon points="128,14 236,68 128,122 20,68" fill="#0B0F1F" fill-opacity="0.85" stroke="#A855F7" stroke-width="2" stroke-dasharray="6 4"/><polygon points="128,74 236,128 128,182 20,128" fill="#0F172A" fill-opacity="0.78" stroke="#2EE6D3" stroke-width="2" opacity="0.8"/><polygon points="128,134 236,188 128,242 20,188" fill="#090D1A" fill-opacity="0.9" stroke="#FFE082" stroke-width="2.5"/><polygon points="128,76 144,108 128,164 112,108" fill="#A855F7" stroke="#FFE082" stroke-width="2.2"/><polygon points="128,76 96,104 56,112 88,84" fill="#A855F7" stroke="#FFE082" stroke-width="2"/><polygon points="56,112 58,144 40,176 42,138" fill="#2EE6D3" stroke="#FFE082" stroke-width="2"/><polygon points="128,76 168,80 200,104 160,98" fill="#A855F7" stroke="#FFE082" stroke-width="2"/><polygon points="200,104 198,74 216,48 214,80" fill="#2EE6D3" stroke="#FFE082" stroke-width="2"/><circle cx="128" cy="38" r="8" fill="#2EE6D3" stroke="#FFE082" stroke-width="2"/><circle cx="128" cy="76" r="9" fill="#090D1A" stroke="#FFE082" stroke-width="3"/><circle cx="128" cy="164" r="8" fill="#090D1A" stroke="#2EE6D3" stroke-width="2.5"/>`
 };
 
 function cfIcon(name, size = 14, extraStyle = "") {
@@ -4576,6 +4579,38 @@ async function joinLanRoomAsSeat(role = "host", roomId = "CITADEL-1") {
   return state.lanMultiplayer;
 }
 
+function getMacBook2ShareUrl(roomId = "CITADEL-1") {
+  const cleanRoom = String(roomId || "CITADEL-1").trim().toUpperCase();
+  const host = (window.location.hostname && window.location.hostname !== "127.0.0.1" && window.location.hostname !== "localhost")
+    ? window.location.hostname
+    : "192.168.86.125";
+  const port = window.location.port || "8096";
+  return `http://${host}:${port}/WebPlayable/cardfront_cradle_of_echoes_playable.html?lan=1&seat=challenger&room=${encodeURIComponent(cleanRoom)}`;
+}
+
+async function copyMacBook2LanUrl(roomId = "CITADEL-1") {
+  let shareUrl = getMacBook2ShareUrl(roomId);
+  try {
+    const res = await fetch("/api/lan/info", { cache: "no-store" });
+    if (res.ok) {
+      const info = await res.json();
+      if (info && info.seat2_macbook2_url) {
+        shareUrl = info.seat2_macbook2_url;
+      }
+    }
+  } catch (_e) {}
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(shareUrl);
+    }
+  } catch (_e) {}
+  const banner = document.getElementById("lan-room-status-banner");
+  if (banner) {
+    banner.innerHTML = `Copied MacBook #2 Wi-Fi Link: <b style="color:#fde68a;">${shareUrl}</b> (Open this on MacBook #2 — never use 127.0.0.1)`;
+  }
+  return shareUrl;
+}
+
 function applyStageMutatorToSocket(r, c, stageIdx = state.stageIndex) {
   const mut = evaluateStageTabletopMutator(stageIdx);
   const cell = state.grid && state.grid[r] && state.grid[r][c];
@@ -4587,6 +4622,22 @@ function applyStageMutatorToSocket(r, c, stageIdx = state.stageIndex) {
     return { applied: true, mutatorId: mut.mutatorId, bonusAllStats: 1, bonusGold: 50 };
   }
   return { applied: false, mutatorId: mut.mutatorId };
+}
+
+function equipSovereignAgentCommandDeck() {
+  const sovIds = [
+    "plugin_01_tcg_creative_designer",
+    "plugin_02_parallel_swarm_orchestrator",
+    "plugin_03_jev_system_one",
+    "plugin_04_mlx_apple_silicon",
+    "skill_11_decompilation_hi3d_rea",
+    "skill_02_tactical_illustrator_library",
+    "skill_04_card_game_genre",
+    "mcp_06_knowledge_graph_mem"
+  ];
+  state.activeStarterDeckId = "deck_sovereign_agent_command";
+  state.sovereignAgentDeckEquipped = true;
+  return { deckId: "deck_sovereign_agent_command", cardsCount: 37, leadCards: sovIds };
 }
 
 function challengeEchoGhost(ghostId = "ghost_AlphaSovereign_1650") {
@@ -4604,10 +4655,18 @@ function challengeEchoGhost(ghostId = "ghost_AlphaSovereign_1650") {
       elo_rating: 1780,
       chapter_progress: 19,
       card_ids: ["plugin_01_tcg_creative_designer", "plugin_02_parallel_swarm_orchestrator", "plugin_03_jev_system_one", "plugin_04_mlx_apple_silicon", "h_chronos"]
+    },
+    {
+      ghost_id: "ghost_SovereignAgent_1825",
+      player_username: "sovereign_commander_p0 (Unity6-Full3D-LAN)",
+      elo_rating: 1825,
+      chapter_progress: 19,
+      lockstep_state_hash: "4C837E02F2035A25",
+      card_ids: ["plugin_01_tcg_creative_designer", "plugin_02_parallel_swarm_orchestrator", "plugin_03_jev_system_one", "plugin_04_mlx_apple_silicon", "skill_11_decompilation_hi3d_rea"]
     }
   ];
   const pool = (state.lanMultiplayer && state.lanMultiplayer.echoGhosts && state.lanMultiplayer.echoGhosts.length)
-    ? state.lanMultiplayer.echoGhosts
+    ? [...state.lanMultiplayer.echoGhosts, ...defaultRoster.filter(d => !state.lanMultiplayer.echoGhosts.some(e => e.ghost_id === d.ghost_id))]
     : defaultRoster;
   const ghost = pool.find(g => g.ghost_id === ghostId) || pool[0];
   state.activeEchoGhost = ghost;
@@ -4632,7 +4691,8 @@ async function openLanGhostLobbyModal() {
       ? state.lanMultiplayer.echoGhosts
       : [
           { ghost_id: "ghost_AlphaSovereign_1650", player_username: "AlphaSovereign (MacBook-Pro-LAN)", elo_rating: 1650, chapter_progress: 12, card_ids: ["h_archangel", "h_valkyrie", "h_oracle", "h_seraph", "h_arbiter"] },
-          { ghost_id: "ghost_OkitsuArbiter_1780", player_username: "OkitsuArbiter (Citadel-Champion)", elo_rating: 1780, chapter_progress: 19, card_ids: ["plugin_01_tcg_creative_designer", "plugin_02_parallel_swarm_orchestrator", "plugin_03_jev_system_one", "plugin_04_mlx_apple_silicon", "h_chronos"] }
+          { ghost_id: "ghost_OkitsuArbiter_1780", player_username: "OkitsuArbiter (Citadel-Champion)", elo_rating: 1780, chapter_progress: 19, card_ids: ["plugin_01_tcg_creative_designer", "plugin_02_parallel_swarm_orchestrator", "plugin_03_jev_system_one", "plugin_04_mlx_apple_silicon", "h_chronos"] },
+          { ghost_id: "ghost_SovereignAgent_1825", player_username: "sovereign_commander_p0 (Unity6-Full3D-LAN)", elo_rating: 1825, chapter_progress: 19, lockstep_state_hash: "4C837E02F2035A25", card_ids: ["plugin_01_tcg_creative_designer", "plugin_02_parallel_swarm_orchestrator", "plugin_03_jev_system_one", "plugin_04_mlx_apple_silicon", "skill_11_decompilation_hi3d_rea"] }
         ];
     ghosts.forEach(g => {
       const card = document.createElement("div");
@@ -5543,6 +5603,12 @@ window.addEventListener("DOMContentLoaded", () => {
   loadProgressionV3();
   startStage(0);
   const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("lan") === "1") {
+    const rawSeat = (urlParams.get("seat") || "challenger").toLowerCase();
+    const role = (rawSeat === "1" || rawSeat === "host") ? "host" : "challenger";
+    const room = (urlParams.get("room") || "CITADEL-1").toUpperCase();
+    setTimeout(() => joinLanRoomAsSeat(role, room), 250);
+  }
   if (urlParams.get("autotest") === "1" && typeof runVisualAutomatedPlaytest === "function") {
     setTimeout(() => runVisualAutomatedPlaytest(), 500);
   }
@@ -5555,6 +5621,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <script src="./apple_native_haptics_bridge.js"></script>
+<script src="./synapse_sakuga_anim_engine.js"></script>
 <script src="./tests/inpage_autotest.js"></script>
 </body>
 </html>

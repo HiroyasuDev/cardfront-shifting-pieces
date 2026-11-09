@@ -1,11 +1,11 @@
-# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #195)
+# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #207)
 
-- **Timestamp (UTC)**: `2026-11-09T13:03:39Z`
+- **Timestamp (UTC)**: `2026-11-09T13:51:07Z`
 - **Target Orchestrator Model**: **`gemini-4-argon`** (`Gemini 4 Argon`)
 - **Overall Gate Status**: **`PASS_ALL_GATES`**
 - **Real Drag & Drop E2E (`WebPlayable/tests/drag_e2e.js`)**: `PASS`
 - **Real In-Page Playtest (`?autotest=1`)**: `PASS` (`TEST_COMPLETE:4-5:SINGLETON=true:IMG=true`)
-- **Grounded Skill Checks**: **150 / 150 PASS (100.0%)** — `0 P0`, `0 P1` failures
+- **Grounded Skill Checks**: **159 / 159 PASS (100.0%)** — `0 P0`, `0 P1` failures
 - **Check Suites Merged**: `Tools/skill_harness/core_checks.json, Datasets/mirofish_gameplay/skills_ai_save_ship/checks.json, Datasets/mirofish_gameplay/skills_art_direction/checks.json, Datasets/mirofish_gameplay/skills_cardgame_ui_input/checks.json, Datasets/mirofish_gameplay/skills_feel_audio_camera_perf/checks.json`
 
 ## 1. Step A — Router & Dual-Engine Composition (`router/SKILL.md`)
@@ -40,22 +40,24 @@
 | `disciplines/input-systems` | 6 | 6 | 0 | **100.0%** | — |
 | `disciplines/performance-optimization` | 6 | 6 | 0 | **100.0%** | — |
 | `disciplines/save-systems` | 6 | 6 | 0 | **100.0%** | — |
+| `disciplines/shader-programming` | 1 | 1 | 0 | **100.0%** | — |
 | `disciplines/ui-ux-design` | 1 | 1 | 0 | **100.0%** | — |
 | `game-audio-implementation` | 1 | 1 | 0 | **100.0%** | — |
-| `genres/card-game` | 19 | 19 | 0 | **100.0%** | — |
+| `genres/card-game` | 20 | 20 | 0 | **100.0%** | — |
+| `rea-reverse-engineer` | 1 | 1 | 0 | **100.0%** | — |
 | `ship/itch-release` | 1 | 1 | 0 | **100.0%** | — |
 | `unity/unity-build-pipeline` | 3 | 3 | 0 | **100.0%** | — |
 | `unity/unity-csharp-scripting` | 3 | 3 | 0 | **100.0%** | — |
-| `unity/unity-netcode-multiplayer` | 6 | 6 | 0 | **100.0%** | — |
-| `unity/unity-scriptableobjects` | 7 | 7 | 0 | **100.0%** | — |
+| `unity/unity-netcode-multiplayer` | 10 | 10 | 0 | **100.0%** | — |
+| `unity/unity-scriptableobjects` | 9 | 9 | 0 | **100.0%** | — |
 | `workflows/itch-publish` | 3 | 3 | 0 | **100.0%** | — |
 | `workflows/prototype-fast` | 2 | 2 | 0 | **100.0%** | — |
 | `workflows/steam-publish` | 1 | 1 | 0 | **100.0%** | — |
 
 ### Diff vs. Previous Iteration
-- **Previous Iteration**: `194`
-- **Pass Count Delta**: `+2` (Total checks delta: `+0`)
-- **Newly Passing Checks**: `core.production_upgrades.02, core.production_upgrades.05`
+- **Previous Iteration**: `206`
+- **Pass Count Delta**: `+1` (Total checks delta: `+1`)
+- **Newly Passing Checks**: `core.production_upgrades.08`
 - **Newly Failing Checks**: `None`
 
 ### Ingested MiroFish Gameplay Telemetry
@@ -151,6 +153,15 @@
 | `core.production_upgrades.04` | PASS | `P1` | `game-audio-implementation` | `metric` | `Datasets/mastered_audio_stems_manifest.json:1` | `Backend/synthesize_mastered_foley_and_stems.py:1-240` |
 | `core.production_upgrades.05` | PASS | `P1` | `unity/unity-scriptableobjects` | `static_regex` | `Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:184` | `Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:184-312` |
 | `core.production_upgrades.06` | PASS | `P1` | `ship/itch-release` | `playwright` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:2695` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:2695-2745` |
+| `core.unity6_tcg_rea_baseline.09` | PASS | `P0` | `unity/unity-scriptableobjects` | `metric` | `Logs/unpacked_tcg_engine_full3d_build_report.json:1` | `Logs/unpacked_tcg_engine_full3d_build_report.json:1-52` |
+| `core.unity6_tcg_rea_baseline.10` | PASS | `P0` | `unity/unity-netcode-multiplayer` | `metric` | `Logs/fullstack_live_duel_and_echo_ghost_report.json:1` | `Logs/fullstack_live_duel_and_echo_ghost_report.json:1-65` |
+| `core.unity6_tcg_rea_baseline.11` | PASS | `P0` | `unity/unity-netcode-multiplayer` | `playwright` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:4592` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:4592-4665` |
+| `core.unity6_tcg_rea_baseline.12` | PASS | `P0` | `rea-reverse-engineer` | `metric` | `Datasets/rea_tcg_engine_baseline_decompile_ledger.json:1` | `Backend/synapse_unity6_tcg_engine_rea_pipeline.py:385-510` |
+| `core.production_upgrades.07` | PASS | `P0` | `unity/unity-netcode-multiplayer` | `metric` | `Datasets/lan_2macbook_duel_e2e_report.json:1` | `Tools/skill_harness/verify_2macbook_lan_duel_e2e.js:1-140` |
+| `core.unity6_tcg_rea_baseline.13` | PASS | `P0` | `unity/unity-scriptableobjects` | `metric` | `Logs/unpacked_tcg_engine_full3d_build_report.json:1` | `Assets/TcgEngine/Scripts/Editor/CardFrontTcgEngineImporter.cs:185-350` |
+| `core.unity6_tcg_rea_baseline.14` | PASS | `P0` | `genres/card-game` | `metric` | `Logs/unpacked_tcg_engine_full3d_build_report.json:1` | `Assets/TcgEngine/Scripts/Editor/CardFrontTcgEngineImporter.cs:315-350` |
+| `core.unity6_tcg_rea_baseline.15` | PASS | `P1` | `disciplines/shader-programming` | `static_regex` | `Assets/Shaders/SynapseHoloCard.shader:1` | `Assets/Shaders/SynapseHoloCard.shader:14-125` |
+| `core.production_upgrades.08` | PASS | `P0` | `unity/unity-netcode-multiplayer` | `playwright` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:4580` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:4580-4615` |
 | `ai_save_ship.1` | PASS | `P0` | `disciplines/game-ai` | `static_regex` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md:57-67` | `WebPlayable/cardfront_cradle_of_echoes_playable.html` |
 | `ai_save_ship.2` | PASS | `P1` | `disciplines/ai-behavior-trees-utility-ai` | `static_regex` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:45-57` | `WebPlayable/cardfront_cradle_of_echoes_playable.html` |
 | `ai_save_ship.3` | PASS | `P1` | `disciplines/ai-behavior-trees-utility-ai` | `static_regex` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:126-139` | `WebPlayable/cardfront_cradle_of_echoes_playable.html` |

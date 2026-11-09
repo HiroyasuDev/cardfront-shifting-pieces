@@ -1,9 +1,22 @@
 {
-    "timestampUtc": "2026-11-09T12:09:06.6832500Z",
+    "timestampUtc": "2026-11-09T13:07:42.0070430Z",
     "unityVersion": "6000.6.8f1",
+    "graphicsDeviceType": "Null",
     "projectPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked",
     "cardsImportedCount": 113,
+    "cardsWithSpritesBound": 209,
+    "cardsWithTeamsAndRaritiesBound": 269,
     "totalCardDataAssetsInResources": 269,
+    "teamsConfigured": [
+        "sovereign_law",
+        "astral_vanguard",
+        "crimson_echo",
+        "arcane_atelier",
+        "fire",
+        "water",
+        "forest",
+        "neutral"
+    ],
     "starterDecksConfigured": [
         "deck_sovereign_agent_command",
         "deck_cardfront_astral_vanguard",
@@ -13,13 +26,18 @@
     "game3DBoardSlotsConfigured": 9,
     "game2DBoardSlotsConfigured": 9,
     "cardFrontTabletopControllerAttached": true,
+    "sceneRenders1080p": [
+        "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Logs/renders/unity6_game3d_3x3_tabletop_1080p.png",
+        "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Logs/renders/unity6_game2d_3x3_arena_1080p.png",
+        "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Logs/renders/unity6_openpack_sovereign_genesis_1080p.png"
+    ],
     "buildTarget": "StandaloneOSX",
     "outputAppPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app",
     "executableBinaryPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app/Contents/MacOS/TcgEngine",
     "managedAssemblyCSharpPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Builds/MacOS/CARDFRONT_TcgEngine_Full3D.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
     "buildResult": "Succeeded",
-    "totalSizeBytes": 308367290,
-    "totalTimeSeconds": 88.81,
+    "totalSizeBytes": 319410806,
+    "totalTimeSeconds": 15.38,
     "totalErrors": 0,
     "scenesIncluded": [
         "Assets/TcgEngine/Scenes/Menu/Menu.unity",
@@ -30,5 +48,10 @@
     ],
     "lanSimulationStatus": "PASS_HEADLESS_LAN_MULTIPLAYER_SIMULATION",
     "lanStateHashHex": "4C837E02F2035A25",
-    "status": "PASS_UNPACKED_TCG_ENGINE_FULL3D_BUILD_AND_SCENES"
+    "status": "PASS_UNPACKED_TCG_ENGINE_FULL3D_BUILD_AND_SCENES",
+    "cardFront113UniqueSpritesBound": 113,
+    "cardsWithAudioStemsBound": 113,
+    "plusSameCascadeVerified": true,
+    "plusSameCascadeFlipsCount": 2,
+    "drawReplacementCardVerified": true
 }

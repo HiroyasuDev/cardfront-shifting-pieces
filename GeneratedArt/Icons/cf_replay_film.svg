@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <defs>
+    <linearGradient id="cf-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3B0"/>
+      <stop offset="40%" stop-color="#FFB800"/>
+      <stop offset="80%" stop-color="#C87D0A"/>
+      <stop offset="100%" stop-color="#6E3F04"/>
+    </linearGradient>
+    <linearGradient id="cf-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0FFFF"/>
+      <stop offset="45%" stop-color="#00E5FF"/>
+      <stop offset="85%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="cf-jade-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CCFBF1"/>
+      <stop offset="45%" stop-color="#2EE6D3"/>
+      <stop offset="88%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#042F2E"/>
+    </linearGradient>
+    <linearGradient id="cf-violet-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E8FF"/>
+      <stop offset="45%" stop-color="#A855F7"/>
+      <stop offset="85%" stop-color="#581C87"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+    <linearGradient id="cf-crimson-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD1DC"/>
+      <stop offset="45%" stop-color="#FF2E54"/>
+      <stop offset="88%" stop-color="#9F1239"/>
+      <stop offset="100%" stop-color="#3B0714"/>
+    </linearGradient>
+    <radialGradient id="cf-obsidian-sphere" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="60%" stop-color="#0B1021"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </radialGradient>
+  </defs>
+  <g id="cf_replay_film">
+    <g stroke="url(#cf-gold-grad)" stroke-width="16" stroke-linecap="round">
+      <line x1="128" y1="14" x2="128" y2="242"/>
+      <line x1="14" y1="128" x2="242" y2="128"/>
+      <line x1="47" y1="47" x2="209" y2="209"/>
+      <line x1="209" y1="47" x2="47" y2="209"/>
+    </g>
+    <circle cx="128" cy="128" r="92" fill="url(#cf-obsidian-sphere)" stroke="url(#cf-gold-grad)" stroke-width="10"/>
+    <circle cx="128" cy="128" r="76" fill="none" stroke="#A855F7" stroke-width="2.5" stroke-dasharray="10 6"/>
+    <path d="M36,102 C76,78 180,78 220,102" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+    <path d="M36,102 C76,78 180,78 220,102" fill="none" stroke="#0B1021" stroke-width="6" stroke-dasharray="6 10" stroke-linecap="round"/>
+    <path d="M36,154 C76,178 180,178 220,154" fill="none" stroke="url(#cf-jade-grad)" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+    <path d="M36,154 C76,178 180,178 220,154" fill="none" stroke="#0B1021" stroke-width="6" stroke-dasharray="6 10" stroke-linecap="round"/>
+    <rect x="76" y="54" width="104" height="14" rx="5" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="2.5"/>
+    <rect x="76" y="188" width="104" height="14" rx="5" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="2.5"/>
+    <polygon points="86,68 170,68 136,122 170,188 86,188 120,122" fill="#0F172A" stroke="url(#cf-gold-grad)" stroke-width="5" stroke-linejoin="round"/>
+    <polygon points="98,78 158,78 128,118" fill="url(#cf-cyan-grad)" opacity="0.9"/>
+    <polygon points="128,136 158,180 98,180" fill="url(#cf-crimson-grad)" opacity="0.9"/>
+    <polygon points="112,102 158,128 112,154" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="3" stroke-linejoin="round"/>
+    <polygon points="118,112 146,128 118,144" fill="#2EE6D3"/>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+{
+  "timestamp_utc": "2026-11-09T13:06:44.822Z",
+  "elapsed_ms": 2858,
+  "api_daemon_port": 61605,
+  "secure_config_verified": true,
+  "standalone_macho_executed": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/Builds/MacOS/CARDFRONT_CradleOfEchoes.app/Contents/MacOS/unity-tcg-engine",
+  "full3d_macho_present": true,
+  "player0_registered": "sovereign_commander_p0",
+  "player1_registered": "okitsu_arbiter_p1",
+  "pack_opened": "pack_sovereign_genesis",
+  "pack_cards_drawn": [
+    "plugin_01_tcg_creative_designer",
+    "plugin_02_parallel_swarm_orchestrator",
+    "plugin_03_jev_system_one",
+    "plugin_04_mlx_apple_silicon",
+    "skill_11_decompilation_hi3d_rea"
+  ],
+  "lan_tcp_packets_exchanged": 51,
+  "lan_directional_captures": 4,
+  "lan_state_hash_lockstep_parity": true,
+  "lan_fnv1a_state_hash_hex": "4C837E02F2035A25",
+  "match_receipt_hmac_verified": true,
+  "match_receipt_hmac_sha256": "8304aec8cc758d4196d0267bb3a5133a549235a5f0dfd289e02dcb440a2f98b1",
+  "winner_post_match_elo": 1025,
+  "winner_post_match_coins": 5100,
+  "loser_post_match_elo": 985,
+  "exported_echo_ghost": {
+    "ghost_id": "ghost_SovereignAgent_1825",
+    "commander_name": "sovereign_commander_p0",
+    "elo_rating": 1825,
+    "deck_tid": "deck_sovereign_agent_command",
+    "hero_tid": "plugin_01_tcg_creative_designer",
+    "opening_3x3_sequence": [
+      {
+        "slot_x": 2,
+        "slot_y": 2,
+        "card_id": "plugin_01_tcg_creative_designer",
+        "dir_nesw": [
+          8,
+          7,
+          7,
+          8
+        ]
+      },
+      {
+        "slot_x": 1,
+        "slot_y": 2,
+        "card_id": "plugin_03_jev_system_one",
+        "dir_nesw": [
+          9,
+          6,
+          8,
+          6
+        ]
+      },
+      {
+        "slot_x": 3,
+        "slot_y": 2,
+        "card_id": "plugin_04_mlx_apple_silicon",
+        "dir_nesw": [
+          6,
+          9,
+          7,
+          8
+        ]
+      }
+    ],
+    "lockstep_state_hash": "4C837E02F2035A25",
+    "hmac_sha256_signature": "269ab3ff93c49783a7f5d471a3da541982854824ad7173ba9242ef5071d0ea8f"
+  },
+  "status": "PASS_FULLSTACK_LIVE_DUEL_AND_ECHO_GHOST"
+}

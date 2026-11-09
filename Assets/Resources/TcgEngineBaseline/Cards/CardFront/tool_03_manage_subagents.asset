@@ -14,31 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TcgEngine.CardData
   id: tool_03_manage_subagents
   title: Tool 03 Manage Subagents Cut-In
-  art_full: {fileID: -2646831586251495443, guid: bf58dcb4d10be406eb9826135e37b0dc, type: 3}
-  art_board: {fileID: -2646831586251495443, guid: bf58dcb4d10be406eb9826135e37b0dc, type: 3}
-  type: 10
-  team: {fileID: 0}
-  rarity: {fileID: 0}
+  art_full: {fileID: 21300000, guid: bf58dcb4d10be406eb9826135e37b0dc, type: 3}
+  art_board: {fileID: 21300000, guid: bf58dcb4d10be406eb9826135e37b0dc, type: 3}
+  type: 20
+  team: {fileID: 11400000, guid: d780905e1a51349ceaff295b532e20fd, type: 2}
+  rarity: {fileID: 11400000, guid: 13b592f40b7cd424c966f5d7eef425aa, type: 2}
   mana: 3
   attack: 7
   hp: 7
   traits: []
   stats: []
   abilities: []
-  text: 
-  desc: 
+  text: "\u25B28  \u25B68  \u25BC7  \u25C08\nDice Resonance: \u26802 (2.25x)"
+  desc: "Tool 03 Manage Subagents Cut-In [SOVEREIGN_AGENT] \u2014 3x3 Shared Citadel Unit. Directional Capture Pips: N=8 E=8 S=7 W=8."
   spawn_fx: {fileID: 0}
   death_fx: {fileID: 0}
   attack_fx: {fileID: 0}
   damage_fx: {fileID: 0}
   idle_fx: {fileID: 0}
-  spawn_audio: {fileID: 0}
-  death_audio: {fileID: 0}
-  attack_audio: {fileID: 0}
-  damage_audio: {fileID: 0}
+  spawn_audio: {fileID: 8300000, guid: d72654280af0d46d384c81f78e54dc38, type: 3}
+  death_audio: {fileID: 8300000, guid: fbeef6143ed4a44ba8deade3853d6f26, type: 3}
+  attack_audio: {fileID: 8300000, guid: d541c8b1c2c6b45989988e8fe1df6145, type: 3}
+  damage_audio: {fileID: 8300000, guid: ce4a5ad228e4144f9b2822d8eb4ef3a1, type: 3}
   deckbuilding: 1
-  cost: 100
-  packs: []
+  cost: 300
+  packs:
+  - {fileID: 11400000, guid: 309983faddca84152b26338defbc7ec8, type: 2}
+  - {fileID: 11400000, guid: bafca3757bf537c43b1d2ba696456e2c, type: 2}
+  - {fileID: 11400000, guid: 2db0d9f08bdfa57419101c08b8598c1a, type: 2}
   dir_north: 8
   dir_east: 8
   dir_south: 7

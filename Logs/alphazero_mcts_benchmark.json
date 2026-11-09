@@ -1,0 +1,211 @@
+{
+  "status": "VERIFIED",
+  "model_id": "synapse_alphazero_policy_value_v1",
+  "architecture": "SynapsePolicyValueNetwork + SynapseAlphaZeroMCTS (PUCT)",
+  "episodes_trained": 200,
+  "c_puct": 1.414,
+  "num_simulations": 64,
+  "state_dim": 96,
+  "hidden_dim": 48,
+  "action_dim": 72,
+  "win_rate_vs_greedy": 0.85,
+  "win_rate_vs_minimax": 0.7,
+  "policy_loss_initial": 2.4236,
+  "policy_loss_final": 1.4057,
+  "value_mse_initial": 0.0017,
+  "value_mse_final": 0.0006,
+  "training_wall_time_sec": 16.42,
+  "safetensors_export": {
+    "path": "Models/LoRA/synapse_alphazero_policy_value_v1.safetensors",
+    "header_byte_length": 504,
+    "payload_byte_length": 32448,
+    "total_file_bytes": 32960,
+    "sha256": "481a1f3b4a1efe675b95e4bf71eb2805b8876a69a14227cc6d30ae4ed7e84472",
+    "tensors": {
+      "encoder_w": {
+        "dtype": "F32",
+        "shape": [
+          96,
+          48
+        ],
+        "num_elements": 4608
+      },
+      "policy_head_w": {
+        "dtype": "F32",
+        "shape": [
+          48,
+          72
+        ],
+        "num_elements": 3456
+      },
+      "value_head_w": {
+        "dtype": "F32",
+        "shape": [
+          48,
+          1
+        ],
+        "num_elements": 48
+      }
+    }
+  },
+  "top3_sample_recommendations": [
+    {
+      "rank": 1,
+      "action": "deploy(0, 2)",
+      "action_type": "deploy",
+      "action_details": {
+        "action_id": 2,
+        "type": "deploy",
+        "handIdx": 0,
+        "slotIdx": 2,
+        "card_name": "Obsidian Warden",
+        "cost": 6,
+        "label": "deploy(0, 2)"
+      },
+      "visit_count": 37,
+      "visit_share": 0.5781,
+      "q_value": 0.1542,
+      "prior_prob": 0.5345,
+      "win_probability": 0.5771,
+      "tactical_explanation": "Deploy Obsidian Warden to Corner Bastion (Slot 2, Col Die=2, COST +6): triggers 1 directional capture(s) [37 visits, Q=+0.15, Win=57.7%]."
+    },
+    {
+      "rank": 2,
+      "action": "deploy(2, 2)",
+      "action_type": "deploy",
+      "action_details": {
+        "action_id": 20,
+        "type": "deploy",
+        "handIdx": 2,
+        "slotIdx": 2,
+        "card_name": "Mirage Kestrel",
+        "cost": 4,
+        "label": "deploy(2, 2)"
+      },
+      "visit_count": 22,
+      "visit_share": 0.3438,
+      "q_value": 0.157,
+      "prior_prob": 0.2476,
+      "win_probability": 0.5785,
+      "tactical_explanation": "Deploy Mirage Kestrel to Corner Bastion (Slot 2, Col Die=2, COST +4): triggers 1 directional capture(s) [22 visits, Q=+0.16, Win=57.8%]."
+    },
+    {
+      "rank": 3,
+      "action": "deploy(1, 0)",
+      "action_type": "deploy",
+      "action_details": {
+        "action_id": 9,
+        "type": "deploy",
+        "handIdx": 1,
+        "slotIdx": 0,
+        "card_name": "Solid Eye Viper",
+        "cost": 4,
+        "label": "deploy(1, 0)"
+      },
+      "visit_count": 1,
+      "visit_share": 0.0156,
+      "q_value": -0.2774,
+      "prior_prob": 0.0221,
+      "win_probability": 0.3613,
+      "tactical_explanation": "Deploy Solid Eye Viper to Corner Bastion (Slot 0, Col Die=2, COST +4): fortifies directional perimeter [1 visits, Q=-0.28, Win=36.1%]."
+    }
+  ],
+  "sample_root_value": 0.3643,
+  "sample_win_probability": 0.6821,
+  "precomputed_weights": {
+    "tactical_feature_weights": {
+      "directional_capture_weight": 1.45,
+      "slide_capture_weight": 1.65,
+      "center_anchor_bonus": 0.45,
+      "corner_bastion_bonus": 0.28,
+      "column_die_high_roll_bonus": 0.45,
+      "mga_cost_efficiency_weight": 0.08
+    },
+    "encoder_w_row_means": [
+      0.00338,
+      -0.01478,
+      -0.01824,
+      0.01863,
+      0.00042,
+      -0.00085,
+      -0.00862,
+      -0.00512,
+      0.0174,
+      -0.02564,
+      -0.00777,
+      -0.00161,
+      0.024,
+      0.0024,
+      -1e-05,
+      -0.02268
+    ],
+    "policy_head_col_means": [
+      -0.03548,
+      -0.01596,
+      0.038,
+      -0.01079,
+      -0.01493,
+      0.02317,
+      0.03257,
+      -0.04096,
+      0.02021,
+      0.02394,
+      -0.0203,
+      -0.01305,
+      0.00553,
+      0.00289,
+      0.02144,
+      0.0167
+    ],
+    "value_head_weights": [
+      0.21863,
+      0.22975,
+      0.15032,
+      0.20115,
+      0.51176,
+      0.20255,
+      0.43157,
+      0.36902,
+      -0.01507,
+      0.01201,
+      -0.0847,
+      0.20196,
+      -0.17903,
+      0.02333,
+      -0.00621,
+      0.17253,
+      0.13319,
+      0.0505,
+      -0.1403,
+      -0.16622,
+      -0.19414,
+      0.16012,
+      0.07506,
+      -0.19506,
+      0.11536,
+      0.32291,
+      -0.08081,
+      0.06247,
+      0.14574,
+      -0.27555,
+      0.05594,
+      0.2567,
+      -0.11391,
+      -0.09653,
+      0.18633,
+      0.1052,
+      0.04679,
+      -0.07353,
+      0.163,
+      0.03785,
+      -0.12502,
+      0.07627,
+      -0.06721,
+      -0.02517,
+      -0.21294,
+      -0.10061,
+      0.07998,
+      0.37836
+    ]
+  }
+}

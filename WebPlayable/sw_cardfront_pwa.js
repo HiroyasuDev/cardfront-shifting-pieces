@@ -11,6 +11,7 @@ const CORE_PRECACHE_ASSETS = [
   "./cardfront_cradle_of_echoes_playable.html",
   "./manifest.webmanifest",
   "./apple_native_haptics_bridge.js",
+  "./synapse_sakuga_anim_engine.js",
   "./tests/inpage_autotest.js",
   "./GeneratedArt/Icons/cf_cardback_astrolabe.svg",
   "./GeneratedArt/Icons/cf_icon_aether_coin.svg",
@@ -41,7 +42,18 @@ const CORE_PRECACHE_ASSETS = [
   "./GeneratedArt/Icons/cf_platform_steam.svg",
   "./GeneratedArt/Icons/cf_platform_pwa.svg",
   "./GeneratedArt/Icons/cf_crypto_shield.svg",
-  "./GeneratedArt/Icons/cf_pack_seal.svg"
+  "./GeneratedArt/Icons/cf_pack_seal.svg",
+  "./GeneratedArt/Icons/cf_sakuga_spark.svg",
+  "./GeneratedArt/Icons/cf_puppet_rig.svg",
+  "./GeneratedArt/Animations/idle_breathe_25d.cfanim",
+  "./GeneratedArt/Animations/deploy_orbital_slam.cfanim",
+  "./GeneratedArt/Animations/directional_clash_lunge.cfanim",
+  "./GeneratedArt/Animations/capture_flip_180.cfanim",
+  "./GeneratedArt/Animations/tactical_slide_bank.cfanim",
+  "./GeneratedArt/Animations/column_die_nudge_surge.cfanim",
+  "./GeneratedArt/Animations/sakuga_impact_flash_2f.cfanim",
+  "./GeneratedArt/Animations/boss_telegraph_pulse.cfanim",
+  "./GeneratedArt/Animations/puppet_rigs_manifest.json"
 ];
 
 self.addEventListener("install", (event) => {

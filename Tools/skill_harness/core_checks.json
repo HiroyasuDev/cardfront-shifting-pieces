@@ -1281,5 +1281,36 @@
     "priority": "P0",
     "code_ref": "Assets/TcgEngine/Scripts/Editor/CardFrontTcgEngineImporter.cs:315-350",
     "remediation": "Verify EvaluatePlusAndSameCaptures3x3 and DrawReplacementCardOnTurn in CardFrontTcgEngineImporter.cs."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.15",
+    "skill": "disciplines/shader-programming",
+    "rule": "Unity 6 Fragment Shader Dissolve Outline (SynapseHoloCard.shader with noise_fade, _DissolveThreshold, HashNoise2D, _OwnerTint) & GameCamera 3x3 Orbit Framing + Hit-Stop Juice (TriggerHitStopJuice, UpdateOrbitFraming3x3).",
+    "source": "Assets/Shaders/SynapseHoloCard.shader:1",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Shaders/SynapseHoloCard.shader",
+      "regex": "noise_fade[\\s\\S]*_DissolveThreshold[\\s\\S]*HashNoise2D[\\s\\S]*_DissolveEdgeColor"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Assets/Shaders/SynapseHoloCard.shader:14-125",
+    "remediation": "Implement procedural fragment dissolve (noise_fade, HashNoise2D, _DissolveEdgeColor) in SynapseHoloCard.shader."
+  },
+  {
+    "id": "core.production_upgrades.08",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "MacBook #2 Wi-Fi Auto-Join URL Guard: getMacBook2ShareUrl('CITADEL-1') and /api/lan/info always generate a non-loopback LAN URL (http://192.168.86.125:8096/...?lan=1&seat=challenger&room=CITADEL-1) so MacBook #2 never hits 127.0.0.1 ERR_CONNECTION_REFUSED.",
+    "source": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4580",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(async () => { if (typeof getMacBook2ShareUrl !== 'function') return false; const u = getMacBook2ShareUrl('CITADEL-1'); if (!u || u.includes('127.0.0.1') || !u.includes('lan=1&seat=challenger')) return false; const r = await fetch('/api/lan/info'); const j = await r.json(); return Boolean(j && j.ok && j.seat2_macbook2_url && !j.seat2_macbook2_url.includes('127.0.0.1')); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4580-4615",
+    "remediation": "Implement getMacBook2ShareUrl() in WebPlayable and /api/lan/info in WebPlayable/serve_playtest.py."
   }
 ]

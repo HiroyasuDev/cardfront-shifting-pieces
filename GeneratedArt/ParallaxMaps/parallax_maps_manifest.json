@@ -1,0 +1,2597 @@
+{
+  "schema_version": "1.0.0",
+  "generator": "Backend/generate_25d_parallax_depth_foil_maps.py",
+  "status": "VERIFIED",
+  "count": 16,
+  "heroes_count": 8,
+  "bosses_count": 8,
+  "resolution": "600x800",
+  "depth_plane_weights": {
+    "bg": -0.35,
+    "mid": -0.12,
+    "actor": 0.18,
+    "vfx": 0.45
+  },
+  "plane_weights": {
+    "bg": -0.35,
+    "mid": -0.12,
+    "actor": 0.18,
+    "vfx": 0.45
+  },
+  "layers": {
+    "bg": -0.35,
+    "mid": -0.12,
+    "actor": 0.18,
+    "vfx": 0.45
+  },
+  "fnv1a": "5746d332",
+  "manifest_fnv1a": "5746d332",
+  "checksums": {
+    "h_archangel": "5a0b23f8",
+    "h_phoenix": "ebe3fe38",
+    "h_oracle": "fe3fd516",
+    "h_chronos": "588b07d4",
+    "h_seraph": "d939d99c",
+    "h_kai": "69d45add",
+    "h_valkyrie": "9aa6ff9c",
+    "h_arbiter": "5adf3222",
+    "e_eclipse": "e5f2148e",
+    "e_archon": "8c5223a5",
+    "e_inferno": "f544fea3",
+    "e_reaper": "31a0b476",
+    "e_titan": "a6f1a93f",
+    "e_colossus": "46c27870",
+    "e_cryo": "cf304a8c",
+    "e_shinobi": "1944000a"
+  },
+  "cards": [
+    {
+      "card_id": "h_archangel",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_archangel.png",
+      "filename": "h_archangel_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_archangel_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_archangel_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 742675,
+      "fnv1a": "5a0b23f8",
+      "fnv1a_32": "5a0b23f8",
+      "fnv1a_64": "2ad3552553762ed8",
+      "sha256": "ced5cbebb1319cb77407703a8a9544af0128c0b72bf132abe205fadfc53f36df",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00032,
+          0.00038,
+          0.98853
+        ],
+        "normal_std_xyz": [
+          0.10515,
+          0.10513,
+          0.02646
+        ],
+        "depth_mean": 0.39653,
+        "depth_std": 0.15802,
+        "specular_foil_mean": 0.17123,
+        "edge_gradient_rms": 0.31074,
+        "plane_coverage": {
+          "bg": 0.3065,
+          "mid": 0.461,
+          "actor": 0.2303,
+          "vfx": 0.0023
+        }
+      }
+    },
+    {
+      "card_id": "h_phoenix",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_phoenix.png",
+      "filename": "h_phoenix_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_phoenix_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_phoenix_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 652547,
+      "fnv1a": "ebe3fe38",
+      "fnv1a_32": "ebe3fe38",
+      "fnv1a_64": "4d709cd29560eb58",
+      "sha256": "00a5f53c5e199f9a658f0cc1109d3301774284d98aa0ab051bfae96aa0304cc8",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00167,
+          -0.00125,
+          0.99142
+        ],
+        "normal_std_xyz": [
+          0.09327,
+          0.08781,
+          0.02592
+        ],
+        "depth_mean": 0.37609,
+        "depth_std": 0.14268,
+        "specular_foil_mean": 0.21073,
+        "edge_gradient_rms": 0.22736,
+        "plane_coverage": {
+          "bg": 0.322,
+          "mid": 0.5318,
+          "actor": 0.1442,
+          "vfx": 0.0021
+        }
+      }
+    },
+    {
+      "card_id": "h_oracle",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_oracle.png",
+      "filename": "h_oracle_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_oracle_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_oracle_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 652316,
+      "fnv1a": "fe3fd516",
+      "fnv1a_32": "fe3fd516",
+      "fnv1a_64": "9a6a85082461ccf6",
+      "sha256": "7a45c638507ac4848a56a0288ba17a77564c13d42c05ddb809ec9124b2e85e53",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00022,
+          -0.00019,
+          0.99318
+        ],
+        "normal_std_xyz": [
+          0.08838,
+          0.07402,
+          0.01722
+        ],
+        "depth_mean": 0.38246,
+        "depth_std": 0.1488,
+        "specular_foil_mean": 0.13645,
+        "edge_gradient_rms": 0.26552,
+        "plane_coverage": {
+          "bg": 0.3658,
+          "mid": 0.4357,
+          "actor": 0.1966,
+          "vfx": 0.0019
+        }
+      }
+    },
+    {
+      "card_id": "h_chronos",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_chronos.png",
+      "filename": "h_chronos_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_chronos_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_chronos_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 791130,
+      "fnv1a": "588b07d4",
+      "fnv1a_32": "588b07d4",
+      "fnv1a_64": "acabbe5acee91894",
+      "sha256": "aa30cf4cb715d57e1ec4a3e6301170b35823a07498c405c2e9587a99e24ba6bf",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00043,
+          0.00024,
+          0.99103
+        ],
+        "normal_std_xyz": [
+          0.09362,
+          0.09274,
+          0.02209
+        ],
+        "depth_mean": 0.35773,
+        "depth_std": 0.16324,
+        "specular_foil_mean": 0.18612,
+        "edge_gradient_rms": 0.28146,
+        "plane_coverage": {
+          "bg": 0.4426,
+          "mid": 0.3581,
+          "actor": 0.1981,
+          "vfx": 0.0012
+        }
+      }
+    },
+    {
+      "card_id": "h_seraph",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_seraph.png",
+      "filename": "h_seraph_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_seraph_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_seraph_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 717006,
+      "fnv1a": "d939d99c",
+      "fnv1a_32": "d939d99c",
+      "fnv1a_64": "418346ebf10e3f9c",
+      "sha256": "b7a19d7e51cc7292af67a73b45ba5c75519b929c251144bcce0d9a68e0552191",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.0002,
+          -0.00078,
+          0.99237
+        ],
+        "normal_std_xyz": [
+          0.08763,
+          0.08404,
+          0.02156
+        ],
+        "depth_mean": 0.36694,
+        "depth_std": 0.12782,
+        "specular_foil_mean": 0.15937,
+        "edge_gradient_rms": 0.23529,
+        "plane_coverage": {
+          "bg": 0.2973,
+          "mid": 0.5816,
+          "actor": 0.1207,
+          "vfx": 0.0004
+        }
+      }
+    },
+    {
+      "card_id": "h_kai",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_kai.png",
+      "filename": "h_kai_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_kai_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_kai_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 535728,
+      "fnv1a": "69d45add",
+      "fnv1a_32": "69d45add",
+      "fnv1a_64": "dd1a4a20d66206bd",
+      "sha256": "c12d693426706be78a0515f516a40d590d41f6233641fd0c08168527f215dd25",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00189,
+          0.00027,
+          0.99251
+        ],
+        "normal_std_xyz": [
+          0.08076,
+          0.08706,
+          0.02874
+        ],
+        "depth_mean": 0.30693,
+        "depth_std": 0.16459,
+        "specular_foil_mean": 0.13413,
+        "edge_gradient_rms": 0.19713,
+        "plane_coverage": {
+          "bg": 0.5556,
+          "mid": 0.3208,
+          "actor": 0.1205,
+          "vfx": 0.0032
+        }
+      }
+    },
+    {
+      "card_id": "h_valkyrie",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_valkyrie.png",
+      "filename": "h_valkyrie_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_valkyrie_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_valkyrie_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 699559,
+      "fnv1a": "9aa6ff9c",
+      "fnv1a_32": "9aa6ff9c",
+      "fnv1a_64": "6d5e18e2645db43c",
+      "sha256": "ce95c682ef56e101fb9dd26c44868d97108ad243f450c3f14c913572756dcaf2",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00025,
+          -0.00016,
+          0.98982
+        ],
+        "normal_std_xyz": [
+          0.10086,
+          0.09624,
+          0.02854
+        ],
+        "depth_mean": 0.36937,
+        "depth_std": 0.1262,
+        "specular_foil_mean": 0.1531,
+        "edge_gradient_rms": 0.2553,
+        "plane_coverage": {
+          "bg": 0.3339,
+          "mid": 0.5444,
+          "actor": 0.121,
+          "vfx": 0.0007
+        }
+      }
+    },
+    {
+      "card_id": "h_arbiter",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_arbiter.png",
+      "filename": "h_arbiter_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_arbiter_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_arbiter_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 648697,
+      "fnv1a": "5adf3222",
+      "fnv1a_32": "5adf3222",
+      "fnv1a_64": "ab7810bc41874e22",
+      "sha256": "60cbd91afb7ecf403f0ec882399e882e6676455b0798808bba7f66059e57269c",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00058,
+          0.00039,
+          0.99544
+        ],
+        "normal_std_xyz": [
+          0.06787,
+          0.06504,
+          0.0159
+        ],
+        "depth_mean": 0.36165,
+        "depth_std": 0.15416,
+        "specular_foil_mean": 0.18107,
+        "edge_gradient_rms": 0.19602,
+        "plane_coverage": {
+          "bg": 0.4254,
+          "mid": 0.3826,
+          "actor": 0.1914,
+          "vfx": 0.0006
+        }
+      }
+    },
+    {
+      "card_id": "e_eclipse",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_eclipse.png",
+      "filename": "e_eclipse_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_eclipse_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_eclipse_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 621114,
+      "fnv1a": "e5f2148e",
+      "fnv1a_32": "e5f2148e",
+      "fnv1a_64": "758af70d6e102b4e",
+      "sha256": "a9a5fd98000389f8040fe5be566ed1d9da71434550654d5f7bdb52f320fef64c",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00039,
+          0.00044,
+          0.99379
+        ],
+        "normal_std_xyz": [
+          0.07758,
+          0.07769,
+          0.01832
+        ],
+        "depth_mean": 0.31357,
+        "depth_std": 0.11904,
+        "specular_foil_mean": 0.12693,
+        "edge_gradient_rms": 0.2451,
+        "plane_coverage": {
+          "bg": 0.528,
+          "mid": 0.4294,
+          "actor": 0.0425,
+          "vfx": 0.0
+        }
+      }
+    },
+    {
+      "card_id": "e_archon",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_archon.png",
+      "filename": "e_archon_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_archon_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_archon_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 697843,
+      "fnv1a": "8c5223a5",
+      "fnv1a_32": "8c5223a5",
+      "fnv1a_64": "8444667652dc67c5",
+      "sha256": "f04c313847214bbe0f537e16a18de07c16ddd0154b0059c4a582d7dec1aaacc6",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00034,
+          -0.00044,
+          0.99182
+        ],
+        "normal_std_xyz": [
+          0.09582,
+          0.08113,
+          0.02284
+        ],
+        "depth_mean": 0.38007,
+        "depth_std": 0.1109,
+        "specular_foil_mean": 0.1688,
+        "edge_gradient_rms": 0.25005,
+        "plane_coverage": {
+          "bg": 0.2652,
+          "mid": 0.6225,
+          "actor": 0.1122,
+          "vfx": 0.0001
+        }
+      }
+    },
+    {
+      "card_id": "e_inferno",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_inferno.png",
+      "filename": "e_inferno_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_inferno_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_inferno_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 718903,
+      "fnv1a": "f544fea3",
+      "fnv1a_32": "f544fea3",
+      "fnv1a_64": "d2fda30a592c9323",
+      "sha256": "7a42c7322ab69fd2312076e4849da5ea7ecc38fb2c3b12a1b153700f803898a8",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00064,
+          -0.00094,
+          0.9923
+        ],
+        "normal_std_xyz": [
+          0.08797,
+          0.08476,
+          0.02027
+        ],
+        "depth_mean": 0.32265,
+        "depth_std": 0.18111,
+        "specular_foil_mean": 0.18486,
+        "edge_gradient_rms": 0.24457,
+        "plane_coverage": {
+          "bg": 0.511,
+          "mid": 0.3301,
+          "actor": 0.1471,
+          "vfx": 0.0118
+        }
+      }
+    },
+    {
+      "card_id": "e_reaper",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_reaper.png",
+      "filename": "e_reaper_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_reaper_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_reaper_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 435385,
+      "fnv1a": "31a0b476",
+      "fnv1a_32": "31a0b476",
+      "fnv1a_64": "c30feb5bfb579116",
+      "sha256": "b6c96b9477de2e3c6effe9c5b042f992a591748b2b58a695f2ec471fb7b576d4",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00067,
+          0.00018,
+          0.99486
+        ],
+        "normal_std_xyz": [
+          0.06879,
+          0.07068,
+          0.02283
+        ],
+        "depth_mean": 0.25771,
+        "depth_std": 0.1303,
+        "specular_foil_mean": 0.08376,
+        "edge_gradient_rms": 0.17444,
+        "plane_coverage": {
+          "bg": 0.7095,
+          "mid": 0.2472,
+          "actor": 0.0433,
+          "vfx": 0.0
+        }
+      }
+    },
+    {
+      "card_id": "e_titan",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_titan.png",
+      "filename": "e_titan_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_titan_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_titan_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 697047,
+      "fnv1a": "a6f1a93f",
+      "fnv1a_32": "a6f1a93f",
+      "fnv1a_64": "11a58981cdd3523f",
+      "sha256": "915f976d5e313474218019f36976231c061de529a806f4a17ea614f6e25b7228",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00038,
+          -7e-05,
+          0.98912
+        ],
+        "normal_std_xyz": [
+          0.10674,
+          0.09722,
+          0.02835
+        ],
+        "depth_mean": 0.33627,
+        "depth_std": 0.1575,
+        "specular_foil_mean": 0.15615,
+        "edge_gradient_rms": 0.28923,
+        "plane_coverage": {
+          "bg": 0.4624,
+          "mid": 0.4032,
+          "actor": 0.1327,
+          "vfx": 0.0017
+        }
+      }
+    },
+    {
+      "card_id": "e_colossus",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_colossus.png",
+      "filename": "e_colossus_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_colossus_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_colossus_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 693015,
+      "fnv1a": "46c27870",
+      "fnv1a_32": "46c27870",
+      "fnv1a_64": "fe602ba043dd1770",
+      "sha256": "f522bd766a3baba3419dc84069118b4845382ebc21fae817d0624567b550ee0e",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00026,
+          0.00029,
+          0.99152
+        ],
+        "normal_std_xyz": [
+          0.09415,
+          0.08625,
+          0.02404
+        ],
+        "depth_mean": 0.32343,
+        "depth_std": 0.15151,
+        "specular_foil_mean": 0.15773,
+        "edge_gradient_rms": 0.25514,
+        "plane_coverage": {
+          "bg": 0.5015,
+          "mid": 0.401,
+          "actor": 0.0967,
+          "vfx": 0.0008
+        }
+      }
+    },
+    {
+      "card_id": "e_cryo",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_cryo.png",
+      "filename": "e_cryo_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_cryo_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_cryo_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 791055,
+      "fnv1a": "cf304a8c",
+      "fnv1a_32": "cf304a8c",
+      "fnv1a_64": "b1dfa2ccc3d8914c",
+      "sha256": "b25e8d58719f1e000616fb691f13666fc79889aad59700300248048e815bc5cd",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00057,
+          -0.00078,
+          0.98476
+        ],
+        "normal_std_xyz": [
+          0.12223,
+          0.11839,
+          0.03582
+        ],
+        "depth_mean": 0.41872,
+        "depth_std": 0.15612,
+        "specular_foil_mean": 0.24957,
+        "edge_gradient_rms": 0.30173,
+        "plane_coverage": {
+          "bg": 0.2884,
+          "mid": 0.4581,
+          "actor": 0.2382,
+          "vfx": 0.0153
+        }
+      }
+    },
+    {
+      "card_id": "e_shinobi",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_shinobi.png",
+      "filename": "e_shinobi_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_shinobi_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_shinobi_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 724289,
+      "fnv1a": "1944000a",
+      "fnv1a_32": "1944000a",
+      "fnv1a_64": "a048ca16b55b288a",
+      "sha256": "34844c96b286a0d2fa2963c9cc29ae32e6b75b39f9698c209b8bed2011a9d68b",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00013,
+          0.00046,
+          0.9899
+        ],
+        "normal_std_xyz": [
+          0.10225,
+          0.09458,
+          0.02654
+        ],
+        "depth_mean": 0.36154,
+        "depth_std": 0.14002,
+        "specular_foil_mean": 0.18611,
+        "edge_gradient_rms": 0.26349,
+        "plane_coverage": {
+          "bg": 0.4142,
+          "mid": 0.4617,
+          "actor": 0.12,
+          "vfx": 0.0041
+        }
+      }
+    }
+  ],
+  "maps": [
+    {
+      "card_id": "h_archangel",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_archangel.png",
+      "filename": "h_archangel_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_archangel_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_archangel_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 742675,
+      "fnv1a": "5a0b23f8",
+      "fnv1a_32": "5a0b23f8",
+      "fnv1a_64": "2ad3552553762ed8",
+      "sha256": "ced5cbebb1319cb77407703a8a9544af0128c0b72bf132abe205fadfc53f36df",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00032,
+          0.00038,
+          0.98853
+        ],
+        "normal_std_xyz": [
+          0.10515,
+          0.10513,
+          0.02646
+        ],
+        "depth_mean": 0.39653,
+        "depth_std": 0.15802,
+        "specular_foil_mean": 0.17123,
+        "edge_gradient_rms": 0.31074,
+        "plane_coverage": {
+          "bg": 0.3065,
+          "mid": 0.461,
+          "actor": 0.2303,
+          "vfx": 0.0023
+        }
+      }
+    },
+    {
+      "card_id": "h_phoenix",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_phoenix.png",
+      "filename": "h_phoenix_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_phoenix_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_phoenix_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 652547,
+      "fnv1a": "ebe3fe38",
+      "fnv1a_32": "ebe3fe38",
+      "fnv1a_64": "4d709cd29560eb58",
+      "sha256": "00a5f53c5e199f9a658f0cc1109d3301774284d98aa0ab051bfae96aa0304cc8",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00167,
+          -0.00125,
+          0.99142
+        ],
+        "normal_std_xyz": [
+          0.09327,
+          0.08781,
+          0.02592
+        ],
+        "depth_mean": 0.37609,
+        "depth_std": 0.14268,
+        "specular_foil_mean": 0.21073,
+        "edge_gradient_rms": 0.22736,
+        "plane_coverage": {
+          "bg": 0.322,
+          "mid": 0.5318,
+          "actor": 0.1442,
+          "vfx": 0.0021
+        }
+      }
+    },
+    {
+      "card_id": "h_oracle",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_oracle.png",
+      "filename": "h_oracle_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_oracle_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_oracle_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 652316,
+      "fnv1a": "fe3fd516",
+      "fnv1a_32": "fe3fd516",
+      "fnv1a_64": "9a6a85082461ccf6",
+      "sha256": "7a45c638507ac4848a56a0288ba17a77564c13d42c05ddb809ec9124b2e85e53",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00022,
+          -0.00019,
+          0.99318
+        ],
+        "normal_std_xyz": [
+          0.08838,
+          0.07402,
+          0.01722
+        ],
+        "depth_mean": 0.38246,
+        "depth_std": 0.1488,
+        "specular_foil_mean": 0.13645,
+        "edge_gradient_rms": 0.26552,
+        "plane_coverage": {
+          "bg": 0.3658,
+          "mid": 0.4357,
+          "actor": 0.1966,
+          "vfx": 0.0019
+        }
+      }
+    },
+    {
+      "card_id": "h_chronos",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_chronos.png",
+      "filename": "h_chronos_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_chronos_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_chronos_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 791130,
+      "fnv1a": "588b07d4",
+      "fnv1a_32": "588b07d4",
+      "fnv1a_64": "acabbe5acee91894",
+      "sha256": "aa30cf4cb715d57e1ec4a3e6301170b35823a07498c405c2e9587a99e24ba6bf",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00043,
+          0.00024,
+          0.99103
+        ],
+        "normal_std_xyz": [
+          0.09362,
+          0.09274,
+          0.02209
+        ],
+        "depth_mean": 0.35773,
+        "depth_std": 0.16324,
+        "specular_foil_mean": 0.18612,
+        "edge_gradient_rms": 0.28146,
+        "plane_coverage": {
+          "bg": 0.4426,
+          "mid": 0.3581,
+          "actor": 0.1981,
+          "vfx": 0.0012
+        }
+      }
+    },
+    {
+      "card_id": "h_seraph",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_seraph.png",
+      "filename": "h_seraph_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_seraph_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_seraph_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 717006,
+      "fnv1a": "d939d99c",
+      "fnv1a_32": "d939d99c",
+      "fnv1a_64": "418346ebf10e3f9c",
+      "sha256": "b7a19d7e51cc7292af67a73b45ba5c75519b929c251144bcce0d9a68e0552191",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.0002,
+          -0.00078,
+          0.99237
+        ],
+        "normal_std_xyz": [
+          0.08763,
+          0.08404,
+          0.02156
+        ],
+        "depth_mean": 0.36694,
+        "depth_std": 0.12782,
+        "specular_foil_mean": 0.15937,
+        "edge_gradient_rms": 0.23529,
+        "plane_coverage": {
+          "bg": 0.2973,
+          "mid": 0.5816,
+          "actor": 0.1207,
+          "vfx": 0.0004
+        }
+      }
+    },
+    {
+      "card_id": "h_kai",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_kai.png",
+      "filename": "h_kai_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_kai_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_kai_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 535728,
+      "fnv1a": "69d45add",
+      "fnv1a_32": "69d45add",
+      "fnv1a_64": "dd1a4a20d66206bd",
+      "sha256": "c12d693426706be78a0515f516a40d590d41f6233641fd0c08168527f215dd25",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00189,
+          0.00027,
+          0.99251
+        ],
+        "normal_std_xyz": [
+          0.08076,
+          0.08706,
+          0.02874
+        ],
+        "depth_mean": 0.30693,
+        "depth_std": 0.16459,
+        "specular_foil_mean": 0.13413,
+        "edge_gradient_rms": 0.19713,
+        "plane_coverage": {
+          "bg": 0.5556,
+          "mid": 0.3208,
+          "actor": 0.1205,
+          "vfx": 0.0032
+        }
+      }
+    },
+    {
+      "card_id": "h_valkyrie",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_valkyrie.png",
+      "filename": "h_valkyrie_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_valkyrie_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_valkyrie_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 699559,
+      "fnv1a": "9aa6ff9c",
+      "fnv1a_32": "9aa6ff9c",
+      "fnv1a_64": "6d5e18e2645db43c",
+      "sha256": "ce95c682ef56e101fb9dd26c44868d97108ad243f450c3f14c913572756dcaf2",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00025,
+          -0.00016,
+          0.98982
+        ],
+        "normal_std_xyz": [
+          0.10086,
+          0.09624,
+          0.02854
+        ],
+        "depth_mean": 0.36937,
+        "depth_std": 0.1262,
+        "specular_foil_mean": 0.1531,
+        "edge_gradient_rms": 0.2553,
+        "plane_coverage": {
+          "bg": 0.3339,
+          "mid": 0.5444,
+          "actor": 0.121,
+          "vfx": 0.0007
+        }
+      }
+    },
+    {
+      "card_id": "h_arbiter",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_arbiter.png",
+      "filename": "h_arbiter_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_arbiter_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_arbiter_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 648697,
+      "fnv1a": "5adf3222",
+      "fnv1a_32": "5adf3222",
+      "fnv1a_64": "ab7810bc41874e22",
+      "sha256": "60cbd91afb7ecf403f0ec882399e882e6676455b0798808bba7f66059e57269c",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00058,
+          0.00039,
+          0.99544
+        ],
+        "normal_std_xyz": [
+          0.06787,
+          0.06504,
+          0.0159
+        ],
+        "depth_mean": 0.36165,
+        "depth_std": 0.15416,
+        "specular_foil_mean": 0.18107,
+        "edge_gradient_rms": 0.19602,
+        "plane_coverage": {
+          "bg": 0.4254,
+          "mid": 0.3826,
+          "actor": 0.1914,
+          "vfx": 0.0006
+        }
+      }
+    },
+    {
+      "card_id": "e_eclipse",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_eclipse.png",
+      "filename": "e_eclipse_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_eclipse_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_eclipse_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 621114,
+      "fnv1a": "e5f2148e",
+      "fnv1a_32": "e5f2148e",
+      "fnv1a_64": "758af70d6e102b4e",
+      "sha256": "a9a5fd98000389f8040fe5be566ed1d9da71434550654d5f7bdb52f320fef64c",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00039,
+          0.00044,
+          0.99379
+        ],
+        "normal_std_xyz": [
+          0.07758,
+          0.07769,
+          0.01832
+        ],
+        "depth_mean": 0.31357,
+        "depth_std": 0.11904,
+        "specular_foil_mean": 0.12693,
+        "edge_gradient_rms": 0.2451,
+        "plane_coverage": {
+          "bg": 0.528,
+          "mid": 0.4294,
+          "actor": 0.0425,
+          "vfx": 0.0
+        }
+      }
+    },
+    {
+      "card_id": "e_archon",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_archon.png",
+      "filename": "e_archon_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_archon_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_archon_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 697843,
+      "fnv1a": "8c5223a5",
+      "fnv1a_32": "8c5223a5",
+      "fnv1a_64": "8444667652dc67c5",
+      "sha256": "f04c313847214bbe0f537e16a18de07c16ddd0154b0059c4a582d7dec1aaacc6",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00034,
+          -0.00044,
+          0.99182
+        ],
+        "normal_std_xyz": [
+          0.09582,
+          0.08113,
+          0.02284
+        ],
+        "depth_mean": 0.38007,
+        "depth_std": 0.1109,
+        "specular_foil_mean": 0.1688,
+        "edge_gradient_rms": 0.25005,
+        "plane_coverage": {
+          "bg": 0.2652,
+          "mid": 0.6225,
+          "actor": 0.1122,
+          "vfx": 0.0001
+        }
+      }
+    },
+    {
+      "card_id": "e_inferno",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_inferno.png",
+      "filename": "e_inferno_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_inferno_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_inferno_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 718903,
+      "fnv1a": "f544fea3",
+      "fnv1a_32": "f544fea3",
+      "fnv1a_64": "d2fda30a592c9323",
+      "sha256": "7a42c7322ab69fd2312076e4849da5ea7ecc38fb2c3b12a1b153700f803898a8",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00064,
+          -0.00094,
+          0.9923
+        ],
+        "normal_std_xyz": [
+          0.08797,
+          0.08476,
+          0.02027
+        ],
+        "depth_mean": 0.32265,
+        "depth_std": 0.18111,
+        "specular_foil_mean": 0.18486,
+        "edge_gradient_rms": 0.24457,
+        "plane_coverage": {
+          "bg": 0.511,
+          "mid": 0.3301,
+          "actor": 0.1471,
+          "vfx": 0.0118
+        }
+      }
+    },
+    {
+      "card_id": "e_reaper",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_reaper.png",
+      "filename": "e_reaper_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_reaper_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_reaper_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 435385,
+      "fnv1a": "31a0b476",
+      "fnv1a_32": "31a0b476",
+      "fnv1a_64": "c30feb5bfb579116",
+      "sha256": "b6c96b9477de2e3c6effe9c5b042f992a591748b2b58a695f2ec471fb7b576d4",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00067,
+          0.00018,
+          0.99486
+        ],
+        "normal_std_xyz": [
+          0.06879,
+          0.07068,
+          0.02283
+        ],
+        "depth_mean": 0.25771,
+        "depth_std": 0.1303,
+        "specular_foil_mean": 0.08376,
+        "edge_gradient_rms": 0.17444,
+        "plane_coverage": {
+          "bg": 0.7095,
+          "mid": 0.2472,
+          "actor": 0.0433,
+          "vfx": 0.0
+        }
+      }
+    },
+    {
+      "card_id": "e_titan",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_titan.png",
+      "filename": "e_titan_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_titan_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_titan_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 697047,
+      "fnv1a": "a6f1a93f",
+      "fnv1a_32": "a6f1a93f",
+      "fnv1a_64": "11a58981cdd3523f",
+      "sha256": "915f976d5e313474218019f36976231c061de529a806f4a17ea614f6e25b7228",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00038,
+          -7e-05,
+          0.98912
+        ],
+        "normal_std_xyz": [
+          0.10674,
+          0.09722,
+          0.02835
+        ],
+        "depth_mean": 0.33627,
+        "depth_std": 0.1575,
+        "specular_foil_mean": 0.15615,
+        "edge_gradient_rms": 0.28923,
+        "plane_coverage": {
+          "bg": 0.4624,
+          "mid": 0.4032,
+          "actor": 0.1327,
+          "vfx": 0.0017
+        }
+      }
+    },
+    {
+      "card_id": "e_colossus",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_colossus.png",
+      "filename": "e_colossus_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_colossus_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_colossus_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 693015,
+      "fnv1a": "46c27870",
+      "fnv1a_32": "46c27870",
+      "fnv1a_64": "fe602ba043dd1770",
+      "sha256": "f522bd766a3baba3419dc84069118b4845382ebc21fae817d0624567b550ee0e",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00026,
+          0.00029,
+          0.99152
+        ],
+        "normal_std_xyz": [
+          0.09415,
+          0.08625,
+          0.02404
+        ],
+        "depth_mean": 0.32343,
+        "depth_std": 0.15151,
+        "specular_foil_mean": 0.15773,
+        "edge_gradient_rms": 0.25514,
+        "plane_coverage": {
+          "bg": 0.5015,
+          "mid": 0.401,
+          "actor": 0.0967,
+          "vfx": 0.0008
+        }
+      }
+    },
+    {
+      "card_id": "e_cryo",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_cryo.png",
+      "filename": "e_cryo_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_cryo_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_cryo_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 791055,
+      "fnv1a": "cf304a8c",
+      "fnv1a_32": "cf304a8c",
+      "fnv1a_64": "b1dfa2ccc3d8914c",
+      "sha256": "b25e8d58719f1e000616fb691f13666fc79889aad59700300248048e815bc5cd",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00057,
+          -0.00078,
+          0.98476
+        ],
+        "normal_std_xyz": [
+          0.12223,
+          0.11839,
+          0.03582
+        ],
+        "depth_mean": 0.41872,
+        "depth_std": 0.15612,
+        "specular_foil_mean": 0.24957,
+        "edge_gradient_rms": 0.30173,
+        "plane_coverage": {
+          "bg": 0.2884,
+          "mid": 0.4581,
+          "actor": 0.2382,
+          "vfx": 0.0153
+        }
+      }
+    },
+    {
+      "card_id": "e_shinobi",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_shinobi.png",
+      "filename": "e_shinobi_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_shinobi_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_shinobi_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 724289,
+      "fnv1a": "1944000a",
+      "fnv1a_32": "1944000a",
+      "fnv1a_64": "a048ca16b55b288a",
+      "sha256": "34844c96b286a0d2fa2963c9cc29ae32e6b75b39f9698c209b8bed2011a9d68b",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00013,
+          0.00046,
+          0.9899
+        ],
+        "normal_std_xyz": [
+          0.10225,
+          0.09458,
+          0.02654
+        ],
+        "depth_mean": 0.36154,
+        "depth_std": 0.14002,
+        "specular_foil_mean": 0.18611,
+        "edge_gradient_rms": 0.26349,
+        "plane_coverage": {
+          "bg": 0.4142,
+          "mid": 0.4617,
+          "actor": 0.12,
+          "vfx": 0.0041
+        }
+      }
+    }
+  ],
+  "by_card_id": {
+    "h_archangel": {
+      "card_id": "h_archangel",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_archangel.png",
+      "filename": "h_archangel_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_archangel_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_archangel_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 742675,
+      "fnv1a": "5a0b23f8",
+      "fnv1a_32": "5a0b23f8",
+      "fnv1a_64": "2ad3552553762ed8",
+      "sha256": "ced5cbebb1319cb77407703a8a9544af0128c0b72bf132abe205fadfc53f36df",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00032,
+          0.00038,
+          0.98853
+        ],
+        "normal_std_xyz": [
+          0.10515,
+          0.10513,
+          0.02646
+        ],
+        "depth_mean": 0.39653,
+        "depth_std": 0.15802,
+        "specular_foil_mean": 0.17123,
+        "edge_gradient_rms": 0.31074,
+        "plane_coverage": {
+          "bg": 0.3065,
+          "mid": 0.461,
+          "actor": 0.2303,
+          "vfx": 0.0023
+        }
+      }
+    },
+    "h_phoenix": {
+      "card_id": "h_phoenix",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_phoenix.png",
+      "filename": "h_phoenix_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_phoenix_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_phoenix_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 652547,
+      "fnv1a": "ebe3fe38",
+      "fnv1a_32": "ebe3fe38",
+      "fnv1a_64": "4d709cd29560eb58",
+      "sha256": "00a5f53c5e199f9a658f0cc1109d3301774284d98aa0ab051bfae96aa0304cc8",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00167,
+          -0.00125,
+          0.99142
+        ],
+        "normal_std_xyz": [
+          0.09327,
+          0.08781,
+          0.02592
+        ],
+        "depth_mean": 0.37609,
+        "depth_std": 0.14268,
+        "specular_foil_mean": 0.21073,
+        "edge_gradient_rms": 0.22736,
+        "plane_coverage": {
+          "bg": 0.322,
+          "mid": 0.5318,
+          "actor": 0.1442,
+          "vfx": 0.0021
+        }
+      }
+    },
+    "h_oracle": {
+      "card_id": "h_oracle",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_oracle.png",
+      "filename": "h_oracle_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_oracle_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_oracle_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 652316,
+      "fnv1a": "fe3fd516",
+      "fnv1a_32": "fe3fd516",
+      "fnv1a_64": "9a6a85082461ccf6",
+      "sha256": "7a45c638507ac4848a56a0288ba17a77564c13d42c05ddb809ec9124b2e85e53",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00022,
+          -0.00019,
+          0.99318
+        ],
+        "normal_std_xyz": [
+          0.08838,
+          0.07402,
+          0.01722
+        ],
+        "depth_mean": 0.38246,
+        "depth_std": 0.1488,
+        "specular_foil_mean": 0.13645,
+        "edge_gradient_rms": 0.26552,
+        "plane_coverage": {
+          "bg": 0.3658,
+          "mid": 0.4357,
+          "actor": 0.1966,
+          "vfx": 0.0019
+        }
+      }
+    },
+    "h_chronos": {
+      "card_id": "h_chronos",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_chronos.png",
+      "filename": "h_chronos_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_chronos_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_chronos_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 791130,
+      "fnv1a": "588b07d4",
+      "fnv1a_32": "588b07d4",
+      "fnv1a_64": "acabbe5acee91894",
+      "sha256": "aa30cf4cb715d57e1ec4a3e6301170b35823a07498c405c2e9587a99e24ba6bf",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00043,
+          0.00024,
+          0.99103
+        ],
+        "normal_std_xyz": [
+          0.09362,
+          0.09274,
+          0.02209
+        ],
+        "depth_mean": 0.35773,
+        "depth_std": 0.16324,
+        "specular_foil_mean": 0.18612,
+        "edge_gradient_rms": 0.28146,
+        "plane_coverage": {
+          "bg": 0.4426,
+          "mid": 0.3581,
+          "actor": 0.1981,
+          "vfx": 0.0012
+        }
+      }
+    },
+    "h_seraph": {
+      "card_id": "h_seraph",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_seraph.png",
+      "filename": "h_seraph_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_seraph_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_seraph_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 717006,
+      "fnv1a": "d939d99c",
+      "fnv1a_32": "d939d99c",
+      "fnv1a_64": "418346ebf10e3f9c",
+      "sha256": "b7a19d7e51cc7292af67a73b45ba5c75519b929c251144bcce0d9a68e0552191",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.0002,
+          -0.00078,
+          0.99237
+        ],
+        "normal_std_xyz": [
+          0.08763,
+          0.08404,
+          0.02156
+        ],
+        "depth_mean": 0.36694,
+        "depth_std": 0.12782,
+        "specular_foil_mean": 0.15937,
+        "edge_gradient_rms": 0.23529,
+        "plane_coverage": {
+          "bg": 0.2973,
+          "mid": 0.5816,
+          "actor": 0.1207,
+          "vfx": 0.0004
+        }
+      }
+    },
+    "h_kai": {
+      "card_id": "h_kai",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_kai.png",
+      "filename": "h_kai_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_kai_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_kai_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 535728,
+      "fnv1a": "69d45add",
+      "fnv1a_32": "69d45add",
+      "fnv1a_64": "dd1a4a20d66206bd",
+      "sha256": "c12d693426706be78a0515f516a40d590d41f6233641fd0c08168527f215dd25",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00189,
+          0.00027,
+          0.99251
+        ],
+        "normal_std_xyz": [
+          0.08076,
+          0.08706,
+          0.02874
+        ],
+        "depth_mean": 0.30693,
+        "depth_std": 0.16459,
+        "specular_foil_mean": 0.13413,
+        "edge_gradient_rms": 0.19713,
+        "plane_coverage": {
+          "bg": 0.5556,
+          "mid": 0.3208,
+          "actor": 0.1205,
+          "vfx": 0.0032
+        }
+      }
+    },
+    "h_valkyrie": {
+      "card_id": "h_valkyrie",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_valkyrie.png",
+      "filename": "h_valkyrie_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_valkyrie_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_valkyrie_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 699559,
+      "fnv1a": "9aa6ff9c",
+      "fnv1a_32": "9aa6ff9c",
+      "fnv1a_64": "6d5e18e2645db43c",
+      "sha256": "ce95c682ef56e101fb9dd26c44868d97108ad243f450c3f14c913572756dcaf2",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00025,
+          -0.00016,
+          0.98982
+        ],
+        "normal_std_xyz": [
+          0.10086,
+          0.09624,
+          0.02854
+        ],
+        "depth_mean": 0.36937,
+        "depth_std": 0.1262,
+        "specular_foil_mean": 0.1531,
+        "edge_gradient_rms": 0.2553,
+        "plane_coverage": {
+          "bg": 0.3339,
+          "mid": 0.5444,
+          "actor": 0.121,
+          "vfx": 0.0007
+        }
+      }
+    },
+    "h_arbiter": {
+      "card_id": "h_arbiter",
+      "role": "hero",
+      "source_portrait": "GeneratedArt/MasteredCards/h_arbiter.png",
+      "filename": "h_arbiter_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/h_arbiter_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/h_arbiter_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 648697,
+      "fnv1a": "5adf3222",
+      "fnv1a_32": "5adf3222",
+      "fnv1a_64": "ab7810bc41874e22",
+      "sha256": "60cbd91afb7ecf403f0ec882399e882e6676455b0798808bba7f66059e57269c",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00058,
+          0.00039,
+          0.99544
+        ],
+        "normal_std_xyz": [
+          0.06787,
+          0.06504,
+          0.0159
+        ],
+        "depth_mean": 0.36165,
+        "depth_std": 0.15416,
+        "specular_foil_mean": 0.18107,
+        "edge_gradient_rms": 0.19602,
+        "plane_coverage": {
+          "bg": 0.4254,
+          "mid": 0.3826,
+          "actor": 0.1914,
+          "vfx": 0.0006
+        }
+      }
+    },
+    "e_eclipse": {
+      "card_id": "e_eclipse",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_eclipse.png",
+      "filename": "e_eclipse_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_eclipse_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_eclipse_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 621114,
+      "fnv1a": "e5f2148e",
+      "fnv1a_32": "e5f2148e",
+      "fnv1a_64": "758af70d6e102b4e",
+      "sha256": "a9a5fd98000389f8040fe5be566ed1d9da71434550654d5f7bdb52f320fef64c",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00039,
+          0.00044,
+          0.99379
+        ],
+        "normal_std_xyz": [
+          0.07758,
+          0.07769,
+          0.01832
+        ],
+        "depth_mean": 0.31357,
+        "depth_std": 0.11904,
+        "specular_foil_mean": 0.12693,
+        "edge_gradient_rms": 0.2451,
+        "plane_coverage": {
+          "bg": 0.528,
+          "mid": 0.4294,
+          "actor": 0.0425,
+          "vfx": 0.0
+        }
+      }
+    },
+    "e_archon": {
+      "card_id": "e_archon",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_archon.png",
+      "filename": "e_archon_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_archon_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_archon_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 697843,
+      "fnv1a": "8c5223a5",
+      "fnv1a_32": "8c5223a5",
+      "fnv1a_64": "8444667652dc67c5",
+      "sha256": "f04c313847214bbe0f537e16a18de07c16ddd0154b0059c4a582d7dec1aaacc6",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00034,
+          -0.00044,
+          0.99182
+        ],
+        "normal_std_xyz": [
+          0.09582,
+          0.08113,
+          0.02284
+        ],
+        "depth_mean": 0.38007,
+        "depth_std": 0.1109,
+        "specular_foil_mean": 0.1688,
+        "edge_gradient_rms": 0.25005,
+        "plane_coverage": {
+          "bg": 0.2652,
+          "mid": 0.6225,
+          "actor": 0.1122,
+          "vfx": 0.0001
+        }
+      }
+    },
+    "e_inferno": {
+      "card_id": "e_inferno",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_inferno.png",
+      "filename": "e_inferno_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_inferno_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_inferno_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 718903,
+      "fnv1a": "f544fea3",
+      "fnv1a_32": "f544fea3",
+      "fnv1a_64": "d2fda30a592c9323",
+      "sha256": "7a42c7322ab69fd2312076e4849da5ea7ecc38fb2c3b12a1b153700f803898a8",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00064,
+          -0.00094,
+          0.9923
+        ],
+        "normal_std_xyz": [
+          0.08797,
+          0.08476,
+          0.02027
+        ],
+        "depth_mean": 0.32265,
+        "depth_std": 0.18111,
+        "specular_foil_mean": 0.18486,
+        "edge_gradient_rms": 0.24457,
+        "plane_coverage": {
+          "bg": 0.511,
+          "mid": 0.3301,
+          "actor": 0.1471,
+          "vfx": 0.0118
+        }
+      }
+    },
+    "e_reaper": {
+      "card_id": "e_reaper",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_reaper.png",
+      "filename": "e_reaper_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_reaper_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_reaper_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 435385,
+      "fnv1a": "31a0b476",
+      "fnv1a_32": "31a0b476",
+      "fnv1a_64": "c30feb5bfb579116",
+      "sha256": "b6c96b9477de2e3c6effe9c5b042f992a591748b2b58a695f2ec471fb7b576d4",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          -0.00067,
+          0.00018,
+          0.99486
+        ],
+        "normal_std_xyz": [
+          0.06879,
+          0.07068,
+          0.02283
+        ],
+        "depth_mean": 0.25771,
+        "depth_std": 0.1303,
+        "specular_foil_mean": 0.08376,
+        "edge_gradient_rms": 0.17444,
+        "plane_coverage": {
+          "bg": 0.7095,
+          "mid": 0.2472,
+          "actor": 0.0433,
+          "vfx": 0.0
+        }
+      }
+    },
+    "e_titan": {
+      "card_id": "e_titan",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_titan.png",
+      "filename": "e_titan_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_titan_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_titan_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 697047,
+      "fnv1a": "a6f1a93f",
+      "fnv1a_32": "a6f1a93f",
+      "fnv1a_64": "11a58981cdd3523f",
+      "sha256": "915f976d5e313474218019f36976231c061de529a806f4a17ea614f6e25b7228",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00038,
+          -7e-05,
+          0.98912
+        ],
+        "normal_std_xyz": [
+          0.10674,
+          0.09722,
+          0.02835
+        ],
+        "depth_mean": 0.33627,
+        "depth_std": 0.1575,
+        "specular_foil_mean": 0.15615,
+        "edge_gradient_rms": 0.28923,
+        "plane_coverage": {
+          "bg": 0.4624,
+          "mid": 0.4032,
+          "actor": 0.1327,
+          "vfx": 0.0017
+        }
+      }
+    },
+    "e_colossus": {
+      "card_id": "e_colossus",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_colossus.png",
+      "filename": "e_colossus_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_colossus_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_colossus_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 693015,
+      "fnv1a": "46c27870",
+      "fnv1a_32": "46c27870",
+      "fnv1a_64": "fe602ba043dd1770",
+      "sha256": "f522bd766a3baba3419dc84069118b4845382ebc21fae817d0624567b550ee0e",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00026,
+          0.00029,
+          0.99152
+        ],
+        "normal_std_xyz": [
+          0.09415,
+          0.08625,
+          0.02404
+        ],
+        "depth_mean": 0.32343,
+        "depth_std": 0.15151,
+        "specular_foil_mean": 0.15773,
+        "edge_gradient_rms": 0.25514,
+        "plane_coverage": {
+          "bg": 0.5015,
+          "mid": 0.401,
+          "actor": 0.0967,
+          "vfx": 0.0008
+        }
+      }
+    },
+    "e_cryo": {
+      "card_id": "e_cryo",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_cryo.png",
+      "filename": "e_cryo_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_cryo_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_cryo_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 791055,
+      "fnv1a": "cf304a8c",
+      "fnv1a_32": "cf304a8c",
+      "fnv1a_64": "b1dfa2ccc3d8914c",
+      "sha256": "b25e8d58719f1e000616fb691f13666fc79889aad59700300248048e815bc5cd",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00057,
+          -0.00078,
+          0.98476
+        ],
+        "normal_std_xyz": [
+          0.12223,
+          0.11839,
+          0.03582
+        ],
+        "depth_mean": 0.41872,
+        "depth_std": 0.15612,
+        "specular_foil_mean": 0.24957,
+        "edge_gradient_rms": 0.30173,
+        "plane_coverage": {
+          "bg": 0.2884,
+          "mid": 0.4581,
+          "actor": 0.2382,
+          "vfx": 0.0153
+        }
+      }
+    },
+    "e_shinobi": {
+      "card_id": "e_shinobi",
+      "role": "boss",
+      "source_portrait": "GeneratedArt/MasteredCards/e_shinobi.png",
+      "filename": "e_shinobi_parallax_foil.png",
+      "path": "GeneratedArt/ParallaxMaps/e_shinobi_parallax_foil.png",
+      "web_path": "WebPlayable/GeneratedArt/ParallaxMaps/e_shinobi_parallax_foil.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "bytes": 724289,
+      "fnv1a": "1944000a",
+      "fnv1a_32": "1944000a",
+      "fnv1a_64": "a048ca16b55b288a",
+      "sha256": "34844c96b286a0d2fa2963c9cc29ae32e6b75b39f9698c209b8bed2011a9d68b",
+      "depth_plane_weights": {
+        "bg": -0.35,
+        "mid": -0.12,
+        "actor": 0.18,
+        "vfx": 0.45
+      },
+      "normal_map": {
+        "normal_space": "tangent_rh",
+        "normal_scale": 6.5,
+        "normal_mean_xyz": [
+          0.00013,
+          0.00046,
+          0.9899
+        ],
+        "normal_std_xyz": [
+          0.10225,
+          0.09458,
+          0.02654
+        ],
+        "depth_mean": 0.36154,
+        "depth_std": 0.14002,
+        "specular_foil_mean": 0.18611,
+        "edge_gradient_rms": 0.26349,
+        "plane_coverage": {
+          "bg": 0.4142,
+          "mid": 0.4617,
+          "actor": 0.12,
+          "vfx": 0.0041
+        }
+      }
+    }
+  }
+}

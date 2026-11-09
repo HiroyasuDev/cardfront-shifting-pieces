@@ -12,9 +12,22 @@ import hmac
 import http.server
 import json
 import os
+import socket
 import threading
 import time
 from urllib.parse import parse_qs, urlparse
+
+def detect_lan_ip() -> str:
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        ip = s.getsockname()[0]
+        s.close()
+        if ip and not ip.startswith("127."):
+            return ip
+    except Exception:
+        pass
+    return "192.168.86.125"
 
 ROOT_DIR = "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine"
 REPORT_PATH = os.path.join(ROOT_DIR, "Datasets", "osascript_3d_game_e2e_report.json")
@@ -141,9 +154,27 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         parsed = urlparse(self.path)
         if parsed.path in ("/", "/play", "/index.html"):
+            target = f"{PLAYABLE_REL_URL}?{parsed.query}" if parsed.query else PLAYABLE_REL_URL
             self.send_response(302)
-            self.send_header("Location", PLAYABLE_REL_URL)
+            self.send_header("Location", target)
             self.end_headers()
+            return
+
+        if parsed.path == "/api/lan/info":
+            lan_ip = detect_lan_ip()
+            mdns_host = socket.gethostname()
+            if not mdns_host.endswith(".local"):
+                mdns_host = f"{mdns_host}.local"
+            self._send_json({
+                "ok": True,
+                "lan_ip": lan_ip,
+                "mdns_host": mdns_host,
+                "port": 8096,
+                "seat1_host_url": f"http://{lan_ip}:8096{PLAYABLE_REL_URL}?lan=1&seat=host&room=CITADEL-1",
+                "seat2_macbook2_url": f"http://{lan_ip}:8096{PLAYABLE_REL_URL}?lan=1&seat=challenger&room=CITADEL-1",
+                "seat2_mdns_url": f"http://{mdns_host}:8096{PLAYABLE_REL_URL}?lan=1&seat=challenger&room=CITADEL-1",
+                "warning_loopback": "Never open 127.0.0.1 on MacBook #2 — always use 192.168.86.125:8096 or Fredericks-MacBook-Neo.local:8096.",
+            })
             return
 
         if parsed.path == "/api/lan/status":
