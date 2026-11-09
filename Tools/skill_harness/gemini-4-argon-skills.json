@@ -16,11 +16,11 @@
     "gemini_4_argon_adaptation": "Re-architects the 77 upstream gamedev-skills + 14 custom SYNAPSE skills + Master Router (92 SKILL.md files total) for Gemini 4 Argon's native tool-use, progressive disclosure via `read_file`, parallel `invoke_subagent` swarms (`Model: inherit`), Apple Silicon `jevmlx` / `mlx-apple-silicon-mcp` local gates, and grounded Playwright + Unity verification."
   },
   "counts": {
-    "total_skill_md_files": 92,
+    "total_skill_md_files": 93,
     "master_router_count": 1,
     "upstream_gamedev_skills_count": 77,
-    "custom_synapse_skills_count": 14,
-    "total_routable_skills": 91
+    "custom_synapse_skills_count": 15,
+    "total_routable_skills": 92
   },
   "composition_protocol": {
     "order": [
@@ -45,7 +45,8 @@
   },
   "categories": {
     "art-direction": [
-      "tactical-illustrator-library"
+      "tactical-illustrator-library",
+      "tcg-creative-game-designer"
     ],
     "decompilation": [
       "advance-wars-ffta-gba-decomp",
@@ -203,6 +204,32 @@
       "relative_path": "skills/art-direction/tactical-illustrator-library/SKILL.md",
       "line_count": 22,
       "description": "Master Tactical RPG & Strategy Illustrator Library encoding the art styles, shader grading parameters, and ComfyUI RTX 4080 prompt conditioning for Ry\u014dma It\u014d (FFTA), Akihiko Yoshida (FFT / FFTA Judges), Hideo Minaba (FFTA Art Director), and Ryo Hirata (Advance Wars 1/2/Dual Strike/Days of Ruin & Fire Emblem Thracia 776/Binding Blade/Sacred Stones).",
+      "references": [],
+      "scripts": [],
+      "gemini_4_argon_binding": {
+        "model": "gemini-4-argon",
+        "invoke_subagent_model": "inherit",
+        "primary_subagent": "prime-vision-worker",
+        "verification_subagents": [
+          "mlx-local-worker",
+          "code-implementer"
+        ],
+        "mcp_tools": [
+          "mlx_jev_rate",
+          "jev_verify"
+        ],
+        "progressive_disclosure_tool": "read_file"
+      }
+    },
+    {
+      "skill_id": "art-direction/tcg-creative-game-designer",
+      "name": "tcg-creative-game-designer",
+      "category": "art-direction",
+      "slot": "discipline",
+      "path": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/art-direction/tcg-creative-game-designer/SKILL.md",
+      "relative_path": "skills/art-direction/tcg-creative-game-designer/SKILL.md",
+      "line_count": 36,
+      "description": ">- Design cohesive TCG cards, character/mecha turnaround concepts, 3x3 directional grid mechanics, code-native SVG telegraphs/emblems, and full-bleed 600x800 illustrations for CARDFRONT: Cradle of Echoes and the Agent's Plugins, Skills, Tool Calling, and MCP Servers. Use when designing card concepts, generating or auditing TCG art assets, crafting SVG badges/logos, or balancing tactical card mechanics.",
       "references": [],
       "scripts": [],
       "gemini_4_argon_binding": {

@@ -779,5 +779,83 @@
     "priority": "P1",
     "code_ref": "Backend/pxg_v100_anime_telegraph_trainer.py:1-190",
     "remediation": "Run python3 Backend/pxg_v100_anime_telegraph_trainer.py to generate Datasets/pxg_v100_sakuga_telegraph/v100_sakuga_manifest.json."
+  },
+  {
+    "id": "core.sakuga_v100.01",
+    "skill": "disciplines/create-game-assets",
+    "rule": "Studio Trigger / Omega Strikers 8-Frame Sakuga Cut-In Sprite Strips & Pose-B Impact Keyframes: All 20 featured units (16 Core Heroes/Mechs + 4 Sovereign Agent Plugins) have synthesized 600x800 Pose-B Impact Keyframes and 1920x160 8-Frame Sakuga Cut-In Sprite Strips.",
+    "source": "skills/disciplines/create-game-assets/SKILL.md:94",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "file": "Datasets/pxg_v100_sakuga_telegraph/v100_sakuga_manifest.json",
+      "json_path": "dataset_summary.synthesized_8frame_sakuga_strips_count"
+    },
+    "expect": "==20",
+    "priority": "P1",
+    "code_ref": "Backend/pxg_v100_anime_telegraph_trainer.py:302-432",
+    "remediation": "Run ~/.local/share/mlx-env/bin/python3 Backend/pxg_v100_anime_telegraph_trainer.py to synthesize all 20 Pose-B keyframes and 8-frame Sakuga sprite strips."
+  },
+  {
+    "id": "core.sakuga_v100.02",
+    "skill": "disciplines/create-game-assets",
+    "rule": "PXG V100 FP16 Spatio-Temporal Sakuga LoRA Training Convergence: Backend/train_v100_sakuga_lora.py trains on all 20 paired library triplets, reduces MSE loss by >= 40%, and exports Models/pxg_sakuga_trigger_cutin_v1.safetensors.",
+    "source": "skills/disciplines/create-game-assets/SKILL.md:98",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "file": "Datasets/pxg_v100_sakuga_telegraph/v100_training_metrics.json",
+      "json_path": "loss_reduction_pct"
+    },
+    "expect": ">=40",
+    "priority": "P1",
+    "code_ref": "Backend/train_v100_sakuga_lora.py:130-240",
+    "remediation": "Run python3 Backend/train_v100_sakuga_lora.py to train and export Models/pxg_sakuga_trigger_cutin_v1.safetensors."
+  },
+  {
+    "id": "core.sakuga_v100.03",
+    "skill": "disciplines/game-feel",
+    "rule": "Live 24fps Sakuga Cut-In Sprite-Strip Canvas Player: #cutin-sakuga-canvas (240x160) and #cutin-impact-flash render 24fps Sakuga animation strips when playSakugaStripOnCanvas() or triggerSakugaCardCutIn() is called.",
+    "source": "skills/disciplines/game-feel/SKILL.md:82",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const canvas = document.getElementById('cutin-sakuga-canvas'); const flash = document.getElementById('cutin-impact-flash'); const ok = !!canvas && canvas.width === 240 && canvas.height === 160 && !!flash && typeof playSakugaStripOnCanvas === 'function' && triggerSakugaCardCutIn('h_archangel') === true && state.sakugaFramesRendered >= 1 && state.lastSakugaStripCardId === 'h_archangel'; const b = document.getElementById('boss-cutin-banner'); if (b) b.classList.remove('active'); return ok; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1880-1892,4165-4255",
+    "remediation": "Include #cutin-sakuga-canvas and #cutin-impact-flash in #boss-cutin-banner and implement playSakugaStripOnCanvas(cardId)."
+  },
+  {
+    "id": "core.sakuga_v100.04",
+    "skill": "disciplines/ui-ux-design",
+    "rule": "AAA Multi-Layer Studio Trigger Board Telegraph Vectors: buildBoardTelegraphOverlaySVG renders outer aura (.telegraph-vector-aura), primary beam (.telegraph-vector-line), white-hot core (.telegraph-vector-core), and target-lock reticle (.telegraph-target-reticle).",
+    "source": "skills/disciplines/ui-ux-design/SKILL.md:72",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const svg = buildBoardTelegraphOverlaySVG(1, 1, [{ nr: 0, nc: 1, myVal: 8, theirVal: 6, willFlip: true }], { telegraphColor: '#FFD54F' }); return svg.includes('telegraph-vector-aura') && svg.includes('telegraph-vector-line') && svg.includes('telegraph-vector-core') && svg.includes('telegraph-target-reticle'); })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4409-4435",
+    "remediation": "Ensure buildBoardTelegraphOverlaySVG outputs .telegraph-vector-aura, .telegraph-vector-line, .telegraph-vector-core, and .telegraph-target-reticle."
+  },
+  {
+    "id": "core.sakuga_v100.05",
+    "skill": "unity/unity-csharp-scripting",
+    "rule": "Unity 2022.3.40f1 PxgV100SakugaTelegraphBridge Sync: CardFrontUnifiedRuntime.cs defines PxgV100SakugaTelegraphBridge with EvaluateSakugaStripFrameUv and IsSakugaImpactFrame.",
+    "source": "skills/unity/unity-csharp-scripting/SKILL.md:44",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "regex": "class\\s+PxgV100SakugaTelegraphBridge[\\s\\S]{0,1200}EvaluateSakugaStripFrameUv[\\s\\S]{0,800}IsSakugaImpactFrame"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:1010-1038",
+    "remediation": "Define PxgV100SakugaTelegraphBridge in Assets/Scripts/Core/CardFrontUnifiedRuntime.cs."
   }
 ]

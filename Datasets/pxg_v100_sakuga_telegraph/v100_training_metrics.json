@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "engine": "PXG-Sakuga-Telegraph-Engine",
+  "compute_backend": {
+    "framework": "numpy_mlx_fp16_bridge",
+    "device": "metal_gpu_0",
+    "gpu_name": "Apple Silicon Metal + V100 Voltaspec Emulator (FP16)",
+    "compute_capability": "7.0 (target) / metal_3 (host)",
+    "vram_mb": 16384,
+    "dtype": "float16",
+    "sdpa_backend": "mem_efficient_sdp"
+  },
+  "v100_volta_sm70_config": {
+    "dtype": "float16",
+    "bfloat16": false,
+    "flash_attn_2": false,
+    "sdpa_mem_efficient": true,
+    "gradient_checkpointing": true,
+    "lora_rank": 32,
+    "lora_alpha": 64
+  },
+  "dataset_pairs_trained": 20,
+  "epochs": 12,
+  "initial_mse_loss": 0.314469,
+  "final_mse_loss": 0.160735,
+  "loss_reduction_pct": 48.89,
+  "training_time_ms": 1.91,
+  "exported_weights_safetensors": "Models/pxg_sakuga_trigger_cutin_v1.safetensors",
+  "exported_weights_pt": "Models/pxg_sakuga_trigger_cutin_v1.pt",
+  "weights_size_bytes": 99696,
+  "epoch_history": [
+    {
+      "epoch": 1,
+      "mse_loss": 0.314469,
+      "lr": 0.85,
+      "grad_norm_fp16": 0.401345
+    },
+    {
+      "epoch": 2,
+      "mse_loss": 0.280923,
+      "lr": 0.83552,
+      "grad_norm_fp16": 0.364618
+    },
+    {
+      "epoch": 3,
+      "mse_loss": 0.252652,
+      "lr": 0.79306,
+      "grad_norm_fp16": 0.331151
+    },
+    {
+      "epoch": 4,
+      "mse_loss": 0.228083,
+      "lr": 0.72552,
+      "grad_norm_fp16": 0.299184
+    },
+    {
+      "epoch": 5,
+      "mse_loss": 0.207698,
+      "lr": 0.6375,
+      "grad_norm_fp16": 0.270546
+    },
+    {
+      "epoch": 6,
+      "mse_loss": 0.191937,
+      "lr": 0.535,
+      "grad_norm_fp16": 0.247494
+    },
+    {
+      "epoch": 7,
+      "mse_loss": 0.18044,
+      "lr": 0.425,
+      "grad_norm_fp16": 0.23065
+    },
+    {
+      "epoch": 8,
+      "mse_loss": 0.172379,
+      "lr": 0.315,
+      "grad_norm_fp16": 0.219108
+    },
+    {
+      "epoch": 9,
+      "mse_loss": 0.166952,
+      "lr": 0.2125,
+      "grad_norm_fp16": 0.21156
+    },
+    {
+      "epoch": 10,
+      "mse_loss": 0.163525,
+      "lr": 0.12448,
+      "grad_norm_fp16": 0.206912
+    },
+    {
+      "epoch": 11,
+      "mse_loss": 0.161598,
+      "lr": 0.05694,
+      "grad_norm_fp16": 0.20434
+    },
+    {
+      "epoch": 12,
+      "mse_loss": 0.160735,
+      "lr": 0.01448,
+      "grad_norm_fp16": 0.2032
+    }
+  ]
+}

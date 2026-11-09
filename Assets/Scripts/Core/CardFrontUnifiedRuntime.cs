@@ -1006,4 +1006,34 @@ namespace Synapse.TcgEngine.Core
             }
         }
     }
+
+    /// <summary>
+    /// PXG Engine NVIDIA Tesla V100 (Volta sm_70, FP16) &amp; 24fps 8-Frame Sakuga Cut-In Strip Bridge.
+    /// Synchronizes 24fps Studio Trigger / Omega Strikers Sakuga sprite-strip playback and
+    /// Frame-2 Impact Frame detection between WebPlayable and Unity 2022.3.40f1.
+    /// </summary>
+    public static class PxgV100SakugaTelegraphBridge
+    {
+        public const int DefaultStripFrames = 8;
+        public const int DefaultStripFps = 24;
+        public const int ImpactFrameIndex = 2;
+        public const string TargetGpuModel = "NVIDIA Tesla V100 (Volta sm_70)";
+        public const string NativeDtype = "float16";
+
+        public static Vector4 EvaluateSakugaStripFrameUv(int frameIndex, int totalFrames = DefaultStripFrames)
+        {
+            int safeTotal = Mathf.Max(1, totalFrames);
+            int clampedFrame = ((frameIndex % safeTotal) + safeTotal) % safeTotal;
+            float scaleX = 1.0f / safeTotal;
+            float offsetX = clampedFrame * scaleX;
+            return new Vector4(scaleX, 1.0f, offsetX, 0.0f);
+        }
+
+        public static bool IsSakugaImpactFrame(int frameIndex, int totalFrames = DefaultStripFrames)
+        {
+            int safeTotal = Mathf.Max(1, totalFrames);
+            int clampedFrame = ((frameIndex % safeTotal) + safeTotal) % safeTotal;
+            return clampedFrame == ImpactFrameIndex;
+        }
+    }
 }

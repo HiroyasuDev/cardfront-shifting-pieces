@@ -142,6 +142,30 @@ const VIEWPORTS = [
       const interactiveJuiceOk = slideArrowsCount >= 3 && surgeCount === 3 && isColBoosted(1);
       startStage(0);
 
+      // Check 9: Standalone 60-Card Grimoire Deck Sanctum is physically & visually separated from 3x3 Gameboard
+      const slabEl = document.getElementById("board-3d-slab");
+      const deckEl = document.getElementById("tabletop-deck-stack");
+      const sanctumEl = document.getElementById("standalone-deck-sanctum");
+      const viewportBeforeContent = getComputedStyle(document.getElementById("arena-viewport"), "::before").content;
+      const gapSlabToDeckPx = deck && slab ? deck.left - slab.right : -999;
+      const deckSeparatedFromBoard = Boolean(
+        deckEl &&
+        sanctumEl &&
+        slabEl &&
+        !slabEl.contains(deckEl) &&
+        sanctumEl.contains(deckEl) &&
+        (viewportBeforeContent === "none" || viewportBeforeContent === '""') &&
+        gapSlabToDeckPx >= 12
+      );
+
+      // Check 10: Custom CARDFRONT Atelier SVG Icon Library & Astrolabe Cardback (Zero Generic Emojis)
+      const svgIconCount = document.querySelectorAll("svg.cf-lib-icon").length;
+      const cardbackImg = document.querySelector("#tabletop-deck-stack img.deck-cardback-svg");
+      const cardbackLoaded = Boolean(cardbackImg && cardbackImg.getAttribute("src").includes("cf_cardback_astrolabe.svg"));
+      const emojiRegex = /[\u{1F300}-\u{1FAFF}\u26A0\u26A1\u2692\u2699\u2705]/u;
+      const zeroGenericEmojis = !emojiRegex.test(document.body.innerText);
+      const customAtelierSvgIconsOk = svgIconCount >= 8 && cardbackLoaded && zeroGenericEmojis;
+
       const checks = {
         noOverflow,
         boardWidthOk,
@@ -151,6 +175,8 @@ const VIEWPORTS = [
         nameplatesClear,
         diceAligned,
         interactiveJuiceOk,
+        deckSeparatedFromBoard,
+        customAtelierSvgIconsOk,
       };
 
       return {
@@ -162,7 +188,9 @@ const VIEWPORTS = [
           socketHeightPx: row3.h,
           gapBossToSlabPx: slab.top - boss.bottom,
           gapRow3ToHandPx,
+          gapSlabToDeckPx,
           drawerClearancePx,
+          svgIconCount,
           deckVisible: Boolean(deck && deck.w > 0),
         },
         checks,
