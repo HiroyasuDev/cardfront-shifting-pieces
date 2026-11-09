@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cf_10_lunar_oracle
   m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
   id: cf_10_lunar_oracle
-  title: "Lunar Oracle"
-  codeName: "Celestial Insight"
+  title: Lunar Oracle
+  codeName: Celestial Insight
   baseStats:
     up: 7
     down: 6
@@ -22,9 +22,9 @@ MonoBehaviour:
     right: 9
   themes: 548
   specialAbility: 10
-  specialAbilityDescription: "Gains +1 to all sides during nighttime or while adjacent to a Lunar card."
+  specialAbilityDescription: Lunar Oracle gains +1 to all sides during nighttime or while adjacent to a Lunar card.
   synergyRequiredTheme: 544
   synergyAllSidesBonus: 3
-  synergyName: "Celestial Guidance"
-  evolvesToCardId: ""
+  synergyName: Celestial Guidance
+  evolvesToCardId: 
   cardArt: {fileID: 21300000, guid: 9cb9e9722a26d830141edcb0cb2112c7, type: 3}

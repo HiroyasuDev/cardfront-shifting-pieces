@@ -1,7 +1,7 @@
 {
   "id": "R09_stale_result_modal_after_reset",
   "title": "Old result modal pops over a new game after Reset",
-  "reproduced": true,
+  "reproduced": false,
   "checks": [
     {
       "name": "Reset started a fresh game (1 card, gameOver=false, hand 5)",
@@ -13,15 +13,15 @@
     },
     {
       "name": "old result modal is now displayed over the fresh board",
-      "ok": true,
+      "ok": false,
       "detail": {
-        "modalShown": true,
-        "title": "💥 DEFEAT (4 – 5)",
+        "modalShown": false,
+        "title": "VICTORY!",
         "gameOver": false
       }
     }
   ],
   "notes": {},
   "pageErrors": [],
-  "ranAt": "2026-11-08T12:12:21.290Z"
+  "ranAt": "2026-11-09T00:24:53.244Z"
 }

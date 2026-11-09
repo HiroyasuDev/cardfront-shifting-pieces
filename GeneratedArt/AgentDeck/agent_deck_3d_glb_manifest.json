@@ -1,0 +1,431 @@
+{
+  "schema_version": "2026.11.agent-deck-3d-glb.v1",
+  "status": "VERIFIED_WATERTIGHT_EULER_2",
+  "total_relics": 6,
+  "watertight_euler_2": true,
+  "has_skeletal_rig": true,
+  "has_pbr_normal_roughness_maps": true,
+  "animations_count": 2,
+  "topology": {
+    "vertices": 4034,
+    "edges": 12096,
+    "faces": 8064,
+    "euler_characteristic_v_minus_e_plus_f": 2,
+    "boundary_edges": 0,
+    "skeletal_joints": [
+      "Bone_0_Root",
+      "Bone_1_SpineCore",
+      "Bone_2_ChestAura",
+      "Bone_3_HeadCrest"
+    ],
+    "animations": [
+      "Idle_Breathing",
+      "Tactical_Strike"
+    ]
+  },
+  "relics": [
+    {
+      "relic_id": "agent_01_grand_arcanist_designer",
+      "linked_card_id": "plugin_01_tcg_creative_designer",
+      "character_name": "Grand Arcanist of CardCraft (Atelier Turnaround Relic)",
+      "role": "Master TCG Creative Game Designer & 3x3 Grid Architect",
+      "primary_hex": "#A855F7",
+      "accent_hex": "#FFB800",
+      "directional_stats": {
+        "up": 8,
+        "right": 7,
+        "down": 6,
+        "left": 7
+      },
+      "ability_id": "AtelierPrismBriefCompile",
+      "ability_effect": "DEPLOY: Compiles 8-block morphological briefs, 600x800 portraits, & SVG telegraphs.",
+      "turnaround_concept_art": "GeneratedArt/AgentDeck/KeyArt/hero_turnaround_sheet.png",
+      "key_art_portrait": "GeneratedArt/AgentDeck/KeyArt/hero_tcg_designer.png",
+      "unity_glb_path": "Assets/Resources/Models3D/AgentDeck/agent_01_grand_arcanist_designer.glb",
+      "unity_q3gs_path": "Assets/Resources/Models3D/AgentDeck/agent_01_grand_arcanist_designer.q3gs",
+      "genart_glb_path": "GeneratedArt/AgentDeck/Models3D/agent_01_grand_arcanist_designer.glb",
+      "genart_q3gs_path": "GeneratedArt/AgentDeck/Models3D/agent_01_grand_arcanist_designer.q3gs",
+      "glb_bytes": 396204,
+      "q3gs_bytes": 92814,
+      "glb_sha256": "287c5798c52c578c3c7bdcf090a29137b240cf42fdf9c05b270b5e42e77f8579",
+      "q3gs_sha256": "f258628ca55bed253bd6c47518c4c596184b5f2e80464c2ef853475e1dd550c5",
+      "watertight_euler_2": true,
+      "has_skeletal_rig": true,
+      "has_pbr_normal_roughness_maps": true,
+      "animations_count": 2,
+      "mesh_metrics": {
+        "vertex_count": 4034,
+        "triangle_face_count": 8064,
+        "quad_face_count": 4032,
+        "edge_count": 12096,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "euler_characteristic_v_minus_e_plus_f": 2,
+        "watertight_closed_manifold": true,
+        "watertight_euler_2": true,
+        "has_all_required_attributes": true,
+        "has_skeletal_rig": true,
+        "joint_count": 4,
+        "bone_names": [
+          "Bone_0_Root",
+          "Bone_1_SpineCore",
+          "Bone_2_ChestAura",
+          "Bone_3_HeadCrest"
+        ],
+        "has_pbr_normal_roughness_maps": true,
+        "embedded_png_textures_count": 4,
+        "animations_count": 2,
+        "animation_names": [
+          "Idle_Breathing",
+          "Tactical_Strike"
+        ],
+        "bbox_min": [
+          -0.762776,
+          -0.92581,
+          -0.762777
+        ],
+        "bbox_max": [
+          0.762777,
+          1.011537,
+          0.762777
+        ]
+      }
+    },
+    {
+      "relic_id": "agent_02_chronos_swarm_commander",
+      "linked_card_id": "plugin_02_parallel_swarm_orchestrator",
+      "character_name": "Chronos Swarm Commander (Tri-Worktree Mecha Tactician)",
+      "role": "Master Parallel Subagent & Worktree Swarm Orchestrator",
+      "primary_hex": "#F97316",
+      "accent_hex": "#00E5FF",
+      "directional_stats": {
+        "up": 7,
+        "right": 8,
+        "down": 6,
+        "left": 7
+      },
+      "ability_id": "TriWorktreeSwarmFanOut",
+      "ability_effect": "DEPLOY: Summons parallel subagents in isolated git worktrees with shared memory.",
+      "turnaround_concept_art": "GeneratedArt/AgentDeck/KeyArt/hero_swarm_commander.png",
+      "key_art_portrait": "GeneratedArt/AgentDeck/KeyArt/hero_swarm_commander.png",
+      "unity_glb_path": "Assets/Resources/Models3D/AgentDeck/agent_02_chronos_swarm_commander.glb",
+      "unity_q3gs_path": "Assets/Resources/Models3D/AgentDeck/agent_02_chronos_swarm_commander.q3gs",
+      "genart_glb_path": "GeneratedArt/AgentDeck/Models3D/agent_02_chronos_swarm_commander.glb",
+      "genart_q3gs_path": "GeneratedArt/AgentDeck/Models3D/agent_02_chronos_swarm_commander.q3gs",
+      "glb_bytes": 396228,
+      "q3gs_bytes": 92814,
+      "glb_sha256": "691dca16b6b19ecb66b68aeb5eeabfb1ef9bd23991527907fe242e646a2bd17a",
+      "q3gs_sha256": "5a457beb3f72e0adc58eeab6697a454a5bf3e3fa334c1a4f9d6cbb71a629a9aa",
+      "watertight_euler_2": true,
+      "has_skeletal_rig": true,
+      "has_pbr_normal_roughness_maps": true,
+      "animations_count": 2,
+      "mesh_metrics": {
+        "vertex_count": 4034,
+        "triangle_face_count": 8064,
+        "quad_face_count": 4032,
+        "edge_count": 12096,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "euler_characteristic_v_minus_e_plus_f": 2,
+        "watertight_closed_manifold": true,
+        "watertight_euler_2": true,
+        "has_all_required_attributes": true,
+        "has_skeletal_rig": true,
+        "joint_count": 4,
+        "bone_names": [
+          "Bone_0_Root",
+          "Bone_1_SpineCore",
+          "Bone_2_ChestAura",
+          "Bone_3_HeadCrest"
+        ],
+        "has_pbr_normal_roughness_maps": true,
+        "embedded_png_textures_count": 4,
+        "animations_count": 2,
+        "animation_names": [
+          "Idle_Breathing",
+          "Tactical_Strike"
+        ],
+        "bbox_min": [
+          -0.792689,
+          -0.909568,
+          -0.777733
+        ],
+        "bbox_max": [
+          0.79269,
+          0.993791,
+          0.777733
+        ]
+      }
+    },
+    {
+      "relic_id": "agent_03_hallowed_arbiter_jev",
+      "linked_card_id": "plugin_03_jev_system_one",
+      "character_name": "Hallowed Arbiter of System One (Jev Law-Seal Sentinel)",
+      "role": "Calibrated Probability & Pre-Completion Verification Gate",
+      "primary_hex": "#2EE6D3",
+      "accent_hex": "#FFB800",
+      "directional_stats": {
+        "up": 8,
+        "right": 6,
+        "down": 8,
+        "left": 6
+      },
+      "ability_id": "OctagonalLawSealGate",
+      "ability_effect": "GUARD: Screens untrusted input (jev_screen) & gates diffs with calibrated probabilities.",
+      "turnaround_concept_art": "GeneratedArt/AgentDeck/KeyArt/hero_jev_arbiter.png",
+      "key_art_portrait": "GeneratedArt/AgentDeck/KeyArt/hero_jev_arbiter.png",
+      "unity_glb_path": "Assets/Resources/Models3D/AgentDeck/agent_03_hallowed_arbiter_jev.glb",
+      "unity_q3gs_path": "Assets/Resources/Models3D/AgentDeck/agent_03_hallowed_arbiter_jev.q3gs",
+      "genart_glb_path": "GeneratedArt/AgentDeck/Models3D/agent_03_hallowed_arbiter_jev.glb",
+      "genart_q3gs_path": "GeneratedArt/AgentDeck/Models3D/agent_03_hallowed_arbiter_jev.q3gs",
+      "glb_bytes": 395424,
+      "q3gs_bytes": 92814,
+      "glb_sha256": "f548416d6f2c988058234b9d37d5d3c3a3a7b6b9b9c747d50501ad5232c69db2",
+      "q3gs_sha256": "2681ed167cd41eee0eda6cdc5a7aa4ffe172db957791aa2f530deac3b559c14b",
+      "watertight_euler_2": true,
+      "has_skeletal_rig": true,
+      "has_pbr_normal_roughness_maps": true,
+      "animations_count": 2,
+      "mesh_metrics": {
+        "vertex_count": 4034,
+        "triangle_face_count": 8064,
+        "quad_face_count": 4032,
+        "edge_count": 12096,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "euler_characteristic_v_minus_e_plus_f": 2,
+        "watertight_closed_manifold": true,
+        "watertight_euler_2": true,
+        "has_all_required_attributes": true,
+        "has_skeletal_rig": true,
+        "joint_count": 4,
+        "bone_names": [
+          "Bone_0_Root",
+          "Bone_1_SpineCore",
+          "Bone_2_ChestAura",
+          "Bone_3_HeadCrest"
+        ],
+        "has_pbr_normal_roughness_maps": true,
+        "embedded_png_textures_count": 4,
+        "animations_count": 2,
+        "animation_names": [
+          "Idle_Breathing",
+          "Tactical_Strike"
+        ],
+        "bbox_min": [
+          -0.74782,
+          -0.942053,
+          -0.747821
+        ],
+        "bbox_max": [
+          0.74782,
+          1.029284,
+          0.747821
+        ]
+      }
+    },
+    {
+      "relic_id": "agent_04_a18_pro_metal_sovereign",
+      "linked_card_id": "plugin_04_mlx_apple_silicon",
+      "character_name": "A18 Pro Metal Forge Sovereign (Unified-Memory Dragon)",
+      "role": "Local Apple Silicon Metal GPU & JevMLX Single-Pass Engine",
+      "primary_hex": "#00E5FF",
+      "accent_hex": "#6366F1",
+      "directional_stats": {
+        "up": 7,
+        "right": 7,
+        "down": 7,
+        "left": 7
+      },
+      "ability_id": "SinglePassLogitRefraction",
+      "ability_effect": "OVERCHARGE: Executes zero-latency Choice, Score & Noul decisions on Metal GPU.",
+      "turnaround_concept_art": "GeneratedArt/AgentDeck/KeyArt/hero_mlx_forge.png",
+      "key_art_portrait": "GeneratedArt/AgentDeck/KeyArt/hero_mlx_forge.png",
+      "unity_glb_path": "Assets/Resources/Models3D/AgentDeck/agent_04_a18_pro_metal_sovereign.glb",
+      "unity_q3gs_path": "Assets/Resources/Models3D/AgentDeck/agent_04_a18_pro_metal_sovereign.q3gs",
+      "genart_glb_path": "GeneratedArt/AgentDeck/Models3D/agent_04_a18_pro_metal_sovereign.glb",
+      "genart_q3gs_path": "GeneratedArt/AgentDeck/Models3D/agent_04_a18_pro_metal_sovereign.q3gs",
+      "glb_bytes": 397500,
+      "q3gs_bytes": 92814,
+      "glb_sha256": "126c0303c1bdaa3bb6cc1ae3d4af0b6fea378c33996472272f7ee1f7cbf30dab",
+      "q3gs_sha256": "10b13fd2c384e3b044c760a9546c292500ad21f015a34d25a415dab30519c889",
+      "watertight_euler_2": true,
+      "has_skeletal_rig": true,
+      "has_pbr_normal_roughness_maps": true,
+      "animations_count": 2,
+      "mesh_metrics": {
+        "vertex_count": 4034,
+        "triangle_face_count": 8064,
+        "quad_face_count": 4032,
+        "edge_count": 12096,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "euler_characteristic_v_minus_e_plus_f": 2,
+        "watertight_closed_manifold": true,
+        "watertight_euler_2": true,
+        "has_all_required_attributes": true,
+        "has_skeletal_rig": true,
+        "joint_count": 4,
+        "bone_names": [
+          "Bone_0_Root",
+          "Bone_1_SpineCore",
+          "Bone_2_ChestAura",
+          "Bone_3_HeadCrest"
+        ],
+        "has_pbr_normal_roughness_maps": true,
+        "embedded_png_textures_count": 4,
+        "animations_count": 2,
+        "animation_names": [
+          "Idle_Breathing",
+          "Tactical_Strike"
+        ],
+        "bbox_min": [
+          -0.777733,
+          -0.893326,
+          -0.777733
+        ],
+        "bbox_max": [
+          0.777733,
+          0.976045,
+          0.777733
+        ]
+      }
+    },
+    {
+      "relic_id": "agent_05_router_spellbook_compass",
+      "linked_card_id": "skill_01_master_router",
+      "character_name": "Compass of the 93 Realms & Tool-Calling Grimoire",
+      "role": "4-Slot Progressive-Disclosure Skill Router & Spellbook",
+      "primary_hex": "#FFB800",
+      "accent_hex": "#00E5FF",
+      "directional_stats": {
+        "up": 7,
+        "right": 6,
+        "down": 6,
+        "left": 6
+      },
+      "ability_id": "ProgressiveDisclosureRoute",
+      "ability_effect": "ROUTE: Fingerprints Engine -> Discipline -> Genre -> Workflow with zero bulk-load bloat.",
+      "turnaround_concept_art": "GeneratedArt/AgentDeck/KeyArt/hero_spellbook_compass.png",
+      "key_art_portrait": "GeneratedArt/AgentDeck/KeyArt/hero_spellbook_compass.png",
+      "unity_glb_path": "Assets/Resources/Models3D/AgentDeck/agent_05_router_spellbook_compass.glb",
+      "unity_q3gs_path": "Assets/Resources/Models3D/AgentDeck/agent_05_router_spellbook_compass.q3gs",
+      "genart_glb_path": "GeneratedArt/AgentDeck/Models3D/agent_05_router_spellbook_compass.glb",
+      "genart_q3gs_path": "GeneratedArt/AgentDeck/Models3D/agent_05_router_spellbook_compass.q3gs",
+      "glb_bytes": 399520,
+      "q3gs_bytes": 92814,
+      "glb_sha256": "a3c09f97e804d1f5463555574afb7c630e8f1a68fff7e3259370fc355557cf83",
+      "q3gs_sha256": "66276f151fe5a19a1a8daa43172b517e36c5e7ac2c8fabfa82fa6a69e086845e",
+      "watertight_euler_2": true,
+      "has_skeletal_rig": true,
+      "has_pbr_normal_roughness_maps": true,
+      "animations_count": 2,
+      "mesh_metrics": {
+        "vertex_count": 4034,
+        "triangle_face_count": 8064,
+        "quad_face_count": 4032,
+        "edge_count": 12096,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "euler_characteristic_v_minus_e_plus_f": 2,
+        "watertight_closed_manifold": true,
+        "watertight_euler_2": true,
+        "has_all_required_attributes": true,
+        "has_skeletal_rig": true,
+        "joint_count": 4,
+        "bone_names": [
+          "Bone_0_Root",
+          "Bone_1_SpineCore",
+          "Bone_2_ChestAura",
+          "Bone_3_HeadCrest"
+        ],
+        "has_pbr_normal_roughness_maps": true,
+        "embedded_png_textures_count": 4,
+        "animations_count": 2,
+        "animation_names": [
+          "Idle_Breathing",
+          "Tactical_Strike"
+        ],
+        "bbox_min": [
+          -0.74782,
+          -0.85272,
+          -0.747821
+        ],
+        "bbox_max": [
+          0.74782,
+          0.931679,
+          0.747821
+        ]
+      }
+    },
+    {
+      "relic_id": "agent_06_celestial_mcp_astrolabe",
+      "linked_card_id": "mcp_06_knowledge_graph_mem",
+      "character_name": "Celestial MCP Nexus Astrolabe & Memory Constellation",
+      "role": "9-Server MCP Conduit & Knowledge Graph Constellation Core",
+      "primary_hex": "#2EE6D3",
+      "accent_hex": "#A855F7",
+      "directional_stats": {
+        "up": 6,
+        "right": 7,
+        "down": 6,
+        "left": 6
+      },
+      "ability_id": "NineConduitMemorySync",
+      "ability_effect": "CONDUIT: Synchronizes 9 MCP servers (52+ tools) with the persistent Knowledge Graph.",
+      "turnaround_concept_art": "GeneratedArt/AgentDeck/KeyArt/hero_hi3d_relic_sculptor.png",
+      "key_art_portrait": "GeneratedArt/AgentDeck/KeyArt/hero_memory_graph.png",
+      "unity_glb_path": "Assets/Resources/Models3D/AgentDeck/agent_06_celestial_mcp_astrolabe.glb",
+      "unity_q3gs_path": "Assets/Resources/Models3D/AgentDeck/agent_06_celestial_mcp_astrolabe.q3gs",
+      "genart_glb_path": "GeneratedArt/AgentDeck/Models3D/agent_06_celestial_mcp_astrolabe.glb",
+      "genart_q3gs_path": "GeneratedArt/AgentDeck/Models3D/agent_06_celestial_mcp_astrolabe.q3gs",
+      "glb_bytes": 397420,
+      "q3gs_bytes": 92814,
+      "glb_sha256": "9762b93498da1206eb1af88423a0e30bfedbb5f90d5c9c4e41881d501f149001",
+      "q3gs_sha256": "9fe0223c20dfa4efacc8f5464a4d14b356fbdbc8eab3b33b41a2109d5348c5ae",
+      "watertight_euler_2": true,
+      "has_skeletal_rig": true,
+      "has_pbr_normal_roughness_maps": true,
+      "animations_count": 2,
+      "mesh_metrics": {
+        "vertex_count": 4034,
+        "triangle_face_count": 8064,
+        "quad_face_count": 4032,
+        "edge_count": 12096,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "euler_characteristic_v_minus_e_plus_f": 2,
+        "watertight_closed_manifold": true,
+        "watertight_euler_2": true,
+        "has_all_required_attributes": true,
+        "has_skeletal_rig": true,
+        "joint_count": 4,
+        "bone_names": [
+          "Bone_0_Root",
+          "Bone_1_SpineCore",
+          "Bone_2_ChestAura",
+          "Bone_3_HeadCrest"
+        ],
+        "has_pbr_normal_roughness_maps": true,
+        "embedded_png_textures_count": 4,
+        "animations_count": 2,
+        "animation_names": [
+          "Idle_Breathing",
+          "Tactical_Strike"
+        ],
+        "bbox_min": [
+          -0.770255,
+          -0.877084,
+          -0.770255
+        ],
+        "bbox_max": [
+          0.770255,
+          0.958299,
+          0.770255
+        ]
+      }
+    }
+  ],
+  "elapsed_ms": 212.48
+}

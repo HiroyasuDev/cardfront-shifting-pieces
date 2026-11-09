@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cf_04_shadow_assassin
   m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
   id: cf_04_shadow_assassin
-  title: "Shadow Assassin"
-  codeName: "Midnight Eclipse"
+  title: Shadow Assassin
+  codeName: Midnight Eclipse
   baseStats:
     up: 7
     down: 5
@@ -22,9 +22,9 @@ MonoBehaviour:
     right: 4
   themes: 264
   specialAbility: 4
-  specialAbilityDescription: "Once per game, this unit becomes immune to capture for 1 full turn."
+  specialAbilityDescription: Once per game, Shadow Assassin becomes immune to capture for 1 full turn.
   synergyRequiredTheme: 264
   synergyAllSidesBonus: 2
-  synergyName: "Dark Ambush"
-  evolvesToCardId: ""
+  synergyName: Dark Ambush
+  evolvesToCardId: 
   cardArt: {fileID: 21300000, guid: bbdfc7102b0e5a6c397bae2dd7535f90, type: 3}

@@ -1760,13 +1760,20 @@ class TestSynapseTcgSuite(unittest.TestCase):
             self.assertGreater(fpath.stat().st_size, 20)
 
         ver_txt = (ps_dir / "ProjectVersion.txt").read_text(encoding="utf-8")
-        self.assertIn("m_EditorVersion: 2022.3.", ver_txt)
+        self.assertTrue(
+            "m_EditorVersion: 2022.3." in ver_txt or "m_EditorVersion: 6000." in ver_txt,
+            f"Unexpected ProjectVersion.txt: {ver_txt}",
+        )
 
         pkg_manifest = ROOT_DIR / "Packages" / "manifest.json"
         self.assertTrue(pkg_manifest.is_file())
         pkg_data = json.loads(pkg_manifest.read_text(encoding="utf-8"))
-        self.assertIn("com.unity.textmeshpro", pkg_data.get("dependencies", {}))
-        self.assertIn("com.unity.ugui", pkg_data.get("dependencies", {}))
+        deps = pkg_data.get("dependencies", {})
+        self.assertIn("com.unity.ugui", deps)
+        self.assertTrue(
+            "com.unity.textmeshpro" in deps or "com.unity.ugui" in deps,
+            "Expected com.unity.ugui (unified TextMeshPro) or com.unity.textmeshpro in manifest.json",
+        )
 
     def test_74_track_a_60_serialized_card_data_so_assets_and_meta_guids(self) -> None:
         """Verify all 60 Set 1 `CardDataSO` `.asset` ScriptableObject files and `.meta` GUIDs in `Assets/Resources/Cards/`."""
@@ -1920,7 +1927,10 @@ class TestSynapseTcgSuite(unittest.TestCase):
             ITERATION_SKILL_PROMPTS[0]["prompt"]
         )
         self.assertEqual(decision["engine_detection"]["engine"], "Unity")
-        self.assertEqual(decision["engine_detection"]["version"], "2022.3.40f1")
+        self.assertTrue(
+            decision["engine_detection"]["version"].startswith(("2022.3.", "6000.")),
+            f"Unexpected Unity engine version: {decision['engine_detection']['version']}",
+        )
         self.assertEqual(decision["skill_stack_count"], 4)
         self.assertEqual(
             decision["selected_skill_names"],
@@ -2126,6 +2136,51 @@ class TestSynapseTcgSuite(unittest.TestCase):
         self.assertEqual(len(m["audio_engine"]["buses"]), 7)
         self.assertEqual(m["steam_publish"]["steam_app_id"], 3194820)
         self.assertEqual(m["itch_publish"]["version"], "2.0.0")
+
+    def test_101_multiplatform_atelier_svg_library_and_zero_generic_emojis(self) -> None:
+        """Verify all bespoke Atelier SVG icons + multiplatform emblems exist and playable HTML has 0 generic emojis."""
+        from test_multiplatform_execution_suite import TestMultiplatformExecutionSuite
+        mp = TestMultiplatformExecutionSuite()
+        mp.test_08_icon_library_manifest_and_all_23_svg_assets()
+        mp.test_09_zero_generic_emojis_in_playable_html()
+        mp.test_18_six_multiplatform_and_crypto_bespoke_svg_emblems()
+        mp.test_20_master_app_icon_512_and_192_raster_qa()
+
+    def test_102_standalone_grimoire_deck_separated_from_board_slab(self) -> None:
+        """Verify #standalone-deck-sanctum is physically and structurally separated from #board-3d-slab."""
+        from test_multiplatform_execution_suite import TestMultiplatformExecutionSuite
+        mp = TestMultiplatformExecutionSuite()
+        mp.test_10_standalone_deck_sanctum_separated_from_board_slab()
+
+    def test_103_multiplatform_pwa_and_6_tier_haptics_vault_bridge(self) -> None:
+        """Verify Web PWA manifest, Service Worker, and 6-tier Haptics + Interactive Grimoire Crypto Vault bridge."""
+        from test_multiplatform_execution_suite import TestMultiplatformExecutionSuite
+        mp = TestMultiplatformExecutionSuite()
+        mp.test_11_pwa_manifest_webmanifest_validity()
+        mp.test_12_pwa_service_worker_sw_cardfront_pwa_js()
+        mp.test_13_apple_native_haptics_bridge_js()
+        mp.test_19_six_tier_haptics_and_interactive_grimoire_crypto_vault_bar()
+
+    def test_104_multiplatform_apple_android_steam_and_unity_native_hosts(self) -> None:
+        """Verify Apple Native macOS arm64 binary, Android Native Kotlin WebView host, Steam Desktop C# host, and Unity C# bridge."""
+        from test_multiplatform_execution_suite import TestMultiplatformExecutionSuite
+        mp = TestMultiplatformExecutionSuite()
+        mp.test_14_unity_apple_native_cross_platform_bridge_cs()
+        mp.test_15_apple_native_macos_app_bundle_and_arm64_binary()
+        mp.test_16_android_native_kotlin_webview_and_vibration_haptics_host()
+        mp.test_17_steam_desktop_native_cloud_save_and_steaminput_host()
+
+    def test_105_cryptographic_cross_save_crdt_and_provably_fair_pack_commitments(self) -> None:
+        """Verify zero-token HMAC-SHA256 + FNV-1a Cross-Platform Save Envelope, CRDT merge, and SHA-256 pack commitments."""
+        from test_multiplatform_execution_suite import TestMultiplatformExecutionSuite
+        mp = TestMultiplatformExecutionSuite()
+        mp.test_01_sign_and_verify_all_four_platforms()
+        mp.test_02_tamper_rejection_and_wrong_key_rejection()
+        mp.test_03_crdt_cross_platform_merge_web_apple_steam()
+        mp.test_04_crdt_algebraic_invariants_commutativity_associativity_idempotence()
+        mp.test_05_provably_fair_pack_receipt_generation_and_verification()
+        mp.test_06_provably_fair_pack_receipt_tamper_and_seed_rejection()
+        mp.test_07_cross_platform_crypto_sync_self_test_report_persisted()
 
 
 

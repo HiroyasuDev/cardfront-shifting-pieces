@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <defs>
+    <!-- Full-Bleed Outer Obsidian-Cobalt Canvas Gradient (Zero Uncropped Borders) -->
+    <linearGradient id="cf-canvas-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131B33"/>
+      <stop offset="50%" stop-color="#0B1021"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+
+    <!-- Squircle Shield Obsidian-Cobalt Inner Chamber -->
+    <radialGradient id="cf-shield-chamber" cx="50%" cy="46%" r="58%">
+      <stop offset="0%" stop-color="#1E2B4F"/>
+      <stop offset="52%" stop-color="#0D152B"/>
+      <stop offset="85%" stop-color="#070B17"/>
+      <stop offset="100%" stop-color="#04060E"/>
+    </radialGradient>
+
+    <!-- Ivalice Law Gold Metallic Multi-Stop Gradient -->
+    <linearGradient id="cf-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF6C2"/>
+      <stop offset="28%" stop-color="#FFD147"/>
+      <stop offset="55%" stop-color="#FFB800"/>
+      <stop offset="82%" stop-color="#B86B09"/>
+      <stop offset="100%" stop-color="#5C3203"/>
+    </linearGradient>
+
+    <!-- Secondary Warm Brass Filigree Gradient -->
+    <linearGradient id="cf-brass-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6E3F04"/>
+      <stop offset="45%" stop-color="#D98A16"/>
+      <stop offset="75%" stop-color="#FFB800"/>
+      <stop offset="100%" stop-color="#FFF3B0"/>
+    </linearGradient>
+
+    <!-- Astral Cyan (#00E5FF) Crystalline Lance Gradient -->
+    <linearGradient id="cf-cyan-lance" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0369A1"/>
+      <stop offset="35%" stop-color="#00B8D9"/>
+      <stop offset="70%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#E6FFFF"/>
+    </linearGradient>
+
+    <!-- Astral Cyan Deep Facet Shadow -->
+    <linearGradient id="cf-cyan-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="55%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#082F49"/>
+    </linearGradient>
+
+    <!-- Breach Crimson (#FF2E54) Crystalline Lance Gradient -->
+    <linearGradient id="cf-crimson-lance" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE0E6"/>
+      <stop offset="30%" stop-color="#FF2E54"/>
+      <stop offset="68%" stop-color="#D91642"/>
+      <stop offset="100%" stop-color="#4C0519"/>
+    </linearGradient>
+
+    <!-- Breach Crimson Deep Facet Shadow -->
+    <linearGradient id="cf-crimson-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B88"/>
+      <stop offset="50%" stop-color="#BE123C"/>
+      <stop offset="100%" stop-color="#3B0714"/>
+    </linearGradient>
+
+    <!-- Arcane Tarot Violet (#A855F7) Gradient -->
+    <linearGradient id="cf-violet-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E8FF"/>
+      <stop offset="42%" stop-color="#A855F7"/>
+      <stop offset="85%" stop-color="#581C87"/>
+      <stop offset="100%" stop-color="#2E1065"/>
+    </linearGradient>
+
+    <!-- Jade Verdict (#2EE6D3) Gradient -->
+    <linearGradient id="cf-jade-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CCFBF1"/>
+      <stop offset="45%" stop-color="#2EE6D3"/>
+      <stop offset="88%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#042F2E"/>
+    </linearGradient>
+
+    <!-- Obsidian Bevel Slate -->
+    <linearGradient id="cf-obsidian-bevel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#263554"/>
+      <stop offset="50%" stop-color="#11192E"/>
+      <stop offset="100%" stop-color="#060A14"/>
+    </linearGradient>
+
+    <!-- Dual Clash Singularity Aura -->
+    <radialGradient id="cf-clash-aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF6C2" stop-opacity="0.95"/>
+      <stop offset="28%" stop-color="#00E5FF" stop-opacity="0.55"/>
+      <stop offset="58%" stop-color="#FF2E54" stop-opacity="0.38"/>
+      <stop offset="82%" stop-color="#A855F7" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#050811" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 0. FULL-BLEED 512x512 BACKGROUND PLATE (Guarantees Zero Uncropped Edge Borders) -->
+  <rect x="0" y="0" width="512" height="512" fill="url(#cf-canvas-bg)"/>
+
+  <!-- Subtle Outer Corner Geometric Trim -->
+  <polygon points="0,0 96,0 0,96" fill="#1E293B" opacity="0.65"/>
+  <polygon points="512,0 416,0 512,96" fill="#1E293B" opacity="0.65"/>
+  <polygon points="0,512 96,512 0,416" fill="#1E293B" opacity="0.65"/>
+  <polygon points="512,512 416,512 512,416" fill="#1E293B" opacity="0.65"/>
+  <rect x="4" y="4" width="504" height="504" rx="110" fill="none" stroke="url(#cf-gold-grad)" stroke-width="4" stroke-opacity="0.55"/>
+
+  <!-- 1. OBSIDIAN-COBALT SQUIRCLE SHIELD -->
+  <rect x="18" y="18" width="476" height="476" rx="102" fill="url(#cf-gold-grad)" stroke="#FFF6C2" stroke-width="4"/>
+  <rect x="30" y="30" width="452" height="452" rx="92" fill="url(#cf-obsidian-bevel)" stroke="#5C3203" stroke-width="4"/>
+  <rect x="42" y="42" width="428" height="428" rx="82" fill="url(#cf-shield-chamber)" stroke="url(#cf-gold-grad)" stroke-width="5"/>
+
+  <!-- Inner Filigree Squircle Guide -->
+  <rect x="56" y="56" width="400" height="400" rx="70" fill="none" stroke="#FFB800" stroke-opacity="0.38" stroke-width="2" stroke-dasharray="14 8"/>
+
+  <!-- Corner Ivalice Filigree Brackets & 4 Tier Magicite Diamonds -->
+  <path d="M64,132 L64,78 C64,68 68,64 78,64 L132,64" stroke="url(#cf-gold-grad)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M448,132 L448,78 C448,68 444,64 434,64 L380,64" stroke="url(#cf-gold-grad)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M64,380 L64,434 C64,444 68,448 78,448 L132,448" stroke="url(#cf-gold-grad)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M448,380 L448,434 C448,444 444,448 434,448 L380,448" stroke="url(#cf-gold-grad)" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- 4 Corner Magicite Jewels (Cyan, Violet, Jade, Crimson) -->
+  <polygon points="88,68 106,88 88,108 70,88" fill="url(#cf-cyan-lance)" stroke="#FFF6C2" stroke-width="3"/>
+  <polygon points="424,68 442,88 424,108 406,88" fill="url(#cf-violet-grad)" stroke="#FFF6C2" stroke-width="3"/>
+  <polygon points="88,404 106,424 88,444 70,424" fill="url(#cf-jade-grad)" stroke="#FFF6C2" stroke-width="3"/>
+  <polygon points="424,404 442,424 424,444 406,424" fill="url(#cf-crimson-lance)" stroke="#FFF6C2" stroke-width="3"/>
+
+  <!-- Radial Clash Resonance Halo -->
+  <circle cx="256" cy="256" r="204" fill="url(#cf-clash-aura)"/>
+
+  <!-- 2. GILDED IVALICE LAW ASTROLABE RING -->
+  <!-- Outer Astrolabe Bezel -->
+  <circle cx="256" cy="256" r="192" fill="none" stroke="url(#cf-gold-grad)" stroke-width="12"/>
+  <circle cx="256" cy="256" r="182" fill="none" stroke="#0B1021" stroke-width="4"/>
+  <!-- Calibrated Astrolabe Degree Ticks -->
+  <circle cx="256" cy="256" r="172" fill="none" stroke="url(#cf-brass-grad)" stroke-width="6" stroke-dasharray="6 10"/>
+  <!-- Secondary Celestial Meridian Ring -->
+  <circle cx="256" cy="256" r="158" fill="none" stroke="#00E5FF" stroke-opacity="0.65" stroke-width="3" stroke-dasharray="18 10 4 10"/>
+  <circle cx="256" cy="256" r="146" fill="none" stroke="url(#cf-gold-grad)" stroke-width="4"/>
+
+  <!-- Astrolabe Diagonal Meridian Crosshairs -->
+  <g stroke="url(#cf-gold-grad)" stroke-width="3" opacity="0.55">
+    <line x1="110" y1="110" x2="402" y2="402"/>
+    <line x1="402" y1="110" x2="110" y2="402"/>
+    <line x1="64" y1="256" x2="448" y2="256"/>
+    <line x1="256" y1="64" x2="256" y2="448"/>
+  </g>
+
+  <!-- 8 Astrolabe Compass Spires (N, NE, E, SE, S, SW, W, NW) -->
+  <!-- North Spire -->
+  <polygon points="256,42 274,82 256,98 238,82" fill="url(#cf-gold-grad)" stroke="#FFF6C2" stroke-width="2.5"/>
+  <!-- South Spire -->
+  <polygon points="256,470 274,430 256,414 238,430" fill="url(#cf-gold-grad)" stroke="#FFF6C2" stroke-width="2.5"/>
+  <!-- West Spire (Astral Cyan Accent) -->
+  <polygon points="42,256 82,238 98,256 82,274" fill="url(#cf-cyan-lance)" stroke="url(#cf-gold-grad)" stroke-width="3"/>
+  <!-- East Spire (Breach Crimson Accent) -->
+  <polygon points="470,256 430,238 414,256 430,274" fill="url(#cf-crimson-lance)" stroke="url(#cf-gold-grad)" stroke-width="3"/>
+  <!-- Ordinal Astrolabe Studs -->
+  <polygon points="112,112 136,120 128,144 104,136" fill="url(#cf-gold-grad)"/>
+  <polygon points="400,112 376,120 384,144 408,136" fill="url(#cf-gold-grad)"/>
+  <polygon points="112,400 136,392 128,368 104,376" fill="url(#cf-gold-grad)"/>
+  <polygon points="400,400 376,392 384,368 408,376" fill="url(#cf-gold-grad)"/>
+
+  <!-- 3. 3x3 ISOMETRIC TACTICAL GRID FACET (Center Diorama Battlefield) -->
+  <!-- 3D Extruded Diorama Base Plinth -->
+  <polygon points="104,264 256,354 256,384 104,294" fill="#091326" stroke="url(#cf-cyan-lance)" stroke-width="3" stroke-linejoin="round"/>
+  <polygon points="408,264 256,354 256,384 408,294" fill="#1F0918" stroke="url(#cf-crimson-lance)" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Outer Isometric Board Rim -->
+  <polygon points="256,174 408,264 256,354 104,264" fill="#0B1021" stroke="url(#cf-gold-grad)" stroke-width="7" stroke-linejoin="round"/>
+
+  <!-- 9 Isometric Tactical Cells (3x3 Grid) -->
+  <!-- Cell (0,0) Top North: Arcane Violet / Law Sanctuary Tile -->
+  <polygon points="256,186 300,212 256,238 212,212" fill="url(#cf-violet-grad)" stroke="#FFF6C2" stroke-width="2.5"/>
+  <!-- Cell (0,1) North-East: Breach Crimson Dominance Tile -->
+  <polygon points="300,212 344,238 300,264 256,238" fill="url(#cf-crimson-dark)" stroke="#FF9EB1" stroke-width="2.5"/>
+  <!-- Cell (0,2) East Apex: Breach Crimson Boss Vanguard Tile -->
+  <polygon points="344,238 388,264 344,290 300,264" fill="url(#cf-crimson-lance)" stroke="#FFF6C2" stroke-width="3"/>
+
+  <!-- Cell (1,0) South-West: Astral Cyan Dominance Tile -->
+  <polygon points="212,212 256,238 212,264 168,238" fill="url(#cf-cyan-dark)" stroke="#A5F3FC" stroke-width="2.5"/>
+  <!-- Cell (1,1) Center Nexus: Sovereign Law Gold & Jade Verdict Core Tile -->
+  <polygon points="256,238 300,264 256,290 212,264" fill="url(#cf-gold-grad)" stroke="#FFFFFF" stroke-width="3.5"/>
+  <!-- Cell (1,2) South-East: Breach Crimson Flanking Tile -->
+  <polygon points="300,264 344,290 300,316 256,290" fill="url(#cf-crimson-dark)" stroke="#FF9EB1" stroke-width="2.5"/>
+
+  <!-- Cell (2,0) West Apex: Astral Cyan Player Hero Tile -->
+  <polygon points="168,238 212,264 168,290 124,264" fill="url(#cf-cyan-lance)" stroke="#FFF6C2" stroke-width="3"/>
+  <!-- Cell (2,1) South-West Flank: Astral Cyan Conduit Tile -->
+  <polygon points="212,264 256,290 212,316 168,290" fill="url(#cf-cyan-dark)" stroke="#A5F3FC" stroke-width="2.5"/>
+  <!-- Cell (2,2) Bottom South: Jade Verdict / Echoes Sanctuary Tile -->
+  <polygon points="256,290 300,316 256,342 212,316" fill="url(#cf-jade-grad)" stroke="#FFF6C2" stroke-width="2.5"/>
+
+  <!-- Inner Isometric Tactical Grid Highlight Pips -->
+  <circle cx="256" cy="212" r="4.5" fill="#FFF6C2"/>
+  <circle cx="300" cy="238" r="4.5" fill="#FFD1DC"/>
+  <circle cx="344" cy="264" r="5.5" fill="#FFFFFF"/>
+  <circle cx="212" cy="238" r="4.5" fill="#E0FFFF"/>
+  <circle cx="300" cy="290" r="4.5" fill="#FFD1DC"/>
+  <circle cx="168" cy="264" r="5.5" fill="#FFFFFF"/>
+  <circle cx="212" cy="290" r="4.5" fill="#E0FFFF"/>
+  <circle cx="256" cy="316" r="4.5" fill="#CCFBF1"/>
+
+  <!-- 4. DUAL DIRECTIONAL CRYSTALLINE LANCES (Astral Cyan #00E5FF vs Breach Crimson #FF2E54) -->
+
+  <!-- A. Breach Crimson (#FF2E54) Directional Crystalline Lance (Upper-Right to Center-Left) -->
+  <g>
+    <!-- Crimson Lance Outer Wing & Guard -->
+    <polygon points="444,68 344,122 362,150 312,182 330,200 390,168" fill="url(#cf-crimson-dark)" stroke="url(#cf-gold-grad)" stroke-width="4" stroke-linejoin="round"/>
+    <!-- Crimson Lance Main Crystalline Blade (Light & Shadow Facets) -->
+    <polygon points="444,68 242,242 218,218" fill="url(#cf-crimson-lance)" stroke="#FFF6C2" stroke-width="3" stroke-linejoin="round"/>
+    <polygon points="444,68 270,270 242,242" fill="url(#cf-crimson-dark)" stroke="url(#cf-gold-grad)" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Crimson Directional Energy Chevron Pommel -->
+    <polygon points="454,58 412,66 426,86 446,100" fill="url(#cf-gold-grad)" stroke="#FFF6C2" stroke-width="2"/>
+    <!-- Crimson Telegraph Vector Barbs -->
+    <polygon points="366,102 396,86 382,118" fill="#FF2E54" stroke="#FFF6C2" stroke-width="2"/>
+    <polygon points="410,146 426,116 394,130" fill="#FF2E54" stroke="#FFF6C2" stroke-width="2"/>
+  </g>
+
+  <!-- B. Astral Cyan (#00E5FF) Directional Crystalline Lance (Lower-Left to Upper-Right) -->
+  <g>
+    <!-- Cyan Lance Outer Wing & Guard -->
+    <polygon points="68,444 168,390 150,362 200,330 182,312 122,344" fill="url(#cf-cyan-dark)" stroke="url(#cf-gold-grad)" stroke-width="4" stroke-linejoin="round"/>
+    <!-- Cyan Lance Main Crystalline Blade (Light & Shadow Facets) -->
+    <polygon points="68,444 336,146 296,176 256,256" fill="url(#cf-cyan-lance)" stroke="#FFFFFF" stroke-width="3.5" stroke-linejoin="round"/>
+    <polygon points="68,444 336,146 306,186 242,270" fill="url(#cf-cyan-dark)" stroke="url(#cf-gold-grad)" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Cyan Lance Forward Piercing Tip (Upper-Right Thrust) -->
+    <polygon points="358,124 310,152 328,170" fill="#E6FFFF" stroke="url(#cf-cyan-lance)" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Cyan Directional Energy Chevron Pommel -->
+    <polygon points="58,454 100,446 86,426 66,412" fill="url(#cf-gold-grad)" stroke="#FFF6C2" stroke-width="2"/>
+    <!-- Cyan Telegraph Vector Barbs -->
+    <polygon points="146,410 116,426 130,394" fill="#00E5FF" stroke="#E6FFFF" stroke-width="2"/>
+    <polygon points="102,366 86,396 118,382" fill="#00E5FF" stroke="#E6FFFF" stroke-width="2"/>
+  </g>
+
+  <!-- 5. CENTRAL SOVEREIGN CLASH NEXUS & 4-DIRECTIONAL EDGE CAPTURE SIGIL -->
+  <!-- Outer Golden Octagram Ring at Grid Nexus (256, 264) -->
+  <circle cx="256" cy="264" r="46" fill="#0B1021" fill-opacity="0.82" stroke="url(#cf-gold-grad)" stroke-width="5"/>
+  <!-- 4-Directional Edge Capture Arrows (Top, Right, Bottom, Left) -->
+  <polygon points="256,196 272,226 256,218 240,226" fill="url(#cf-cyan-lance)" stroke="#FFF6C2" stroke-width="2"/>
+  <polygon points="324,264 294,280 302,264 294,248" fill="url(#cf-crimson-lance)" stroke="#FFF6C2" stroke-width="2"/>
+  <polygon points="256,332 272,302 256,310 240,302" fill="url(#cf-jade-grad)" stroke="#FFF6C2" stroke-width="2"/>
+  <polygon points="188,264 218,280 210,264 218,248" fill="url(#cf-cyan-lance)" stroke="#FFF6C2" stroke-width="2"/>
+
+  <!-- Central 8-Pointed Cradle of Echoes Singularity Star -->
+  <polygon points="256,210 268,252 310,264 268,276 256,318 244,276 202,264 244,252" fill="url(#cf-gold-grad)" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <polygon points="256,232 266,256 290,264 266,272 256,296 246,272 222,264 246,256" fill="url(#cf-cyan-lance)"/>
+  <circle cx="256" cy="264" r="10" fill="#FFF6C2" stroke="#FFB800" stroke-width="3"/>
+</svg>

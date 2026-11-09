@@ -1,7 +1,7 @@
 {
   "id": "R08_next_stage_after_defeat_wraps",
   "title": "Next Stage after defeat, 4->1 wrap, end-state badge",
-  "reproduced": true,
+  "reproduced": false,
   "checks": [
     {
       "name": "player deploy did not end the game (board 8/9)",
@@ -33,31 +33,31 @@
     },
     {
       "name": "(c) turn badge says YOUR TURN on the finished board",
-      "ok": true,
-      "detail": "YOUR TURN"
+      "ok": false,
+      "detail": "DEFEAT"
     },
     {
       "name": "(a) 'Next Stage ▶' button is visible on the DEFEAT modal",
-      "ok": true
+      "ok": false
     },
     {
       "name": "(a)+(b) after losing Stage 4, Next Stage starts Stage 1 (index 0)",
-      "ok": true,
+      "ok": false,
       "detail": {
-        "stageIndex": 0,
-        "select": "0"
+        "stageIndex": 3,
+        "select": "3"
       }
     },
     {
       "name": "(a) losing Stage 1 still advances to Stage 2",
-      "ok": true,
+      "ok": false,
       "detail": {
         "title": "💥 DEFEAT (3 – 6)",
-        "stageIndex": 1
+        "stageIndex": 0
       }
     }
   ],
   "notes": {},
   "pageErrors": [],
-  "ranAt": "2026-11-08T12:12:01.517Z"
+  "ranAt": "2026-11-09T00:24:49.417Z"
 }

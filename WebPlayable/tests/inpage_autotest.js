@@ -95,7 +95,7 @@ async function runVisualAutomatedPlaytest() {
     outcome: ""
   };
 
-  function checkSingletonAndImages() {
+  async function checkSingletonAndImages() {
     const seen = new Set();
     for (let r = 0; r < 3; r++) {
       for (let c = 0; c < 3; c++) {
@@ -117,6 +117,7 @@ async function runVisualAutomatedPlaytest() {
       seen.add(cid);
     }
     const imgs = Array.from(document.querySelectorAll(".slot-art"));
+    await Promise.all(imgs.filter(i => !i.complete).map(i => new Promise(r => { i.onload = i.onerror = r; setTimeout(r, 400); })));
     report.imagesChecked = Math.max(report.imagesChecked, imgs.length);
     for (const img of imgs) {
       if (!img.complete || img.naturalWidth === 0) {
@@ -130,7 +131,7 @@ async function runVisualAutomatedPlaytest() {
   }
 
   await sleep(400);
-  checkSingletonAndImages();
+  await checkSingletonAndImages();
   report.steps.push({
     step: "Initial Stage Load",
     stage: STAGES[state.stageIndex % STAGES.length].name,
@@ -214,7 +215,7 @@ async function runVisualAutomatedPlaytest() {
     handleSlotClick(tr, tc);
     report.turnsPlayed++;
     await sleep(800);
-    checkSingletonAndImages();
+    await checkSingletonAndImages();
     const sc = getScores();
     report.steps.push({
       step: `Turn ${turn + 1} Deploy`,
@@ -227,12 +228,12 @@ async function runVisualAutomatedPlaytest() {
   }
 
   await sleep(650);
-  checkSingletonAndImages();
+  await checkSingletonAndImages();
   const finalScores = getScores();
   report.finalScore = { player: finalScores.blue, boss: finalScores.red };
   const modalEl = document.getElementById("result-modal");
   report.modalDisplayed = modalEl ? (modalEl.style.display === "flex" || modalEl.classList.contains("show")) : false;
-  report.outcome = finalScores.blue > finalScores.red ? "VICTORY" : "COMPLETED";
+  report.outcome = finalScores.blue > finalScores.red ? "VICTORY" : (finalScores.blue < finalScores.red ? "DEFEAT" : "DRAW");
 
   window.__OSASCRIPT_TEST_REPORT__ = report;
   try {

@@ -1,7 +1,7 @@
 {
   "id": "R03_stale_hand_drag_undefined_card",
   "title": "Stale hand-drag drop after keyboard deploy corrupts board",
-  "reproduced": true,
+  "reproduced": false,
   "checks": [
     {
       "name": "drag ghost is active with hand card #5",
@@ -9,19 +9,10 @@
     },
     {
       "name": "Enter deployed a card mid-drag and ended the turn",
-      "ok": true,
+      "ok": false,
       "detail": {
-        "hand": 4,
-        "centre": {
-          "id": "h_valkyrie",
-          "owner": "player",
-          "nesw": [
-            8,
-            8,
-            5,
-            6
-          ]
-        }
+        "hand": 5,
+        "centre": null
       }
     },
     {
@@ -30,59 +21,57 @@
     },
     {
       "name": "TypeError thrown by getCardEffectiveStats(undefined)",
-      "ok": true,
-      "detail": [
-        "Cannot read properties of undefined (reading 'nesw')"
-      ]
+      "ok": false,
+      "detail": []
     },
     {
       "name": "target cell now has cardId=undefined but owner='player' (phantom)",
-      "ok": true,
+      "ok": false,
       "detail": {
-        "id": "<undefined>",
+        "id": "h_arbiter",
         "owner": "player",
         "nesw": [
-          0,
-          0,
-          0,
-          0
+          8,
+          8,
+          9,
+          9
         ]
       }
     },
     {
       "name": "getScores counts the phantom as an extra Blue point",
-      "ok": true,
+      "ok": false,
       "detail": {
         "scoresBlue": 2,
-        "realBlueCards": 1
+        "realBlueCards": 2
       }
     },
     {
       "name": "player still holds the turn after the exception (turn never ended)",
-      "ok": true
+      "ok": false
     },
     {
       "name": "after the next render the scoreboard shows the inflated Blue score",
-      "ok": true,
+      "ok": false,
       "detail": {
         "you": "2",
-        "boss": "2"
+        "boss": "0"
       }
     }
   ],
   "notes": {
     "startHand": [
-      "h_seraph",
       "h_archangel",
+      "h_kai",
       "h_chronos",
       "h_phoenix",
-      "h_valkyrie"
+      "h_arbiter"
     ],
     "endSnapshot": {
       "stageIndex": 0,
-      "isPlayerTurn": true,
+      "isPlayerTurn": false,
       "gameOver": false,
-      "nudgesLeft": 3,
+      "nudgesLeft": 2,
       "rerollsLeft": 2,
       "usedSlide": false,
       "colDice": [
@@ -91,64 +80,47 @@
         5
       ],
       "hand": [
-        "h_seraph",
         "h_archangel",
+        "h_kai",
         "h_chronos",
         "h_phoenix"
       ],
       "aiPool": [
-        "e_titan",
-        "e_eclipse",
         "e_reaper",
-        "e_cryo"
+        "e_cryo",
+        "e_inferno",
+        "e_titan",
+        "e_archon"
       ],
       "selectedHandIdx": 3,
       "selectedBoardSlot": null,
       "grid": [
         [
           {
-            "id": "e_colossus",
-            "owner": "ai",
-            "nesw": [
-              6,
-              8,
-              5,
-              6
-            ]
-          },
-          {
-            "id": "e_inferno",
-            "owner": "ai",
-            "nesw": [
-              7,
-              7,
-              5,
-              6
-            ]
-          },
-          {
-            "id": "<undefined>",
+            "id": "h_arbiter",
             "owner": "player",
             "nesw": [
-              0,
-              0,
-              0,
-              0
+              8,
+              8,
+              9,
+              9
             ]
-          }
+          },
+          {
+            "id": "e_shinobi",
+            "owner": "player",
+            "nesw": [
+              7,
+              6,
+              6,
+              5
+            ]
+          },
+          null
         ],
         [
           null,
-          {
-            "id": "h_valkyrie",
-            "owner": "player",
-            "nesw": [
-              8,
-              8,
-              5,
-              6
-            ]
-          },
+          null,
           null
         ],
         [
@@ -159,21 +131,19 @@
       ],
       "scores": {
         "blue": 2,
-        "red": 2,
-        "empty": 5
+        "red": 0,
+        "empty": 7
       },
       "domScore": {
         "you": "2",
-        "boss": "2"
+        "boss": "0"
       },
-      "turnBadge": "YOUR TURN",
+      "turnBadge": "BOSS TURN",
       "modalShown": false,
       "modalTitle": "VICTORY!",
       "ghost": false
     }
   },
-  "pageErrors": [
-    "Cannot read properties of undefined (reading 'nesw')"
-  ],
-  "ranAt": "2026-11-08T12:05:41.233Z"
+  "pageErrors": [],
+  "ranAt": "2026-11-09T00:22:45.707Z"
 }

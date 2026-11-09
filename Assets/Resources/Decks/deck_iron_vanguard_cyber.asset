@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: deck_iron_vanguard_cyber
+  m_EditorClassIdentifier: Assembly-CSharp-Editor:Synapse.TcgEngine.EditorTools:SynapseDeckAssetSO
+  deckId: deck_iron_vanguard_cyber
+  deckTitle: Iron Vanguard & Digital Shadow
+  faction: 1
+  strategyDescription: Aggressive tempo deck pairing Mech Knight's Charge double-deployment with Cyber Ninja's Techno Stealth immunity.
+  cards:
+  - {fileID: 11400000, guid: 675181a93f4e25c518eb483db171b02d, type: 2}
+  - {fileID: 11400000, guid: 9ff525adcfb64e939da2f87866cc62c8, type: 2}
+  - {fileID: 11400000, guid: bc6b910bcfcadca45ec8c6b62b231884, type: 2}
+  - {fileID: 11400000, guid: b98557aa7cd199079a1b8ae249c34487, type: 2}
+  - {fileID: 11400000, guid: 500ca3a37d22b2ffdfc2620256cef316, type: 2}
+  - {fileID: 11400000, guid: 4ce7df37e4e4bfa56ff46a00f33adc9d, type: 2}

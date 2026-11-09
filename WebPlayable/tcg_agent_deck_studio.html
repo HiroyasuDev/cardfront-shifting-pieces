@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>CARDFRONT: Cradle of Echoes — TCG Creative Game Designer & Agent Command Deck</title>
+  <style>
+    :root {
+      --bg-void: #070B16;
+      --bg-panel: rgba(13, 20, 38, 0.92);
+      --blue-ally: #00E5FF;
+      --red-enemy: #FF2E54;
+      --gold-accent: #FFB800;
+      --violet-arcane: #A855F7;
+      --jade-jev: #2EE6D3;
+      --text-main: #F8FAFC;
+      --text-dim: #94A3B8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at 50% 20%, #151E3F 0%, #070B16 75%);
+      color: var(--text-main);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100dvh;
+      padding: max(12px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 20px;
+      background: var(--bg-panel);
+      border: 1px solid rgba(255, 184, 0, 0.45);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+    }
+    .brand-title {
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #FFF8DC;
+    }
+    .brand-sub {
+      font-size: 0.85rem;
+      color: var(--blue-ally);
+      margin-top: 3px;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tab-btn {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.16s cubic-bezier(0.22, 1.4, 0.36, 1), border-color 0.16s, background 0.16s;
+    }
+    .tab-btn:hover, .tab-btn:focus-visible {
+      border-color: var(--gold-accent);
+      transform: translateY(-2px);
+      outline: 2px solid var(--gold-accent);
+      outline-offset: 2px;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.35), rgba(0, 229, 255, 0.25));
+      border-color: var(--gold-accent);
+      color: #FFF;
+    }
+    .studio-workspace {
+      display: grid;
+      grid-template-columns: 1fr 390px;
+      gap: 16px;
+      flex: 1;
+      min-height: 0;
+    }
+    @media (max-width: 1080px) {
+      .studio-workspace { grid-template-columns: 1fr; }
+    }
+    .deck-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 14px;
+      align-content: start;
+      padding: 14px;
+      background: var(--bg-panel);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      border-radius: 14px;
+      overflow-y: auto;
+      max-height: 78dvh;
+    }
+    .tcg-card-slot {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      border-radius: 12px;
+      background: #0B1020;
+      border: 2px solid rgba(255, 184, 0, 0.45);
+      overflow: hidden;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.22, 1.4, 0.36, 1), box-shadow 0.2s, border-color 0.2s;
+    }
+    .tcg-card-slot:hover, .tcg-card-slot:focus-visible {
+      transform: translateY(-6px) rotateX(4deg) rotateY(-4deg) scale(1.03);
+      border-color: var(--blue-ally);
+      box-shadow: 0 14px 28px rgba(0, 229, 255, 0.28);
+      outline: 2px solid var(--gold-accent);
+    }
+    .tcg-card-slot.selected {
+      border-color: var(--gold-accent);
+      box-shadow: 0 0 22px rgba(255, 184, 0, 0.55);
+    }
+    .tcg-card-slot img.card-art {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .tcg-card-slot .svg-badge-corner {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(7, 11, 22, 0.85);
+      border: 1px solid var(--gold-accent);
+      padding: 2px;
+    }
+    .inspector-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px;
+      background: var(--bg-panel);
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      border-radius: 14px;
+    }
+    .inspector-preview {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+    .inspector-preview img.big-card {
+      width: 180px;
+      height: 240px;
+      border-radius: 10px;
+      border: 2px solid var(--gold-accent);
+      object-fit: cover;
+    }
+    .inspector-meta h2 {
+      font-size: 1.1rem;
+      color: #FFF8DC;
+      margin-bottom: 4px;
+    }
+    .inspector-meta .sub {
+      font-size: 0.8rem;
+      color: var(--blue-ally);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .inspector-meta .ability-box {
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: #E2E8F0;
+      background: rgba(15, 23, 42, 0.85);
+      border-left: 3px solid var(--gold-accent);
+      padding: 8px 10px;
+      border-radius: 6px;
+      margin-top: 6px;
+    }
+    .synergy-grid-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--gold-accent);
+      letter-spacing: 0.04em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .synergy-3x3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .synergy-cell {
+      aspect-ratio: 3 / 4;
+      background: rgba(10, 16, 32, 0.9);
+      border: 1.5px dashed rgba(0, 229, 255, 0.4);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .synergy-cell:hover, .synergy-cell:focus-visible {
+      border-color: var(--gold-accent);
+      outline: 2px solid var(--gold-accent);
+    }
+    .synergy-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="brand-title">CARDFRONT: CRADLE OF ECHOES — TCG CREATIVE GAME DESIGNER & AGENT DECK</div>
+      <div class="brand-sub">37 Studio-Mastered 600×800 Cards · 37 Code-Native 256×256 SVG Emblems · 4 Plugins · 93+ Skills · 12 Tool Spells · 9 MCP Conduits</div>
+    </div>
+    <div class="filter-bar" role="tablist" aria-label="Agent Capability Tiers">
+      <button class="tab-btn active" data-tier="ALL" tabindex="0">All 37 Cards</button>
+      <button class="tab-btn" data-tier="MYTHIC_PLUGIN" tabindex="0">4 Sovereign Plugins</button>
+      <button class="tab-btn" data-tier="ARCANE_SKILL" tabindex="0">12 Skill Tarots (93+ Skills)</button>
+      <button class="tab-btn" data-tier="TACTICAL_SPELL" tabindex="0">12 Tool-Calling Spells</button>
+      <button class="tab-btn" data-tier="MCP_CONDUIT" tabindex="0">9 MCP Conduits (52+ Tools)</button>
+      <a class="tab-btn" href="cardfront_cradle_of_echoes_playable.html" style="text-decoration:none;">Launch 3D Tabletop Battle</a>
+    </div>
+  </header>
+
+  <main class="studio-workspace">
+    <section class="deck-gallery" id="deckGallery" aria-label="Agent TCG Card Gallery"></section>
+
+    <aside class="inspector-sidebar" aria-label="Card Inspector & 3x3 Synergy Board">
+      <div class="inspector-preview">
+        <img id="inspCardImg" class="big-card" src="../GeneratedArt/AgentDeck/Cards/plugin_01_tcg_creative_designer.png" alt="Selected Card Portrait" />
+        <div class="inspector-meta">
+          <img id="inspSvgImg" src="../GeneratedArt/AgentDeck/SVGs/plugin_01_tcg_creative_designer.svg" alt="SVG Crest" style="width:54px;height:54px;margin-bottom:6px;" />
+          <h2 id="inspTitle">Grand Arcanist of CardCraft</h2>
+          <div class="sub" id="inspSub">PLUGIN · tcg-creative-game-designer</div>
+          <div id="inspStats" style="font-size:0.8rem;color:#FFE082;font-weight:700;">Cost 5 · [N:8 E:7 S:6 W:7]</div>
+          <div class="ability-box" id="inspAbility">DEPLOY: Compiles 8-block morphological briefs, 600×800 portraits, & SVG telegraphs.</div>
+        </div>
+      </div>
+
+      <div class="synergy-grid-title">
+        <span>3×3 AGENT SWARM SYNERGY BOARD (Click Cell to Deploy Selected Card)</span>
+        <span id="synergyPower" style="color:#00E5FF;">Total Power: 0</span>
+      </div>
+      <div class="synergy-3x3" id="synergyBoard"></div>
+
+      <div class="synergy-grid-title" style="margin-top:4px;">
+        <span>3D .GLB / .Q3GS WATERTIGHT MANIFOLD RELIC &amp; 4-BONE RIG</span>
+        <span id="glbEulerBadge" style="color:#2EE6D3;font-size:0.76rem;">V=4,034 · E=12,096 · F=8,064 · χ=2</span>
+      </div>
+      <canvas id="glbRelicCanvas" width="356" height="150" style="width:100%;height:150px;background:radial-gradient(circle,#122449 0%,#050914 85%);border-radius:10px;border:1px solid rgba(46,230,211,0.45);"></canvas>
+      <div id="glbTelemetryBox" style="font-family:ui-monospace,monospace;font-size:0.74rem;color:#93c5fd;background:#070c18;padding:7px 9px;border-radius:8px;border:1px solid #1e3a8a;line-height:1.35;">
+        Relic: <b>agent_01_grand_arcanist_designer.glb</b> + <b>.q3gs</b><br/>
+        Rig: <b>4 Joints (Bone_0_Root → Bone_3_HeadCrest)</b> · Anim: <b>Idle_Breathing / Tactical_Strike</b>
+      </div>
+
+      <div class="synergy-grid-title" style="margin-top:4px;">
+        <span>UNITY 6 (6000.6.8f1) + REA 6.8.0 + OWNED TCG ENGINE BASELINE</span>
+        <span id="unityReaBadge" style="color:#FFB800;font-size:0.76rem;">139 .asset Cards · PASS_ALL_GATES</span>
+      </div>
+      <div id="unityReaTelemetryBox" style="font-family:ui-monospace,monospace;font-size:0.72rem;color:#cbd5e1;background:#070c18;padding:7px 9px;border-radius:8px;border:1px solid rgba(255,184,0,0.42);line-height:1.35;">
+        Unity CLI: <b>6000.6.8f1 (-batchmode -nographics)</b> · Roslyn <b>.NET 8.0.318</b><br/>
+        Owned Baseline: <b>TCG Engine (213.9 MB · 229 C# + 45 Node API)</b> → <b>79 TcgEngine + 60 CardDataSO = 139 .asset</b><br/>
+        REA Decompile: <b>rea@6.8.0 (Assembly-CSharp.dll · 453,120 B · ev_bd5f72e3...)</b><br/>
+        MCP Servers: <b>unity-tcg-headless · rea-reverse-engineer · tcg-creative-studio</b>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    let deckAssets = [];
+    let selectedCard = null;
+    const boardState = Array(9).fill(null);
+
+    async function initStudio() {
+      const resp = await fetch("../GeneratedArt/AgentDeck/asset-manifest.json");
+      const manifest = await resp.json();
+      deckAssets = manifest.assets || [];
+      selectedCard = deckAssets[0];
+      renderGallery("ALL");
+      renderInspector(selectedCard);
+      renderBoard();
+      try {
+        const reaResp = await fetch("../Datasets/rea_tcg_engine_baseline_decompile_ledger.json");
+        if (reaResp.ok) {
+          const reaLedger = await reaResp.json();
+          const s = reaLedger.summary || {};
+          const badge = document.getElementById("unityReaBadge");
+          if (badge && s.combined_unity_card_assets_total) {
+            badge.textContent = `${s.combined_unity_card_assets_total} .asset Cards · ${s.status || "PASS_ALL_GATES"}`;
+          }
+        }
+      } catch (_) {}
+    }
+
+    function renderGallery(tierFilter) {
+      const gallery = document.getElementById("deckGallery");
+      gallery.innerHTML = "";
+      const filtered = tierFilter === "ALL" ? deckAssets : deckAssets.filter(c => c.tier === tierFilter);
+      filtered.forEach((card, idx) => {
+        const slot = document.createElement("div");
+        slot.className = "tcg-card-slot" + (selectedCard && selectedCard.id === card.id ? " selected" : "");
+        slot.tabIndex = 0;
+        slot.setAttribute("role", "button");
+        slot.setAttribute("aria-label", `${card.title} (${card.subtitle})`);
+        slot.innerHTML = `
+          <img class="card-art" src="../${card.card_png}" alt="${card.title}" loading="lazy" />
+          <img class="svg-badge-corner" src="../${card.emblem_svg}" alt="${card.id} emblem" />
+        `;
+        const selectFn = () => {
+          selectedCard = card;
+          document.querySelectorAll(".tcg-card-slot").forEach(el => el.classList.remove("selected"));
+          slot.classList.add("selected");
+          renderInspector(card);
+        };
+        slot.addEventListener("click", selectFn);
+        slot.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            selectFn();
+          }
+        });
+        gallery.appendChild(slot);
+      });
+    }
+
+    function renderInspector(card) {
+      if (!card) return;
+      document.getElementById("inspCardImg").src = "../" + card.card_png;
+      document.getElementById("inspSvgImg").src = "../" + card.emblem_svg;
+      document.getElementById("inspTitle").textContent = card.title;
+      document.getElementById("inspSub").textContent = card.subtitle;
+      const [n, e, s, w] = card.stats_nesw;
+      document.getElementById("inspStats").textContent = `Cost ${card.cost} · [N:${n} E:${e} S:${s} W:${w}] · ${card.telegraph}`;
+      document.getElementById("inspAbility").textContent = card.ability;
+      updateGlbTelemetry(card);
+    }
+
+    const GLB_RELIC_BY_TIER = {
+      "plugin_01_tcg_creative_designer": "agent_01_grand_arcanist_designer",
+      "plugin_02_parallel_swarm_orchestrator": "agent_02_chronos_swarm_commander",
+      "plugin_03_jev_system_one": "agent_03_hallowed_arbiter_jev",
+      "plugin_04_mlx_apple_silicon": "agent_04_a18_pro_metal_sovereign",
+      "MYTHIC_PLUGIN": "agent_01_grand_arcanist_designer",
+      "ARCANE_SKILL": "agent_05_router_spellbook_compass",
+      "TACTICAL_SPELL": "agent_05_router_spellbook_compass",
+      "MCP_CONDUIT": "agent_06_celestial_mcp_astrolabe"
+    };
+
+    function updateGlbTelemetry(card) {
+      const relicId = GLB_RELIC_BY_TIER[card.id] || GLB_RELIC_BY_TIER[card.tier] || "agent_01_grand_arcanist_designer";
+      const box = document.getElementById("glbTelemetryBox");
+      if (box) {
+        box.innerHTML =
+          `Relic: <b>Assets/Resources/Models3D/AgentDeck/${relicId}.glb</b> + <b>.q3gs</b><br/>` +
+          `Topology: <b>V=4,034 · E=12,096 · F=8,064 · χ = V-E+F = 2 (Watertight)</b> · 4-Bone PBR Rig`;
+      }
+    }
+
+    let glbAngle = 0;
+    function animateGlbRelicCanvas() {
+      const c = document.getElementById("glbRelicCanvas");
+      if (c) {
+        const ctx = c.getContext("2d");
+        const W = c.width, H = c.height;
+        ctx.clearRect(0, 0, W, H);
+        glbAngle += 0.022;
+        const pHex = (selectedCard && selectedCard.primary_hex) || "#00E5FF";
+        const aHex = (selectedCard && selectedCard.accent_hex) || "#FFB800";
+        const cx = W * 0.5, cy = H * 0.54 + Math.sin(glbAngle * 2) * 4;
+        // Isometric base pedestal
+        ctx.strokeStyle = aHex;
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        ctx.ellipse(cx, H - 22, 68, 16, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        // Rotating 3D octahedron-manifold wireframe & 4-bone spine
+        const verts = [
+          [0, -48, 0], [38, -8, 0], [0, -8, 38], [-38, -8, 0], [0, -8, -38],
+          [26, 28, 26], [-26, 28, 26], [-26, 28, -26], [26, 28, -26], [0, 44, 0]
+        ];
+        const proj = verts.map(([x, y, z]) => {
+          const rx = x * Math.cos(glbAngle) - z * Math.sin(glbAngle);
+          const rz = x * Math.sin(glbAngle) + z * Math.cos(glbAngle);
+          const s = 170 / (170 + rz);
+          return [cx + rx * s, cy + y * s];
+        });
+        const edges = [
+          [0,1],[0,2],[0,3],[0,4],[1,2],[2,3],[3,4],[4,1],
+          [1,5],[2,5],[2,6],[3,6],[3,7],[4,7],[4,8],[1,8],
+          [5,6],[6,7],[7,8],[8,5],[5,9],[6,9],[7,9],[8,9]
+        ];
+        ctx.strokeStyle = pHex;
+        ctx.lineWidth = 1.4;
+        edges.forEach(([i, j]) => {
+          ctx.beginPath();
+          ctx.moveTo(proj[i][0], proj[i][1]);
+          ctx.lineTo(proj[j][0], proj[j][1]);
+          ctx.stroke();
+        });
+        // 4 Skeletal Rig Joints (Bone_0_Root -> Bone_3_HeadCrest)
+        [[cx, cy + 38], [cx, cy + 12], [cx, cy - 14], [cx, cy - 42]].forEach(([bx, by], bIdx) => {
+          ctx.fillStyle = bIdx === 3 ? "#FFF" : aHex;
+          ctx.beginPath();
+          ctx.arc(bx, by, 3.5, 0, Math.PI * 2);
+          ctx.fill();
+        });
+      }
+      requestAnimationFrame(animateGlbRelicCanvas);
+    }
+    requestAnimationFrame(animateGlbRelicCanvas);
+
+    function renderBoard() {
+      const board = document.getElementById("synergyBoard");
+      board.innerHTML = "";
+      let totalPower = 0;
+      boardState.forEach((placed, i) => {
+        const cell = document.createElement("div");
+        cell.className = "synergy-cell";
+        cell.tabIndex = 0;
+        if (placed) {
+          totalPower += placed.stats_nesw.reduce((a, b) => a + b, 0);
+          cell.innerHTML = `<img src="../${placed.card_png}" alt="${placed.title}" />`;
+        } else {
+          cell.textContent = `Slot ${i + 1}`;
+        }
+        const placeFn = () => {
+          if (!selectedCard) return;
+          const prevIdx = boardState.findIndex(c => c && c.id === selectedCard.id);
+          if (prevIdx !== -1) boardState[prevIdx] = null;
+          boardState[i] = selectedCard;
+          renderBoard();
+        };
+        cell.addEventListener("click", placeFn);
+        cell.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            placeFn();
+          }
+        });
+        board.appendChild(cell);
+      });
+      document.getElementById("synergyPower").textContent = `Total Edge Power: ${totalPower}`;
+    }
+
+    document.querySelectorAll(".tab-btn[data-tier]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn[data-tier]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderGallery(btn.dataset.tier);
+      });
+    });
+
+    initStudio();
+  </script>
+</body>
+</html>

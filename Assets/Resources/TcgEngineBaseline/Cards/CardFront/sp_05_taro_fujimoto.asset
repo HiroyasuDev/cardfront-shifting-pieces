@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843a21f7f6f205741a0a7341aec8e84d, type: 3}
+  m_Name: sp_05_taro_fujimoto
+  m_EditorClassIdentifier: 
+  id: sp_05_taro_fujimoto
+  title: Taro Fujimoto, Okitsu VR Cafe Anchor
+  art_full: {fileID: 21300008, guid: 58e81fd6e87d70eb2dabb2069167dd7b, type: 3}
+  art_board: {fileID: 21300008, guid: 58e81fd6e87d70eb2dabb2069167dd7b, type: 3}
+  type: 10
+  team: {fileID: 11400000, guid: b80d8061c5bdb2e408e62a08e0e743ca, type: 2}
+  rarity: {fileID: 11400000, guid: 15eaa2a0fbd97f149b3aa87387c160d1, type: 2}
+  mana: 3
+  attack: 7
+  hp: 8
+  traits:
+  - {fileID: 11400000, guid: ce0807cc62e886b4994c9e2646420845, type: 2}
+  stats: []
+  abilities:
+  - {fileID: 11400000, guid: b5870bd93b31c9a970a7073348bf7473, type: 2}
+  - {fileID: 11400000, guid: 6be7ca2448b84d179261ac37082fbd7d, type: 2}
+  text: '<b>Activate:</b> RealityAnchorShield (+3 HP/Armor) & BudgeShiftPlus. [N:7 E:7 S:8 W:6]'
+  desc: 'Kai''s loyal 18-year-old friend and Okitsu VR Cafe barista who grounds Kai in the physical world when Mnemosyne destabilizes.'
+  spawn_fx: {fileID: 9125387663047351618, guid: bac685160af4aff46ae561a51da6f5f4, type: 3}
+  death_fx: {fileID: 0}
+  attack_fx: {fileID: 0}
+  damage_fx: {fileID: 0}
+  idle_fx: {fileID: 0}
+  spawn_audio: {fileID: 0}
+  death_audio: {fileID: 0}
+  attack_audio: {fileID: 0}
+  damage_audio: {fileID: 0}
+  deckbuilding: 1
+  cost: 175
+  packs:
+  - {fileID: 11400000, guid: 5ee90953bd6c1ed5bbfed1b97dde6640, type: 2}
+  - {fileID: 11400000, guid: f964322c13cffef458fc6c9a777f753d, type: 2}
+  dir_north: 7
+  dir_east: 6
+  dir_south: 8
+  dir_west: 7
+  dice_pip_affinity: 5
+  sovereign_style_id: sovereign_tier_5
+  glb_model_id: sp_05_taro_fujimoto

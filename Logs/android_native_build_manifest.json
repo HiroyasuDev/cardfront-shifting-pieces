@@ -1,0 +1,52 @@
+{
+  "platform": "android_native",
+  "package_id": "io.lumenforge.cardfront3d",
+  "min_sdk": 29,
+  "target_sdk": 35,
+  "screen_orientation": "sensorLandscape",
+  "hardware_accelerated": true,
+  "vibration_effect_haptics": true,
+  "atomic_save_v3": true,
+  "zero_token_store_compliance": true,
+  "status": "VERIFIED",
+  "timestamp_utc": "2026-11-09T05:56:20.303968+00:00",
+  "kotlin_host_verification": {
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/NativeAndroid/CardFrontAndroidNativeHost.kt",
+    "sha256": "0514803ba7d46e8e8d0806f241e6ade14ffc2af9a43e8ada4d9cb3cfd39131ae",
+    "open_braces": 84,
+    "close_braces": 84,
+    "balanced_braces": true,
+    "required_symbols_verified": 12,
+    "missing_symbols": [],
+    "supported_haptic_styles": [
+      "light",
+      "medium",
+      "heavy",
+      "selection",
+      "rigid",
+      "soft",
+      "success",
+      "warning",
+      "error"
+    ],
+    "missing_haptic_styles": [],
+    "valid": true
+  },
+  "android_manifest_verification": {
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/NativeAndroid/AndroidManifest.xml",
+    "sha256": "7143f4519139afdbed8e9cc3ca9ef7aa9d4dd8eaedabf9519160fd70d5cdc12f",
+    "package_id": "io.lumenforge.cardfront3d",
+    "min_sdk": 29,
+    "target_sdk": 35,
+    "vibrate_permission": true,
+    "hardware_accelerated": true,
+    "screen_orientation": "sensorLandscape",
+    "valid": true
+  },
+  "web_playable_and_save_verification": {
+    "playable_html_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+    "playable_html_sha256": "c532694c8d9a205a54fda49c8b24c08e0edb885b957211c448c4c85241b9760f",
+    "custom_svg_icon_count": 23,
+    "atomic_save_v3_self_test": true
+  }
+}

@@ -97,9 +97,9 @@ class _NcmFleetNamespace:
     """
 
     @staticmethod
-    def _query_ollama_node(target: FleetNodeTarget, prompt: str, num_predict: int = 160, timeout_s: float = 35.0) -> Dict[str, Any]:
+    def _query_ollama_node(target: FleetNodeTarget, prompt: str, num_predict: int = 160, timeout_s: float = 15.0) -> Dict[str, Any]:
         t0 = time.time()
-        for candidate_model in (target.model, target.fallback_model):
+        for candidate_model in dict.fromkeys((target.model, target.fallback_model)):
             payload: Dict[str, Any] = {
                 "model": candidate_model,
                 "messages": [

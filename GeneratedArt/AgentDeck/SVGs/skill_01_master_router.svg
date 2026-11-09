@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" data-card-id="skill_01_master_router" data-tier="ARCANE_SKILL">
+  <defs>
+    <linearGradient id="bg_skill_01_master_router" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1020"/>
+      <stop offset="55%" stop-color="#141B33"/>
+      <stop offset="100%" stop-color="#090B10"/>
+    </linearGradient>
+  </defs>
+  <rect x="12" y="12" width="232" height="232" rx="34" fill="url(#bg_skill_01_master_router)" stroke="#00E5FF" stroke-width="5"/>
+  <rect x="22" y="22" width="212" height="212" rx="26" fill="none" stroke="#FFB800" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="8 4"/>
+  <!-- 4 Directional Edge Stat Gems (N=7, E=6, S=6, W=6) -->
+  <polygon points="128,14 140,28 128,42 116,28" fill="#FFB800" stroke="#FFF" stroke-width="1.5"/>
+  <polygon points="242,128 228,140 214,128 228,116" fill="#00E5FF" stroke="#FFF" stroke-width="1.5"/>
+  <polygon points="128,242 140,228 128,214 116,228" fill="#FFB800" stroke="#FFF" stroke-width="1.5"/>
+  <polygon points="14,128 28,140 42,128 28,116" fill="#00E5FF" stroke="#FFF" stroke-width="1.5"/>
+  
+        <circle cx="128" cy="128" r="72" fill="none" stroke="#00E5FF" stroke-width="2.5" stroke-dasharray="6 4"/>
+        <polygon points="128,44 144,112 212,128 144,144 128,212 112,144 44,128 112,112" fill="#FFB800" fill-opacity="0.3" stroke="#00E5FF" stroke-width="3"/>
+        <polygon points="128,68 138,118 188,128 138,138 128,188 118,138 68,128 118,118" fill="#00E5FF"/>
+        <circle cx="128" cy="128" r="12" fill="#0A1020" stroke="#FFF" stroke-width="3"/>
+        
+</svg>

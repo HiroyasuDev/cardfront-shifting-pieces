@@ -83,6 +83,76 @@ namespace Synapse.TcgEngine.Core
         public const float HitStopFreezeMs = 48.0f;
 
         /// <summary>
+        /// Configures Indie Marc's TcgEngine <see cref="Slot"/> static bounds for our shared 3x3 head-to-head
+        /// Citadel tabletop grid (<c>x: 1..3, y: 1..3, ignore_p = true</c>).
+        /// </summary>
+        public static void Configure3x3SharedTabletopGrid()
+        {
+            Slot.x_min = 1;
+            Slot.x_max = 3;
+            Slot.y_min = 1;
+            Slot.y_max = 3;
+            Slot.ignore_p = true;
+        }
+
+        /// <summary>
+        /// Returns true if a placed board card can execute a 1-tile orthogonal Tactical Slide onto <paramref name="target_slot"/>.
+        /// </summary>
+        public static bool CanTacticalSlide3x3(Game game_data, Card card, Slot target_slot)
+        {
+            if (game_data == null || card == null || !target_slot.IsValid())
+                return false;
+            if (!game_data.IsOnBoard(card))
+                return false;
+            if (game_data.GetSlotCard(target_slot) != null)
+                return false;
+            int dx = Mathf.Abs(target_slot.x - card.slot.x);
+            int dy = Mathf.Abs(target_slot.y - card.slot.y);
+            return (dx + dy) == 1;
+        }
+
+        /// <summary>
+        /// Executes a 1-tile orthogonal Tactical Slide on the 3x3 board and resolves directional NESW captures from the new tile.
+        /// </summary>
+        public static CardFrontPlayResolution ExecuteTacticalSlide3x3(Game game_data, Card card, Slot target_slot)
+        {
+            if (!CanTacticalSlide3x3(game_data, card, target_slot))
+                return default;
+            card.slot = target_slot;
+            card.SetTrait("cf_tactical_slide_used", 1);
+            return OnCardPlayedEvaluate3x3AndResonance(game_data, card, target_slot);
+        }
+
+        /// <summary>
+        /// Evaluates the Boss Commander's deterministic next Holo-Telegraph target slot and incoming construct card ID.
+        /// </summary>
+        public static bool EvaluateBossHoloTelegraphSlot(Game game_data, int boss_player_id, out string incoming_card_id, out Slot target_slot)
+        {
+            incoming_card_id = "";
+            target_slot = Slot.None;
+            if (game_data == null)
+                return false;
+            Player boss = game_data.GetPlayer(boss_player_id);
+            if (boss == null || boss.cards_hand == null || boss.cards_hand.Count == 0)
+                return false;
+            Card nextCard = boss.cards_hand[0];
+            incoming_card_id = nextCard != null ? nextCard.card_id : "";
+            for (int y = 1; y <= Slot.cf_grid_size; y++)
+            {
+                for (int x = 1; x <= Slot.cf_grid_size; x++)
+                {
+                    Slot candidate = new Slot(x, y, Slot.GetP(boss_player_id));
+                    if (game_data.GetSlotCard(candidate) == null)
+                    {
+                        target_slot = candidate;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Rolls the 5-dice Dicevaders row at the start of a turn, refreshing Budge tokens and Chrono charges
         /// according to the active chapter's progressive pacing profile, and evaluates the active resonance multiplier.
         /// </summary>

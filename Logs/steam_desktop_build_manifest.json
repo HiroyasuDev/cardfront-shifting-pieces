@@ -1,0 +1,48 @@
+{
+  "platform": "steam_desktop",
+  "steam_app_id": 3294810,
+  "steam_deck_verified_profile": true,
+  "steam_cloud_save_v3": true,
+  "steam_input_dualsense_xinput_haptics": true,
+  "rich_presence_enabled": true,
+  "zero_token_store_compliance": true,
+  "status": "VERIFIED",
+  "timestamp_utc": "2026-11-09T05:56:20.326418+00:00",
+  "csharp_host_verification": {
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/NativeSteam/CardFrontSteamDesktopHost.cs",
+    "sha256": "fabd756389c0530da69e3d0f81ee6287520ddfed73d42c02d2535ce0cf5b8f88",
+    "open_braces": 54,
+    "close_braces": 54,
+    "balanced_braces": true,
+    "required_symbols_verified": 14,
+    "missing_symbols": [],
+    "valid": true
+  },
+  "steampipe_vdf_verification": {
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/NativeSteam/steam_app_build_3294810.vdf",
+    "sha256": "c49cf4ab9e874fc82ec966caa402cfc02e1bff8501054174d03237db6158e1a7",
+    "open_braces": 8,
+    "close_braces": 8,
+    "balanced_braces": true,
+    "depots": {
+      "3294811": "Windows 64-bit Desktop (DirectX 12 / Vulkan)",
+      "3294812": "macOS Universal / Apple Silicon Metal (ProMotion 120Hz)",
+      "3294813": "Linux 64-bit / SteamOS 3.x (Steam Deck OLED 90Hz Verified)"
+    },
+    "missing_tokens": [],
+    "valid": true
+  },
+  "steam_cloud_and_input_verification": {
+    "cloud_save_filename": "save_v3.json",
+    "auto_cloud_roundtrip_verified": true,
+    "rich_presence_tokens": [
+      "#Status_InTacticalMatch",
+      "#Status_GrimoireSanctum"
+    ],
+    "steam_input_controllers": [
+      "Steam Deck Built-in Controller (Trackpad Haptic Pulse + HD Rumble)",
+      "Sony DualSense Wireless Controller (Adaptive Trigger + Rumble)",
+      "Xbox Series X|S XInput Controller (Dual-Motor Impulse Rumble)"
+    ]
+  }
+}

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cc_03_storyboard
   m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
   id: cc_03_storyboard
-  title: "Storyboard"
-  codeName: "Execution Tier 1"
+  title: Storyboard
+  codeName: Execution Tier 1
   baseStats:
     up: 5
     down: 6
@@ -22,9 +22,9 @@ MonoBehaviour:
     right: 6
   themes: 1024
   specialAbility: 0
-  specialAbilityDescription: "Creative Portfolio Card: Evolves after repeated match mastery."
+  specialAbilityDescription: 'Creative Portfolio Card: Evolves after repeated match mastery.'
   synergyRequiredTheme: 1024
   synergyAllSidesBonus: 1
-  synergyName: "Narrative Flow"
-  evolvesToCardId: "cc_04_animatic"
+  synergyName: Narrative Flow
+  evolvesToCardId: cc_04_animatic
   cardArt: {fileID: 21300000, guid: eb03d52b0e95bf2fbf3fdf456d30621e, type: 3}

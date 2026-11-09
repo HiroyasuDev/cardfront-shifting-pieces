@@ -5,6 +5,7 @@ import os
 
 ROOT_DIR = "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine"
 REPORT_PATH = os.path.join(ROOT_DIR, "Datasets", "osascript_3d_game_e2e_report.json")
+PLAYABLE_REL_URL = "/WebPlayable/cardfront_cradle_of_echoes_playable.html"
 
 class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -12,7 +13,16 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
 
     def end_headers(self):
         self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+        self.send_header("Access-Control-Allow-Origin", "*")
         super().end_headers()
+
+    def do_GET(self):
+        if self.path in ("/", "/play", "/index.html"):
+            self.send_response(302)
+            self.send_header("Location", PLAYABLE_REL_URL)
+            self.end_headers()
+            return
+        super().do_GET()
 
     def do_POST(self):
         if self.path.startswith("/__osascript_report__"):
@@ -37,5 +47,6 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     http.server.ThreadingHTTPServer.allow_reuse_address = True
-    with http.server.ThreadingHTTPServer(("127.0.0.1", 8096), PlaytestHandler) as httpd:
+    # Bind to 0.0.0.0 so both 127.0.0.1 (local harness) and LAN MacBooks/iPads (192.168.86.125) can connect
+    with http.server.ThreadingHTTPServer(("0.0.0.0", 8096), PlaytestHandler) as httpd:
         httpd.serve_forever()

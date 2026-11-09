@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <defs>
+    <linearGradient id="cf-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3B0"/><stop offset="45%" stop-color="#FFB800"/><stop offset="85%" stop-color="#B4690E"/><stop offset="100%" stop-color="#5E3304"/>
+    </linearGradient>
+    <linearGradient id="cf-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0FFFF"/><stop offset="35%" stop-color="#00E5FF"/><stop offset="80%" stop-color="#0284C7"/><stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="cf-jade-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CCFBF1"/><stop offset="42%" stop-color="#2EE6D3"/><stop offset="85%" stop-color="#0F766E"/><stop offset="100%" stop-color="#042F2E"/>
+    </linearGradient>
+    <linearGradient id="cf-obsidian-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/><stop offset="50%" stop-color="#0F172A"/><stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+  </defs>
+  <path d="M128,16 L224,54 V126 C224,184 180,224 128,242 C76,224 32,184 32,126 V54 Z" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="12" stroke-linejoin="round"/>
+  <polygon points="128,42 192,78 192,152 128,188 64,152 64,78" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="6" stroke-linejoin="round"/>
+  <polygon points="128,58 176,86 176,144 128,172 80,144 80,86" fill="url(#cf-obsidian-grad)" stroke="url(#cf-jade-grad)" stroke-width="5" stroke-dasharray="12 6" stroke-linejoin="round"/>
+  <circle cx="128" cy="106" r="22" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="4"/>
+  <polygon points="116,118 140,118 148,166 108,166" fill="url(#cf-gold-grad)"/>
+  <path d="M92,192 L118,214 L172,164" fill="none" stroke="url(#cf-jade-grad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="128" cy="106" r="9" fill="#0F172A"/>
+</svg>

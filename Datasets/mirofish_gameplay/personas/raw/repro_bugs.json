@@ -3,46 +3,41 @@
     "1280x720": {
       "innerWidth": 1280,
       "innerHeight": 720,
-      "docScrollWidth": 1333,
-      "reroll_button": {
-        "right": 1465,
-        "bottom": 321,
-        "clipped_x": true,
-        "clipped_y": false
-      },
+      "docScrollWidth": 1280,
+      "reroll_button": null,
       "nudge_counter": {
-        "right": 1465,
-        "bottom": 75,
-        "clipped_x": true,
+        "right": 839,
+        "bottom": 99,
+        "clipped_x": false,
         "clipped_y": false
       },
       "turn_badge": {
-        "right": 1465,
-        "bottom": 545,
-        "clipped_x": true,
+        "right": 804,
+        "bottom": 29,
+        "clipped_x": false,
         "clipped_y": false
       },
       "last_move_banner": {
-        "right": 1465,
-        "bottom": 701,
-        "clipped_x": true,
+        "right": 1266,
+        "bottom": 706,
+        "clipped_x": false,
         "clipped_y": false
       },
       "right_panel": {
-        "right": 1478,
-        "bottom": 712,
-        "clipped_x": true,
+        "right": 219,
+        "bottom": 232,
+        "clipped_x": false,
         "clipped_y": false
       },
       "grid": {
-        "right": 939,
-        "bottom": 664,
+        "right": 783,
+        "bottom": 584,
         "clipped_x": false,
         "clipped_y": false
       },
       "hand": {
-        "right": 265,
-        "bottom": 701,
+        "right": 935,
+        "bottom": 705,
         "clipped_x": false,
         "clipped_y": false
       }
@@ -51,45 +46,40 @@
       "innerWidth": 1408,
       "innerHeight": 800,
       "docScrollWidth": 1408,
-      "reroll_button": {
-        "right": 1409,
-        "bottom": 321,
-        "clipped_x": true,
-        "clipped_y": false
-      },
+      "reroll_button": null,
       "nudge_counter": {
-        "right": 1409,
-        "bottom": 75,
-        "clipped_x": true,
+        "right": 903,
+        "bottom": 99,
+        "clipped_x": false,
         "clipped_y": false
       },
       "turn_badge": {
-        "right": 1409,
-        "bottom": 625,
-        "clipped_x": true,
+        "right": 868,
+        "bottom": 29,
+        "clipped_x": false,
         "clipped_y": false
       },
       "last_move_banner": {
-        "right": 1409,
-        "bottom": 781,
-        "clipped_x": true,
+        "right": 1394,
+        "bottom": 786,
+        "clipped_x": false,
         "clipped_y": false
       },
       "right_panel": {
-        "right": 1422,
-        "bottom": 792,
-        "clipped_x": true,
+        "right": 219,
+        "bottom": 232,
+        "clipped_x": false,
         "clipped_y": false
       },
       "grid": {
-        "right": 931,
-        "bottom": 730,
+        "right": 867,
+        "bottom": 633,
         "clipped_x": false,
         "clipped_y": false
       },
       "hand": {
-        "right": 265,
-        "bottom": 781,
+        "right": 1035,
+        "bottom": 785,
         "clipped_x": false,
         "clipped_y": false
       }
@@ -98,45 +88,40 @@
       "innerWidth": 1920,
       "innerHeight": 1080,
       "docScrollWidth": 1920,
-      "reroll_button": {
-        "right": 1753,
-        "bottom": 321,
-        "clipped_x": false,
-        "clipped_y": false
-      },
+      "reroll_button": null,
       "nudge_counter": {
-        "right": 1753,
-        "bottom": 75,
+        "right": 1159,
+        "bottom": 99,
         "clipped_x": false,
         "clipped_y": false
       },
       "turn_badge": {
-        "right": 1753,
-        "bottom": 905,
+        "right": 1124,
+        "bottom": 29,
         "clipped_x": false,
         "clipped_y": false
       },
       "last_move_banner": {
-        "right": 1753,
-        "bottom": 1061,
+        "right": 1906,
+        "bottom": 1066,
         "clipped_x": false,
         "clipped_y": false
       },
       "right_panel": {
-        "right": 1766,
-        "bottom": 1072,
+        "right": 219,
+        "bottom": 232,
         "clipped_x": false,
         "clipped_y": false
       },
       "grid": {
-        "right": 1213,
-        "bottom": 921,
+        "right": 1161,
+        "bottom": 811,
         "clipped_x": false,
         "clipped_y": false
       },
       "hand": {
-        "right": 405,
-        "bottom": 1061,
+        "right": 1332,
+        "bottom": 1065,
         "clipped_x": false,
         "clipped_y": false
       }
@@ -145,7 +130,10 @@
   "boss_tiebreak": {
     "trials": 200,
     "placement_counts_on_all_tie_board": {
-      "0,0": 200
+      "0,2": 27,
+      "2,0": 64,
+      "0,0": 39,
+      "2,2": 70
     }
   },
   "captured_card_stat_drift": {
@@ -170,33 +158,33 @@
       7
     ],
     "after_unrelated_nudge": [
-      7,
-      5,
-      7,
-      6
+      8,
+      6,
+      8,
+      7
     ],
-    "changed": true
+    "changed": false
   },
   "stage_boss_presence": {
     "Eclipse Void Blade": {
       "bossId": "e_eclipse",
       "trials": 300,
-      "boss_card_in_enemy_lineup_pct": 74.7
+      "boss_card_in_enemy_lineup_pct": 100
     },
     "Prism Core Archon": {
       "bossId": "e_archon",
       "trials": 300,
-      "boss_card_in_enemy_lineup_pct": 79.7
+      "boss_card_in_enemy_lineup_pct": 100
     },
     "Emerald Colossus": {
       "bossId": "e_colossus",
       "trials": 300,
-      "boss_card_in_enemy_lineup_pct": 75.3
+      "boss_card_in_enemy_lineup_pct": 100
     },
-    "Inferno Core Seraph": {
+    "Inferno Seraph": {
       "bossId": "e_inferno",
       "trials": 300,
-      "boss_card_in_enemy_lineup_pct": 77.3
+      "boss_card_in_enemy_lineup_pct": 100
     }
   },
   "edge_sums": {

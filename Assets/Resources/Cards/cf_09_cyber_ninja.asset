@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cf_09_cyber_ninja
   m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
   id: cf_09_cyber_ninja
-  title: "Cyber Ninja"
-  codeName: "Digital Shadow"
+  title: Cyber Ninja
+  codeName: Digital Shadow
   baseStats:
     up: 6
     down: 5
@@ -22,9 +22,9 @@ MonoBehaviour:
     right: 7
   themes: 258
   specialAbility: 9
-  specialAbilityDescription: "Immune to capture while orthogonally adjacent to any Tech card."
+  specialAbilityDescription: Cyber Ninja is immune to capture while orthogonally adjacent to any Tech card.
   synergyRequiredTheme: 264
   synergyAllSidesBonus: 2
-  synergyName: "Silent Circuit"
-  evolvesToCardId: ""
+  synergyName: Silent Circuit
+  evolvesToCardId: 
   cardArt: {fileID: 21300000, guid: e60e7e39a1245407b2640f9180bf0827, type: 3}

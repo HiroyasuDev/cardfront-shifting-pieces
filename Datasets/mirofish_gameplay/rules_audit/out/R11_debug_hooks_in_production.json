@@ -1,30 +1,28 @@
 {
   "id": "R11_debug_hooks_in_production",
   "title": "autotest/dragtest hooks reachable from URL",
-  "reproduced": true,
+  "reproduced": false,
   "checks": [
     {
       "name": "(b) URL '?ref=xautotest=1' (substring match) started the autotest",
-      "ok": true,
-      "detail": "TEST_COMPLETE:6-3:SINGLETON=true:IMG=true"
+      "ok": false,
+      "detail": "CARDFRONT 3D — Dynamic Telegraph Tabletop Card Battler"
     },
     {
       "name": "(a) the game was played with zero user input (hand shrank, dice/reroll spent)",
-      "ok": true,
+      "ok": false,
       "detail": {
         "handBefore": 5,
-        "handAfter": 1,
-        "rerollsAfter": 1
+        "handAfter": 5,
+        "rerollsAfter": 2
       }
     },
     {
       "name": "(a) report POSTed to /__osascript_report__ on the serving origin",
-      "ok": true,
+      "ok": false,
       "detail": {
-        "posts": 1,
-        "statuses": [
-          200
-        ]
+        "posts": 0,
+        "statuses": []
       }
     },
     {
@@ -34,23 +32,9 @@
         false,
         true
       ]
-    },
-    {
-      "name": "(d) autotest outcome is never DEFEAT ('COMPLETED' for losses)",
-      "ok": true,
-      "detail": "VICTORY"
     }
   ],
-  "notes": {
-    "autotestReport": {
-      "outcome": "VICTORY",
-      "finalScore": {
-        "player": 6,
-        "boss": 3
-      },
-      "turnsPlayed": 4
-    }
-  },
+  "notes": {},
   "pageErrors": [],
-  "ranAt": "2026-11-08T12:12:39.098Z"
+  "ranAt": "2026-11-09T00:24:59.264Z"
 }

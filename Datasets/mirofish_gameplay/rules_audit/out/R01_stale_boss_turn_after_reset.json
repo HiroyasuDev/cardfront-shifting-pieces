@@ -1,7 +1,7 @@
 {
   "id": "R01_stale_boss_turn_after_reset",
   "title": "Pending boss turn survives Reset/stage-select",
-  "reproduced": true,
+  "reproduced": false,
   "checks": [
     {
       "name": "A: placement ended the player turn",
@@ -16,24 +16,24 @@
     },
     {
       "name": "A: stale boss turn placed an extra red card on the NEW board with no player move",
-      "ok": true,
+      "ok": false,
       "detail": {
-        "red": 2,
+        "red": 1,
         "hand": 5
       }
     },
     {
       "name": "A: nudges bumped above the stage-start value of 2",
-      "ok": true,
+      "ok": false,
       "detail": {
-        "nudgesLeft": 3
+        "nudgesLeft": 2
       }
     },
     {
       "name": "A: aiPool shrank on new board (5 -> 4)",
-      "ok": true,
+      "ok": false,
       "detail": {
-        "aiPool": 4
+        "aiPool": 5
       }
     },
     {
@@ -42,11 +42,12 @@
     },
     {
       "name": "B: after ONE player move the boss has placed TWO cards (1 pre-place + 2 = 3 red-placed cards)",
-      "ok": true,
+      "ok": false,
       "detail": {
-        "aiPoolAfter": 3,
+        "aiPoolAfter": 4,
         "gridAfter": [
           [
+            null,
             {
               "id": "e_reaper",
               "owner": "ai",
@@ -58,22 +59,12 @@
               ]
             },
             {
-              "id": "e_shinobi",
+              "id": "e_colossus",
               "owner": "ai",
               "nesw": [
-                8,
                 7,
-                7,
-                6
-              ]
-            },
-            {
-              "id": "e_titan",
-              "owner": "ai",
-              "nesw": [
-                8,
+                9,
                 6,
-                8,
                 7
               ]
             }
@@ -87,13 +78,13 @@
             null,
             null,
             {
-              "id": "h_kai",
+              "id": "h_seraph",
               "owner": "player",
               "nesw": [
-                8,
                 9,
                 7,
-                8
+                8,
+                9
               ]
             }
           ]
@@ -119,17 +110,17 @@
         5
       ],
       "hand": [
-        "h_oracle",
-        "h_archangel",
+        "h_kai",
+        "h_phoenix",
         "h_arbiter",
-        "h_valkyrie"
+        "h_chronos"
       ],
       "aiPool": [
-        "e_inferno",
+        "e_archon",
+        "e_shinobi",
         "e_eclipse",
-        "e_colossus",
-        "e_titan",
-        "e_reaper"
+        "e_inferno",
+        "e_colossus"
       ],
       "selectedHandIdx": 0,
       "selectedBoardSlot": null,
@@ -137,12 +128,12 @@
         [
           null,
           {
-            "id": "e_shinobi",
+            "id": "e_reaper",
             "owner": "ai",
             "nesw": [
+              7,
               8,
-              7,
-              7,
+              8,
               6
             ]
           },
@@ -157,13 +148,13 @@
           null,
           null,
           {
-            "id": "h_kai",
+            "id": "h_seraph",
             "owner": "player",
             "nesw": [
-              8,
               9,
               7,
-              8
+              8,
+              9
             ]
           }
         ]
@@ -195,20 +186,22 @@
         5
       ],
       "hand": [
-        "h_oracle",
-        "h_archangel",
+        "h_kai",
+        "h_phoenix",
         "h_arbiter",
-        "h_valkyrie"
+        "h_chronos"
       ],
       "aiPool": [
-        "e_inferno",
+        "e_archon",
+        "e_shinobi",
         "e_eclipse",
-        "e_colossus"
+        "e_inferno"
       ],
       "selectedHandIdx": 0,
       "selectedBoardSlot": null,
       "grid": [
         [
+          null,
           {
             "id": "e_reaper",
             "owner": "ai",
@@ -220,22 +213,12 @@
             ]
           },
           {
-            "id": "e_shinobi",
+            "id": "e_colossus",
             "owner": "ai",
             "nesw": [
-              8,
               7,
-              7,
-              6
-            ]
-          },
-          {
-            "id": "e_titan",
-            "owner": "ai",
-            "nesw": [
-              8,
+              9,
               6,
-              8,
               7
             ]
           }
@@ -249,25 +232,25 @@
           null,
           null,
           {
-            "id": "h_kai",
+            "id": "h_seraph",
             "owner": "player",
             "nesw": [
-              8,
               9,
               7,
-              8
+              8,
+              9
             ]
           }
         ]
       ],
       "scores": {
         "blue": 1,
-        "red": 3,
-        "empty": 5
+        "red": 2,
+        "empty": 6
       },
       "domScore": {
         "you": "1",
-        "boss": "3"
+        "boss": "2"
       },
       "turnBadge": "YOUR TURN",
       "modalShown": false,
@@ -276,5 +259,5 @@
     }
   },
   "pageErrors": [],
-  "ranAt": "2026-11-08T12:04:48.668Z"
+  "ranAt": "2026-11-09T00:22:31.364Z"
 }

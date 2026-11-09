@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400" fill="none">
+  <defs>
+    <linearGradient id="cb-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#171E36"/>
+      <stop offset="50%" stop-color="#0B1021"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+    <linearGradient id="cb-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3B0"/>
+      <stop offset="40%" stop-color="#FFB800"/>
+      <stop offset="80%" stop-color="#B4690E"/>
+      <stop offset="100%" stop-color="#5C3404"/>
+    </linearGradient>
+    <linearGradient id="cb-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0FFFF"/>
+      <stop offset="50%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+    <radialGradient id="cb-aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#A855F7" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#050811" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="6" y="6" width="288" height="388" rx="22" fill="url(#cb-bg)" stroke="url(#cb-gold)" stroke-width="8"/>
+  <rect x="20" y="20" width="260" height="360" rx="14" fill="none" stroke="url(#cb-gold)" stroke-width="3"/>
+  <rect x="30" y="30" width="240" height="340" rx="10" fill="url(#cb-aura)" stroke="#FFB800" stroke-opacity="0.45" stroke-width="1.5" stroke-dasharray="8 6"/>
+
+  <!-- Corner Ivalice Filigree Brackets -->
+  <path d="M24,68 L24,24 L68,24" stroke="url(#cb-gold)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M276,68 L276,24 L232,24" stroke="url(#cb-gold)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M24,332 L24,376 L68,376" stroke="url(#cb-gold)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M276,332 L276,376 L232,376" stroke="url(#cb-gold)" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Top & Bottom Skystone Spires -->
+  <polygon points="150,36 168,78 150,96 132,78" fill="url(#cb-gold)"/>
+  <polygon points="150,364 168,322 150,304 132,322" fill="url(#cb-gold)"/>
+
+  <!-- Double Concentric Astrolabe Rings -->
+  <circle cx="150" cy="200" r="96" stroke="url(#cb-gold)" stroke-width="5"/>
+  <circle cx="150" cy="200" r="82" stroke="url(#cb-cyan)" stroke-width="2.5" stroke-dasharray="10 6"/>
+  <circle cx="150" cy="200" r="64" stroke="url(#cb-gold)" stroke-width="3"/>
+
+  <!-- 8-Pointed Cradle of Echoes Celestial Star -->
+  <polygon points="150,92 172,172 252,200 172,228 150,308 128,228 48,200 128,172" fill="url(#cb-gold)" stroke="#FFF3B0" stroke-width="2.5"/>
+  <polygon points="150,126 166,184 224,200 166,216 150,274 134,216 76,200 134,184" fill="url(#cb-cyan)" opacity="0.88"/>
+  <circle cx="150" cy="200" r="22" fill="#0B1021" stroke="url(#cb-gold)" stroke-width="4"/>
+  <circle cx="150" cy="200" r="10" fill="url(#cb-cyan)"/>
+</svg>

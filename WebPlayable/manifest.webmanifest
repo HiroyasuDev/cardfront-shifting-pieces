@@ -1,0 +1,35 @@
+{
+  "id": "com.synapse.cardfront3d.cradleofechoes",
+  "name": "CARDFRONT 3D: Cradle of Echoes",
+  "short_name": "CARDFRONT 3D",
+  "description": "Tactile 3D Directional Telegraph Tabletop Card Battler — Set 1: Cradle of Echoes (60 Cards, 15-Node Act I–V Campaign, Apple Native & Web PWA)",
+  "start_url": "./cardfront_cradle_of_echoes_playable.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#05070e",
+  "theme_color": "#ffb800",
+  "dir": "ltr",
+  "lang": "en-US",
+  "categories": ["games", "strategy", "card"],
+  "icons": [
+    {
+      "src": "./GeneratedArt/Icons/cf_app_icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./GeneratedArt/Icons/cf_app_icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./GeneratedArt/Icons/cf_cardback_astrolabe.svg",
+      "sizes": "256x256 any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

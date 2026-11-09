@@ -10,8 +10,8 @@
   "dropOutsideBoard": {
     "rightPanel": {
       "at": [
-        1350,
-        201
+        1272,
+        211
       ],
       "ghostDuring": 1,
       "magnetTargetAtRelease": null,
@@ -30,8 +30,8 @@
     },
     "handPanelOtherCard": {
       "at": [
-        208,
-        434
+        198,
+        436
       ],
       "ghostDuring": 1,
       "magnetTargetAtRelease": null,
@@ -40,8 +40,8 @@
     },
     "belowBoard30px": {
       "at": [
-        748,
-        760
+        704,
+        764
       ],
       "ghostDuring": 1,
       "magnetTargetAtRelease": [
@@ -53,15 +53,12 @@
     },
     "leftOfBoard60px": {
       "at": [
-        475,
-        459
+        430,
+        462
       ],
       "ghostDuring": 1,
-      "magnetTargetAtRelease": [
-        1,
-        0
-      ],
-      "placed": 1,
+      "magnetTargetAtRelease": null,
+      "placed": 0,
       "ghostAfter": 0
     },
     "passStrict": true
@@ -75,13 +72,13 @@
   },
   "resetDuringSnapAnimation": {
     "cardsAfter": {
-      "p": 1,
-      "a": 2,
-      "e": 6
+      "p": 0,
+      "a": 1,
+      "e": 8
     },
-    "handAfter": 4,
-    "nudges": 3,
-    "pass": false
+    "handAfter": 5,
+    "nudges": 2,
+    "pass": true
   },
   "resetButtonMidBossTurn": {
     "bossTurnPendingWhenReset": true,
@@ -92,14 +89,14 @@
     },
     "cardsAfter1200ms": {
       "p": 0,
-      "a": 2,
-      "e": 7
+      "a": 1,
+      "e": 8
     },
-    "nudgesAfter": 3,
-    "aiPoolAfter": 4,
+    "nudgesAfter": 2,
+    "aiPoolAfter": 5,
     "isPlayerTurn": true,
-    "banner": "🟥 Boss deployed Prism Core Archon (Prism Tri-Laser) at (1,1).",
-    "pass": false
+    "banner": "💡 Drag a Hero Card onto any open tile (or click a card, then click a tile). Drag your Blue board cards 1 tile to Tactical Slide.",
+    "pass": true
   },
   "stageSelectMidBossTurn": {
     "bossTurnPendingWhenReset": true,
@@ -110,41 +107,41 @@
     },
     "cardsAfter1200ms": {
       "p": 0,
-      "a": 2,
-      "e": 7
+      "a": 1,
+      "e": 8
     },
-    "nudgesAfter": 3,
-    "aiPoolAfter": 4,
+    "nudgesAfter": 2,
+    "aiPoolAfter": 5,
     "isPlayerTurn": true,
-    "banner": "🟥 Boss deployed Inferno Seraph (Hellfire Artillery) at (1,1).",
-    "pass": false
+    "banner": "💡 Drag a Hero Card onto any open tile (or click a card, then click a tile). Drag your Blue board cards 1 tile to Tactical Slide.",
+    "pass": true
   },
   "resetDuringGameOverDelay": {
-    "modalVisibleOnFreshBoard": true,
+    "modalVisibleOnFreshBoard": false,
     "freshBoardCards": {
       "p": 0,
       "a": 1,
       "e": 8
     },
-    "modalTitle": "🏆 VICTORY (6 – 3)!",
-    "pass": false
+    "modalTitle": "VICTORY!",
+    "pass": true
   },
   "secondPointerUpEndsDrag": {
-    "placedByForeignPointerUp": 1,
-    "ghostAfterTouch": 0,
+    "placedByForeignPointerUp": 0,
+    "ghostAfterTouch": 1,
     "note": "onDragPointerUp/Cancel do not filter by pointerId",
-    "pass": false
+    "pass": true
   },
   "digitAndRerollKeysMidDrag": {
-    "selDuringDrag": 3,
-    "rerollsDuringDrag": 1,
-    "placedCard": "p:h_kai",
-    "expected": "p:h_kai",
+    "selDuringDrag": 0,
+    "rerollsDuringDrag": 2,
+    "placedCard": "p:h_archangel",
+    "expected": "p:h_archangel",
     "pass": true
   },
   "oneStepFlick20x": {
     "trials": 20,
-    "placed": 0,
+    "placed": 20,
     "note": "startStage() called via evaluate only to reset between trials"
   }
 }

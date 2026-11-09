@@ -1,7 +1,7 @@
 {
   "id": "R05_selected_unit_misclick_deploys",
   "title": "Mis-click while a board unit is selected deploys from hand",
-  "reproduced": true,
+  "reproduced": false,
   "checks": [
     {
       "name": "A: Kai selected as slide unit; no hand card shows as selected",
@@ -16,19 +16,10 @@
     },
     {
       "name": "A: a hand card (oracle) was deployed at (0,2) and the turn ended",
-      "ok": true,
+      "ok": false,
       "detail": {
-        "cell": {
-          "id": "h_oracle",
-          "owner": "player",
-          "nesw": [
-            8,
-            8,
-            9,
-            8
-          ]
-        },
-        "hand": 3
+        "cell": null,
+        "hand": 4
       }
     },
     {
@@ -81,11 +72,8 @@
     },
     {
       "name": "B: Kai re-selected as unit (selectedBoardSlot=(1,0)) although slide is spent",
-      "ok": true,
-      "detail": {
-        "r": 1,
-        "c": 0
-      }
+      "ok": false,
+      "detail": null
     },
     {
       "name": "B: instead of rejecting the 2nd slide, a hand card was deployed at (1,1) and turn ended",
@@ -106,5 +94,5 @@
   ],
   "notes": {},
   "pageErrors": [],
-  "ranAt": "2026-11-08T12:09:46.305Z"
+  "ranAt": "2026-11-09T00:22:57.993Z"
 }

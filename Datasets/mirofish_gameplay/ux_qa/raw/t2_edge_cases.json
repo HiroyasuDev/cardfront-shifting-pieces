@@ -31,8 +31,8 @@
   "dropOutsideBoard": {
     "rightPanel": {
       "at": [
-        1342,
-        201
+        1272,
+        312
       ],
       "ghostDuring": 1,
       "placed": 0,
@@ -49,23 +49,23 @@
     },
     "belowBoard": {
       "at": [
-        744,
-        760
+        704,
+        771
       ],
       "ghostDuring": 1,
-      "placed": 1,
+      "placed": 0,
       "ghostAfter": 0
     },
     "handPanel": {
       "at": [
-        208,
-        434
+        188,
+        435
       ],
-      "ghostDuring": 0,
-      "placed": 1,
+      "ghostDuring": 1,
+      "placed": 0,
       "ghostAfter": 0
     },
-    "pass": false
+    "pass": true
   },
   "escMidDrag": {
     "ghostAfterEsc": 0,
@@ -99,25 +99,25 @@
     "pass": true
   },
   "clickSelectThenDragOther": {
-    "expected": "h_arbiter",
-    "placed": "p:h_arbiter",
+    "expected": "h_chronos",
+    "placed": "p:h_chronos",
     "pass": true
   },
   "resetMidDrag": {
-    "draggedCard": "h_arbiter",
+    "draggedCard": "h_kai",
     "resetHappened": true,
     "ghostStillShownAfterReset": 0,
     "dragStillActive": false,
     "newHandAtIdx1": "h_seraph",
-    "placedAfterRelease": "p:h_chronos",
+    "placedAfterRelease": null,
     "placedCardMatchesGhost": false,
     "placedCardIsFromNewHand": false
   },
   "stageSelectMidDrag": {
-    "draggedCard": "h_valkyrie",
+    "draggedCard": "h_phoenix",
     "stageAfter": 2,
-    "ghostStillShown": 1,
-    "placedAfterRelease": "p:h_arbiter",
+    "ghostStillShown": 0,
+    "placedAfterRelease": null,
     "placedCardMatchesGhost": false
   },
   "resetMidBossTurn": {
@@ -128,15 +128,15 @@
       "e": 8
     },
     "cardsAfter1200ms": {
-      "p": 1,
-      "a": 2,
-      "e": 6
+      "p": 0,
+      "a": 1,
+      "e": 8
     },
-    "nudgesAfter": 3,
-    "handAfter": 4,
-    "aiPoolAfter": 4,
-    "bannerAfter": "🟥 Boss deployed Bastion Dreadnought (Seismic Tremor Push) at (1,3).",
-    "pass": false
+    "nudgesAfter": 2,
+    "handAfter": 5,
+    "aiPoolAfter": 5,
+    "bannerAfter": "💡 Drag a Hero Card onto any open tile (or click a card, then click a tile). Drag your Blue board cards 1 tile to Tactical Slide.",
+    "pass": true
   },
   "stageSelectMidBossTurn": {
     "stageAfter": 3,
@@ -146,12 +146,12 @@
       "e": 8
     },
     "cardsAfter1200ms": {
-      "p": 1,
-      "a": 2,
-      "e": 6
+      "p": 0,
+      "a": 1,
+      "e": 8
     },
-    "nudgesAfter": 3,
-    "pass": false
+    "nudgesAfter": 2,
+    "pass": true
   },
   "resetDuringGameOverDelay": {
     "skipped": "board never reached 1 empty on player turn"
@@ -163,15 +163,15 @@
     "die1After": 4,
     "rerollsAfter10Clicks": 0,
     "rerollBtnWhenExhausted": {
-      "disabled": false,
-      "opacity": "1",
-      "cursor": "pointer",
+      "disabled": true,
+      "opacity": "0.45",
+      "cursor": "not-allowed",
       "text": "🎲 Roll All 3D Dice (0 left)"
     },
     "dieRowWhenNoNudges": {
-      "opacity": "1",
-      "cursor": "pointer",
-      "hint": "Column 1 Die ⚡ +1 All 4 Sides 1 2 3 4 5 6"
+      "opacity": "0.55",
+      "cursor": "not-allowed",
+      "hint": "Column 1 Die Click to Nudge +1 1 2 3 4 5 6"
     },
     "nudgeDuringBossTurnChangedDice": false,
     "pass": true
@@ -180,51 +180,51 @@
     "byConfig": {
       "steps1_fx0.5_fy0.5": {
         "n": 8,
-        "intended": 0,
+        "intended": 8,
         "wrongTile": 0,
-        "noPlace": 8
+        "noPlace": 0
       },
       "steps2_fx0.5_fy0.5": {
-        "n": 7,
-        "intended": 7,
+        "n": 8,
+        "intended": 8,
         "wrongTile": 0,
         "noPlace": 0
       },
       "steps3_fx0.5_fy0.5": {
-        "n": 7,
-        "intended": 7,
+        "n": 8,
+        "intended": 8,
         "wrongTile": 0,
         "noPlace": 0
       },
       "steps5_fx0.5_fy0.5": {
-        "n": 7,
-        "intended": 7,
+        "n": 8,
+        "intended": 8,
         "wrongTile": 0,
         "noPlace": 0
       },
       "steps1_fx0.08_fy0.9": {
         "n": 8,
-        "intended": 3,
+        "intended": 8,
         "wrongTile": 0,
-        "noPlace": 5
+        "noPlace": 0
       },
       "steps2_fx0.92_fy0.1": {
-        "n": 7,
-        "intended": 7,
+        "n": 8,
+        "intended": 8,
         "wrongTile": 0,
         "noPlace": 0
       },
       "steps3_fx1.06_fy0.5": {
-        "n": 7,
+        "n": 8,
         "intended": 4,
-        "wrongTile": 3,
+        "wrongTile": 4,
         "noPlace": 0
       },
       "steps2_fx0.5_fy-0.05": {
-        "n": 7,
-        "intended": 3,
-        "wrongTile": 4,
-        "noPlace": 0
+        "n": 8,
+        "intended": 5,
+        "wrongTile": 2,
+        "noPlace": 1
       }
     },
     "trials": [
@@ -236,9 +236,14 @@
           1,
           1
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            1,
+            1
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -249,9 +254,14 @@
           2,
           0
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            2,
+            0
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -262,9 +272,14 @@
           2,
           2
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            2,
+            2
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -275,9 +290,14 @@
           1,
           0
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            1,
+            0
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -288,9 +308,14 @@
           1,
           2
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            1,
+            2
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -301,9 +326,14 @@
           2,
           1
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            2,
+            1
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -314,9 +344,14 @@
           0,
           0
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            0,
+            0
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -327,9 +362,14 @@
           0,
           2
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            0,
+            2
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -435,6 +475,24 @@
           [
             2,
             1
+          ]
+        ],
+        "placed": 1,
+        "ghostLeft": 0
+      },
+      {
+        "steps": 2,
+        "fx": 0.5,
+        "fy": 0.5,
+        "tile": [
+          0,
+          0
+        ],
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            0,
+            0
           ]
         ],
         "placed": 1,
@@ -572,6 +630,24 @@
         "fy": 0.5,
         "tile": [
           0,
+          0
+        ],
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            0,
+            0
+          ]
+        ],
+        "placed": 1,
+        "ghostLeft": 0
+      },
+      {
+        "steps": 3,
+        "fx": 0.5,
+        "fy": 0.5,
+        "tile": [
+          0,
           2
         ],
         "landedOnIntended": true,
@@ -698,6 +774,24 @@
         "fy": 0.5,
         "tile": [
           0,
+          0
+        ],
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            0,
+            0
+          ]
+        ],
+        "placed": 1,
+        "ghostLeft": 0
+      },
+      {
+        "steps": 5,
+        "fx": 0.5,
+        "fy": 0.5,
+        "tile": [
+          0,
           2
         ],
         "landedOnIntended": true,
@@ -718,9 +812,14 @@
           1,
           1
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            1,
+            1
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -749,9 +848,14 @@
           2,
           2
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            2,
+            2
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -762,9 +866,14 @@
           1,
           0
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            1,
+            0
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -775,9 +884,14 @@
           1,
           2
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            1,
+            2
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -788,9 +902,14 @@
           2,
           1
         ],
-        "landedOnIntended": false,
-        "landedIdx": [],
-        "placed": 0,
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            2,
+            1
+          ]
+        ],
+        "placed": 1,
         "ghostLeft": 0
       },
       {
@@ -943,6 +1062,24 @@
         "fy": 0.1,
         "tile": [
           0,
+          0
+        ],
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            0,
+            0
+          ]
+        ],
+        "placed": 1,
+        "ghostLeft": 0
+      },
+      {
+        "steps": 2,
+        "fx": 0.92,
+        "fy": 0.1,
+        "tile": [
+          0,
           2
         ],
         "landedOnIntended": true,
@@ -1053,11 +1190,29 @@
           2,
           1
         ],
-        "landedOnIntended": true,
+        "landedOnIntended": false,
         "landedIdx": [
           [
             2,
-            1
+            2
+          ]
+        ],
+        "placed": 1,
+        "ghostLeft": 0
+      },
+      {
+        "steps": 3,
+        "fx": 1.06,
+        "fy": 0.5,
+        "tile": [
+          0,
+          0
+        ],
+        "landedOnIntended": true,
+        "landedIdx": [
+          [
+            0,
+            0
           ]
         ],
         "placed": 1,
@@ -1107,10 +1262,10 @@
           2,
           0
         ],
-        "landedOnIntended": false,
+        "landedOnIntended": true,
         "landedIdx": [
           [
-            1,
+            2,
             0
           ]
         ],
@@ -1161,10 +1316,10 @@
           1,
           2
         ],
-        "landedOnIntended": false,
+        "landedOnIntended": true,
         "landedIdx": [
           [
-            0,
+            1,
             2
           ]
         ],
@@ -1187,6 +1342,19 @@
           ]
         ],
         "placed": 1,
+        "ghostLeft": 0
+      },
+      {
+        "steps": 2,
+        "fx": 0.5,
+        "fy": -0.05,
+        "tile": [
+          0,
+          0
+        ],
+        "landedOnIntended": false,
+        "landedIdx": [],
+        "placed": 0,
         "ghostLeft": 0
       },
       {
@@ -1208,22 +1376,22 @@
         "ghostLeft": 0
       }
     ],
-    "pass": false
+    "pass": true
   },
   "enterKeyMidDrag": {
     "focusedSlotIndex": 4,
-    "placedDuringDrag": 1,
+    "placedDuringDrag": 0,
     "ghostStillUp": 1,
     "placedTotal": 1,
     "gridAfter": [
       [
-        "a:e_shinobi",
-        "a:e_reaper",
+        "p:h_phoenix",
+        "p:e_shinobi",
         null
       ],
       [
         null,
-        "p:h_chronos",
+        null,
         null
       ],
       [
@@ -1233,6 +1401,6 @@
       ]
     ],
     "ghostAfter": 0,
-    "pass": false
+    "pass": true
   }
 }

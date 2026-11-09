@@ -1,0 +1,169 @@
+{
+  "suite": "MiroFish 100-Iteration TCG Deckbuilder Persona & Tabletop UI/UX Intuitiveness Swarm",
+  "timestamp": "2026-11-09T02:02:43.446Z",
+  "osascriptLaunch": {
+    "launched": true,
+    "method": "osascript Safari",
+    "url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html?autotest=1"
+  },
+  "totalIterations": 100,
+  "matchOutcomes": {
+    "wins": 91,
+    "losses": 9,
+    "draws": 0,
+    "winRatePct": 91
+  },
+  "gameplayTelemetry": {
+    "totalFlips": 421,
+    "totalSlidesUsed": 186,
+    "totalColHeaderNudges": 479,
+    "totalDeckSwaps": 100,
+    "totalPacksOpened": 32,
+    "totalCardCraftEvolutions": 52,
+    "totalPawnInspections": 19,
+    "telegraphPowersTriggered": 800,
+    "factionLinksTriggered": 101,
+    "telegraphDisruptedCount": 196,
+    "bossDiceDrains": 372,
+    "consoleErrorsCount": 0
+  },
+  "uxAuditTotals": {
+    "iterationsChecked": 100,
+    "bossCrestVisible": 100,
+    "colHeaderDiceInteractive": 100,
+    "tabletopDeckStackInteractive": 100,
+    "bossTargetReticleRendered": 100,
+    "ownershipBadgesRendered": 100,
+    "octagonalStatMedallionsRendered": 100,
+    "deckbuilderSquadSummaryRendered": 100,
+    "deckbuilderFilterPillsWorking": 100,
+    "lockedCardFeedbackWorking": 100,
+    "customDeckEquippedToHand": 100,
+    "zeroNameplateClipping": 100,
+    "zeroViewportOverflow": 100,
+    "stageBossInLineup": 100,
+    "uxIssuesFound": []
+  },
+  "perPersonaSummary": {
+    "P01_Spike_MinMax_Optimizer": {
+      "archetype": "Competitive Min-Max Deckbuilder",
+      "iterations": 10,
+      "wins": 10,
+      "losses": 0,
+      "draws": 0,
+      "winRatePct": 100,
+      "avgPlayerScore": 6.9,
+      "totalFlips": 45,
+      "totalSlides": 14,
+      "totalColHeaderNudges": 47
+    },
+    "P02_Johnny_Synergy_Architect": {
+      "archetype": "Faction Synergy & Combo Deckbuilder",
+      "iterations": 10,
+      "wins": 10,
+      "losses": 0,
+      "draws": 0,
+      "winRatePct": 100,
+      "avgPlayerScore": 7,
+      "totalFlips": 45,
+      "totalSlides": 30,
+      "totalColHeaderNudges": 47
+    },
+    "P03_Timmy_Pack_Collector": {
+      "archetype": "Booster Pack Opener & High-Stat Collector",
+      "iterations": 10,
+      "wins": 10,
+      "losses": 0,
+      "draws": 0,
+      "winRatePct": 100,
+      "avgPlayerScore": 7,
+      "totalFlips": 45,
+      "totalSlides": 24,
+      "totalColHeaderNudges": 50
+    },
+    "P04_QueenBlood_Lane_Controller": {
+      "archetype": "Column-Header 3D Dice & Lane Buff Tactician",
+      "iterations": 10,
+      "wins": 8,
+      "losses": 2,
+      "draws": 0,
+      "winRatePct": 80,
+      "avgPlayerScore": 5.6,
+      "totalFlips": 39,
+      "totalSlides": 14,
+      "totalColHeaderNudges": 47
+    },
+    "P05_TripleTriad_Corner_Grandmaster": {
+      "archetype": "Corner Anchor & Directional Edge Mathematician",
+      "iterations": 10,
+      "wins": 10,
+      "losses": 0,
+      "draws": 0,
+      "winRatePct": 100,
+      "avgPlayerScore": 6.7,
+      "totalFlips": 40,
+      "totalSlides": 15,
+      "totalColHeaderNudges": 47
+    },
+    "P06_IntoTheBreach_Telegraph_Counter": {
+      "archetype": "Boss Telegraph & Target Reticle Counter-Player",
+      "iterations": 10,
+      "wins": 9,
+      "losses": 1,
+      "draws": 0,
+      "winRatePct": 90,
+      "avgPlayerScore": 6.1,
+      "totalFlips": 43,
+      "totalSlides": 15,
+      "totalColHeaderNudges": 50
+    },
+    "P07_Tactical_Slider_Specialist": {
+      "archetype": "Orthogonal Mobility & Board Repositioner",
+      "iterations": 10,
+      "wins": 9,
+      "losses": 1,
+      "draws": 0,
+      "winRatePct": 90,
+      "avgPlayerScore": 6.4,
+      "totalFlips": 47,
+      "totalSlides": 29,
+      "totalColHeaderNudges": 47
+    },
+    "P08_DragDrop_Tabletop_Purist": {
+      "archetype": "Tactile Tabletop Drag-and-Drop & Physical Deck Stack User",
+      "iterations": 10,
+      "wins": 10,
+      "losses": 0,
+      "draws": 0,
+      "winRatePct": 100,
+      "avgPlayerScore": 6.3,
+      "totalFlips": 39,
+      "totalSlides": 16,
+      "totalColHeaderNudges": 47
+    },
+    "P09_Keyboard_Gamepad_Speedrunner": {
+      "archetype": "Keyboard Shortcut & Fast-Input TCG Player",
+      "iterations": 10,
+      "wins": 8,
+      "losses": 2,
+      "draws": 0,
+      "winRatePct": 80,
+      "avgPlayerScore": 5.8,
+      "totalFlips": 39,
+      "totalSlides": 16,
+      "totalColHeaderNudges": 50
+    },
+    "P10_FirstTime_TCG_Intuitiveness_Auditor": {
+      "archetype": "First-Impression UX, Readability & Accessibility Auditor",
+      "iterations": 10,
+      "wins": 7,
+      "losses": 3,
+      "draws": 0,
+      "winRatePct": 70,
+      "avgPlayerScore": 6.2,
+      "totalFlips": 39,
+      "totalSlides": 13,
+      "totalColHeaderNudges": 47
+    }
+  }
+}

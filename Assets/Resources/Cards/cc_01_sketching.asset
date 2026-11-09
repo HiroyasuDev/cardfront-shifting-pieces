@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cc_01_sketching
   m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
   id: cc_01_sketching
-  title: "Sketching"
-  codeName: "Ideation Tier 1"
+  title: Sketching
+  codeName: Ideation Tier 1
   baseStats:
     up: 4
     down: 5
@@ -22,9 +22,9 @@ MonoBehaviour:
     right: 5
   themes: 1024
   specialAbility: 0
-  specialAbilityDescription: "Creative Portfolio Card: Evolves after repeated match mastery."
+  specialAbilityDescription: 'Creative Portfolio Card: Evolves after repeated match mastery.'
   synergyRequiredTheme: 1024
   synergyAllSidesBonus: 1
-  synergyName: "Design + Feedback Loop"
-  evolvesToCardId: "cc_02_concept_art"
+  synergyName: Design + Feedback Loop
+  evolvesToCardId: cc_02_concept_art
   cardArt: {fileID: 21300000, guid: f0f1cb0aa1847ebcee31fcd000640907, type: 3}

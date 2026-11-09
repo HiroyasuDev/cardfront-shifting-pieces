@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" data-card-id="mcp_09_tcg_creative_studio" data-tier="MCP_CONDUIT">
+  <defs>
+    <linearGradient id="bg_mcp_09_tcg_creative_studio" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1020"/>
+      <stop offset="55%" stop-color="#141B33"/>
+      <stop offset="100%" stop-color="#090B10"/>
+    </linearGradient>
+  </defs>
+  <rect x="12" y="12" width="232" height="232" rx="34" fill="url(#bg_mcp_09_tcg_creative_studio)" stroke="#FFB800" stroke-width="5"/>
+  <rect x="22" y="22" width="212" height="212" rx="26" fill="none" stroke="#A855F7" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="8 4"/>
+  <!-- 4 Directional Edge Stat Gems (N=8, E=7, S=6, W=7) -->
+  <polygon points="128,14 140,28 128,42 116,28" fill="#A855F7" stroke="#FFF" stroke-width="1.5"/>
+  <polygon points="242,128 228,140 214,128 228,116" fill="#FFB800" stroke="#FFF" stroke-width="1.5"/>
+  <polygon points="128,242 140,228 128,214 116,228" fill="#A855F7" stroke="#FFF" stroke-width="1.5"/>
+  <polygon points="14,128 28,140 42,128 28,116" fill="#FFB800" stroke="#FFF" stroke-width="1.5"/>
+  
+        <polygon points="128,142 196,174 128,206 60,174" fill="#0B1528" stroke="#A855F7" stroke-width="2.5"/>
+        <line x1="94" y1="158" x2="162" y2="190" stroke="#A855F7" stroke-width="1.8" stroke-opacity="0.7"/>
+        <line x1="162" y1="158" x2="94" y2="190" stroke="#A855F7" stroke-width="1.8" stroke-opacity="0.7"/>
+        <rect x="96" y="54" width="64" height="88" rx="8" fill="#141B34" stroke="#FFB800" stroke-width="3.5"/>
+        <polygon points="128,68 134,86 152,92 134,98 128,116 122,98 104,92 122,86" fill="#FFB800"/>
+        <line x1="82" y1="142" x2="174" y2="50" stroke="#A855F7" stroke-width="6" stroke-linecap="round"/>
+        <polygon points="174,50 184,40 166,44" fill="#FFB800"/>
+        
+</svg>

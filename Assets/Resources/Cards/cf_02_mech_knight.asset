@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cf_02_mech_knight
   m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
   id: cf_02_mech_knight
-  title: "Mech Knight"
-  codeName: "Iron Vanguard"
+  title: Mech Knight
+  codeName: Iron Vanguard
   baseStats:
     up: 8
     down: 4
@@ -22,9 +22,9 @@ MonoBehaviour:
     right: 5
   themes: 2
   specialAbility: 2
-  specialAbilityDescription: "When this unit captures an opponent card, immediately make a bonus placement this turn."
+  specialAbilityDescription: When Mech Knight captures an opponent's card, immediately make a bonus placement this turn.
   synergyRequiredTheme: 2
   synergyAllSidesBonus: 1
-  synergyName: "Technological Alliance"
-  evolvesToCardId: ""
+  synergyName: Technological Alliance
+  evolvesToCardId: 
   cardArt: {fileID: 21300000, guid: b8f29b9e4b115926ec4eb99091eea8e3, type: 3}

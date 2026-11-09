@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" data-card-id="tool_06_mcp_resources" data-tier="TACTICAL_SPELL">
+  <defs>
+    <linearGradient id="bg_tool_06_mcp_resources" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1020"/>
+      <stop offset="55%" stop-color="#141B33"/>
+      <stop offset="100%" stop-color="#090B10"/>
+    </linearGradient>
+  </defs>
+  <rect x="12" y="12" width="232" height="232" rx="34" fill="url(#bg_tool_06_mcp_resources)" stroke="#2EE6D3" stroke-width="5"/>
+  <rect x="22" y="22" width="212" height="212" rx="26" fill="none" stroke="#6366F1" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="8 4"/>
+  <!-- 4 Directional Edge Stat Gems (N=5, E=6, S=6, W=6) -->
+  <polygon points="128,14 140,28 128,42 116,28" fill="#6366F1" stroke="#FFF" stroke-width="1.5"/>
+  <polygon points="242,128 228,140 214,128 228,116" fill="#2EE6D3" stroke="#FFF" stroke-width="1.5"/>
+  <polygon points="128,242 140,228 128,214 116,228" fill="#6366F1" stroke="#FFF" stroke-width="1.5"/>
+  <polygon points="14,128 28,140 42,128 28,116" fill="#2EE6D3" stroke="#FFF" stroke-width="1.5"/>
+  
+        <circle cx="128" cy="128" r="68" fill="#6366F1" fill-opacity="0.15" stroke="#6366F1" stroke-width="2.5"/>
+        <polygon points="128,56 190,92 190,164 128,200 66,164 66,92" fill="none" stroke="#2EE6D3" stroke-width="3"/>
+        <polygon points="128,74 172,128 128,182 84,128" fill="#6366F1" fill-opacity="0.35" stroke="#FFF" stroke-width="2.5"/>
+        <circle cx="128" cy="128" r="16" fill="#2EE6D3" stroke="#0A1020" stroke-width="3"/>
+        
+</svg>

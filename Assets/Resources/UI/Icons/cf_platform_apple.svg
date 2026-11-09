@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <defs>
+    <linearGradient id="cf-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3B0"/><stop offset="45%" stop-color="#FFB800"/><stop offset="85%" stop-color="#B4690E"/><stop offset="100%" stop-color="#5E3304"/>
+    </linearGradient>
+    <linearGradient id="cf-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0FFFF"/><stop offset="35%" stop-color="#00E5FF"/><stop offset="80%" stop-color="#0284C7"/><stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="cf-obsidian-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/><stop offset="50%" stop-color="#0F172A"/><stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+  </defs>
+  <polygon points="84,18 172,18 238,84 238,172 172,238 84,238 18,172 18,84" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="12" stroke-linejoin="round"/>
+  <polygon points="92,36 164,36 220,92 220,164 164,220 92,220 36,164 36,92" fill="none" stroke="#00E5FF" stroke-width="4" opacity="0.55"/>
+  <path d="M128,74 C128,48 152,32 176,34 C174,58 154,74 128,74 Z" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M128,82 C104,76 72,92 72,130 C72,168 98,206 118,206 C124,206 126,200 128,200 C130,200 132,206 138,206 C158,206 184,168 184,130 C184,92 152,76 128,82 Z" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8" stroke-linejoin="round"/>
+  <polygon points="128,96 166,140 128,188 90,140" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="5" stroke-linejoin="round"/>
+  <polygon points="128,116 146,140 128,164 110,140" fill="url(#cf-gold-grad)"/>
+</svg>

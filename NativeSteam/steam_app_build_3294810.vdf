@@ -1,0 +1,47 @@
+"AppBuild"
+{
+	"AppID" "3294810"
+	"Desc" "CARDFRONT 3D: Cradle of Echoes — Sovereign Tactical 3x3 TCG (Windows / macOS Metal / SteamOS Steam Deck Verified)"
+	"BuildOutput" "../Build/SteamPipeOutput"
+	"ContentRoot" ".."
+	"SetLive" "default"
+	"Preview" "0"
+	"Local" ""
+
+	"Depots"
+	{
+		// Windows 64-bit Desktop (DirectX 12 / Vulkan)
+		"3294811"
+		{
+			"FileMapping"
+			{
+				"LocalPath" "WebPlayable/*"
+				"DepotPath" "CARDFRONT3D_Win64/WebPlayable"
+				"recursive" "1"
+			}
+			"FileExclusion" "*.pdb"
+		}
+
+		// macOS Universal / Apple Silicon Metal (ProMotion 120Hz)
+		"3294812"
+		{
+			"FileMapping"
+			{
+				"LocalPath" "Build/macOS/CARDFRONT 3D.app/*"
+				"DepotPath" "CARDFRONT 3D.app"
+				"recursive" "1"
+			}
+		}
+
+		// Linux 64-bit / SteamOS 3.x (Steam Deck OLED 90Hz / LCD 60Hz Verified)
+		"3294813"
+		{
+			"FileMapping"
+			{
+				"LocalPath" "WebPlayable/*"
+				"DepotPath" "CARDFRONT3D_SteamOS/WebPlayable"
+				"recursive" "1"
+			}
+		}
+	}
+}

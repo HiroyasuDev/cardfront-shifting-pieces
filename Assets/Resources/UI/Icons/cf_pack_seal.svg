@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <defs>
+    <linearGradient id="cf-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3B0"/><stop offset="45%" stop-color="#FFB800"/><stop offset="85%" stop-color="#B4690E"/><stop offset="100%" stop-color="#5E3304"/>
+    </linearGradient>
+    <linearGradient id="cf-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0FFFF"/><stop offset="35%" stop-color="#00E5FF"/><stop offset="80%" stop-color="#0284C7"/><stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="cf-crimson-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD1DC"/><stop offset="35%" stop-color="#FF2E54"/><stop offset="80%" stop-color="#991B1B"/><stop offset="100%" stop-color="#2A050D"/>
+    </linearGradient>
+    <linearGradient id="cf-violet-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E8FF"/><stop offset="40%" stop-color="#A855F7"/><stop offset="82%" stop-color="#581C87"/><stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+    <linearGradient id="cf-obsidian-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/><stop offset="50%" stop-color="#0F172A"/><stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+  </defs>
+  <polygon points="82,176 54,242 88,226 110,244 118,184" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="6" stroke-linejoin="round"/>
+  <polygon points="174,176 202,242 168,226 146,244 138,184" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="6" stroke-linejoin="round"/>
+  <polygon points="128,22 156,46 193,49 196,86 220,114 196,142 193,179 156,182 128,206 100,182 63,179 60,142 36,114 60,86 63,49 100,46" fill="url(#cf-crimson-grad)" stroke="url(#cf-gold-grad)" stroke-width="10" stroke-linejoin="round"/>
+  <circle cx="128" cy="114" r="58" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8"/>
+  <polygon points="128,64 166,114 128,164 90,114" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="5" stroke-linejoin="round"/>
+  <polygon points="128,64 146,114 128,164 110,114" fill="url(#cf-violet-grad)" opacity="0.65"/>
+  <circle cx="128" cy="114" r="12" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="3"/>
+</svg>

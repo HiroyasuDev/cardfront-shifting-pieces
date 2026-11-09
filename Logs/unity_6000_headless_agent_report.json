@@ -1,0 +1,19 @@
+{
+    "timestampUtc": "2026-11-09T10:27:03.1469100Z",
+    "unityVersion": "6000.6.8f1",
+    "platform": "OSXEditor",
+    "batchMode": true,
+    "projectCfCardsGenerated": 60,
+    "agentCommandDeckCardsRegistered": 37,
+    "indieMarcBaselineCardsVerified": 42,
+    "balanceMatchesSimulated": 100,
+    "player0Wins": 52,
+    "player1Wins": 48,
+    "draws": 0,
+    "puzzlesVerified": 5,
+    "puzzlesPassed": 5,
+    "diceResonanceSampleMultiplier": 2.75,
+    "directionalFlipsVerified": 1,
+    "echoGhostSampleHmac": "e93b24eabae6f4e0c8193104d646032aa76d4e3eee8fecac90bd0af00bf2a351",
+    "status": "PASS_UNITY_6000_HEADLESS_AGENT_PIPELINE"
+}

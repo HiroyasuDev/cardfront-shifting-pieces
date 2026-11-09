@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cc_02_concept_art
   m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
   id: cc_02_concept_art
-  title: "Concept Art"
-  codeName: "Ideation Tier 2"
+  title: Concept Art
+  codeName: Ideation Tier 2
   baseStats:
     up: 6
     down: 7
@@ -22,9 +22,9 @@ MonoBehaviour:
     right: 7
   themes: 1025
   specialAbility: 0
-  specialAbilityDescription: "Creative Portfolio Card: Evolves after repeated match mastery."
+  specialAbilityDescription: 'Creative Portfolio Card: Evolves after repeated match mastery.'
   synergyRequiredTheme: 1024
   synergyAllSidesBonus: 2
-  synergyName: "Portfolio Mastery"
-  evolvesToCardId: ""
+  synergyName: Portfolio Mastery
+  evolvesToCardId: 
   cardArt: {fileID: 21300000, guid: 02df9ebee39528afdfe919a7cb68d474, type: 3}

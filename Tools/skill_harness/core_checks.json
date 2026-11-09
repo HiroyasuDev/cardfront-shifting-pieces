@@ -783,7 +783,7 @@
   {
     "id": "core.sakuga_v100.01",
     "skill": "disciplines/create-game-assets",
-    "rule": "Studio Trigger / Omega Strikers 8-Frame Sakuga Cut-In Sprite Strips & Pose-B Impact Keyframes: All 20 featured units (16 Core Heroes/Mechs + 4 Sovereign Agent Plugins) have synthesized 600x800 Pose-B Impact Keyframes and 1920x160 8-Frame Sakuga Cut-In Sprite Strips.",
+    "rule": "Studio Trigger / Omega Strikers 8-Frame Sakuga Cut-In Sprite Strips & Pose-B Impact Keyframes: All 53 library units (16 Core Heroes/Mechs + 37 Agent Command Deck cards) have synthesized 600x800 Pose-B Impact Keyframes and 1920x160 8-Frame Sakuga Cut-In Sprite Strips.",
     "source": "skills/disciplines/create-game-assets/SKILL.md:94",
     "target": "both",
     "method": "metric",
@@ -791,10 +791,10 @@
       "file": "Datasets/pxg_v100_sakuga_telegraph/v100_sakuga_manifest.json",
       "json_path": "dataset_summary.synthesized_8frame_sakuga_strips_count"
     },
-    "expect": "==20",
+    "expect": "==53",
     "priority": "P1",
     "code_ref": "Backend/pxg_v100_anime_telegraph_trainer.py:302-432",
-    "remediation": "Run ~/.local/share/mlx-env/bin/python3 Backend/pxg_v100_anime_telegraph_trainer.py to synthesize all 20 Pose-B keyframes and 8-frame Sakuga sprite strips."
+    "remediation": "Run ~/.local/share/mlx-env/bin/python3 Backend/pxg_v100_anime_telegraph_trainer.py to synthesize all 53 Pose-B keyframes and 8-frame Sakuga sprite strips."
   },
   {
     "id": "core.sakuga_v100.02",
@@ -857,5 +857,69 @@
     "priority": "P1",
     "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:1010-1038",
     "remediation": "Define PxgV100SakugaTelegraphBridge in Assets/Scripts/Core/CardFrontUnifiedRuntime.cs."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.01",
+    "skill": "unity/unity-build-pipeline",
+    "rule": "Headless Unity 6 (6000.6.8f1) batchmode agentic CLI execution: UnityHeadlessAgentCLI.RunFullHeadlessPipeline compiles Assembly-CSharp.dll, simulates 100 Minimax AI matches, verifies 5/5 puzzles, and writes Logs/unity_6000_headless_agent_report.json.",
+    "source": "skills/unity/unity-build-pipeline/SKILL.md:38",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/unity_6000_headless_agent_report.json",
+      "expression": "data['unityVersion'] == '6000.6.8f1' and data['batchMode'] is True and data['status'] == 'PASS_UNITY_6000_HEADLESS_AGENT_PIPELINE' and data['balanceMatchesSimulated'] == 100 and data['puzzlesPassed'] == 5"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Assets/Scripts/Editor/UnityHeadlessAgentCLI.cs:35-210",
+    "remediation": "Run Unity 6000.6.8f1 in -batchmode -nographics with -executeMethod Synapse.TcgEngine.EditorTools.UnityHeadlessAgentCLI.RunFullHeadlessPipeline."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.02",
+    "skill": "unity/unity-scriptableobjects",
+    "rule": "Owned Indie Marc TCG Engine asset ingestion & REA 6.8.0 decompile ledger: 229 C# scripts + 45 Node API files ingested, 79 TcgEngine.CardData .asset + 60 Synapse CardDataSO .asset (139 total) serialized, and Assembly-CSharp.dll inspected via rea@6.8.0.",
+    "source": "skills/unity/unity-scriptableobjects/SKILL.md:42",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/rea_tcg_engine_baseline_decompile_ledger.json",
+      "expression": "data['summary']['status'] == 'PASS_ALL_GATES' and data['summary']['indie_marc_csharp_scripts_ingested'] == 229 and data['summary']['indie_marc_card_assets_total'] == 79 and data['summary']['combined_unity_card_assets_total'] == 139 and data['summary']['assembly_csharp_compiled'] is True"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/synapse_unity6_tcg_engine_rea_pipeline.py:40-298",
+    "remediation": "Run python3 Backend/synapse_unity6_tcg_engine_rea_pipeline.py to ingest the owned TCG Engine package, serialize all 139 Unity .asset cards, and run rea@6.8.0."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.03",
+    "skill": "unity/unity-csharp-scripting",
+    "rule": "Canonical Indie Marc TcgEngine.CardData baseline script (Assets/Scripts/Core/CardData.cs, GUID 843a21f7f6f205741a0a7341aec8e84d) defines CardData, Game.IsOnBoard, Game.GetSlotCard, and Slot.GetP.",
+    "source": "skills/unity/unity-csharp-scripting/SKILL.md:58",
+    "target": "unity",
+    "method": "static_regex",
+    "probe": {
+      "file": "Assets/Scripts/Core/CardData.cs",
+      "regex": "class\\s+CardData\\s*:\\s*ScriptableObject[\\s\\S]*IsOnBoard"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "Assets/Scripts/Core/CardData.cs:5-530",
+    "remediation": "Ensure Assets/Scripts/Core/CardData.cs defines the canonical CardData ScriptableObject and Game.IsOnBoard."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.04",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "Full CARDFRONT 3D -> Unpacked TcgEngine Port & Multiplayer Opcode Sync: Datasets/unity_tcg_engine_port_manifest.json verifies 232+ unpacked C# scripts, 113 catalog cards (60 Set 1 + 53 Sakuga/Agent Deck), 53 Sakuga strips, and network opcodes 1060/1062/1064.",
+    "source": "skills/unity/unity-netcode-multiplayer/SKILL.md:40",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/unity_tcg_engine_port_manifest.json",
+      "expression": "data['status'] == 'READY_FOR_UNITY_2022_3_LTS_AND_LAN_MULTIPLAYER' and data['art_sync']['sakuga_strips_synced'] == 53 and data['catalog_sync']['total_catalog_cards'] == 113 and data['network_opcodes_wired']['ApplyBudge'] == 1062"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/sync_unity_tcg_engine_port.py:180-235",
+    "remediation": "Run python3 Backend/sync_unity_tcg_engine_port.py to synchronize both Unity repositories and generate Datasets/unity_tcg_engine_port_manifest.json."
   }
 ]

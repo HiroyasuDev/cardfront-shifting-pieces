@@ -37,22 +37,22 @@ const empties = (g) => { const e = []; g.forEach((row, r) => row.forEach((v, c) 
     await page.waitForFunction(() => getComputedStyle(document.getElementById("result-modal")).display !== "none", null, { timeout: 4000 }).catch(() => {});
     await page.waitForTimeout(300);
     const end = await L.snap(page);
-    // reach "Next Stage" with Tab only
-    const tabStops = [];
-    let reached = -1;
-    for (let i = 1; i <= 15; i++) {
+    const initialFocus = await page.evaluate(() => { const e = document.activeElement; return { tag: e ? e.tagName : "", text: (e && e.textContent || "").trim().replace(/\s+/g, " ").slice(0, 40), id: e ? e.id : "", inModal: !!(e && e.closest && e.closest("#result-modal")) }; });
+    const tabStops = [initialFocus];
+    let reached = /Next Stage/.test(initialFocus.text) ? 0 : -1;
+    for (let i = 1; reached < 0 && i <= 15; i++) {
       await page.keyboard.press("Tab");
       const a = await page.evaluate(() => { const e = document.activeElement; return { tag: e.tagName, text: (e.textContent || "").trim().replace(/\s+/g, " ").slice(0, 40), id: e.id, inModal: !!e.closest("#result-modal") }; });
       tabStops.push(a);
       if (/Next Stage/.test(a.text)) { reached = i; break; }
     }
     await page.screenshot({ path: S("t5_keyboard_modal_focus.png") });
-    if (reached > 0) await page.keyboard.press("Enter");
+    if (reached >= 0) await page.keyboard.press("Enter");
     await page.waitForTimeout(500);
     const nxt = await L.snap(page);
     R.keyboardOnlyGame = {
       turns, allPlacedByKeyboard: turns.every((t) => t.placed), gameCompleted: end.gameOver, modalTitle: end.modalTitle,
-      tabPressesToReachNextStage: reached, tabStopsFromBodyInModal: tabStops, modalAutoFocused: false,
+      tabPressesToReachNextStage: reached, tabStopsFromBodyInModal: tabStops, modalAutoFocused: initialFocus.inModal,
       nextStageLoadedByKeyboard: nxt.stage === 1 && !nxt.modal,
       notes: "Keys: 1-5 select hand card, arrows/WASD move board focus, Enter/Space place, R reroll, P pulse (handleHarnessKeyDown L1409-1445). No key for column-die nudge; Tactical Slide via Enter on own card then Enter on adjacent tile.",
     };

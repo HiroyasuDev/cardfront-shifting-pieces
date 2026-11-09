@@ -14,162 +14,162 @@
       },
       "headerRight": {
         "rect": [
-          763,
+          278,
           8,
-          570,
+          736,
           28
         ],
-        "hiddenPct": 54.1
+        "hiddenPct": 0
       },
       "scoreboard": {
         "rect": [
-          549,
-          9,
-          202,
-          25
+          90,
+          10,
+          182,
+          23
         ],
         "hiddenPct": 0
       },
       "handPanel": {
         "rect": [
-          14,
-          52,
-          264,
-          708
+          6,
+          217,
+          196,
+          378
         ],
         "hiddenPct": 0
       },
       "bossPanelAside": {
         "rect": [
-          1221,
-          52,
-          264,
-          708
+          822,
+          96,
+          196,
+          620
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "board": {
         "rect": [
-          526,
-          137,
-          447,
-          583
+          332,
+          224,
+          361,
+          494
         ],
         "hiddenPct": 0
       },
       "grid": {
         "rect": [
-          545,
-          182,
-          410,
-          521
+          353,
+          297,
+          319,
+          406
         ],
         "hiddenPct": 0
       },
       "telegraphHud": {
         "rect": [
-          308,
-          52,
-          883,
-          27
+          252,
+          100,
+          520,
+          68
         ],
-        "hiddenPct": 18.9
+        "hiddenPct": 0
       },
       "dicePanel": {
         "rect": [
-          1234,
-          122,
-          238,
-          158
+          833,
+          185,
+          174,
+          166
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "rerollBtn": {
         "rect": [
-          1234,
-          287,
-          238,
-          34
+          833,
+          358,
+          174,
+          36
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "bossProfile": {
         "rect": [
-          1234,
-          605,
-          238,
-          76
+          833,
+          427,
+          174,
+          177
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "lastMoveBanner": {
         "rect": [
-          1234,
-          688,
-          238,
-          61
+          833,
+          611,
+          174,
+          96
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       }
     },
     "handCards": [
       {
         "i": 0,
         "rect": [
-          31,
-          190,
-          111,
-          149
+          17,
+          243,
+          83,
+          111
         ],
         "hiddenPct": 0
       },
       {
         "i": 1,
         "rect": [
-          152,
-          196,
-          107,
-          143
+          110,
+          252,
+          79,
+          106
         ],
         "hiddenPct": 0
       },
       {
         "i": 2,
         "rect": [
-          33,
-          347,
-          107,
-          143
+          19,
+          366,
+          79,
+          106
         ],
         "hiddenPct": 0
       },
       {
         "i": 3,
         "rect": [
-          152,
-          347,
-          107,
-          143
+          110,
+          366,
+          79,
+          106
         ],
         "hiddenPct": 0
       },
       {
         "i": 4,
         "rect": [
-          33,
-          498,
-          107,
-          143
+          19,
+          480,
+          79,
+          106
         ],
         "hiddenPct": 0
       },
       {
         "i": 5,
         "rect": [
-          152,
-          498,
-          107,
-          143
+          110,
+          480,
+          79,
+          106
         ],
         "hiddenPct": 0
       }
@@ -179,10 +179,10 @@
         "r": 0,
         "c": 0,
         "rect": [
-          550,
-          182,
-          126,
-          162
+          355,
+          297,
+          97,
+          125
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -192,10 +192,10 @@
         "r": 0,
         "c": 1,
         "rect": [
-          687,
-          182,
-          125,
-          162
+          464,
+          297,
+          97,
+          125
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -205,10 +205,10 @@
         "r": 0,
         "c": 2,
         "rect": [
-          824,
-          182,
-          126,
-          162
+          572,
+          297,
+          97,
+          125
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -218,108 +218,91 @@
         "r": 1,
         "c": 0,
         "rect": [
-          547,
-          356,
-          128,
-          166
+          354,
+          434,
+          98,
+          128
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 1,
         "rect": [
-          686,
-          356,
-          127,
-          166
+          463,
+          434,
+          98,
+          128
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 2,
         "rect": [
-          824,
-          356,
-          128,
-          166
+          572,
+          434,
+          98,
+          128
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 0,
         "rect": [
-          545,
-          533,
-          129,
-          170
+          352,
+          573,
+          99,
+          130
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 1,
         "rect": [
-          685,
-          533,
-          128,
-          170
+          463,
+          573,
+          98,
+          130
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 2,
         "rect": [
-          825,
-          533,
-          129,
-          170
+          573,
+          573,
+          99,
+          130
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       }
     ],
-    "textOverflow": [
-      {
-        "text": "⚡ Orbital Airstrike",
-        "cls": "DIV",
-        "id": "",
-        "ox": 11,
-        "oy": 0,
-        "ellipsis": true
-      }
-    ],
+    "textOverflow": [],
     "docScroll": {
-      "sw": 1333,
+      "sw": 1024,
       "sh": 768,
       "vw": 1024,
       "vh": 768
     },
-    "visibleIssues": [
-      "headerRight 54.1% hidden",
-      "bossPanelAside 100% hidden",
-      "telegraphHud 18.9% hidden",
-      "dicePanel 100% hidden",
-      "rerollBtn 100% hidden",
-      "bossProfile 100% hidden",
-      "lastMoveBanner 100% hidden"
-    ],
+    "visibleIssues": [],
     "allTilesCenterHittable": true,
-    "allTilesCornersHittable": false,
+    "allTilesCornersHittable": true,
     "inputMode": "mouse",
     "dragPlacementWorked": true,
     "pageErrors": []
@@ -339,162 +322,162 @@
       },
       "headerRight": {
         "rect": [
-          763,
+          340,
           8,
-          570,
+          930,
           28
         ],
-        "hiddenPct": 9.2
+        "hiddenPct": 0
       },
       "scoreboard": {
         "rect": [
-          549,
-          9,
-          202,
-          25
+          152,
+          10,
+          182,
+          23
         ],
         "hiddenPct": 0
       },
       "handPanel": {
         "rect": [
-          14,
-          52,
-          264,
-          660
+          10,
+          188,
+          240,
+          388
         ],
         "hiddenPct": 0
       },
       "bossPanelAside": {
         "rect": [
-          1218,
-          52,
-          264,
-          660
+          1030,
+          116,
+          240,
+          532
         ],
-        "hiddenPct": 76.4
+        "hiddenPct": 0
       },
       "board": {
         "rect": [
-          536,
-          127,
-          424,
-          553
+          453,
+          194,
+          373,
+          505
         ],
         "hiddenPct": 0
       },
       "grid": {
         "rect": [
-          555,
-          172,
-          386,
-          491
+          474,
+          263,
+          331,
+          421
         ],
         "hiddenPct": 0
       },
       "telegraphHud": {
         "rect": [
-          308,
-          52,
-          879,
-          27
+          380,
+          100,
+          520,
+          68
         ],
         "hiddenPct": 0
       },
       "dicePanel": {
         "rect": [
-          1231,
-          122,
-          238,
-          158
+          1041,
+          189,
+          218,
+          166
         ],
-        "hiddenPct": 79.3
+        "hiddenPct": 0
       },
       "rerollBtn": {
         "rect": [
-          1231,
-          287,
-          238,
-          34
+          1041,
+          362,
+          218,
+          36
         ],
-        "hiddenPct": 79.3
+        "hiddenPct": 0
       },
       "bossProfile": {
         "rect": [
-          1231,
-          557,
-          238,
-          76
+          1041,
+          431,
+          218,
+          120
         ],
-        "hiddenPct": 79.3
+        "hiddenPct": 0
       },
       "lastMoveBanner": {
         "rect": [
-          1231,
-          640,
-          238,
-          61
+          1041,
+          559,
+          218,
+          80
         ],
-        "hiddenPct": 79.3
+        "hiddenPct": 0
       }
     },
     "handCards": [
       {
         "i": 0,
         "rect": [
-          38,
-          180,
-          104,
-          139
+          40,
+          214,
+          86,
+          115
         ],
         "hiddenPct": 0
       },
       {
         "i": 1,
         "rect": [
-          152,
-          186,
-          100,
-          134
+          136,
+          223,
+          82,
+          109
         ],
         "hiddenPct": 0
       },
       {
         "i": 2,
         "rect": [
-          40,
-          328,
-          100,
-          134
+          42,
+          340,
+          82,
+          109
         ],
         "hiddenPct": 0
       },
       {
         "i": 3,
         "rect": [
-          152,
-          328,
-          100,
-          134
+          136,
+          340,
+          82,
+          109
         ],
         "hiddenPct": 0
       },
       {
         "i": 4,
         "rect": [
-          40,
-          469,
-          100,
-          134
+          42,
+          458,
+          82,
+          109
         ],
         "hiddenPct": 0
       },
       {
         "i": 5,
         "rect": [
-          152,
-          469,
-          100,
-          134
+          136,
+          458,
+          82,
+          109
         ],
         "hiddenPct": 0
       }
@@ -504,10 +487,10 @@
         "r": 0,
         "c": 0,
         "rect": [
-          559,
-          172,
-          119,
-          152
+          477,
+          262,
+          101,
+          130
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -517,10 +500,10 @@
         "r": 0,
         "c": 1,
         "rect": [
-          689,
-          172,
-          118,
-          152
+          590,
+          262,
+          101,
+          130
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -530,10 +513,10 @@
         "r": 0,
         "c": 2,
         "rect": [
-          818,
-          172,
-          119,
-          152
+          702,
+          262,
+          101,
+          130
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -543,107 +526,91 @@
         "r": 1,
         "c": 0,
         "rect": [
-          557,
-          336,
-          120,
-          156
+          475,
+          405,
+          102,
+          133
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 1,
         "rect": [
-          688,
-          336,
-          119,
-          156
+          589,
+          405,
+          102,
+          133
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 2,
         "rect": [
-          819,
-          336,
-          120,
-          156
+          702,
+          405,
+          102,
+          133
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 0,
         "rect": [
-          555,
-          504,
-          121,
-          159
+          474,
+          550,
+          103,
+          135
         ],
         "hiddenPct": 0,
-        "centerHittable": false,
+        "centerHittable": true,
         "cornersHittable": true
       },
       {
         "r": 2,
         "c": 1,
         "rect": [
-          688,
-          504,
-          121,
-          159
+          589,
+          550,
+          103,
+          135
         ],
         "hiddenPct": 0,
-        "centerHittable": false,
+        "centerHittable": true,
         "cornersHittable": true
       },
       {
         "r": 2,
         "c": 2,
         "rect": [
-          820,
-          504,
-          121,
-          159
+          703,
+          550,
+          103,
+          135
         ],
         "hiddenPct": 0,
-        "centerHittable": false,
+        "centerHittable": true,
         "cornersHittable": true
       }
     ],
-    "textOverflow": [
-      {
-        "text": "⚡ Ivalice Law Seal",
-        "cls": "DIV",
-        "id": "",
-        "ox": 16,
-        "oy": 0,
-        "ellipsis": true
-      }
-    ],
+    "textOverflow": [],
     "docScroll": {
-      "sw": 1333,
+      "sw": 1280,
       "sh": 720,
       "vw": 1280,
       "vh": 720
     },
-    "visibleIssues": [
-      "headerRight 9.2% hidden",
-      "bossPanelAside 76.4% hidden",
-      "dicePanel 79.3% hidden",
-      "rerollBtn 79.3% hidden",
-      "bossProfile 79.3% hidden",
-      "lastMoveBanner 79.3% hidden"
-    ],
-    "allTilesCenterHittable": false,
-    "allTilesCornersHittable": false,
+    "visibleIssues": [],
+    "allTilesCenterHittable": true,
+    "allTilesCornersHittable": true,
     "inputMode": "mouse",
     "dragPlacementWorked": true,
     "pageErrors": []
@@ -663,162 +630,162 @@
       },
       "headerRight": {
         "rect": [
-          763,
+          340,
           8,
-          570,
+          930,
           28
         ],
-        "hiddenPct": 9.2
+        "hiddenPct": 0
       },
       "scoreboard": {
         "rect": [
-          549,
-          9,
-          202,
-          25
+          152,
+          10,
+          182,
+          23
         ],
         "hiddenPct": 0
       },
       "handPanel": {
         "rect": [
-          14,
-          52,
-          264,
-          740
+          10,
+          210,
+          240,
+          425
         ],
         "hiddenPct": 0
       },
       "bossPanelAside": {
         "rect": [
-          1214,
-          52,
-          264,
-          740
+          1030,
+          156,
+          240,
+          532
         ],
-        "hiddenPct": 74.9
+        "hiddenPct": 0
       },
       "board": {
         "rect": [
-          514,
-          143,
-          463,
-          603
+          437,
+          220,
+          405,
+          536
         ],
         "hiddenPct": 0
       },
       "grid": {
         "rect": [
-          533,
-          188,
-          426,
-          542
+          458,
+          279,
+          363,
+          462
         ],
         "hiddenPct": 0
       },
       "telegraphHud": {
         "rect": [
-          308,
-          52,
-          875,
-          27
+          380,
+          100,
+          520,
+          68
         ],
         "hiddenPct": 0
       },
       "dicePanel": {
         "rect": [
-          1227,
-          122,
-          238,
-          158
+          1041,
+          229,
+          218,
+          166
         ],
-        "hiddenPct": 77.6
+        "hiddenPct": 0
       },
       "rerollBtn": {
         "rect": [
-          1227,
-          287,
-          238,
-          34
+          1041,
+          402,
+          218,
+          36
         ],
-        "hiddenPct": 77.6
+        "hiddenPct": 0
       },
       "bossProfile": {
         "rect": [
-          1227,
-          637,
-          238,
-          76
+          1041,
+          471,
+          218,
+          120
         ],
-        "hiddenPct": 77.6
+        "hiddenPct": 0
       },
       "lastMoveBanner": {
         "rect": [
-          1227,
-          720,
-          238,
-          61
+          1041,
+          599,
+          218,
+          80
         ],
-        "hiddenPct": 77.6
+        "hiddenPct": 0
       }
     },
     "handCards": [
       {
         "i": 0,
         "rect": [
-          26,
-          197,
-          116,
-          155
+          31,
+          236,
+          96,
+          128
         ],
         "hiddenPct": 0
       },
       {
         "i": 1,
         "rect": [
-          152,
-          203,
-          112,
-          149
+          136,
+          245,
+          91,
+          122
         ],
         "hiddenPct": 0
       },
       {
         "i": 2,
         "rect": [
-          28,
-          360,
-          112,
-          149
+          33,
+          374,
+          91,
+          122
         ],
         "hiddenPct": 0
       },
       {
         "i": 3,
         "rect": [
-          152,
-          360,
-          112,
-          149
+          136,
+          374,
+          91,
+          122
         ],
         "hiddenPct": 0
       },
       {
         "i": 4,
         "rect": [
-          28,
-          517,
-          112,
-          149
+          33,
+          504,
+          91,
+          122
         ],
         "hiddenPct": 0
       },
       {
         "i": 5,
         "rect": [
-          152,
-          517,
-          112,
-          149
+          136,
+          504,
+          91,
+          122
         ],
         "hiddenPct": 0
       }
@@ -828,10 +795,10 @@
         "r": 0,
         "c": 0,
         "rect": [
-          538,
-          188,
-          131,
-          168
+          462,
+          278,
+          112,
+          143
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -841,10 +808,10 @@
         "r": 0,
         "c": 1,
         "rect": [
-          681,
-          188,
-          131,
-          168
+          585,
+          278,
+          111,
+          143
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -854,10 +821,10 @@
         "r": 0,
         "c": 2,
         "rect": [
-          822,
-          188,
-          131,
-          168
+          707,
+          278,
+          112,
+          143
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -867,49 +834,49 @@
         "r": 1,
         "c": 0,
         "rect": [
-          535,
-          368,
-          133,
-          173
+          460,
+          433,
+          113,
+          146
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 1,
         "rect": [
-          680,
-          368,
-          132,
-          173
+          584,
+          433,
+          112,
+          146
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 2,
         "rect": [
-          823,
-          368,
-          133,
-          173
+          708,
+          433,
+          113,
+          146
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 0,
         "rect": [
-          533,
-          553,
-          135,
-          177
+          458,
+          591,
+          114,
+          150
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -919,10 +886,10 @@
         "r": 2,
         "c": 1,
         "rect": [
-          679,
-          553,
-          134,
-          177
+          583,
+          591,
+          113,
+          150
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -932,42 +899,26 @@
         "r": 2,
         "c": 2,
         "rect": [
-          824,
-          553,
-          135,
-          177
+          708,
+          591,
+          114,
+          150
         ],
         "hiddenPct": 0,
         "centerHittable": true,
         "cornersHittable": true
       }
     ],
-    "textOverflow": [
-      {
-        "text": "⚡ Solid Eye Target Lock",
-        "cls": "DIV",
-        "id": "",
-        "ox": 32,
-        "oy": 0,
-        "ellipsis": true
-      }
-    ],
+    "textOverflow": [],
     "docScroll": {
-      "sw": 1333,
+      "sw": 1280,
       "sh": 800,
       "vw": 1280,
       "vh": 800
     },
-    "visibleIssues": [
-      "headerRight 9.2% hidden",
-      "bossPanelAside 74.9% hidden",
-      "dicePanel 77.6% hidden",
-      "rerollBtn 77.6% hidden",
-      "bossProfile 77.6% hidden",
-      "lastMoveBanner 77.6% hidden"
-    ],
+    "visibleIssues": [],
     "allTilesCenterHittable": true,
-    "allTilesCornersHittable": false,
+    "allTilesCornersHittable": true,
     "inputMode": "mouse",
     "dragPlacementWorked": true,
     "pageErrors": []
@@ -987,162 +938,162 @@
       },
       "headerRight": {
         "rect": [
-          854,
+          500,
           8,
-          570,
+          930,
           28
         ],
         "hiddenPct": 0
       },
       "scoreboard": {
         "rect": [
-          594,
-          9,
-          202,
-          25
+          312,
+          10,
+          182,
+          23
         ],
         "hiddenPct": 0
       },
       "handPanel": {
         "rect": [
-          14,
-          52,
-          264,
-          840
+          12,
+          237,
+          248,
+          470
         ],
         "hiddenPct": 0
       },
       "bossPanelAside": {
         "rect": [
-          1214,
-          52,
-          264,
-          840
+          1180,
+          206,
+          248,
+          532
         ],
-        "hiddenPct": 14.3
+        "hiddenPct": 0
       },
       "board": {
         "rect": [
-          488,
-          162,
-          515,
-          668
+          496,
+          243,
+          448,
+          590
         ],
         "hiddenPct": 0
       },
       "grid": {
         "rect": [
-          507,
-          207,
-          477,
-          606
+          517,
+          302,
+          406,
+          517
         ],
         "hiddenPct": 0
       },
       "telegraphHud": {
         "rect": [
-          308,
-          52,
-          875,
-          27
+          460,
+          100,
+          520,
+          68
         ],
         "hiddenPct": 0
       },
       "dicePanel": {
         "rect": [
-          1227,
-          122,
-          238,
-          158
+          1191,
+          279,
+          226,
+          166
         ],
-        "hiddenPct": 10.4
+        "hiddenPct": 0
       },
       "rerollBtn": {
         "rect": [
-          1227,
-          287,
-          238,
-          34
+          1191,
+          452,
+          226,
+          36
         ],
-        "hiddenPct": 10.4
+        "hiddenPct": 0
       },
       "bossProfile": {
         "rect": [
-          1227,
-          737,
-          238,
-          76
+          1191,
+          521,
+          226,
+          120
         ],
-        "hiddenPct": 10.4
+        "hiddenPct": 0
       },
       "lastMoveBanner": {
         "rect": [
-          1227,
-          820,
-          238,
-          61
+          1191,
+          649,
+          226,
+          80
         ],
-        "hiddenPct": 10.4
+        "hiddenPct": 0
       }
     },
     "handCards": [
       {
         "i": 0,
         "rect": [
-          18,
-          230,
-          125,
-          166
+          25,
+          262,
+          108,
+          144
         ],
         "hiddenPct": 0
       },
       {
         "i": 1,
         "rect": [
-          152,
-          237,
-          120,
-          160
+          142,
+          272,
+          103,
+          137
         ],
         "hiddenPct": 0
       },
       {
         "i": 2,
         "rect": [
-          20,
-          405,
-          120,
-          160
+          27,
+          417,
+          103,
+          137
         ],
         "hiddenPct": 0
       },
       {
         "i": 3,
         "rect": [
-          152,
-          405,
-          120,
-          160
+          142,
+          417,
+          103,
+          137
         ],
         "hiddenPct": 0
       },
       {
         "i": 4,
         "rect": [
-          20,
-          573,
-          120,
-          160
+          27,
+          561,
+          103,
+          137
         ],
         "hiddenPct": 0
       },
       {
         "i": 5,
         "rect": [
-          152,
-          573,
-          120,
-          160
+          142,
+          561,
+          103,
+          137
         ],
         "hiddenPct": 0
       }
@@ -1152,10 +1103,10 @@
         "r": 0,
         "c": 0,
         "rect": [
-          514,
-          207,
-          148,
-          189
+          521,
+          301,
+          125,
+          161
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -1165,10 +1116,10 @@
         "r": 0,
         "c": 1,
         "rect": [
-          672,
-          207,
-          147,
-          189
+          658,
+          301,
+          125,
+          161
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -1178,10 +1129,10 @@
         "r": 0,
         "c": 2,
         "rect": [
-          830,
-          207,
-          148,
-          189
+          794,
+          301,
+          125,
+          161
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -1191,49 +1142,49 @@
         "r": 1,
         "c": 0,
         "rect": [
-          510,
-          408,
-          150,
-          194
+          519,
+          474,
+          127,
+          165
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 1,
         "rect": [
-          671,
-          408,
-          149,
-          194
+          657,
+          474,
+          126,
+          165
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 2,
         "rect": [
-          831,
-          408,
-          150,
-          194
+          794,
+          474,
+          127,
+          165
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 0,
         "rect": [
-          507,
-          614,
-          152,
-          200
+          516,
+          651,
+          129,
+          169
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -1243,10 +1194,10 @@
         "r": 2,
         "c": 1,
         "rect": [
-          670,
-          614,
-          151,
-          200
+          656,
+          651,
+          128,
+          169
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -1256,41 +1207,26 @@
         "r": 2,
         "c": 2,
         "rect": [
-          832,
-          614,
-          152,
-          200
+          795,
+          651,
+          129,
+          169
         ],
         "hiddenPct": 0,
         "centerHittable": true,
         "cornersHittable": true
       }
     ],
-    "textOverflow": [
-      {
-        "text": "⚡ Solid Eye Target Lock",
-        "cls": "DIV",
-        "id": "",
-        "ox": 24,
-        "oy": 0,
-        "ellipsis": true
-      }
-    ],
+    "textOverflow": [],
     "docScroll": {
       "sw": 1440,
       "sh": 900,
       "vw": 1440,
       "vh": 900
     },
-    "visibleIssues": [
-      "bossPanelAside 14.3% hidden",
-      "dicePanel 10.4% hidden",
-      "rerollBtn 10.4% hidden",
-      "bossProfile 10.4% hidden",
-      "lastMoveBanner 10.4% hidden"
-    ],
+    "visibleIssues": [],
     "allTilesCenterHittable": true,
-    "allTilesCornersHittable": false,
+    "allTilesCornersHittable": true,
     "inputMode": "mouse",
     "dragPlacementWorked": true,
     "pageErrors": []
@@ -1310,100 +1246,100 @@
       },
       "headerRight": {
         "rect": [
-          1334,
+          980,
           8,
-          570,
+          930,
           28
         ],
         "hiddenPct": 0
       },
       "scoreboard": {
         "rect": [
-          834,
-          9,
-          202,
-          25
+          573,
+          10,
+          182,
+          23
         ],
         "hiddenPct": 0
       },
       "handPanel": {
         "rect": [
-          154,
-          52,
-          264,
-          1020
+          152,
+          319,
+          248,
+          486
         ],
         "hiddenPct": 0
       },
       "bossPanelAside": {
         "rect": [
-          1502,
-          52,
-          264,
-          1020
+          1520,
+          296,
+          248,
+          532
         ],
         "hiddenPct": 0
       },
       "board": {
         "rect": [
-          689,
-          235,
-          542,
-          703
+          712,
+          304,
+          496,
+          651
         ],
         "hiddenPct": 0
       },
       "grid": {
         "rect": [
-          707,
-          280,
-          505,
-          641
+          733,
+          363,
+          454,
+          578
         ],
         "hiddenPct": 0
       },
       "telegraphHud": {
         "rect": [
-          502,
-          52,
-          916,
-          27
+          700,
+          100,
+          520,
+          68
         ],
         "hiddenPct": 0
       },
       "dicePanel": {
         "rect": [
-          1515,
-          122,
-          238,
-          158
+          1531,
+          369,
+          226,
+          166
         ],
         "hiddenPct": 0
       },
       "rerollBtn": {
         "rect": [
-          1515,
-          287,
-          238,
-          34
+          1531,
+          542,
+          226,
+          36
         ],
         "hiddenPct": 0
       },
       "bossProfile": {
         "rect": [
-          1515,
-          917,
-          238,
-          76
+          1531,
+          611,
+          226,
+          120
         ],
         "hiddenPct": 0
       },
       "lastMoveBanner": {
         "rect": [
-          1515,
-          1000,
-          238,
-          61
+          1531,
+          739,
+          226,
+          80
         ],
         "hiddenPct": 0
       }
@@ -1412,60 +1348,60 @@
       {
         "i": 0,
         "rect": [
-          158,
-          320,
-          125,
-          166
+          161,
+          344,
+          112,
+          149
         ],
         "hiddenPct": 0
       },
       {
         "i": 1,
         "rect": [
-          292,
-          327,
-          120,
-          160
+          282,
+          354,
+          107,
+          142
         ],
         "hiddenPct": 0
       },
       {
         "i": 2,
         "rect": [
-          160,
-          495,
-          120,
-          160
+          164,
+          504,
+          107,
+          142
         ],
         "hiddenPct": 0
       },
       {
         "i": 3,
         "rect": [
-          292,
-          495,
-          120,
-          160
+          282,
+          504,
+          107,
+          142
         ],
         "hiddenPct": 0
       },
       {
         "i": 4,
         "rect": [
-          160,
-          663,
-          120,
-          160
+          164,
+          654,
+          107,
+          142
         ],
         "hiddenPct": 0
       },
       {
         "i": 5,
         "rect": [
-          292,
-          663,
-          120,
-          160
+          282,
+          654,
+          107,
+          142
         ],
         "hiddenPct": 0
       }
@@ -1475,10 +1411,10 @@
         "r": 0,
         "c": 0,
         "rect": [
-          715,
-          280,
-          157,
-          200
+          738,
+          362,
+          141,
+          180
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -1488,10 +1424,10 @@
         "r": 0,
         "c": 1,
         "rect": [
-          882,
-          280,
-          156,
-          200
+          890,
+          362,
+          140,
+          180
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -1501,10 +1437,10 @@
         "r": 0,
         "c": 2,
         "rect": [
-          1048,
-          280,
-          157,
-          200
+          1041,
+          362,
+          141,
+          180
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -1514,79 +1450,79 @@
         "r": 1,
         "c": 0,
         "rect": [
-          711,
-          492,
-          159,
-          206
+          735,
+          554,
+          143,
+          185
         ],
         "hiddenPct": 0,
-        "centerHittable": false,
-        "cornersHittable": false
+        "centerHittable": true,
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 1,
         "rect": [
-          881,
-          492,
-          158,
-          206
+          889,
+          554,
+          142,
+          185
         ],
         "hiddenPct": 0,
-        "centerHittable": false,
-        "cornersHittable": false
+        "centerHittable": true,
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 2,
         "rect": [
-          1050,
-          492,
-          159,
-          206
+          1042,
+          554,
+          143,
+          185
         ],
         "hiddenPct": 0,
-        "centerHittable": false,
-        "cornersHittable": false
+        "centerHittable": true,
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 0,
         "rect": [
-          707,
-          710,
-          161,
-          212
+          732,
+          751,
+          145,
+          190
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 1,
         "rect": [
-          880,
-          710,
-          160,
-          212
+          888,
+          751,
+          144,
+          190
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 2,
         "rect": [
-          1051,
-          710,
-          161,
-          212
+          1043,
+          751,
+          145,
+          190
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       }
     ],
     "textOverflow": [],
@@ -1597,8 +1533,8 @@
       "vh": 1080
     },
     "visibleIssues": [],
-    "allTilesCenterHittable": false,
-    "allTilesCornersHittable": false,
+    "allTilesCenterHittable": true,
+    "allTilesCornersHittable": true,
     "inputMode": "mouse",
     "dragPlacementWorked": true,
     "pageErrors": []
@@ -1618,162 +1554,162 @@
       },
       "headerRight": {
         "rect": [
-          763,
-          8,
-          570,
-          28
+          194,
+          9,
+          622,
+          26
         ],
-        "hiddenPct": 89.9
+        "hiddenPct": 0
       },
       "scoreboard": {
         "rect": [
-          549,
-          9,
-          202,
-          25
+          36,
+          11,
+          156,
+          21
         ],
         "hiddenPct": 0
       },
       "handPanel": {
         "rect": [
-          14,
-          52,
-          264,
-          1120
+          4,
+          426,
+          176,
+          372
         ],
         "hiddenPct": 0
       },
       "bossPanelAside": {
         "rect": [
-          1158,
-          52,
-          264,
-          1120
+          640,
+          280,
+          176,
+          664
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "board": {
         "rect": [
+          216,
           447,
-          285,
-          542,
-          703
+          387,
+          513
         ],
-        "hiddenPct": 31.2
+        "hiddenPct": 0
       },
       "grid": {
         "rect": [
-          465,
-          330,
-          505,
-          641
+          237,
+          506,
+          345,
+          439
         ],
-        "hiddenPct": 29.8
+        "hiddenPct": 0
       },
       "telegraphHud": {
         "rect": [
-          307,
-          52,
-          821,
-          27
+          184,
+          125,
+          452,
+          96
         ],
-        "hiddenPct": 37.6
+        "hiddenPct": 0
       },
       "dicePanel": {
         "rect": [
-          1171,
-          122,
-          238,
-          158
+          651,
+          369,
+          154,
+          166
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "rerollBtn": {
         "rect": [
-          1171,
-          287,
-          238,
-          34
+          651,
+          542,
+          154,
+          36
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "bossProfile": {
         "rect": [
-          1171,
-          1017,
-          238,
-          76
+          651,
+          611,
+          154,
+          205
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "lastMoveBanner": {
         "rect": [
-          1171,
-          1100,
-          238,
-          61
+          651,
+          823,
+          154,
+          112
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       }
     },
     "handCards": [
       {
         "i": 0,
         "rect": [
-          18,
-          370,
-          125,
-          166
+          6,
+          452,
+          82,
+          109
         ],
         "hiddenPct": 0
       },
       {
         "i": 1,
         "rect": [
-          152,
-          377,
-          120,
-          160
+          98,
+          461,
+          78,
+          104
         ],
         "hiddenPct": 0
       },
       {
         "i": 2,
         "rect": [
-          20,
-          545,
-          120,
-          160
+          8,
+          573,
+          78,
+          104
         ],
         "hiddenPct": 0
       },
       {
         "i": 3,
         "rect": [
-          152,
-          545,
-          120,
-          160
+          98,
+          573,
+          78,
+          104
         ],
         "hiddenPct": 0
       },
       {
         "i": 4,
         "rect": [
-          20,
-          713,
-          120,
-          160
+          8,
+          685,
+          78,
+          104
         ],
         "hiddenPct": 0
       },
       {
         "i": 5,
         "rect": [
-          152,
-          713,
-          120,
-          160
+          98,
+          685,
+          78,
+          104
         ],
         "hiddenPct": 0
       }
@@ -1783,10 +1719,10 @@
         "r": 0,
         "c": 0,
         "rect": [
-          473,
-          330,
-          157,
-          200
+          240,
+          505,
+          106,
+          136
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -1796,10 +1732,10 @@
         "r": 0,
         "c": 1,
         "rect": [
-          640,
-          330,
-          156,
-          200
+          357,
+          505,
+          105,
+          136
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -1809,126 +1745,104 @@
         "r": 0,
         "c": 2,
         "rect": [
-          806,
-          330,
-          157,
-          200
+          474,
+          505,
+          106,
+          136
         ],
-        "hiddenPct": 91.2,
-        "centerHittable": false,
-        "cornersHittable": false
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 0,
         "rect": [
-          469,
-          542,
-          159,
-          206
+          239,
+          653,
+          107,
+          139
         ],
         "hiddenPct": 0,
-        "centerHittable": false,
-        "cornersHittable": false
+        "centerHittable": true,
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 1,
         "rect": [
-          639,
-          542,
-          158,
-          206
+          357,
+          653,
+          106,
+          139
         ],
         "hiddenPct": 0,
-        "centerHittable": false,
-        "cornersHittable": false
+        "centerHittable": true,
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 2,
         "rect": [
-          808,
-          542,
-          159,
-          206
+          475,
+          653,
+          107,
+          139
         ],
-        "hiddenPct": 92.2,
-        "centerHittable": false,
-        "cornersHittable": false
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 0,
         "rect": [
-          465,
-          760,
-          161,
-          212
+          237,
+          804,
+          108,
+          142
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 1,
         "rect": [
-          638,
-          760,
-          160,
-          212
+          356,
+          804,
+          107,
+          142
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 2,
         "rect": [
-          809,
-          760,
-          161,
-          212
+          475,
+          804,
+          108,
+          142
         ],
-        "hiddenPct": 93.1,
-        "centerHittable": false,
-        "cornersHittable": false
+        "hiddenPct": 0,
+        "centerHittable": true,
+        "cornersHittable": true
       }
     ],
-    "textOverflow": [
-      {
-        "text": "⚡ Trigger Cross-Star",
-        "cls": "DIV",
-        "id": "",
-        "ox": 11,
-        "oy": 0,
-        "ellipsis": true
-      }
-    ],
+    "textOverflow": [],
     "docScroll": {
-      "sw": 1333,
-      "sh": 1919,
-      "vw": 1333,
-      "vh": 1919
+      "sw": 820,
+      "sh": 1180,
+      "vw": 820,
+      "vh": 1180
     },
-    "visibleIssues": [
-      "headerRight 89.9% hidden",
-      "bossPanelAside 100% hidden",
-      "board 31.2% hidden",
-      "grid 29.8% hidden",
-      "telegraphHud 37.6% hidden",
-      "dicePanel 100% hidden",
-      "rerollBtn 100% hidden",
-      "bossProfile 100% hidden",
-      "lastMoveBanner 100% hidden",
-      "tile(0,2) 91.2% hidden",
-      "tile(1,2) 92.2% hidden",
-      "tile(2,2) 93.1% hidden"
-    ],
-    "allTilesCenterHittable": false,
-    "allTilesCornersHittable": false,
+    "visibleIssues": [],
+    "allTilesCenterHittable": true,
+    "allTilesCornersHittable": true,
     "touchPointerEvents": {
       "pointerdown:touch": 1,
       "pointermove:touch": 24,
@@ -1936,7 +1850,7 @@
     },
     "inputMode": "touch (CDP Input.dispatchTouchEvent)",
     "dragPlacementWorked": true,
-    "tapTapPlacementWorked": false,
+    "tapTapPlacementWorked": true,
     "pageErrors": []
   },
   {
@@ -1954,162 +1868,162 @@
       },
       "headerRight": {
         "rect": [
-          763,
+          240,
           8,
-          570,
+          930,
           28
         ],
-        "hiddenPct": 26.8
+        "hiddenPct": 0
       },
       "scoreboard": {
         "rect": [
-          549,
-          9,
-          202,
-          25
+          52,
+          10,
+          182,
+          23
         ],
         "hiddenPct": 0
       },
       "handPanel": {
         "rect": [
-          14,
-          52,
-          264,
-          760
+          10,
+          215,
+          240,
+          434
         ],
         "hiddenPct": 0
       },
       "bossPanelAside": {
         "rect": [
-          1221,
-          52,
-          264,
-          760
+          930,
+          166,
+          240,
+          532
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "board": {
         "rect": [
-          513,
-          147,
-          474,
-          616
+          383,
+          224,
+          414,
+          547
         ],
         "hiddenPct": 0
       },
       "grid": {
         "rect": [
-          531,
-          192,
-          436,
-          555
+          404,
+          283,
+          372,
+          473
         ],
         "hiddenPct": 0
       },
       "telegraphHud": {
         "rect": [
-          308,
-          52,
-          883,
-          27
+          330,
+          100,
+          520,
+          68
         ],
-        "hiddenPct": 1.2
+        "hiddenPct": 0
       },
       "dicePanel": {
         "rect": [
-          1234,
-          122,
-          238,
-          158
+          941,
+          239,
+          218,
+          166
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "rerollBtn": {
         "rect": [
-          1234,
-          287,
-          238,
-          34
+          941,
+          412,
+          218,
+          36
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "bossProfile": {
         "rect": [
-          1234,
-          657,
-          238,
-          76
+          941,
+          481,
+          218,
+          120
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       },
       "lastMoveBanner": {
         "rect": [
-          1234,
-          740,
-          238,
-          61
+          941,
+          609,
+          218,
+          80
         ],
-        "hiddenPct": 100
+        "hiddenPct": 0
       }
     },
     "handCards": [
       {
         "i": 0,
         "rect": [
-          23,
-          202,
-          119,
-          159
+          28,
+          241,
+          98,
+          131
         ],
         "hiddenPct": 0
       },
       {
         "i": 1,
         "rect": [
-          152,
-          208,
-          114,
-          153
+          136,
+          250,
+          93,
+          125
         ],
         "hiddenPct": 0
       },
       {
         "i": 2,
         "rect": [
-          26,
-          368,
-          114,
-          153
+          31,
+          383,
+          93,
+          125
         ],
         "hiddenPct": 0
       },
       {
         "i": 3,
         "rect": [
-          152,
-          368,
-          114,
-          153
+          136,
+          383,
+          93,
+          125
         ],
         "hiddenPct": 0
       },
       {
         "i": 4,
         "rect": [
-          26,
-          529,
-          114,
-          153
+          31,
+          515,
+          93,
+          125
         ],
         "hiddenPct": 0
       },
       {
         "i": 5,
         "rect": [
-          152,
-          529,
-          114,
-          153
+          136,
+          515,
+          93,
+          125
         ],
         "hiddenPct": 0
       }
@@ -2119,10 +2033,10 @@
         "r": 0,
         "c": 0,
         "rect": [
-          537,
-          192,
-          135,
-          172
+          408,
+          282,
+          114,
+          147
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -2132,10 +2046,10 @@
         "r": 0,
         "c": 1,
         "rect": [
-          683,
-          192,
-          134,
-          172
+          533,
+          282,
+          114,
+          147
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -2145,10 +2059,10 @@
         "r": 0,
         "c": 2,
         "rect": [
-          828,
-          192,
-          135,
-          172
+          658,
+          282,
+          114,
+          147
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -2158,49 +2072,49 @@
         "r": 1,
         "c": 0,
         "rect": [
-          534,
-          376,
-          136,
-          177
+          406,
+          441,
+          116,
+          150
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 1,
         "rect": [
-          682,
-          376,
-          136,
-          177
+          533,
+          441,
+          115,
+          150
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 1,
         "c": 2,
         "rect": [
-          829,
-          376,
-          136,
-          177
+          659,
+          441,
+          116,
+          150
         ],
         "hiddenPct": 0,
         "centerHittable": true,
-        "cornersHittable": false
+        "cornersHittable": true
       },
       {
         "r": 2,
         "c": 0,
         "rect": [
-          531,
-          565,
-          138,
-          181
+          403,
+          603,
+          117,
+          153
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -2210,10 +2124,10 @@
         "r": 2,
         "c": 1,
         "rect": [
-          681,
-          565,
-          137,
-          181
+          532,
+          603,
+          116,
+          153
         ],
         "hiddenPct": 0,
         "centerHittable": true,
@@ -2223,43 +2137,26 @@
         "r": 2,
         "c": 2,
         "rect": [
-          830,
-          565,
-          138,
-          181
+          660,
+          603,
+          117,
+          153
         ],
         "hiddenPct": 0,
         "centerHittable": true,
         "cornersHittable": true
       }
     ],
-    "textOverflow": [
-      {
-        "text": "⚡ Orbital Airstrike",
-        "cls": "DIV",
-        "id": "",
-        "ox": 4,
-        "oy": 0,
-        "ellipsis": true
-      }
-    ],
+    "textOverflow": [],
     "docScroll": {
-      "sw": 1333,
-      "sh": 927,
-      "vw": 1333,
-      "vh": 927
+      "sw": 1180,
+      "sh": 820,
+      "vw": 1180,
+      "vh": 820
     },
-    "visibleIssues": [
-      "headerRight 26.8% hidden",
-      "bossPanelAside 100% hidden",
-      "telegraphHud 1.2% hidden",
-      "dicePanel 100% hidden",
-      "rerollBtn 100% hidden",
-      "bossProfile 100% hidden",
-      "lastMoveBanner 100% hidden"
-    ],
+    "visibleIssues": [],
     "allTilesCenterHittable": true,
-    "allTilesCornersHittable": false,
+    "allTilesCornersHittable": true,
     "touchPointerEvents": {
       "pointerdown:touch": 1,
       "pointermove:touch": 24,

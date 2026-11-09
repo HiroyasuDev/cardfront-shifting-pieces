@@ -5,104 +5,27 @@
   "checks": [
     {
       "name": "at least one centred real-mouse click on a slide-target tile was swallowed",
-      "ok": true,
+      "ok": false,
       "detail": {
         "total": 30,
-        "lost": 10,
+        "lost": 0,
         "flickering": 0,
-        "hitGrid": 7
+        "hitGrid": 0
       }
     },
     {
       "name": "every swallowed click hit-tested to #grid-3x3 or sat in a flicker loop",
-      "ok": false,
-      "detail": [
-        {
-          "kind": "slide",
-          "cam": "5,0",
-          "unit": [
-            2,
-            0
-          ],
-          "target": [
-            2,
-            1
-          ],
-          "selected": {
-            "r": 2,
-            "c": 0
-          },
-          "hit": "slot21",
-          "flickerEventsIn250ms": 0,
-          "actionHappened": false
-        },
-        {
-          "kind": "slide",
-          "cam": "5,0",
-          "unit": [
-            1,
-            1
-          ],
-          "target": [
-            2,
-            1
-          ],
-          "selected": {
-            "r": 1,
-            "c": 1
-          },
-          "hit": "grid-3x3",
-          "flickerEventsIn250ms": 0,
-          "actionHappened": false
-        },
-        {
-          "kind": "slide",
-          "cam": "0,0",
-          "unit": [
-            2,
-            0
-          ],
-          "target": [
-            2,
-            1
-          ],
-          "selected": {
-            "r": 2,
-            "c": 0
-          },
-          "hit": "slot21",
-          "flickerEventsIn250ms": 0,
-          "actionHappened": false
-        },
-        {
-          "kind": "slide",
-          "cam": "0,0",
-          "unit": [
-            1,
-            1
-          ],
-          "target": [
-            2,
-            1
-          ],
-          "selected": {
-            "r": 1,
-            "c": 1
-          },
-          "hit": "slot21",
-          "flickerEventsIn250ms": 0,
-          "actionHappened": false
-        }
-      ]
+      "ok": true,
+      "detail": []
     }
   ],
   "notes": {
     "summary": {
       "slide": {
         "total": 30,
-        "lost": 10,
+        "lost": 0,
         "flickering": 0,
-        "hitGrid": 7
+        "hitGrid": 0
       },
       "deploy": {
         "total": 30,
@@ -148,7 +71,7 @@
         },
         "hit": "slot21",
         "flickerEventsIn250ms": 0,
-        "actionHappened": false
+        "actionHappened": true
       },
       {
         "kind": "slide",
@@ -165,9 +88,9 @@
           "r": 1,
           "c": 1
         },
-        "hit": "grid-3x3",
+        "hit": "slot21",
         "flickerEventsIn250ms": 0,
-        "actionHappened": false
+        "actionHappened": true
       },
       {
         "kind": "slide",
@@ -222,7 +145,7 @@
           "r": 2,
           "c": 2
         },
-        "hit": "grid-3x3",
+        "hit": "slot12",
         "flickerEventsIn250ms": 0,
         "actionHappened": true
       },
@@ -241,7 +164,7 @@
           "r": 2,
           "c": 2
         },
-        "hit": "grid-3x3",
+        "hit": "slot21",
         "flickerEventsIn250ms": 0,
         "actionHappened": true
       },
@@ -498,7 +421,7 @@
         },
         "hit": "slot21",
         "flickerEventsIn250ms": 0,
-        "actionHappened": false
+        "actionHappened": true
       },
       {
         "kind": "slide",
@@ -517,7 +440,7 @@
         },
         "hit": "slot21",
         "flickerEventsIn250ms": 0,
-        "actionHappened": false
+        "actionHappened": true
       },
       {
         "kind": "slide",
@@ -572,9 +495,9 @@
           "r": 2,
           "c": 2
         },
-        "hit": "grid-3x3",
+        "hit": "slot12",
         "flickerEventsIn250ms": 0,
-        "actionHappened": false
+        "actionHappened": true
       },
       {
         "kind": "slide",
@@ -612,7 +535,7 @@
         },
         "hit": "slot00",
         "flickerEventsIn250ms": 0,
-        "actionHappened": false
+        "actionHappened": true
       },
       {
         "kind": "slide",
@@ -848,7 +771,7 @@
         },
         "hit": "slot21",
         "flickerEventsIn250ms": 0,
-        "actionHappened": false
+        "actionHappened": true
       },
       {
         "kind": "slide",
@@ -865,7 +788,7 @@
           "r": 1,
           "c": 1
         },
-        "hit": "grid-3x3",
+        "hit": "slot21",
         "flickerEventsIn250ms": 0,
         "actionHappened": true
       },
@@ -884,9 +807,9 @@
           "r": 1,
           "c": 1
         },
-        "hit": "grid-3x3",
+        "hit": "slot10",
         "flickerEventsIn250ms": 0,
-        "actionHappened": false
+        "actionHappened": true
       },
       {
         "kind": "slide",
@@ -943,7 +866,7 @@
         },
         "hit": "slot21",
         "flickerEventsIn250ms": 0,
-        "actionHappened": false
+        "actionHappened": true
       },
       {
         "kind": "slide",
@@ -998,9 +921,9 @@
           "r": 1,
           "c": 0
         },
-        "hit": "grid-3x3",
+        "hit": "slot11",
         "flickerEventsIn250ms": 0,
-        "actionHappened": false
+        "actionHappened": true
       },
       {
         "kind": "deploy",
@@ -1165,5 +1088,5 @@
     ]
   },
   "pageErrors": [],
-  "ranAt": "2026-11-08T12:14:54.139Z"
+  "ranAt": "2026-11-09T00:24:38.422Z"
 }

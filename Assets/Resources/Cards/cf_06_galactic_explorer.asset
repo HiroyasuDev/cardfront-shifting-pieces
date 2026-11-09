@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cf_06_galactic_explorer
   m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
   id: cf_06_galactic_explorer
-  title: "Galactic Explorer"
-  codeName: "Cosmic Odyssey"
+  title: Galactic Explorer
+  codeName: Cosmic Odyssey
   baseStats:
     up: 7
     down: 6
@@ -22,9 +22,9 @@ MonoBehaviour:
     right: 8
   themes: 34
   specialAbility: 6
-  specialAbilityDescription: "Once per turn, relocate to any unoccupied space on the 3x3 grid."
+  specialAbilityDescription: Once per turn, move Galactic Explorer to any unoccupied space on the 3x3 grid.
   synergyRequiredTheme: 36
   synergyAllSidesBonus: 1
-  synergyName: "Cosmic Synergy"
-  evolvesToCardId: ""
+  synergyName: Cosmic Synergy
+  evolvesToCardId: 
   cardArt: {fileID: 21300000, guid: 1361dba2808e564bd67c582220750573, type: 3}

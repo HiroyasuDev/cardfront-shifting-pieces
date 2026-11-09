@@ -1,0 +1,38 @@
+{
+  "schema": "CARDFRONT_UNITY_TCG_ENGINE_PORT_MANIFEST_V1",
+  "status": "READY_FOR_UNITY_2022_3_LTS_AND_LAN_MULTIPLAYER",
+  "primary_unity_repo": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine",
+  "unpacked_tcg_engine_repo": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked",
+  "unpacked_csharp_scripts_count": 232,
+  "network_opcodes_wired": {
+    "RollDiceRow": 1060,
+    "ApplyBudge": 1062,
+    "ApplyChrono": 1064,
+    "SolveMnemosynePuzzle": 1066
+  },
+  "tabletop_3x3_config": {
+    "Slot.x_min": 1,
+    "Slot.x_max": 3,
+    "Slot.y_min": 1,
+    "Slot.y_max": 3,
+    "Slot.ignore_p": true,
+    "tactical_slide_1_tile_orthogonal": true,
+    "boss_holo_telegraph_preview": true,
+    "sakuga_24fps_8frame_cutin_strips": 53
+  },
+  "runtime_sync": {
+    "primary_cs": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+    "unpacked_cs": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Scripts/CardFront/CardFrontUnifiedRuntime.cs",
+    "bytes_synced": 47878
+  },
+  "art_sync": {
+    "sakuga_strips_synced": 53,
+    "portraits_synced": 53
+  },
+  "catalog_sync": {
+    "total_catalog_cards": 113,
+    "set1_cards": 60,
+    "sakuga_cards": 53
+  },
+  "editor_importer_script": "/Users/frederickamina/Documents/Projects/SYNAPSE/tcg-engine-unpacked/Assets/TcgEngine/Scripts/Editor/CardFrontTcgEngineImporter.cs"
+}

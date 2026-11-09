@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: deck_celestial_eclipse
+  m_EditorClassIdentifier: Assembly-CSharp-Editor:Synapse.TcgEngine.EditorTools:SynapseDeckAssetSO
+  deckId: deck_celestial_eclipse
+  deckTitle: Celestial Order & Lunar Eclipse
+  faction: 2
+  strategyDescription: Late-game powerhouse built around Celestial Guardian's Healing Aura and Lunar Oracle's +4 Moonlight convergence.
+  cards:
+  - {fileID: 11400000, guid: 80412ec8a6c96675b3edf020ee58918b, type: 2}
+  - {fileID: 11400000, guid: 3f6aee1bf4455bd875bc85b8b64bd7ee, type: 2}
+  - {fileID: 11400000, guid: bc6b910bcfcadca45ec8c6b62b231884, type: 2}
+  - {fileID: 11400000, guid: cde596476d0f3958ae6fe48805e1bcf1, type: 2}
+  - {fileID: 11400000, guid: 0a814717858356bbfe9473ad010b592a, type: 2}
+  - {fileID: 11400000, guid: 9e93aed940455cef3ca6754032a468c5, type: 2}

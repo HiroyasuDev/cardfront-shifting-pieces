@@ -1,7 +1,7 @@
 {
   "id": "R07_recalc_asymmetry_captured_cards",
   "title": "Captured cards re-statted inconsistently on dice change",
-  "reproduced": true,
+  "reproduced": false,
   "checks": [
     {
       "name": "setup: stage 3 (aiBonus 1), col0 die=6 boosted; boss-held oracle shows boosted [8,8,9,8]",
@@ -39,31 +39,31 @@
     },
     {
       "name": "(b) boss-held oracle in the SAME column keeps the stale boost [8,8,9,8]",
-      "ok": true,
+      "ok": false,
       "detail": [
+        7,
+        7,
         8,
-        8,
-        9,
-        8
+        7
       ]
     },
     {
       "name": "(a) player-captured titan (col1, die 2, untouched) silently dropped to base [7,5,7,6] = lost aiBonus",
-      "ok": true,
+      "ok": false,
       "detail": [
-        7,
-        5,
-        7,
-        6
+        8,
+        6,
+        8,
+        7
       ]
     },
     {
       "name": "UI edge numbers for titan changed to 7,5,7,6 without any titan-related action",
-      "ok": true,
-      "detail": "7,5,7,6"
+      "ok": false,
+      "detail": "8,6,8,7"
     }
   ],
   "notes": {},
   "pageErrors": [],
-  "ranAt": "2026-11-08T12:11:43.696Z"
+  "ranAt": "2026-11-09T00:24:41.319Z"
 }

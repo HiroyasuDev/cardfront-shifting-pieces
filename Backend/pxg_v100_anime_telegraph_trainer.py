@@ -459,6 +459,17 @@ def discover_and_synthesize_library_assets() -> List[Dict[str, Any]]:
             )
 
     for stem, png_path, collection, svg_file in all_sources:
+        default_primary = "#FFB800"
+        default_secondary = "#00E5FF"
+        if stem.startswith("plugin_"):
+            default_primary, default_secondary = "#A855F7", "#FFE082"
+        elif stem.startswith("skill_"):
+            default_primary, default_secondary = "#00E5FF", "#FFB800"
+        elif stem.startswith("tool_"):
+            default_primary, default_secondary = "#FFB800", "#2EE6D3"
+        elif stem.startswith("mcp_"):
+            default_primary, default_secondary = "#2EE6D3", "#FF2E54"
+
         arch = SAKUGA_TELEGRAPH_ARCHETYPES.get(
             stem,
             {
@@ -467,22 +478,18 @@ def discover_and_synthesize_library_assets() -> List[Dict[str, Any]]:
                     "diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching "
                     "over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges"
                 ),
-                "primary_hex": "#FFB800",
-                "secondary_hex": "#00E5FF",
+                "primary_hex": default_primary,
+                "secondary_hex": default_secondary,
             },
         )
         p_rgb = hex_to_rgb(arch["primary_hex"])
         s_rgb = hex_to_rgb(arch["secondary_hex"])
 
-        pose_b_path: Path | None = None
-        strip_path: Path | None = None
-
-        if stem in FEATURED_STRIP_IDS:
-            pose_b_path = POSE_B_DIR / f"{stem}_pose_b.png"
-            strip_path = SAKUGA_CUTINS_DIR / f"{stem}_strip.png"
-            if HAS_PIL and (not pose_b_path.exists() or not strip_path.exists()):
-                synthesize_pose_b_keyframe(png_path, pose_b_path, p_rgb, s_rgb)
-                synthesize_sakuga_8frame_strip(png_path, strip_path, p_rgb, s_rgb)
+        pose_b_path = POSE_B_DIR / f"{stem}_pose_b.png"
+        strip_path = SAKUGA_CUTINS_DIR / f"{stem}_strip.png"
+        if HAS_PIL and (not pose_b_path.exists() or not strip_path.exists()):
+            synthesize_pose_b_keyframe(png_path, pose_b_path, p_rgb, s_rgb)
+            synthesize_sakuga_8frame_strip(png_path, strip_path, p_rgb, s_rgb)
 
         entries.append(
             {

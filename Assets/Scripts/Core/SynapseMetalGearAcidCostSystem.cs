@@ -576,15 +576,18 @@ namespace Synapse.TcgEngine.Core
                     defenderFacing: genomeGuard.facingDirection,
                     visionRange: 4);
 
+                int ambushCost = 0;
+                float ambushMult = 1.0f;
+                int linksTriggered = 0;
                 bool ambushFired = thirdActor == snake && ExecuteMgaCardAction(
                     actor: snake,
                     cardId: "MGA_CARD_M4A1_556MM_SUPPRESSED",
                     baseCardCost: 6,
                     usageMode: MgaCardUsageMode.TacticalEffect,
                     isOutsideEnemyVisionCone: outsideCone,
-                    out int ambushCost,
-                    out float ambushMult,
-                    out int linksTriggered);
+                    out ambushCost,
+                    out ambushMult,
+                    out linksTriggered);
 
                 if (mounted && venusMoved && ambushFired && mountCost == 4 && ambushMult >= 1.49f && linksTriggered >= 1 && ambushCost > 0)
                 {

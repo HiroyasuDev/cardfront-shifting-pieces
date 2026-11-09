@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <defs>
+    <linearGradient id="cf-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3B0"/><stop offset="45%" stop-color="#FFB800"/><stop offset="85%" stop-color="#B4690E"/><stop offset="100%" stop-color="#5E3304"/>
+    </linearGradient>
+    <linearGradient id="cf-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0FFFF"/><stop offset="35%" stop-color="#00E5FF"/><stop offset="80%" stop-color="#0284C7"/><stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="cf-obsidian-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/><stop offset="50%" stop-color="#0F172A"/><stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#cf-gold-grad)" stroke-width="18" stroke-linecap="round">
+    <line x1="128" y1="16" x2="128" y2="240"/><line x1="16" y1="128" x2="240" y2="128"/>
+    <line x1="48" y1="48" x2="208" y2="208"/><line x1="208" y1="48" x2="48" y2="208"/>
+  </g>
+  <circle cx="128" cy="128" r="92" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="12"/>
+  <circle cx="128" cy="128" r="72" fill="none" stroke="#00E5FF" stroke-width="3" stroke-dasharray="10 6" opacity="0.65"/>
+  <path d="M68,168 L156,104" stroke="url(#cf-gold-grad)" stroke-width="22" stroke-linecap="round"/>
+  <path d="M78,182 L166,118" stroke="url(#cf-cyan-grad)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M56,158 L112,188" stroke="url(#cf-gold-grad)" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="160" cy="106" r="36" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/>
+  <circle cx="160" cy="106" r="16" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="4"/>
+  <circle cx="74" cy="172" r="24" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="8"/>
+  <circle cx="74" cy="172" r="10" fill="url(#cf-cyan-grad)"/>
+</svg>

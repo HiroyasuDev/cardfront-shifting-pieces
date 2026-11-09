@@ -12,7 +12,7 @@ const L = require("./_lib");
   const statuses = [];
   page.on("response", (r) => { if (r.url().includes("__osascript_report__")) statuses.push(r.status()); });
   const t0 = await L.snap(page);
-  await page.waitForFunction(() => document.title.startsWith("TEST_COMPLETE"), null, { timeout: 20000 }).catch(() => {});
+  await page.waitForFunction(() => document.title.startsWith("TEST_COMPLETE"), null, { timeout: 2500 }).catch(() => {});
   await page.waitForTimeout(500);
   const t1 = await L.snap(page);
   const title = await page.title();

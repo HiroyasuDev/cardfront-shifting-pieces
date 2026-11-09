@@ -1,0 +1,54 @@
+{
+  "timestampUtc": "2026-11-09T03:08:13.035815+00:00",
+  "bundlePath": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/macOS/CARDFRONT 3D.app",
+  "infoPlistPath": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/macOS/CARDFRONT 3D.app/Contents/Info.plist",
+  "executablePath": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/macOS/CARDFRONT 3D.app/Contents/MacOS/CardFront3D",
+  "executableMode": "0o755",
+  "executableType": "Mach-O 64-bit executable arm64",
+  "executableSha256": "03064e27f3e57e232f6f7ca8879aa0a9dc97c1ffeefa46a0471612056d54e1f8",
+  "buildMode": "swiftc_macho_arm64",
+  "compilerMetadata": {
+    "command": "swiftc -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk -target arm64-apple-macosx14.0 -parse-as-library -O /Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/NativeApple/CardFrontAppleNativeHost.swift -o /Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/macOS/CARDFRONT 3D.app/Contents/MacOS/CardFront3D",
+    "sdk": "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk",
+    "selfTest": {
+      "status": "ok",
+      "metalDevice": "Apple A18 Pro",
+      "atomicSaveV3": true,
+      "savePath": "/Users/frederickamina/Library/Application Support/CARDFRONT3D/save_v3.json"
+    }
+  },
+  "infoPlist": {
+    "CFBundleDevelopmentRegion": "en",
+    "CFBundleDisplayName": "CARDFRONT 3D: Cradle of Echoes",
+    "CFBundleExecutable": "CardFront3D",
+    "CFBundleIconFile": "AppIcon",
+    "CFBundleIdentifier": "io.lumenforge.cardfront3d",
+    "CFBundleInfoDictionaryVersion": "6.0",
+    "CFBundleName": "CARDFRONT 3D",
+    "CFBundlePackageType": "APPL",
+    "CFBundleShortVersionString": "3.0.0",
+    "CFBundleVersion": "300",
+    "LSApplicationCategoryType": "public.app-category.strategy-games",
+    "LSMinimumSystemVersion": "14.0",
+    "NSHighResolutionCapable": true,
+    "CADisableMinimumFrameDurationOnPhone": true,
+    "NSSupportsAutomaticGraphicsSwitching": true,
+    "NSPrincipalClass": "NSApplication"
+  },
+  "resourceFiles": [
+    "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/macOS/CARDFRONT 3D.app/Contents/Resources/AppIcon.svg",
+    "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/macOS/CARDFRONT 3D.app/Contents/Resources/WebPlayable",
+    "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Build/macOS/CARDFRONT 3D.app/Contents/Resources/bundle_metadata.json"
+  ],
+  "swiftHostSource": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/NativeApple/CardFrontAppleNativeHost.swift",
+  "swiftHostSha256": "1959f1ab16610895e4ceb04403b11b63ab9f759e8d2ac408bdea292ab7df9710",
+  "csharpBridgeVerification": {
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Scripts/Core/SynapseAppleNativeCrossPlatformBridge.cs",
+    "openBraces": 16,
+    "closeBraces": 16,
+    "balancedBraces": true,
+    "missingSymbols": [],
+    "valid": true
+  },
+  "zeroTokenStoreCompliance": true
+}

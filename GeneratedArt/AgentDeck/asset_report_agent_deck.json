@@ -1,0 +1,745 @@
+{
+  "ok": true,
+  "assets": [
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/mcp_01_jev_system_one.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 792837,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/mcp_02_jev_py_verifier.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 607162,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/mcp_03_mlx_apple_silicon.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 731450,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/mcp_04_prime_rlm_swarm.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 790222,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/mcp_05_sequential_thinking.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 904787,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/mcp_06_knowledge_graph_mem.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 823675,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/mcp_07_git_time_chronicle.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 708326,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/mcp_08_filesystem_and_fetch.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 645150,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/mcp_09_tcg_creative_studio.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 789378,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/plugin_01_tcg_creative_designer.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 790439,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/plugin_02_parallel_swarm_orchestrator.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 765627,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/plugin_03_jev_system_one.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 794390,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/plugin_04_mlx_apple_silicon.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 732018,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_01_master_router.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 687779,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_02_tactical_illustrator_library.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 744977,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_03_create_game_assets.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 815237,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_04_card_game_genre.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 776311,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_05_game_feel_juice.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 753027,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_06_game_ui_ux.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 705334,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_07_ai_utility_behavior.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 737968,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_08_shader_camera_audio.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 764069,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_09_save_procgen_dialogue.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 668835,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_10_multi_engine_codex.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 751392,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_11_decompilation_hi3d_rea.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 742498,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/skill_12_workflows_and_agent_core.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 717050,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_01_invoke_subagent.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 759783,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_02_define_subagent.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 652301,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_03_manage_subagents.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 591511,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_04_send_message.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 550934,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_05_call_mcp_tool.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 902792,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_06_mcp_resources.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 713248,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_07_run_command.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 638760,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_08_manage_task.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 644278,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_09_read_file.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 631831,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_10_write_file.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 685731,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_11_edit_file.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 717899,
+      "color_count": ">65535",
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    },
+    {
+      "path": "/Users/frederickamina/Documents/Projects/synapse/unity-tcg-engine/GeneratedArt/AgentDeck/Cards/tool_12_search_schedule_ask.png",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 600,
+      "height": 800,
+      "bytes": 482932,
+      "color_count": 34861,
+      "has_alpha": false,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "transparent_pixels": 0,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "problems": []
+    }
+  ]
+}

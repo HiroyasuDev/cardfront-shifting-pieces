@@ -1,34 +1,36 @@
 {
   "latest_iteration": {
-    "iteration": 11,
-    "timestamp_utc": "2026-11-08T13:16:16Z",
+    "iteration": 159,
+    "timestamp_utc": "2026-11-09T10:41:56Z",
     "video_id": "t13A2XFGoOc",
     "target_model": "gemini-4-argon",
     "active_track": {
-      "track_id": "track_01_card_game_feel_ui",
-      "focus": "Card-Game Single-Zone Invariant, Game-Feel Trauma\u00b2 Shake & 80ms Hit-Stop, and Responsive UI/UX",
-      "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance"
+      "track_id": "track_06_steam_and_itch_ship",
+      "focus": "Unity Build Pipeline, Performance Profiling & Steam/Itch Release Readiness",
+      "prompt": "Profile draw calls and GC spikes to optimize FPS and publish our Unity card game on Steam"
     },
     "routed_skill_stack": {
       "primary_web_engine": "Custom HTML5/CSS3/JS Tabletop Engine",
       "unity_engine": "Unity",
-      "unity_version": "2022.3.40f1",
+      "unity_version": "6000.6.8f1",
       "selected_skill_names": [
-        "unity-scriptableobjects",
-        "game-feel",
-        "game-ui-ux",
-        "card-game"
+        "unity-csharp-scripting",
+        "performance-optimization",
+        "fps-shooter",
+        "card-game",
+        "steam-publish"
       ],
       "skill_stack_order": "Engine Fundamentals -> Discipline(s) -> Genre -> Workflow",
       "exact_skill_files_to_load": [
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/SKILL.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/references/custom-engines.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ui-ux/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md"
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/performance-optimization/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/fps-shooter/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/workflows/steam-publish/SKILL.md"
       ],
-      "composed_system_prompt_chars": 32873
+      "composed_system_prompt_chars": 38978
     },
     "primary_tcg_stack": {
       "selected_skill_names": [
@@ -37,14 +39,14 @@
         "game-ui-ux",
         "card-game"
       ],
-      "composed_system_prompt_chars": 32873
+      "composed_system_prompt_chars": 32872
     },
     "grounded_verification_summary": {
       "drag_e2e_passed": true,
       "autotest_e2e_passed": true,
-      "autotest_title": "TEST_COMPLETE:6-3:SINGLETON=true:IMG=true",
-      "total_checks": 98,
-      "passed_checks": 98,
+      "autotest_title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
+      "total_checks": 134,
+      "passed_checks": 134,
       "failed_checks": 0,
       "pass_rate_pct": 100.0,
       "p0_failures": 0,
@@ -131,8 +133,44 @@
         "core.game_ui_ux.03",
         "core.game_ui_ux.04",
         "core.input_systems.01",
+        "core.next_gen_tabletop.01",
+        "core.next_gen_tabletop.02",
+        "core.next_gen_tabletop.03",
+        "core.next_gen_tabletop.04",
+        "core.next_gen_tabletop.05",
+        "core.next_gen_tabletop.06",
+        "core.next_gen_tabletop.07",
+        "core.next_gen_tabletop.08",
+        "core.next_gen_tabletop.09",
+        "core.next_gen_tabletop.10",
+        "core.next_gen_tabletop.11",
+        "core.next_gen_tabletop.12",
         "core.performance.01",
+        "core.sakuga_v100.01",
+        "core.sakuga_v100.02",
+        "core.sakuga_v100.03",
+        "core.sakuga_v100.04",
+        "core.sakuga_v100.05",
         "core.save_systems.01",
+        "core.tabletop_real_estate.01",
+        "core.tabletop_real_estate.02",
+        "core.tabletop_real_estate.03",
+        "core.tabletop_real_estate.04",
+        "core.tabletop_real_estate.05",
+        "core.tabletop_real_estate.06",
+        "core.tabletop_real_estate.07",
+        "core.tabletop_real_estate.08",
+        "core.tabletop_real_estate.09",
+        "core.tabletop_real_estate.10",
+        "core.tabletop_real_estate.11",
+        "core.tabletop_real_estate.12",
+        "core.tcg_creative_designer.01",
+        "core.tcg_creative_designer.02",
+        "core.tcg_creative_designer.03",
+        "core.unity6_tcg_rea_baseline.01",
+        "core.unity6_tcg_rea_baseline.02",
+        "core.unity6_tcg_rea_baseline.03",
+        "core.unity6_tcg_rea_baseline.04",
         "core.unity_so.01",
         "core.unity_so.02",
         "feel_audio_camera_perf.1",
@@ -174,40 +212,40 @@
     "per_skill_scorecard": {
       "genres/card-game": {
         "skill": "genres/card-game",
-        "total": 13,
-        "passed": 13,
+        "total": 16,
+        "passed": 16,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "disciplines/game-feel": {
         "skill": "disciplines/game-feel",
-        "total": 11,
-        "passed": 11,
+        "total": 19,
+        "passed": 19,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "disciplines/game-ui-ux": {
         "skill": "disciplines/game-ui-ux",
-        "total": 12,
-        "passed": 12,
+        "total": 21,
+        "passed": 21,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "disciplines/create-game-assets": {
         "skill": "disciplines/create-game-assets",
-        "total": 15,
-        "passed": 15,
+        "total": 18,
+        "passed": 18,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "unity/unity-scriptableobjects": {
         "skill": "unity/unity-scriptableobjects",
-        "total": 5,
-        "passed": 5,
+        "total": 6,
+        "passed": 6,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -222,8 +260,8 @@
       },
       "disciplines/audio-design": {
         "skill": "disciplines/audio-design",
-        "total": 5,
-        "passed": 5,
+        "total": 6,
+        "passed": 6,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -248,6 +286,54 @@
         "skill": "disciplines/performance-optimization",
         "total": 6,
         "passed": 6,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/art-direction": {
+        "skill": "disciplines/art-direction",
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "art-direction/tcg-creative-game-designer": {
+        "skill": "art-direction/tcg-creative-game-designer",
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "unity/unity-csharp-scripting": {
+        "skill": "unity/unity-csharp-scripting",
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/ui-ux-design": {
+        "skill": "disciplines/ui-ux-design",
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "unity/unity-build-pipeline": {
+        "skill": "unity/unity-build-pipeline",
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "unity/unity-netcode-multiplayer": {
+        "skill": "unity/unity-netcode-multiplayer",
+        "total": 1,
+        "passed": 1,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -344,32 +430,32 @@
       },
       "rules_audit": {
         "total_repro_probes": 11,
-        "reproduced_count": 10,
+        "reproduced_count": 0,
         "findings": [
           {
             "id": "R01_stale_boss_turn_after_reset",
             "title": "Pending boss turn survives Reset/stage-select",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R02_boss_tiebreak_deterministic",
             "title": "Boss tie-break always picks first row-major slot",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R03_stale_hand_drag_undefined_card",
             "title": "Stale hand-drag drop after keyboard deploy corrupts board",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R04_stale_board_drag_steals_card",
             "title": "Stale slide-drag moves & converts a boss-captured card",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R05_selected_unit_misclick_deploys",
             "title": "Mis-click while a board unit is selected deploys from hand",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R06_empty_tile_click_swallowed",
@@ -379,27 +465,27 @@
           {
             "id": "R07_recalc_asymmetry_captured_cards",
             "title": "Captured cards re-statted inconsistently on dice change",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R08_next_stage_after_defeat_wraps",
             "title": "Next Stage after defeat, 4->1 wrap, end-state badge",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R09_stale_result_modal_after_reset",
             "title": "Old result modal pops over a new game after Reset",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R10_global_hotkeys_hijack_space",
             "title": "Space/Enter/r global hotkeys override focused controls",
-            "reproduced": true
+            "reproduced": false
           },
           {
             "id": "R11_debug_hooks_in_production",
             "title": "autotest/dragtest hooks reachable from URL",
-            "reproduced": true
+            "reproduced": false
           }
         ]
       },
@@ -409,7 +495,11 @@
         "renderAll_avg_ms": 0.47,
         "broken_images_count": 0,
         "keyboard_only_game_completed": true,
-        "modal_auto_focused": false
+        "modal_auto_focused": true,
+        "tabletop_real_estate_gate": null,
+        "tabletop_real_estate_pass_rate_pct": 100,
+        "tabletop_real_estate_checks": "50/50",
+        "tabletop_real_estate_viewports": 5
       },
       "personas": {
         "matches_recorded": 120,
@@ -425,7 +515,7 @@
           "p09",
           "p10"
         ],
-        "wins_recorded": 0
+        "wins_recorded": 113
       },
       "benchmark": {
         "hero_cards_count": 8,
@@ -439,12 +529,12 @@
       }
     },
     "catalog_summary": {
-      "total_skill_md_files": 92,
-      "total_indexed_skills": 91,
+      "total_skill_md_files": 93,
+      "total_indexed_skills": 92,
       "upstream_gamedev_skills_count": 77,
-      "custom_synapse_skills_count": 14
+      "custom_synapse_skills_count": 15
     },
-    "elapsed_ms": 17400.1
+    "elapsed_ms": 24534.42
   },
   "video_and_catalog": {
     "video_analysis": {
@@ -480,14 +570,15 @@
       "rust_binary_exists": true,
       "router_skill_exists": true,
       "gemini_4_argon_manifest": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/.gemini-plugin/gemini-4-argon-skills.json",
-      "total_skill_md_files": 92,
-      "total_indexed_skills": 91,
+      "total_skill_md_files": 93,
+      "total_indexed_skills": 92,
       "upstream_gamedev_skills_count": 77,
-      "custom_synapse_skills_count": 14,
+      "custom_synapse_skills_count": 15,
       "categories_count": 12,
       "skills_by_category": {
         "art-direction": [
-          "tactical-illustrator-library"
+          "tactical-illustrator-library",
+          "tcg-creative-game-designer"
         ],
         "decompilation": [
           "advance-wars-ffta-gba-decomp",

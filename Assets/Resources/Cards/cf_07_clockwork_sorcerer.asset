@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cf_07_clockwork_sorcerer
   m_EditorClassIdentifier: Synapse.TcgEngine.Data.CardDataSO
   id: cf_07_clockwork_sorcerer
-  title: "Clockwork Sorcerer"
-  codeName: "Temporal Enigma"
+  title: Clockwork Sorcerer
+  codeName: Temporal Enigma
   baseStats:
     up: 4
     down: 8
@@ -22,9 +22,9 @@ MonoBehaviour:
     right: 5
   themes: 65
   specialAbility: 7
-  specialAbilityDescription: "Once per game, reverse the directional strength values (Up<->Down, Left<->Right) of adjacent cards for 1 turn."
+  specialAbilityDescription: Once per game, reverse the directional strength values (Up<->Down, Left<->Right) of adjacent cards for 1 turn.
   synergyRequiredTheme: 64
   synergyAllSidesBonus: 3
-  synergyName: "Steampunk Mastery"
-  evolvesToCardId: ""
+  synergyName: Steampunk Mastery
+  evolvesToCardId: 
   cardArt: {fileID: 21300000, guid: d98c5a1478a6c99f1676b60d90411c32, type: 3}

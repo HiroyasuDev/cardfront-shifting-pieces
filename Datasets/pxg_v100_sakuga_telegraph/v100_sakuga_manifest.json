@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "generated_at_utc": "2026-11-09T03:09:52Z",
+  "generated_at_utc": "2026-11-09T08:34:58Z",
   "engine": "PXG-Sakuga-Telegraph-Engine",
   "hardware_target": {
     "gpu_model": "NVIDIA Tesla V100 (Volta sm_70)",
@@ -47,8 +47,8 @@
     "total_library_assets": 53,
     "core_16_units_count": 16,
     "agent_deck_37_count": 37,
-    "synthesized_pose_b_keyframes_count": 20,
-    "synthesized_8frame_sakuga_strips_count": 20,
+    "synthesized_pose_b_keyframes_count": 53,
+    "synthesized_8frame_sakuga_strips_count": 53,
     "all_600x800_verified": true
   },
   "assets": [
@@ -424,19 +424,22 @@
       "asset_id": "mcp_01_jev_system_one",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/mcp_01_jev_system_one.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/mcp_01_jev_system_one_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/mcp_01_jev_system_one_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/mcp_01_jev_system_one.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Mcp 01 Jev System One Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#2EE6D3 / #FF2E54",
       "target_frames": 16,
       "fps": 24
     },
@@ -444,19 +447,22 @@
       "asset_id": "mcp_02_jev_py_verifier",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/mcp_02_jev_py_verifier.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/mcp_02_jev_py_verifier_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/mcp_02_jev_py_verifier_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/mcp_02_jev_py_verifier.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Mcp 02 Jev Py Verifier Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#2EE6D3 / #FF2E54",
       "target_frames": 16,
       "fps": 24
     },
@@ -464,19 +470,22 @@
       "asset_id": "mcp_03_mlx_apple_silicon",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/mcp_03_mlx_apple_silicon.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/mcp_03_mlx_apple_silicon_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/mcp_03_mlx_apple_silicon_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/mcp_03_mlx_apple_silicon.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Mcp 03 Mlx Apple Silicon Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#2EE6D3 / #FF2E54",
       "target_frames": 16,
       "fps": 24
     },
@@ -484,19 +493,22 @@
       "asset_id": "mcp_04_prime_rlm_swarm",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/mcp_04_prime_rlm_swarm.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/mcp_04_prime_rlm_swarm_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/mcp_04_prime_rlm_swarm_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/mcp_04_prime_rlm_swarm.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Mcp 04 Prime Rlm Swarm Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#2EE6D3 / #FF2E54",
       "target_frames": 16,
       "fps": 24
     },
@@ -504,19 +516,22 @@
       "asset_id": "mcp_05_sequential_thinking",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/mcp_05_sequential_thinking.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/mcp_05_sequential_thinking_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/mcp_05_sequential_thinking_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/mcp_05_sequential_thinking.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Mcp 05 Sequential Thinking Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#2EE6D3 / #FF2E54",
       "target_frames": 16,
       "fps": 24
     },
@@ -524,19 +539,22 @@
       "asset_id": "mcp_06_knowledge_graph_mem",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/mcp_06_knowledge_graph_mem.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/mcp_06_knowledge_graph_mem_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/mcp_06_knowledge_graph_mem_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/mcp_06_knowledge_graph_mem.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Mcp 06 Knowledge Graph Mem Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#2EE6D3 / #FF2E54",
       "target_frames": 16,
       "fps": 24
     },
@@ -544,19 +562,22 @@
       "asset_id": "mcp_07_git_time_chronicle",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/mcp_07_git_time_chronicle.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/mcp_07_git_time_chronicle_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/mcp_07_git_time_chronicle_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/mcp_07_git_time_chronicle.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Mcp 07 Git Time Chronicle Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#2EE6D3 / #FF2E54",
       "target_frames": 16,
       "fps": 24
     },
@@ -564,19 +585,22 @@
       "asset_id": "mcp_08_filesystem_and_fetch",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/mcp_08_filesystem_and_fetch.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/mcp_08_filesystem_and_fetch_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/mcp_08_filesystem_and_fetch_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/mcp_08_filesystem_and_fetch.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Mcp 08 Filesystem And Fetch Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#2EE6D3 / #FF2E54",
       "target_frames": 16,
       "fps": 24
     },
@@ -584,19 +608,22 @@
       "asset_id": "mcp_09_tcg_creative_studio",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/mcp_09_tcg_creative_studio.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/mcp_09_tcg_creative_studio_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/mcp_09_tcg_creative_studio_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/mcp_09_tcg_creative_studio.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Mcp 09 Tcg Creative Studio Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#2EE6D3 / #FF2E54",
       "target_frames": 16,
       "fps": 24
     },
@@ -696,19 +723,22 @@
       "asset_id": "skill_01_master_router",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_01_master_router.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_01_master_router_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_01_master_router_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_01_master_router.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 01 Master Router Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -716,19 +746,22 @@
       "asset_id": "skill_02_tactical_illustrator_library",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_02_tactical_illustrator_library.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_02_tactical_illustrator_library_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_02_tactical_illustrator_library_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_02_tactical_illustrator_library.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 02 Tactical Illustrator Library Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -736,19 +769,22 @@
       "asset_id": "skill_03_create_game_assets",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_03_create_game_assets.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_03_create_game_assets_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_03_create_game_assets_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_03_create_game_assets.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 03 Create Game Assets Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -756,19 +792,22 @@
       "asset_id": "skill_04_card_game_genre",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_04_card_game_genre.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_04_card_game_genre_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_04_card_game_genre_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_04_card_game_genre.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 04 Card Game Genre Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -776,19 +815,22 @@
       "asset_id": "skill_05_game_feel_juice",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_05_game_feel_juice.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_05_game_feel_juice_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_05_game_feel_juice_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_05_game_feel_juice.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 05 Game Feel Juice Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -796,19 +838,22 @@
       "asset_id": "skill_06_game_ui_ux",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_06_game_ui_ux.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_06_game_ui_ux_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_06_game_ui_ux_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_06_game_ui_ux.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 06 Game Ui Ux Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -816,19 +861,22 @@
       "asset_id": "skill_07_ai_utility_behavior",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_07_ai_utility_behavior.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_07_ai_utility_behavior_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_07_ai_utility_behavior_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_07_ai_utility_behavior.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 07 Ai Utility Behavior Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -836,19 +884,22 @@
       "asset_id": "skill_08_shader_camera_audio",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_08_shader_camera_audio.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_08_shader_camera_audio_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_08_shader_camera_audio_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_08_shader_camera_audio.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 08 Shader Camera Audio Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -856,19 +907,22 @@
       "asset_id": "skill_09_save_procgen_dialogue",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_09_save_procgen_dialogue.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_09_save_procgen_dialogue_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_09_save_procgen_dialogue_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_09_save_procgen_dialogue.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 09 Save Procgen Dialogue Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -876,19 +930,22 @@
       "asset_id": "skill_10_multi_engine_codex",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_10_multi_engine_codex.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_10_multi_engine_codex_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_10_multi_engine_codex_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_10_multi_engine_codex.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 10 Multi Engine Codex Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -896,19 +953,22 @@
       "asset_id": "skill_11_decompilation_hi3d_rea",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_11_decompilation_hi3d_rea.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_11_decompilation_hi3d_rea_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_11_decompilation_hi3d_rea_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_11_decompilation_hi3d_rea.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 11 Decompilation Hi3D Rea Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -916,19 +976,22 @@
       "asset_id": "skill_12_workflows_and_agent_core",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/skill_12_workflows_and_agent_core.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/skill_12_workflows_and_agent_core_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/skill_12_workflows_and_agent_core_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/skill_12_workflows_and_agent_core.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Skill 12 Workflows And Agent Core Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#00E5FF / #FFB800",
       "target_frames": 16,
       "fps": 24
     },
@@ -936,19 +999,22 @@
       "asset_id": "tool_01_invoke_subagent",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_01_invoke_subagent.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_01_invoke_subagent_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_01_invoke_subagent_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_01_invoke_subagent.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 01 Invoke Subagent Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -956,19 +1022,22 @@
       "asset_id": "tool_02_define_subagent",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_02_define_subagent.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_02_define_subagent_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_02_define_subagent_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_02_define_subagent.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 02 Define Subagent Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -976,19 +1045,22 @@
       "asset_id": "tool_03_manage_subagents",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_03_manage_subagents.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_03_manage_subagents_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_03_manage_subagents_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_03_manage_subagents.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 03 Manage Subagents Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -996,19 +1068,22 @@
       "asset_id": "tool_04_send_message",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_04_send_message.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_04_send_message_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_04_send_message_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_04_send_message.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 04 Send Message Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -1016,19 +1091,22 @@
       "asset_id": "tool_05_call_mcp_tool",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_05_call_mcp_tool.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_05_call_mcp_tool_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_05_call_mcp_tool_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_05_call_mcp_tool.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 05 Call Mcp Tool Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -1036,19 +1114,22 @@
       "asset_id": "tool_06_mcp_resources",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_06_mcp_resources.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_06_mcp_resources_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_06_mcp_resources_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_06_mcp_resources.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 06 Mcp Resources Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -1056,19 +1137,22 @@
       "asset_id": "tool_07_run_command",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_07_run_command.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_07_run_command_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_07_run_command_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_07_run_command.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 07 Run Command Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -1076,19 +1160,22 @@
       "asset_id": "tool_08_manage_task",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_08_manage_task.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_08_manage_task_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_08_manage_task_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_08_manage_task.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 08 Manage Task Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -1096,19 +1183,22 @@
       "asset_id": "tool_09_read_file",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_09_read_file.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_09_read_file_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_09_read_file_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_09_read_file.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 09 Read File Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -1116,19 +1206,22 @@
       "asset_id": "tool_10_write_file",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_10_write_file.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_10_write_file_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_10_write_file_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_10_write_file.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 10 Write File Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -1136,19 +1229,22 @@
       "asset_id": "tool_11_edit_file",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_11_edit_file.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_11_edit_file_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_11_edit_file_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_11_edit_file.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 11 Edit File Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     },
@@ -1156,19 +1252,22 @@
       "asset_id": "tool_12_search_schedule_ask",
       "collection": "agent_command_deck_37",
       "keyframe_a_path": "GeneratedArt/AgentDeck/Cards/tool_12_search_schedule_ask.png",
-      "keyframe_b_path": null,
-      "sakuga_strip_path": null,
+      "keyframe_b_path": "Datasets/pxg_v100_sakuga_telegraph/keyframes_pose_b/tool_12_search_schedule_ask_pose_b.png",
+      "sakuga_strip_path": "WebPlayable/GeneratedArt/SakugaCutIns/tool_12_search_schedule_ask_strip.png",
       "telegraph_svg_path": "GeneratedArt/AgentDeck/SVGs/tool_12_search_schedule_ask.svg",
       "resolution": [
         600,
         800
       ],
-      "strip_resolution": null,
-      "strip_frames": 0,
+      "strip_resolution": [
+        1920,
+        160
+      ],
+      "strip_frames": 8,
       "aspect_ratio": "3:4",
       "telegraph_name": "Tool 12 Search Schedule Ask Cut-In",
       "sakuga_prompt": "production quality 2D anime sakuga telegraph cut-in, diagonal speedline banner, 4-point star lens flare, pen-and-ink crosshatching over warm parchment-gold filigree, sleek beveled cyber-magicite armor edges, stylized 7-head proportions, bold ink linework, cel-shaded vibrant color planes, crisp impact frames, 24fps keyframe animation",
-      "chromatic_split": "#FFB800 / #00E5FF",
+      "chromatic_split": "#FFB800 / #2EE6D3",
       "target_frames": 16,
       "fps": 24
     }

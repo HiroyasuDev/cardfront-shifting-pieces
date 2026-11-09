@@ -1,13 +1,13 @@
 {
   "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-  "timestamp": "2026-11-08T13:16:06.299Z",
+  "timestamp": "2026-11-09T10:42:00.973Z",
   "steps": [
     {
       "step": "Initial Stage Load",
       "stage": "Eclipse Void Blade",
       "handCount": 5,
-      "imagesChecked": 6,
-      "telegraphSVGsRendered": 6
+      "imagesChecked": 7,
+      "telegraphSVGsRendered": 7
     },
     {
       "step": "Turn 1 Deploy",
@@ -19,8 +19,8 @@
       ],
       "immediateCaptures": 1,
       "scoreAfterTurn": {
-        "player": 1,
-        "boss": 2
+        "player": 2,
+        "boss": 1
       }
     },
     {
@@ -39,8 +39,8 @@
       "cardPlayed": "h_kai",
       "telegraph": "Solid Eye Target Lock",
       "socket": [
-        0,
-        0
+        1,
+        2
       ],
       "immediateCaptures": 1,
       "scoreAfterTurn": {
@@ -54,12 +54,12 @@
       "telegraph": "Temporal Gear Lock",
       "socket": [
         1,
-        2
+        1
       ],
       "immediateCaptures": 1,
       "scoreAfterTurn": {
-        "player": 5,
-        "boss": 2
+        "player": 4,
+        "boss": 3
       }
     },
     {
@@ -68,12 +68,12 @@
       "telegraph": "Ember Wing Sweep",
       "socket": [
         2,
-        2
+        1
       ],
       "immediateCaptures": 1,
       "scoreAfterTurn": {
-        "player": 6,
-        "boss": 3
+        "player": 5,
+        "boss": 4
       }
     }
   ],
@@ -97,8 +97,8 @@
   "tacticalSlideTested": true,
   "modalDisplayed": true,
   "finalScore": {
-    "player": 6,
-    "boss": 3
+    "player": 5,
+    "boss": 4
   },
   "outcome": "VICTORY"
 }

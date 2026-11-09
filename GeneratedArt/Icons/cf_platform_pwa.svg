@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <defs>
+    <linearGradient id="cf-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3B0"/><stop offset="45%" stop-color="#FFB800"/><stop offset="85%" stop-color="#B4690E"/><stop offset="100%" stop-color="#5E3304"/>
+    </linearGradient>
+    <linearGradient id="cf-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0FFFF"/><stop offset="35%" stop-color="#00E5FF"/><stop offset="80%" stop-color="#0284C7"/><stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="cf-obsidian-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/><stop offset="50%" stop-color="#0F172A"/><stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="12"/>
+  <ellipse cx="128" cy="128" rx="52" ry="98" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="7"/>
+  <ellipse cx="128" cy="128" rx="98" ry="44" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="7"/>
+  <line x1="26" y1="128" x2="230" y2="128" stroke="#00E5FF" stroke-width="4" opacity="0.6"/>
+  <line x1="128" y1="26" x2="128" y2="230" stroke="#00E5FF" stroke-width="4" opacity="0.6"/>
+  <polygon points="128,34 148,108 222,128 148,148 128,222 108,148 34,128 108,108" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="128" cy="128" r="18" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="4"/>
+</svg>
