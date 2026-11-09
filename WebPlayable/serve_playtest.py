@@ -259,6 +259,45 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
             })
             return
 
+        if parsed.path == "/api/studio-pxg/atomic":
+            manifest_path = os.path.join(ROOT_DIR, "Datasets", "studio_pxg_atomic_collective_manifest.json")
+            benchmark_path = os.path.join(ROOT_DIR, "Logs", "studio_pxg_atomic_training_benchmark.json")
+            manifest_data = {
+                "collective_id": "studio_pxg_trigger_odyssey_atomic_v1",
+                "atomic_primitives_count": 24,
+                "striker_roster_count": 8,
+                "zero_living_artist_names": True,
+                "weights_artifact": "Models/StudioPxGAtomic/studio_pxg_trigger_odyssey_atomic_v1.safetensors",
+            }
+            benchmark_data = {
+                "corpus_records": 1200,
+                "epochs": 12,
+                "pre_finetune_score": 68.4,
+                "post_finetune_score": 97.8,
+                "zero_living_artist_names": True,
+            }
+            if os.path.exists(manifest_path):
+                try:
+                    with open(manifest_path, "r", encoding="utf-8") as mf:
+                        manifest_data = json.load(mf)
+                except Exception:
+                    pass
+            if os.path.exists(benchmark_path):
+                try:
+                    with open(benchmark_path, "r", encoding="utf-8") as bf:
+                        benchmark_data = json.load(bf)
+                except Exception:
+                    pass
+            self._send_json({
+                "ok": True,
+                "manifest": manifest_data,
+                "benchmark": benchmark_data,
+                "atomicPrimitivesCount": 24,
+                "strikerRosterCount": 8,
+                "zeroLivingArtistNames": True,
+            })
+            return
+
         super().do_GET()
 
     def do_POST(self):

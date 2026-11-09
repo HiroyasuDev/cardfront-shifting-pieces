@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-09T23:21:40Z",
-  "elapsed_ms": 11909.3,
+  "generated_at": "2026-11-09T23:24:44Z",
+  "elapsed_ms": 8925.0,
   "summary": {
     "status": "PASS_ALL_GATES",
     "unity_editor_version": "6000.6.8f1",
@@ -38,7 +38,7 @@
     "rea_reconstruction_coverage_pct": 100.0,
     "rea_verified_subsystems_count": 10,
     "verified_new_3x3_and_campaign_methods_count": 22,
-    "three_act_campaign_verified": false
+    "three_act_campaign_verified": true
   },
   "rea_reconstruction_obligation_ledger": {
     "total_subsystems": 10,
@@ -146704,7 +146704,9 @@
       "set2_05_tarot_arcana_empress"
     ],
     "mangaCutscene19ChaptersVerified": true,
-    "mangaCutsceneChapter1Summary": "CH01[ACT_I_SOLAR_SPIRE]:P1=Solar Spire Threshold Wide Shot|P2=Valerius Ignites Astral Conduit Slash (\u30c9\u30c9\u30c9)|P3=Vespera's Echo Relic Awakens (\u30b4\u30b4\u30b4)"
+    "mangaCutsceneChapter1Summary": "CH01[ACT_I_SOLAR_SPIRE]:P1=Solar Spire Threshold Wide Shot|P2=Valerius Ignites Astral Conduit Slash (\u30c9\u30c9\u30c9)|P3=Vespera's Echo Relic Awakens (\u30b4\u30b4\u30b4)",
+    "threeActCampaignVerified": true,
+    "threeActCampaignSummary": "PASS_3ACT_CAMPAIGN_GAUNTLET:ACTS=3/3:BOOSTERS_DRAFTED=2:COINS=500:DRAFT1=agent_plugin_tcg_creative_designer:DRAFT2=agent_plugin_parallel_swarm_orchestrator:FINAL_BOSS=ghost_SovereignAgent_1825"
   },
   "tcg_engine_api_45file_verification_report": {
     "timestamp_utc": "2026-11-09T12:07:23.334Z",

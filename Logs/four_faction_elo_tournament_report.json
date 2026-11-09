@@ -1,0 +1,899 @@
+{
+  "timestamp_utc": "2026-11-09T23:25:59.419Z",
+  "elapsed_ms": 33,
+  "api_daemon_port": 54644,
+  "secure_config_verified": true,
+  "factions_competed_count": 4,
+  "total_matches_completed": 12,
+  "all_txlock_receipts_verified": true,
+  "opening_3x3_slot_heatmap": {
+    "(1,1)": 2,
+    "(2,1)": 12,
+    "(3,1)": 0,
+    "(1,2)": 3,
+    "(2,2)": 12,
+    "(3,2)": 3,
+    "(1,3)": 0,
+    "(2,3)": 4,
+    "(3,3)": 0
+  },
+  "leaderboard": [
+    {
+      "rank": 1,
+      "username": "champ_sovereign_law",
+      "faction_id": "sovereign_law",
+      "faction_name": "Sovereign Law",
+      "deck_tid": "deck_sovereign_agent_command",
+      "hero_tid": "plugin_01_tcg_creative_designer",
+      "elo_rating": 1853,
+      "wins": 5,
+      "losses": 1,
+      "matches_played": 6,
+      "win_rate_pct": 83.3,
+      "directional_flips": 12,
+      "plus_same_flips": 14,
+      "coins": 6100
+    },
+    {
+      "rank": 2,
+      "username": "champ_astral_vanguard",
+      "faction_id": "astral_vanguard",
+      "faction_name": "Astral Vanguard",
+      "deck_tid": "deck_cardfront_astral_vanguard",
+      "hero_tid": "cf_01_valerius",
+      "elo_rating": 1802,
+      "wins": 3,
+      "losses": 3,
+      "matches_played": 6,
+      "win_rate_pct": 50,
+      "directional_flips": 10,
+      "plus_same_flips": 2,
+      "coins": 5900
+    },
+    {
+      "rank": 3,
+      "username": "champ_arcane_atelier",
+      "faction_id": "arcane_atelier",
+      "faction_name": "Arcane Atelier",
+      "deck_tid": "deck_arcane_atelier_master",
+      "hero_tid": "skill_02_tactical_illustrator_library",
+      "elo_rating": 1802,
+      "wins": 3,
+      "losses": 3,
+      "matches_played": 6,
+      "win_rate_pct": 50,
+      "directional_flips": 6,
+      "plus_same_flips": 4,
+      "coins": 5900
+    },
+    {
+      "rank": 4,
+      "username": "champ_crimson_echo",
+      "faction_id": "crimson_echo",
+      "faction_name": "Crimson Echo Swarm",
+      "deck_tid": "deck_cradle_of_echoes_boss_swarm",
+      "hero_tid": "e_eclipse",
+      "elo_rating": 1743,
+      "wins": 1,
+      "losses": 5,
+      "matches_played": 6,
+      "win_rate_pct": 16.7,
+      "directional_flips": 0,
+      "plus_same_flips": 2,
+      "coins": 5700
+    }
+  ],
+  "exported_faction_echo_ghosts": [
+    {
+      "ghost_id": "ghost_SovereignLaw_1853",
+      "commander_name": "champ_sovereign_law",
+      "faction_id": "sovereign_law",
+      "faction_name": "Sovereign Law",
+      "elo_rating": 1853,
+      "deck_tid": "deck_sovereign_agent_command",
+      "hero_tid": "plugin_01_tcg_creative_designer",
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "e_eclipse",
+          "dir_nesw": [
+            9,
+            9,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 3,
+          "card_id": "plugin_01_tcg_creative_designer",
+          "dir_nesw": [
+            9,
+            8,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "set2_04_mecha_halberd_zero",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            7
+          ]
+        }
+      ],
+      "lockstep_state_hash": "7E136F9959572714",
+      "hmac_sha256_signature": "8230d4b78904743bca0c02952cdcb24ac6c81ff667b38eb3ebb0cfa6cd6981ed"
+    },
+    {
+      "ghost_id": "ghost_AstralVanguard_1802",
+      "commander_name": "champ_astral_vanguard",
+      "faction_id": "astral_vanguard",
+      "faction_name": "Astral Vanguard",
+      "elo_rating": 1802,
+      "deck_tid": "deck_cardfront_astral_vanguard",
+      "hero_tid": "cf_01_valerius",
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "e_eclipse",
+          "dir_nesw": [
+            8,
+            8,
+            7,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 3,
+          "card_id": "cf_01_valerius",
+          "dir_nesw": [
+            9,
+            7,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "set2_04_mecha_halberd_zero",
+          "dir_nesw": [
+            9,
+            9,
+            9,
+            8
+          ]
+        }
+      ],
+      "lockstep_state_hash": "F5F5553F77E67B04",
+      "hmac_sha256_signature": "a2434533f39a1cf05934d955073ebdacbd5346009606c3d3343125e19e4bc48c"
+    },
+    {
+      "ghost_id": "ghost_ArcaneAtelier_1802",
+      "commander_name": "champ_arcane_atelier",
+      "faction_id": "arcane_atelier",
+      "faction_name": "Arcane Atelier",
+      "elo_rating": 1802,
+      "deck_tid": "deck_arcane_atelier_master",
+      "hero_tid": "skill_02_tactical_illustrator_library",
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "e_eclipse",
+          "dir_nesw": [
+            8,
+            8,
+            7,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 3,
+          "card_id": "skill_02_tactical_illustrator_library",
+          "dir_nesw": [
+            9,
+            9,
+            9,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "set2_04_mecha_halberd_zero",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            7
+          ]
+        }
+      ],
+      "lockstep_state_hash": "164B4F9359A211B8",
+      "hmac_sha256_signature": "c59666e2a2037ee9b2e88ffb10f55b5b5c8bacac84b0d305092fc5631d031aef"
+    },
+    {
+      "ghost_id": "ghost_CrimsonEcho_1743",
+      "commander_name": "champ_crimson_echo",
+      "faction_id": "crimson_echo",
+      "faction_name": "Crimson Echo Swarm",
+      "elo_rating": 1743,
+      "deck_tid": "deck_cradle_of_echoes_boss_swarm",
+      "hero_tid": "e_eclipse",
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "skill_02_tactical_illustrator_library",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "e_eclipse",
+          "dir_nesw": [
+            9,
+            9,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 1,
+          "slot_y": 2,
+          "card_id": "set2_05_tarot_arcana_empress",
+          "dir_nesw": [
+            8,
+            7,
+            9,
+            8
+          ]
+        }
+      ],
+      "lockstep_state_hash": "A144AC809950631F",
+      "hmac_sha256_signature": "ac2537dcb70bbd4b7717ba684847f5a5e52bf8f36292dcbacaf0e6726ea2827a"
+    }
+  ],
+  "matches": [
+    {
+      "match_id": "tourney_m01_sovereign_law_vs_astral_vanguard",
+      "player0": "champ_sovereign_law",
+      "player1": "champ_astral_vanguard",
+      "score_p0": 5,
+      "score_p1": 4,
+      "winner": "champ_sovereign_law",
+      "loser": "champ_astral_vanguard",
+      "directional_flips": 2,
+      "plus_same_cascade_flips": 4,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "plugin_01_tcg_creative_designer",
+          "dir_nesw": [
+            10,
+            9,
+            9,
+            10
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "cf_01_valerius",
+          "dir_nesw": [
+            9,
+            7,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 1,
+          "slot_y": 1,
+          "card_id": "plugin_02_parallel_swarm_orchestrator",
+          "dir_nesw": [
+            8,
+            9,
+            8,
+            8
+          ]
+        }
+      ],
+      "state_hash": "A2D6FEEC759A83E3",
+      "winner_post_elo": 1816,
+      "loser_post_elo": 1784,
+      "elo_delta": 16,
+      "receipt_hmac": "ffdef198fdb619b46bd560b47d7ad167c90097cf5b1264a2e1d436b564fd76d5",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m02_sovereign_law_vs_arcane_atelier",
+      "player0": "champ_sovereign_law",
+      "player1": "champ_arcane_atelier",
+      "score_p0": 7,
+      "score_p1": 2,
+      "winner": "champ_sovereign_law",
+      "loser": "champ_arcane_atelier",
+      "directional_flips": 2,
+      "plus_same_cascade_flips": 4,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "plugin_01_tcg_creative_designer",
+          "dir_nesw": [
+            9,
+            8,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "skill_02_tactical_illustrator_library",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 1,
+          "slot_y": 1,
+          "card_id": "plugin_02_parallel_swarm_orchestrator",
+          "dir_nesw": [
+            9,
+            10,
+            9,
+            9
+          ]
+        }
+      ],
+      "state_hash": "BE98B2869B19BF95",
+      "winner_post_elo": 1831,
+      "loser_post_elo": 1785,
+      "elo_delta": 15,
+      "receipt_hmac": "a022fbd93deb9d8a4e169d29b85c5675f9897bcb4a82fdb04c42285d87bffc93",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m03_sovereign_law_vs_crimson_echo",
+      "player0": "champ_sovereign_law",
+      "player1": "champ_crimson_echo",
+      "score_p0": 7,
+      "score_p1": 2,
+      "winner": "champ_sovereign_law",
+      "loser": "champ_crimson_echo",
+      "directional_flips": 2,
+      "plus_same_cascade_flips": 2,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "plugin_01_tcg_creative_designer",
+          "dir_nesw": [
+            9,
+            8,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "e_eclipse",
+          "dir_nesw": [
+            9,
+            9,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 1,
+          "slot_y": 2,
+          "card_id": "plugin_02_parallel_swarm_orchestrator",
+          "dir_nesw": [
+            8,
+            9,
+            8,
+            8
+          ]
+        }
+      ],
+      "state_hash": "7D7FF30175519218",
+      "winner_post_elo": 1846,
+      "loser_post_elo": 1785,
+      "elo_delta": 15,
+      "receipt_hmac": "c4e4bae165d322adef1f00b2cfe98982064d905ec715c23e855e78b4118f05b7",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m04_astral_vanguard_vs_sovereign_law",
+      "player0": "champ_astral_vanguard",
+      "player1": "champ_sovereign_law",
+      "score_p0": 3,
+      "score_p1": 6,
+      "winner": "champ_sovereign_law",
+      "loser": "champ_astral_vanguard",
+      "directional_flips": 3,
+      "plus_same_cascade_flips": 1,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "cf_01_valerius",
+          "dir_nesw": [
+            10,
+            8,
+            9,
+            9
+          ]
+        },
+        {
+          "slot_x": 3,
+          "slot_y": 2,
+          "card_id": "plugin_01_tcg_creative_designer",
+          "dir_nesw": [
+            9,
+            8,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "set2_01_kubrart_sun_seraph",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            8
+          ]
+        }
+      ],
+      "state_hash": "B90B98E107767AF2",
+      "winner_post_elo": 1859,
+      "loser_post_elo": 1771,
+      "elo_delta": 13,
+      "receipt_hmac": "5955ee0ef513ce6fe2fce96c355d552c2418916057b50e0d5474b190f298960b",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m05_astral_vanguard_vs_arcane_atelier",
+      "player0": "champ_astral_vanguard",
+      "player1": "champ_arcane_atelier",
+      "score_p0": 6,
+      "score_p1": 3,
+      "winner": "champ_astral_vanguard",
+      "loser": "champ_arcane_atelier",
+      "directional_flips": 2,
+      "plus_same_cascade_flips": 1,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "cf_01_valerius",
+          "dir_nesw": [
+            9,
+            7,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 3,
+          "slot_y": 2,
+          "card_id": "skill_02_tactical_illustrator_library",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "set2_01_kubrart_sun_seraph",
+          "dir_nesw": [
+            9,
+            9,
+            9,
+            9
+          ]
+        }
+      ],
+      "state_hash": "3014160F236BF404",
+      "winner_post_elo": 1788,
+      "loser_post_elo": 1768,
+      "elo_delta": 17,
+      "receipt_hmac": "2243f0e9196c5567e859e802363e3d720ff4065cbf55b9e2fa472579676f685a",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m06_astral_vanguard_vs_crimson_echo",
+      "player0": "champ_astral_vanguard",
+      "player1": "champ_crimson_echo",
+      "score_p0": 5,
+      "score_p1": 4,
+      "winner": "champ_astral_vanguard",
+      "loser": "champ_crimson_echo",
+      "directional_flips": 3,
+      "plus_same_cascade_flips": 1,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "cf_01_valerius",
+          "dir_nesw": [
+            9,
+            7,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 3,
+          "slot_y": 2,
+          "card_id": "e_eclipse",
+          "dir_nesw": [
+            9,
+            9,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "set2_01_kubrart_sun_seraph",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            8
+          ]
+        }
+      ],
+      "state_hash": "3E813D2B31085F42",
+      "winner_post_elo": 1804,
+      "loser_post_elo": 1769,
+      "elo_delta": 16,
+      "receipt_hmac": "a2b3ee0d5bc1d753aae768de43c30ea54cbb75b0f45d7a452a26c3f59c9a233b",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m07_arcane_atelier_vs_sovereign_law",
+      "player0": "champ_arcane_atelier",
+      "player1": "champ_sovereign_law",
+      "score_p0": 5,
+      "score_p1": 4,
+      "winner": "champ_arcane_atelier",
+      "loser": "champ_sovereign_law",
+      "directional_flips": 1,
+      "plus_same_cascade_flips": 3,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "skill_02_tactical_illustrator_library",
+          "dir_nesw": [
+            9,
+            9,
+            9,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "plugin_01_tcg_creative_designer",
+          "dir_nesw": [
+            9,
+            8,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 1,
+          "slot_y": 2,
+          "card_id": "set2_05_tarot_arcana_empress",
+          "dir_nesw": [
+            8,
+            7,
+            9,
+            8
+          ]
+        }
+      ],
+      "state_hash": "5C7870FA043E9747",
+      "winner_post_elo": 1788,
+      "loser_post_elo": 1839,
+      "elo_delta": 20,
+      "receipt_hmac": "1dbd8d194809a2c41e6880b982fbf9a4041d62526ddff37b1ed03d28b97fa2b1",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m08_arcane_atelier_vs_astral_vanguard",
+      "player0": "champ_arcane_atelier",
+      "player1": "champ_astral_vanguard",
+      "score_p0": 6,
+      "score_p1": 3,
+      "winner": "champ_arcane_atelier",
+      "loser": "champ_astral_vanguard",
+      "directional_flips": 3,
+      "plus_same_cascade_flips": 0,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "skill_02_tactical_illustrator_library",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 3,
+          "card_id": "cf_01_valerius",
+          "dir_nesw": [
+            9,
+            7,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "set2_05_tarot_arcana_empress",
+          "dir_nesw": [
+            9,
+            8,
+            10,
+            9
+          ]
+        }
+      ],
+      "state_hash": "ACE6CA8B1751724E",
+      "winner_post_elo": 1805,
+      "loser_post_elo": 1787,
+      "elo_delta": 17,
+      "receipt_hmac": "f202a7e668beb2e2b6b8effde1d775990e802f6f39b82c0bb69dd1f0a1e9d39f",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m09_arcane_atelier_vs_crimson_echo",
+      "player0": "champ_arcane_atelier",
+      "player1": "champ_crimson_echo",
+      "score_p0": 3,
+      "score_p1": 6,
+      "winner": "champ_crimson_echo",
+      "loser": "champ_arcane_atelier",
+      "directional_flips": 0,
+      "plus_same_cascade_flips": 2,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "skill_02_tactical_illustrator_library",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "e_eclipse",
+          "dir_nesw": [
+            9,
+            9,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 1,
+          "slot_y": 2,
+          "card_id": "set2_05_tarot_arcana_empress",
+          "dir_nesw": [
+            8,
+            7,
+            9,
+            8
+          ]
+        }
+      ],
+      "state_hash": "A144AC809950631F",
+      "winner_post_elo": 1787,
+      "loser_post_elo": 1787,
+      "elo_delta": 18,
+      "receipt_hmac": "db2ee31fb10cb92d33d948ea3436de99546208547293f2d83ae8a7204d860473",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m10_crimson_echo_vs_sovereign_law",
+      "player0": "champ_crimson_echo",
+      "player1": "champ_sovereign_law",
+      "score_p0": 3,
+      "score_p1": 6,
+      "winner": "champ_sovereign_law",
+      "loser": "champ_crimson_echo",
+      "directional_flips": 3,
+      "plus_same_cascade_flips": 3,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "e_eclipse",
+          "dir_nesw": [
+            9,
+            9,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 3,
+          "card_id": "plugin_01_tcg_creative_designer",
+          "dir_nesw": [
+            9,
+            8,
+            8,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "set2_04_mecha_halberd_zero",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            7
+          ]
+        }
+      ],
+      "state_hash": "7E136F9959572714",
+      "winner_post_elo": 1853,
+      "loser_post_elo": 1773,
+      "elo_delta": 14,
+      "receipt_hmac": "84c2ba00e7c485b32fc06980f1c2845e091d8f4afcc7f7e4110b2a3058a28b1d",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m11_crimson_echo_vs_astral_vanguard",
+      "player0": "champ_crimson_echo",
+      "player1": "champ_astral_vanguard",
+      "score_p0": 4,
+      "score_p1": 5,
+      "winner": "champ_astral_vanguard",
+      "loser": "champ_crimson_echo",
+      "directional_flips": 5,
+      "plus_same_cascade_flips": 0,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "e_eclipse",
+          "dir_nesw": [
+            8,
+            8,
+            7,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 3,
+          "card_id": "cf_01_valerius",
+          "dir_nesw": [
+            9,
+            7,
+            8,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "set2_04_mecha_halberd_zero",
+          "dir_nesw": [
+            9,
+            9,
+            9,
+            8
+          ]
+        }
+      ],
+      "state_hash": "F5F5553F77E67B04",
+      "winner_post_elo": 1802,
+      "loser_post_elo": 1758,
+      "elo_delta": 15,
+      "receipt_hmac": "5733f92f1ea05ef2d8fe2446ca2df5b477b8a70b4a13069fa22dfb7728976f0b",
+      "receipt_verified": true
+    },
+    {
+      "match_id": "tourney_m12_crimson_echo_vs_arcane_atelier",
+      "player0": "champ_crimson_echo",
+      "player1": "champ_arcane_atelier",
+      "score_p0": 4,
+      "score_p1": 5,
+      "winner": "champ_arcane_atelier",
+      "loser": "champ_crimson_echo",
+      "directional_flips": 2,
+      "plus_same_cascade_flips": 1,
+      "opening_3x3_sequence": [
+        {
+          "slot_x": 2,
+          "slot_y": 2,
+          "card_id": "e_eclipse",
+          "dir_nesw": [
+            8,
+            8,
+            7,
+            8
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 3,
+          "card_id": "skill_02_tactical_illustrator_library",
+          "dir_nesw": [
+            9,
+            9,
+            9,
+            9
+          ]
+        },
+        {
+          "slot_x": 2,
+          "slot_y": 1,
+          "card_id": "set2_04_mecha_halberd_zero",
+          "dir_nesw": [
+            8,
+            8,
+            8,
+            7
+          ]
+        }
+      ],
+      "state_hash": "164B4F9359A211B8",
+      "winner_post_elo": 1802,
+      "loser_post_elo": 1743,
+      "elo_delta": 15,
+      "receipt_hmac": "044f26df2d794832eb5cd59b7953679f990eae17bbf311682d0f7673a4cf506c",
+      "receipt_verified": true
+    }
+  ],
+  "status": "PASS_4FACTION_ELO_TOURNAMENT_AND_GHOSTS"
+}

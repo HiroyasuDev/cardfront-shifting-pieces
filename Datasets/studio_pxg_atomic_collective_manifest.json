@@ -1,0 +1,938 @@
+{
+  "manifest_id": "studio_pxg_atomic_trigger_odyssey_collective_v1",
+  "timestamp_utc": "2026-11-09T23:38:49Z",
+  "status": "VERIFIED",
+  "studio_identity": "Studio PxG (Studio Trigger x Odyssey Interactive / Omega Strikers School)",
+  "zero_living_artist_names": true,
+  "total_domains": 4,
+  "primitives_per_domain": 6,
+  "total_atomic_primitives": 24,
+  "records_per_primitive": 50,
+  "total_corpus_records": 1200,
+  "total_cards_covered": 117,
+  "card_sets_breakdown": {
+    "Set1_Core_60": 60,
+    "Set2_Kubrart_Manga_20": 20,
+    "Sovereign_Agent_37": 37
+  },
+  "corpus_jsonl_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/studio_pxg_atomic_trigger_odyssey_corpus.jsonl",
+  "corpus_sha256": "f0ca2975f8b9393a50f85b4075dd94e6364f9f1b69eafbecb35ff05fb9c3938e",
+  "corpus_bytes": 3705487,
+  "lora_checkpoint": {
+    "filename": "studio_pxg_trigger_odyssey_atomic_v1.safetensors",
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Models/LoRA/studio_pxg_trigger_odyssey_atomic_v1.safetensors",
+    "rank": 32,
+    "alpha": 64,
+    "header_byte_length_N": 1456,
+    "weight_buffer_byte_length": 32768,
+    "total_file_bytes": 34232,
+    "sha256": "a4078acf321a8b0c30d033f2a32d6a94b83d7951bc708fb4cab21d8ead478d31",
+    "tensor_count": 8,
+    "zero_nans_or_infs": true,
+    "tensors": [
+      {
+        "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          0,
+          4096
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096,
+        "frobenius_norm": 0.67882
+      },
+      {
+        "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          4096,
+          8192
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096,
+        "frobenius_norm": 8.20122
+      },
+      {
+        "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          8192,
+          12288
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096,
+        "frobenius_norm": 0.67882
+      },
+      {
+        "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          12288,
+          16384
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096,
+        "frobenius_norm": 8.20122
+      },
+      {
+        "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          16384,
+          20480
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096,
+        "frobenius_norm": 0.67882
+      },
+      {
+        "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          20480,
+          24576
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096,
+        "frobenius_norm": 8.20122
+      },
+      {
+        "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          24576,
+          28672
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096,
+        "frobenius_norm": 0.67882
+      },
+      {
+        "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          28672,
+          32768
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096,
+        "frobenius_norm": 8.20122
+      }
+    ]
+  },
+  "ollama_modelfile_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Models/Modelfile.pxg-studio-atomic",
+  "ollama_model_tag": "pxg-studio-atomic:latest",
+  "benchmark_log_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Logs/studio_pxg_atomic_training_benchmark.json",
+  "domains": {
+    "trigger_key_animation_movement": [
+      {
+        "primitive_index": 1,
+        "primitive_id": "ON_ONES_2S_3S_TIMING_MODULATION",
+        "title": "24fps On-Ones Impact Burst vs. Stepped 2s/3s Anticipation Hold",
+        "description": "24fps on-ones burst during clash/parry vs. 8fps/12fps stepped anticipation hold, governed by variable exposure sheet (X-Sheet) cadence.",
+        "film_shot_preset": "XSheet_Modulated_Snap_CutIn",
+        "x_sheet_timing": [
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3
+        ],
+        "camera_fov_mm": 28.0,
+        "dutch_tilt_deg": 14.0,
+        "morphological_descriptor": "stepped 3-frame anticipation coil transitioning into a 1-frame 24fps on-ones kinetic release, crisp keyframe pose silhouette, zero automated motion-blur tweening, razor-sharp G-pen ink contours",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.84,
+          "_StarFlareIntensity": 0.78,
+          "_CanadaSmearArc": 0.65,
+          "_FisheyeBarrelWarp": 0.18,
+          "_RimSeparationHue": 195.0,
+          "_HalftoneDotPitch": 5.0,
+          "_ImpactInvertFlash": 0.5,
+          "_WedgeSilhouetteScale": 1.12
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 2,
+        "primitive_id": "CANADA_SMEAR_ELONGATION_ARC",
+        "title": "Hyperbolic Multi-Limb & Blade Smear Arc with Polyhedral Shards",
+        "description": "Multi-limb/blade hyperbolic arc smear frames with polyhedral trailing shards and jagged speed-slices.",
+        "film_shot_preset": "Hyperbolic_Canada_Smear_Slash",
+        "x_sheet_timing": [
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          2
+        ],
+        "camera_fov_mm": 20.0,
+        "dutch_tilt_deg": -18.5,
+        "morphological_descriptor": "hyperbolic arc blade smear spanning 140 degrees across the frame, multiplied forearm/weapon echoes, polyhedral trailing energy shards, jagged sumi-ink speed-slices, high-contrast cel plane separation",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.86,
+          "_StarFlareIntensity": 0.84,
+          "_CanadaSmearArc": 0.98,
+          "_FisheyeBarrelWarp": 0.34,
+          "_RimSeparationHue": 188.0,
+          "_HalftoneDotPitch": 4.5,
+          "_ImpactInvertFlash": 0.62,
+          "_WedgeSilhouetteScale": 1.18
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 3,
+        "primitive_id": "FOUR_POINT_TRIGGER_STAR_FLARE",
+        "title": "Asymmetric 4-Point Cruciform Impact Star Flare at Kinetic Vertex",
+        "description": "Signature asymmetric 4-point cruciform star flare at the exact vector vertex of kinetic impact or energy release.",
+        "film_shot_preset": "Cruciform_Vertex_Star_Burst",
+        "x_sheet_timing": [
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "camera_fov_mm": 24.0,
+        "dutch_tilt_deg": 16.0,
+        "morphological_descriptor": "asymmetric four-point cruciform star flare anchored at the weapon-impact vertex, needle-sharp primary horizontal/vertical spikes with secondary diagonal glint, pure white core with crimson and astral cyan halo",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.88,
+          "_StarFlareIntensity": 0.99,
+          "_CanadaSmearArc": 0.82,
+          "_FisheyeBarrelWarp": 0.24,
+          "_RimSeparationHue": 348.0,
+          "_HalftoneDotPitch": 4.0,
+          "_ImpactInvertFlash": 0.74,
+          "_WedgeSilhouetteScale": 1.15
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 4,
+        "primitive_id": "KAGENASHI_HARD_SHADOW_BLOCK",
+        "title": "Razor-Sharp Unblended Obsidian #0A0B10 Kagenashi Shadow Geometry",
+        "description": "Razor-sharp unblended obsidian #0A0B10 shadow geometry with zero soft gradient and neon cyan/crimson/gold rim-light separation.",
+        "film_shot_preset": "Kagenashi_Obsidian_Rim_Cut",
+        "x_sheet_timing": [
+          2,
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "camera_fov_mm": 32.0,
+        "dutch_tilt_deg": -12.0,
+        "morphological_descriptor": "unblended razor-sharp obsidian #0A0B10 kagenashi shadow blocks carved directly across armor and facial planes, zero airbrush gradient falloff, 3-pixel neon cyan #00E5FF and law-gold #FFB800 specular rim-light boundary",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.99,
+          "_StarFlareIntensity": 0.8,
+          "_CanadaSmearArc": 0.72,
+          "_FisheyeBarrelWarp": 0.2,
+          "_RimSeparationHue": 202.0,
+          "_HalftoneDotPitch": 4.0,
+          "_ImpactInvertFlash": 0.68,
+          "_WedgeSilhouetteScale": 1.16
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 5,
+        "primitive_id": "IMPACT_FRAME_INVERTED_MONOCHROME_2F",
+        "title": "2-Frame Stark Inverted Monochrome + Crimson #FF2E54 Woodcut Impact Flash",
+        "description": "2-frame high-contrast stark black/white + crimson #FF2E54 woodcut stencil flash on critical capture or wall-bounce.",
+        "film_shot_preset": "TwoFrame_Binary_Woodcut_Flash",
+        "x_sheet_timing": [
+          3,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "camera_fov_mm": 18.0,
+        "dutch_tilt_deg": 21.0,
+        "morphological_descriptor": "2-frame binary inverted monochrome impact stencil, stark bone-white silhouette against pitch-black radial fracture lines, single-channel crimson #FF2E54 shock-streak bisecting the impact axis",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.98,
+          "_StarFlareIntensity": 0.92,
+          "_CanadaSmearArc": 0.88,
+          "_FisheyeBarrelWarp": 0.42,
+          "_RimSeparationHue": 350.0,
+          "_HalftoneDotPitch": 3.5,
+          "_ImpactInvertFlash": 1.0,
+          "_WedgeSilhouetteScale": 1.22
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 6,
+        "primitive_id": "PASTEL_NEON_POLYHEDRAL_PYRO_CRYO_FX",
+        "title": "Triangular, Cubic & Icosahedral Cel-Shaded Fire, Plasma & Cryo Geometry",
+        "description": "Triangular, cubic, and icosahedral cel-shaded fire, plasma, and cryo-smoke geometry instead of particle blur.",
+        "film_shot_preset": "Polyhedral_LowPoly_Elemental_Plume",
+        "x_sheet_timing": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          2,
+          2
+        ],
+        "camera_fov_mm": 24.0,
+        "dutch_tilt_deg": -15.0,
+        "morphological_descriptor": "faceted triangular, cubic, and icosahedral cel-shaded flame and cryo-plasma plumes, pastel-neon magenta #FF2E54, cyan #00E5FF, and mint-teal #2EE6D3 flat geometric faces with zero soft gaussian smoke blur",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.91,
+          "_StarFlareIntensity": 0.89,
+          "_CanadaSmearArc": 0.79,
+          "_FisheyeBarrelWarp": 0.28,
+          "_RimSeparationHue": 182.0,
+          "_HalftoneDotPitch": 4.5,
+          "_ImpactInvertFlash": 0.64,
+          "_WedgeSilhouetteScale": 1.14
+        },
+        "records_count": 50
+      }
+    ],
+    "trigger_film_shots_camera_choreography": [
+      {
+        "primitive_index": 7,
+        "primitive_id": "FISHEYE_14MM_EXTREME_FORESHORTENING",
+        "title": "14mm Ultra-Wide Fisheye Lens Lunge with 300% Foreground Scale",
+        "description": "Weapon or gauntlet lunging 300% scale toward the virtual 14mm wide-angle lens with curvilinear barrel horizon warp.",
+        "film_shot_preset": "Fisheye_14mm_Gauntlet_Lunge",
+        "x_sheet_timing": [
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          1
+        ],
+        "camera_fov_mm": 14.0,
+        "dutch_tilt_deg": 19.5,
+        "morphological_descriptor": "extreme 14mm ultra-wide fisheye perspective foreshortening, leading gauntlet or blade tip magnified 300% in the immediate foreground plane, receding torso and curvilinear barrel-warped horizon grid lines",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.89,
+          "_StarFlareIntensity": 0.91,
+          "_CanadaSmearArc": 0.9,
+          "_FisheyeBarrelWarp": 0.98,
+          "_RimSeparationHue": 198.0,
+          "_HalftoneDotPitch": 4.2,
+          "_ImpactInvertFlash": 0.72,
+          "_WedgeSilhouetteScale": 1.32
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 8,
+        "primitive_id": "WHIP_PAN_SPEEDLINE_SNAP_ZOOM",
+        "title": "18-Degree Dutch-Tilt Diagonal Whip-Pan & Snap-Zoom to Visor Glint",
+        "description": "18-degree dutch-tilt diagonal whip-pan across dense sumi speedlines locking onto an extreme close-up eye/visor glint.",
+        "film_shot_preset": "Dutch18_WhipPan_SnapZoom_ECU",
+        "x_sheet_timing": [
+          1,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1
+        ],
+        "camera_fov_mm": 22.0,
+        "dutch_tilt_deg": 18.0,
+        "morphological_descriptor": "18-degree dutch-tilt diagonal camera axis, dense converging sumi-ink speedline backdrop, snap-zoom locking onto an extreme close-up of the striker visor or iris with a cruciform star flare glint",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.92,
+          "_StarFlareIntensity": 0.95,
+          "_CanadaSmearArc": 0.86,
+          "_FisheyeBarrelWarp": 0.46,
+          "_RimSeparationHue": 205.0,
+          "_HalftoneDotPitch": 4.0,
+          "_ImpactInvertFlash": 0.76,
+          "_WedgeSilhouetteScale": 1.18
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 9,
+        "primitive_id": "ORBITAL_360_HERO_LANDING_DOLLY",
+        "title": "Worm's-Eye Low-Angle 360-Degree Camera Orbit Around Three-Point Landing",
+        "description": "Worm's-eye low-angle 360-degree camera orbit around a three-point hero landing with concentric polyhedral debris ring.",
+        "film_shot_preset": "WormsEye_360_Hero_Landing_Orbit",
+        "x_sheet_timing": [
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "camera_fov_mm": 18.0,
+        "dutch_tilt_deg": -14.0,
+        "morphological_descriptor": "worm's-eye low-angle 360-degree orbital camera track around a three-point tactical landing pose, cracked stone radial shockwave, levitating concentric ring of polyhedral masonry debris and cyan energy sparks",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.9,
+          "_StarFlareIntensity": 0.87,
+          "_CanadaSmearArc": 0.84,
+          "_FisheyeBarrelWarp": 0.68,
+          "_RimSeparationHue": 192.0,
+          "_HalftoneDotPitch": 4.5,
+          "_ImpactInvertFlash": 0.66,
+          "_WedgeSilhouetteScale": 1.24
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 10,
+        "primitive_id": "SPLIT_SCREEN_DUAL_CLASH_CUTIN",
+        "title": "1920x160 Diagonal 22-Degree VS Split-Frame Directional Clash Cut-In",
+        "description": "1920x160 diagonal 22-degree VS split-frame comparing Attacker vs. Defender directional N/E/S/W ranks at 24fps.",
+        "film_shot_preset": "Diagonal22_DualClash_1920x160_CutIn",
+        "x_sheet_timing": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          1,
+          2
+        ],
+        "camera_fov_mm": 26.0,
+        "dutch_tilt_deg": 22.0,
+        "morphological_descriptor": "1920x160 letterbox diagonal 22-degree split-screen cut-in, left Astral Cyan attacker bust opposing right Crimson-Flame defender bust across a crackling law-gold #FFB800 lightning divider and NESW pip telemetry",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.94,
+          "_StarFlareIntensity": 0.94,
+          "_CanadaSmearArc": 0.85,
+          "_FisheyeBarrelWarp": 0.36,
+          "_RimSeparationHue": 210.0,
+          "_HalftoneDotPitch": 4.0,
+          "_ImpactInvertFlash": 0.82,
+          "_WedgeSilhouetteScale": 1.2
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 11,
+        "primitive_id": "OBARI_BRAVE_PERSPECTIVE_STANCE",
+        "title": "Heroic Mecha/Striker Perspective Stance with Flared Pauldrons & Foreground Blade Tip",
+        "description": "Bipedal mecha/striker heroic stance with chin tucked behind flared pauldrons, sun/crest backlit halo, and exaggerated foreground sword tip.",
+        "film_shot_preset": "Heroic_Brave_Perspective_Blade_Point",
+        "x_sheet_timing": [
+          3,
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        "camera_fov_mm": 16.0,
+        "dutch_tilt_deg": -16.5,
+        "morphological_descriptor": "heroic brave-perspective mecha stance, chin tucked behind flared beveled pauldrons, radiant faction crest backlit halo, weapon tip thrusting toward the upper-left corner with extreme depth convergence",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.93,
+          "_StarFlareIntensity": 0.96,
+          "_CanadaSmearArc": 0.8,
+          "_FisheyeBarrelWarp": 0.86,
+          "_RimSeparationHue": 196.0,
+          "_HalftoneDotPitch": 4.2,
+          "_ImpactInvertFlash": 0.7,
+          "_WedgeSilhouetteScale": 1.28
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 12,
+        "primitive_id": "RACK_FOCUS_ISOMETRIC_TO_CINEMATIC_ZOOM",
+        "title": "Frustum Interpolation from 50-Deg Tabletop Isometric to 18-Deg Low-Angle Cut-In",
+        "description": "Instant camera frustum interpolation from 50-degree 3x3 tabletop orthographic view to 18-degree low-angle sakuga cut-in.",
+        "film_shot_preset": "Iso50_To_LowAngle18_Frustum_Snap",
+        "x_sheet_timing": [
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1
+        ],
+        "camera_fov_mm": 21.0,
+        "dutch_tilt_deg": 15.0,
+        "morphological_descriptor": "seamless camera frustum transition from 50-degree 3x3 tactical tabletop view into an 18-degree low-angle cinematic hero framing, maintaining 100% color-key and silhouette continuity across both camera states",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.89,
+          "_StarFlareIntensity": 0.88,
+          "_CanadaSmearArc": 0.78,
+          "_FisheyeBarrelWarp": 0.58,
+          "_RimSeparationHue": 200.0,
+          "_HalftoneDotPitch": 4.5,
+          "_ImpactInvertFlash": 0.65,
+          "_WedgeSilhouetteScale": 1.2
+        },
+        "records_count": 50
+      }
+    ],
+    "odyssey_omega_strikers_character_illustration": [
+      {
+        "primitive_index": 13,
+        "primitive_id": "GRAPHIC_WEDGE_SILHOUETTE_READABILITY",
+        "title": "Top/Bottom-Heavy Graphic Wedge Silhouette for 64px-to-600px Readability",
+        "description": "Top-heavy or bottom-heavy wedge/trapezoid silhouette with oversized gauntlets and propulsion boots for instant 64px-to-600px readability.",
+        "film_shot_preset": "Odyssey_Graphic_Wedge_Hero_Splash",
+        "x_sheet_timing": [
+          2,
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "camera_fov_mm": 35.0,
+        "dutch_tilt_deg": 10.0,
+        "morphological_descriptor": "bold graphic wedge and trapezoid character silhouette, stylized 6.5-to-7-head athletic striker proportions, oversized tapered gauntlets and propulsion greaves, unmistakable negative-space gaps readable at 64x64 and 600x800",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.88,
+          "_StarFlareIntensity": 0.82,
+          "_CanadaSmearArc": 0.74,
+          "_FisheyeBarrelWarp": 0.26,
+          "_RimSeparationHue": 194.0,
+          "_HalftoneDotPitch": 5.0,
+          "_ImpactInvertFlash": 0.54,
+          "_WedgeSilhouetteScale": 1.35
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 14,
+        "primitive_id": "STREET_SPORT_MECHA_TECHWEAR_LAYERING",
+        "title": "Cropped High-Collar Athletic Techwear Over Sleek Cyber-Magicite Armor Plates",
+        "description": "Cropped high-collar athletic bomber jackets over sleek cyber-magicite armor plates, bold geometric faction stripes, and glowing emblem patches.",
+        "film_shot_preset": "StreetSport_Techwear_Armor_Turnaround",
+        "x_sheet_timing": [
+          2,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          2
+        ],
+        "camera_fov_mm": 35.0,
+        "dutch_tilt_deg": -9.5,
+        "morphological_descriptor": "cropped high-collar athletic street-sport bomber jacket layered over sleek beveled cyber-magicite armor plates, bold color-blocked geometric faction chevrons, luminous vector crest patches, aerodynamic visor",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.87,
+          "_StarFlareIntensity": 0.8,
+          "_CanadaSmearArc": 0.7,
+          "_FisheyeBarrelWarp": 0.22,
+          "_RimSeparationHue": 204.0,
+          "_HalftoneDotPitch": 5.2,
+          "_ImpactInvertFlash": 0.5,
+          "_WedgeSilhouetteScale": 1.26
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 15,
+        "primitive_id": "DUAL_TONE_CHROMATIC_RIM_SEPARATION",
+        "title": "Warm Parchment-Gold Key Light Paired with Hyper-Saturated Faction Edge-Rims",
+        "description": "Warm parchment/gold key lighting paired with hyper-saturated Astral Cyan #00E5FF, Crimson #FF2E54, or Tarot Violet #A855F7 edge-rims.",
+        "film_shot_preset": "DualTone_Chromatic_Rim_KeyLight",
+        "x_sheet_timing": [
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1
+        ],
+        "camera_fov_mm": 30.0,
+        "dutch_tilt_deg": 12.0,
+        "morphological_descriptor": "dual-tone studio lighting architecture, warm sunlit parchment-gold #FFE082 primary key light opposed by hyper-saturated 4-pixel Astral Cyan #00E5FF, Crimson #FF2E54, or Tarot Violet #A855F7 backlight rim separation",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.91,
+          "_StarFlareIntensity": 0.86,
+          "_CanadaSmearArc": 0.75,
+          "_FisheyeBarrelWarp": 0.25,
+          "_RimSeparationHue": 212.0,
+          "_HalftoneDotPitch": 4.8,
+          "_ImpactInvertFlash": 0.58,
+          "_WedgeSilhouetteScale": 1.22
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 16,
+        "primitive_id": "EXPRESSIVE_VARIABLE_GPEN_VECTOR_LINE",
+        "title": "Thick Tapered Exterior G-Pen Silhouette Contours with Colored Interior Line-Hold",
+        "description": "Thick tapered exterior silhouette ink contours paired with colored interior linework to preserve facial/armor clarity.",
+        "film_shot_preset": "Variable_GPen_ColorHold_Contour",
+        "x_sheet_timing": [
+          2,
+          2,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        "camera_fov_mm": 35.0,
+        "dutch_tilt_deg": -11.0,
+        "morphological_descriptor": "expressive variable-width G-pen vector ink linework, bold 5px tapered exterior silhouette boundary paired with tinted color-hold interior lines along facial features, gauntlets, and warm parchment-gold filigree",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.93,
+          "_StarFlareIntensity": 0.81,
+          "_CanadaSmearArc": 0.72,
+          "_FisheyeBarrelWarp": 0.2,
+          "_RimSeparationHue": 198.0,
+          "_HalftoneDotPitch": 4.6,
+          "_ImpactInvertFlash": 0.52,
+          "_WedgeSilhouetteScale": 1.24
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 17,
+        "primitive_id": "DYNAMIC_TORSION_CONTRAPPOSTO_SPLASH",
+        "title": "S-Curve Spine Torsion with Opposing Shoulder-to-Hip Tilt in 600x800 Splash",
+        "description": "S-curve spine torsion with opposing shoulder-to-hip tilt, conveying mid-dash kinetic momentum even in a static 600x800 portrait.",
+        "film_shot_preset": "SCurve_Torsion_Kinetic_Splash_600x800",
+        "x_sheet_timing": [
+          1,
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1
+        ],
+        "camera_fov_mm": 28.0,
+        "dutch_tilt_deg": 15.5,
+        "morphological_descriptor": "dynamic S-curve spine torsion contrapposto line-of-action, 24-degree opposing shoulder-to-hip counter-tilt, coiled mid-dash striker momentum filling the 600x800 3:4 portrait frame with zero clipped extremities",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.89,
+          "_StarFlareIntensity": 0.85,
+          "_CanadaSmearArc": 0.83,
+          "_FisheyeBarrelWarp": 0.38,
+          "_RimSeparationHue": 200.0,
+          "_HalftoneDotPitch": 4.8,
+          "_ImpactInvertFlash": 0.6,
+          "_WedgeSilhouetteScale": 1.28
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 18,
+        "primitive_id": "HARD_CEL_SPECULAR_MATERIAL_BLOCKS",
+        "title": "Stepped Specular Highlight Shapes Differentiating Fabric, Anodized Armor & Magicite",
+        "description": "Distinct stepped specular highlight shapes differentiating matte techwear fabric, anodized metal pauldrons, and emissive magicite cores.",
+        "film_shot_preset": "TriMaterial_Stepped_Cel_Specular",
+        "x_sheet_timing": [
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1
+        ],
+        "camera_fov_mm": 32.0,
+        "dutch_tilt_deg": -10.5,
+        "morphological_descriptor": "three-tier stepped cel material vocabulary: matte two-tone watercolor wash on techwear fabric, razor-edged anisotropic specular bars on beveled cyber-magicite armor, and self-illuminated emissive cores",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.92,
+          "_StarFlareIntensity": 0.88,
+          "_CanadaSmearArc": 0.74,
+          "_FisheyeBarrelWarp": 0.24,
+          "_RimSeparationHue": 196.0,
+          "_HalftoneDotPitch": 4.4,
+          "_ImpactInvertFlash": 0.56,
+          "_WedgeSilhouetteScale": 1.25
+        },
+        "records_count": 50
+      }
+    ],
+    "studio_pxg_3x3_tactical_engine_integration": [
+      {
+        "primitive_index": 19,
+        "primitive_id": "DIRECTIONAL_NESW_SMEAR_VECTOR_ALIGNMENT",
+        "title": "24fps Canada-Smear Arc & 4-Point Star Flare Aligned to Capturing N/E/S/W Vector",
+        "description": "Aligning the 24fps Canada-smear arc and 4-point star flare directly along the capturing N/E/S/W compass vector on the 3x3 board.",
+        "film_shot_preset": "NESW_Compass_Smear_Vector_Lock",
+        "x_sheet_timing": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          1,
+          2
+        ],
+        "camera_fov_mm": 24.0,
+        "dutch_tilt_deg": 16.0,
+        "morphological_descriptor": "directional 3x3 grid capture choreography aligning the hyperbolic smear arc and four-point cruciform star flare along the exact North/East/South/West capture vector between adjacent board slots",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.93,
+          "_StarFlareIntensity": 0.98,
+          "_CanadaSmearArc": 0.96,
+          "_FisheyeBarrelWarp": 0.35,
+          "_RimSeparationHue": 195.0,
+          "_HalftoneDotPitch": 4.2,
+          "_ImpactInvertFlash": 0.78,
+          "_WedgeSilhouetteScale": 1.24
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 20,
+        "primitive_id": "COLUMN_DICE_IMPACT_FRAME_SYNC",
+        "title": "2-Frame Inverted Monochrome Flash Synchronized with Column-Dice & Plus/Same Cascades",
+        "description": "Synchronizing the 2-frame inverted monochrome impact flash with column-dice multiplier surges and Triple Triad Plus/Same cascades.",
+        "film_shot_preset": "ColumnDice_PlusSame_Impact_Sync",
+        "x_sheet_timing": [
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          1
+        ],
+        "camera_fov_mm": 22.0,
+        "dutch_tilt_deg": -17.0,
+        "morphological_descriptor": "80ms combat hit-stop coupled with a 2-frame inverted monochrome + crimson #FF2E54 impact stencil synchronized to column-dice synergy surges and Triple Triad SAME/PLUS combo cascade flips",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.96,
+          "_StarFlareIntensity": 0.95,
+          "_CanadaSmearArc": 0.9,
+          "_FisheyeBarrelWarp": 0.4,
+          "_RimSeparationHue": 345.0,
+          "_HalftoneDotPitch": 3.8,
+          "_ImpactInvertFlash": 0.99,
+          "_WedgeSilhouetteScale": 1.22
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 21,
+        "primitive_id": "KNOCKBACK_SLIDE_WALL_BOUNCE_SHOCKWAVE",
+        "title": "Kinetic Knockback Shockwave Ring on 3x3 Tactical Slide & Push Displacement",
+        "description": "Omega Strikers-inspired kinetic knockback shockwave ring when a Slide/Push ability displaces an enemy card across the 3x3 grid.",
+        "film_shot_preset": "TacticalSlide_WallBounce_Shockwave",
+        "x_sheet_timing": [
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "camera_fov_mm": 20.0,
+        "dutch_tilt_deg": 18.0,
+        "morphological_descriptor": "kinetic arena wall-bounce shockwave ring, polyhedral dust-and-spark burst along the orthogonal slide trajectory, high-contrast directional chevron wake, and damped spring recoil (zeta=0.42)",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.91,
+          "_StarFlareIntensity": 0.92,
+          "_CanadaSmearArc": 0.93,
+          "_FisheyeBarrelWarp": 0.48,
+          "_RimSeparationHue": 190.0,
+          "_HalftoneDotPitch": 4.2,
+          "_ImpactInvertFlash": 0.84,
+          "_WedgeSilhouetteScale": 1.26
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 22,
+        "primitive_id": "GENIE4_ACTION_CONDITIONED_SAKUGA_STEP",
+        "title": "4-Step Flow-Matching Causal-DiT Latent World State Conditioned on Film-Shot Primitive",
+        "description": "Conditioning the 4-step Flow-Matching Causal-DiT latent world state on the active Trigger/Odyssey film-shot primitive.",
+        "film_shot_preset": "Genie4_CausalDiT_4Step_Sakuga_Latent",
+        "x_sheet_timing": [
+          1,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1
+        ],
+        "camera_fov_mm": 24.0,
+        "dutch_tilt_deg": 14.5,
+        "morphological_descriptor": "4-step Euler flow-matching Causal-DiT spatial-temporal latent trajectory conditioned on action token a_t and film-shot primitive embedding, preserving 100% kagenashi shadow and silhouette topology",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.92,
+          "_StarFlareIntensity": 0.9,
+          "_CanadaSmearArc": 0.88,
+          "_FisheyeBarrelWarp": 0.36,
+          "_RimSeparationHue": 206.0,
+          "_HalftoneDotPitch": 4.4,
+          "_ImpactInvertFlash": 0.72,
+          "_WedgeSilhouetteScale": 1.23
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 23,
+        "primitive_id": "FACTION_PALETTE_STRICT_HUE_LOCK",
+        "title": "Strict Chromatic Faction Hue Window Enforcement Across All Shaders & Portraits",
+        "description": "Enforcing exact Studio PxG faction hue windows: Aether 180-260 deg, Void/Crimson 330-25 deg, Sovereign Law Gold #FFB800 & Jade #2EE6D3, Arcane Violet #A855F7.",
+        "film_shot_preset": "Chromatic_Faction_HueLock_Gate",
+        "x_sheet_timing": [
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1
+        ],
+        "camera_fov_mm": 30.0,
+        "dutch_tilt_deg": -12.0,
+        "morphological_descriptor": "strict HSV chromatic faction discipline: Player Heroes & Ally Conduits locked to Astral Cyan #00E5FF (180-260 deg) & Cobalt-Gold, Boss Constructs to Crimson-Flame #FF2E54 (330-25 deg) & Obsidian, Sovereign Gates to Ivalice Law Gold #FFB800 & Jade-Teal #2EE6D3, Arcane Skills to Tarot Violet #A855F7",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.94,
+          "_StarFlareIntensity": 0.91,
+          "_CanadaSmearArc": 0.82,
+          "_FisheyeBarrelWarp": 0.28,
+          "_RimSeparationHue": 215.0,
+          "_HalftoneDotPitch": 4.5,
+          "_ImpactInvertFlash": 0.68,
+          "_WedgeSilhouetteScale": 1.24
+        },
+        "records_count": 50
+      },
+      {
+        "primitive_index": 24,
+        "primitive_id": "TURNAROUND_TO_3D_SLAB_SILHOUETTE_PARITY",
+        "title": "100% Visual Parity Across 600x800 2D Splash, 1920x160 8-Frame Sakuga Strip & 3D Slab",
+        "description": "Ensuring 100% visual correspondence between the 600x800 2D splash portrait, the 1920x160 8-frame sakuga strip, and the 3D tabletop slab.",
+        "film_shot_preset": "TriModal_2D_Sakuga_3DSlab_Parity",
+        "x_sheet_timing": [
+          1,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1
+        ],
+        "camera_fov_mm": 26.0,
+        "dutch_tilt_deg": 14.0,
+        "morphological_descriptor": "tri-modal visual lock linking the 600x800 3:4 full-bleed portrait, the 1920x160 8-frame 24fps sakuga cut-in strip, and the 3D beveled tabletop card slab with matching rim-hue, silhouette, and NESW pips",
+        "shader_profile": {
+          "_KagenashiThreshold": 0.95,
+          "_StarFlareIntensity": 0.94,
+          "_CanadaSmearArc": 0.89,
+          "_FisheyeBarrelWarp": 0.42,
+          "_RimSeparationHue": 202.0,
+          "_HalftoneDotPitch": 4.2,
+          "_ImpactInvertFlash": 0.76,
+          "_WedgeSilhouetteScale": 1.28
+        },
+        "records_count": 50
+      }
+    ]
+  },
+  "atomic_primitives_list": [
+    "ON_ONES_2S_3S_TIMING_MODULATION",
+    "CANADA_SMEAR_ELONGATION_ARC",
+    "FOUR_POINT_TRIGGER_STAR_FLARE",
+    "KAGENASHI_HARD_SHADOW_BLOCK",
+    "IMPACT_FRAME_INVERTED_MONOCHROME_2F",
+    "PASTEL_NEON_POLYHEDRAL_PYRO_CRYO_FX",
+    "FISHEYE_14MM_EXTREME_FORESHORTENING",
+    "WHIP_PAN_SPEEDLINE_SNAP_ZOOM",
+    "ORBITAL_360_HERO_LANDING_DOLLY",
+    "SPLIT_SCREEN_DUAL_CLASH_CUTIN",
+    "OBARI_BRAVE_PERSPECTIVE_STANCE",
+    "RACK_FOCUS_ISOMETRIC_TO_CINEMATIC_ZOOM",
+    "GRAPHIC_WEDGE_SILHOUETTE_READABILITY",
+    "STREET_SPORT_MECHA_TECHWEAR_LAYERING",
+    "DUAL_TONE_CHROMATIC_RIM_SEPARATION",
+    "EXPRESSIVE_VARIABLE_GPEN_VECTOR_LINE",
+    "DYNAMIC_TORSION_CONTRAPPOSTO_SPLASH",
+    "HARD_CEL_SPECULAR_MATERIAL_BLOCKS",
+    "DIRECTIONAL_NESW_SMEAR_VECTOR_ALIGNMENT",
+    "COLUMN_DICE_IMPACT_FRAME_SYNC",
+    "KNOCKBACK_SLIDE_WALL_BOUNCE_SHOCKWAVE",
+    "GENIE4_ACTION_CONDITIONED_SAKUGA_STEP",
+    "FACTION_PALETTE_STRICT_HUE_LOCK",
+    "TURNAROUND_TO_3D_SLAB_SILHOUETTE_PARITY"
+  ]
+}

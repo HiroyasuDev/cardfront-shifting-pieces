@@ -1,0 +1,2135 @@
+{
+  "manifest_id": "studio_pxg_aaa_trigger_odyssey_assets_and_sakuga_v1",
+  "timestamp_utc": "2026-11-09T23:36:06Z",
+  "generator": "Backend/render_studio_pxg_aaa_trigger_odyssey_assets.py",
+  "status": "VERIFIED",
+  "zero_living_artist_names": true,
+  "comfyui_rtx4080_endpoint": "http://192.168.86.30:8188",
+  "dual_model_checkpoints": [
+    "animagineXLV31_v31.safetensors",
+    "flux1-dev-fp8.safetensors"
+  ],
+  "rtx4080_render_params": {
+    "width": 768,
+    "height": 1024,
+    "steps": 10,
+    "cfg": 6.5,
+    "sampler_name": "euler_ancestral",
+    "scheduler": "normal"
+  },
+  "studio_pxg_strikers_count": 8,
+  "studio_pxg_unique_sha256_count": 8,
+  "rtx4080_live_rendered_strikers_count": 8,
+  "all_strikers_600x800_rgb_opaque": true,
+  "set2_sakuga_strips_count": 20,
+  "studio_pxg_sakuga_strips_count": 8,
+  "total_new_sakuga_8frame_strips_count": 28,
+  "unique_strip_sha256_count": 28,
+  "unique_pose_b_sha256_count": 28,
+  "all_strips_1920x160_rgb_24fps": true,
+  "all_pose_b_600x800_rgb_opaque": true,
+  "showcase_sheet": {
+    "width": 2400,
+    "height": 1600,
+    "top_half_portraits_count": 8,
+    "bottom_half_sakuga_strips_count": 8,
+    "brain_showcase_path": "/Users/frederickamina/.gemini/antigravity-cli/brain/d934b222-0e48-433e-b635-1a692b802f46/studio_pxg_atomic_trigger_odyssey_showcase.png",
+    "local_showcase_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/studio_pxg_atomic_trigger_odyssey_showcase.png",
+    "sha256": "61ba288c7d9ee0359949a5d3f464e60b80c47d37621f2e59e5e0962b7012a807",
+    "bytes": 6124043
+  },
+  "total_wall_time_s": 38.22,
+  "studio_pxg_strikers": [
+    {
+      "id": "pxg_s01",
+      "slug": "pxg_s01_astra_vanguard_striker",
+      "filename": "pxg_s01_astra_vanguard_striker.png",
+      "name": "Astra-01: Hyper-Striker Conduit",
+      "role": "Forward Hyper-Striker",
+      "faction": "Valkyria",
+      "cost": 3,
+      "nesw": [
+        9,
+        8,
+        5,
+        7
+      ],
+      "camera_lens": "14mm_fisheye_lunge",
+      "primary_hex": "#00E5FF",
+      "secondary_hex": "#FFB800",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "morphological_primitives": [
+        "wedge-shaped graphic character silhouette",
+        "oversized kinetic striker gauntlets and propulsion boots",
+        "cropped high-collar cyber-magicite athletic techwear jacket",
+        "14mm fish-eye extreme foreshortening lunge",
+        "4-point cruciform star flare",
+        "polyhedral astral cyan plasma wake"
+      ],
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/StudioPxGAtomic/pxg_s01_astra_vanguard_striker.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/StudioPxGAtomic/pxg_s01_astra_vanguard_striker.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/pxg_s01_astra_vanguard_striker.png",
+      "art": "./GeneratedArt/StudioPxGAtomic/pxg_s01_astra_vanguard_striker.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "0d4cc1cf1a2aad618ea20c0c779eb3dae4a0cbd2845b2977c464555f86c3eb03",
+      "file_size_bytes": 724758,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/pxg_s01_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 4.0,
+      "prompt": "masterpiece, best quality, official 24fps anime key-animation and tactical sport-fantasy character illustration, stylized 7-head wedge-shaped athletic anime proportions, tapered gauntlets and oversized propulsion boots, variable-weight G-pen ink contours with colored interior lines, razor-sharp unblended kagenashi cel shadows, original anime hyper-striker athlete lunging forward in extreme 14mm fish-eye foreshortening, oversized kinetic striker gauntlets crackling with polyhedral astral cyan plasma shards, cropped white-and-cobalt high-collar athletic techwear jacket, propulsion mag-lev boots, wedge-shaped graphic silhouette, razor-sharp unblended kagenashi shadow blocks, four-point cruciform gold star flare, dual-tone astral cyan and cobalt-gold rim lighting",
+      "zero_living_artist_names": true,
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s01_astra_vanguard_striker_pose_b.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s01_astra_vanguard_striker_strip.png"
+    },
+    {
+      "id": "pxg_s02",
+      "slug": "pxg_s02_ignis_kagenashi_brawler",
+      "filename": "pxg_s02_ignis_kagenashi_brawler.png",
+      "name": "Pyre-Vex: Kagenashi Goal-Brawler",
+      "role": "Midfield Bruiser Brawler",
+      "faction": "Abyss",
+      "cost": 3,
+      "nesw": [
+        8,
+        9,
+        6,
+        6
+      ],
+      "camera_lens": "18mm_low_angle_brawler",
+      "primary_hex": "#FF2E54",
+      "secondary_hex": "#F97316",
+      "primary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "secondary_rgb": [
+        249,
+        115,
+        22
+      ],
+      "morphological_primitives": [
+        "wedge-shaped graphic brawler silhouette",
+        "cropped street-mecha bomber jacket with oversized gauntlets",
+        "triangular pastel-neon fire shards",
+        "stark unblended kagenashi obsidian shadow blocks",
+        "variable-weight G-pen exterior linework"
+      ],
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/StudioPxGAtomic/pxg_s02_ignis_kagenashi_brawler.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/StudioPxGAtomic/pxg_s02_ignis_kagenashi_brawler.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/pxg_s02_ignis_kagenashi_brawler.png",
+      "art": "./GeneratedArt/StudioPxGAtomic/pxg_s02_ignis_kagenashi_brawler.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "6bb914ef6bc2f720f7130a7f7256e5203347fe8260a0b0611c43acda19d3cb73",
+      "file_size_bytes": 760664,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/pxg_s02_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 2.98,
+      "prompt": "masterpiece, best quality, official 24fps anime key-animation and tactical sport-fantasy character illustration, stylized 7-head wedge-shaped athletic anime proportions, tapered gauntlets and oversized propulsion boots, variable-weight G-pen ink contours with colored interior lines, razor-sharp unblended kagenashi cel shadows, original anime street-sport goal-brawler delivering a heavy meteor uppercut, cropped obsidian-and-crimson street-mecha bomber jacket, massive beveled kinetic piston gauntlets, explosive triangular pastel-neon crimson and amber fire shards, stark unblended kagenashi black shadow blocks, high-contrast wedge silhouette",
+      "zero_living_artist_names": true,
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s02_ignis_kagenashi_brawler_pose_b.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s02_ignis_kagenashi_brawler_strip.png"
+    },
+    {
+      "id": "pxg_s03",
+      "slug": "pxg_s03_zephyr_whip_pan_bladerunner",
+      "filename": "pxg_s03_zephyr_whip_pan_bladerunner.png",
+      "name": "Zephyr-IX: Whip-Pan Aero-Blader",
+      "role": "Wing Tempo-Sprinter",
+      "faction": "Solaris",
+      "cost": 2,
+      "nesw": [
+        7,
+        8,
+        5,
+        8
+      ],
+      "camera_lens": "18deg_dutch_tilt_whip_pan",
+      "primary_hex": "#2EE6D3",
+      "secondary_hex": "#FFB800",
+      "primary_rgb": [
+        46,
+        230,
+        211
+      ],
+      "secondary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "morphological_primitives": [
+        "18-degree dutch-tilt S-curve dash torsion",
+        "twin aero-propulsion greaves and oversized boots",
+        "liquid-plasma elongation smear ribbons",
+        "colored interior contour lines",
+        "4-point cruciform gold star flare"
+      ],
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/StudioPxGAtomic/pxg_s03_zephyr_whip_pan_bladerunner.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/StudioPxGAtomic/pxg_s03_zephyr_whip_pan_bladerunner.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/pxg_s03_zephyr_whip_pan_bladerunner.png",
+      "art": "./GeneratedArt/StudioPxGAtomic/pxg_s03_zephyr_whip_pan_bladerunner.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "333b1750c6f4ab23d95b4d6871b2046adab70cd16b77b05b40008affe0856ae5",
+      "file_size_bytes": 830667,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/pxg_s03_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 3.46,
+      "prompt": "masterpiece, best quality, official 24fps anime key-animation and tactical sport-fantasy character illustration, stylized 7-head wedge-shaped athletic anime proportions, tapered gauntlets and oversized propulsion boots, variable-weight G-pen ink contours with colored interior lines, razor-sharp unblended kagenashi cel shadows, original anime aero-blader sprinter banking in an 18-degree dutch-tilt S-curve dash torsion, twin jade-teal propulsion greaves and oversized kinetic skate boots, sweeping liquid-plasma energy ribbons and four-point gold star flares, cropped aerodynamic techwear vest, razor-sharp cel shading",
+      "zero_living_artist_names": true,
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s03_zephyr_whip_pan_bladerunner_pose_b.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s03_zephyr_whip_pan_bladerunner_strip.png"
+    },
+    {
+      "id": "pxg_s04",
+      "slug": "pxg_s04_noctis_kubrart_warden",
+      "filename": "pxg_s04_noctis_kubrart_warden.png",
+      "name": "Noctis-Zero: Polyhedral Rift Goalie",
+      "role": "Goalie Bastion Warden",
+      "faction": "Aether",
+      "cost": 4,
+      "nesw": [
+        8,
+        7,
+        9,
+        8
+      ],
+      "camera_lens": "16mm_worms_eye_monolith",
+      "primary_hex": "#A855F7",
+      "secondary_hex": "#FFE082",
+      "primary_rgb": [
+        168,
+        85,
+        247
+      ],
+      "secondary_rgb": [
+        255,
+        224,
+        130
+      ],
+      "morphological_primitives": [
+        "heavy hexagonal barrier pauldrons",
+        "floating obsidian polyhedral prism shields",
+        "low-angle worm's-eye heroic goalie stance",
+        "stark negative-space sumi-ink blocks",
+        "tarot violet and gilded parchment rim-wash"
+      ],
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/StudioPxGAtomic/pxg_s04_noctis_kubrart_warden.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/StudioPxGAtomic/pxg_s04_noctis_kubrart_warden.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/pxg_s04_noctis_kubrart_warden.png",
+      "art": "./GeneratedArt/StudioPxGAtomic/pxg_s04_noctis_kubrart_warden.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "a9300a152bc223910c3fc84311315f0fc00aa397929cc66bc182150a9684fee0",
+      "file_size_bytes": 942458,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/pxg_s04_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 3.4,
+      "prompt": "masterpiece, best quality, official 24fps anime key-animation and tactical sport-fantasy character illustration, stylized 7-head wedge-shaped athletic anime proportions, tapered gauntlets and oversized propulsion boots, variable-weight G-pen ink contours with colored interior lines, razor-sharp unblended kagenashi cel shadows, original anime goalie warden in a commanding low-angle worm's-eye stance, heavy hexagonal cyber-magicite barrier pauldrons, floating black obsidian polyhedral prism shields, stark negative-space sumi-ink shadow planes, luminous tarot violet and gilded gold rim lighting",
+      "zero_living_artist_names": true,
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s04_noctis_kubrart_warden_pose_b.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s04_noctis_kubrart_warden_strip.png"
+    },
+    {
+      "id": "pxg_s05",
+      "slug": "pxg_s05_solaris_obari_mecha_ace",
+      "filename": "pxg_s05_solaris_obari_mecha_ace.png",
+      "name": "Solaris-V: Brave-Stance Mecha Ace",
+      "role": "Heavy Mecha Vanguard",
+      "faction": "Solaris",
+      "cost": 4,
+      "nesw": [
+        9,
+        9,
+        7,
+        7
+      ],
+      "camera_lens": "14mm_forced_perspective_brave_stance",
+      "primary_hex": "#FFB800",
+      "secondary_hex": "#00E5FF",
+      "primary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "morphological_primitives": [
+        "7.5-head cyber-magicite mecha frame",
+        "cross-armed heroic pauldron tuck in forced perspective",
+        "cruciform solar halo flare",
+        "beveled translucent energy wings",
+        "unblended kagenashi armor shadow planes"
+      ],
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/StudioPxGAtomic/pxg_s05_solaris_obari_mecha_ace.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/StudioPxGAtomic/pxg_s05_solaris_obari_mecha_ace.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/pxg_s05_solaris_obari_mecha_ace.png",
+      "art": "./GeneratedArt/StudioPxGAtomic/pxg_s05_solaris_obari_mecha_ace.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "96cf08f50598f7fa5b70b7604fb753516c9e1714900682b70acb80ccae3f3716",
+      "file_size_bytes": 814804,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/pxg_s05_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 3.2,
+      "prompt": "masterpiece, best quality, official 24fps anime key-animation and tactical sport-fantasy character illustration, stylized 7-head wedge-shaped athletic anime proportions, tapered gauntlets and oversized propulsion boots, variable-weight G-pen ink contours with colored interior lines, razor-sharp unblended kagenashi cel shadows, original 7.5-head cyber-magicite mecha ace standing with arms crossed in a heroic forced-perspective pauldron tuck, soaring angular V-fin crest, translucent astral cyan and sovereign gold beveled energy wings, blinding four-point cruciform solar halo flare on chest core, stark kagenashi mecha cel shading",
+      "zero_living_artist_names": true,
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s05_solaris_obari_mecha_ace_pose_b.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s05_solaris_obari_mecha_ace_strip.png"
+    },
+    {
+      "id": "pxg_s06",
+      "slug": "pxg_s06_cryo_valkyrie_tempo_skater",
+      "filename": "pxg_s06_cryo_valkyrie_tempo_skater.png",
+      "name": "Glacia-7: Tempo-Skater Striker",
+      "role": "Cryo Curve-Shot Striker",
+      "faction": "Valkyria",
+      "cost": 3,
+      "nesw": [
+        8,
+        7,
+        6,
+        8
+      ],
+      "camera_lens": "20mm_contrapposto_volley",
+      "primary_hex": "#00E5FF",
+      "secondary_hex": "#F8FAFC",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        248,
+        250,
+        252
+      ],
+      "morphological_primitives": [
+        "icosahedral cryo-crystal wake",
+        "oversized mag-lev skate boots",
+        "dynamic contrapposto mid-air volley shot",
+        "cropped pearl-white and cyan athletic jacket",
+        "pastel-neon geometric ice shards"
+      ],
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/StudioPxGAtomic/pxg_s06_cryo_valkyrie_tempo_skater.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/StudioPxGAtomic/pxg_s06_cryo_valkyrie_tempo_skater.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/pxg_s06_cryo_valkyrie_tempo_skater.png",
+      "art": "./GeneratedArt/StudioPxGAtomic/pxg_s06_cryo_valkyrie_tempo_skater.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "b90c6ce8c0cd3bfc84cf06863a0fca2241816d36e8b1fcea81ac987f83cb44a4",
+      "file_size_bytes": 692946,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/pxg_s06_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 3.81,
+      "prompt": "masterpiece, best quality, official 24fps anime key-animation and tactical sport-fantasy character illustration, stylized 7-head wedge-shaped athletic anime proportions, tapered gauntlets and oversized propulsion boots, variable-weight G-pen ink contours with colored interior lines, razor-sharp unblended kagenashi cel shadows, original anime cryo tempo-skater executing a mid-air contrapposto volley kick, oversized mag-lev cryo-skate boots trailing icosahedral cyan crystal shards, cropped pearl-white and astral cyan techwear jacket, crisp graphic cel shadow planes",
+      "zero_living_artist_names": true,
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s06_cryo_valkyrie_tempo_skater_pose_b.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s06_cryo_valkyrie_tempo_skater_strip.png"
+    },
+    {
+      "id": "pxg_s07",
+      "slug": "pxg_s07_umbra_impact_frame_assassin",
+      "filename": "pxg_s07_umbra_impact_frame_assassin.png",
+      "name": "Umbra-X: Split-Frame Phantom",
+      "role": "Infiltrator Flank Striker",
+      "faction": "Abyss",
+      "cost": 3,
+      "nesw": [
+        8,
+        9,
+        5,
+        7
+      ],
+      "camera_lens": "16mm_diagonal_impact_slash",
+      "primary_hex": "#FF2E54",
+      "secondary_hex": "#F2ECE1",
+      "primary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "secondary_rgb": [
+        242,
+        236,
+        225
+      ],
+      "morphological_primitives": [
+        "diagonal monochrome-stencil impact slash",
+        "variable G-pen crosshatched scarf silhouette",
+        "tapered stealth gauntlets and oversized boots",
+        "crimson-flame plasma daggers",
+        "stark sumi-ink negative-space blocks"
+      ],
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/StudioPxGAtomic/pxg_s07_umbra_impact_frame_assassin.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/StudioPxGAtomic/pxg_s07_umbra_impact_frame_assassin.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/pxg_s07_umbra_impact_frame_assassin.png",
+      "art": "./GeneratedArt/StudioPxGAtomic/pxg_s07_umbra_impact_frame_assassin.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "69914dd871d691125756297c6c63774b47fbd77eac05d379ce32ec7760aee914",
+      "file_size_bytes": 666131,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/pxg_s07_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 3.99,
+      "prompt": "masterpiece, best quality, official 24fps anime key-animation and tactical sport-fantasy character illustration, stylized 7-head wedge-shaped athletic anime proportions, tapered gauntlets and oversized propulsion boots, variable-weight G-pen ink contours with colored interior lines, razor-sharp unblended kagenashi cel shadows, original anime phantom flank striker lunging through a diagonal monochrome-stencil impact slash, long variable-weight G-pen crosshatched scarf billowing across stark obsidian negative space, twin vivid crimson plasma daggers, tapered gauntlets and oversized stealth boots",
+      "zero_living_artist_names": true,
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s07_umbra_impact_frame_assassin_pose_b.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s07_umbra_impact_frame_assassin_strip.png"
+    },
+    {
+      "id": "pxg_s08",
+      "slug": "pxg_s08_omega_echo_collective_captain",
+      "filename": "pxg_s08_omega_echo_collective_captain.png",
+      "name": "Echo-Prime: Studio PxG Sovereign Captain",
+      "role": "All-Rounder Playmaker Captain",
+      "faction": "Chronos",
+      "cost": 4,
+      "nesw": [
+        9,
+        8,
+        8,
+        8
+      ],
+      "camera_lens": "15mm_sovereign_clash_framing",
+      "primary_hex": "#00E5FF",
+      "secondary_hex": "#FF2E54",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "morphological_primitives": [
+        "dual-tone astral cyan vs crimson clash rim-lighting",
+        "street-sport sovereign commander coat",
+        "3x3 tactical holo-core orb in palm",
+        "4-point cruciform gold star flare",
+        "wedge-shaped 7-head athletic proportions"
+      ],
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/StudioPxGAtomic/pxg_s08_omega_echo_collective_captain.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/StudioPxGAtomic/pxg_s08_omega_echo_collective_captain.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/pxg_s08_omega_echo_collective_captain.png",
+      "art": "./GeneratedArt/StudioPxGAtomic/pxg_s08_omega_echo_collective_captain.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "adf888913658a010ab441112e7f8acaa5212d87d77a910e4ffa17f75535faf21",
+      "file_size_bytes": 649447,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/pxg_s08_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 3.47,
+      "prompt": "masterpiece, best quality, official 24fps anime key-animation and tactical sport-fantasy character illustration, stylized 7-head wedge-shaped athletic anime proportions, tapered gauntlets and oversized propulsion boots, variable-weight G-pen ink contours with colored interior lines, razor-sharp unblended kagenashi cel shadows, original anime sovereign team captain in a billowing high-collar street-sport commander coat, holding a glowing 3x3 polyhedral holo-core orb in an oversized kinetic gauntlet palm, dramatic dual-tone astral cyan and crimson-flame clash rim lighting, four-point gold star flare",
+      "zero_living_artist_names": true,
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s08_omega_echo_collective_captain_pose_b.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s08_omega_echo_collective_captain_strip.png"
+    }
+  ],
+  "sakuga_cutin_strips": [
+    {
+      "id": "set2_k01",
+      "slug": "set2_k01_kubrart_eclipse_sovereign",
+      "name": "Kubrart Eclipse Sovereign",
+      "series": "Set2KubrartManga",
+      "modelId": "kubrart_vector_cel_ink_v1",
+      "primary_rgb": [
+        168,
+        85,
+        247
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "set2_k01_kubrart_eclipse_sovereign_strip.png",
+      "strip_short_filename": "set2_k01_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k01_kubrart_eclipse_sovereign_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k01_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k01_kubrart_eclipse_sovereign_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "cc975d95e4bdc68cbc905747bb4ae536597f00bbd58cfd775b96bacac7447993",
+      "pose_b_filename": "set2_k01_kubrart_eclipse_sovereign_pose_b.png",
+      "pose_b_short_filename": "set2_k01_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k01_kubrart_eclipse_sovereign_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k01_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k01_kubrart_eclipse_sovereign_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "cb2d3f3ec450c6a97810329db18235201655cf6b6707024ee5ad6e53bdd72808",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k02",
+      "slug": "set2_k02_vector_prism_duelist",
+      "name": "Vector-Prism Spellblade",
+      "series": "Set2KubrartManga",
+      "modelId": "kubrart_vector_cel_ink_v1",
+      "primary_rgb": [
+        168,
+        85,
+        247
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "set2_k02_vector_prism_duelist_strip.png",
+      "strip_short_filename": "set2_k02_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k02_vector_prism_duelist_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k02_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k02_vector_prism_duelist_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "cfe112a47644f929770665fdd57b5cc0720090d7558aedf8332188ff943a70f6",
+      "pose_b_filename": "set2_k02_vector_prism_duelist_pose_b.png",
+      "pose_b_short_filename": "set2_k02_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k02_vector_prism_duelist_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k02_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k02_vector_prism_duelist_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "cdf7ac780d11bfc8e7b226a2ad056696aa5a906a74ca5e70f8ad9cecf33ef396",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k03",
+      "slug": "set2_k03_obsidian_shard_oracle",
+      "name": "Obsidian Shard Oracle",
+      "series": "Set2KubrartManga",
+      "modelId": "kubrart_vector_cel_ink_v1",
+      "primary_rgb": [
+        168,
+        85,
+        247
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "set2_k03_obsidian_shard_oracle_strip.png",
+      "strip_short_filename": "set2_k03_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k03_obsidian_shard_oracle_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k03_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k03_obsidian_shard_oracle_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "dbf388c963b9c1fbe4409d74d1d96a7f1be9cd33207b3aeb801d57c451ea33f1",
+      "pose_b_filename": "set2_k03_obsidian_shard_oracle_pose_b.png",
+      "pose_b_short_filename": "set2_k03_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k03_obsidian_shard_oracle_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k03_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k03_obsidian_shard_oracle_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "5ca7f9c36da72f3fa53cb9bc48f08a85f1b05cc868df8a3ce66005a551e176e3",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k04",
+      "slug": "set2_k04_negative_space_valkyrie",
+      "name": "Negative-Space Astral Valkyrie",
+      "series": "Set2KubrartManga",
+      "modelId": "kubrart_vector_cel_ink_v1",
+      "primary_rgb": [
+        168,
+        85,
+        247
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "set2_k04_negative_space_valkyrie_strip.png",
+      "strip_short_filename": "set2_k04_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k04_negative_space_valkyrie_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k04_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k04_negative_space_valkyrie_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "70586a30f942ebbe232c3b0766665b591c750f81a79f4e866e886ac5f1f172f2",
+      "pose_b_filename": "set2_k04_negative_space_valkyrie_pose_b.png",
+      "pose_b_short_filename": "set2_k04_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k04_negative_space_valkyrie_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k04_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k04_negative_space_valkyrie_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "bff10d18fb610f3493bdba9c3021268e1d7cbfe212a10af22d4a9963bd6456b0",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k05",
+      "slug": "set2_k05_polyhedral_rift_arbiter",
+      "name": "Polyhedral Rift Arbiter",
+      "series": "Set2KubrartManga",
+      "modelId": "kubrart_vector_cel_ink_v1",
+      "primary_rgb": [
+        168,
+        85,
+        247
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "set2_k05_polyhedral_rift_arbiter_strip.png",
+      "strip_short_filename": "set2_k05_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k05_polyhedral_rift_arbiter_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k05_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k05_polyhedral_rift_arbiter_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "14899524b9c90798cf4c5d5ca290b0a53c21f97cc5b01f36a02aee2df6c918a2",
+      "pose_b_filename": "set2_k05_polyhedral_rift_arbiter_pose_b.png",
+      "pose_b_short_filename": "set2_k05_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k05_polyhedral_rift_arbiter_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k05_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k05_polyhedral_rift_arbiter_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "1423c50a19a7a803e02181d5d376bd88e7b65568953715f24731ceb3cc4afda4",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k06",
+      "slug": "set2_k06_sumi_crimson_ronin",
+      "name": "Sumi-e Crimson Ronin",
+      "series": "Set2KubrartManga",
+      "modelId": "manga_sumi_ink_seinen_v1",
+      "primary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "secondary_rgb": [
+        242,
+        236,
+        225
+      ],
+      "strip_filename": "set2_k06_sumi_crimson_ronin_strip.png",
+      "strip_short_filename": "set2_k06_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k06_sumi_crimson_ronin_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k06_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k06_sumi_crimson_ronin_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "650b551935062f18d2855eed3f299fae567d87a9eeca0fa8cd51ba990fcb330b",
+      "pose_b_filename": "set2_k06_sumi_crimson_ronin_pose_b.png",
+      "pose_b_short_filename": "set2_k06_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k06_sumi_crimson_ronin_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k06_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k06_sumi_crimson_ronin_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "2eaa671b2473906d1d769e6f51b9d2fc92464cbc344495debcea0c2562624b8e",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k07",
+      "slug": "set2_k07_gpen_ivory_inquisitor",
+      "name": "G-Pen Ivory Inquisitor",
+      "series": "Set2KubrartManga",
+      "modelId": "manga_sumi_ink_seinen_v1",
+      "primary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "secondary_rgb": [
+        242,
+        236,
+        225
+      ],
+      "strip_filename": "set2_k07_gpen_ivory_inquisitor_strip.png",
+      "strip_short_filename": "set2_k07_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k07_gpen_ivory_inquisitor_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k07_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k07_gpen_ivory_inquisitor_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "26bf431e4f6a06931851571389c9b583be03d75ac55f47d665bfab37281bd33c",
+      "pose_b_filename": "set2_k07_gpen_ivory_inquisitor_pose_b.png",
+      "pose_b_short_filename": "set2_k07_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k07_gpen_ivory_inquisitor_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k07_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k07_gpen_ivory_inquisitor_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "9a0a9edbfc8aee05475209628e24d0b39965f9f187d2ee719b92b9e526f9a9be",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k08",
+      "slug": "set2_k08_crosshatch_blood_kunoichi",
+      "name": "Crosshatch Crimson Kunoichi",
+      "series": "Set2KubrartManga",
+      "modelId": "manga_sumi_ink_seinen_v1",
+      "primary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "secondary_rgb": [
+        242,
+        236,
+        225
+      ],
+      "strip_filename": "set2_k08_crosshatch_blood_kunoichi_strip.png",
+      "strip_short_filename": "set2_k08_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k08_crosshatch_blood_kunoichi_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k08_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k08_crosshatch_blood_kunoichi_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "fd6da24be7c277a6dc6c5e5df82743a07b153db4841dd21d0cb0cf3a774b2a9d",
+      "pose_b_filename": "set2_k08_crosshatch_blood_kunoichi_pose_b.png",
+      "pose_b_short_filename": "set2_k08_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k08_crosshatch_blood_kunoichi_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k08_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k08_crosshatch_blood_kunoichi_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "9a2450572dbaec52f7c1947a105225f2f8330659107d67f8a867371195b6ad2f",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k09",
+      "slug": "set2_k09_baroque_ink_cenobite",
+      "name": "Baroque Sumi-Ink Cenobite",
+      "series": "Set2KubrartManga",
+      "modelId": "manga_sumi_ink_seinen_v1",
+      "primary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "secondary_rgb": [
+        242,
+        236,
+        225
+      ],
+      "strip_filename": "set2_k09_baroque_ink_cenobite_strip.png",
+      "strip_short_filename": "set2_k09_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k09_baroque_ink_cenobite_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k09_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k09_baroque_ink_cenobite_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "4c0b6bb4b0c4cd7f139caa3ff2d01671e7ab06ffea01385af0b663a4a8e56a50",
+      "pose_b_filename": "set2_k09_baroque_ink_cenobite_pose_b.png",
+      "pose_b_short_filename": "set2_k09_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k09_baroque_ink_cenobite_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k09_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k09_baroque_ink_cenobite_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "078aaeee977ad90397339653b1a01637e17e76d678b35b745268ce0b05f55979",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k10",
+      "slug": "set2_k10_seinen_ash_executioner",
+      "name": "Seinen Ash Executioner",
+      "series": "Set2KubrartManga",
+      "modelId": "manga_sumi_ink_seinen_v1",
+      "primary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "secondary_rgb": [
+        242,
+        236,
+        225
+      ],
+      "strip_filename": "set2_k10_seinen_ash_executioner_strip.png",
+      "strip_short_filename": "set2_k10_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k10_seinen_ash_executioner_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k10_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k10_seinen_ash_executioner_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "d66856c16a0555713f9422626b1fd06a0d265ad7875bfa2a1a2a1e3ff0ece57b",
+      "pose_b_filename": "set2_k10_seinen_ash_executioner_pose_b.png",
+      "pose_b_short_filename": "set2_k10_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k10_seinen_ash_executioner_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k10_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k10_seinen_ash_executioner_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "42fbf970a6186f99641963abe2fc760f8c75f3f61531d80e45c6742fcb170082",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k11",
+      "slug": "set2_k11_kagenashi_starflare_phoenix",
+      "name": "Kagenashi Star-Flare Vanguard",
+      "series": "Set2KubrartManga",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "set2_k11_kagenashi_starflare_phoenix_strip.png",
+      "strip_short_filename": "set2_k11_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k11_kagenashi_starflare_phoenix_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k11_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k11_kagenashi_starflare_phoenix_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "e3784a70a160e950d4dbb8f187d694b22d75a6be9e4dc5d06988d3391aee991b",
+      "pose_b_filename": "set2_k11_kagenashi_starflare_phoenix_pose_b.png",
+      "pose_b_short_filename": "set2_k11_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k11_kagenashi_starflare_phoenix_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k11_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k11_kagenashi_starflare_phoenix_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "c7b40056227339fbaf2751b2a5aab964e1e9e2b349798426731e84ac053579c5",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k12",
+      "slug": "set2_k12_sakuga_smear_bladerunner",
+      "name": "24fps Sakuga Smear Bladerunner",
+      "series": "Set2KubrartManga",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "set2_k12_sakuga_smear_bladerunner_strip.png",
+      "strip_short_filename": "set2_k12_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k12_sakuga_smear_bladerunner_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k12_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k12_sakuga_smear_bladerunner_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "1cbeaf380c64789259b2850e1f2c90d3ed42205e0decc79b0829e1c9f0cb8c57",
+      "pose_b_filename": "set2_k12_sakuga_smear_bladerunner_pose_b.png",
+      "pose_b_short_filename": "set2_k12_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k12_sakuga_smear_bladerunner_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k12_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k12_sakuga_smear_bladerunner_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "cddeee13702fae9b73862bfbcaa58ae0f85ce5aeaffd0ea183dfdfdb6f3c8864",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k13",
+      "slug": "set2_k13_chroma_split_chronomancer",
+      "name": "Chroma-Split Impact Chronomancer",
+      "series": "Set2KubrartManga",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "set2_k13_chroma_split_chronomancer_strip.png",
+      "strip_short_filename": "set2_k13_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k13_chroma_split_chronomancer_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k13_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k13_chroma_split_chronomancer_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "d5d2ed9dac5362e6a8bdfe424df28cd9ce9b04b474e75ab029542bf682dab2e7",
+      "pose_b_filename": "set2_k13_chroma_split_chronomancer_pose_b.png",
+      "pose_b_short_filename": "set2_k13_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k13_chroma_split_chronomancer_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k13_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k13_chroma_split_chronomancer_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "9602546d4baf5918decc20600e7622fd33f4fa99f09e30f9690d6a07c9455dd5",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k14",
+      "slug": "set2_k14_hyper_flare_seraph",
+      "name": "Four-Point Starflare Seraph",
+      "series": "Set2KubrartManga",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "set2_k14_hyper_flare_seraph_strip.png",
+      "strip_short_filename": "set2_k14_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k14_hyper_flare_seraph_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k14_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k14_hyper_flare_seraph_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "5b6272886c490b8500afe39603f6a1707f632e4ce2f4f208d27eaa4acd426a33",
+      "pose_b_filename": "set2_k14_hyper_flare_seraph_pose_b.png",
+      "pose_b_short_filename": "set2_k14_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k14_hyper_flare_seraph_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k14_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k14_hyper_flare_seraph_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "e83f500bea09216a93102ee17d7dd92eaa2afc6f9d7e444e51207b7683dfd746",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k15",
+      "slug": "set2_k15_impact_frame_berserker",
+      "name": "Impact-Frame Astral Striker",
+      "series": "Set2KubrartManga",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "set2_k15_impact_frame_berserker_strip.png",
+      "strip_short_filename": "set2_k15_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k15_impact_frame_berserker_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k15_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k15_impact_frame_berserker_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "605c4581c021cfaffbcffef4d48e0b9ea7376922bc869437bf7e3b26f734d90b",
+      "pose_b_filename": "set2_k15_impact_frame_berserker_pose_b.png",
+      "pose_b_short_filename": "set2_k15_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k15_impact_frame_berserker_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k15_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k15_impact_frame_berserker_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "bddc093678f6ffbf324b09de9060ee7b23170b100eb14f9118f9b2b150f87456",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k16",
+      "slug": "set2_k16_cyber_magicite_archon_mk4",
+      "name": "Cyber-Magicite Archon Mk.IV",
+      "series": "Set2KubrartManga",
+      "modelId": "cyber_mecha_orthographic_v1",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        46,
+        230,
+        211
+      ],
+      "strip_filename": "set2_k16_cyber_magicite_archon_mk4_strip.png",
+      "strip_short_filename": "set2_k16_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k16_cyber_magicite_archon_mk4_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k16_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k16_cyber_magicite_archon_mk4_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "54201d04e018ef76d8323905d0db0c9eefdee4d9da23642ae8abbbfe262f86d1",
+      "pose_b_filename": "set2_k16_cyber_magicite_archon_mk4_pose_b.png",
+      "pose_b_short_filename": "set2_k16_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k16_cyber_magicite_archon_mk4_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k16_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k16_cyber_magicite_archon_mk4_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "14793e2d7beaf21d136332987f050a479877454706d6c41f846b0f081054bb39",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k17",
+      "slug": "set2_k17_orthographic_railgun_valkyrie",
+      "name": "Orthographic Railgun Dragoon",
+      "series": "Set2KubrartManga",
+      "modelId": "cyber_mecha_orthographic_v1",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        46,
+        230,
+        211
+      ],
+      "strip_filename": "set2_k17_orthographic_railgun_valkyrie_strip.png",
+      "strip_short_filename": "set2_k17_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k17_orthographic_railgun_valkyrie_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k17_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k17_orthographic_railgun_valkyrie_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "f9e267770fd0bb800adf6027c7ce1b785856ad30f8bb0f3b5360c1be23390a72",
+      "pose_b_filename": "set2_k17_orthographic_railgun_valkyrie_pose_b.png",
+      "pose_b_short_filename": "set2_k17_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k17_orthographic_railgun_valkyrie_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k17_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k17_orthographic_railgun_valkyrie_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "ec842dfdb988fcfc69fadeeb3ba4fb1da384a7898c17907af9b6019a4119aa9a",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k18",
+      "slug": "set2_k18_blueprint_halftone_bastion",
+      "name": "Blueprint Halftone Aegis Titan",
+      "series": "Set2KubrartManga",
+      "modelId": "cyber_mecha_orthographic_v1",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        46,
+        230,
+        211
+      ],
+      "strip_filename": "set2_k18_blueprint_halftone_bastion_strip.png",
+      "strip_short_filename": "set2_k18_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k18_blueprint_halftone_bastion_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k18_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k18_blueprint_halftone_bastion_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "d874952b9a004fd864ae02c04d833fc59ace64fb612659a5827506580d9982b7",
+      "pose_b_filename": "set2_k18_blueprint_halftone_bastion_pose_b.png",
+      "pose_b_short_filename": "set2_k18_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k18_blueprint_halftone_bastion_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k18_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k18_blueprint_halftone_bastion_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "952ce2c7ba1a1e8017e40857eea438aa9f337c60192ab443374f833fd989018d",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k19",
+      "slug": "set2_k19_beveled_wing_interceptor",
+      "name": "Beveled Energy-Wing Interceptor",
+      "series": "Set2KubrartManga",
+      "modelId": "cyber_mecha_orthographic_v1",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        46,
+        230,
+        211
+      ],
+      "strip_filename": "set2_k19_beveled_wing_interceptor_strip.png",
+      "strip_short_filename": "set2_k19_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k19_beveled_wing_interceptor_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k19_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k19_beveled_wing_interceptor_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "9e1906338a8572e68fc361951f846ef7089e2f0ef888d46c8951753ccdcdf30e",
+      "pose_b_filename": "set2_k19_beveled_wing_interceptor_pose_b.png",
+      "pose_b_short_filename": "set2_k19_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k19_beveled_wing_interceptor_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k19_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k19_beveled_wing_interceptor_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "65a130e9e9f148fc3db8790dbbe24fa579a872a8d31355698347496e74bd014a",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "set2_k20",
+      "slug": "set2_k20_cmyk_screentone_omega_core",
+      "name": "CMYK Screentone Omega Frame",
+      "series": "Set2KubrartManga",
+      "modelId": "cyber_mecha_orthographic_v1",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        46,
+        230,
+        211
+      ],
+      "strip_filename": "set2_k20_cmyk_screentone_omega_core_strip.png",
+      "strip_short_filename": "set2_k20_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k20_cmyk_screentone_omega_core_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k20_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/set2_k20_cmyk_screentone_omega_core_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "39379fa6bc00f546aac03226cb62a93a9e84691c71f7d84ec26aade31c4a8b32",
+      "pose_b_filename": "set2_k20_cmyk_screentone_omega_core_pose_b.png",
+      "pose_b_short_filename": "set2_k20_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k20_cmyk_screentone_omega_core_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/set2_k20_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/set2_k20_cmyk_screentone_omega_core_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "4f49cb94072c625ddaccd57d51c840a85684727613c759bf74a285112a4b661e",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "pxg_s01",
+      "slug": "pxg_s01_astra_vanguard_striker",
+      "name": "Astra-01: Hyper-Striker Conduit",
+      "series": "StudioPxGAtomic",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "strip_filename": "pxg_s01_astra_vanguard_striker_strip.png",
+      "strip_short_filename": "pxg_s01_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s01_astra_vanguard_striker_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s01_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/pxg_s01_astra_vanguard_striker_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "2055e272a8b06b96d3e64cc6cfd9fe9833d134aa6f40bcde78ef1853a91aec0e",
+      "pose_b_filename": "pxg_s01_astra_vanguard_striker_pose_b.png",
+      "pose_b_short_filename": "pxg_s01_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s01_astra_vanguard_striker_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s01_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/pxg_s01_astra_vanguard_striker_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "dd64a012a01e18aa8ed426dd0c669e802f29bd4efce987f926f1f195cbf85120",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "pxg_s02",
+      "slug": "pxg_s02_ignis_kagenashi_brawler",
+      "name": "Pyre-Vex: Kagenashi Goal-Brawler",
+      "series": "StudioPxGAtomic",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "secondary_rgb": [
+        249,
+        115,
+        22
+      ],
+      "strip_filename": "pxg_s02_ignis_kagenashi_brawler_strip.png",
+      "strip_short_filename": "pxg_s02_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s02_ignis_kagenashi_brawler_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s02_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/pxg_s02_ignis_kagenashi_brawler_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "c3470563316ae00ddad5ea48c1b5003cb2cdd923d96ce498b25760f0fd9afe9b",
+      "pose_b_filename": "pxg_s02_ignis_kagenashi_brawler_pose_b.png",
+      "pose_b_short_filename": "pxg_s02_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s02_ignis_kagenashi_brawler_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s02_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/pxg_s02_ignis_kagenashi_brawler_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "b31c24f71f9a272d1c0083e4146d61da440bf9c5f0f8606531b0fff19c243cb2",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "pxg_s03",
+      "slug": "pxg_s03_zephyr_whip_pan_bladerunner",
+      "name": "Zephyr-IX: Whip-Pan Aero-Blader",
+      "series": "StudioPxGAtomic",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        46,
+        230,
+        211
+      ],
+      "secondary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "strip_filename": "pxg_s03_zephyr_whip_pan_bladerunner_strip.png",
+      "strip_short_filename": "pxg_s03_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s03_zephyr_whip_pan_bladerunner_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s03_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/pxg_s03_zephyr_whip_pan_bladerunner_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "df5159827a08f86bac51b175cb86859851cc4265611f5e55c78e7aff3e7aada2",
+      "pose_b_filename": "pxg_s03_zephyr_whip_pan_bladerunner_pose_b.png",
+      "pose_b_short_filename": "pxg_s03_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s03_zephyr_whip_pan_bladerunner_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s03_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/pxg_s03_zephyr_whip_pan_bladerunner_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "fb199eec3a0073bd76ea41fdbafb8f87c7f536fc60916ee5e9ad0d022be3afa8",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "pxg_s04",
+      "slug": "pxg_s04_noctis_kubrart_warden",
+      "name": "Noctis-Zero: Polyhedral Rift Goalie",
+      "series": "StudioPxGAtomic",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        168,
+        85,
+        247
+      ],
+      "secondary_rgb": [
+        255,
+        224,
+        130
+      ],
+      "strip_filename": "pxg_s04_noctis_kubrart_warden_strip.png",
+      "strip_short_filename": "pxg_s04_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s04_noctis_kubrart_warden_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s04_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/pxg_s04_noctis_kubrart_warden_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "3cf423e3162399992aed8b69c21c8b26915eb25806652dd449bac97e00c980e0",
+      "pose_b_filename": "pxg_s04_noctis_kubrart_warden_pose_b.png",
+      "pose_b_short_filename": "pxg_s04_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s04_noctis_kubrart_warden_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s04_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/pxg_s04_noctis_kubrart_warden_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "f33d6ac42c617ee15ed7c98e6b8cb6ad918443faf4a7893961c3a0dc1e7711cf",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "pxg_s05",
+      "slug": "pxg_s05_solaris_obari_mecha_ace",
+      "name": "Solaris-V: Brave-Stance Mecha Ace",
+      "series": "StudioPxGAtomic",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "strip_filename": "pxg_s05_solaris_obari_mecha_ace_strip.png",
+      "strip_short_filename": "pxg_s05_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s05_solaris_obari_mecha_ace_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s05_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/pxg_s05_solaris_obari_mecha_ace_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "230425f06373cb61509bd781207126444531a3c9173f45ec9a6725bb50fb55f1",
+      "pose_b_filename": "pxg_s05_solaris_obari_mecha_ace_pose_b.png",
+      "pose_b_short_filename": "pxg_s05_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s05_solaris_obari_mecha_ace_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s05_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/pxg_s05_solaris_obari_mecha_ace_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "6d04d3ba365b342f6415f20536c7564fefd1c2e86aab0d44006377eb41f8bde2",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "pxg_s06",
+      "slug": "pxg_s06_cryo_valkyrie_tempo_skater",
+      "name": "Glacia-7: Tempo-Skater Striker",
+      "series": "StudioPxGAtomic",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        248,
+        250,
+        252
+      ],
+      "strip_filename": "pxg_s06_cryo_valkyrie_tempo_skater_strip.png",
+      "strip_short_filename": "pxg_s06_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s06_cryo_valkyrie_tempo_skater_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s06_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/pxg_s06_cryo_valkyrie_tempo_skater_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "6bd63cbb830f74978484a853acd897bd5f733ccce36b3ab49d3a6d59955aa1e6",
+      "pose_b_filename": "pxg_s06_cryo_valkyrie_tempo_skater_pose_b.png",
+      "pose_b_short_filename": "pxg_s06_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s06_cryo_valkyrie_tempo_skater_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s06_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/pxg_s06_cryo_valkyrie_tempo_skater_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "293560dc535290f951aac5d289f86b665765ca9318a2db42b1650f8e2d84f332",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "pxg_s07",
+      "slug": "pxg_s07_umbra_impact_frame_assassin",
+      "name": "Umbra-X: Split-Frame Phantom",
+      "series": "StudioPxGAtomic",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "secondary_rgb": [
+        242,
+        236,
+        225
+      ],
+      "strip_filename": "pxg_s07_umbra_impact_frame_assassin_strip.png",
+      "strip_short_filename": "pxg_s07_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s07_umbra_impact_frame_assassin_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s07_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/pxg_s07_umbra_impact_frame_assassin_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "ea246e91daec2f0ea6face4c606b1da4a37a53c9d944072b76cf4c9a5a748e68",
+      "pose_b_filename": "pxg_s07_umbra_impact_frame_assassin_pose_b.png",
+      "pose_b_short_filename": "pxg_s07_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s07_umbra_impact_frame_assassin_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s07_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/pxg_s07_umbra_impact_frame_assassin_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "d875fc526fe9e555814547e9b1cc6ff637c13b55d31c0bbd8d2ba23a665b5871",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    },
+    {
+      "id": "pxg_s08",
+      "slug": "pxg_s08_omega_echo_collective_captain",
+      "name": "Echo-Prime: Studio PxG Sovereign Captain",
+      "series": "StudioPxGAtomic",
+      "modelId": "anime_sakuga_kagenashi_v2",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "strip_filename": "pxg_s08_omega_echo_collective_captain_strip.png",
+      "strip_short_filename": "pxg_s08_strip.png",
+      "strip_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s08_omega_echo_collective_captain_strip.png",
+      "strip_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s08_strip.png",
+      "strip_web_path": "./GeneratedArt/SakugaCutIns/pxg_s08_omega_echo_collective_captain_strip.png",
+      "strip_width": 1920,
+      "strip_height": 160,
+      "strip_frames": 8,
+      "frame_width": 240,
+      "frame_height": 160,
+      "fps": 24,
+      "strip_mode": "RGB",
+      "strip_content_bounds": [
+        0,
+        0,
+        1920,
+        160
+      ],
+      "strip_sha256": "b4e588118f2782d20dfa905a8cc4f067f04fb773ccbf6cde574646dde6848151",
+      "pose_b_filename": "pxg_s08_omega_echo_collective_captain_pose_b.png",
+      "pose_b_short_filename": "pxg_s08_pose_b.png",
+      "pose_b_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s08_omega_echo_collective_captain_pose_b.png",
+      "pose_b_short_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/SakugaCutIns/pxg_s08_pose_b.png",
+      "pose_b_web_path": "./GeneratedArt/SakugaCutIns/pxg_s08_omega_echo_collective_captain_pose_b.png",
+      "pose_b_width": 600,
+      "pose_b_height": 800,
+      "pose_b_mode": "RGB",
+      "pose_b_content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "pose_b_sha256": "6ed7c6390754af8da9922f4b93b54debb5b48c2b39d429d57a4ad8ac96877324",
+      "xsheet_film_shot_phases": {
+        "frames_0_1": "18-deg Dutch-Tilt Anticipation Hold (on-twos/threes) + Colored Interior Linework",
+        "frames_2_3": "14mm Fish-Eye Foreshortening Lunge + Canada-Style Elongation Smear Arc",
+        "frame_4": "IMPACT_FRAME_INVERTED_MONOCHROME_2F (Woodcut Stencil + Faction-Crimson/Cyan Flash)",
+        "frame_5": "FOUR_POINT_TRIGGER_STAR_FLARE (Asymmetric 4-Point Cruciform Star Burst)",
+        "frames_6_7": "Kagenashi Hard-Shadow Hero Lock & Polyhedral Shard Follow-Through"
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "portal": "lumenforge.io Sovereign Studio Portal v1.0",
-  "timestamp_utc": "2026-11-09T23:22:05Z",
+  "timestamp_utc": "2026-11-09T23:42:13Z",
   "sovereign_4node_pool": {
     "pool_id": "lumenforge-sovereign-pool",
     "portal_domain": "https://lumenforge.io",
@@ -4921,8 +4921,8 @@
     }
   },
   "latest_training_epoch_run": {
-    "run_id": "lumenforge_train_1794266525",
-    "timestamp_utc": "2026-11-09T23:22:05Z",
+    "run_id": "lumenforge_train_1794267733",
+    "timestamp_utc": "2026-11-09T23:42:13Z",
     "pool_id": "lumenforge-sovereign-pool",
     "student_model": "pxg-lumenforge:1.5b-qlora",
     "teacher_model": "pxg-lumenforge:30b-a3b",

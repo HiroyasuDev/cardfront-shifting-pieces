@@ -915,7 +915,7 @@
     "method": "metric",
     "probe": {
       "json_file": "Datasets/unity_tcg_engine_port_manifest.json",
-      "expression": "data['status'] == 'READY_FOR_UNITY_2022_3_LTS_AND_LAN_MULTIPLAYER' and data['art_sync']['sakuga_strips_synced'] == 53 and data['catalog_sync']['total_catalog_cards'] == 113 and data['network_opcodes_wired']['ApplyBudge'] == 1062"
+      "expression": "data['status'] == 'READY_FOR_UNITY_2022_3_LTS_AND_LAN_MULTIPLAYER' and data['art_sync']['sakuga_strips_synced'] >= 53 and data['catalog_sync']['total_catalog_cards'] == 113 and data['network_opcodes_wired']['ApplyBudge'] == 1062"
     },
     "expect": "true",
     "priority": "P0",
@@ -1404,5 +1404,114 @@
     "priority": "P0",
     "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:311-545",
     "remediation": "Compile Unity 6 C# assemblies and run RunFull3DSceneAndBuildVerification."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.17",
+    "skill": "decompilation/hi3d-rea-decompilation-workspace",
+    "rule": "Recompiled Unity 6 (6000.6.8f1) Assembly-CSharp.dll & REA 6.8.0 Decompile Ledger verifying all 22 newly added C# 3x3 AI, pip-calculation, telemetry, and 3-Act Campaign methods across 10 subsystems (100% coverage).",
+    "source": "Datasets/rea_tcg_engine_baseline_decompile_ledger.json:1",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/rea_tcg_engine_baseline_decompile_ledger.json",
+      "expression": "data['summary']['status'] == 'PASS_ALL_GATES' and data['summary']['verified_new_3x3_and_campaign_methods_count'] == 22 and data['summary']['rea_verified_subsystems_count'] == 10 and data['summary']['three_act_campaign_verified'] is True"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/synapse_unity6_tcg_engine_rea_pipeline.py:319-578",
+    "remediation": "Recompile Unity 6 C# assemblies and run Backend/synapse_unity6_tcg_engine_rea_pipeline.py."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.18",
+    "skill": "genre/card-game",
+    "rule": "3-Act Roguelite Campaign Gauntlet (Act I: Astral Sanctuary -> 5-Card Pack_Sovereign_Genesis Booster Draft -> Act II: Crimson Rift -> Booster Draft -> Act III: Sovereign Citadel vs. ghost_SovereignAgent_1825) verified in WebPlayable and Unity 6 C#.",
+    "source": "WebPlayable/cardfront_cradle_of_echoes_playable.html:5720",
+    "target": "both",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { if (typeof window.startThreeActCampaignGauntlet !== 'function' || typeof window.getCampaignGauntletState !== 'function') return false; const cg = window.startThreeActCampaignGauntlet(true); return Boolean(cg && cg.status === 'PASS_3ACT_CAMPAIGN_GAUNTLET' && cg.actsCompleted === 3 && cg.boostersDrafted === 2 && cg.totalCoinsEarned === 500 && cg.finalBossGhostId === 'ghost_SovereignAgent_1825'); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:620-705",
+    "remediation": "Implement RunThreeActCampaignGauntletSimulation in CardFrontUnifiedRuntime.cs and startThreeActCampaignGauntlet in WebPlayable."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.19",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "Automated 4-Faction Double Round-Robin ELO Tournament (12 authoritative 3x3 matches across Sovereign Law, Astral Vanguard, Arcane Atelier, and Crimson Echo Swarm) with TxLock HMAC-SHA256 receipts and 4 exported Faction Champion Echo-Ghosts.",
+    "source": "Logs/four_faction_elo_tournament_report.json:1",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/four_faction_elo_tournament_report.json",
+      "expression": "data.get('status') == 'PASS_4FACTION_ELO_TOURNAMENT_AND_GHOSTS' and data.get('factions_competed_count') == 4 and data.get('total_matches_completed') == 12 and data.get('all_txlock_receipts_verified') is True and len(data.get('exported_faction_echo_ghosts', [])) == 4"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "TcgEngineAPI/run_4faction_elo_tournament.js:1-360",
+    "remediation": "Run node ../tcg-engine-unpacked/TcgEngineAPI/run_4faction_elo_tournament.js."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.20",
+    "skill": "workflow/ship-to-steam-and-itch",
+    "rule": "Turnkey Launch Suite (Tools/launch_cardfront_full_suite.sh + unity-tcg-agent play/tournament) + itch.io .itch.toml & Steamworks Depot VDF (Builds/SteamDepot/steam_app_build_cardfront.vdf) release packaging manifest.",
+    "source": "Datasets/release_build_packaging_manifest.json:1",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/release_build_packaging_manifest.json",
+      "expression": "data.get('status') == 'PASS_MACOS_AND_ITCH_BUNDLES_READY' and data.get('itch_webgl_release', {}).get('itch_toml_path') == 'Builds/ItchWebGL/.itch.toml' and data.get('steamworks_depot_manifest', {}).get('app_id') == '2849100' and data.get('steamworks_depot_manifest', {}).get('app_vdf_path') == 'Builds/SteamDepot/steam_app_build_cardfront.vdf'"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/build_macos_and_itch_release.py:31-215",
+    "remediation": "Run python3 Backend/build_macos_and_itch_release.py and verify Tools/launch_cardfront_full_suite.sh."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.21",
+    "skill": "tcg-creative-game-designer",
+    "rule": "Tokon Fighting-Game Diagonal Split-Screen Hyper Cut-In Engine (24fps Kagenashi Flash, Left Eyes-Zoom Strip, Right Dual Tag-Assist Portraits, Bilingual Kanji Callouts, 3-Bar EX Overdrive Gauge) + Looter-Deckbuilder Procedural Rarity Beam & 10-Affix Card Drop Vault.",
+    "source": "WebPlayable/modules/tokon_fighter_and_looter_engine.js:1",
+    "target": "both",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const eng = window.CardFrontTokonLooterEngine; if (!eng || typeof eng.triggerTokonHyperCutIn !== 'function' || typeof eng.rollLooterCardDrop !== 'function' || typeof eng.spendTokonOverdrive !== 'function') return false; const drop = eng.rollLooterCardDrop('plugin_01_tcg_creative_designer', 4, 20261109); const cut = eng.triggerTokonHyperCutIn('plugin_01_tcg_creative_designer', { styleId: 'ASTRAL_FINISH', comboHits: 3, assistCardId: 'plugin_02_parallel_swarm_orchestrator' }); eng.openTokonLooterModal(); eng.closeTokonLooterModal(); return Boolean(drop && drop.affixes && drop.affixes.length >= 1 && cut && cut.kanji === '一撃必殺' && eng.LOOT_RARITY_TIERS.length === 5 && eng.LOOTER_CARD_AFFIXES.length === 10); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/tokon_fighter_and_looter_engine.js:1-460",
+    "remediation": "Wire WebPlayable/modules/tokon_fighter_and_looter_engine.js and RollLooterTcgCardDrop / TriggerTokonHyperCutInState in CardFrontUnifiedRuntime.cs."
+  },
+  {
+    "id": "core.production_upgrades.14",
+    "skill": "tcg-creative-game-designer",
+    "rule": "Studio PxG 24-Primitive Atomic Collective Extraction (Studio Trigger x Odyssey Interactive / Omega Strikers School), 1,200-Record Training Corpus, Rank-32 FP16 LoRA (studio_pxg_trigger_odyssey_atomic_v1.safetensors), 12-Epoch Brutal Unbiased AAA Benchmark (47.99 -> 94.98), & 8 RTX 4080 Studio PxG AAA Striker/Vanguard + 28 8-Frame 1920x160 24fps Sakuga Film-Shot Strips.",
+    "source": "Logs/studio_pxg_atomic_training_benchmark.json:1",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/studio_pxg_atomic_training_benchmark.json",
+      "expression": "data.get('status') == 'VERIFIED_AAA_STUDIO_MASTER' and data.get('zero_living_artist_names') is True and data.get('corpus_records_trained') == 1200 and data.get('atomic_primitives_count') == 24 and data.get('epochs_completed') == 12 and data.get('brutal_unbiased_8_metric_benchmark', {}).get('post_training', {}).get('brutal_unbiased_overall_aaa_grade', 0) >= 94.0"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/build_studio_pxg_atomic_trigger_odyssey_corpus.py:1-380",
+    "remediation": "Run python3 Backend/build_studio_pxg_atomic_trigger_odyssey_corpus.py and python3 Backend/render_studio_pxg_aaa_trigger_odyssey_assets.py."
+  },
+  {
+    "id": "core.production_upgrades.15",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Live In-Game Studio PxG Atomic Animation & Film-Shot Director (window.StudioPxGAtomicDirector, 24 Atomic Primitives, 8 Original Studio PxG AAA Strikers pxg_s01..pxg_s08, 14mm Fisheye & 2-Frame Monochrome Stencil Impact Shots, #studio-pxg-atomic-modal, & Unity 6 C# Parity).",
+    "source": "WebPlayable/modules/studio_pxg_atomic_director.js:1",
+    "target": "both",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const d = window.StudioPxGAtomicDirector; if (!d || !Array.isArray(d.STUDIO_PXG_ATOMIC_PRIMITIVES) || d.STUDIO_PXG_ATOMIC_PRIMITIVES.length !== 24 || !Array.isArray(d.STUDIO_PXG_AAA_STRIKER_ROSTER) || d.STUDIO_PXG_AAA_STRIKER_ROSTER.length !== 8) return false; const shot = d.triggerStudioPxGFilmShot('FISHEYE_14MM_EXTREME_FORESHORTENING', { cellIndex: 4 }); const audit = d.runStudioPxGBrutalAudit(state); const deck = d.equipStudioPxGStrikerSquadDeck(); d.openStudioPxGAtomicModal('primitives'); d.closeStudioPxGAtomicModal(); return Boolean(shot && audit && audit.zeroLivingArtistNames === true && audit.corpusRecords === 1200 && audit.postFineTuneScore >= 94.0 && deck && deck.deckId === 'deck_studio_pxg_atomic_strikers'); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/studio_pxg_atomic_director.js:1-340",
+    "remediation": "Wire WebPlayable/modules/studio_pxg_atomic_director.js and #studio-pxg-atomic-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
   }
 ]

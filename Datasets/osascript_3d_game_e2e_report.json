@@ -1,6 +1,6 @@
 {
   "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-  "timestamp": "2026-11-09T23:22:53.048Z",
+  "timestamp": "2026-11-09T23:46:25.818Z",
   "steps": [
     {
       "step": "Initial Stage Load",
@@ -70,7 +70,7 @@
         2,
         1
       ],
-      "immediateCaptures": 1,
+      "immediateCaptures": 2,
       "scoreAfterTurn": {
         "player": 4,
         "boss": 5
@@ -93,7 +93,7 @@
     "rerollAllDice()"
   ],
   "turnsPlayed": 4,
-  "capturesTriggered": 4,
+  "capturesTriggered": 5,
   "tacticalSlideTested": true,
   "modalDisplayed": true,
   "finalScore": {

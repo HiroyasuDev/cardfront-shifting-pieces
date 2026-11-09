@@ -34,11 +34,23 @@ def build_itch_webgl_zip() -> dict:
     index_html = ROOT_DIR / "WebPlayable" / "index.html"
     shutil.copy2(playable_html, index_html)
 
+    itch_toml_path = ITCH_ZIP_PATH.parent / ".itch.toml"
+    itch_toml_content = """[[actions]]
+name = "play"
+path = "index.html"
+scope = "profile:me"
+
+[[prereqs]]
+name = "html5-webgl2"
+"""
+    itch_toml_path.write_text(itch_toml_content, encoding="utf-8")
+
     files_added = 0
     with zipfile.ZipFile(ITCH_ZIP_PATH, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         zf.write(index_html, "index.html")
         zf.write(playable_html, "cardfront_cradle_of_echoes_playable.html")
-        files_added += 2
+        zf.write(itch_toml_path, ".itch.toml")
+        files_added += 3
 
         # Include GeneratedArt (MasteredCards, SakugaCutIns + Videos, AgentDeck, Icons)
         gen_art = ROOT_DIR / "GeneratedArt"
@@ -67,10 +79,22 @@ def build_itch_webgl_zip() -> dict:
                         zf.write(f, f"{sub_name}/{f.name}")
                         files_added += 1
 
+    butler_manifest_path = ITCH_ZIP_PATH.parent / "itch_butler_manifest.json"
+    butler_manifest = {
+        "target": "synapse-atelier/cardfront-cradle-of-echoes",
+        "channels": ["html5-webgl", "macos-universal-arm64"],
+        "itch_toml_path": str((ITCH_ZIP_PATH.parent / ".itch.toml").relative_to(ROOT_DIR)),
+        "zip_path": str(ITCH_ZIP_PATH.relative_to(ROOT_DIR)),
+        "butler_push_html5_cmd": f"butler push {ITCH_ZIP_PATH} synapse-atelier/cardfront-cradle-of-echoes:html5-webgl --userversion 1.0.0",
+    }
+    butler_manifest_path.write_text(json.dumps(butler_manifest, indent=2), encoding="utf-8")
+
     return {
         "zip_path": str(ITCH_ZIP_PATH.relative_to(ROOT_DIR)),
         "zip_size_bytes": ITCH_ZIP_PATH.stat().st_size,
         "files_bundled": files_added,
+        "itch_toml_path": str((ITCH_ZIP_PATH.parent / ".itch.toml").relative_to(ROOT_DIR)),
+        "butler_manifest_path": str(butler_manifest_path.relative_to(ROOT_DIR)),
     }
 
 
@@ -147,9 +171,51 @@ open "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html
     }
 
 
+def build_steamworks_depot_vdf() -> dict:
+    steam_dir = BUILDS_DIR / "SteamDepot"
+    steam_dir.mkdir(parents=True, exist_ok=True)
+    app_vdf_path = steam_dir / "steam_app_build_cardfront.vdf"
+    depot_vdf_path = steam_dir / "depot_build_2849101_macos.vdf"
+
+    app_vdf = """"AppBuild"
+{
+\t"AppID" "2849100"
+\t"Desc" "CARDFRONT: Cradle of Echoes — Unity 6000.6.8f1 macOS Universal Build"
+\t"BuildOutput" "./output"
+\t"ContentRoot" "../MacOS"
+\t"SetLive" "default"
+\t"Depots"
+\t{
+\t\t"2849101" "../SteamDepot/depot_build_2849101_macos.vdf"
+\t}
+}
+"""
+    depot_vdf = """"DepotBuildConfig"
+{
+\t"DepotID" "2849101"
+\t"ContentRoot" "../MacOS"
+\t"FileMapping"
+\t{
+\t\t"LocalPath" "CARDFRONT_CradleOfEchoes.app/*"
+\t\t"DepotPath" "CARDFRONT_CradleOfEchoes.app"
+\t\t"recursive" "1"
+\t}
+}
+"""
+    app_vdf_path.write_text(app_vdf, encoding="utf-8")
+    depot_vdf_path.write_text(depot_vdf, encoding="utf-8")
+    return {
+        "app_id": "2849100",
+        "depot_id": "2849101",
+        "app_vdf_path": str(app_vdf_path.relative_to(ROOT_DIR)),
+        "depot_vdf_path": str(depot_vdf_path.relative_to(ROOT_DIR)),
+    }
+
+
 def main() -> None:
     itch_info = build_itch_webgl_zip()
     macos_info = build_macos_app_bundle()
+    steam_info = build_steamworks_depot_vdf()
 
     manifest = {
         "schema": "CARDFRONT_RELEASE_PACKAGING_MANIFEST_V1",
@@ -157,6 +223,7 @@ def main() -> None:
         "generated_at_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "itch_webgl_release": itch_info,
         "macos_app_bundle": macos_info,
+        "steamworks_depot_manifest": steam_info,
     }
     MANIFEST_OUT.parent.mkdir(parents=True, exist_ok=True)
     MANIFEST_OUT.write_text(json.dumps(manifest, indent=2), encoding="utf-8")

@@ -38,10 +38,10 @@
         "type": "room_init",
         "actor": "system",
         "summary": "LAN Room CITADEL-1 initialized on 0.0.0.0:8096",
-        "timestamp_ms": 1794266419545
+        "timestamp_ms": 1794267959237
       },
-      "updated_at_ms": 1794266419545
+      "updated_at_ms": 1794267959237
     }
   },
-  "updated_at_ms": 1794266419545
+  "updated_at_ms": 1794267959237
 }

@@ -58,6 +58,38 @@ namespace Synapse.TcgEngine.Core
     }
 
     /// <summary>
+    /// 24 Atomic Animation, Film-Shot Choreography, Character Illustration & 3x3 Tactical Engine Primitives
+    /// codified by the Studio PxG Atomic Collective (zero living artists' names; pure morphological specification).
+    /// </summary>
+    public enum StudioPxGAtomicPrimitiveId
+    {
+        ON_ONES_2S_3S_TIMING_MODULATION = 0,
+        CANADA_SMEAR_ELONGATION_ARC = 1,
+        FOUR_POINT_TRIGGER_STAR_FLARE = 2,
+        KAGENASHI_HARD_SHADOW_BLOCK = 3,
+        IMPACT_FRAME_INVERTED_MONOCHROME_2F = 4,
+        PASTEL_NEON_POLYHEDRAL_PYRO_CRYO_FX = 5,
+        FISHEYE_14MM_EXTREME_FORESHORTENING = 6,
+        WHIP_PAN_SPEEDLINE_SNAP_ZOOM = 7,
+        ORBITAL_360_HERO_LANDING_DOLLY = 8,
+        SPLIT_SCREEN_DUAL_CLASH_CUTIN = 9,
+        OBARI_BRAVE_PERSPECTIVE_STANCE = 10,
+        RACK_FOCUS_ISOMETRIC_TO_CINEMATIC_ZOOM = 11,
+        GRAPHIC_WEDGE_SILHOUETTE_READABILITY = 12,
+        STREET_SPORT_MECHA_TECHWEAR_LAYERING = 13,
+        DUAL_TONE_CHROMATIC_RIM_SEPARATION = 14,
+        EXPRESSIVE_VARIABLE_GPEN_VECTOR_LINE = 15,
+        DYNAMIC_TORSION_CONTRAPPOSTO_SPLASH = 16,
+        HARD_CEL_SPECULAR_MATERIAL_BLOCKS = 17,
+        DIRECTIONAL_NESW_SMEAR_VECTOR_ALIGNMENT = 18,
+        COLUMN_DICE_IMPACT_FRAME_SYNC = 19,
+        KNOCKBACK_SLIDE_WALL_BOUNCE_SHOCKWAVE = 20,
+        GENIE4_ACTION_CONDITIONED_SAKUGA_STEP = 21,
+        FACTION_PALETTE_STRICT_HUE_LOCK = 22,
+        TURNAROUND_TO_3D_SLAB_SILHOUETTE_PARITY = 23
+    }
+
+    /// <summary>
     /// Result of a 3x3 directional capture & Dicevaders column resonance evaluation when a card is played.
     /// </summary>
     [Serializable]
@@ -544,6 +576,198 @@ namespace Synapse.TcgEngine.Core
                 "PASS_3ACT_CAMPAIGN_GAUNTLET:ACTS={0}/3:BOOSTERS_DRAFTED={1}:COINS={2}:DRAFT1={3}:DRAFT2={4}:FINAL_BOSS=ghost_SovereignAgent_1825",
                 actsCleared, boostersDrafted, totalCoins, draftedCards[0], draftedCards[1]);
             return actsCleared == 3 && boostersDrafted == 2 && totalCoins == 500;
+        }
+
+        /// <summary>
+        /// Rolls a Looter-Fighter TCG procedural card drop with rarity beam tier (Common -> Sovereign God-Roll)
+        /// and 1-to-3 fighting-game affix perks ([OVERDRIVE EDGE], [TAG-ASSIST LINK], [GUARD CRUSH], [ROMAN CANCEL], [WALL-BREAK CASCADE]).
+        /// </summary>
+        public static string RollLooterTcgCardDrop(string baseCardId, int comboHits, int seed, out string rarityTier, out string[] rolledAffixes)
+        {
+            string resolvedId = string.IsNullOrEmpty(baseCardId) ? "plugin_01_tcg_creative_designer" : baseCardId;
+            int hits = Mathf.Clamp(comboHits, 1, 9);
+            System.Random rng = new System.Random(seed);
+            double roll = rng.NextDouble() + Math.Min(0.45, (hits - 1) * 0.14);
+
+            int affixCount = 1;
+            if (roll >= 1.05) { rarityTier = "SOVEREIGN_GOD_ROLL"; affixCount = 3; }
+            else if (roll >= 0.82) { rarityTier = "EPIC"; affixCount = 2; }
+            else if (roll >= 0.55) { rarityTier = "RARE"; affixCount = 2; }
+            else if (roll >= 0.28) { rarityTier = "UNCOMMON"; affixCount = 1; }
+            else { rarityTier = "COMMON"; affixCount = 1; }
+
+            string[] affixPool = new string[]
+            {
+                "[OVERDRIVE EDGE]",
+                "[CROSS-COUNTER]",
+                "[TAG-ASSIST LINK]",
+                "[GUARD CRUSH]",
+                "[ROMAN CANCEL]",
+                "[WALL-BREAK CASCADE]",
+                "[PUNISH COUNTER]",
+                "[EX METER BATTERY]",
+                "[SUPER ARMOR]",
+                "[KAGENASHI FINISHER]"
+            };
+
+            rolledAffixes = new string[affixCount];
+            for (int i = 0; i < affixCount; i++)
+            {
+                rolledAffixes[i] = affixPool[(Math.Abs(seed) + i * 3 + hits) % affixPool.Length];
+            }
+
+            return string.Format(
+                "LOOT_DROP:{0}:RARITY={1}:COMBO={2}:AFFIXES={3}",
+                resolvedId, rarityTier, hits, string.Join("+", rolledAffixes));
+        }
+
+        /// <summary>
+        /// Evaluates a Tokon Fighting-Game Diagonal Split-Screen Hyper Cut-In state with 2-frame Kagenashi flash,
+        /// bilingual Kanji callout, 3-bar EX Overdrive gauge gain, and Tag-Assist striker partner link.
+        /// </summary>
+        public static string TriggerTokonHyperCutInState(string cardId, string cutInStyle, int comboHits, string assistCardId)
+        {
+            string resolvedCard = string.IsNullOrEmpty(cardId) ? "plugin_01_tcg_creative_designer" : cardId;
+            string style = string.IsNullOrEmpty(cutInStyle) ? "HYPER_ARCANUM" : cutInStyle;
+            int hits = Mathf.Clamp(comboHits, 1, 9);
+            string assist = string.IsNullOrEmpty(assistCardId) ? "NONE" : assistCardId;
+            string kanji = style == "ASTRAL_FINISH" ? "一撃必殺" : (style == "WALL_BREAK_CASCADE" ? "限界突破" : (style == "TAG_ASSIST_STRIKE" ? "援護攻撃" : "超必殺技"));
+            string rarity;
+            string[] affixes;
+            string lootSummary = RollLooterTcgCardDrop(resolvedCard, hits, 20261109 + hits, out rarity, out affixes);
+            return string.Format(
+                "TOKON_CUTIN:{0}:STYLE={1}({2}):HITS={3}:ASSIST={4}:{5}",
+                resolvedCard, style, kanji, hits, assist, lootSummary);
+        }
+
+        /// <summary>
+        /// Canonical 24 Studio PxG Atomic Primitives registry (4 domains x 6 primitives).
+        /// </summary>
+        public static readonly string[] StudioPxG24AtomicPrimitives = new string[24]
+        {
+            "ON_ONES_2S_3S_TIMING_MODULATION",
+            "CANADA_SMEAR_ELONGATION_ARC",
+            "FOUR_POINT_TRIGGER_STAR_FLARE",
+            "KAGENASHI_HARD_SHADOW_BLOCK",
+            "IMPACT_FRAME_INVERTED_MONOCHROME_2F",
+            "PASTEL_NEON_POLYHEDRAL_PYRO_CRYO_FX",
+            "FISHEYE_14MM_EXTREME_FORESHORTENING",
+            "WHIP_PAN_SPEEDLINE_SNAP_ZOOM",
+            "ORBITAL_360_HERO_LANDING_DOLLY",
+            "SPLIT_SCREEN_DUAL_CLASH_CUTIN",
+            "OBARI_BRAVE_PERSPECTIVE_STANCE",
+            "RACK_FOCUS_ISOMETRIC_TO_CINEMATIC_ZOOM",
+            "GRAPHIC_WEDGE_SILHOUETTE_READABILITY",
+            "STREET_SPORT_MECHA_TECHWEAR_LAYERING",
+            "DUAL_TONE_CHROMATIC_RIM_SEPARATION",
+            "EXPRESSIVE_VARIABLE_GPEN_VECTOR_LINE",
+            "DYNAMIC_TORSION_CONTRAPPOSTO_SPLASH",
+            "HARD_CEL_SPECULAR_MATERIAL_BLOCKS",
+            "DIRECTIONAL_NESW_SMEAR_VECTOR_ALIGNMENT",
+            "COLUMN_DICE_IMPACT_FRAME_SYNC",
+            "KNOCKBACK_SLIDE_WALL_BOUNCE_SHOCKWAVE",
+            "GENIE4_ACTION_CONDITIONED_SAKUGA_STEP",
+            "FACTION_PALETTE_STRICT_HUE_LOCK",
+            "TURNAROUND_TO_3D_SLAB_SILHOUETTE_PARITY"
+        };
+
+        /// <summary>
+        /// Executes a Studio PxG Film-Shot &amp; Atomic Key-Animation preset on the 3x3 tabletop,
+        /// handling 14mm fish-eye FOV kick, 2-frame inverted monochrome stencil flash (_IMPACT_FRAME_STENCIL_2F),
+        /// 4-point Trigger star flare burst, and stepped 24fps X-Sheet modulation.
+        /// </summary>
+        public static string TriggerStudioPxGFilmShot(string shotPresetId, int targetCellIndex)
+        {
+            string preset = string.IsNullOrEmpty(shotPresetId) ? "IMPACT_FRAME_INVERTED_MONOCHROME_2F" : shotPresetId.Trim().ToUpperInvariant();
+            int clampedCell = Mathf.Clamp(targetCellIndex, 0, 8);
+            string shaderKeyword = "_IMPACT_FRAME_STENCIL_2F";
+            float cameraFov = 58.0f;
+            string focalSpec = "24mm";
+            string xSheetModulation = "1s-1s-2s-1s-1s-2s-1s-1s@24fps";
+
+            if (preset == "FISHEYE_14MM_EXTREME_FORESHORTENING")
+            {
+                shaderKeyword = "_PXG_CAMERA_FISHEYE_14MM";
+                cameraFov = 86.0f;
+                focalSpec = "14mm";
+                xSheetModulation = "1s-1s-2s-1s-1s-3s-2s-1s@24fps";
+            }
+            else if (preset == "WHIP_PAN_SPEEDLINE_SNAP_ZOOM")
+            {
+                shaderKeyword = "_PXG_CAMERA_WHIP_PAN_18MM";
+                cameraFov = 68.0f;
+                focalSpec = "18mm";
+            }
+            else if (preset == "ORBITAL_360_HERO_LANDING_DOLLY")
+            {
+                shaderKeyword = "_PXG_CAMERA_ORBITAL_360";
+                cameraFov = 54.0f;
+                focalSpec = "24mm";
+                xSheetModulation = "2s-2s-1s-1s-2s-3s-1s-1s@24fps";
+            }
+            else if (preset == "SPLIT_SCREEN_DUAL_CLASH_CUTIN")
+            {
+                shaderKeyword = "_PXG_CAMERA_SPLIT_CLASH_22DEG";
+                cameraFov = 50.0f;
+                focalSpec = "24mm";
+            }
+            else if (preset == "OBARI_BRAVE_PERSPECTIVE_STANCE")
+            {
+                shaderKeyword = "_PXG_BRAVE_PERSPECTIVE_STANCE";
+                cameraFov = 78.0f;
+                focalSpec = "14mm";
+            }
+            else if (preset == "RACK_FOCUS_ISOMETRIC_TO_CINEMATIC_ZOOM")
+            {
+                shaderKeyword = "_PXG_CAMERA_RACK_FOCUS_35MM";
+                cameraFov = 42.0f;
+                focalSpec = "35mm";
+            }
+
+            try
+            {
+                Shader.DisableKeyword("_IMPACT_FRAME_STENCIL_2F");
+                Shader.DisableKeyword("_PXG_CAMERA_FISHEYE_14MM");
+                Shader.DisableKeyword("_PXG_CAMERA_WHIP_PAN_18MM");
+                Shader.DisableKeyword("_PXG_CAMERA_ORBITAL_360");
+                Shader.DisableKeyword("_PXG_CAMERA_SPLIT_CLASH_22DEG");
+                Shader.EnableKeyword(shaderKeyword);
+                Shader.EnableKeyword("_PXG_FOUR_POINT_STAR_FLARE");
+            }
+            catch
+            {
+                // Headless managed CLI fallback when native Shader ECall is unavailable
+            }
+
+            return string.Format(
+                "STUDIO_PXG_SHOT:{0}:CELL={1}:SHADER={2}:LENS={3}(FOV={4:0.0}):STAR_FLARE=ON:XSHEET={5}:PRIMITIVES={6}",
+                preset, clampedCell, shaderKeyword, focalSpec, cameraFov, xSheetModulation, StudioPxG24AtomicPrimitives.Length);
+        }
+
+        /// <summary>
+        /// Equips the 15-card Studio PxG Atomic Striker &amp; Kubrart Vanguard Squad Deck
+        /// combining the 8 Original Studio PxG AAA Strikers (pxg_s01..pxg_s08) and top Set 2 / Sovereign cards.
+        /// </summary>
+        public static List<string> EquipStudioPxGStrikerSquad()
+        {
+            return new List<string>(15)
+            {
+                "pxg_s01",
+                "pxg_s02",
+                "pxg_s03",
+                "pxg_s04",
+                "pxg_s05",
+                "pxg_s06",
+                "pxg_s07",
+                "pxg_s08",
+                "set2_k01",
+                "set2_k06",
+                "set2_k11",
+                "set2_k16",
+                "set2_k20",
+                "plugin_01_tcg_creative_designer",
+                "plugin_04_mlx_apple_silicon"
+            };
         }
 
         /// <summary>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09T23:22:51.417Z",
+  "generatedAt": "2026-11-09T23:46:24.259Z",
   "harness": "gemini-4-argon",
   "summary": {
     "viewportsTested": 5,
@@ -23,7 +23,7 @@
         "gapRow3ToHandPx": 148,
         "gapSlabToDeckPx": 309,
         "drawerClearancePx": 401,
-        "svgIconCount": 35,
+        "svgIconCount": 36,
         "deckVisible": true
       },
       "checks": {
@@ -54,7 +54,7 @@
         "gapRow3ToHandPx": 92,
         "gapSlabToDeckPx": 151,
         "drawerClearancePx": 161,
-        "svgIconCount": 35,
+        "svgIconCount": 36,
         "deckVisible": true
       },
       "checks": {
@@ -85,7 +85,7 @@
         "gapRow3ToHandPx": 72,
         "gapSlabToDeckPx": 147,
         "drawerClearancePx": 145,
-        "svgIconCount": 35,
+        "svgIconCount": 36,
         "deckVisible": true
       },
       "checks": {
@@ -116,7 +116,7 @@
         "gapRow3ToHandPx": 109,
         "gapSlabToDeckPx": 179,
         "drawerClearancePx": 81,
-        "svgIconCount": 35,
+        "svgIconCount": 36,
         "deckVisible": true
       },
       "checks": {
@@ -147,7 +147,7 @@
         "gapRow3ToHandPx": 114,
         "gapSlabToDeckPx": 131,
         "drawerClearancePx": 31,
-        "svgIconCount": 35,
+        "svgIconCount": 36,
         "deckVisible": true
       },
       "checks": {
