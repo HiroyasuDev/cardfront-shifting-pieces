@@ -1,14 +1,14 @@
 {
-  "iteration": 35,
-  "timestamp_utc": "2026-11-09T01:19:37Z",
+  "iteration": 39,
+  "timestamp_utc": "2026-11-09T01:41:41Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
-    "autotest_title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
-    "total_checks": 98,
-    "passed_checks": 98,
+    "autotest_title": "TEST_COMPLETE:6-3:SINGLETON=true:IMG=true",
+    "total_checks": 110,
+    "passed_checks": 110,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -97,6 +97,18 @@
       "core.input_systems.01",
       "core.performance.01",
       "core.save_systems.01",
+      "core.tabletop_real_estate.01",
+      "core.tabletop_real_estate.02",
+      "core.tabletop_real_estate.03",
+      "core.tabletop_real_estate.04",
+      "core.tabletop_real_estate.05",
+      "core.tabletop_real_estate.06",
+      "core.tabletop_real_estate.07",
+      "core.tabletop_real_estate.08",
+      "core.tabletop_real_estate.09",
+      "core.tabletop_real_estate.10",
+      "core.tabletop_real_estate.11",
+      "core.tabletop_real_estate.12",
       "core.unity_so.01",
       "core.unity_so.02",
       "feel_audio_camera_perf.1",
@@ -123,7 +135,7 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 34,
+    "previous_iteration": 38,
     "newly_passing_checks": [],
     "newly_failing_checks": [],
     "pass_count_delta": 0,
@@ -227,19 +239,19 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 5919.4
+      "elapsed_ms": 6310.9
     },
     "autotest": {
       "ran": true,
-      "title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
+      "title": "TEST_COMPLETE:6-3:SINGLETON=true:IMG=true",
       "pass": true,
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8516,
+      "elapsed_ms": 8495,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T01:19:27.413Z",
+        "timestamp": "2026-11-09T01:41:31.108Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -292,8 +304,8 @@
             "cardPlayed": "h_chronos",
             "telegraph": "Temporal Gear Lock",
             "socket": [
-              1,
-              1
+              0,
+              0
             ],
             "immediateCaptures": 1,
             "scoreAfterTurn": {
@@ -309,10 +321,10 @@
               2,
               1
             ],
-            "immediateCaptures": 1,
+            "immediateCaptures": 2,
             "scoreAfterTurn": {
-              "player": 5,
-              "boss": 4
+              "player": 6,
+              "boss": 3
             }
           }
         ],
@@ -332,12 +344,12 @@
           "rerollAllDice()"
         ],
         "turnsPlayed": 4,
-        "capturesTriggered": 4,
+        "capturesTriggered": 5,
         "tacticalSlideTested": true,
         "modalDisplayed": true,
         "finalScore": {
-          "player": 5,
-          "boss": 4
+          "player": 6,
+          "boss": 3
         },
         "outcome": "VICTORY"
       }
@@ -728,6 +740,198 @@
         "error": null
       },
       {
+        "id": "core.tabletop_real_estate.01",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Tabletop horizontal real-estate utilization: the 3x3 carved stone-and-brass board (#board-3d-slab) must span at least 42% of the desktop viewport width so it never regresses into a narrow vertical column.",
+        "source": "skills/disciplines/game-ui-ux/SKILL.md:45",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:22-30,560-595",
+        "remediation": "Keep --slot-w wide (clamp(154px, 15.6vw, 196px)) so the 3x3 stone-and-brass board occupies ~50% of the horizontal viewport width.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.02",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Complete 3x3 socket visibility without overlap: Row 3 (.board-slot[data-r='2']) must sit completely above the fanned Hero Hand (#hand-bar) with zero vertical overlap.",
+        "source": "skills/disciplines/game-ui-ux/SKILL.md:52",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:25-30,275-355",
+        "remediation": "Maintain compact vertical socket height and low-slung bottom hand fan so Row 3 of the 3x3 board has positive vertical clearance above the hand.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.03",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Top-right settings drawer non-collision: opening #dev-camera-drawer must not overlap #boss-tabletop-crest.",
+        "source": "skills/disciplines/game-ui-ux/SKILL.md:64",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:203-226",
+        "remediation": "Constrain #dev-camera-drawer width to 264px at right: 0 so it never collides with the centered Boss Commander banner.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.04",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Spatial lane anchoring: 3 circular stone-and-brass 3D die pedestals (.die-pedestal-ring > .cube-scene > .cube-3d) sit directly above Columns 1-3 (#col-headers) aligned with their column lanes.",
+        "source": "skills/disciplines/game-ui-ux/SKILL.md:78",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:640-712,3334-3365",
+        "remediation": "Render the 3 circular 3D column die pedestals inside #col-headers directly above the 3 columns of #grid-3x3.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.05",
+        "skill": "genres/card-game",
+        "rule": "Head-to-head tabletop duel topology: Top = Opponent (#boss-tabletop-crest), Center = 3x3 Board (#board-3d-slab), Bottom = Player Hand (#hand-bar).",
+        "source": "skills/genres/card-game/SKILL.md:48",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:426-540,1486-1545",
+        "remediation": "Anchor Boss Commander banner above #board-3d-slab and Hero Hand fan along the bottom edge.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.06",
+        "skill": "genres/card-game",
+        "rule": "Overlapping curved bottom Hero Hand fan with floating hover ability tooltips (.hand-card-tooltip) instead of a 6th grid slot.",
+        "source": "skills/genres/card-game/SKILL.md:62",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:320-421,3580-3612",
+        "remediation": "Render 5 fanned .hand-card-wrap elements inside #hand-bar, each containing a floating .hand-card-tooltip.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.07",
+        "skill": "disciplines/art-direction",
+        "rule": "Top-header card nameplates (.slot-name-ribbon) sit at the top of each card beside the top-left stat badge (.edge-top) and never collide with the bottom instructional banner (#last-move-banner).",
+        "source": "skills/disciplines/art-direction/SKILL.md:54",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1136-1195",
+        "remediation": "Position .slot-name-ribbon at top: 2px; left: 21px; right: 2px so all hand card names sit at the top of the card clear of #last-move-banner.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.08",
+        "skill": "disciplines/art-direction",
+        "rule": "Board materiality: recessed stone-and-brass sockets (.board-slot) use solid borders (zero dashed CSS lines), display OPEN (.socket-open-label) when empty, and show +1 BOOST (.socket-boost-lip) on boosted columns.",
+        "source": "skills/disciplines/art-direction/SKILL.md:71",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:714-775,3548-3560",
+        "remediation": "Use solid carved stone/brass borders on .board-slot with .socket-open-label and .socket-boost-lip.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.09",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Physical 3D Deck (60) stack (.tabletop-deck-stack) sits on the tabletop beside the 3x3 board and opens #deckbuilder-modal when clicked.",
+        "source": "skills/disciplines/game-ui-ux/SKILL.md:88",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P2",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:596-639,1523-1528",
+        "remediation": "Keep .tabletop-deck-stack beside #grid-3x3 wired to openDeckbuilderModal().",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.10",
+        "skill": "disciplines/game-feel",
+        "rule": "Tactical Slide directional preview: selecting a deployed player unit highlights orthogonal empty sockets with .slide-target and directional arrows (.slide-arrow-call).",
+        "source": "skills/disciplines/game-feel/SKILL.md:49",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:780-798,3541-3545",
+        "remediation": "Render .slide-arrow-call (\u25b2/\u25bc/\u25c0/\u25b6 SLIDE) inside orthogonal empty .slide-target sockets when a player board unit is hovered or selected.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.11",
+        "skill": "disciplines/game-feel",
+        "rule": "Column die nudge surge feedback: nudging a column die from 3 to 4 triggers .col-surge-active on all 3 sockets in that column and activates the +1 column stat boost.",
+        "source": "skills/disciplines/game-feel/SKILL.md:63",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:746-753,2861-2876",
+        "remediation": "Set state.surgingCol = colIdx in nudgeColDie(colIdx) and apply .col-surge-active to all 3 sockets of that column.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.tabletop_real_estate.12",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Multi-viewport real-estate matrix (1920x1080, 1440x900, 1408x800, 1280x800, 1180x820): zero page overflow and 100% socket/hand visibility across all 5 viewports.",
+        "source": "skills/disciplines/game-ui-ux/SKILL.md:95",
+        "target": "web",
+        "method": "metric",
+        "expect": "==100",
+        "actual": 100,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Tools/skill_harness/assess_tabletop_real_estate.js:1-140",
+        "remediation": "Run Tools/skill_harness/assess_tabletop_real_estate.js across all 5 viewports and verify 100% pass rate.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
         "id": "ai_save_ship.1",
         "skill": "disciplines/game-ai",
         "rule": "Dedicated Boss AI decision entrypoint exists in the Web playable runtime",
@@ -767,7 +971,7 @@
         "target": "web",
         "method": "static_regex",
         "expect": ">=1 match",
-        "actual": 6,
+        "actual": 13,
         "passed": true,
         "priority": "P1",
         "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
@@ -2019,7 +2223,11 @@
         "renderAll_avg_ms": 0.47,
         "broken_images_count": 0,
         "keyboard_only_game_completed": true,
-        "modal_auto_focused": true
+        "modal_auto_focused": true,
+        "tabletop_real_estate_gate": null,
+        "tabletop_real_estate_pass_rate_pct": 100,
+        "tabletop_real_estate_checks": "40/40",
+        "tabletop_real_estate_viewports": 5
       },
       "personas": {
         "matches_recorded": 120,
@@ -2047,30 +2255,35 @@
         "cards_verified_count": 16,
         "contact_sheet_exists": true
       }
+    },
+    "tabletop_real_estate_assessment": {
+      "ran": false,
+      "pass": false,
+      "error": "Expecting value: line 1 column 2 (char 1)"
     }
   },
   "step_c_scorecard": {
     "per_skill": {
       "genres/card-game": {
         "skill": "genres/card-game",
-        "total": 13,
-        "passed": 13,
+        "total": 15,
+        "passed": 15,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "disciplines/game-feel": {
         "skill": "disciplines/game-feel",
-        "total": 11,
-        "passed": 11,
+        "total": 13,
+        "passed": 13,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "disciplines/game-ui-ux": {
         "skill": "disciplines/game-ui-ux",
-        "total": 12,
-        "passed": 12,
+        "total": 18,
+        "passed": 18,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2127,6 +2340,14 @@
         "skill": "disciplines/performance-optimization",
         "total": 6,
         "passed": 6,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "disciplines/art-direction": {
+        "skill": "disciplines/art-direction",
+        "total": 2,
+        "passed": 2,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2189,5 +2410,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 17447.9
+  "elapsed_ms": 23486.3
 }

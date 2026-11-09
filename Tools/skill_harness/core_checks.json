@@ -368,5 +368,187 @@
     "priority": "P1",
     "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1985-2105",
     "remediation": "Keep `renderAll()` under 1 ms and freeze board parallax during active pointer drag so 60 Hz frame pacing holds at `p95 <= 16.8ms`."
+  },
+  {
+    "id": "core.tabletop_real_estate.01",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Tabletop horizontal real-estate utilization: the 3x3 carved stone-and-brass board (#board-3d-slab) must span at least 42% of the desktop viewport width so it never regresses into a narrow vertical column.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:45",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const b = document.getElementById('board-3d-slab').getBoundingClientRect(); return (b.width / window.innerWidth) >= 0.42; })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:22-30,560-595",
+    "remediation": "Keep --slot-w wide (clamp(154px, 15.6vw, 196px)) so the 3x3 stone-and-brass board occupies ~50% of the horizontal viewport width."
+  },
+  {
+    "id": "core.tabletop_real_estate.02",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Complete 3x3 socket visibility without overlap: Row 3 (.board-slot[data-r='2']) must sit completely above the fanned Hero Hand (#hand-bar) with zero vertical overlap.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:52",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const r3 = document.querySelector('.board-slot[data-r=\"2\"][data-c=\"1\"]').getBoundingClientRect(); const hand = document.getElementById('hand-bar').getBoundingClientRect(); return hand.top >= r3.bottom + 8; })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:25-30,275-355",
+    "remediation": "Maintain compact vertical socket height and low-slung bottom hand fan so Row 3 of the 3x3 board has positive vertical clearance above the hand."
+  },
+  {
+    "id": "core.tabletop_real_estate.03",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Top-right settings drawer non-collision: opening #dev-camera-drawer must not overlap #boss-tabletop-crest.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:64",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const d = document.getElementById('dev-camera-drawer'); d.classList.remove('collapsed'); const dr = d.getBoundingClientRect(); const br = document.getElementById('boss-tabletop-crest').getBoundingClientRect(); d.classList.add('collapsed'); return dr.left >= br.right + 12; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:203-226",
+    "remediation": "Constrain #dev-camera-drawer width to 264px at right: 0 so it never collides with the centered Boss Commander banner."
+  },
+  {
+    "id": "core.tabletop_real_estate.04",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Spatial lane anchoring: 3 circular stone-and-brass 3D die pedestals (.die-pedestal-ring > .cube-scene > .cube-3d) sit directly above Columns 1-3 (#col-headers) aligned with their column lanes.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:78",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const pills = Array.from(document.querySelectorAll('#col-headers .col-header-pill')); if (pills.length !== 3) return false; return pills.every((p, c) => { const slot = document.querySelector(`.board-slot[data-r=\"0\"][data-c=\"${c}\"]`); const pr = p.getBoundingClientRect(), sr = slot.getBoundingClientRect(); return p.querySelector('.die-pedestal-ring .cube-3d') && Math.abs((pr.left + pr.width/2) - (sr.left + sr.width/2)) <= 18; }); })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:640-712,3334-3365",
+    "remediation": "Render the 3 circular 3D column die pedestals inside #col-headers directly above the 3 columns of #grid-3x3."
+  },
+  {
+    "id": "core.tabletop_real_estate.05",
+    "skill": "genres/card-game",
+    "rule": "Head-to-head tabletop duel topology: Top = Opponent (#boss-tabletop-crest), Center = 3x3 Board (#board-3d-slab), Bottom = Player Hand (#hand-bar).",
+    "source": "skills/genres/card-game/SKILL.md:48",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const boss = document.getElementById('boss-tabletop-crest').getBoundingClientRect(); const slab = document.getElementById('board-3d-slab').getBoundingClientRect(); const hand = document.getElementById('hand-bar').getBoundingClientRect(); return boss.top < slab.top && slab.top < hand.top && boss.bottom <= slab.top + 8; })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:426-540,1486-1545",
+    "remediation": "Anchor Boss Commander banner above #board-3d-slab and Hero Hand fan along the bottom edge."
+  },
+  {
+    "id": "core.tabletop_real_estate.06",
+    "skill": "genres/card-game",
+    "rule": "Overlapping curved bottom Hero Hand fan with floating hover ability tooltips (.hand-card-tooltip) instead of a 6th grid slot.",
+    "source": "skills/genres/card-game/SKILL.md:62",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); const cards = Array.from(document.querySelectorAll('#hand-bar .hand-card-wrap')); return cards.length === 5 && cards.every(c => c.querySelector('.hand-card-tooltip') && c.querySelector('.hand-card-tooltip').textContent.includes('Slide:')); })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:320-421,3580-3612",
+    "remediation": "Render 5 fanned .hand-card-wrap elements inside #hand-bar, each containing a floating .hand-card-tooltip."
+  },
+  {
+    "id": "core.tabletop_real_estate.07",
+    "skill": "disciplines/art-direction",
+    "rule": "Top-header card nameplates (.slot-name-ribbon) sit at the top of each card beside the top-left stat badge (.edge-top) and never collide with the bottom instructional banner (#last-move-banner).",
+    "source": "skills/disciplines/art-direction/SKILL.md:54",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const tip = document.getElementById('last-move-banner').getBoundingClientRect(); const ribbons = Array.from(document.querySelectorAll('#hand-bar .slot-name-ribbon')); return ribbons.length === 5 && ribbons.every(r => { const rb = r.getBoundingClientRect(); const cb = r.closest('.card-3d-unit').getBoundingClientRect(); return (rb.top - cb.top) <= 14 && rb.bottom < tip.top; }); })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1136-1195",
+    "remediation": "Position .slot-name-ribbon at top: 2px; left: 21px; right: 2px so all hand card names sit at the top of the card clear of #last-move-banner."
+  },
+  {
+    "id": "core.tabletop_real_estate.08",
+    "skill": "disciplines/art-direction",
+    "rule": "Board materiality: recessed stone-and-brass sockets (.board-slot) use solid borders (zero dashed CSS lines), display OPEN (.socket-open-label) when empty, and show +1 BOOST (.socket-boost-lip) on boosted columns.",
+    "source": "skills/disciplines/art-direction/SKILL.md:71",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); const slots = Array.from(document.querySelectorAll('.board-slot')); const allSolid = slots.length === 9 && slots.every(s => getComputedStyle(s).borderTopStyle === 'solid'); const openLabels = document.querySelectorAll('.board-slot .socket-open-label').length === 8; const boostLips = document.querySelectorAll('.board-slot .socket-boost-lip').length >= 2; return allSolid && openLabels && boostLips; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:714-775,3548-3560",
+    "remediation": "Use solid carved stone/brass borders on .board-slot with .socket-open-label and .socket-boost-lip."
+  },
+  {
+    "id": "core.tabletop_real_estate.09",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Physical 3D Deck (60) stack (.tabletop-deck-stack) sits on the tabletop beside the 3x3 board and opens #deckbuilder-modal when clicked.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:88",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const ds = document.querySelector('.tabletop-deck-stack'); if (!ds) return false; ds.click(); const open = document.getElementById('deckbuilder-modal').style.display === 'flex'; closeDeckbuilderModal(); return open; })()"
+    },
+    "expect": "true",
+    "priority": "P2",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:596-639,1523-1528",
+    "remediation": "Keep .tabletop-deck-stack beside #grid-3x3 wired to openDeckbuilderModal()."
+  },
+  {
+    "id": "core.tabletop_real_estate.10",
+    "skill": "disciplines/game-feel",
+    "rule": "Tactical Slide directional preview: selecting a deployed player unit highlights orthogonal empty sockets with .slide-target and directional arrows (.slide-arrow-call).",
+    "source": "skills/disciplines/game-feel/SKILL.md:49",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); state.grid[1][1] = { r: 1, c: 1, cardId: 'h_archangel', owner: 'player', nesw: [8,7,6,7], justFlipped: false }; state.selectedBoardSlot = { r: 1, c: 1 }; renderAll(); const arrows = document.querySelectorAll('.board-slot.slide-target .slide-arrow-call').length; startStage(0); return arrows >= 3; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:780-798,3541-3545",
+    "remediation": "Render .slide-arrow-call (▲/▼/◀/▶ SLIDE) inside orthogonal empty .slide-target sockets when a player board unit is hovered or selected."
+  },
+  {
+    "id": "core.tabletop_real_estate.11",
+    "skill": "disciplines/game-feel",
+    "rule": "Column die nudge surge feedback: nudging a column die from 3 to 4 triggers .col-surge-active on all 3 sockets in that column and activates the +1 column stat boost.",
+    "source": "skills/disciplines/game-feel/SKILL.md:63",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); state.colDice = [4, 3, 5]; nudgeColDie(1); const surged = document.querySelectorAll('.board-slot.col-surge-active').length === 3 && isColBoosted(1) === true; startStage(0); return surged; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:746-753,2861-2876",
+    "remediation": "Set state.surgingCol = colIdx in nudgeColDie(colIdx) and apply .col-surge-active to all 3 sockets of that column."
+  },
+  {
+    "id": "core.tabletop_real_estate.12",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Multi-viewport real-estate matrix (1920x1080, 1440x900, 1408x800, 1280x800, 1180x820): zero page overflow and 100% socket/hand visibility across all 5 viewports.",
+    "source": "skills/disciplines/game-ui-ux/SKILL.md:95",
+    "target": "web",
+    "method": "metric",
+    "probe": {
+      "file": "Datasets/mirofish_gameplay/ux_qa/raw/tabletop_real_estate_assessment.json",
+      "json_path": "summary.passRatePct",
+      "fallback_expression": "(() => { return document.documentElement.scrollWidth <= window.innerWidth && document.documentElement.scrollHeight <= window.innerHeight ? 100 : 0; })()"
+    },
+    "expect": "==100",
+    "priority": "P0",
+    "code_ref": "Tools/skill_harness/assess_tabletop_real_estate.js:1-140",
+    "remediation": "Run Tools/skill_harness/assess_tabletop_real_estate.js across all 5 viewports and verify 100% pass rate."
   }
 ]

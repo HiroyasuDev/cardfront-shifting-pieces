@@ -493,6 +493,52 @@ def run_drag_e2e_test(project_dir: Path) -> Dict[str, Any]:
         return {"ran": False, "pass": False, "error": str(exc)}
 
 
+def run_tabletop_real_estate_assessment(
+    project_dir: Path,
+    playtest_url: str = DEFAULT_PLAYTEST_URL,
+) -> Dict[str, Any]:
+    """
+    Run `Tools/skill_harness/assess_tabletop_real_estate.js` across 5 viewports
+    (`1920x1080`, `1440x900`, `1408x800`, `1280x800`, `1180x820`) and write
+    `Datasets/mirofish_gameplay/ux_qa/raw/tabletop_real_estate_assessment.json`.
+    """
+    script_path = project_dir / "Tools" / "skill_harness" / "assess_tabletop_real_estate.js"
+    if not script_path.exists():
+        return {"ran": False, "pass": False, "error": f"Missing {script_path}"}
+
+    env = os.environ.copy()
+    env["PLAYWRIGHT_CORE"] = PLAYWRIGHT_CORE
+    env["CHROMIUM_EXE"] = CHROMIUM_EXE
+    env["PLAYTEST_URL"] = playtest_url
+    node_exe = str(NODE_BIN) if NODE_BIN.exists() else "node"
+
+    t0 = time.time()
+    try:
+        proc = subprocess.run(
+            [node_exe, str(script_path)],
+            cwd=str(project_dir),
+            env=env,
+            capture_output=True,
+            text=True,
+            timeout=45,
+        )
+        elapsed_ms = round((time.time() - t0) * 1000.0, 1)
+        if proc.returncode != 0:
+            return {
+                "ran": True,
+                "pass": False,
+                "elapsed_ms": elapsed_ms,
+                "stderr": proc.stderr.strip()[-600:],
+            }
+        parsed = json.loads(proc.stdout.strip())
+        parsed["ran"] = True
+        parsed["pass"] = parsed.get("gateStatus") == "PASS_ALL_VIEWPORTS"
+        parsed["elapsed_ms"] = elapsed_ms
+        return parsed
+    except Exception as exc:
+        return {"ran": False, "pass": False, "error": str(exc)}
+
+
 def run_playwright_autotest_and_probes(
     playtest_url: str,
     playwright_checks: List[Dict[str, Any]],
@@ -1047,6 +1093,17 @@ def ingest_mirofish_telemetry(project_dir: Path) -> Dict[str, Any]:
                 ux_info["modal_auto_focused"] = kgame.get("modalAutoFocused")
             except Exception:
                 pass
+        re_file = ux_raw / "tabletop_real_estate_assessment.json"
+        if re_file.exists():
+            try:
+                redata = json.loads(re_file.read_text(encoding="utf-8"))
+                resum = redata.get("summary", {})
+                ux_info["tabletop_real_estate_gate"] = redata.get("gateStatus")
+                ux_info["tabletop_real_estate_pass_rate_pct"] = resum.get("passRatePct")
+                ux_info["tabletop_real_estate_checks"] = f"{resum.get('passedChecks')}/{resum.get('totalChecks')}"
+                ux_info["tabletop_real_estate_viewports"] = resum.get("viewportsTested")
+            except Exception:
+                pass
         summary["workstreams_present"].append("ux_qa")
         summary["ux_qa"] = ux_info
 
@@ -1061,7 +1118,7 @@ def ingest_mirofish_telemetry(project_dir: Path) -> Dict[str, Any]:
                 row = json.loads(ln)
                 if row.get("persona"):
                     personas_seen.add(row["persona"])
-                if row.get("win") is True or row.get("outcome") == "VICTORY":
+                if row.get("win") is True or str(row.get("outcome", "")).lower() in ("win", "victory"):
                     wins += 1
             summary["workstreams_present"].append("personas")
             summary["personas"] = {
@@ -1376,6 +1433,7 @@ def run_iteration(
     manifest = build_gemini_4_argon_manifest()
     router_out = run_step_a_router(prompt, project_dir)
     drag_e2e = run_drag_e2e_test(project_dir)
+    tabletop_re = run_tabletop_real_estate_assessment(project_dir, playtest_url)
     all_checks, check_sources = discover_all_checks(project_dir)
     autotest, evaluated_checks = execute_all_checks(project_dir, playtest_url, all_checks)
     mirofish_summary = ingest_mirofish_telemetry(project_dir)
@@ -1388,6 +1446,7 @@ def run_iteration(
         check_sources=check_sources,
         mirofish_summary=mirofish_summary,
     )
+    scorecard["step_b_verification"]["tabletop_real_estate_assessment"] = tabletop_re
     scorecard["gemini_4_argon_manifest_summary"] = {
         "manifest_path": str(GEMINI_PLUGIN_MANIFEST),
         "local_copy_path": str(LOCAL_GEMINI_MANIFEST_COPY),

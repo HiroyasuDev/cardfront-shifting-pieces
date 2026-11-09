@@ -1,0 +1,148 @@
+{
+  "generatedAt": "2026-11-09T01:41:29.617Z",
+  "harness": "gemini-4-argon",
+  "summary": {
+    "viewportsTested": 5,
+    "totalChecks": 40,
+    "passedChecks": 40,
+    "passRatePct": 100,
+    "status": "PASS_ALL_VIEWPORTS"
+  },
+  "viewports": [
+    {
+      "viewport": "1920x1080_fhd",
+      "width": 1920,
+      "height": 1080,
+      "metrics": {
+        "boardWidthPx": 985,
+        "boardHeightPx": 533,
+        "boardWidthPct": 51.3,
+        "socketWidthPx": 295,
+        "socketHeightPx": 151,
+        "gapBossToSlabPx": 46,
+        "gapRow3ToHandPx": 148,
+        "drawerClearancePx": 401,
+        "deckVisible": true
+      },
+      "checks": {
+        "noOverflow": true,
+        "boardWidthOk": true,
+        "zeroRow3Overlap": true,
+        "duelTopologyOk": true,
+        "drawerNonCollision": true,
+        "nameplatesClear": true,
+        "diceAligned": true,
+        "interactiveJuiceOk": true
+      },
+      "allPassed": true
+    },
+    {
+      "viewport": "1440x900_macbook",
+      "width": 1440,
+      "height": 900,
+      "metrics": {
+        "boardWidthPx": 843,
+        "boardHeightPx": 477,
+        "boardWidthPct": 58.5,
+        "socketWidthPx": 248,
+        "socketHeightPx": 128,
+        "gapBossToSlabPx": 38,
+        "gapRow3ToHandPx": 92,
+        "drawerClearancePx": 161,
+        "deckVisible": true
+      },
+      "checks": {
+        "noOverflow": true,
+        "boardWidthOk": true,
+        "zeroRow3Overlap": true,
+        "duelTopologyOk": true,
+        "drawerNonCollision": true,
+        "nameplatesClear": true,
+        "diceAligned": true,
+        "interactiveJuiceOk": true
+      },
+      "allPassed": true
+    },
+    {
+      "viewport": "1408x800_harness",
+      "width": 1408,
+      "height": 800,
+      "metrics": {
+        "boardWidthPx": 820,
+        "boardHeightPx": 439,
+        "boardWidthPct": 58.2,
+        "socketWidthPx": 241,
+        "socketHeightPx": 113,
+        "gapBossToSlabPx": 34,
+        "gapRow3ToHandPx": 71,
+        "drawerClearancePx": 145,
+        "deckVisible": true
+      },
+      "checks": {
+        "noOverflow": true,
+        "boardWidthOk": true,
+        "zeroRow3Overlap": true,
+        "duelTopologyOk": true,
+        "drawerNonCollision": true,
+        "nameplatesClear": true,
+        "diceAligned": true,
+        "interactiveJuiceOk": true
+      },
+      "allPassed": true
+    },
+    {
+      "viewport": "1280x800_steamdeck",
+      "width": 1280,
+      "height": 800,
+      "metrics": {
+        "boardWidthPx": 636,
+        "boardHeightPx": 380,
+        "boardWidthPct": 49.7,
+        "socketWidthPx": 180,
+        "socketHeightPx": 90,
+        "gapBossToSlabPx": 28,
+        "gapRow3ToHandPx": 109,
+        "drawerClearancePx": 81,
+        "deckVisible": true
+      },
+      "checks": {
+        "noOverflow": true,
+        "boardWidthOk": true,
+        "zeroRow3Overlap": true,
+        "duelTopologyOk": true,
+        "drawerNonCollision": true,
+        "nameplatesClear": true,
+        "diceAligned": true,
+        "interactiveJuiceOk": true
+      },
+      "allPassed": true
+    },
+    {
+      "viewport": "1180x820_ipad_land",
+      "width": 1180,
+      "height": 820,
+      "metrics": {
+        "boardWidthPx": 636,
+        "boardHeightPx": 386,
+        "boardWidthPct": 53.9,
+        "socketWidthPx": 180,
+        "socketHeightPx": 93,
+        "gapBossToSlabPx": 30,
+        "gapRow3ToHandPx": 113,
+        "drawerClearancePx": 31,
+        "deckVisible": false
+      },
+      "checks": {
+        "noOverflow": true,
+        "boardWidthOk": true,
+        "zeroRow3Overlap": true,
+        "duelTopologyOk": true,
+        "drawerNonCollision": true,
+        "nameplatesClear": true,
+        "diceAligned": true,
+        "interactiveJuiceOk": true
+      },
+      "allPassed": true
+    }
+  ]
+}

@@ -1,11 +1,11 @@
-# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #35)
+# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #39)
 
-- **Timestamp (UTC)**: `2026-11-09T01:19:37Z`
+- **Timestamp (UTC)**: `2026-11-09T01:41:41Z`
 - **Target Orchestrator Model**: **`gemini-4-argon`** (`Gemini 4 Argon`)
 - **Overall Gate Status**: **`PASS_ALL_GATES`**
 - **Real Drag & Drop E2E (`WebPlayable/tests/drag_e2e.js`)**: `PASS`
-- **Real In-Page Playtest (`?autotest=1`)**: `PASS` (`TEST_COMPLETE:5-4:SINGLETON=true:IMG=true`)
-- **Grounded Skill Checks**: **98 / 98 PASS (100.0%)** — `0 P0`, `0 P1` failures
+- **Real In-Page Playtest (`?autotest=1`)**: `PASS` (`TEST_COMPLETE:6-3:SINGLETON=true:IMG=true`)
+- **Grounded Skill Checks**: **110 / 110 PASS (100.0%)** — `0 P0`, `0 P1` failures
 - **Check Suites Merged**: `Tools/skill_harness/core_checks.json, Datasets/mirofish_gameplay/skills_ai_save_ship/checks.json, Datasets/mirofish_gameplay/skills_art_direction/checks.json, Datasets/mirofish_gameplay/skills_cardgame_ui_input/checks.json, Datasets/mirofish_gameplay/skills_feel_audio_camera_perf/checks.json`
 
 ## 1. Step A — Router & Dual-Engine Composition (`router/SKILL.md`)
@@ -29,23 +29,24 @@
 | :--- | :---: | :---: | :---: | :---: | :--- |
 | `art-direction/tactical-illustrator-library` | 1 | 1 | 0 | **100.0%** | — |
 | `disciplines/ai-behavior-trees-utility-ai` | 5 | 5 | 0 | **100.0%** | — |
+| `disciplines/art-direction` | 2 | 2 | 0 | **100.0%** | — |
 | `disciplines/audio-design` | 5 | 5 | 0 | **100.0%** | — |
 | `disciplines/camera-systems` | 4 | 4 | 0 | **100.0%** | — |
 | `disciplines/create-game-assets` | 15 | 15 | 0 | **100.0%** | — |
 | `disciplines/game-ai` | 4 | 4 | 0 | **100.0%** | — |
-| `disciplines/game-feel` | 11 | 11 | 0 | **100.0%** | — |
-| `disciplines/game-ui-ux` | 12 | 12 | 0 | **100.0%** | — |
+| `disciplines/game-feel` | 13 | 13 | 0 | **100.0%** | — |
+| `disciplines/game-ui-ux` | 18 | 18 | 0 | **100.0%** | — |
 | `disciplines/input-systems` | 6 | 6 | 0 | **100.0%** | — |
 | `disciplines/performance-optimization` | 6 | 6 | 0 | **100.0%** | — |
 | `disciplines/save-systems` | 6 | 6 | 0 | **100.0%** | — |
-| `genres/card-game` | 13 | 13 | 0 | **100.0%** | — |
+| `genres/card-game` | 15 | 15 | 0 | **100.0%** | — |
 | `unity/unity-scriptableobjects` | 5 | 5 | 0 | **100.0%** | — |
 | `workflows/itch-publish` | 2 | 2 | 0 | **100.0%** | — |
 | `workflows/prototype-fast` | 2 | 2 | 0 | **100.0%** | — |
 | `workflows/steam-publish` | 1 | 1 | 0 | **100.0%** | — |
 
 ### Diff vs. Previous Iteration
-- **Previous Iteration**: `34`
+- **Previous Iteration**: `38`
 - **Pass Count Delta**: `+0` (Total checks delta: `+0`)
 - **Newly Passing Checks**: `None`
 - **Newly Failing Checks**: `None`
@@ -91,6 +92,18 @@
 | `core.save_systems.01` | PASS | `P2` | `disciplines/save-systems` | `static_regex` | `skills/disciplines/save-systems/SKILL.md:37` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:1546-1590,1820-1846` |
 | `core.game_ai.01` | PASS | `P2` | `disciplines/game-ai` | `playwright` | `skills/disciplines/game-ai/SKILL.md:36` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:1757-1785` |
 | `core.performance.01` | PASS | `P1` | `disciplines/performance-optimization` | `metric` | `skills/disciplines/performance-optimization/SKILL.md:65` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:1985-2105` |
+| `core.tabletop_real_estate.01` | PASS | `P0` | `disciplines/game-ui-ux` | `playwright` | `skills/disciplines/game-ui-ux/SKILL.md:45` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:22-30,560-595` |
+| `core.tabletop_real_estate.02` | PASS | `P0` | `disciplines/game-ui-ux` | `playwright` | `skills/disciplines/game-ui-ux/SKILL.md:52` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:25-30,275-355` |
+| `core.tabletop_real_estate.03` | PASS | `P1` | `disciplines/game-ui-ux` | `playwright` | `skills/disciplines/game-ui-ux/SKILL.md:64` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:203-226` |
+| `core.tabletop_real_estate.04` | PASS | `P1` | `disciplines/game-ui-ux` | `playwright` | `skills/disciplines/game-ui-ux/SKILL.md:78` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:640-712,3334-3365` |
+| `core.tabletop_real_estate.05` | PASS | `P0` | `genres/card-game` | `playwright` | `skills/genres/card-game/SKILL.md:48` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:426-540,1486-1545` |
+| `core.tabletop_real_estate.06` | PASS | `P1` | `genres/card-game` | `playwright` | `skills/genres/card-game/SKILL.md:62` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:320-421,3580-3612` |
+| `core.tabletop_real_estate.07` | PASS | `P1` | `disciplines/art-direction` | `playwright` | `skills/disciplines/art-direction/SKILL.md:54` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:1136-1195` |
+| `core.tabletop_real_estate.08` | PASS | `P1` | `disciplines/art-direction` | `playwright` | `skills/disciplines/art-direction/SKILL.md:71` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:714-775,3548-3560` |
+| `core.tabletop_real_estate.09` | PASS | `P2` | `disciplines/game-ui-ux` | `playwright` | `skills/disciplines/game-ui-ux/SKILL.md:88` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:596-639,1523-1528` |
+| `core.tabletop_real_estate.10` | PASS | `P1` | `disciplines/game-feel` | `playwright` | `skills/disciplines/game-feel/SKILL.md:49` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:780-798,3541-3545` |
+| `core.tabletop_real_estate.11` | PASS | `P1` | `disciplines/game-feel` | `playwright` | `skills/disciplines/game-feel/SKILL.md:63` | `WebPlayable/cardfront_cradle_of_echoes_playable.html:746-753,2861-2876` |
+| `core.tabletop_real_estate.12` | PASS | `P0` | `disciplines/game-ui-ux` | `metric` | `skills/disciplines/game-ui-ux/SKILL.md:95` | `Tools/skill_harness/assess_tabletop_real_estate.js:1-140` |
 | `ai_save_ship.1` | PASS | `P0` | `disciplines/game-ai` | `static_regex` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-ai/SKILL.md:57-67` | `WebPlayable/cardfront_cradle_of_echoes_playable.html` |
 | `ai_save_ship.2` | PASS | `P1` | `disciplines/ai-behavior-trees-utility-ai` | `static_regex` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:45-57` | `WebPlayable/cardfront_cradle_of_echoes_playable.html` |
 | `ai_save_ship.3` | PASS | `P1` | `disciplines/ai-behavior-trees-utility-ai` | `static_regex` | `/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/ai-behavior-trees-utility-ai/SKILL.md:126-139` | `WebPlayable/cardfront_cradle_of_echoes_playable.html` |

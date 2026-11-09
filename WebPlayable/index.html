@@ -22,8 +22,8 @@
     /* ========================================================================
        TACTILE TABLETOP VIEWPORT SIZING (WIDE 3-COLUMN STONE BOARD + LOW HAND FAN)
        ======================================================================== */
-    --slot-h: clamp(98px, 13.4vh, 126px);
-    --slot-w: clamp(154px, 15.6vw, 196px);
+    --slot-h: clamp(98px, 13.6vh, 142px);
+    --slot-w: clamp(154px, 15.8vw, 268px);
 
     --hand-h: clamp(98px, 13.4vh, 124px);
     --hand-w: calc(var(--hand-h) * 0.94);
@@ -2166,14 +2166,33 @@ const SET1_CARDS_BY_ID = {};
 function getCardStarCost(cardId) {
   const c = getCardMeta(cardId);
   if (!c) return 2;
-  const evo = (typeof state !== "undefined" && state.cardEvolutions && state.cardEvolutions[cardId]) || 0;
   const sum = c.nesw.reduce((s, v) => s + v, 0);
-  const raw = sum >= 30 || evo > 0 ? 3 : sum >= 28 ? 2 : 1;
+  const raw = sum >= 32 ? 3 : sum >= 29 ? 2 : 1;
   return Math.max(1, Math.min(3, raw));
 }
 
 function getSquadTotalStars(deckIds) {
   return (deckIds || []).reduce((sum, id) => sum + getCardStarCost(id), 0);
+}
+
+function enforceSquadStarCap() {
+  if (!state || !Array.isArray(state.activeDeck)) return;
+  let guard = 0;
+  while (getSquadTotalStars(state.activeDeck) > MAX_SQUAD_STARS && guard < 10) {
+    guard++;
+    const lowOwned = state.unlockedCards
+      .filter(id => !state.activeDeck.includes(id))
+      .sort((a, b) => getCardStarCost(a) - getCardStarCost(b));
+    if (lowOwned.length === 0) break;
+    let maxIdx = 0;
+    let maxStar = -1;
+    state.activeDeck.forEach((id, i) => {
+      const s = getCardStarCost(id);
+      if (s > maxStar) { maxStar = s; maxIdx = i; }
+    });
+    if (getCardStarCost(lowOwned[0]) >= maxStar) break;
+    state.activeDeck[maxIdx] = lowOwned[0];
+  }
 }
 
 function getCardMeta(cardId) {
@@ -2369,12 +2388,56 @@ function setDeckFilter(mode) {
 
 function autoBuildBestSquad() {
   const ownedObjs = SET1_60_CATALOG.filter(c => state.unlockedCards.includes(c.id));
-  ownedObjs.sort((a, b) => {
-    const sumA = a.nesw.reduce((s, v) => s + v, 0);
-    const sumB = b.nesw.reduce((s, v) => s + v, 0);
-    return sumB - sumA;
-  });
-  const best5 = ownedObjs.slice(0, 5).map(c => c.id);
+  const factions = ["Aether", "Solaris", "Valkyria", "Chronos", "Abyss"];
+  let bestCombo = null;
+  let bestComboScore = -Infinity;
+
+  // Evaluate each faction-focused squad and balanced squad subject to MAX_SQUAD_STARS (12★)
+  for (const targetFaction of [...factions, null]) {
+    const scored = ownedObjs.map(c => {
+      const statSum = c.nesw.reduce((s, v) => s + v, 0);
+      const star = getCardStarCost(c.id);
+      const facBonus = targetFaction && c.faction === targetFaction ? 2.5 : 0;
+      const effRatio = (statSum + facBonus) / Math.max(1, star * 0.45 + 0.55);
+      return { card: c, statSum, star, facBonus, effRatio };
+    });
+    scored.sort((a, b) => b.effRatio - a.effRatio);
+
+    const chosen = [];
+    let stars = 0;
+    for (const item of scored) {
+      if (chosen.length >= 5) break;
+      const remSlots = 5 - chosen.length - 1;
+      // Ensure remaining slots can be filled within MAX_SQUAD_STARS (min 1★ per slot)
+      if (stars + item.star + remSlots * 1 <= MAX_SQUAD_STARS) {
+        chosen.push(item.card);
+        stars += item.star;
+      }
+    }
+    // Fallback fill with lowest-star owned cards if needed
+    if (chosen.length < 5) {
+      const byLowStar = [...ownedObjs].sort((a, b) => getCardStarCost(a.id) - getCardStarCost(b.id));
+      for (const c of byLowStar) {
+        if (chosen.length >= 5) break;
+        if (!chosen.some(x => x.id === c.id)) {
+          chosen.push(c);
+          stars += getCardStarCost(c.id);
+        }
+      }
+    }
+    if (chosen.length === 5) {
+      const facCounts = {};
+      chosen.forEach(c => { facCounts[c.faction] = (facCounts[c.faction] || 0) + 1; });
+      const maxFacLinks = Math.max(...Object.values(facCounts)) - 1;
+      const totalPower = chosen.reduce((s, c) => s + c.nesw.reduce((a, b) => a + b, 0), 0) + maxFacLinks * 2.2;
+      if (totalPower > bestComboScore && stars <= MAX_SQUAD_STARS) {
+        bestComboScore = totalPower;
+        bestCombo = chosen.map(c => c.id);
+      }
+    }
+  }
+
+  const best5 = bestCombo || ownedObjs.slice(0, 5).map(c => c.id);
   if (best5.length === 5) {
     state.activeDeck = best5;
     state.customDeckEquipped = true;
@@ -2385,9 +2448,10 @@ function autoBuildBestSquad() {
     }
     saveProgressionV3();
     const names = best5.map(id => getCardMeta(id).name).join(" · ");
+    const totalStars = getSquadTotalStars(best5);
     const stEl = document.getElementById("deckbuilder-status");
     if (stEl) {
-      stEl.innerHTML = `⚡ <b>Auto-Built Optimal 5-Card Squad:</b> <b style="color:var(--gold);">${names}</b> (Equipped to Hand).`;
+      stEl.innerHTML = `⚡ <b>Auto-Built Synergy Squad (${totalStars}/${MAX_SQUAD_STARS}★):</b> <b style="color:var(--gold);">${names}</b> (Equipped to Hand).`;
     }
     renderDeckbuilderGrid();
     renderAll();
@@ -2411,8 +2475,23 @@ function toggleDeckCard(cid) {
     if (state.activeDeck.length <= 1) return;
     state.activeDeck.splice(idx, 1);
   } else {
-    if (state.activeDeck.length >= 5) state.activeDeck.shift();
-    state.activeDeck.push(cid);
+    const candidateDeck = [...state.activeDeck];
+    if (candidateDeck.length >= 5) {
+      // Remove highest-cost card if needed to stay within MAX_SQUAD_STARS (12★), else FIFO shift
+      const newStar = getCardStarCost(cid);
+      let dropIdx = 0;
+      if (getSquadTotalStars(candidateDeck) - getCardStarCost(candidateDeck[0]) + newStar > MAX_SQUAD_STARS) {
+        let maxS = -1;
+        candidateDeck.forEach((id, i) => {
+          const s = getCardStarCost(id);
+          if (s > maxS) { maxS = s; dropIdx = i; }
+        });
+      }
+      candidateDeck.splice(dropIdx, 1);
+    }
+    candidateDeck.push(cid);
+    state.activeDeck = candidateDeck;
+    enforceSquadStarCap();
   }
   if (state.isPlayerTurn && state.hand.length === 5 && state.activeDeck.length === 5 && !state.gameOver) {
     state.hand = [...state.activeDeck];
@@ -2422,7 +2501,8 @@ function toggleDeckCard(cid) {
   const stEl = document.getElementById("deckbuilder-status");
   if (stEl) {
     const squadNames = state.activeDeck.map(id => getCardMeta(id).name).join(" · ");
-    stEl.innerHTML = `✅ <b>Active Squad (${state.activeDeck.length}/5):</b> <b style="color:var(--gold);">${squadNames}</b>`;
+    const totalStars = getSquadTotalStars(state.activeDeck);
+    stEl.innerHTML = `✅ <b>Active Squad (${state.activeDeck.length}/5 · ${totalStars}/${MAX_SQUAD_STARS}★):</b> <b style="color:var(--gold);">${squadNames}</b>`;
   }
   renderDeckbuilderGrid();
   renderAll();
@@ -2461,11 +2541,15 @@ function evolveCardCraftUI() {
   if (c) c.nesw = c.nesw.map(v => Math.min(9, v + 1));
   const sc = SET1_CARDS_BY_ID[targetCid];
   if (sc && sc !== c) sc.nesw = sc.nesw.map(v => Math.min(9, v + 1));
+  enforceSquadStarCap();
+  if (state.isPlayerTurn && state.hand.length === 5 && state.activeDeck.length === 5 && !state.gameOver) {
+    state.hand = [...state.activeDeck];
+  }
   playTone(12, "sine", 0.28, true);
   saveProgressionV3();
   const meta = getCardMeta(targetCid);
   document.getElementById("deckbuilder-status").innerHTML =
-    `⚒️ <b>CardCraft Evolution!</b> Upgraded <b style="color:var(--blue-ally);">${meta ? meta.name : targetCid}</b> (+1 All Sides, Lv.${state.cardEvolutions[targetCid]}).`;
+    `⚒️ <b>CardCraft Evolution!</b> Upgraded <b style="color:var(--blue-ally);">${meta ? meta.name : targetCid}</b> (+1 All Sides, Lv.${state.cardEvolutions[targetCid]} · ${getCardStarCost(targetCid)}★).`;
   renderDeckbuilderGrid();
   renderAll();
 }
@@ -2479,13 +2563,17 @@ function renderDeckbuilderGrid() {
     const deckCards = state.activeDeck.map(id => getCardMeta(id)).filter(Boolean);
     const cnt = Math.max(1, deckCards.length);
     const avg = [0, 1, 2, 3].map(d => (deckCards.reduce((s, c) => s + (c.nesw[d] || 0), 0) / cnt).toFixed(1));
-    const chips = deckCards.map(c => `<span style="background:rgba(0,229,255,0.18);border:1px solid var(--gold);color:#fef08a;padding:2px 6px;border-radius:6px;font-weight:800;">★ ${c.name}</span>`).join(" ");
+    const totalStars = getSquadTotalStars(state.activeDeck);
+    const facCounts = {};
+    deckCards.forEach(c => { facCounts[c.faction] = (facCounts[c.faction] || 0) + 1; });
+    const topFacEntry = Object.entries(facCounts).sort((a, b) => b[1] - a[1])[0] || ["Solaris", 1];
+    const chips = deckCards.map(c => `<span style="background:rgba(0,229,255,0.18);border:1px solid var(--gold);color:#fef08a;padding:2px 6px;border-radius:6px;font-weight:800;">${getCardStarCost(c.id)}★ ${c.name}</span>`).join(" ");
     sumEl.innerHTML = `
       <div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;">
-        <b style="color:var(--blue-ally);">SQUAD (${state.activeDeck.length}/5):</b> ${chips}
+        <b style="color:var(--blue-ally);">SQUAD (${state.activeDeck.length}/5 · ${totalStars}/${MAX_SQUAD_STARS}★):</b> ${chips}
       </div>
       <div style="color:#cbd5e1;font-weight:800;">
-        Avg Stats: <span style="color:var(--gold);">N ${avg[0]} · E ${avg[1]} · S ${avg[2]} · W ${avg[3]}</span> · Owned: <b>${state.unlockedCards.length}/60</b>
+        Synergy: <span style="color:#38bdf8;">${topFacEntry[0]} (${topFacEntry[1]}x Link)</span> · Avg Stats: <span style="color:var(--gold);">N ${avg[0]} · E ${avg[1]} · S ${avg[2]} · W ${avg[3]}</span> · Owned: <b>${state.unlockedCards.length}/60</b>
       </div>
     `;
   }
@@ -2500,6 +2588,7 @@ function renderDeckbuilderGrid() {
     const owned = state.unlockedCards.includes(c.id);
     const inDeck = state.activeDeck.includes(c.id);
     const evoLv = state.cardEvolutions[c.id] || 0;
+    const star = getCardStarCost(c.id);
     const item = document.createElement("div");
     item.setAttribute("data-card-id", c.id);
     item.style.cssText = `background:${inDeck ? "rgba(0,229,255,0.16)" : "rgba(15,23,42,0.85)"};border:1.5px solid ${inDeck ? "var(--gold)" : owned ? "#3b82f6" : "#1e293b"};border-radius:8px;padding:6px;cursor:${owned ? "pointer" : "not-allowed"};opacity:${owned ? "1" : "0.45"};font-size:12px;`;
@@ -2508,7 +2597,7 @@ function renderDeckbuilderGrid() {
       <div style="font-weight:800;color:${inDeck ? "var(--gold)" : "#f8fafc"};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
         ${inDeck ? "★ " : owned ? "" : "🔒 "}${c.name}${evoLv > 0 ? " +" + evoLv : ""}
       </div>
-      <div style="color:#94a3b8;font-size:12px;">${c.faction} · [${c.nesw.join("/")}]</div>
+      <div style="color:#94a3b8;font-size:12px;">${star}★ · ${c.faction} · [${c.nesw.join("/")}]</div>
       <div style="color:${c.telegraphColor};font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">⚡ ${c.telegraphName}</div>
     `;
     grid.appendChild(item);
@@ -2960,6 +3049,135 @@ function findClashes(r, c, nesw, owner) {
   return clashes;
 }
 
+function applyFactionLinkSynergy(r, c, cardId, owner) {
+  const myCard = getCardMeta(cardId);
+  const cell = state.grid[r] && state.grid[r][c];
+  if (!myCard || !cell || !myCard.faction) return 0;
+  const dirs = [
+    { dr: -1, dc: 0, myEdge: 0, theirEdge: 2 },
+    { dr: 0,  dc: 1, myEdge: 1, theirEdge: 3 },
+    { dr: 1,  dc: 0, myEdge: 2, theirEdge: 0 },
+    { dr: 0,  dc: -1, myEdge: 3, theirEdge: 1 }
+  ];
+  let links = 0;
+  dirs.forEach(d => {
+    const nr = r + d.dr, nc = c + d.dc;
+    if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3) {
+      const nb = state.grid[nr][nc];
+      if (nb && nb.cardId && nb.owner === owner) {
+        const nbCard = getCardMeta(nb.cardId);
+        if (nbCard && nbCard.faction === myCard.faction) {
+          cell.nesw[d.myEdge] = Math.min(9, cell.nesw[d.myEdge] + 1);
+          nb.nesw[d.theirEdge] = Math.min(9, nb.nesw[d.theirEdge] + 1);
+          links++;
+        }
+      }
+    }
+  });
+  if (links > 0) {
+    state.factionLinksTriggered = (state.factionLinksTriggered || 0) + links;
+  }
+  return links;
+}
+
+function resolveDeployTelegraphPower(r, c, cardId, owner, wasDisrupted = false) {
+  const card = getCardMeta(cardId);
+  const cell = state.grid[r] && state.grid[r][c];
+  if (!card || !cell) return "";
+  state.telegraphPowersTriggered = (state.telegraphPowersTriggered || 0) + 1;
+  const pat = card.telegraphPattern || "";
+  const dirs = [
+    { dr: -1, dc: 0, myEdge: 0, theirEdge: 2 },
+    { dr: 0,  dc: 1, myEdge: 1, theirEdge: 3 },
+    { dr: 1,  dc: 0, myEdge: 2, theirEdge: 0 },
+    { dr: 0,  dc: -1, myEdge: 3, theirEdge: 1 }
+  ];
+
+  if (owner === "ai") {
+    if (wasDisrupted) {
+      cell.nesw = cell.nesw.map((v, i) => (i === 2 || i === 3 ? Math.max(1, v - 1) : v));
+      return "Disrupted (-1)";
+    }
+    if (state.bossTargetSlot && state.bossTargetSlot.r === r && state.bossTargetSlot.c === c && state.stageIndex >= 1) {
+      cell.nesw[0] = Math.min(9, cell.nesw[0] + 1);
+      cell.nesw[1] = Math.min(9, cell.nesw[1] + 1);
+      return "Telegraph Surge (+1 N/E)";
+    }
+    return card.telegraphName;
+  }
+
+  switch (pat) {
+    case "cross": // Solar Archangel: Row & Column allied blessing (+1 N/S)
+      for (let i = 0; i < 3; i++) {
+        if (i !== c && state.grid[r][i].cardId && state.grid[r][i].owner === owner) {
+          state.grid[r][i].nesw[0] = Math.min(9, state.grid[r][i].nesw[0] + 1);
+          state.grid[r][i].nesw[2] = Math.min(9, state.grid[r][i].nesw[2] + 1);
+        }
+        if (i !== r && state.grid[i][c].cardId && state.grid[i][c].owner === owner) {
+          state.grid[i][c].nesw[0] = Math.min(9, state.grid[i][c].nesw[0] + 1);
+          state.grid[i][c].nesw[2] = Math.min(9, state.grid[i][c].nesw[2] + 1);
+        }
+      }
+      return "Solar Cross (+1 Row/Col Allies)";
+    case "wing_ne": // Phoenix Valkyrie: Scorch North & East enemies (-1 defending edge)
+      if (r > 0 && state.grid[r - 1][c].cardId && state.grid[r - 1][c].owner !== owner && !state.grid[r - 1][c].judgeShield) {
+        state.grid[r - 1][c].nesw[2] = Math.max(1, state.grid[r - 1][c].nesw[2] - 1);
+      }
+      if (c < 2 && state.grid[r][c + 1].cardId && state.grid[r][c + 1].owner !== owner && !state.grid[r][c + 1].judgeShield) {
+        state.grid[r][c + 1].nesw[3] = Math.max(1, state.grid[r][c + 1].nesw[3] - 1);
+      }
+      return "Ember Sweep (-1 N/E Foe Defense)";
+    case "lunar_orbit": // Lunar Oracle: Crescent Tidal Ward (+1 S/W to adjacent allies)
+      dirs.forEach(d => {
+        const nr = r + d.dr, nc = c + d.dc;
+        if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && state.grid[nr][nc].cardId && state.grid[nr][nc].owner === owner) {
+          state.grid[nr][nc].nesw[2] = Math.min(9, state.grid[nr][nc].nesw[2] + 1);
+          state.grid[nr][nc].nesw[3] = Math.min(9, state.grid[nr][nc].nesw[3] + 1);
+        }
+      });
+      return "Tidal Ward (+1 S/W Ally Guard)";
+    case "chrono_gear": // Chronos Weaver: Temporal Gear Lock (-1 facing edge on E/S/W foes)
+      dirs.forEach(d => {
+        if (d.myEdge === 0) return;
+        const nr = r + d.dr, nc = c + d.dc;
+        if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && state.grid[nr][nc].cardId && state.grid[nr][nc].owner !== owner && !state.grid[nr][nc].judgeShield) {
+          state.grid[nr][nc].nesw[d.theirEdge] = Math.max(1, state.grid[nr][nc].nesw[d.theirEdge] - 1);
+        }
+      });
+      return "Temporal Lock (-1 E/S/W Foe Edge)";
+    case "trigger_star": // Astral Seraph: Corner Sakuga Flare (+1 N/W in corners)
+      if ((r === 0 || r === 2) && (c === 0 || c === 2)) {
+        cell.nesw[0] = Math.min(9, cell.nesw[0] + 1);
+        cell.nesw[3] = Math.min(9, cell.nesw[3] + 1);
+      }
+      return "Cross-Star (+1 Corner Surge)";
+    case "solideye_lock": // Kai Crimson Visor: Horizontal sniper pierce (-1 E/W on Row foes)
+      for (let col = 0; col < 3; col++) {
+        if (col !== c && state.grid[r][col].cardId && state.grid[r][col].owner !== owner && !state.grid[r][col].judgeShield) {
+          state.grid[r][col].nesw[1] = Math.max(1, state.grid[r][col].nesw[1] - 1);
+          state.grid[r][col].nesw[3] = Math.max(1, state.grid[r][col].nesw[3] - 1);
+        }
+      }
+      return "Solid Eye Pierce (-1 Row Foe E/W)";
+    case "airstrike_chevron": // Sky-Wing Striker: Bonus Tactical Slide refresh + N/E boost
+      cell.nesw[0] = Math.min(9, cell.nesw[0] + 1);
+      if (state.usedSlideThisTurn) state.usedSlideThisTurn = false;
+      return "Orbital Dive (+1 N & Slide Refreshed)";
+    case "judge_hex": // Sun Arbiter: Ivalice Judge Law Shield on self & adjacent allies
+      cell.judgeShield = true;
+      dirs.forEach(d => {
+        const nr = r + d.dr, nc = c + d.dc;
+        if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && state.grid[nr][nc].cardId && state.grid[nr][nc].owner === owner) {
+          state.grid[nr][nc].judgeShield = true;
+          state.grid[nr][nc].nesw[2] = Math.min(9, state.grid[nr][nc].nesw[2] + 1);
+        }
+      });
+      return "Judge Law Aegis (Shield +1 S)";
+    default:
+      return card.telegraphName;
+  }
+}
+
 function handleSlotClick(r, c) {
   if (!state.isPlayerTurn || state.gameOver) return;
   if (drag.active || drag.pending) {
@@ -2993,13 +3211,16 @@ function handleSlotClick(r, c) {
       cell.cardId = src.cardId;
       cell.owner = "player";
       cell.nesw = getCardEffectiveStats(cell.cardId, c, false);
+      cell.judgeShield = Boolean(src.judgeShield);
       cell.justPlaced = true;
 
       src.cardId = null;
       src.owner = null;
       src.nesw = [0, 0, 0, 0];
+      src.judgeShield = false;
       state.selectedBoardSlot = null;
 
+      applyFactionLinkSynergy(r, c, cell.cardId, "player");
       const flips = findCaptures(r, c, cell.nesw, "player");
       flips.forEach(f => {
         state.grid[f.nr][f.nc].owner = "player";
@@ -3042,6 +3263,9 @@ function handleSlotClick(r, c) {
   cell.justPlaced = true;
   state.selectedBoardSlot = null;
 
+  const teleEffectLabel = resolveDeployTelegraphPower(r, c, cardId, "player", false);
+  const facLinks = applyFactionLinkSynergy(r, c, cardId, "player");
+
   const flips = findCaptures(r, c, cell.nesw, "player");
   flips.forEach(f => {
     state.grid[f.nr][f.nc].owner = "player";
@@ -3060,9 +3284,10 @@ function handleSlotClick(r, c) {
   playTone(flips.length > 0 ? 9 : 3, "triangle", 0.24, flips.length > 0);
   const bannerEl = document.getElementById("last-move-banner");
   if (bannerEl) {
+    const linkTag = facLinks > 0 ? ` · 🔗 +${facLinks} Faction Link` : "";
     bannerEl.innerHTML = flips.length > 0
-      ? `⚡ <b>${deployedCard.telegraphName}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)!`
-      : `🟦 Deployed <b>${deployedCard.name}</b> (${deployedCard.telegraphName}) to Col ${c + 1}.`;
+      ? `⚡ <b>${teleEffectLabel}!</b> <b>${deployedCard.name}</b> captured <b>${flips.length}</b> Red card(s)${linkTag}!`
+      : `🟦 Deployed <b>${deployedCard.name}</b> (${teleEffectLabel}${linkTag}) to Col ${c + 1}.`;
     clearTimeout(state.hintDismissTimer);
     state.hintDismissTimer = setTimeout(() => { bannerEl.classList.add("dismissed"); }, 2200);
   }
@@ -3073,6 +3298,47 @@ function handleSlotClick(r, c) {
   if (checkGameOver()) return;
   state.bossTurnTimer = setTimeout(executeBossTurn, 650);
   bossTurnTimer = state.bossTurnTimer;
+}
+
+function scoreBossSlotCandidate(slot, candidateId) {
+  const stats = getCardEffectiveStats(candidateId, slot.c, true);
+  const immediateFlips = findCaptures(slot.r, slot.c, stats, "ai").length;
+  const captures = immediateFlips;
+  const dirs = [
+    { dr: -1, dc: 0, edge: 0, oppEdge: 2 },
+    { dr: 0,  dc: 1, edge: 1, oppEdge: 3 },
+    { dr: 1,  dc: 0, edge: 2, oppEdge: 0 },
+    { dr: 0,  dc: -1, edge: 3, oppEdge: 1 }
+  ];
+  let exposedEdges = 0;
+  let edgeSafetySum = 0;
+  let playerCounterRisk = 0;
+  dirs.forEach(d => {
+    const nr = slot.r + d.dr, nc = slot.c + d.dc;
+    if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && !state.grid[nr][nc].cardId) {
+      exposedEdges++;
+      edgeSafetySum += stats[d.edge] / 9.0;
+      // 2-Ply lookahead: check if any card in player's hand can counter-capture this edge next turn
+      if (state.hand && state.hand.length > 0) {
+        const canRecapture = state.hand.some(hId => {
+          const pStats = getCardEffectiveStats(hId, nc, false);
+          return pStats[d.oppEdge] > stats[d.edge];
+        });
+        if (canRecapture) playerCounterRisk += 0.25;
+      }
+    } else {
+      edgeSafetySum += 1.0;
+    }
+  });
+  const edgeExposure = exposedEdges / 4.0;
+  const cornerControl = (slot.r !== 1 && slot.c !== 1) ? 0.08 : 0.0;
+  const centerControl = (slot.r === 1 && slot.c === 1) ? 0.06 : 0.0;
+  const cCapture = Math.min(1.0, (captures + 0.25) / 3.25);
+  const cEdgeSafety = edgeSafetySum / 4.0;
+  const cCounterResistance = Math.max(0.15, 1.0 - edgeExposure * 0.35 - playerCounterRisk * 0.22);
+  const combined = cCapture * (cEdgeSafety + 0.15) * cCounterResistance;
+  const utilityScore = compensate(Math.min(1.0, combined), 3) + immediateFlips * 0.45 + cornerControl + centerControl;
+  return { utilityScore, immediateFlips, exposedEdges, cEdgeSafety, cCounterResistance, stats };
 }
 
 function telegraphBossIntent() {
@@ -3098,14 +3364,14 @@ function telegraphBossIntent() {
   if (crestTeleEl) crestTeleEl.textContent = `⚠️ TELEGRAPH: ${nextCard.telegraphName} - Next Construct: ${nextCard.name}`;
 
   let targetSlot = null;
-  let bestFlips = -1;
+  let bestScore = -Infinity;
   for (let r = 0; r < 3; r++) {
     for (let c = 0; c < 3; c++) {
       if (state.grid && state.grid[r] && state.grid[r][c] && !state.grid[r][c].cardId) {
-        const flips = findCaptures(r, c, eff, "ai").length;
-        if (flips > bestFlips) {
-          bestFlips = flips;
-          targetSlot = { r, c, cardId: nextId, name: nextCard.name, eff };
+        const sc = scoreBossSlotCandidate({ r, c }, nextId);
+        if (sc.utilityScore > bestScore) {
+          bestScore = sc.utilityScore;
+          targetSlot = { r, c, cardId: nextId, name: nextCard.name, eff: sc.stats };
         }
       }
     }
@@ -3134,6 +3400,30 @@ function executeBossTurn() {
     return;
   }
 
+  // Check if player disrupted the Boss's committed telegraph target slot
+  const committedTarget = state.bossTargetSlot;
+  let wasDisrupted = false;
+  if (
+    committedTarget &&
+    state.grid[committedTarget.r] &&
+    state.grid[committedTarget.r][committedTarget.c] &&
+    state.grid[committedTarget.r][committedTarget.c].cardId &&
+    state.grid[committedTarget.r][committedTarget.c].owner === "player"
+  ) {
+    wasDisrupted = true;
+    state.telegraphDisruptedCount = (state.telegraphDisruptedCount || 0) + 1;
+  }
+
+  // Boss Column Dice Contest on Act II–V: if player has all 3 columns boosted, Boss drains 1 pip from a Pip-4 column
+  if (state.stageIndex >= 1 && state.colDice.filter(d => d >= 4).length >= 3) {
+    const drainCol = state.colDice.findIndex(d => d === 4);
+    if (drainCol >= 0) {
+      state.colDice[drainCol] = 3;
+      state.bossDiceDrains = (state.bossDiceDrains || 0) + 1;
+      recalcBoardStats();
+    }
+  }
+
   let bestSlot = open[0];
   let bestCardIdx = state.aiPool.length - 1;
   let bestUtility = -Infinity;
@@ -3147,18 +3437,26 @@ function executeBossTurn() {
       const immediateFlips = findCaptures(slot.r, slot.c, stats, "ai").length;
       const captures = immediateFlips;
       const dirs = [
-        { dr: -1, dc: 0, edge: 0 },
-        { dr: 0,  dc: 1, edge: 1 },
-        { dr: 1,  dc: 0, edge: 2 },
-        { dr: 0,  dc: -1, edge: 3 }
+        { dr: -1, dc: 0, edge: 0, oppEdge: 2 },
+        { dr: 0,  dc: 1, edge: 1, oppEdge: 3 },
+        { dr: 1,  dc: 0, edge: 2, oppEdge: 0 },
+        { dr: 0,  dc: -1, edge: 3, oppEdge: 1 }
       ];
       let exposedEdges = 0;
       let edgeSafetySum = 0;
+      let playerCounterRisk = 0;
       dirs.forEach(d => {
         const nr = slot.r + d.dr, nc = slot.c + d.dc;
         if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && !state.grid[nr][nc].cardId) {
           exposedEdges++;
           edgeSafetySum += stats[d.edge] / 9.0;
+          if (state.hand && state.hand.length > 0) {
+            const canRecapture = state.hand.some(hId => {
+              const pStats = getCardEffectiveStats(hId, nc, false);
+              return pStats[d.oppEdge] > stats[d.edge];
+            });
+            if (canRecapture) playerCounterRisk += 0.25;
+          }
         } else {
           edgeSafetySum += 1.0;
         }
@@ -3166,11 +3464,15 @@ function executeBossTurn() {
       const edgeExposure = exposedEdges / 4.0;
       const cornerControl = (slot.r !== 1 && slot.c !== 1) ? 0.08 : 0.0;
       const centerControl = (slot.r === 1 && slot.c === 1) ? 0.06 : 0.0;
+      const telegraphCommitBonus =
+        (!wasDisrupted && committedTarget && committedTarget.r === slot.r && committedTarget.c === slot.c)
+          ? 0.09
+          : 0.0;
       const cCapture = Math.min(1.0, (captures + 0.25) / 3.25);
       const cEdgeSafety = edgeSafetySum / 4.0;
-      const cCounterResistance = 1.0 - edgeExposure * 0.35;
+      const cCounterResistance = Math.max(0.15, 1.0 - edgeExposure * 0.35 - playerCounterRisk * 0.20);
       const combined = cCapture * (cEdgeSafety + 0.15) * cCounterResistance;
-      const utilityScore = compensate(Math.min(1.0, combined), 3) + immediateFlips * 0.45 + cornerControl + centerControl;
+      const utilityScore = compensate(Math.min(1.0, combined), 3) + immediateFlips * 0.45 + cornerControl + centerControl + telegraphCommitBonus;
       const tieBreak = seededRng() * 0.015;
       const totalScore = utilityScore + tieBreak;
       if (totalScore > bestUtility) {
@@ -3188,6 +3490,9 @@ function executeBossTurn() {
   cell.nesw = getCardEffectiveStats(aiCardId, bestSlot.c, true);
   cell.justPlaced = true;
 
+  const bossTeleLabel = resolveDeployTelegraphPower(bestSlot.r, bestSlot.c, aiCardId, "ai", wasDisrupted);
+  applyFactionLinkSynergy(bestSlot.r, bestSlot.c, aiCardId, "ai");
+
   const flips = findCaptures(bestSlot.r, bestSlot.c, cell.nesw, "ai");
   flips.forEach(f => {
     state.grid[f.nr][f.nc].owner = "ai";
@@ -3202,9 +3507,10 @@ function executeBossTurn() {
   updateTelegraphHud(aiCardId);
   telegraphBossIntent();
   playTone(flips.length > 0 ? -4 : -1, "sawtooth", 0.22, flips.length > 0);
+  const disruptPrefix = wasDisrupted ? "🛡️ <b>TELEGRAPH DISRUPTED (-1)!</b> " : "";
   document.getElementById("last-move-banner").innerHTML = flips.length > 0
-    ? `⚠️ <b>${aiCard.telegraphName}:</b> <b>${aiCard.name}</b> flipped <b>${flips.length}</b> of your cards!`
-    : `🟥 Boss deployed <b>${aiCard.name}</b> (${aiCard.telegraphName}) at (${bestSlot.r + 1},${bestSlot.c + 1}).`;
+    ? `${disruptPrefix}⚠️ <b>${bossTeleLabel}:</b> <b>${aiCard.name}</b> flipped <b>${flips.length}</b> of your cards!`
+    : `${disruptPrefix}🟥 Boss deployed <b>${aiCard.name}</b> (${bossTeleLabel}) at (${bestSlot.r + 1},${bestSlot.c + 1}).`;
 
   state.isPlayerTurn = true;
   state.usedSlideThisTurn = false;
