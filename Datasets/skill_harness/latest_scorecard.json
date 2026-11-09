@@ -1,14 +1,14 @@
 {
-  "iteration": 163,
-  "timestamp_utc": "2026-11-09T10:55:15Z",
+  "iteration": 176,
+  "timestamp_utc": "2026-11-09T11:51:48Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
     "autotest_title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
-    "total_checks": 138,
-    "passed_checks": 138,
+    "total_checks": 142,
+    "passed_checks": 142,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -76,6 +76,7 @@
       "cardgame_ui_input.8",
       "cardgame_ui_input.9",
       "core.act_mutators.01",
+      "core.act_mutators.02",
       "core.audio_design.01",
       "core.card_game.01",
       "core.card_game.02",
@@ -97,6 +98,7 @@
       "core.game_ui_ux.04",
       "core.input_systems.01",
       "core.lan_pvp.01",
+      "core.lan_pvp.02",
       "core.next_gen_tabletop.01",
       "core.next_gen_tabletop.02",
       "core.next_gen_tabletop.03",
@@ -137,6 +139,8 @@
       "core.unity6_tcg_rea_baseline.02",
       "core.unity6_tcg_rea_baseline.03",
       "core.unity6_tcg_rea_baseline.04",
+      "core.unity6_tcg_rea_baseline.05",
+      "core.unity6_tcg_rea_baseline.06",
       "core.unity_so.01",
       "core.unity_so.02",
       "feel_audio_camera_perf.1",
@@ -163,16 +167,14 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 162,
+    "previous_iteration": 175,
     "newly_passing_checks": [
-      "core.act_mutators.01",
-      "core.lan_pvp.01",
-      "core.release_pkg.01",
-      "core.sakuga_v100.06"
+      "core.act_mutators.02",
+      "core.lan_pvp.02"
     ],
     "newly_failing_checks": [],
-    "pass_count_delta": 4,
-    "total_checks_delta": 4
+    "pass_count_delta": 2,
+    "total_checks_delta": 2
   },
   "step_a_router": {
     "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
@@ -272,7 +274,7 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 6607.2
+      "elapsed_ms": 6749.5
     },
     "autotest": {
       "ran": true,
@@ -281,10 +283,10 @@
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8561,
+      "elapsed_ms": 9094,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T10:55:04.035Z",
+        "timestamp": "2026-11-09T11:51:34.469Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -1409,6 +1411,70 @@
         "priority": "P1",
         "code_ref": "Backend/build_macos_and_itch_release.py:25-125",
         "remediation": "Run python3 Backend/build_macos_and_itch_release.py to package the macOS .app bundle and itch.io release archive.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.05",
+        "skill": "unity/unity-build-pipeline",
+        "rule": "Standalone macOS (StandaloneOSX / OSXUniversal) Player Build & Runtime Verification: BuildPipeline.BuildPlayer outputs Builds/MacOS/CARDFRONT_CradleOfEchoes.app with 0 errors and the compiled Mach-O player binary passes runtime verification.",
+        "source": "skills/unity/unity-build-pipeline/SKILL.md:64",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Assets/Scripts/Editor/UnityHeadlessAgentCLI.cs:175-260",
+        "remediation": "Run UnityHeadlessAgentCLI.BuildMacOSStandaloneAndRunLanSimulation in Unity 6000.6.8f1 batchmode to build Builds/MacOS/CARDFRONT_CradleOfEchoes.app.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.06",
+        "skill": "unity/unity-netcode-multiplayer",
+        "rule": "Headless TCP/IPv4 Loopback LAN Multiplayer Duel between 2 TcgEngine Instances: 2 TCP clients connect over 127.0.0.1, exchange >= 45 packets across opcodes 1060/1062/1064/1010/1030, trigger 3x3 directional captures, and achieve 100% FNV-1a state hash lockstep parity.",
+        "source": "skills/unity/unity-netcode-multiplayer/SKILL.md:72",
+        "target": "unity",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:1170-1460",
+        "remediation": "Run SynapseLanMultiplayerSimulator.RunLoopbackLanMatch to verify 2-instance TCP loopback LAN multiplayer lockstep parity.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.lan_pvp.02",
+        "skill": "unity/unity-netcode-multiplayer",
+        "rule": "Interactive LAN 1v1 & Echo-Ghost PvP Dossier Modal (#lan-pvp-modal): openLanGhostLobbyModal() and challengeEchoGhost() load an HMAC-SHA256 EchoGhostSnapshot opponent onto the 3x3 board and trigger its 24fps Sakuga Cut-In.",
+        "source": "skills/unity/unity-netcode-multiplayer/SKILL.md:68",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1936-1954,4425-4490",
+        "remediation": "Include #lan-pvp-modal and implement challengeEchoGhost(ghostId) and openLanGhostLobbyModal() in WebPlayable.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.act_mutators.02",
+        "skill": "genres/card-game",
+        "rule": "On-Board Center Socket (1,1) Mnemosyne Constellation Resonance & Okitsu Tie-Surge Capture: applyStageMutatorToSocket(1,1,4) grants +1 All Sides & +50 Coins on Act II+, and state.forceOkitsuTieSurge enables equal-pip captures.",
+        "source": "skills/genres/card-game/SKILL.md:88",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P1",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:3584-3606,4410-4424",
+        "remediation": "Implement applyStageMutatorToSocket(r, c, stageIdx) in WebPlayable.",
         "origin": "Tools/skill_harness/core_checks.json",
         "error": null
       },
@@ -2747,8 +2813,8 @@
     "per_skill": {
       "genres/card-game": {
         "skill": "genres/card-game",
-        "total": 17,
-        "passed": 17,
+        "total": 18,
+        "passed": 18,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2859,16 +2925,16 @@
       },
       "unity/unity-build-pipeline": {
         "skill": "unity/unity-build-pipeline",
-        "total": 1,
-        "passed": 1,
+        "total": 2,
+        "passed": 2,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "unity/unity-netcode-multiplayer": {
         "skill": "unity/unity-netcode-multiplayer",
-        "total": 2,
-        "passed": 2,
+        "total": 4,
+        "passed": 4,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -2931,5 +2997,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 24801.4
+  "elapsed_ms": 28959.9
 }

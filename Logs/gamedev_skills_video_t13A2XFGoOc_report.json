@@ -1,7 +1,7 @@
 {
   "latest_iteration": {
-    "iteration": 162,
-    "timestamp_utc": "2026-11-09T10:51:54Z",
+    "iteration": 175,
+    "timestamp_utc": "2026-11-09T11:51:09Z",
     "video_id": "t13A2XFGoOc",
     "target_model": "gemini-4-argon",
     "active_track": {
@@ -43,8 +43,8 @@
       "drag_e2e_passed": true,
       "autotest_e2e_passed": true,
       "autotest_title": "TEST_COMPLETE:5-4:SINGLETON=true:IMG=true",
-      "total_checks": 134,
-      "passed_checks": 134,
+      "total_checks": 140,
+      "passed_checks": 140,
       "failed_checks": 0,
       "pass_rate_pct": 100.0,
       "p0_failures": 0,
@@ -111,6 +111,7 @@
         "cardgame_ui_input.7",
         "cardgame_ui_input.8",
         "cardgame_ui_input.9",
+        "core.act_mutators.01",
         "core.audio_design.01",
         "core.card_game.01",
         "core.card_game.02",
@@ -131,6 +132,7 @@
         "core.game_ui_ux.03",
         "core.game_ui_ux.04",
         "core.input_systems.01",
+        "core.lan_pvp.01",
         "core.next_gen_tabletop.01",
         "core.next_gen_tabletop.02",
         "core.next_gen_tabletop.03",
@@ -144,11 +146,13 @@
         "core.next_gen_tabletop.11",
         "core.next_gen_tabletop.12",
         "core.performance.01",
+        "core.release_pkg.01",
         "core.sakuga_v100.01",
         "core.sakuga_v100.02",
         "core.sakuga_v100.03",
         "core.sakuga_v100.04",
         "core.sakuga_v100.05",
+        "core.sakuga_v100.06",
         "core.save_systems.01",
         "core.tabletop_real_estate.01",
         "core.tabletop_real_estate.02",
@@ -169,6 +173,8 @@
         "core.unity6_tcg_rea_baseline.02",
         "core.unity6_tcg_rea_baseline.03",
         "core.unity6_tcg_rea_baseline.04",
+        "core.unity6_tcg_rea_baseline.05",
+        "core.unity6_tcg_rea_baseline.06",
         "core.unity_so.01",
         "core.unity_so.02",
         "feel_audio_camera_perf.1",
@@ -210,8 +216,8 @@
     "per_skill_scorecard": {
       "genres/card-game": {
         "skill": "genres/card-game",
-        "total": 16,
-        "passed": 16,
+        "total": 17,
+        "passed": 17,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -234,8 +240,8 @@
       },
       "disciplines/create-game-assets": {
         "skill": "disciplines/create-game-assets",
-        "total": 18,
-        "passed": 18,
+        "total": 19,
+        "passed": 19,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -322,16 +328,24 @@
       },
       "unity/unity-build-pipeline": {
         "skill": "unity/unity-build-pipeline",
-        "total": 1,
-        "passed": 1,
+        "total": 2,
+        "passed": 2,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
       },
       "unity/unity-netcode-multiplayer": {
         "skill": "unity/unity-netcode-multiplayer",
-        "total": 1,
-        "passed": 1,
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "workflows/itch-publish": {
+        "skill": "workflows/itch-publish",
+        "total": 3,
+        "passed": 3,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -346,14 +360,6 @@
       },
       "workflows/prototype-fast": {
         "skill": "workflows/prototype-fast",
-        "total": 2,
-        "passed": 2,
-        "failed": 0,
-        "pass_rate": 100.0,
-        "failed_ids": []
-      },
-      "workflows/itch-publish": {
-        "skill": "workflows/itch-publish",
         "total": 2,
         "passed": 2,
         "failed": 0,
@@ -532,7 +538,7 @@
       "upstream_gamedev_skills_count": 77,
       "custom_synapse_skills_count": 15
     },
-    "elapsed_ms": 24682.14
+    "elapsed_ms": 25456.13
   },
   "video_and_catalog": {
     "video_analysis": {

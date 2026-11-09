@@ -983,5 +983,67 @@
     "priority": "P1",
     "code_ref": "Backend/build_macos_and_itch_release.py:25-125",
     "remediation": "Run python3 Backend/build_macos_and_itch_release.py to package the macOS .app bundle and itch.io release archive."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.05",
+    "skill": "unity/unity-build-pipeline",
+    "rule": "Standalone macOS (StandaloneOSX / OSXUniversal) Player Build & Runtime Verification: BuildPipeline.BuildPlayer outputs Builds/MacOS/CARDFRONT_CradleOfEchoes.app with 0 errors and the compiled Mach-O player binary passes runtime verification.",
+    "source": "skills/unity/unity-build-pipeline/SKILL.md:64",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/unity_6000_macos_build_report.json",
+      "expression": "data['buildResult'] == 'Succeeded' and data['totalErrors'] == 0 and data['totalSizeBytes'] > 100000000 and data['status'] == 'PASS_MACOS_STANDALONE_BUILD_AND_LAN_MULTIPLAYER'"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Assets/Scripts/Editor/UnityHeadlessAgentCLI.cs:175-260",
+    "remediation": "Run UnityHeadlessAgentCLI.BuildMacOSStandaloneAndRunLanSimulation in Unity 6000.6.8f1 batchmode to build Builds/MacOS/CARDFRONT_CradleOfEchoes.app."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.06",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "Headless TCP/IPv4 Loopback LAN Multiplayer Duel between 2 TcgEngine Instances: 2 TCP clients connect over 127.0.0.1, exchange >= 45 packets across opcodes 1060/1062/1064/1010/1030, trigger 3x3 directional captures, and achieve 100% FNV-1a state hash lockstep parity.",
+    "source": "skills/unity/unity-netcode-multiplayer/SKILL.md:72",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/unity_6000_lan_multiplayer_report.json",
+      "expression": "data['status'] == 'PASS_HEADLESS_LAN_MULTIPLAYER_SIMULATION' and data['tcpClientsConnected'] == 2 and data['tcpPacketsExchanged'] >= 45 and data['directionalCapturesTriggered'] >= 2 and data['stateHashLockstepParity'] is True and data['finalServerStateHashHex'] == data['finalClient0StateHashHex'] == data['finalClient1StateHashHex']"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs:1170-1460",
+    "remediation": "Run SynapseLanMultiplayerSimulator.RunLoopbackLanMatch to verify 2-instance TCP loopback LAN multiplayer lockstep parity."
+  },
+  {
+    "id": "core.lan_pvp.02",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "Interactive LAN 1v1 & Echo-Ghost PvP Dossier Modal (#lan-pvp-modal): openLanGhostLobbyModal() and challengeEchoGhost() load an HMAC-SHA256 EchoGhostSnapshot opponent onto the 3x3 board and trigger its 24fps Sakuga Cut-In.",
+    "source": "skills/unity/unity-netcode-multiplayer/SKILL.md:68",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const modal = document.getElementById('lan-pvp-modal'); if (!modal || typeof challengeEchoGhost !== 'function') return false; const g = challengeEchoGhost('ghost_OkitsuArbiter_1780'); const b = document.getElementById('boss-cutin-banner'); if (b) b.classList.remove('active'); return !!g && g.ghost_id === 'ghost_OkitsuArbiter_1780' && state.activeEchoGhost && state.activeEchoGhost.elo_rating === 1780; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:1936-1954,4425-4490",
+    "remediation": "Include #lan-pvp-modal and implement challengeEchoGhost(ghostId) and openLanGhostLobbyModal() in WebPlayable."
+  },
+  {
+    "id": "core.act_mutators.02",
+    "skill": "genres/card-game",
+    "rule": "On-Board Center Socket (1,1) Mnemosyne Constellation Resonance & Okitsu Tie-Surge Capture: applyStageMutatorToSocket(1,1,4) grants +1 All Sides & +50 Coins on Act II+, and state.forceOkitsuTieSurge enables equal-pip captures.",
+    "source": "skills/genres/card-game/SKILL.md:88",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { if (typeof applyStageMutatorToSocket !== 'function') return false; const prevCell = JSON.parse(JSON.stringify(state.grid[1][1])); const prevCoins = state.coins; state.grid[1][1] = { cardId: 'h_archangel', owner: 'player', nesw: [6, 6, 6, 6] }; const res = applyStageMutatorToSocket(1, 1, 4); const ok = res && res.applied === true && state.grid[1][1].nesw[0] === 7 && state.coins === prevCoins + 50; state.grid[1][1] = prevCell; state.coins = prevCoins; return ok; })()"
+    },
+    "expect": "true",
+    "priority": "P1",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:3584-3606,4410-4424",
+    "remediation": "Implement applyStageMutatorToSocket(r, c, stageIdx) in WebPlayable."
   }
 ]

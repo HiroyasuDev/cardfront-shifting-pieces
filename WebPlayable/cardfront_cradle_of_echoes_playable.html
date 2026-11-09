@@ -1933,6 +1933,26 @@
   </div>
 </div>
 
+<!-- LIVE 2-MACBOOK LAN 1V1 ROOM & ECHO-GHOST PVP LOBBY MODAL -->
+<div class="modal-backdrop" id="lan-pvp-modal" role="dialog" aria-modal="true" aria-labelledby="lan-pvp-title">
+  <div class="modal-box" style="max-width:740px;width:95%;max-height:86vh;overflow-y:auto;text-align:left;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2b4478;padding-bottom:8px;flex-wrap:wrap;gap:8px;">
+      <div>
+        <div style="font-size:12px;font-weight:900;color:#2ee6d3;letter-spacing:1px;">TCG ENGINE NETWORK · LIVE 2-MACBOOK LAN &amp; ECHO-GHOST PVP</div>
+        <h3 id="lan-pvp-title" style="font-size:18px;font-weight:900;color:#fff;">Room CITADEL-1 (0.0.0.0:8096) &amp; HMAC-SHA256 Ghost Roster</h3>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button id="lan-upload-ghost-btn" onclick="saveLanEchoGhostSnapshot('MacBook-Sovereign')" style="background:linear-gradient(135deg,#0284c7,#1d4ed8);border-color:#7dd3fc;">Upload My Squad as Echo-Ghost</button>
+        <button onclick="closeLanGhostLobbyModal()">Close</button>
+      </div>
+    </div>
+    <div id="lan-room-status-banner" style="font-size:12px;color:#e2e8f0;background:rgba(15,23,42,0.92);padding:8px 10px;border-radius:8px;border:1px solid rgba(46,230,211,0.45);margin:6px 0;">
+      LAN Room: <b>CITADEL-1</b> · Endpoint: <b>http://192.168.86.125:8096</b> · Status: Ready for 2-MacBook Duel
+    </div>
+    <div id="lan-ghost-roster-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;padding:6px 0;"></div>
+  </div>
+</div>
+
 <!-- PRODUCTION STAGE 2 MODAL 1: 60-CARD SET 1 DECKBUILDER, BOOSTER PACKS & CARDCRAFT FORGE -->
 <div class="modal-backdrop" id="deckbuilder-modal">
   <div class="modal-box" style="max-width:860px;width:95%;max-height:86vh;overflow-y:auto;text-align:left;">
@@ -3568,12 +3588,16 @@ function findCaptures(r, c, nesw, owner) {
     { dr: 1,  dc: 0, myEdge: 2, theirEdge: 0, dirName: "S" },
     { dr: 0,  dc: -1, myEdge: 3, theirEdge: 1, dirName: "W" }
   ];
+  const tieSurge = !!(state && state.forceOkitsuTieSurge);
   const captured = [];
   dirs.forEach(d => {
     const nr = r + d.dr, nc = c + d.dc;
     if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3) {
       const nb = state.grid[nr][nc];
-      if (nb.cardId && nb.owner !== owner && nesw[d.myEdge] > nb.nesw[d.theirEdge]) {
+      const beatsNeighbor = tieSurge
+        ? (nesw[d.myEdge] >= nb.nesw[d.theirEdge])
+        : (nesw[d.myEdge] > nb.nesw[d.theirEdge]);
+      if (nb.cardId && nb.owner !== owner && beatsNeighbor) {
         captured.push({ nr, nc, myVal: nesw[d.myEdge], theirVal: nb.nesw[d.theirEdge], dirName: d.dirName });
       }
     }
@@ -4357,16 +4381,19 @@ async function pushLanRoomUpdate(actionType = "sync_state", summary = "Tabletop 
   try {
     const scores = getScores();
     const mut = evaluateStageTabletopMutator(state.stageIndex);
+    const flatBoard = (state.grid ? state.grid.flat() : []).map(cell =>
+      cell && cell.cardId ? { id: cell.cardId, owner: cell.owner, nesw: cell.nesw } : null
+    );
     const payload = {
       room_id: state.lanMultiplayer.roomId || "CITADEL-1",
       action: actionType,
       actor: state.lanMultiplayer.role || "host",
-      turn: state.turn,
+      turn: state.isPlayerTurn ? "player" : "ai",
       stageIndex: state.stageIndex,
       activeMutator: mut.mutatorId,
       colDice: state.colDice.slice(),
       scores: { player: scores.blue, enemy: scores.red },
-      board: state.board.map(cell => cell ? { id: cell.id, owner: cell.owner, nesw: cell.nesw } : null),
+      board: flatBoard,
       summary
     };
     const res = await fetch("/api/lan/room", {
@@ -4383,6 +4410,84 @@ async function pushLanRoomUpdate(actionType = "sync_state", summary = "Tabletop 
     }
   } catch (_e) {}
   return null;
+}
+
+function applyStageMutatorToSocket(r, c, stageIdx = state.stageIndex) {
+  const mut = evaluateStageTabletopMutator(stageIdx);
+  const cell = state.grid && state.grid[r] && state.grid[r][c];
+  if (!cell || !cell.cardId) return { applied: false, mutatorId: mut.mutatorId };
+  if (mut.centerConstellationNode && r === 1 && c === 1) {
+    cell.nesw = cell.nesw.map(v => Math.min(9, v + 1));
+    cell.constellationResonance = true;
+    state.coins = (state.coins || 0) + 50;
+    return { applied: true, mutatorId: mut.mutatorId, bonusAllStats: 1, bonusGold: 50 };
+  }
+  return { applied: false, mutatorId: mut.mutatorId };
+}
+
+function challengeEchoGhost(ghostId = "ghost_AlphaSovereign_1650") {
+  const defaultRoster = [
+    {
+      ghost_id: "ghost_AlphaSovereign_1650",
+      player_username: "AlphaSovereign (MacBook-Pro-LAN)",
+      elo_rating: 1650,
+      chapter_progress: 12,
+      card_ids: ["h_archangel", "h_valkyrie", "h_oracle", "h_seraph", "h_arbiter"]
+    },
+    {
+      ghost_id: "ghost_OkitsuArbiter_1780",
+      player_username: "OkitsuArbiter (Citadel-Champion)",
+      elo_rating: 1780,
+      chapter_progress: 19,
+      card_ids: ["plugin_01_tcg_creative_designer", "plugin_02_parallel_swarm_orchestrator", "plugin_03_jev_system_one", "plugin_04_mlx_apple_silicon", "h_chronos"]
+    }
+  ];
+  const pool = (state.lanMultiplayer && state.lanMultiplayer.echoGhosts && state.lanMultiplayer.echoGhosts.length)
+    ? state.lanMultiplayer.echoGhosts
+    : defaultRoster;
+  const ghost = pool.find(g => g.ghost_id === ghostId) || pool[0];
+  state.activeEchoGhost = ghost;
+  const crestName = document.getElementById("boss-crest-name");
+  if (crestName) {
+    crestName.textContent = `ECHO GHOST · ${ghost.player_username.toUpperCase()} (${ghost.elo_rating} ELO)`;
+  }
+  const leadCardId = (ghost.card_ids && ghost.card_ids[0]) || "h_archangel";
+  triggerSakugaCardCutIn(leadCardId);
+  closeLanGhostLobbyModal();
+  return ghost;
+}
+
+async function openLanGhostLobbyModal() {
+  const modal = document.getElementById("lan-pvp-modal");
+  if (!modal) return false;
+  await fetchLanEchoGhosts();
+  const grid = document.getElementById("lan-ghost-roster-grid");
+  if (grid) {
+    grid.innerHTML = "";
+    const ghosts = (state.lanMultiplayer.echoGhosts && state.lanMultiplayer.echoGhosts.length)
+      ? state.lanMultiplayer.echoGhosts
+      : [
+          { ghost_id: "ghost_AlphaSovereign_1650", player_username: "AlphaSovereign (MacBook-Pro-LAN)", elo_rating: 1650, chapter_progress: 12, card_ids: ["h_archangel", "h_valkyrie", "h_oracle", "h_seraph", "h_arbiter"] },
+          { ghost_id: "ghost_OkitsuArbiter_1780", player_username: "OkitsuArbiter (Citadel-Champion)", elo_rating: 1780, chapter_progress: 19, card_ids: ["plugin_01_tcg_creative_designer", "plugin_02_parallel_swarm_orchestrator", "plugin_03_jev_system_one", "plugin_04_mlx_apple_silicon", "h_chronos"] }
+        ];
+    ghosts.forEach(g => {
+      const card = document.createElement("div");
+      card.style.cssText = "background:rgba(15,23,42,0.95);border:1.5px solid #2ee6d3;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px;";
+      card.innerHTML = `
+        <div style="font-size:12px;font-weight:900;color:#2ee6d3;">${g.player_username}</div>
+        <div style="font-size:12px;color:#cbd5e1;">ELO: <b>${g.elo_rating}</b> · Chapter ${g.chapter_progress}</div>
+        <button onclick="challengeEchoGhost('${g.ghost_id}')" style="font-size:12px;background:linear-gradient(135deg,#0d9488,#0f766e);border-color:#5eead4;">Challenge Echo-Ghost</button>
+      `;
+      grid.appendChild(card);
+    });
+  }
+  modal.style.display = "flex";
+  return true;
+}
+
+function closeLanGhostLobbyModal() {
+  const modal = document.getElementById("lan-pvp-modal");
+  if (modal) modal.style.display = "none";
 }
 
 async function fetchLanEchoGhosts() {

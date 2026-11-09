@@ -237,15 +237,37 @@ def ensure_script_meta_files() -> int:
 
 
 def inspect_compiled_assemblies_with_rea() -> Dict[str, Any]:
-    """Run REA 6.8.0 (`rea inspect-artifact`) on Unity 6000.6.8f1 compiled DLLs and owned .unitypackage."""
+    """Run REA 6.8.0 (`rea inspect-artifact`) on Unity 6000.6.8f1 compiled DLLs, built macOS .app Mach-O binary, and owned .unitypackage."""
     script_assemblies_dir = UNITY_TCG_PROJECT / "Library" / "ScriptAssemblies"
     runtime_dll = script_assemblies_dir / "Assembly-CSharp.dll"
     editor_dll = script_assemblies_dir / "Assembly-CSharp-Editor.dll"
+    macos_app_exe = (
+        UNITY_TCG_PROJECT
+        / "Builds"
+        / "MacOS"
+        / "CARDFRONT_CradleOfEchoes.app"
+        / "Contents"
+        / "MacOS"
+        / "unity-tcg-engine"
+    )
+    macos_app_dll = (
+        UNITY_TCG_PROJECT
+        / "Builds"
+        / "MacOS"
+        / "CARDFRONT_CradleOfEchoes.app"
+        / "Contents"
+        / "Resources"
+        / "Data"
+        / "Managed"
+        / "Assembly-CSharp.dll"
+    )
 
     inspected: Dict[str, Any] = {}
     for label, path in [
         ("Assembly-CSharp.dll", runtime_dll),
         ("Assembly-CSharp-Editor.dll", editor_dll),
+        ("CARDFRONT_CradleOfEchoes.app/Contents/MacOS/unity-tcg-engine", macos_app_exe),
+        ("CARDFRONT_CradleOfEchoes.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll", macos_app_dll),
     ]:
         if path.exists():
             sha = hashlib.sha256(path.read_bytes()).hexdigest()
@@ -303,6 +325,30 @@ def main() -> None:
         except Exception:
             pass
 
+    macos_build_report_path = UNITY_TCG_PROJECT / "Logs" / "unity_6000_macos_build_report.json"
+    macos_build_report = {}
+    if macos_build_report_path.exists():
+        try:
+            macos_build_report = json.loads(macos_build_report_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
+    lan_report_path = UNITY_TCG_PROJECT / "Logs" / "unity_6000_lan_multiplayer_report.json"
+    lan_report = {}
+    if lan_report_path.exists():
+        try:
+            lan_report = json.loads(lan_report_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
+    standalone_runtime_path = UNITY_TCG_PROJECT / "Logs" / "macos_standalone_player_runtime_verification.json"
+    standalone_runtime_report = {}
+    if standalone_runtime_path.exists():
+        try:
+            standalone_runtime_report = json.loads(standalone_runtime_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
     owned_pkg = OWNED_PACKAGES_DIR / "TCG Engine - Online Card Game.unitypackage"
     ccg_pkg = OWNED_PACKAGES_DIR / "CCG Kit.unitypackage"
     mirror_pkg = OWNED_PACKAGES_DIR / "Mirror.unitypackage"
@@ -332,10 +378,20 @@ def main() -> None:
                 rea_res.get("compiled_unity_6000_assemblies", {}).get("Assembly-CSharp-Editor.dll", {}).get("size_bytes", 0) > 0
             ),
             "unity_batchmode_pipeline_status": headless_report.get("status", "READY"),
+            "macos_standalone_build_result": macos_build_report.get("buildResult", "N/A"),
+            "macos_standalone_app_size_bytes": macos_build_report.get("totalSizeBytes", 0),
+            "lan_multiplayer_status": lan_report.get("status", "N/A"),
+            "lan_multiplayer_tcp_packets": lan_report.get("tcpPacketsExchanged", 0),
+            "lan_multiplayer_state_hash_hex": lan_report.get("finalServerStateHashHex", ""),
+            "lan_multiplayer_lockstep_parity": lan_report.get("stateHashLockstepParity", False),
+            "standalone_player_runtime_verified": standalone_runtime_report.get("stateHashLockstepParity", False),
         },
         "asset_ingestion": asset_res,
         "rea_decompile_and_inspection": rea_res,
         "unity_6000_batchmode_execution_report": headless_report,
+        "unity_6000_macos_standalone_build_report": macos_build_report,
+        "unity_6000_lan_multiplayer_simulation_report": lan_report,
+        "macos_standalone_player_runtime_verification": standalone_runtime_report,
         "mcp_servers_registered": [
             "unity-tcg-headless (/Users/frederickamina/.gemini/config/plugins/tcg-creative-game-designer/scripts/unity_tcg_headless_mcp.py --mcp)",
             "rea-reverse-engineer (/Users/frederickamina/.local/bin/rea --mcp)",
