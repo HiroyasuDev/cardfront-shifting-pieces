@@ -1,0 +1,23 @@
+{
+  "timestamp_utc": "2026-11-09T12:07:23.334Z",
+  "elapsed_ms": 27,
+  "api_title": "TCG Engine API",
+  "api_version": "1.09",
+  "loopback_port_tested": 52887,
+  "secure_config_verified": true,
+  "tx_lock_hmac_verified": true,
+  "tx_lock_sample_receipt": "38ba6aa5e678451e467eb7dafb0862ca6dad63125656155cdb4937a6549f7865",
+  "cards_seeded_count": 155,
+  "decks_seeded_count": 3,
+  "packs_seeded_count": 1,
+  "starter_deck_ids": [
+    "deck_sovereign_agent_command",
+    "deck_cardfront_astral_vanguard",
+    "deck_cradle_of_echoes_boss_swarm"
+  ],
+  "pack_open_cards_drawn": 5,
+  "post_match_elo": 1025,
+  "post_match_coins": 5100,
+  "seed_file_path": "/Users/frederickamina/Documents/Projects/synapse/tcg-engine-unpacked/TcgEngineAPI/seed_catalog_155_cards.json",
+  "status": "PASS_TCG_ENGINE_API_SEEDED_AND_VERIFIED"
+}

@@ -1,6 +1,6 @@
-# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #176)
+# CARDFRONT: Cradle of Echoes — Grounded Skill Harness Report (Iteration #181)
 
-- **Timestamp (UTC)**: `2026-11-09T11:51:48Z`
+- **Timestamp (UTC)**: `2026-11-09T12:07:42Z`
 - **Target Orchestrator Model**: **`gemini-4-argon`** (`Gemini 4 Argon`)
 - **Overall Gate Status**: **`PASS_ALL_GATES`**
 - **Real Drag & Drop E2E (`WebPlayable/tests/drag_e2e.js`)**: `PASS`
@@ -51,9 +51,9 @@
 | `workflows/steam-publish` | 1 | 1 | 0 | **100.0%** | — |
 
 ### Diff vs. Previous Iteration
-- **Previous Iteration**: `175`
-- **Pass Count Delta**: `+2` (Total checks delta: `+2`)
-- **Newly Passing Checks**: `core.act_mutators.02, core.lan_pvp.02`
+- **Previous Iteration**: `180`
+- **Pass Count Delta**: `+0` (Total checks delta: `+0`)
+- **Newly Passing Checks**: `None`
 - **Newly Failing Checks**: `None`
 
 ### Ingested MiroFish Gameplay Telemetry

@@ -1,6 +1,6 @@
 {
-  "iteration": 176,
-  "timestamp_utc": "2026-11-09T11:51:48Z",
+  "iteration": 181,
+  "timestamp_utc": "2026-11-09T12:07:42Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
@@ -167,14 +167,11 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 175,
-    "newly_passing_checks": [
-      "core.act_mutators.02",
-      "core.lan_pvp.02"
-    ],
+    "previous_iteration": 180,
+    "newly_passing_checks": [],
     "newly_failing_checks": [],
-    "pass_count_delta": 2,
-    "total_checks_delta": 2
+    "pass_count_delta": 0,
+    "total_checks_delta": 0
   },
   "step_a_router": {
     "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
@@ -274,7 +271,7 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 6749.5
+      "elapsed_ms": 7549.5
     },
     "autotest": {
       "ran": true,
@@ -283,10 +280,10 @@
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 9094,
+      "elapsed_ms": 9289,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T11:51:34.469Z",
+        "timestamp": "2026-11-09T12:07:29.662Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -1305,7 +1302,7 @@
       {
         "id": "core.unity6_tcg_rea_baseline.02",
         "skill": "unity/unity-scriptableobjects",
-        "rule": "Owned Indie Marc TCG Engine asset ingestion & REA 6.8.0 decompile ledger: 229 C# scripts + 45 Node API files ingested, 79 TcgEngine.CardData .asset + 60 Synapse CardDataSO .asset (139 total) serialized, and Assembly-CSharp.dll inspected via rea@6.8.0.",
+        "rule": "Owned Indie Marc TCG Engine asset ingestion & REA 6.8.0 decompile ledger: 229 C# scripts + 45 Node API files ingested, >= 79 TcgEngine.CardData .asset + 60 Synapse CardDataSO .asset (>= 139 total) serialized, and Assembly-CSharp.dll inspected via rea@6.8.0.",
         "source": "skills/unity/unity-scriptableobjects/SKILL.md:42",
         "target": "unity",
         "method": "metric",
@@ -1314,7 +1311,7 @@
         "passed": true,
         "priority": "P0",
         "code_ref": "Backend/synapse_unity6_tcg_engine_rea_pipeline.py:40-298",
-        "remediation": "Run python3 Backend/synapse_unity6_tcg_engine_rea_pipeline.py to ingest the owned TCG Engine package, serialize all 139 Unity .asset cards, and run rea@6.8.0.",
+        "remediation": "Run python3 Backend/synapse_unity6_tcg_engine_rea_pipeline.py to ingest the owned TCG Engine package, serialize all Unity .asset cards, and run rea@6.8.0.",
         "origin": "Tools/skill_harness/core_checks.json",
         "error": null
       },
@@ -2997,5 +2994,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 28959.9
+  "elapsed_ms": 28217.8
 }

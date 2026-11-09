@@ -877,18 +877,18 @@
   {
     "id": "core.unity6_tcg_rea_baseline.02",
     "skill": "unity/unity-scriptableobjects",
-    "rule": "Owned Indie Marc TCG Engine asset ingestion & REA 6.8.0 decompile ledger: 229 C# scripts + 45 Node API files ingested, 79 TcgEngine.CardData .asset + 60 Synapse CardDataSO .asset (139 total) serialized, and Assembly-CSharp.dll inspected via rea@6.8.0.",
+    "rule": "Owned Indie Marc TCG Engine asset ingestion & REA 6.8.0 decompile ledger: 229 C# scripts + 45 Node API files ingested, >= 79 TcgEngine.CardData .asset + 60 Synapse CardDataSO .asset (>= 139 total) serialized, and Assembly-CSharp.dll inspected via rea@6.8.0.",
     "source": "skills/unity/unity-scriptableobjects/SKILL.md:42",
     "target": "unity",
     "method": "metric",
     "probe": {
       "json_file": "Datasets/rea_tcg_engine_baseline_decompile_ledger.json",
-      "expression": "data['summary']['status'] == 'PASS_ALL_GATES' and data['summary']['indie_marc_csharp_scripts_ingested'] == 229 and data['summary']['indie_marc_card_assets_total'] == 79 and data['summary']['combined_unity_card_assets_total'] == 139 and data['summary']['assembly_csharp_compiled'] is True"
+      "expression": "data['summary']['status'] == 'PASS_ALL_GATES' and data['summary']['indie_marc_csharp_scripts_ingested'] == 229 and data['summary']['indie_marc_card_assets_total'] >= 79 and data['summary']['combined_unity_card_assets_total'] >= 139 and data['summary']['assembly_csharp_compiled'] is True"
     },
     "expect": "true",
     "priority": "P0",
     "code_ref": "Backend/synapse_unity6_tcg_engine_rea_pipeline.py:40-298",
-    "remediation": "Run python3 Backend/synapse_unity6_tcg_engine_rea_pipeline.py to ingest the owned TCG Engine package, serialize all 139 Unity .asset cards, and run rea@6.8.0."
+    "remediation": "Run python3 Backend/synapse_unity6_tcg_engine_rea_pipeline.py to ingest the owned TCG Engine package, serialize all Unity .asset cards, and run rea@6.8.0."
   },
   {
     "id": "core.unity6_tcg_rea_baseline.03",

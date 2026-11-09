@@ -3549,6 +3549,9 @@ function nudgeColDie(colIdx) {
   ProceduralSfx.nudge(state.colDice[colIdx]);
   recalcBoardStats();
   renderAll();
+  if (state.lanMultiplayer && state.lanMultiplayer.enabled) {
+    pushLanRoomUpdate("nudge_die", `Nudged Col ${colIdx + 1} die to ${state.colDice[colIdx]}`);
+  }
 }
 
 function rerollAllDice() {
@@ -3802,8 +3805,12 @@ function handleSlotClick(r, c) {
       src.judgeShield = false;
       state.selectedBoardSlot = null;
 
+      applyStageMutatorToSocket(r, c, state.stageIndex);
       applyFactionLinkSynergy(r, c, cell.cardId, "player");
       const flips = findCaptures(r, c, cell.nesw, "player");
+      if (state.lanMultiplayer && state.lanMultiplayer.enabled) {
+        pushLanRoomUpdate("slide_card", `Slid ${cell.cardId} to (${r + 1},${c + 1})`);
+      }
       if (window.CardFrontHaptics) {
         window.CardFrontHaptics.trigger("card_place", { r, c, cardId: cell.cardId, slide: true });
         if (flips.length > 0) window.CardFrontHaptics.trigger("card_flip", { r, c, flips: flips.length, slide: true });
@@ -3853,9 +3860,13 @@ function handleSlotClick(r, c) {
   state.selectedBoardSlot = null;
 
   const teleEffectLabel = resolveDeployTelegraphPower(r, c, cardId, "player", false);
+  applyStageMutatorToSocket(r, c, state.stageIndex);
   const facLinks = applyFactionLinkSynergy(r, c, cardId, "player");
 
   const flips = findCaptures(r, c, cell.nesw, "player");
+  if (state.lanMultiplayer && state.lanMultiplayer.enabled) {
+    pushLanRoomUpdate("play_card", `Deployed ${cardId} to (${r + 1},${c + 1})`);
+  }
   if (window.CardFrontHaptics) {
     window.CardFrontHaptics.trigger("card_place", { r, c, cardId });
     if (flips.length > 0) window.CardFrontHaptics.trigger("card_flip", { r, c, flips: flips.length });

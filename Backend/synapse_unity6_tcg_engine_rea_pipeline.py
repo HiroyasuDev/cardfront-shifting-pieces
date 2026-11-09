@@ -261,11 +261,15 @@ def inspect_compiled_assemblies_with_rea() -> Dict[str, Any]:
         / "Managed"
         / "Assembly-CSharp.dll"
     )
+    unpacked_runtime_dll = TCG_UNPACKED_PROJECT / "Library" / "ScriptAssemblies" / "Assembly-CSharp.dll"
+    unpacked_editor_dll = TCG_UNPACKED_PROJECT / "Library" / "ScriptAssemblies" / "Assembly-CSharp-Editor.dll"
 
     inspected: Dict[str, Any] = {}
     for label, path in [
         ("Assembly-CSharp.dll", runtime_dll),
         ("Assembly-CSharp-Editor.dll", editor_dll),
+        ("tcg-engine-unpacked/Library/ScriptAssemblies/Assembly-CSharp.dll", unpacked_runtime_dll),
+        ("tcg-engine-unpacked/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll", unpacked_editor_dll),
         ("CARDFRONT_CradleOfEchoes.app/Contents/MacOS/unity-tcg-engine", macos_app_exe),
         ("CARDFRONT_CradleOfEchoes.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll", macos_app_dll),
     ]:
@@ -303,10 +307,10 @@ def inspect_compiled_assemblies_with_rea() -> Dict[str, Any]:
     return {
         "compiled_unity_6000_assemblies": inspected,
         "rea_managed_member_comparison": _run_rea_json(
-            ["compare-managed-members", str(runtime_dll), str(editor_dll)], timeout=45
+            ["compare-managed-members", str(unpacked_runtime_dll), str(runtime_dll)], timeout=45
         )
-        if (runtime_dll.exists() and editor_dll.exists())
-        else {},
+        if (unpacked_runtime_dll.exists() and runtime_dll.exists())
+        else _run_rea_json(["compare-managed-members", str(runtime_dll), str(editor_dll)], timeout=45),
         "owned_tcg_engine_rea_evidence": existing_rea_summary,
     }
 
