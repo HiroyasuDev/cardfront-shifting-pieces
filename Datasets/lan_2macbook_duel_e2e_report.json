@@ -1,0 +1,90 @@
+{
+  "schema": "CARDFRONT_2MACBOOK_LAN_DUEL_E2E_REPORT_V1",
+  "status": "PASS_2MACBOOK_HUMAN_1V1_LAN_DUEL_E2E",
+  "timestamp_utc": "2026-11-09T13:32:23.449Z",
+  "elapsed_ms": 2235,
+  "endpoints_tested": {
+    "seat1_host_url": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+    "seat2_challenger_url": "http://192.168.86.125:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html"
+  },
+  "room_id": "CITADEL-1",
+  "seat1_join": {
+    "enabled": true,
+    "human1v1": true,
+    "role": "host",
+    "isPlayerTurn": true
+  },
+  "seat2_join": {
+    "enabled": true,
+    "human1v1": true,
+    "role": "challenger",
+    "isPlayerTurn": false
+  },
+  "turns_simulated": 3,
+  "turns_log": [
+    {
+      "turn": 1,
+      "actor": "host",
+      "hostState": {
+        "isPlayerTurnAfterMove": false,
+        "centerCardId": "h_archangel",
+        "colDice": [
+          4,
+          3,
+          5
+        ],
+        "revision": 5
+      },
+      "challengerSynced": {
+        "revision": 5,
+        "isPlayerTurn": true,
+        "centerCardId": "h_archangel",
+        "centerLocalOwner": "ai",
+        "centerCanonicalOwner": "host",
+        "colDice": [
+          4,
+          3,
+          5
+        ],
+        "turnSeat": "challenger"
+      }
+    },
+    {
+      "turn": 2,
+      "actor": "challenger",
+      "challengerState": {
+        "isPlayerTurnAfterMove": false,
+        "placedCardId": "h_archangel",
+        "placedLocalOwner": "player",
+        "revision": 7
+      },
+      "hostSynced": {
+        "revision": 7,
+        "isPlayerTurn": true,
+        "slot10CardId": "h_archangel",
+        "slot10LocalOwner": "ai",
+        "slot10CanonicalOwner": "challenger",
+        "turnSeat": "host"
+      }
+    },
+    {
+      "turn": 3,
+      "actor": "host",
+      "hostState": {
+        "handBeforeDraw": 4,
+        "drawnCardId": "h_oracle",
+        "handAfterDraw": 5,
+        "slot00CardId": "h_kai",
+        "revision": 9
+      },
+      "challengerSynced": {
+        "isPlayerTurn": true,
+        "slot00CardId": "h_kai",
+        "slot00CanonicalOwner": "host"
+      }
+    }
+  ],
+  "deck_draw_verified": true,
+  "canonical_3x3_cells_matched": 9,
+  "canonical_board_lockstep_parity": true
+}

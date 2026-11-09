@@ -1170,5 +1170,116 @@
     "priority": "P1",
     "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:2695-2745",
     "remediation": "Assign unique art paths to all 60 cards in SET1_60_CATALOG and load FoleyAudioBank."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.09",
+    "skill": "unity/unity-scriptableobjects",
+    "rule": "Full 3D Unpacked TCG Engine 600x800 Sprite Binding, TeamData & RarityData 100% Coverage (269/269), and 3 1920x1080 Scene Verification Renders (Game3D.unity, Game.unity, OpenPack.unity).",
+    "source": "Logs/unpacked_tcg_engine_full3d_build_report.json:1",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/unpacked_tcg_engine_full3d_build_report.json",
+      "expression": "data['cardsWithSpritesBound'] >= 113 and data['cardsWithTeamsAndRaritiesBound'] == data['totalCardDataAssetsInResources'] == 269 and len(data['sceneRenders1080p']) == 3"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Logs/unpacked_tcg_engine_full3d_build_report.json:1-52",
+    "remediation": "Run CardFrontTcgEngineImporter.BuildFullTcgEngineProductionScenesAndStandaloneApp in Unity 6000.6.8f1."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.10",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "Full-Stack Live Duel Orchestration (CARDFRONT Standalone Mach-O <-> 45-File Node.js TcgEngineAPI Daemon): registers 2 players, opens Pack_Sovereign_Genesis, runs 2-instance TCP LAN 3x3 duel (hash 4C837E02F2035A25), settles TxLock HMAC-SHA256 match receipt, and exports Echo-Ghost ghost_SovereignAgent_1825.",
+    "source": "Logs/fullstack_live_duel_and_echo_ghost_report.json:1",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/fullstack_live_duel_and_echo_ghost_report.json",
+      "expression": "data['status'] == 'PASS_FULLSTACK_LIVE_DUEL_AND_ECHO_GHOST' and data['lan_fnv1a_state_hash_hex'] == '4C837E02F2035A25' and data['match_receipt_hmac_verified'] is True and data['exported_echo_ghost']['ghost_id'] == 'ghost_SovereignAgent_1825'"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Logs/fullstack_live_duel_and_echo_ghost_report.json:1-65",
+    "remediation": "Run TcgEngineAPI/run_fullstack_live_duel.js or unity-tcg-agent full-stack-duel."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.11",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "Playable Web & Echo-Ghost PvP Sync for Sovereign Agent Command Deck: equipSovereignAgentCommandDeck() equips deck_sovereign_agent_command (37 cards) and challengeEchoGhost('ghost_SovereignAgent_1825') loads the Unity 6 Full 3D LAN Echo-Ghost with lockstep_state_hash 4C837E02F2035A25.",
+    "source": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4592",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { if (typeof equipSovereignAgentCommandDeck !== 'function' || typeof challengeEchoGhost !== 'function') return false; const d = equipSovereignAgentCommandDeck(); const g = challengeEchoGhost('ghost_SovereignAgent_1825'); const b = document.getElementById('boss-cutin-banner'); if (b) b.classList.remove('active'); return Boolean(d && d.deckId === 'deck_sovereign_agent_command' && g && g.ghost_id === 'ghost_SovereignAgent_1825' && g.lockstep_state_hash === '4C837E02F2035A25'); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:4592-4665",
+    "remediation": "Implement equipSovereignAgentCommandDeck() and add ghost_SovereignAgent_1825 to challengeEchoGhost() in WebPlayable."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.12",
+    "skill": "rea-reverse-engineer",
+    "rule": "REA 6.8.0 9-Subsystem Reconstruction Obligation & Symbol Parity Ledger: 100.0% coverage across all 9 TcgEngine subsystems (GameLogic, GameServer, GameClient, AIPlayerMM, ApiClient, CardData, DeckData, PackData, BoardSlot).",
+    "source": "Datasets/rea_tcg_engine_baseline_decompile_ledger.json:1",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/rea_tcg_engine_baseline_decompile_ledger.json",
+      "expression": "data['summary']['rea_reconstruction_coverage_pct'] == 100.0 and data['summary']['rea_verified_subsystems_count'] == 9 and data['rea_reconstruction_obligation_ledger']['lockstep_fnv1a_state_hash'] == '4C837E02F2035A25'"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/synapse_unity6_tcg_engine_rea_pipeline.py:385-510",
+    "remediation": "Run Backend/synapse_unity6_tcg_engine_rea_pipeline.py to generate the 9-subsystem REA 6.8.0 reconstruction obligation ledger."
+  },
+  {
+    "id": "core.production_upgrades.07",
+    "skill": "unity/unity-netcode-multiplayer",
+    "rule": "2-MacBook Dual-Browser LAN Duel E2E Lockstep Parity: Seat 1 (Host Blue on 127.0.0.1:8096) and Seat 2 (Challenger Red on 192.168.86.125:8096) play a live 1v1 turn-by-turn duel with 9/9 canonical 3x3 board lockstep parity, deck-draw verification, and suppressed local AI.",
+    "source": "Datasets/lan_2macbook_duel_e2e_report.json:1",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "Datasets/lan_2macbook_duel_e2e_report.json",
+      "expression": "data['status'] == 'PASS_2MACBOOK_HUMAN_1V1_LAN_DUEL_E2E' and data['canonical_board_lockstep_parity'] is True and data['canonical_3x3_cells_matched'] == 9 and data['deck_draw_verified'] is True"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Tools/skill_harness/verify_2macbook_lan_duel_e2e.js:1-140",
+    "remediation": "Run node Tools/skill_harness/verify_2macbook_lan_duel_e2e.js to verify dual-MacBook LAN 1v1 lockstep parity."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.13",
+    "skill": "unity/unity-scriptableobjects",
+    "rule": "100% 600x800 Unique Sprite & 44.1kHz WAV AudioClip Binding Across All 113 CardFront & Sovereign Agent CardData ScriptableObjects in tcg-engine-unpacked (cardFront113UniqueSpritesBound == 113, cardsWithAudioStemsBound == 113, cardsWithSpritesBound >= 209).",
+    "source": "Logs/unpacked_tcg_engine_full3d_build_report.json:1",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/unpacked_tcg_engine_full3d_build_report.json",
+      "expression": "data['cardFront113UniqueSpritesBound'] == 113 and data['cardsWithAudioStemsBound'] == 113 and data['cardsWithSpritesBound'] >= 209"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Assets/TcgEngine/Scripts/Editor/CardFrontTcgEngineImporter.cs:185-350",
+    "remediation": "Bind all 113 unique 600x800 Sprite GUIDs and 44.1kHz WAV AudioClip GUIDs across all CardFront CardData assets."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.14",
+    "skill": "genres/card-game",
+    "rule": "Unity 6 C# Triple Triad SAME + PLUS + COMBO CASCADE & Singleton DrawReplacementCardOnTurn Verification in tcg-engine-unpacked (plusSameCascadeVerified == True, plusSameCascadeFlipsCount >= 2, drawReplacementCardVerified == True).",
+    "source": "Logs/unpacked_tcg_engine_full3d_build_report.json:1",
+    "target": "unity",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/unpacked_tcg_engine_full3d_build_report.json",
+      "expression": "data['plusSameCascadeVerified'] is True and data['plusSameCascadeFlipsCount'] >= 2 and data['drawReplacementCardVerified'] is True"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Assets/TcgEngine/Scripts/Editor/CardFrontTcgEngineImporter.cs:315-350",
+    "remediation": "Verify EvaluatePlusAndSameCaptures3x3 and DrawReplacementCardOnTurn in CardFrontTcgEngineImporter.cs."
   }
 ]
