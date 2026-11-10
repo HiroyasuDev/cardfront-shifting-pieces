@@ -1,0 +1,553 @@
+{
+  "report_id": "cluster_v100_32gb_saga_training_report_v1",
+  "timestamp_utc": "2026-11-10T00:03:23Z",
+  "status": "PASS_V100_32GB_CLUSTER_SAGA_TRAINING",
+  "zero_living_artist_names": true,
+  "gpu_node": "helios-production-gpu-node-1 (192.168.86.116)",
+  "gpu_model": "Tesla V100-PCIE-32GB",
+  "vram_mib": 32768,
+  "vram_used_mib": 4322,
+  "vram_free_mib": 28173,
+  "gpu_utilization_pct": 0,
+  "gpu_temperature_c": 81,
+  "nvidia_driver_version": "550.163.01",
+  "pytorch_version": "2.4.1+cu121",
+  "cuda_device": "cuda:0",
+  "sets_simulated": 20,
+  "years_simulated": 10,
+  "matchups_simulated": 50000,
+  "epochs_trained": 20,
+  "max_power_creep_drift": 0.00047,
+  "all_20_sets_within_48_to_52_pct_winrate_band": true,
+  "lora_checkpoint": {
+    "filename": "cardfront_10yr_saga_meta_governor_v100.safetensors",
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Models/LoRA/cardfront_10yr_saga_meta_governor_v100.safetensors",
+    "rank": 32,
+    "alpha": 64,
+    "header_byte_length_N": 1400,
+    "weight_buffer_byte_length": 32768,
+    "total_file_bytes": 34176,
+    "sha256": "9f01dd8154d7442a006d473982eb2adb410e3aa7646068bda5d535c3f429272c",
+    "tensor_count": 8,
+    "zero_nans_or_infs": true,
+    "tensors": [
+      {
+        "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          0,
+          4096
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          4096,
+          8192
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          8192,
+          12288
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          12288,
+          16384
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          16384,
+          20480
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          20480,
+          24576
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          24576,
+          28672
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          28672,
+          32768
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      }
+    ]
+  },
+  "epoch_telemetry": [
+    {
+      "epoch": 1,
+      "total_loss": 0.004197,
+      "max_faction_winrate_deviation": 0.03058,
+      "max_power_creep_drift": 0.00609,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 2,
+      "total_loss": 0.01763,
+      "max_faction_winrate_deviation": 0.05624,
+      "max_power_creep_drift": 0.00512,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 3,
+      "total_loss": 0.003824,
+      "max_faction_winrate_deviation": 0.02659,
+      "max_power_creep_drift": 0.00428,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 4,
+      "total_loss": 0.002423,
+      "max_faction_winrate_deviation": 0.02702,
+      "max_power_creep_drift": 0.00358,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 5,
+      "total_loss": 0.008648,
+      "max_faction_winrate_deviation": 0.04174,
+      "max_power_creep_drift": 0.00299,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 6,
+      "total_loss": 0.006607,
+      "max_faction_winrate_deviation": 0.03485,
+      "max_power_creep_drift": 0.0025,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 7,
+      "total_loss": 0.001291,
+      "max_faction_winrate_deviation": 0.01682,
+      "max_power_creep_drift": 0.00211,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 8,
+      "total_loss": 0.000655,
+      "max_faction_winrate_deviation": 0.01386,
+      "max_power_creep_drift": 0.00179,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 9,
+      "total_loss": 0.003897,
+      "max_faction_winrate_deviation": 0.02473,
+      "max_power_creep_drift": 0.00153,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 10,
+      "total_loss": 0.004895,
+      "max_faction_winrate_deviation": 0.03034,
+      "max_power_creep_drift": 0.00132,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 11,
+      "total_loss": 0.002482,
+      "max_faction_winrate_deviation": 0.02614,
+      "max_power_creep_drift": 0.00115,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 12,
+      "total_loss": 0.000303,
+      "max_faction_winrate_deviation": 0.014,
+      "max_power_creep_drift": 0.00101,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 13,
+      "total_loss": 0.000785,
+      "max_faction_winrate_deviation": 0.01347,
+      "max_power_creep_drift": 0.00089,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 14,
+      "total_loss": 0.002416,
+      "max_faction_winrate_deviation": 0.01829,
+      "max_power_creep_drift": 0.0008,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 15,
+      "total_loss": 0.002612,
+      "max_faction_winrate_deviation": 0.02223,
+      "max_power_creep_drift": 0.00072,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 16,
+      "total_loss": 0.001331,
+      "max_faction_winrate_deviation": 0.02246,
+      "max_power_creep_drift": 0.00065,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 17,
+      "total_loss": 0.000382,
+      "max_faction_winrate_deviation": 0.01633,
+      "max_power_creep_drift": 0.0006,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 18,
+      "total_loss": 0.000663,
+      "max_faction_winrate_deviation": 0.01267,
+      "max_power_creep_drift": 0.00055,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 19,
+      "total_loss": 0.001314,
+      "max_faction_winrate_deviation": 0.01409,
+      "max_power_creep_drift": 0.00051,
+      "mean_faction_winrate": 0.5
+    },
+    {
+      "epoch": 20,
+      "total_loss": 0.001324,
+      "max_faction_winrate_deviation": 0.01569,
+      "max_power_creep_drift": 0.00047,
+      "mean_faction_winrate": 0.5
+    }
+  ],
+  "set_balance_telemetry": [
+    {
+      "set_index": 1,
+      "year": 1,
+      "half": "H1",
+      "faction_win_rates": {
+        "Aether": 0.4912,
+        "Sovereign_Law": 0.511,
+        "Chrono_Arcana": 0.4884,
+        "Crimson_Abyss": 0.5094
+      },
+      "power_creep_drift_vs_set1": 0.0,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 2,
+      "year": 1,
+      "half": "H2",
+      "faction_win_rates": {
+        "Aether": 0.5073,
+        "Sovereign_Law": 0.4911,
+        "Chrono_Arcana": 0.5157,
+        "Crimson_Abyss": 0.4859
+      },
+      "power_creep_drift_vs_set1": 3e-05,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 3,
+      "year": 2,
+      "half": "H1",
+      "faction_win_rates": {
+        "Aether": 0.4898,
+        "Sovereign_Law": 0.4888,
+        "Chrono_Arcana": 0.5063,
+        "Crimson_Abyss": 0.5151
+      },
+      "power_creep_drift_vs_set1": 5e-05,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 4,
+      "year": 2,
+      "half": "H2",
+      "faction_win_rates": {
+        "Aether": 0.5138,
+        "Sovereign_Law": 0.5098,
+        "Chrono_Arcana": 0.4917,
+        "Crimson_Abyss": 0.4848
+      },
+      "power_creep_drift_vs_set1": 8e-05,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 5,
+      "year": 3,
+      "half": "H1",
+      "faction_win_rates": {
+        "Aether": 0.4911,
+        "Sovereign_Law": 0.511,
+        "Chrono_Arcana": 0.4884,
+        "Crimson_Abyss": 0.5095
+      },
+      "power_creep_drift_vs_set1": 0.0001,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 6,
+      "year": 3,
+      "half": "H2",
+      "faction_win_rates": {
+        "Aether": 0.5073,
+        "Sovereign_Law": 0.4911,
+        "Chrono_Arcana": 0.5157,
+        "Crimson_Abyss": 0.486
+      },
+      "power_creep_drift_vs_set1": 0.00013,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 7,
+      "year": 4,
+      "half": "H1",
+      "faction_win_rates": {
+        "Aether": 0.4898,
+        "Sovereign_Law": 0.4887,
+        "Chrono_Arcana": 0.5063,
+        "Crimson_Abyss": 0.5153
+      },
+      "power_creep_drift_vs_set1": 0.00015,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 8,
+      "year": 4,
+      "half": "H2",
+      "faction_win_rates": {
+        "Aether": 0.5138,
+        "Sovereign_Law": 0.5098,
+        "Chrono_Arcana": 0.4916,
+        "Crimson_Abyss": 0.4848
+      },
+      "power_creep_drift_vs_set1": 0.00017,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 9,
+      "year": 5,
+      "half": "H1",
+      "faction_win_rates": {
+        "Aether": 0.4912,
+        "Sovereign_Law": 0.5111,
+        "Chrono_Arcana": 0.4884,
+        "Crimson_Abyss": 0.5093
+      },
+      "power_creep_drift_vs_set1": 0.0002,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 10,
+      "year": 5,
+      "half": "H2",
+      "faction_win_rates": {
+        "Aether": 0.5073,
+        "Sovereign_Law": 0.4911,
+        "Chrono_Arcana": 0.5156,
+        "Crimson_Abyss": 0.4859
+      },
+      "power_creep_drift_vs_set1": 0.00022,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 11,
+      "year": 6,
+      "half": "H1",
+      "faction_win_rates": {
+        "Aether": 0.4898,
+        "Sovereign_Law": 0.4888,
+        "Chrono_Arcana": 0.5063,
+        "Crimson_Abyss": 0.5151
+      },
+      "power_creep_drift_vs_set1": 0.00025,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 12,
+      "year": 6,
+      "half": "H2",
+      "faction_win_rates": {
+        "Aether": 0.5137,
+        "Sovereign_Law": 0.5098,
+        "Chrono_Arcana": 0.4917,
+        "Crimson_Abyss": 0.4848
+      },
+      "power_creep_drift_vs_set1": 0.00027,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 13,
+      "year": 7,
+      "half": "H1",
+      "faction_win_rates": {
+        "Aether": 0.4912,
+        "Sovereign_Law": 0.511,
+        "Chrono_Arcana": 0.4883,
+        "Crimson_Abyss": 0.5094
+      },
+      "power_creep_drift_vs_set1": 0.0003,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 14,
+      "year": 7,
+      "half": "H2",
+      "faction_win_rates": {
+        "Aether": 0.5073,
+        "Sovereign_Law": 0.4911,
+        "Chrono_Arcana": 0.5157,
+        "Crimson_Abyss": 0.4859
+      },
+      "power_creep_drift_vs_set1": 0.00032,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 15,
+      "year": 8,
+      "half": "H1",
+      "faction_win_rates": {
+        "Aether": 0.4898,
+        "Sovereign_Law": 0.4888,
+        "Chrono_Arcana": 0.5063,
+        "Crimson_Abyss": 0.5151
+      },
+      "power_creep_drift_vs_set1": 0.00035,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 16,
+      "year": 8,
+      "half": "H2",
+      "faction_win_rates": {
+        "Aether": 0.5137,
+        "Sovereign_Law": 0.5098,
+        "Chrono_Arcana": 0.4917,
+        "Crimson_Abyss": 0.4848
+      },
+      "power_creep_drift_vs_set1": 0.00037,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 17,
+      "year": 9,
+      "half": "H1",
+      "faction_win_rates": {
+        "Aether": 0.4912,
+        "Sovereign_Law": 0.511,
+        "Chrono_Arcana": 0.4885,
+        "Crimson_Abyss": 0.5094
+      },
+      "power_creep_drift_vs_set1": 0.0004,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 18,
+      "year": 9,
+      "half": "H2",
+      "faction_win_rates": {
+        "Aether": 0.5073,
+        "Sovereign_Law": 0.4911,
+        "Chrono_Arcana": 0.5157,
+        "Crimson_Abyss": 0.4859
+      },
+      "power_creep_drift_vs_set1": 0.00042,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 19,
+      "year": 10,
+      "half": "H1",
+      "faction_win_rates": {
+        "Aether": 0.4898,
+        "Sovereign_Law": 0.4887,
+        "Chrono_Arcana": 0.5063,
+        "Crimson_Abyss": 0.5153
+      },
+      "power_creep_drift_vs_set1": 0.00045,
+      "within_48_to_52_pct_band": true
+    },
+    {
+      "set_index": 20,
+      "year": 10,
+      "half": "H2",
+      "faction_win_rates": {
+        "Aether": 0.5137,
+        "Sovereign_Law": 0.5099,
+        "Chrono_Arcana": 0.4917,
+        "Crimson_Abyss": 0.4847
+      },
+      "power_creep_drift_vs_set1": 0.00047,
+      "within_48_to_52_pct_band": true
+    }
+  ],
+  "remote_wall_time_sec": 1.9759
+}

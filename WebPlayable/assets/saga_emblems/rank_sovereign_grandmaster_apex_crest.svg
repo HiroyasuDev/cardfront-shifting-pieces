@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" data-emblem-id="rank_sovereign_grandmaster_apex_crest">
+  <defs>
+    <linearGradient id="grad_rank_sovereign_grandmaster_apex_crest" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB800" stop-opacity="0.92"/>
+      <stop offset="55%" stop-color="#FF2E54" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#070912" stop-opacity="0.96"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="248" height="248" rx="28" fill="#070912" stroke="#FFB800" stroke-width="3"/>
+
+  <!-- Ranked Sovereign Grandmaster Apex Crest: 4-Faction Crown & Cruciform Star -->
+  <circle cx="128" cy="128" r="108" fill="none" stroke="#FFB800" stroke-width="3" stroke-dasharray="14 6"/>
+  <polygon points="128,12 172,44 228,36 212,92 244,128 212,164 228,220 172,212 128,244 84,212 28,220 44,164 12,128 44,92 28,36 84,44" fill="#070912" stroke="#FFB800" stroke-width="4"/>
+  <circle cx="128" cy="128" r="82" fill="url(#grad_rank_sovereign_grandmaster_apex_crest)" stroke="#00E5FF" stroke-width="3"/>
+  <!-- Sovereign Crown Spires -->
+  <polygon points="62,142 78,68 106,112 128,48 150,112 178,68 194,142" fill="#FFB800" stroke="#FFFFFF" stroke-width="2.5"/>
+  <!-- 4-Point Cruciform Grandmaster Star -->
+  <polygon points="128,18 144,112 238,128 144,144 128,238 112,144 18,128 112,112" fill="#FF2E54" stroke="#FFFFFF" stroke-width="2.5"/>
+  <circle cx="128" cy="128" r="16" fill="#FFFFFF" stroke="#FFB800" stroke-width="4"/>
+</svg>

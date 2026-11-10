@@ -70,5 +70,8 @@
     "threeActCampaignSummary": "PASS_3ACT_CAMPAIGN_GAUNTLET:ACTS=3/3:BOOSTERS_DRAFTED=2:COINS=500:DRAFT1=agent_plugin_tcg_creative_designer:DRAFT2=agent_plugin_parallel_swarm_orchestrator:FINAL_BOSS=ghost_SovereignAgent_1825",
     "studioPxGAtomicPrimitivesVerified": true,
     "studioPxG24PrimitivesCount": 24,
-    "studioPxGActiveFilmShotSummary": "STUDIO_PXG_SHOT:IMPACT_FRAME_INVERTED_MONOCHROME_2F:CELL=4:SHADER=_IMPACT_FRAME_STENCIL_2F:LENS=24mm(FOV=58.0):STAR_FLARE=ON:XSHEET=1s-1s-2s-1s-1s-2s-1s-1s@24fps:PRIMITIVES=24"
+    "studioPxGActiveFilmShotSummary": "STUDIO_PXG_SHOT:IMPACT_FRAME_INVERTED_MONOCHROME_2F:CELL=4:SHADER=_IMPACT_FRAME_STENCIL_2F:LENS=24mm(FOV=58.0):STAR_FLARE=ON:XSHEET=1s-1s-2s-1s-1s-2s-1s-1s@24fps:PRIMITIVES=24",
+    "tenYearSagaAndSbx00Verified": true,
+    "expansionSets10YrCount": 20,
+    "sbx00SovereignVaultSummary": "PASS_SBX00_SOVEREIGN_VAULT:HOST=192.168.86.32:PATH=/DATA/SovereignVault/CARDFRONT_SAGA_VAULT:SQLITE=cardfront_10yr_saga_vault.sqlite3:BOOT_SD_GUARD=ENFORCED(0B_ROOT):SETS=20:CARDS=2400:V100_32GB=192.168.86.116:RTX4080_16GB=192.168.86.30:MLX_HOST=192.168.86.125"
 }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" data-emblem-id="era3_omega_convergence_crest">
+  <defs>
+    <linearGradient id="grad_era3_omega_convergence_crest" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF2E54" stop-opacity="0.92"/>
+      <stop offset="55%" stop-color="#00E5FF" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#090B14" stop-opacity="0.96"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="248" height="248" rx="28" fill="#090B14" stroke="#FF2E54" stroke-width="3"/>
+
+  <!-- Era III: Omega Singularity Crown & 4-Point Cruciform Star Burst -->
+  <circle cx="128" cy="128" r="104" fill="none" stroke="#FFB800" stroke-width="3"/>
+  <polygon points="128,16 194,48 240,128 194,208 128,240 62,208 16,128 62,48" fill="#090B14" stroke="#FF2E54" stroke-width="4"/>
+  <polygon points="128,34 218,128 128,222 38,128" fill="url(#grad_era3_omega_convergence_crest)" stroke="#00E5FF" stroke-width="3"/>
+  <!-- Six Singularity Seraph Wings -->
+  <polygon points="128,70 226,52 184,116 232,148 168,158 128,224 88,158 24,148 72,116 30,52" fill="#FF2E54" fill-opacity="0.85" stroke="#FFB800" stroke-width="2.5"/>
+  <!-- Asymmetric 4-Point Trigger Star Flare -->
+  <polygon points="128,20 142,114 236,128 142,142 128,236 114,142 20,128 114,114" fill="#FFB800" stroke="#FFFFFF" stroke-width="2.5"/>
+  <circle cx="128" cy="128" r="14" fill="#FFFFFF" stroke="#00E5FF" stroke-width="3"/>
+</svg>

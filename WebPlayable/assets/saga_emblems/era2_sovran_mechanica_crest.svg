@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" data-emblem-id="era2_sovran_mechanica_crest">
+  <defs>
+    <linearGradient id="grad_era2_sovran_mechanica_crest" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB800" stop-opacity="0.92"/>
+      <stop offset="55%" stop-color="#2EE6D3" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0B132B" stop-opacity="0.96"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="248" height="248" rx="28" fill="#0B132B" stroke="#FFB800" stroke-width="3"/>
+
+  <!-- Era II: Orthographic Astrolabe Gear & Beveled Mecha V-Fin Shield -->
+  <circle cx="128" cy="128" r="102" fill="none" stroke="#2EE6D3" stroke-width="2.5"/>
+  <polygon points="128,18 152,34 188,28 198,62 232,78 220,112 238,144 210,172 214,206 178,214 158,240 128,226 98,240 78,214 42,206 46,172 18,144 36,112 24,78 58,62 68,28 104,34" fill="#0B132B" stroke="#FFB800" stroke-width="3.5"/>
+  <circle cx="128" cy="128" r="76" fill="url(#grad_era2_sovran_mechanica_crest)" stroke="#2EE6D3" stroke-width="3"/>
+  <!-- Mecha V-Fin & Energy Wings -->
+  <polygon points="128,62 212,42 176,124 128,98 80,124 44,42" fill="#FFB800" stroke="#FFFFFF" stroke-width="2.5"/>
+  <polygon points="128,104 176,148 128,216 80,148" fill="#2EE6D3" stroke="#FFB800" stroke-width="3"/>
+  <polygon points="128,74 138,118 182,128 138,138 128,182 118,138 74,128 118,118" fill="#FFFFFF" stroke="#00E5FF" stroke-width="1.5"/>
+</svg>

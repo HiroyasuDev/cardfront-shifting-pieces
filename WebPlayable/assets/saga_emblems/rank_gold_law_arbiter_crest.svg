@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" data-emblem-id="rank_gold_law_arbiter_crest">
+  <defs>
+    <linearGradient id="grad_rank_gold_law_arbiter_crest" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB800" stop-opacity="0.92"/>
+      <stop offset="55%" stop-color="#FFE082" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#141008" stop-opacity="0.96"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="248" height="248" rx="28" fill="#141008" stroke="#FFB800" stroke-width="3"/>
+
+  <!-- Ranked Gold Law Arbiter Crest: Sovereign Scales & Paladin Shield -->
+  <polygon points="128,18 216,54 202,168 128,238 54,168 40,54" fill="#141008" stroke="#FFB800" stroke-width="5"/>
+  <polygon points="128,34 198,64 186,160 128,220 70,160 58,64" fill="url(#grad_rank_gold_law_arbiter_crest)" stroke="#FFE082" stroke-width="2.5"/>
+  <!-- Law Balance Crossbar & Scales -->
+  <line x1="64" y1="104" x2="192" y2="104" stroke="#FFFFFF" stroke-width="4"/>
+  <polygon points="128,44 140,104 128,198 116,104" fill="#FFB800" stroke="#FFFFFF" stroke-width="2"/>
+  <polygon points="72,104 92,146 52,146" fill="#FFE082" stroke="#FFB800" stroke-width="2"/>
+  <polygon points="184,104 204,146 164,146" fill="#FFE082" stroke="#FFB800" stroke-width="2"/>
+  <circle cx="128" cy="104" r="12" fill="#2EE6D3" stroke="#FFFFFF" stroke-width="2.5"/>
+</svg>

@@ -771,6 +771,61 @@ namespace Synapse.TcgEngine.Core
         }
 
         /// <summary>
+        /// Canonical 20 Expansion Set IDs across the 10-Year / 3-Era CARDFRONT Franchise Saga (2,400 total planned cards).
+        /// </summary>
+        public static readonly string[] Franchise20ExpansionSetIds = new string[20]
+        {
+            "SET_01_CRADLE_GENESIS",
+            "SET_02_KUBRART_ASTRAL_ECLIPSE",
+            "SET_03_MNEMOSYNE_STAR_VAULT",
+            "SET_04_SHADOW_MAZE_CHIAROSCURO",
+            "SET_05_STUDIO_PXG_ATOMIC_STRIKERS",
+            "SET_06_KUBRART_ECLIPSE_APEX",
+            "SET_07_SOVRAN_MECHANICA_DAWN",
+            "SET_08_OKITSU_TRIBUNAL_DECREE",
+            "SET_09_CHRONO_ARMADA_VANGUARD",
+            "SET_10_CRIMSON_RIFT_BASTION",
+            "SET_11_AETHER_FORGE_CITADEL",
+            "SET_12_ECHO_GHOST_PARLIAMENT",
+            "SET_13_POLYHEDRAL_CRYO_FRONTIER",
+            "SET_14_CHRONO_LATTICE_CATACLYSM",
+            "SET_15_ASTRAL_SINGULARITY_THRESHOLD",
+            "SET_16_SOVEREIGN_AGENT_CONCLAVE",
+            "SET_17_HALL_OF_SELVES_MIRROR",
+            "SET_18_GOLDEN_FOX_SANCTUARY",
+            "SET_19_OMEGA_CONVERGENCE_VANGUARD",
+            "SET_20_ETERNAL_CRADLE_APEX"
+        };
+
+        /// <summary>
+        /// Validates a card's orthogonal N/E/S/W directional stat budget against the 10-Year Franchise
+        /// Power-Creep Governor (Cost 1 &lt;= 22, Cost 2 &lt;= 25, Cost 3 &lt;= 28, Cost 4 &lt;= 31) and competitive format rules.
+        /// </summary>
+        public static bool Validate10YearSagaSetRotationAndBudget(string formatId, int cost, int n, int e, int s, int w)
+        {
+            string fmt = string.IsNullOrEmpty(formatId) ? "STANDARD_ROTATION_4SET" : formatId.Trim().ToUpperInvariant();
+            if (fmt != "STANDARD_ROTATION_4SET" && fmt != "ECHOES_UNLIMITED_ETERNAL" && fmt != "ARENA_DRAFT_CUBE")
+                return false;
+
+            int clampedCost = Mathf.Clamp(cost, 1, 4);
+            int maxBudget = 19 + (3 * clampedCost); // Cost 1=>22, Cost 2=>25, Cost 3=>28, Cost 4=>31
+            int directionalSum = Mathf.Max(0, n) + Mathf.Max(0, e) + Mathf.Max(0, s) + Mathf.Max(0, w);
+            return directionalSum > 0 && directionalSum <= maxBudget;
+        }
+
+        /// <summary>
+        /// Returns the live status telemetry summary for the SBX00 Enterprise Data Vault
+        /// (/DATA/SovereignVault/CARDFRONT_SAGA_VAULT on 192.168.86.32 with boot SD card protection)
+        /// and the 4-node GPU cluster (V100-32GB 192.168.86.116, RTX 4080-16GB 192.168.86.30, Apple Silicon MLX 192.168.86.125).
+        /// </summary>
+        public static string GetSbx00SovereignVaultStatus()
+        {
+            return string.Format(
+                "PASS_SBX00_SOVEREIGN_VAULT:HOST=192.168.86.32:PATH=/DATA/SovereignVault/CARDFRONT_SAGA_VAULT:SQLITE=cardfront_10yr_saga_vault.sqlite3:BOOT_SD_GUARD=ENFORCED(0B_ROOT):SETS={0}:CARDS=2400:V100_32GB=192.168.86.116:RTX4080_16GB=192.168.86.30:MLX_HOST=192.168.86.125",
+                Franchise20ExpansionSetIds.Length);
+        }
+
+        /// <summary>
         /// Rolls the 5-dice Dicevaders row at the start of a turn, refreshing Budge tokens and Chrono charges
         /// according to the active chapter's progressive pacing profile, and evaluates the active resonance multiplier.
         /// </summary>

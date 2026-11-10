@@ -1,0 +1,65 @@
+{
+  "status": "PASS_SBX00_SOVEREIGN_VAULT_SYNCED",
+  "timestamp_utc": "2026-11-10T00:07:40Z",
+  "sbx00_host": "192.168.86.32",
+  "sbx00_ssh_alias": "sbx00-direct",
+  "sbx00_ssh_port": 2222,
+  "sbx00_vault_path": "/DATA/SovereignVault/CARDFRONT_SAGA_VAULT",
+  "local_sqlite_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/cardfront_sovereign_franchise_sbx00.sqlite3",
+  "remote_sqlite_path": "/DATA/SovereignVault/CARDFRONT_SAGA_VAULT/db/cardfront_sovereign_franchise_sbx00.sqlite3",
+  "local_sha256": "0918bf07f6b5e616ddc4859f33b6e8a4c1d1cb2240781b75ff92f56679fb65ab",
+  "remote_sha256": "0918bf07f6b5e616ddc4859f33b6e8a4c1d1cb2240781b75ff92f56679fb65ab",
+  "local_remote_sha256_match": true,
+  "sqlite_byte_size": 192512,
+  "sbx00_storage_guard": {
+    "sbx00_host": "192.168.86.32",
+    "ssh_alias": "sbx00-direct",
+    "vault_mount": "/DATA/SovereignVault",
+    "vault_total_gb": 7331,
+    "vault_free_gb": 5982,
+    "root_sd_card_total_gb": 29,
+    "root_sd_card_free_gb": 1,
+    "guard_passed": true,
+    "strict_write_prefix": "/DATA/SovereignVault/CARDFRONT_SAGA_VAULT",
+    "raw_df_output": "Filesystem     1G-blocks  Used Available Use% Mounted on\n1:2:3:4            7331G  977G     5982G  15% /DATA/SovereignVault\n/dev/mmcblk0p2       29G   28G        1G 100% /"
+  },
+  "table_row_counts": {
+    "franchise_eras": 3,
+    "expansion_sets_10yr": 20,
+    "canonical_cards_catalog": 131,
+    "lora_model_zoo": 16,
+    "sakuga_cutin_registry": 109,
+    "gpu_cluster_nodes": 4,
+    "franchise_economy_and_ltv_projections": 10,
+    "sbx00_vault_sync_audit": 21
+  },
+  "total_planned_10yr_cards": 2400,
+  "canonical_cards_breakdown": {
+    "set1_cradle_of_echoes": 60,
+    "set2_kubrart_manga_vanguard": 20,
+    "set3_sovereign_agent_deck": 37,
+    "set4_studio_pxg_aaa_strikers": 8,
+    "saga_10yr_era_heralds": 6,
+    "total_canonical_playable_cards": 131
+  },
+  "remote_verification": {
+    "remote_db_path": "/DATA/SovereignVault/CARDFRONT_SAGA_VAULT/db/cardfront_sovereign_franchise_sbx00.sqlite3",
+    "remote_ls_lh": "-rw-r--r-- 1 pxadmin pxadmin 188K Nov  9 14:07 /DATA/SovereignVault/CARDFRONT_SAGA_VAULT/db/cardfront_sovereign_franchise_sbx00.sqlite3",
+    "remote_sha256": "0918bf07f6b5e616ddc4859f33b6e8a4c1d1cb2240781b75ff92f56679fb65ab",
+    "local_remote_sha256_match": true,
+    "remote_table_counts": {
+      "franchise_eras": 3,
+      "expansion_sets_10yr": 20,
+      "canonical_cards_catalog": 131,
+      "lora_model_zoo": 16,
+      "sakuga_cutin_registry": 109,
+      "gpu_cluster_nodes": 4,
+      "franchise_economy_and_ltv_projections": 10,
+      "sbx00_vault_sync_audit": 21
+    },
+    "total_planned_10yr_cards": 2400,
+    "synced_lora_files_count": 17,
+    "synced_manifest_files_count": 5
+  },
+  "provisioning_wall_time_s": 4.798
+}

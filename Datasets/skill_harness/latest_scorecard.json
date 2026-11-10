@@ -1,14 +1,14 @@
 {
-  "iteration": 370,
-  "timestamp_utc": "2026-11-09T23:46:38Z",
+  "iteration": 378,
+  "timestamp_utc": "2026-11-10T00:12:45Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
     "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
-    "total_checks": 172,
-    "passed_checks": 172,
+    "total_checks": 174,
+    "passed_checks": 174,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -127,6 +127,8 @@
       "core.production_upgrades.13",
       "core.production_upgrades.14",
       "core.production_upgrades.15",
+      "core.production_upgrades.16",
+      "core.production_upgrades.17",
       "core.release_pkg.01",
       "core.sakuga_v100.01",
       "core.sakuga_v100.02",
@@ -197,14 +199,13 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 369,
+    "previous_iteration": 377,
     "newly_passing_checks": [
-      "core.production_upgrades.14",
-      "core.production_upgrades.15"
+      "core.production_upgrades.17"
     ],
     "newly_failing_checks": [],
-    "pass_count_delta": 2,
-    "total_checks_delta": 2
+    "pass_count_delta": 1,
+    "total_checks_delta": 0
   },
   "step_a_router": {
     "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
@@ -304,7 +305,7 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 7075.2
+      "elapsed_ms": 6737.2
     },
     "autotest": {
       "ran": true,
@@ -313,10 +314,10 @@
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8610,
+      "elapsed_ms": 8635,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-09T23:46:25.818Z",
+        "timestamp": "2026-11-10T00:12:33.576Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -386,7 +387,7 @@
               2,
               1
             ],
-            "immediateCaptures": 2,
+            "immediateCaptures": 1,
             "scoreAfterTurn": {
               "player": 4,
               "boss": 5
@@ -409,7 +410,7 @@
           "rerollAllDice()"
         ],
         "turnsPlayed": 4,
-        "capturesTriggered": 5,
+        "capturesTriggered": 4,
         "tacticalSlideTested": true,
         "modalDisplayed": true,
         "finalScore": {
@@ -1989,6 +1990,38 @@
         "error": null
       },
       {
+        "id": "core.production_upgrades.16",
+        "skill": "tcg-creative-game-designer",
+        "rule": "10-Year CARDFRONT Saga Franchise Bible (3 Eras, 20 Expansion Sets, 2,400 Planned Cards), Tesla V100-32GB (192.168.86.116) 50,000-Matchup Meta-Governor Training (cardfront_10yr_saga_meta_governor_v100.safetensors), 6 RTX 4080 Era Herald Master Cards & 6 SVG Crests, and SBX00:/DATA/SovereignVault/CARDFRONT_SAGA_VAULT Relational SQLite Database Sync (131 Cards, 16 LoRA Models, local_remote_sha256_match == True).",
+        "source": "Logs/sbx00_sovereign_database_sync_report.json:1",
+        "target": "both",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Backend/provision_sbx00_sovereign_franchise_db.py:1-360",
+        "remediation": "Run python3 Backend/build_10year_franchise_saga_and_v100_trainer.py, Backend/render_10year_saga_cluster_production_assets.py, and Backend/provision_sbx00_sovereign_franchise_db.py.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.17",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Live In-Game 10-Year Saga Franchise Hub, 20-Set Rotation & Power-Creep Governor, and SBX00 Cluster Vault Inspector (window.CardFrontSaga10YearFranchise, 3 Eras, 20 Expansion Sets, 6 Era Herald Cards saga_y01..saga_y10, #saga-10year-franchise-modal, /api/saga/sbx00-status, & Unity 6 C# Parity).",
+        "source": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1",
+        "target": "both",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1-360",
+        "remediation": "Wire WebPlayable/modules/saga_10year_franchise_and_sbx00.js and #saga-10year-franchise-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
         "id": "ai_save_ship.1",
         "skill": "disciplines/game-ai",
         "rule": "Dedicated Boss AI decision entrypoint exists in the Web playable runtime",
@@ -3339,8 +3372,8 @@
       },
       "disciplines/game-ui-ux": {
         "skill": "disciplines/game-ui-ux",
-        "total": 24,
-        "passed": 24,
+        "total": 25,
+        "passed": 25,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -3491,8 +3524,8 @@
       },
       "tcg-creative-game-designer": {
         "skill": "tcg-creative-game-designer",
-        "total": 4,
-        "passed": 4,
+        "total": 5,
+        "passed": 5,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -3579,5 +3612,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 26430.3
+  "elapsed_ms": 26182.3
 }

@@ -1513,5 +1513,36 @@
     "priority": "P0",
     "code_ref": "WebPlayable/modules/studio_pxg_atomic_director.js:1-340",
     "remediation": "Wire WebPlayable/modules/studio_pxg_atomic_director.js and #studio-pxg-atomic-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+  },
+  {
+    "id": "core.production_upgrades.16",
+    "skill": "tcg-creative-game-designer",
+    "rule": "10-Year CARDFRONT Saga Franchise Bible (3 Eras, 20 Expansion Sets, 2,400 Planned Cards), Tesla V100-32GB (192.168.86.116) 50,000-Matchup Meta-Governor Training (cardfront_10yr_saga_meta_governor_v100.safetensors), 6 RTX 4080 Era Herald Master Cards & 6 SVG Crests, and SBX00:/DATA/SovereignVault/CARDFRONT_SAGA_VAULT Relational SQLite Database Sync (131 Cards, 16 LoRA Models, local_remote_sha256_match == True).",
+    "source": "Logs/sbx00_sovereign_database_sync_report.json:1",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/sbx00_sovereign_database_sync_report.json",
+      "expression": "data.get('status') == 'PASS_SBX00_SOVEREIGN_VAULT_SYNCED' and data.get('sbx00_host') == '192.168.86.32' and data.get('sbx00_vault_path') == '/DATA/SovereignVault/CARDFRONT_SAGA_VAULT' and data.get('local_remote_sha256_match') is True and data.get('table_row_counts', {}).get('expansion_sets_10yr') == 20 and data.get('table_row_counts', {}).get('canonical_cards_catalog', 0) >= 131"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/provision_sbx00_sovereign_franchise_db.py:1-360",
+    "remediation": "Run python3 Backend/build_10year_franchise_saga_and_v100_trainer.py, Backend/render_10year_saga_cluster_production_assets.py, and Backend/provision_sbx00_sovereign_franchise_db.py."
+  },
+  {
+    "id": "core.production_upgrades.17",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Live In-Game 10-Year Saga Franchise Hub, 20-Set Rotation & Power-Creep Governor, and SBX00 Cluster Vault Inspector (window.CardFrontSaga10YearFranchise, 3 Eras, 20 Expansion Sets, 6 Era Herald Cards saga_y01..saga_y10, #saga-10year-franchise-modal, /api/saga/sbx00-status, & Unity 6 C# Parity).",
+    "source": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1",
+    "target": "both",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const s = window.CardFrontSaga10YearFranchise; if (!s || !Array.isArray(s.FRANCHISE_SAGA_3_ERAS) || s.FRANCHISE_SAGA_3_ERAS.length !== 3 || !Array.isArray(s.FRANCHISE_20_EXPANSION_SETS) || s.FRANCHISE_20_EXPANSION_SETS.length !== 20 || !Array.isArray(s.SAGA_10YEAR_HERALD_CARDS) || s.SAGA_10YEAR_HERALD_CARDS.length !== 6) return false; const deck = s.equip10YearSagaHeraldDeck(); const val = s.validateSetRotationAndPowerCreep(deck.playerDeck, 'ECHOES_UNLIMITED_ETERNAL'); const tel = s.getSbx00AndClusterLiveTelemetry(); s.openSaga10YearFranchiseModal('sbx00_cluster'); s.closeSaga10YearFranchiseModal(); return Boolean(deck && deck.deckId === 'deck_10year_saga_heralds' && val && val.valid === true && tel && tel.sbx00Vault && tel.sbx00Vault.vaultRoot === '/DATA/SovereignVault/CARDFRONT_SAGA_VAULT'); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1-360",
+    "remediation": "Wire WebPlayable/modules/saga_10year_franchise_and_sbx00.js and #saga-10year-franchise-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
   }
 ]

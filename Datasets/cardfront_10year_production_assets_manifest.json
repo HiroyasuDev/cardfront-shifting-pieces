@@ -1,0 +1,475 @@
+{
+  "manifest_id": "cardfront_10year_production_assets_v1",
+  "timestamp_utc": "2026-11-10T00:00:32Z",
+  "generator": "Backend/render_10year_saga_cluster_production_assets.py",
+  "status": "VERIFIED",
+  "zero_living_artist_names": true,
+  "comfyui_rtx4080_endpoint": "http://192.168.86.30:8188",
+  "dual_model_checkpoints": [
+    "animagineXLV31_v31.safetensors",
+    "flux1-dev-fp8.safetensors"
+  ],
+  "rtx4080_render_params": {
+    "width": 768,
+    "height": 1024,
+    "steps": 10,
+    "cfg": 6.5,
+    "sampler_name": "euler_ancestral",
+    "scheduler": "normal"
+  },
+  "saga_herald_cards_count": 6,
+  "saga_herald_unique_sha256_count": 6,
+  "rtx4080_live_rendered_heralds_count": 6,
+  "all_herald_cards_600x800_rgb_opaque": true,
+  "svg_emblems_count": 6,
+  "all_svg_emblems_256x256_zero_text": true,
+  "showcase_atlas": {
+    "width": 2400,
+    "height": 1600,
+    "herald_cards_displayed": 6,
+    "svg_emblems_displayed": 6,
+    "brain_showcase_path": "/Users/frederickamina/.gemini/antigravity-cli/brain/d934b222-0e48-433e-b635-1a692b802f46/cardfront_10year_saga_franchise_showcase.png",
+    "local_showcase_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/cardfront_10year_saga_franchise_showcase.png",
+    "sha256": "6c1f7841cfb1e257dc87a77202fca0aea6bdcdcb9198dfb28545486c068738f2",
+    "bytes": 2056802
+  },
+  "total_wall_time_s": 31.06,
+  "saga_herald_cards": [
+    {
+      "id": "saga_y01",
+      "slug": "saga_y01_cradle_genesis_herald",
+      "filename": "saga_y01_cradle_genesis_herald.png",
+      "name": "Herald of the Cradle Genesis",
+      "era_id": "era_1",
+      "era_title": "Era I: Cradle of Echoes (Years 1\u20133 \u00b7 Sets 1\u20136)",
+      "years_label": "Year 1\u20132 (Era I)",
+      "sets_spanned": [
+        "Set 1: Cradle of Echoes",
+        "Set 2: Kubrart Astral Eclipse",
+        "Set 3: Sanctum Vanguard",
+        "Set 4: Echoing Rift"
+      ],
+      "faction": "Valkyria",
+      "cost": 3,
+      "nesw": [
+        9,
+        8,
+        6,
+        8
+      ],
+      "ability": {
+        "id": "ab_cradle_genesis_resonator",
+        "name": "Cradle Genesis Resonance",
+        "text": "On Deploy: Projects a 3x3 Astral Sanctum lattice that grants +1 North and +1 East to all Era I allies."
+      },
+      "primary_hex": "#00E5FF",
+      "secondary_hex": "#FFB800",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "art": "./GeneratedArt/Saga10YearFranchise/saga_y01_cradle_genesis_herald.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Saga10YearFranchise/saga_y01_cradle_genesis_herald.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Saga10YearFranchise/saga_y01_cradle_genesis_herald.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/saga_y01_cradle_genesis_herald.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "11f5913da39a779841b4357bde77c8f9398dd09af9c66b7788a5532bd87107bb",
+      "file_size_bytes": 713817,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/saga_y01_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 3.82,
+      "prompt": "masterpiece, best quality, official 10th-anniversary anime and manga tactical trading card key-art illustration, stylized 7-head to 7.5-head heroic proportions, tapered gauntlets and oversized propulsion boots, pen-and-ink G-pen crosshatching over warm parchment-gold filigree, razor-sharp unblended kagenashi cel shadows, 14mm foreshortened anime spellblade conduit holding a luminous 3x3 astral sanctum monolith cube, vibrant astral cyan and cobalt-gold energy wings, cropped high-collar tactical paladin coat, four-point gold star flare, floating citadel sky-sanctuary backdrop",
+      "zero_living_artist_names": true
+    },
+    {
+      "id": "saga_y02",
+      "slug": "saga_y02_kubrart_eclipse_monarch",
+      "filename": "saga_y02_kubrart_eclipse_monarch.png",
+      "name": "Monarch of the Kubrart Eclipse",
+      "era_id": "era_1",
+      "era_title": "Era I: Cradle of Echoes (Years 1\u20133 \u00b7 Sets 1\u20136)",
+      "years_label": "Year 2\u20133 (Era I)",
+      "sets_spanned": [
+        "Set 5: Obsidian Prism",
+        "Set 6: Eclipse Monarchs"
+      ],
+      "faction": "Aether",
+      "cost": 4,
+      "nesw": [
+        9,
+        9,
+        7,
+        8
+      ],
+      "ability": {
+        "id": "ab_kubrart_eclipse_coronation",
+        "name": "Negative-Space Eclipse Crown",
+        "text": "Eclipse Sovereign: Converts adjacent orthogonal tiles into Obsidian Prism zones where Prime ranks win ties."
+      },
+      "primary_hex": "#A855F7",
+      "secondary_hex": "#00E5FF",
+      "primary_rgb": [
+        168,
+        85,
+        247
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "art": "./GeneratedArt/Saga10YearFranchise/saga_y02_kubrart_eclipse_monarch.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Saga10YearFranchise/saga_y02_kubrart_eclipse_monarch.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Saga10YearFranchise/saga_y02_kubrart_eclipse_monarch.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/saga_y02_kubrart_eclipse_monarch.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "89570748db1eca88cff50391a3319f20e8c413b165d3a0aa3a63a5d73f8b79e7",
+      "file_size_bytes": 846843,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/saga_y02_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 4.44,
+      "prompt": "masterpiece, best quality, official 10th-anniversary anime and manga tactical trading card key-art illustration, stylized 7-head to 7.5-head heroic proportions, tapered gauntlets and oversized propulsion boots, pen-and-ink G-pen crosshatching over warm parchment-gold filigree, razor-sharp unblended kagenashi cel shadows, sovereign anime eclipse monarch silhouetted in stark sumi-ink negative-space blocks, crowned by a floating polyhedral black obsidian eclipse halo, razor-sharp graphic vector-cel shards, luminous tarot violet and astral cyan dual rim-wash",
+      "zero_living_artist_names": true
+    },
+    {
+      "id": "saga_y04",
+      "slug": "saga_y04_sovran_mechanica_titan",
+      "filename": "saga_y04_sovran_mechanica_titan.png",
+      "name": "Sovran Mechanica Prime Titan",
+      "era_id": "era_2",
+      "era_title": "Era II: Sovran Mechanica (Years 4\u20137 \u00b7 Sets 7\u201314)",
+      "years_label": "Year 4\u20135 (Era II)",
+      "sets_spanned": [
+        "Set 7: Sovran Mechanica",
+        "Set 8: Orthographic Dragoons",
+        "Set 9: Aegis Forge",
+        "Set 10: Jade Core"
+      ],
+      "faction": "Solaris",
+      "cost": 4,
+      "nesw": [
+        9,
+        9,
+        8,
+        7
+      ],
+      "ability": {
+        "id": "ab_sovran_mechanica_overdrive",
+        "name": "Cruciform Solar Overdrive",
+        "text": "Mecha Citadel: Fortifies all orthogonal allied constructs by +2 Armor and triggers an orthographic rail-sweep."
+      },
+      "primary_hex": "#FFB800",
+      "secondary_hex": "#2EE6D3",
+      "primary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "secondary_rgb": [
+        46,
+        230,
+        211
+      ],
+      "art": "./GeneratedArt/Saga10YearFranchise/saga_y04_sovran_mechanica_titan.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Saga10YearFranchise/saga_y04_sovran_mechanica_titan.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Saga10YearFranchise/saga_y04_sovran_mechanica_titan.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/saga_y04_sovran_mechanica_titan.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "9fdc1aea805dd1f8f6e680338bd8668d2a2e699f4570a29467e24e5ddf14c224",
+      "file_size_bytes": 901690,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/saga_y04_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 3.0,
+      "prompt": "masterpiece, best quality, official 10th-anniversary anime and manga tactical trading card key-art illustration, stylized 7-head to 7.5-head heroic proportions, tapered gauntlets and oversized propulsion boots, pen-and-ink G-pen crosshatching over warm parchment-gold filigree, razor-sharp unblended kagenashi cel shadows, 7.5-head cyber-magicite mecha frame in heroic forced-perspective brave stance with crossed pauldrons, sovereign law-gold and jade-teal beveled armor plates, six cruciform solar energy wings, precision orthographic blueprint reticle halo, CMYK halftone screentone accents",
+      "zero_living_artist_names": true
+    },
+    {
+      "id": "saga_y06",
+      "slug": "saga_y06_chrono_paradox_arbiter",
+      "filename": "saga_y06_chrono_paradox_arbiter.png",
+      "name": "Chrono-Lattice Paradox Arbiter",
+      "era_id": "era_2",
+      "era_title": "Era II: Sovran Mechanica (Years 4\u20137 \u00b7 Sets 7\u201314)",
+      "years_label": "Year 6\u20137 (Era II)",
+      "sets_spanned": [
+        "Set 11: Chrono-Lattice",
+        "Set 12: Pendulum Decree",
+        "Set 13: Ivory Inquisitors",
+        "Set 14: Paradox Engine"
+      ],
+      "faction": "Chronos",
+      "cost": 3,
+      "nesw": [
+        8,
+        8,
+        9,
+        8
+      ],
+      "ability": {
+        "id": "ab_chrono_lattice_rewind",
+        "name": "Paradox Lattice Rewind",
+        "text": "Temporal Decree: Rewinds a captured allied unit to its pre-flip state once per match and locks column dice."
+      },
+      "primary_hex": "#00E5FF",
+      "secondary_hex": "#FFE082",
+      "primary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "secondary_rgb": [
+        255,
+        224,
+        130
+      ],
+      "art": "./GeneratedArt/Saga10YearFranchise/saga_y06_chrono_paradox_arbiter.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Saga10YearFranchise/saga_y06_chrono_paradox_arbiter.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Saga10YearFranchise/saga_y06_chrono_paradox_arbiter.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/saga_y06_chrono_paradox_arbiter.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "a033d2bae108bc6dcc78f5746a3e258dce763ac822a4b6519c1bf932ff160bf5",
+      "file_size_bytes": 986730,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/saga_y06_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 3.48,
+      "prompt": "masterpiece, best quality, official 10th-anniversary anime and manga tactical trading card key-art illustration, stylized 7-head to 7.5-head heroic proportions, tapered gauntlets and oversized propulsion boots, pen-and-ink G-pen crosshatching over warm parchment-gold filigree, razor-sharp unblended kagenashi cel shadows, ornate anime chronomancer law arbiter surrounded by shattered brass clockwork polyhedral rings, dense variable-weight G-pen manga crosshatching over warm gilded parchment filigree, dual-tone astral cyan and solar gold temporal halo",
+      "zero_living_artist_names": true
+    },
+    {
+      "id": "saga_y08",
+      "slug": "saga_y08_astral_singularity_valkyrie",
+      "filename": "saga_y08_astral_singularity_valkyrie.png",
+      "name": "Singularity Ascended Valkyrie",
+      "era_id": "era_3",
+      "era_title": "Era III: Omega Convergence (Years 8\u201310 \u00b7 Sets 15\u201320)",
+      "years_label": "Year 8\u20139 (Era III)",
+      "sets_spanned": [
+        "Set 15: Astral Singularity",
+        "Set 16: Crimson Horizon",
+        "Set 17: 24fps Sakuga Apex",
+        "Set 18: Valkyria Prime"
+      ],
+      "faction": "Abyss",
+      "cost": 4,
+      "nesw": [
+        10,
+        9,
+        6,
+        8
+      ],
+      "ability": {
+        "id": "ab_singularity_spear_dive",
+        "name": "24fps Singularity Spear Dive",
+        "text": "Sakuga Impact: Lunges across any main diagonal, triggering an inverted monochrome impact flash and +2 Attack."
+      },
+      "primary_hex": "#FF2E54",
+      "secondary_hex": "#00E5FF",
+      "primary_rgb": [
+        255,
+        46,
+        84
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "art": "./GeneratedArt/Saga10YearFranchise/saga_y08_astral_singularity_valkyrie.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Saga10YearFranchise/saga_y08_astral_singularity_valkyrie.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Saga10YearFranchise/saga_y08_astral_singularity_valkyrie.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/saga_y08_astral_singularity_valkyrie.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "a2be8d8dab7cf0ee4249ad820718e19b2ec5ede4a8c2904469d26be360d4bd7d",
+      "file_size_bytes": 757847,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/saga_y08_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 5.08,
+      "prompt": "masterpiece, best quality, official 10th-anniversary anime and manga tactical trading card key-art illustration, stylized 7-head to 7.5-head heroic proportions, tapered gauntlets and oversized propulsion boots, pen-and-ink G-pen crosshatching over warm parchment-gold filigree, razor-sharp unblended kagenashi cel shadows, ascended anime valkyrie lancer thrusting a liquid-plasma smear spear in a 24fps key-animation impact pose, stark kagenashi hard-shadow wings, dramatic crimson-flame and astral cyan clash rim-lighting, four-point cruciform star flares",
+      "zero_living_artist_names": true
+    },
+    {
+      "id": "saga_y10",
+      "slug": "saga_y10_omega_convergence_sovereign",
+      "filename": "saga_y10_omega_convergence_sovereign.png",
+      "name": "Omega Convergence Sovereign",
+      "era_id": "era_3",
+      "era_title": "Era III: Omega Convergence (Years 8\u201310 \u00b7 Sets 15\u201320)",
+      "years_label": "Year 10 (Era III Finale)",
+      "sets_spanned": [
+        "Set 19: Echoes Eternal",
+        "Set 20: Omega Convergence (10th Anniversary Finale)"
+      ],
+      "faction": "Solaris",
+      "cost": 4,
+      "nesw": [
+        10,
+        10,
+        9,
+        9
+      ],
+      "ability": {
+        "id": "ab_omega_ten_year_convergence",
+        "name": "Decade of Echoes Convergence",
+        "text": "10th-Anniversary Apex: Unifies all 4 Faction Chromatic Halos (+1 N/E/S/W per distinct Era in your squad)."
+      },
+      "primary_hex": "#FFB800",
+      "secondary_hex": "#00E5FF",
+      "primary_rgb": [
+        255,
+        184,
+        0
+      ],
+      "secondary_rgb": [
+        0,
+        229,
+        255
+      ],
+      "art": "./GeneratedArt/Saga10YearFranchise/saga_y10_omega_convergence_sovereign.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Saga10YearFranchise/saga_y10_omega_convergence_sovereign.png",
+      "web_playable_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/GeneratedArt/Saga10YearFranchise/saga_y10_omega_convergence_sovereign.png",
+      "unity_portrait_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/CardFront/Portraits/saga_y10_omega_convergence_sovereign.png",
+      "width": 600,
+      "height": 800,
+      "mode": "RGB",
+      "opaque": true,
+      "content_bounds": [
+        0,
+        0,
+        600,
+        800
+      ],
+      "sha256": "50aedf73551f4191180b829a8451347fd84912eaa5c4c731170f1fc3184fee6e",
+      "file_size_bytes": 824063,
+      "rtx4080_raw_source": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/AnimeMangaModels/saga_y10_rtx4080_raw.png",
+      "rtx4080_live_rendered": true,
+      "rtx4080_elapsed_s": 9.81,
+      "prompt": "masterpiece, best quality, official 10th-anniversary anime and manga tactical trading card key-art illustration, stylized 7-head to 7.5-head heroic proportions, tapered gauntlets and oversized propulsion boots, pen-and-ink G-pen crosshatching over warm parchment-gold filigree, razor-sharp unblended kagenashi cel shadows, ultimate 10th-anniversary anime sovereign monarch ascending inside a four-faction prismatic astrolabe crown, sovereign gold, astral cyan, crimson-flame, and tarot violet four-point star flare burst, ornate cyber-magicite ceremonial armor and floating polyhedral sanctum shards",
+      "zero_living_artist_names": true
+    }
+  ],
+  "svg_emblems": [
+    {
+      "id": "era1_cradle_of_echoes_crest",
+      "filename": "era1_cradle_of_echoes_crest.svg",
+      "title": "Era I: Cradle of Echoes Expansion Crest (Years 1\u20133)",
+      "category": "era_crest",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/assets/saga_emblems/era1_cradle_of_echoes_crest.svg",
+      "web_asset_path": "./assets/saga_emblems/era1_cradle_of_echoes_crest.svg",
+      "viewBox": "0 0 256 256",
+      "zero_text_nodes": true,
+      "sha256": "8bd6fd9fe547be46f93a9ad42f2a1e76d54ff7a730abaf9afd5a3a4b306e7ce6",
+      "bytes": 1603
+    },
+    {
+      "id": "era2_sovran_mechanica_crest",
+      "filename": "era2_sovran_mechanica_crest.svg",
+      "title": "Era II: Sovran Mechanica Expansion Crest (Years 4\u20137)",
+      "category": "era_crest",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/assets/saga_emblems/era2_sovran_mechanica_crest.svg",
+      "web_asset_path": "./assets/saga_emblems/era2_sovran_mechanica_crest.svg",
+      "viewBox": "0 0 256 256",
+      "zero_text_nodes": true,
+      "sha256": "baa2725edbe53268a6639e8675ebe38db234e8e2a0dc9dcc84631c935e4fafcf",
+      "bytes": 1485
+    },
+    {
+      "id": "era3_omega_convergence_crest",
+      "filename": "era3_omega_convergence_crest.svg",
+      "title": "Era III: Omega Convergence Expansion Crest (Years 8\u201310)",
+      "category": "era_crest",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/assets/saga_emblems/era3_omega_convergence_crest.svg",
+      "web_asset_path": "./assets/saga_emblems/era3_omega_convergence_crest.svg",
+      "viewBox": "0 0 256 256",
+      "zero_text_nodes": true,
+      "sha256": "c1b81f3df3e014b5ca1fa84fc374b65c4f3985f82b1bc6d47035f782aabb4fdf",
+      "bytes": 1484
+    },
+    {
+      "id": "rank_gold_law_arbiter_crest",
+      "filename": "rank_gold_law_arbiter_crest.svg",
+      "title": "Ranked League Tier: Gold Law Arbiter Crest",
+      "category": "ranked_crest",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/assets/saga_emblems/rank_gold_law_arbiter_crest.svg",
+      "web_asset_path": "./assets/saga_emblems/rank_gold_law_arbiter_crest.svg",
+      "viewBox": "0 0 256 256",
+      "zero_text_nodes": true,
+      "sha256": "85e71433433e2b3087f1840ec957a55af57f70d98aa954df29f4988457c6a9c4",
+      "bytes": 1419
+    },
+    {
+      "id": "rank_diamond_kubrart_prism_crest",
+      "filename": "rank_diamond_kubrart_prism_crest.svg",
+      "title": "Ranked League Tier: Diamond Kubrart Prism Crest",
+      "category": "ranked_crest",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/assets/saga_emblems/rank_diamond_kubrart_prism_crest.svg",
+      "web_asset_path": "./assets/saga_emblems/rank_diamond_kubrart_prism_crest.svg",
+      "viewBox": "0 0 256 256",
+      "zero_text_nodes": true,
+      "sha256": "624aa34d99ed91a2a2230c3fe701b9a7979cf5246cc54df78995a5fbc5fc0b55",
+      "bytes": 1285
+    },
+    {
+      "id": "rank_sovereign_grandmaster_apex_crest",
+      "filename": "rank_sovereign_grandmaster_apex_crest.svg",
+      "title": "Ranked League Tier: Sovereign Grandmaster Apex Crest",
+      "category": "ranked_crest",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/WebPlayable/assets/saga_emblems/rank_sovereign_grandmaster_apex_crest.svg",
+      "web_asset_path": "./assets/saga_emblems/rank_sovereign_grandmaster_apex_crest.svg",
+      "viewBox": "0 0 256 256",
+      "zero_text_nodes": true,
+      "sha256": "46c087b1b8755066f1ef312ad6a5e6adce95d0ca5264fbfd3f663a3f8899921c",
+      "bytes": 1535
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" data-emblem-id="era1_cradle_of_echoes_crest">
+  <defs>
+    <linearGradient id="grad_era1_cradle_of_echoes_crest" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.92"/>
+      <stop offset="55%" stop-color="#A855F7" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#090D16" stop-opacity="0.96"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="248" height="248" rx="28" fill="#090D16" stroke="#00E5FF" stroke-width="3"/>
+
+  <!-- Era I: 3x3 Sanctum Lattice & Polyhedral Eclipse Ring -->
+  <circle cx="128" cy="128" r="96" fill="none" stroke="#00E5FF" stroke-width="3" stroke-dasharray="10 6"/>
+  <polygon points="128,22 220,75 220,181 128,234 36,181 36,75" fill="#090D16" fill-opacity="0.88" stroke="#A855F7" stroke-width="4"/>
+  <polygon points="128,42 202,128 128,214 54,128" fill="url(#grad_era1_cradle_of_echoes_crest)" stroke="#00E5FF" stroke-width="3"/>
+  <!-- 3x3 Tactical Grid Lines -->
+  <line x1="96" y1="76" x2="96" y2="180" stroke="#FFB800" stroke-width="2.5"/>
+  <line x1="160" y1="76" x2="160" y2="180" stroke="#FFB800" stroke-width="2.5"/>
+  <line x1="76" y1="96" x2="180" y2="96" stroke="#FFB800" stroke-width="2.5"/>
+  <line x1="76" y1="160" x2="180" y2="160" stroke="#FFB800" stroke-width="2.5"/>
+  <!-- 4-Point Cruciform Astral Core -->
+  <polygon points="128,56 140,116 200,128 140,140 128,200 116,140 56,128 116,116" fill="#00E5FF" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="128" cy="128" r="10" fill="#FFFFFF"/>
+</svg>

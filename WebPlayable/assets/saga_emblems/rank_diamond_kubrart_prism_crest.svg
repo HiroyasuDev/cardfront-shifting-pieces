@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" data-emblem-id="rank_diamond_kubrart_prism_crest">
+  <defs>
+    <linearGradient id="grad_rank_diamond_kubrart_prism_crest" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.92"/>
+      <stop offset="55%" stop-color="#A855F7" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#090D16" stop-opacity="0.96"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="248" height="248" rx="28" fill="#090D16" stroke="#00E5FF" stroke-width="3"/>
+
+  <!-- Ranked Diamond Kubrart Prism Crest: Negative-Space Obsidian & Polyhedral Facets -->
+  <polygon points="128,14 222,72 222,184 128,242 34,184 34,72" fill="#090D16" stroke="#00E5FF" stroke-width="4"/>
+  <!-- Stark Negative-Space Obsidian Split -->
+  <polygon points="34,72 128,14 128,128 34,184" fill="#05070C"/>
+  <polygon points="128,28 214,128 128,228 42,128" fill="url(#grad_rank_diamond_kubrart_prism_crest)" stroke="#F8FAFC" stroke-width="3.5"/>
+  <polygon points="128,54 186,128 128,202 70,128" fill="#090D16" stroke="#A855F7" stroke-width="3"/>
+  <polygon points="128,44 140,116 212,128 140,140 128,212 116,140 44,128 116,116" fill="#00E5FF" stroke="#FFFFFF" stroke-width="2"/>
+</svg>

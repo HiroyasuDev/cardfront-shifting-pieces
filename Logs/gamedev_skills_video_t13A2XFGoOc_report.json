@@ -1,13 +1,13 @@
 {
   "latest_iteration": {
-    "iteration": 369,
-    "timestamp_utc": "2026-11-09T23:42:09Z",
+    "iteration": 377,
+    "timestamp_utc": "2026-11-10T00:11:58Z",
     "video_id": "t13A2XFGoOc",
     "target_model": "gemini-4-argon",
     "active_track": {
-      "track_id": "track_02_art_direction_assets",
-      "focus": "Cohesive Game Asset Pipeline, Raster QA & Tactical Illustrator Library",
-      "prompt": "Validate cohesive game assets, sprite sheet silhouettes, shader outline grading, and ScriptableObject card data in Unity"
+      "track_id": "track_05_save_and_audio",
+      "focus": "Deterministic Save Systems, Seeded Replay RNG & Adaptive Audio Ducking",
+      "prompt": "Implement deterministic save slots with version migration and adaptive audio mixer ducking for our Unity card game"
     },
     "routed_skill_stack": {
       "primary_web_engine": "Custom HTML5/CSS3/JS Tabletop Engine",
@@ -16,8 +16,8 @@
       "selected_skill_names": [
         "unity-scriptableobjects",
         "unity-csharp-scripting",
-        "create-game-assets",
-        "shader-programming",
+        "save-systems",
+        "audio-design",
         "card-game"
       ],
       "skill_stack_order": "Engine Fundamentals -> Discipline(s) -> Genre -> Workflow",
@@ -26,11 +26,11 @@
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/references/custom-engines.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/create-game-assets/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/shader-programming/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/save-systems/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/audio-design/SKILL.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md"
       ],
-      "composed_system_prompt_chars": 23257
+      "composed_system_prompt_chars": 32441
     },
     "primary_tcg_stack": {
       "selected_skill_names": [
@@ -45,11 +45,11 @@
       "drag_e2e_passed": true,
       "autotest_e2e_passed": true,
       "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
-      "total_checks": 170,
-      "passed_checks": 170,
-      "failed_checks": 0,
-      "pass_rate_pct": 100.0,
-      "p0_failures": 0,
+      "total_checks": 174,
+      "passed_checks": 173,
+      "failed_checks": 1,
+      "pass_rate_pct": 99.4,
+      "p0_failures": 1,
       "p1_failures": 0,
       "check_sources_loaded": [
         "Tools/skill_harness/core_checks.json",
@@ -163,6 +163,9 @@
         "core.production_upgrades.11",
         "core.production_upgrades.12",
         "core.production_upgrades.13",
+        "core.production_upgrades.14",
+        "core.production_upgrades.15",
+        "core.production_upgrades.16",
         "core.release_pkg.01",
         "core.sakuga_v100.01",
         "core.sakuga_v100.02",
@@ -230,9 +233,11 @@
         "feel_audio_camera_perf.8",
         "feel_audio_camera_perf.9"
       ],
-      "failed_check_ids": []
+      "failed_check_ids": [
+        "core.production_upgrades.17"
+      ]
     },
-    "gate_status": "PASS_ALL_GATES",
+    "gate_status": "FAIL_P0_BLOCKERS",
     "quality_gates": {
       "all_gates_passed": true,
       "card_game_invariants": {
@@ -264,11 +269,13 @@
       },
       "disciplines/game-ui-ux": {
         "skill": "disciplines/game-ui-ux",
-        "total": 23,
-        "passed": 23,
-        "failed": 0,
-        "pass_rate": 100.0,
-        "failed_ids": []
+        "total": 25,
+        "passed": 24,
+        "failed": 1,
+        "pass_rate": 96.0,
+        "failed_ids": [
+          "core.production_upgrades.17"
+        ]
       },
       "disciplines/create-game-assets": {
         "skill": "disciplines/create-game-assets",
@@ -416,8 +423,8 @@
       },
       "tcg-creative-game-designer": {
         "skill": "tcg-creative-game-designer",
-        "total": 3,
-        "passed": 3,
+        "total": 5,
+        "passed": 5,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -495,7 +502,21 @@
         "failed_ids": []
       }
     },
-    "prioritized_backlog": [],
+    "prioritized_backlog": [
+      {
+        "rank": 1,
+        "priority": "P0",
+        "check_id": "core.production_upgrades.17",
+        "skill": "disciplines/game-ui-ux",
+        "skill_source": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1",
+        "target": "both",
+        "code_ref": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1-360",
+        "rule": "Live In-Game 10-Year Saga Franchise Hub, 20-Set Rotation & Power-Creep Governor, and SBX00 Cluster Vault Inspector (window.CardFrontSaga10YearFranchise, 3 Eras, 20 Expansion Sets, 6 Era Herald Cards saga_y01..saga_y10, #saga-10year-franchise-modal, /api/saga/sbx00-status, & Unity 6 C# Parity).",
+        "observed": false,
+        "expected": "true",
+        "remediation": "Wire WebPlayable/modules/saga_10year_franchise_and_sbx00.js and #saga-10year-franchise-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+      }
+    ],
     "mirofish_telemetry": {
       "workstreams_present": [
         "balance",
@@ -642,7 +663,7 @@
       "upstream_gamedev_skills_count": 77,
       "custom_synapse_skills_count": 15
     },
-    "elapsed_ms": 31559.77
+    "elapsed_ms": 26193.7
   },
   "video_and_catalog": {
     "video_analysis": {
