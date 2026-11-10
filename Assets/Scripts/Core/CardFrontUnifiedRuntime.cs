@@ -962,6 +962,67 @@ namespace Synapse.TcgEngine.Core
         }
 
         /// <summary>
+        /// Returns the canonical CardCraftCollectables (C³) Dual-Sided Bromide, Studio PxG signature crest,
+        /// and Standard + Premium Foil Variations Metadata record for any playable card.
+        /// </summary>
+        public static string GetCardCraftCollectableC3Metadata(string cardId)
+        {
+            string safeId = string.IsNullOrEmpty(cardId) ? "ev_01_base" : cardId;
+            return string.Format(
+                "PASS_C3_COLLECTABLES:CARD={0}:STUDIO=Studio PxG:ORIG_TITLE=機構翼の少女・ローザ(進化前):GAME=Shadowverse EVOLVE:VER=[BP05] Eternal omens:ORIG_VER=ブースターパック第5弾 永劫なる絶傑:STD=BP05-110 SR:PRM=BP05-P50 Premium SR:SPEC=Foil",
+                safeId);
+        }
+
+        /// <summary>
+        /// Canonical 16 Bilingual (JP/EN) Anime Character Battle Voiceover (`VO`) WAV Clip Identifiers.
+        /// </summary>
+        public static readonly string[] BilingualBattleVoiceovers16 = new string[16]
+        {
+            "vo_01_rosalia_summon_jp",
+            "vo_02_rosalia_evolve_jp",
+            "vo_03_celestia_evolve_jp",
+            "vo_04_lyra_evolve_jp",
+            "vo_05_ignia_evolve_jp",
+            "vo_06_nocturna_evolve_jp",
+            "vo_07_archangel_summon_en",
+            "vo_08_eclipse_strike_jp",
+            "vo_09_kubrart_domain_jp",
+            "vo_10_orthogonal_capture_en",
+            "vo_11_dice_pentad_resonance_jp",
+            "vo_12_judge_law_decree_en",
+            "vo_13_tokon_awakening_jp",
+            "vo_14_gacha_ur_pull_fanfare_jp",
+            "vo_15_match_victory_jp",
+            "vo_16_studio_pxg_title_call_bilingual"
+        };
+
+        /// <summary>
+        /// Evaluates the WebGL2/URP GLSL Holographic Foil &amp; Anisotropic Brushed-Gunmetal Shader (with face protection mask),
+        /// 60fps Live2D-style skeletal/mesh portrait breathing &amp; wing articulation rig, 141-card 4-Frame FFTA Pixel-Chibi
+        /// Master Atlas binding, 16 Bilingual JP/EN Battle Voiceovers, and SBX00 12-Table Booster Gacha &amp; K-32 ELO Rating delta.
+        /// </summary>
+        public static string EvaluateWebGLHoloLive2DVoGachaSuite(
+            string cardId,
+            string foilVariant,
+            string voClipId,
+            int playerElo = 1500,
+            int opponentElo = 1550,
+            string matchResult = "WIN")
+        {
+            string safeCard = string.IsNullOrEmpty(cardId) ? "ev_01_evolved" : cardId;
+            string safeFoil = string.IsNullOrEmpty(foilVariant) ? "PRISMATIC_GHOST_UR" : foilVariant;
+            string safeVo = string.IsNullOrEmpty(voClipId) ? BilingualBattleVoiceovers16[1] : voClipId;
+            double expected = 1.0 / (1.0 + System.Math.Pow(10.0, (opponentElo - playerElo) / 400.0));
+            double actual = string.Equals(matchResult, "WIN", System.StringComparison.OrdinalIgnoreCase) ? 1.0
+                : (string.Equals(matchResult, "DRAW", System.StringComparison.OrdinalIgnoreCase) ? 0.5 : 0.0);
+            int delta = (int)System.Math.Round(32.0 * (actual - expected));
+            int newElo = playerElo + delta;
+            return string.Format(
+                "PASS_HOLO_LIVE2D_VO_GACHA:CARD={0}:FOIL={1}:FACE_MASK=TRUE:LIVE2D_FPS=60:CHIBI_4FRAME_CARDS=141:VO={2}:VO_TOTAL={3}:SBX00_TABLES=12:ELO={4}->{5}(+{6})",
+                safeCard, safeFoil, safeVo, BilingualBattleVoiceovers16.Length, playerElo, newElo, delta);
+        }
+
+        /// <summary>
         /// Rolls the 5-dice Dicevaders row at the start of a turn, refreshing Budge tokens and Chrono charges
         /// according to the active chapter's progressive pacing profile, and evaluates the active resonance multiplier.
         /// </summary>

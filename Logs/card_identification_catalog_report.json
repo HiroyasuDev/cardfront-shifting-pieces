@@ -1,0 +1,99 @@
+{
+  "schema": "SYNAPSE_CARD_IDENTIFICATION_CATALOG_REPORT_V1",
+  "generated_at_utc": "2026-11-10T02:41:07.997436+00:00",
+  "catalog_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Cards/card_identification_catalog_v1.json",
+  "set1_manifest_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Cards/set1_60_cards_manifest.json",
+  "report_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Logs/card_identification_catalog_report.json",
+  "reference_archetype_block": "original title    機構翼の少女・ローザ(進化前)\ncard game         Shadowverse EVOLVE\nversion           [BP05] Eternal omens\noriginal version  ブースターパック第5弾 永劫なる絶傑\ncard number       BP05-110 SR\nrarity            SR",
+  "validation": {
+    "passed": true,
+    "error_count": 0,
+    "errors": [],
+    "total_catalog_records": 154,
+    "unique_sha256_collector_ids": 154,
+    "set1_60_cards_verified": 60,
+    "playable_hero_boss_16_verified": 16,
+    "core_14_cards_verified": 14,
+    "booster_sets_covered": [
+      "BP01",
+      "BP02",
+      "BP03",
+      "BP04",
+      "BP05"
+    ],
+    "rarities_covered": [
+      "UR",
+      "SL",
+      "LG",
+      "SR",
+      "GR",
+      "BR"
+    ]
+  },
+  "counts": {
+    "total_catalog_records": 154,
+    "unevolved_base_cards_count": 77,
+    "evolved_counterpart_cards_count": 77,
+    "set1_60_cards_count": 60,
+    "playable_hero_boss_16_count": 16,
+    "core_roster_14_count": 14,
+    "booster_sets_count": 5,
+    "rarity_tiers_count": 6
+  },
+  "sample_hero_boss_identifications": [
+    {
+      "card_id": "kaelen",
+      "original_title": "蒼穹の機巧翼・カエレン(進化前)",
+      "original_title_evolved": "蒼穹の機巧翼・カエレン(進化後)",
+      "version": "[BP01] Cradle of Echoes",
+      "original_version": "ブースターパック第1弾 響きの揺り籠",
+      "card_number": "BP01-001 LG",
+      "rarity": "LG"
+    },
+    {
+      "card_id": "seraph",
+      "original_title": "星界の熾天使・セラフ(進化前)",
+      "original_title_evolved": "星界の熾天使・セラフ(進化後)",
+      "version": "[BP01] Cradle of Echoes",
+      "original_version": "ブースターパック第1弾 響きの揺り籠",
+      "card_number": "BP01-002 UR",
+      "rarity": "UR"
+    },
+    {
+      "card_id": "vex",
+      "original_title": "紅蓮の戦術士・ヴェックス(進化前)",
+      "original_title_evolved": "紅蓮の戦術士・ヴェックス(進化後)",
+      "version": "[BP02] Reign of Law",
+      "original_version": "ブースターパック第2弾 律法の覇権",
+      "card_number": "BP02-014 SR",
+      "rarity": "SR"
+    },
+    {
+      "card_id": "solaris",
+      "original_title": "陽炎の聖騎士・ソラリス(進化前)",
+      "original_title_evolved": "陽炎の聖騎士・ソラリス(進化後)",
+      "version": "[BP03] Astral Resonance",
+      "original_version": "ブースターパック第3弾 星界の共鳴",
+      "card_number": "BP03-028 LG",
+      "rarity": "LG"
+    },
+    {
+      "card_id": "nyx",
+      "original_title": "深淵の機巧少女・ニュクス(進化前)",
+      "original_title_evolved": "深淵の機巧少女・ニュクス(進化後)",
+      "version": "[BP05] Eternal omens",
+      "original_version": "ブースターパック第5弾 永劫なる絶傑",
+      "card_number": "BP05-042 SR",
+      "rarity": "SR"
+    },
+    {
+      "card_id": "bastion",
+      "original_title": "鉄壁の重装機神・バスティオン(進化前)",
+      "original_title_evolved": "鉄壁の重装機神・バスティオン(進化後)",
+      "version": "[BP01] Cradle of Echoes",
+      "original_version": "ブースターパック第1弾 響きの揺り籠",
+      "card_number": "BP01-015 GR",
+      "rarity": "GR"
+    }
+  ]
+}

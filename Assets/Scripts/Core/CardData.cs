@@ -189,6 +189,15 @@ namespace Synapse.TcgEngine.Core
         public string sovereign_style_id = "";
         public string glb_model_id = "";
 
+        [Header("Collector Identification (Shadowverse EVOLVE / BP Standard)")]
+        public string originalTitleJp = "機構翼の少女・ローザ(進化前)";
+        public string cardGameTitle = "Shadowverse EVOLVE";
+        public string boosterVersionEn = "[BP05] Eternal omens";
+        public string originalVersionJp = "ブースターパック第5弾 永劫なる絶傑";
+        public string collectorCardNumber = "BP05-110 SR";
+        public string collectorRarity = "SR";
+        public string evolutionStateJp = "進化前";
+
         public static List<CardData> card_list = new List<CardData>();
         public static Dictionary<string, CardData> card_dict = new Dictionary<string, CardData>();
 

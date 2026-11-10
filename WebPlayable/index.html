@@ -589,26 +589,7 @@
   }
   .board-3d-slab::before,
   .board-3d-slab::after {
-    content: "ᚱ ᚢ ᚾ ᛖ ᛋ   ᛏ ᚱ ᛁ ᛗ  ·  ᛟ ᚱ ᚦ ᚲ ᚷ ᛉ";
-    position: absolute;
-    top: 56%;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: #fbbf24;
-    text-shadow: 0 0 8px rgba(251, 191, 36, 0.85);
-    pointer-events: none;
-    white-space: nowrap;
-  }
-  .board-3d-slab::before {
-    left: 5px;
-    transform: translateY(-50%) rotate(180deg);
-  }
-  .board-3d-slab::after {
-    right: 5px;
-    transform: translateY(-50%);
+    content: none;
   }
 
   /* ==========================================================================
@@ -848,6 +829,11 @@
     letter-spacing: 0.8px;
     text-transform: uppercase;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+  .board-slot:hover .socket-open-label {
+    opacity: 0.45;
   }
   .socket-boost-lip {
     position: absolute;
@@ -865,6 +851,7 @@
     white-space: nowrap;
     pointer-events: none;
     z-index: 6;
+    opacity: 0;
   }
 
   /* BOSS TELEGRAPH RENDERED DIRECTLY ON TARGET TILE + GHOST CONSTRUCT PREVIEW */
@@ -1129,22 +1116,24 @@
 
   /* ==========================================================================
      16 UNIQUE DYNAMIC CARD TELEGRAPH SVG ANIMATION OVERLAYS
+     (Clean unobstructed portraits at rest; visible on hover/selection)
      ========================================================================== */
   .card-telegraph-fx {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 4;
-    opacity: 0.82;
+    opacity: 0;
     mix-blend-mode: screen;
+    transition: opacity 0.18s ease;
   }
   .hand-card-wrap .card-telegraph-fx {
-    opacity: 0.45;
+    opacity: 0;
   }
   .hand-card-wrap:hover .card-telegraph-fx,
   .hand-card-wrap.selected .card-telegraph-fx,
   .board-slot:hover .card-telegraph-fx {
-    opacity: 1;
+    opacity: 0.78;
   }
 
   @keyframes spinSlow {
@@ -1262,11 +1251,7 @@
     line-height: 1;
     z-index: 8;
     pointer-events: none;
-    animation: boostPopAnim 0.45s cubic-bezier(0.22, 1.4, 0.36, 1);
-  }
-  @keyframes boostPopAnim {
-    0%   { transform: scale(0.5) translateY(6px); opacity: 0; }
-    100% { transform: scale(1) translateY(0); opacity: 1; }
+    opacity: 0;
   }
   .owner-badge {
     position: absolute;
@@ -1817,14 +1802,15 @@
       <button id="drawer-manga-story-btn" onclick="openMangaChapterCutscene(state.stageIndex || 0)" style="border-color:#f59e0b;color:#fde68a;" title="Open 19-Chapter 3-Panel Slanted Manga Story Cutscene">Manga Story (19)</button>
       <button id="drawer-arena-draft-btn" onclick="openRogueliteArenaDraftModal()" style="border-color:#10b981;color:#6ee7b7;" title="Open 5-Round Roguelite Arena Draft (117 Cards: Set 1 + Set 2 Kubrart + Sovereign Agent)">Arena Draft (117)</button>
       <button id="drawer-genie4-btn" onclick="window.CardFrontGenie4Engine && window.CardFrontGenie4Engine.openGenie4WorldModelModal(state)" style="border-color:#38bdf8;color:#bae6fd;" title="Open Google Genie 4 Action-Conditioned Causal-DiT World Model Engine">Genie 4 World</button>
-      <button id="btn-open-studio-pxg-atomic" onclick="openStudioPxGAtomicModal()" style="border-color:#ff2e54;color:#fda4af;" title="Open Studio PxG Atomic Animation &amp; Film-Shot Director (24 Primitives, 8 Strikers, 24fps X-Sheet)">[STUDIO PXG ATOMIC]</button>
-      <button id="btn-open-saga-10yr-sbx00" onclick="openSaga10YearFranchiseModal()" style="border-color:#00e5ff;color:#67e8f9;" title="Open 10-Year Franchise Saga Hub, 20-Set Rotation Governor &amp; SBX00 Cluster Vault">[10-YR SAGA &amp; SBX00]</button>
-      <button id="btn-open-evolve-maidens" onclick="openEvolveMaidenStudioModal()" style="border-color:#d4af37;color:#fde68a;" title="Open Shadowverse-EVOLVE Style Mech-Wing Maiden Studio &amp; Gunmetal SR/UR Card Frame Renderer">[EVOLVE SR MAIDENS]</button>
-      <button id="btn-open-dice3d-chibi" onclick="openDice3DAndChibiModal()" style="border-color:#a855f7;color:#e9d5ff;" title="Open 3D Polyhedral Game Dice, 2.5D/3D Parallax Card Slabs &amp; Unique FFTA Pixel-Chibi Units Atelier">[3D DICE &amp; FFTA CHIBI]</button>
+      <button id="btn-open-studio-pxg-atomic" onclick="openStudioPxGAtomicModal()" style="border-color:#ff2e54;color:#fda4af;" title="Open Studio PxG Atomic Animation &amp; Film-Shot Director (24 Primitives, 8 Strikers, 24fps X-Sheet)">Studio PxG</button>
+      <button id="btn-open-saga-10yr-sbx00" onclick="openSaga10YearFranchiseModal()" style="border-color:#00e5ff;color:#67e8f9;" title="Open 10-Year Franchise Saga Hub, 20-Set Rotation Governor &amp; SBX00 Cluster Vault">10-Yr Saga</button>
+      <button id="btn-open-evolve-maidens" onclick="openEvolveMaidenStudioModal()" style="border-color:#d4af37;color:#fde68a;" title="Open Shadowverse-EVOLVE Style Mech-Wing Maiden Studio &amp; Gunmetal SR/UR Card Frame Renderer">Evolve Maidens</button>
+      <button id="btn-open-dice3d-chibi" onclick="openDice3DAndChibiModal()" style="border-color:#a855f7;color:#e9d5ff;" title="Open 3D Polyhedral Game Dice, 2.5D/3D Parallax Card Slabs &amp; Unique FFTA Pixel-Chibi Units Atelier">3D Dice &amp; Chibi</button>
+      <button id="btn-open-holo-live2d-gacha" onclick="openWebGLHoloLive2DGachaModal()" style="border-color:#00e5ff;color:#fde68a;" title="Open Real-Time WebGL2 GLSL Holographic Foil Shader, 60fps Live2D Portrait Animator, Bilingual JP/EN Battle Voiceover &amp; SBX00 Booster Gacha / ELO Ladder">Holo Live2D &amp; Gacha</button>
       <button id="drawer-lan-btn" onclick="toggleLanMultiplayerDuel()" style="border-color:#2ee6d3;color:#2ee6d3;" title="Live 2-MacBook LAN 1v1 Sync & Echo-Ghost PvP">LAN 1v1: OFF</button>
       <button id="drawer-pawn-btn" onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">3D Pawn</button>
-      <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking">BGM: OFF</button>
-      <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus">SFX</button>
+      <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking" style="display:none;">BGM: OFF</button>
+      <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus" style="display:none;">SFX</button>
       <button id="reroll-btn" onclick="rerollAllDice()" style="background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;"><span style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;">Roll All 3D Dice </span>Reroll (<span id="reroll-left">2</span>)</button>
       <button id="drawer-pulse-btn" onclick="triggerAllBoardTelegraphs()">Pulse</button>
       <button id="drawer-reset-btn" aria-label="↻ Reset" onclick="startStage(state.stageIndex)">Reset</button>
@@ -2104,7 +2090,13 @@ const CF_ICON_BODIES = {
   globe_i18n: `<circle cx="128" cy="128" r="102" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><ellipse cx="128" cy="128" rx="48" ry="96" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="6"/><ellipse cx="128" cy="128" rx="96" ry="42" fill="none" stroke="url(#cf-jade-grad)" stroke-width="6"/><ellipse cx="128" cy="128" rx="108" ry="26" transform="rotate(-28 128 128)" fill="none" stroke="url(#cf-gold-grad)" stroke-width="7"/><polygon points="128,44 140,116 212,128 140,140 128,212 116,140 44,128 116,116" fill="url(#cf-gold-grad)" opacity="0.88"/><circle cx="128" cy="128" r="16" fill="url(#cf-cyan-grad)"/>`,
   mcts_brain: `<polygon points="128,16 232,74 232,182 128,240 24,182 24,74" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><line x1="128" y1="54" x2="72" y2="118" stroke="url(#cf-cyan-grad)" stroke-width="7"/><line x1="128" y1="54" x2="184" y2="118" stroke="url(#cf-gold-grad)" stroke-width="7"/><line x1="72" y1="118" x2="48" y2="182" stroke="url(#cf-cyan-grad)" stroke-width="6"/><line x1="72" y1="118" x2="104" y2="182" stroke="url(#cf-jade-grad)" stroke-width="6"/><line x1="184" y1="118" x2="152" y2="182" stroke="url(#cf-violet-grad)" stroke-width="6"/><line x1="184" y1="118" x2="208" y2="182" stroke="url(#cf-crimson-grad)" stroke-width="6"/><polygon points="128,32 148,54 128,76 108,54" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="4"/><circle cx="72" cy="118" r="14" fill="url(#cf-cyan-grad)"/><circle cx="184" cy="118" r="14" fill="url(#cf-gold-grad)"/><circle cx="48" cy="182" r="10" fill="#00E5FF"/><circle cx="104" cy="182" r="10" fill="#2EE6D3"/><circle cx="152" cy="182" r="10" fill="#A855F7"/><circle cx="208" cy="182" r="10" fill="#FF2E54"/>`,
   chronicle_map: `<polygon points="128,14 242,128 128,242 14,128" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><polygon points="128,44 166,112 128,154 90,112" fill="url(#cf-cyan-grad)" stroke="#FFF3B0" stroke-width="5"/><polygon points="72,162 128,136 184,162 128,194" fill="url(#cf-gold-grad)"/><path d="M56,184 Q128,218 200,184" fill="none" stroke="url(#cf-jade-grad)" stroke-width="6" stroke-dasharray="10 6"/><circle cx="128" cy="96" r="10" fill="#FFF3B0"/>`,
-  replay_film: `<circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><circle cx="128" cy="128" r="82" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="6" stroke-dasharray="18 10"/><polygon points="102,78 184,128 102,178" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="6" stroke-linejoin="round"/><polygon points="114,100 162,128 114,156" fill="url(#cf-cyan-grad)"/>`
+  replay_film: `<circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><circle cx="128" cy="128" r="82" fill="none" stroke="url(#cf-cyan-grad)" stroke-width="6" stroke-dasharray="18 10"/><polygon points="102,78 184,128 102,178" fill="url(#cf-gold-grad)" stroke="#FFF3B0" stroke-width="6" stroke-linejoin="round"/><polygon points="114,100 162,128 114,156" fill="url(#cf-cyan-grad)"/>`,
+  rarity_ur: `<polygon points="128,10 158,64 212,44 192,98 246,128 192,158 212,212 158,192 128,246 98,192 44,212 64,158 10,128 64,98 44,44 98,64" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="8" stroke-linejoin="round"/><polygon points="128,24 150,76 198,58 180,106 232,128 180,150 198,198 150,180 128,232 106,180 58,198 76,150 24,128 76,106 58,58 106,76" fill="url(#cf-violet-grad)" stroke="#A855F7" stroke-width="5" stroke-linejoin="round"/><polygon points="48,172 64,86 100,124 128,52 156,124 192,86 208,172" fill="url(#cf-gold-grad)" stroke="#FFE082" stroke-width="6" stroke-linejoin="round"/><polygon points="128,72 164,128 128,184 92,128" fill="url(#cf-cyan-grad)" stroke="#00E5FF" stroke-width="5" stroke-linejoin="round"/><polygon points="128,92 148,128 128,164 108,128" fill="#A855F7" stroke="#FFE082" stroke-width="3"/><rect x="56" y="172" width="144" height="22" rx="6" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="5"/><circle cx="128" cy="128" r="10" fill="#00E5FF" stroke="#FFE082" stroke-width="3"/><circle cx="88" cy="183" r="5" fill="#00E5FF"/><circle cx="128" cy="183" r="6" fill="#FFB800"/><circle cx="168" cy="183" r="5" fill="#A855F7"/>`,
+  rarity_lg: `<path d="M128,36 L88,76 L18,48 L42,108 L14,128 L52,158 L34,196 L94,182 L128,228 L162,182 L222,196 L204,158 L242,128 L214,108 L238,48 L168,76 Z" fill="url(#cf-gold-grad)" stroke="#FFE082" stroke-width="6" stroke-linejoin="round"/><path d="M96,88 L36,68 L58,114 L28,130 L68,154 L54,180 L102,168 Z" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="4" stroke-linejoin="round"/><path d="M160,88 L220,68 L198,114 L228,130 L188,154 L202,180 L154,168 Z" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="4" stroke-linejoin="round"/><polygon points="128,22 152,52 128,42 104,52" fill="#FFE082" stroke="#FFB800" stroke-width="3"/><polygon points="128,48 184,128 128,208 72,128" fill="url(#cf-obsidian-grad)" stroke="#FFE082" stroke-width="7" stroke-linejoin="round"/><polygon points="128,64 168,128 128,192 88,128" fill="url(#cf-gold-grad)" stroke="#FFB800" stroke-width="4"/><polygon points="128,88 150,128 128,168 106,128" fill="#FFE082"/><circle cx="128" cy="128" r="12" fill="url(#cf-cyan-grad)" stroke="#FFE082" stroke-width="3"/>`,
+  rarity_sr: `<polygon points="78,18 178,18 238,78 238,178 178,238 78,238 18,178 18,78" fill="url(#cf-obsidian-grad)" stroke="#FFE082" stroke-width="8" stroke-linejoin="round"/><polygon points="128,22 156,92 226,64 176,128 226,192 156,164 128,234 100,164 30,192 80,128 30,64 100,92" fill="url(#cf-violet-grad)" stroke="#A855F7" stroke-width="6" stroke-linejoin="round"/><polygon points="128,18 152,104 238,128 152,152 128,238 104,152 18,128 104,104" fill="url(#cf-cyan-grad)" stroke="#00E5FF" stroke-width="6" stroke-linejoin="round"/><polygon points="128,62 166,128 128,194 90,128" fill="#A855F7" stroke="#FFE082" stroke-width="5" stroke-linejoin="round"/><line x1="128" y1="18" x2="128" y2="238" stroke="#FFE082" stroke-width="3" opacity="0.8"/><line x1="18" y1="128" x2="238" y2="128" stroke="#00E5FF" stroke-width="3" opacity="0.8"/><circle cx="128" cy="128" r="18" fill="#00E5FF" stroke="#FFE082" stroke-width="4"/><circle cx="128" cy="128" r="7" fill="#FFE082"/>`,
+  rarity_gr: `<polygon points="128,12 244,128 128,244 12,128" fill="#D97706" stroke="#FFE082" stroke-width="7" stroke-linejoin="round"/><rect x="46" y="46" width="164" height="164" rx="10" fill="url(#cf-gold-grad)" stroke="#FFB800" stroke-width="8" stroke-linejoin="round"/><polygon points="128,30 226,128 128,226 30,128" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="6" stroke-linejoin="round"/><path d="M128,48 L192,84 V142 C192,180 162,206 128,220 C94,206 64,180 64,142 V84 Z" fill="#D97706" fill-opacity="0.35" stroke="#FFE082" stroke-width="5" stroke-linejoin="round"/><polygon points="128,58 148,108 198,128 148,148 128,198 108,148 58,128 108,108" fill="url(#cf-gold-grad)" stroke="#FFE082" stroke-width="4" stroke-linejoin="round"/><polygon points="128,88 156,128 128,168 100,128" fill="#FFB800" stroke="#D97706" stroke-width="4"/><circle cx="128" cy="128" r="10" fill="#FFE082"/>`,
+  rarity_br: `<g stroke="#CD7F32" stroke-width="24" stroke-linecap="square"><line x1="128" y1="14" x2="128" y2="242"/><line x1="14" y1="128" x2="242" y2="128"/><line x1="47" y1="47" x2="209" y2="209"/><line x1="209" y1="47" x2="47" y2="209"/></g><circle cx="128" cy="128" r="90" fill="#CD7F32" stroke="#F59E0B" stroke-width="8"/><circle cx="128" cy="128" r="70" fill="url(#cf-obsidian-grad)" stroke="#F59E0B" stroke-width="6"/><line x1="128" y1="58" x2="128" y2="198" stroke="#CD7F32" stroke-width="8"/><line x1="58" y1="128" x2="198" y2="128" stroke="#CD7F32" stroke-width="8"/><polygon points="128,64 162,128 128,192 94,128" fill="#F59E0B" stroke="#FDE68A" stroke-width="5" stroke-linejoin="round"/><polygon points="64,128 128,94 192,128 128,162" fill="#CD7F32" stroke="#F59E0B" stroke-width="4" stroke-linejoin="round"/><circle cx="128" cy="128" r="18" fill="url(#cf-obsidian-grad)" stroke="#F59E0B" stroke-width="5"/><circle cx="128" cy="128" r="7" fill="#FDE68A"/><circle cx="128" cy="48" r="5" fill="#FDE68A"/><circle cx="128" cy="208" r="5" fill="#FDE68A"/><circle cx="48" cy="128" r="5" fill="#FDE68A"/><circle cx="208" cy="128" r="5" fill="#FDE68A"/>`,
+  evolve_crest: `<circle cx="128" cy="128" r="106" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="8"/><circle cx="128" cy="128" r="90" fill="none" stroke="#FFE082" stroke-width="3" stroke-dasharray="14 8" opacity="0.8"/><path d="M128,22 C64,22 24,74 36,138 C46,184 88,196 112,168 C82,162 68,128 82,92 C94,62 128,54 156,72 L142,88 L188,82 L168,38 L158,54 C148,34 138,22 128,22 Z" fill="url(#cf-cyan-grad)" stroke="#00E5FF" stroke-width="5" stroke-linejoin="round"/><path d="M128,234 C192,234 232,182 220,118 C210,72 168,60 144,88 C174,94 188,128 174,164 C162,194 128,202 100,184 L114,168 L68,174 L88,218 L98,202 C108,222 118,234 128,234 Z" fill="url(#cf-crimson-grad)" stroke="#FF2E54" stroke-width="5" stroke-linejoin="round"/><polygon points="128,68 164,128 128,188 92,128" fill="url(#cf-gold-grad)" stroke="#FFE082" stroke-width="5" stroke-linejoin="round"/><polygon points="128,88 148,128 128,168 108,128" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="3"/><circle cx="128" cy="112" r="7" fill="#00E5FF"/><circle cx="128" cy="144" r="7" fill="#FF2E54"/><circle cx="128" cy="128" r="6" fill="#FFB800"/>`
 };
 
 function cfIcon(name, size = 14, extraStyle = "") {
@@ -4006,6 +3998,12 @@ function handleSlotClick(r, c) {
   cell.cardId = cardId;
   cell.owner = "player";
   cell.nesw = getCardEffectiveStats(cardId, c, false);
+  if (window.CardFrontTokonLooterEngine && typeof window.CardFrontTokonLooterEngine.evaluateBoardLootAffixes === "function") {
+    const lootEval = window.CardFrontTokonLooterEngine.evaluateBoardLootAffixes(cardId, r, c, cell.nesw, "player", state);
+    if (lootEval && lootEval.hasEquippedLoot && Array.isArray(lootEval.effectiveNesw)) {
+      cell.nesw = lootEval.effectiveNesw;
+    }
+  }
   cell.justPlaced = true;
   state.selectedBoardSlot = null;
 
@@ -4030,8 +4028,12 @@ function handleSlotClick(r, c) {
     ProceduralSfx.captureShatter();
     triggerHitStop(80);
     addTrauma(0.38 + flips.length * 0.2);
-    triggerSakugaCardCutIn(cardId);
-    if (window.StudioPxGAtomicDirector && typeof window.StudioPxGAtomicDirector.onBoardCardClash === "function") {
+    if (window.CardFrontTokonLooterEngine && typeof window.CardFrontTokonLooterEngine.handleCaptureEscalation === "function") {
+      window.CardFrontTokonLooterEngine.handleCaptureEscalation(cardId, flips, state);
+    } else if (flips.length >= 2) {
+      triggerSakugaCardCutIn(cardId);
+    }
+    if (flips.length >= 3 && window.StudioPxGAtomicDirector && typeof window.StudioPxGAtomicDirector.onBoardCardClash === "function") {
       const defCell = state.grid[flips[0].nr] && state.grid[flips[0].nr][flips[0].nc];
       window.StudioPxGAtomicDirector.onBoardCardClash(cardId, defCell ? defCell.cardId : "e_eclipse", flips[0].nr * 3 + flips[0].nc);
     }
@@ -4133,7 +4135,7 @@ function telegraphBossIntent() {
   const eff = getCardEffectiveStats(nextId, 1, true);
   if (labelEl) labelEl.textContent = `Telegraph: ${nextCard.telegraphName} [${eff.join("/")}]`;
   if (prevEl) prevEl.textContent = `Next Construct: ${nextCard.name} (${nextCard.telegraphType})`;
-  if (crestTeleEl) crestTeleEl.innerHTML = `${cfIcon("telegraph_hazard", 14, "margin-right:4px;")}TELEGRAPH: ${nextCard.telegraphName} - Next Construct: ${nextCard.name}`;
+  if (crestTeleEl) crestTeleEl.innerHTML = `${cfIcon("telegraph_hazard", 14, "margin-right:4px;")}Next: ${nextCard.name} (${nextCard.telegraphName})`;
 
   let targetSlot = null;
   let bestScore = -Infinity;
@@ -5097,8 +5099,8 @@ function renderAll() {
     d.title = "Click 3D Die above Column to Nudge +1";
     d.onclick = () => nudgeColDie(c);
     const subLabel = c === 0
-      ? `Nudges: ${state.nudgesLeft}`
-      : (c === 1 ? `Rerolls: ${state.rerollsLeft}` : (boosted ? "+1 BOOST" : "Nudge +1"));
+      ? `Nudge (${state.nudgesLeft})`
+      : (c === 1 ? `Reroll (${state.rerollsLeft})` : (boosted ? "Boosted" : "Nudge +1"));
     const subClickAttr = c === 1
       ? ` onclick="event.stopPropagation(); rerollAllDice();" title="Click to Reroll All 3 Column Dice" style="cursor:pointer;text-decoration:underline dotted rgba(255,184,0,0.65);"`
       : "";
@@ -5116,7 +5118,7 @@ function renderAll() {
           </div>
         </div>
       </div>
-      <div class="col-header-plaque">${boosted ? "+1 All Sides" : "Click to Nudge +1"}</div>
+      <div class="col-header-plaque">${boosted ? "+1 All Sides" : "Pip " + pip + " (Nudge)"}</div>
       <div class="col-header-sub"${subClickAttr}>${subLabel}</div>
     `;
     colHeadersEl.appendChild(d);
@@ -5328,7 +5330,7 @@ function renderAll() {
             <div class="telegraph-incoming-lip">${cfIcon("telegraph_hazard", 11, "margin-right:3px;")}INCOMING · ${state.bossTargetSlot.name}</div>
             ${build3DCardHTML(state.bossTargetSlot.cardId, ghostEff, "ai", false)}
           </div>
-          <div class="socket-open-label" style="z-index:8;opacity:0.55;">OPEN</div>${boostLip}
+          <div class="socket-open-label" style="z-index:8;">OPEN</div>${boostLip}
         `;
       } else {
         const boostLip = (isColBoosted(c) && (r === 2 || r === 0))
@@ -5911,7 +5913,10 @@ window.addEventListener("DOMContentLoaded", () => {
 <script src="modules/saga_10year_franchise_and_sbx00.js"></script>
 <script src="modules/evolve_mech_wing_maiden_engine.js"></script>
 <script src="modules/dice3d_and_ffta_chibi_units.js"></script>
+<script src="modules/webgl_holo_live2d_vo_gacha_suite.js"></script>
 <script src="./modules/tokon_fighter_and_looter_engine.js"></script>
+<script src="./modules/cardcraft_collectables_c3_engine.js"></script>
+<script src="modules/card_identification_catalog_ui.js"></script>
 <script src="./tests/inpage_autotest.js"></script>
 </body>
 </html>

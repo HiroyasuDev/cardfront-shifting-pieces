@@ -71,6 +71,15 @@ namespace Synapse.TcgEngine.Data
         public string synergyName;
         public string evolvesToCardId;
         public Sprite cardArt;
+
+        [Header("Collector Identification (Shadowverse EVOLVE / BP Standard)")]
+        public string originalTitleJp = "機構翼の少女・ローザ(進化前)";
+        public string cardGameTitle = "Shadowverse EVOLVE";
+        public string boosterVersionEn = "[BP05] Eternal omens";
+        public string originalVersionJp = "ブースターパック第5弾 永劫なる絶傑";
+        public string collectorCardNumber = "BP05-110 SR";
+        public string collectorRarity = "SR";
+        public string evolutionStateJp = "進化前";
     }
 
     /// <summary>

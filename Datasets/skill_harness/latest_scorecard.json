@@ -1,14 +1,14 @@
 {
-  "iteration": 378,
-  "timestamp_utc": "2026-11-10T00:12:45Z",
+  "iteration": 424,
+  "timestamp_utc": "2026-11-10T03:16:15Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
     "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
-    "total_checks": 174,
-    "passed_checks": 174,
+    "total_checks": 180,
+    "passed_checks": 180,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -129,6 +129,10 @@
       "core.production_upgrades.15",
       "core.production_upgrades.16",
       "core.production_upgrades.17",
+      "core.production_upgrades.18",
+      "core.production_upgrades.19",
+      "core.production_upgrades.20",
+      "core.production_upgrades.21",
       "core.release_pkg.01",
       "core.sakuga_v100.01",
       "core.sakuga_v100.02",
@@ -173,6 +177,8 @@
       "core.unity6_tcg_rea_baseline.19",
       "core.unity6_tcg_rea_baseline.20",
       "core.unity6_tcg_rea_baseline.21",
+      "core.unity6_tcg_rea_baseline.22",
+      "core.unity6_tcg_rea_baseline.23",
       "core.unity_so.01",
       "core.unity_so.02",
       "feel_audio_camera_perf.1",
@@ -199,13 +205,19 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 377,
+    "previous_iteration": 423,
     "newly_passing_checks": [
-      "core.production_upgrades.17"
+      "core.production_upgrades.15",
+      "core.production_upgrades.17",
+      "core.production_upgrades.18",
+      "core.production_upgrades.19",
+      "core.production_upgrades.20",
+      "core.production_upgrades.21",
+      "core.unity6_tcg_rea_baseline.23"
     ],
     "newly_failing_checks": [],
-    "pass_count_delta": 1,
-    "total_checks_delta": 0
+    "pass_count_delta": 7,
+    "total_checks_delta": 2
   },
   "step_a_router": {
     "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
@@ -305,7 +317,7 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 6737.2
+      "elapsed_ms": 7517.7
     },
     "autotest": {
       "ran": true,
@@ -314,10 +326,10 @@
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8635,
+      "elapsed_ms": 8839,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-10T00:12:33.576Z",
+        "timestamp": "2026-11-10T03:16:02.336Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -387,7 +399,7 @@
               2,
               1
             ],
-            "immediateCaptures": 1,
+            "immediateCaptures": 2,
             "scoreAfterTurn": {
               "player": 4,
               "boss": 5
@@ -410,7 +422,7 @@
           "rerollAllDice()"
         ],
         "turnsPlayed": 4,
-        "capturesTriggered": 4,
+        "capturesTriggered": 5,
         "tacticalSlideTested": true,
         "modalDisplayed": true,
         "finalScore": {
@@ -1958,6 +1970,38 @@
         "error": null
       },
       {
+        "id": "core.unity6_tcg_rea_baseline.22",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Decluttered Tabletop UI/UX & 3-Tier Cut-In Escalation Hierarchy (Tier 1 1-Card Capture = 0 Modal Overlays; Tier 2 2-Card Capture = Top-Center Banner Only; Tier 3 3+ Capture = Tokon Diagonal Cut-In Only; Unobstructed Resting Card Portraits & Clean Stone Sockets; Rule-Bending Fighting-Game Loot Affixes & Live EX Overdrive HUD Pill).",
+        "source": "WebPlayable/modules/tokon_fighter_and_looter_engine.js:250",
+        "target": "web",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/tokon_fighter_and_looter_engine.js:250-440",
+        "remediation": "Implement 3-tier cut-in escalation (evaluateCutInTier, handleCaptureEscalation), evaluateBoardLootAffixes, #tokon-hud-overdrive-btn, and resting opacity 0 on .socket-open-label and .card-telegraph-fx.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.23",
+        "skill": "tcg-creative-game-designer",
+        "rule": "CardCraftCollectables (C\u00b3) Dual-Sided Character Bromide, Studio PxG Signature Crest, Lore Chronicle & Variations Metadata (141 Playable Cards, Left Full-Body Composition with Vertical Name & Studio PxG Crest, Right Blueprint Profile with \u6a5f\u69cb\u7ffc\u306e\u5c11\u5973\u30fb\u30ed\u30fc\u30b6(\u9032\u5316\u524d) / Shadowverse EVOLVE / [BP05] Eternal omens / \u30d6\u30fc\u30b9\u30bf\u30fc\u30d1\u30c3\u30af\u7b2c5\u5f3e \u6c38\u52ab\u306a\u308b\u7d76\u5091 / BP05-110 SR & BP05-P50 Premium SR spec: Foil).",
+        "source": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1",
+        "target": "both",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1-460",
+        "remediation": "Wire WebPlayable/modules/cardcraft_collectables_c3_engine.js and GetCardCraftCollectableC3Metadata in CardFrontUnifiedRuntime.cs.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
         "id": "core.production_upgrades.14",
         "skill": "tcg-creative-game-designer",
         "rule": "Studio PxG 24-Primitive Atomic Collective Extraction (Studio Trigger x Odyssey Interactive / Omega Strikers School), 1,200-Record Training Corpus, Rank-32 FP16 LoRA (studio_pxg_trigger_odyssey_atomic_v1.safetensors), 12-Epoch Brutal Unbiased AAA Benchmark (47.99 -> 94.98), & 8 RTX 4080 Studio PxG AAA Striker/Vanguard + 28 8-Frame 1920x160 24fps Sakuga Film-Shot Strips.",
@@ -2018,6 +2062,70 @@
         "priority": "P0",
         "code_ref": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1-360",
         "remediation": "Wire WebPlayable/modules/saga_10year_franchise_and_sbx00.js and #saga-10year-franchise-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.18",
+        "skill": "tcg-creative-game-designer",
+        "rule": "Shadowverse-EVOLVE BP05-110 SR School Mech-Wing Maiden & Chrono-Seraph Collection (5 Paired Base SR \u9032\u5316\u524d & Awakened Evolved UR \u9032\u5316\u5f8c Forms = 10 600x800 RTX 4080 Portraits, V100-32GB LoRA evolve_mech_wing_maiden_sr_v1_lora.safetensors, Luxury Gunmetal-Filigree SR/UR Frame Renderer, Live evolveCardOnBoard 3x3 Transformation, & SBX00 141-Card Sync).",
+        "source": "WebPlayable/modules/evolve_mech_wing_maiden_engine.js:1",
+        "target": "both",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/evolve_mech_wing_maiden_engine.js:1-360",
+        "remediation": "Wire WebPlayable/modules/evolve_mech_wing_maiden_engine.js and #evolve-maiden-studio-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.19",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "High-Detail 3D Polyhedral Game Dice (12 3D Dice Assets: D6 Faces 1-6, D8, D12, D20 & 8-Frame Tumbling Roll Strips), 4-Layer 2.5D/3D Extruded Parallax Card Slabs, and 24/141 Unique Attached Final Fantasy Tactics Advance (FFTA) Isometric Pixel-Art Chibi Character Units (window.CardFrontDice3DAndChibiUnits, roll3DColumnDie, getUniqueChibiForCard, & #dice3d-ffta-chibi-modal).",
+        "source": "WebPlayable/modules/dice3d_and_ffta_chibi_units.js:1",
+        "target": "both",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/dice3d_and_ffta_chibi_units.js:1-360",
+        "remediation": "Wire WebPlayable/modules/dice3d_and_ffta_chibi_units.js and #dice3d-ffta-chibi-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.20",
+        "skill": "tcg-creative-game-designer",
+        "rule": "6-Gap Cluster & Asset Closure: 4 Kohya SDXL LoRAs Installed & Verified on Node 30 (192.168.86.30:8188) ComfyUI LoraLoader, SBX00 (192.168.86.32) Root Boot SD Card Remediated (> 1.5 GB Free), 12-Table SBX00 SQLite Gacha/Collection/ELO Database Synced, 141-Card 4-Frame FFTA Pixel-Chibi Master Atlas (2400x1600), and 16 Bilingual JP/EN Battle Voiceover WAV Clips.",
+        "source": "Logs/node30_comfyui_loraloader_verification.json:1",
+        "target": "both",
+        "method": "metric",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "Backend/deploy_comfyui_sdxl_loras_to_node30.py:1-260",
+        "remediation": "Run python3 Backend/deploy_comfyui_sdxl_loras_to_node30.py, Backend/provision_sbx00_sovereign_franchise_db.py, and Backend/build_141_chibi_atlas_and_bilingual_vo.py.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.production_upgrades.21",
+        "skill": "disciplines/game-ui-ux",
+        "rule": "Real-Time WebGL2 GLSL Holographic Foil & Anisotropic Brushed-Gunmetal Shader (with Heroine Face Protection Mask), 60fps Live2D-Style Portrait Breathing/Wing-Articulation/Eye-Blink Animator, 16 Bilingual (JP/EN) Battle Voiceovers, 141-Card 4-Frame FFTA Chibi Atlas, & Live SBX00 Booster Gacha / K-32 ELO Suite (window.CardFrontWebGLHoloLive2DVoGachaSuite & #webgl-holo-live2d-gacha-modal).",
+        "source": "WebPlayable/modules/webgl_holo_live2d_vo_gacha_suite.js:1",
+        "target": "both",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/webgl_holo_live2d_vo_gacha_suite.js:1-420",
+        "remediation": "Wire WebPlayable/modules/webgl_holo_live2d_vo_gacha_suite.js and #webgl-holo-live2d-gacha-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html.",
         "origin": "Tools/skill_harness/core_checks.json",
         "error": null
       },
@@ -3372,8 +3480,8 @@
       },
       "disciplines/game-ui-ux": {
         "skill": "disciplines/game-ui-ux",
-        "total": 25,
-        "passed": 25,
+        "total": 28,
+        "passed": 28,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -3524,8 +3632,8 @@
       },
       "tcg-creative-game-designer": {
         "skill": "tcg-creative-game-designer",
-        "total": 5,
-        "passed": 5,
+        "total": 8,
+        "passed": 8,
         "failed": 0,
         "pass_rate": 100.0,
         "failed_ids": []
@@ -3612,5 +3720,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 26182.3
+  "elapsed_ms": 28526.9
 }

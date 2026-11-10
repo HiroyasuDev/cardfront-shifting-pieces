@@ -424,6 +424,20 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
             })
             return
 
+        if parsed.path == "/api/gacha/status":
+            try:
+                import sys as _sys
+                backend_dir = os.path.join(ROOT_DIR, "Backend")
+                if backend_dir not in _sys.path:
+                    _sys.path.insert(0, backend_dir)
+                import sbx00_gacha_and_elo_service as _gacha
+                summary = _gacha.get_collection_and_elo_summary("SovereignArchitect")
+                self._send_json({"ok": True, "summary": summary, "zeroLivingArtistNames": True})
+                return
+            except Exception as exc:
+                self._send_json({"ok": False, "error": str(exc)})
+                return
+
         super().do_GET()
 
     def do_POST(self):
@@ -564,6 +578,52 @@ class PlaytestHandler(http.server.SimpleHTTPRequestHandler):
                 persist_lan_state()
                 self._send_json({"ok": True, "snapshot": snapshot, "total_ghosts": len(ECHO_GHOSTS)})
             return
+
+        if parsed.path == "/api/gacha/open-pack":
+            try:
+                data = json.loads(body) if body.strip() else {}
+            except Exception:
+                data = {}
+            try:
+                import sys as _sys
+                backend_dir = os.path.join(ROOT_DIR, "Backend")
+                if backend_dir not in _sys.path:
+                    _sys.path.insert(0, backend_dir)
+                import sbx00_gacha_and_elo_service as _gacha
+                res = _gacha.open_booster_pack(
+                    set_code=str(data.get("set_code", "CF01")),
+                    pack_type=str(data.get("pack_type", "EVOLVE_SR_COLLECTOR_PACK")),
+                    player_id=str(data.get("player_id", "SovereignArchitect")),
+                )
+                self._send_json({"ok": True, "packResult": res, "zeroLivingArtistNames": True})
+                return
+            except Exception as exc:
+                self._send_json({"ok": False, "error": str(exc)})
+                return
+
+        if parsed.path == "/api/elo/record":
+            try:
+                data = json.loads(body) if body.strip() else {}
+            except Exception:
+                data = {}
+            try:
+                import sys as _sys
+                backend_dir = os.path.join(ROOT_DIR, "Backend")
+                if backend_dir not in _sys.path:
+                    _sys.path.insert(0, backend_dir)
+                import sbx00_gacha_and_elo_service as _gacha
+                res = _gacha.record_elo_match(
+                    player_id=str(data.get("player_id", "SovereignArchitect")),
+                    opponent_id=str(data.get("opponent_id", "GrandDirectorAI")),
+                    winner=str(data.get("winner", "player")),
+                    turns_played=int(data.get("turns_played", 5)),
+                    evolve_triggered=bool(data.get("evolve_triggered", True)),
+                )
+                self._send_json({"ok": True, "eloResult": res, "zeroLivingArtistNames": True})
+                return
+            except Exception as exc:
+                self._send_json({"ok": False, "error": str(exc)})
+                return
 
         self.send_response(404)
         self.end_headers()

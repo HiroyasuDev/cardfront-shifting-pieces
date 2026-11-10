@@ -1,0 +1,84 @@
+{
+  "library_name": "CARDFRONT: Cradle of Echoes — Bilingual Collector Rarity & Evolution SVG Emblem Suite",
+  "house_style": "Synapse-Aether-Cel v1.0 (Arcane Atelier x Cyber-Ivalice x Shadowverse EVOLVE BP05)",
+  "reference_standard": "[BP05] Eternal omens / ブースターパック第5弾 永劫なる絶傑 / BP05-110 SR / 機構翼の少女・ローザ(進化前)",
+  "viewBox": "0 0 256 256",
+  "zero_generic_emojis": true,
+  "zero_baked_raster_text": true,
+  "cf_icon_bodies": {
+    "rarity_ur": "<polygon points=\"128,10 158,64 212,44 192,98 246,128 192,158 212,212 158,192 128,246 98,192 44,212 64,158 10,128 64,98 44,44 98,64\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#FFB800\" stroke-width=\"8\" stroke-linejoin=\"round\"/><polygon points=\"128,24 150,76 198,58 180,106 232,128 180,150 198,198 150,180 128,232 106,180 58,198 76,150 24,128 76,106 58,58 106,76\" fill=\"url(#cf-violet-grad)\" stroke=\"#A855F7\" stroke-width=\"5\" stroke-linejoin=\"round\"/><polygon points=\"48,172 64,86 100,124 128,52 156,124 192,86 208,172\" fill=\"url(#cf-gold-grad)\" stroke=\"#FFE082\" stroke-width=\"6\" stroke-linejoin=\"round\"/><polygon points=\"128,72 164,128 128,184 92,128\" fill=\"url(#cf-cyan-grad)\" stroke=\"#00E5FF\" stroke-width=\"5\" stroke-linejoin=\"round\"/><polygon points=\"128,92 148,128 128,164 108,128\" fill=\"#A855F7\" stroke=\"#FFE082\" stroke-width=\"3\"/><rect x=\"56\" y=\"172\" width=\"144\" height=\"22\" rx=\"6\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#FFB800\" stroke-width=\"5\"/><circle cx=\"128\" cy=\"128\" r=\"10\" fill=\"#00E5FF\" stroke=\"#FFE082\" stroke-width=\"3\"/><circle cx=\"88\" cy=\"183\" r=\"5\" fill=\"#00E5FF\"/><circle cx=\"128\" cy=\"183\" r=\"6\" fill=\"#FFB800\"/><circle cx=\"168\" cy=\"183\" r=\"5\" fill=\"#A855F7\"/>",
+    "rarity_lg": "<path d=\"M128,36 L88,76 L18,48 L42,108 L14,128 L52,158 L34,196 L94,182 L128,228 L162,182 L222,196 L204,158 L242,128 L214,108 L238,48 L168,76 Z\" fill=\"url(#cf-gold-grad)\" stroke=\"#FFE082\" stroke-width=\"6\" stroke-linejoin=\"round\"/><path d=\"M96,88 L36,68 L58,114 L28,130 L68,154 L54,180 L102,168 Z\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#FFB800\" stroke-width=\"4\" stroke-linejoin=\"round\"/><path d=\"M160,88 L220,68 L198,114 L228,130 L188,154 L202,180 L154,168 Z\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#FFB800\" stroke-width=\"4\" stroke-linejoin=\"round\"/><polygon points=\"128,22 152,52 128,42 104,52\" fill=\"#FFE082\" stroke=\"#FFB800\" stroke-width=\"3\"/><polygon points=\"128,48 184,128 128,208 72,128\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#FFE082\" stroke-width=\"7\" stroke-linejoin=\"round\"/><polygon points=\"128,64 168,128 128,192 88,128\" fill=\"url(#cf-gold-grad)\" stroke=\"#FFB800\" stroke-width=\"4\"/><polygon points=\"128,88 150,128 128,168 106,128\" fill=\"#FFE082\"/><circle cx=\"128\" cy=\"128\" r=\"12\" fill=\"url(#cf-cyan-grad)\" stroke=\"#FFE082\" stroke-width=\"3\"/>",
+    "rarity_sr": "<polygon points=\"78,18 178,18 238,78 238,178 178,238 78,238 18,178 18,78\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#FFE082\" stroke-width=\"8\" stroke-linejoin=\"round\"/><polygon points=\"128,22 156,92 226,64 176,128 226,192 156,164 128,234 100,164 30,192 80,128 30,64 100,92\" fill=\"url(#cf-violet-grad)\" stroke=\"#A855F7\" stroke-width=\"6\" stroke-linejoin=\"round\"/><polygon points=\"128,18 152,104 238,128 152,152 128,238 104,152 18,128 104,104\" fill=\"url(#cf-cyan-grad)\" stroke=\"#00E5FF\" stroke-width=\"6\" stroke-linejoin=\"round\"/><polygon points=\"128,62 166,128 128,194 90,128\" fill=\"#A855F7\" stroke=\"#FFE082\" stroke-width=\"5\" stroke-linejoin=\"round\"/><line x1=\"128\" y1=\"18\" x2=\"128\" y2=\"238\" stroke=\"#FFE082\" stroke-width=\"3\" opacity=\"0.8\"/><line x1=\"18\" y1=\"128\" x2=\"238\" y2=\"128\" stroke=\"#00E5FF\" stroke-width=\"3\" opacity=\"0.8\"/><circle cx=\"128\" cy=\"128\" r=\"18\" fill=\"#00E5FF\" stroke=\"#FFE082\" stroke-width=\"4\"/><circle cx=\"128\" cy=\"128\" r=\"7\" fill=\"#FFE082\"/>",
+    "rarity_gr": "<polygon points=\"128,12 244,128 128,244 12,128\" fill=\"#D97706\" stroke=\"#FFE082\" stroke-width=\"7\" stroke-linejoin=\"round\"/><rect x=\"46\" y=\"46\" width=\"164\" height=\"164\" rx=\"10\" fill=\"url(#cf-gold-grad)\" stroke=\"#FFB800\" stroke-width=\"8\" stroke-linejoin=\"round\"/><polygon points=\"128,30 226,128 128,226 30,128\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#FFB800\" stroke-width=\"6\" stroke-linejoin=\"round\"/><path d=\"M128,48 L192,84 V142 C192,180 162,206 128,220 C94,206 64,180 64,142 V84 Z\" fill=\"#D97706\" fill-opacity=\"0.35\" stroke=\"#FFE082\" stroke-width=\"5\" stroke-linejoin=\"round\"/><polygon points=\"128,58 148,108 198,128 148,148 128,198 108,148 58,128 108,108\" fill=\"url(#cf-gold-grad)\" stroke=\"#FFE082\" stroke-width=\"4\" stroke-linejoin=\"round\"/><polygon points=\"128,88 156,128 128,168 100,128\" fill=\"#FFB800\" stroke=\"#D97706\" stroke-width=\"4\"/><circle cx=\"128\" cy=\"128\" r=\"10\" fill=\"#FFE082\"/>",
+    "rarity_br": "<g stroke=\"#CD7F32\" stroke-width=\"24\" stroke-linecap=\"square\"><line x1=\"128\" y1=\"14\" x2=\"128\" y2=\"242\"/><line x1=\"14\" y1=\"128\" x2=\"242\" y2=\"128\"/><line x1=\"47\" y1=\"47\" x2=\"209\" y2=\"209\"/><line x1=\"209\" y1=\"47\" x2=\"47\" y2=\"209\"/></g><circle cx=\"128\" cy=\"128\" r=\"90\" fill=\"#CD7F32\" stroke=\"#F59E0B\" stroke-width=\"8\"/><circle cx=\"128\" cy=\"128\" r=\"70\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#F59E0B\" stroke-width=\"6\"/><line x1=\"128\" y1=\"58\" x2=\"128\" y2=\"198\" stroke=\"#CD7F32\" stroke-width=\"8\"/><line x1=\"58\" y1=\"128\" x2=\"198\" y2=\"128\" stroke=\"#CD7F32\" stroke-width=\"8\"/><polygon points=\"128,64 162,128 128,192 94,128\" fill=\"#F59E0B\" stroke=\"#FDE68A\" stroke-width=\"5\" stroke-linejoin=\"round\"/><polygon points=\"64,128 128,94 192,128 128,162\" fill=\"#CD7F32\" stroke=\"#F59E0B\" stroke-width=\"4\" stroke-linejoin=\"round\"/><circle cx=\"128\" cy=\"128\" r=\"18\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#F59E0B\" stroke-width=\"5\"/><circle cx=\"128\" cy=\"128\" r=\"7\" fill=\"#FDE68A\"/><circle cx=\"128\" cy=\"48\" r=\"5\" fill=\"#FDE68A\"/><circle cx=\"128\" cy=\"208\" r=\"5\" fill=\"#FDE68A\"/><circle cx=\"48\" cy=\"128\" r=\"5\" fill=\"#FDE68A\"/><circle cx=\"208\" cy=\"128\" r=\"5\" fill=\"#FDE68A\"/>",
+    "evolve_crest": "<circle cx=\"128\" cy=\"128\" r=\"106\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#FFB800\" stroke-width=\"8\"/><circle cx=\"128\" cy=\"128\" r=\"90\" fill=\"none\" stroke=\"#FFE082\" stroke-width=\"3\" stroke-dasharray=\"14 8\" opacity=\"0.8\"/><path d=\"M128,22 C64,22 24,74 36,138 C46,184 88,196 112,168 C82,162 68,128 82,92 C94,62 128,54 156,72 L142,88 L188,82 L168,38 L158,54 C148,34 138,22 128,22 Z\" fill=\"url(#cf-cyan-grad)\" stroke=\"#00E5FF\" stroke-width=\"5\" stroke-linejoin=\"round\"/><path d=\"M128,234 C192,234 232,182 220,118 C210,72 168,60 144,88 C174,94 188,128 174,164 C162,194 128,202 100,184 L114,168 L68,174 L88,218 L98,202 C108,222 118,234 128,234 Z\" fill=\"url(#cf-crimson-grad)\" stroke=\"#FF2E54\" stroke-width=\"5\" stroke-linejoin=\"round\"/><polygon points=\"128,68 164,128 128,188 92,128\" fill=\"url(#cf-gold-grad)\" stroke=\"#FFE082\" stroke-width=\"5\" stroke-linejoin=\"round\"/><polygon points=\"128,88 148,128 128,168 108,128\" fill=\"url(#cf-obsidian-grad)\" stroke=\"#FFB800\" stroke-width=\"3\"/><circle cx=\"128\" cy=\"112\" r=\"7\" fill=\"#00E5FF\"/><circle cx=\"128\" cy=\"144\" r=\"7\" fill=\"#FF2E54\"/><circle cx=\"128\" cy=\"128\" r=\"6\" fill=\"#FFB800\"/>"
+  },
+  "icons": [
+    {
+      "key": "rarity_ur",
+      "code": "UR",
+      "label_en": "Ultimate Rare",
+      "label_ja": "アルティメットレア",
+      "filename": "cf_rarity_ur.svg",
+      "web_path": "WebPlayable/GeneratedArt/Icons/cf_rarity_ur.svg",
+      "unity_path": "Assets/Resources/UI/Icons/cf_rarity_ur.svg",
+      "palette": ["#00E5FF", "#FFB800", "#A855F7", "#FFE082"],
+      "viewBox": "0 0 256 256"
+    },
+    {
+      "key": "rarity_lg",
+      "code": "LG",
+      "label_en": "Legendary",
+      "label_ja": "レジェンド",
+      "filename": "cf_rarity_lg.svg",
+      "web_path": "WebPlayable/GeneratedArt/Icons/cf_rarity_lg.svg",
+      "unity_path": "Assets/Resources/UI/Icons/cf_rarity_lg.svg",
+      "palette": ["#FFB800", "#FFE082", "#00E5FF"],
+      "viewBox": "0 0 256 256"
+    },
+    {
+      "key": "rarity_sr",
+      "code": "SR",
+      "label_en": "Super Rare",
+      "label_ja": "スーパーレア",
+      "filename": "cf_rarity_sr.svg",
+      "web_path": "WebPlayable/GeneratedArt/Icons/cf_rarity_sr.svg",
+      "unity_path": "Assets/Resources/UI/Icons/cf_rarity_sr.svg",
+      "palette": ["#00E5FF", "#A855F7", "#FFE082"],
+      "viewBox": "0 0 256 256"
+    },
+    {
+      "key": "rarity_gr",
+      "code": "GR",
+      "label_en": "Gold Rare",
+      "label_ja": "ゴールドレア",
+      "filename": "cf_rarity_gr.svg",
+      "web_path": "WebPlayable/GeneratedArt/Icons/cf_rarity_gr.svg",
+      "unity_path": "Assets/Resources/UI/Icons/cf_rarity_gr.svg",
+      "palette": ["#FFB800", "#D97706", "#FFE082"],
+      "viewBox": "0 0 256 256"
+    },
+    {
+      "key": "rarity_br",
+      "code": "BR",
+      "label_en": "Bronze Rare",
+      "label_ja": "ブロンズレア",
+      "filename": "cf_rarity_br.svg",
+      "web_path": "WebPlayable/GeneratedArt/Icons/cf_rarity_br.svg",
+      "unity_path": "Assets/Resources/UI/Icons/cf_rarity_br.svg",
+      "palette": ["#CD7F32", "#F59E0B", "#FDE68A"],
+      "viewBox": "0 0 256 256"
+    },
+    {
+      "key": "evolve_crest",
+      "code": "EVOLVE",
+      "label_en": "Evolution State Crest (Unevolved ⇄ Evolved)",
+      "label_ja": "進化前 / 進化後",
+      "filename": "cf_evolve_crest.svg",
+      "web_path": "WebPlayable/GeneratedArt/Icons/cf_evolve_crest.svg",
+      "unity_path": "Assets/Resources/UI/Icons/cf_evolve_crest.svg",
+      "palette": ["#00E5FF", "#FF2E54", "#FFB800", "#FFE082"],
+      "viewBox": "0 0 256 256"
+    }
+  ]
+}

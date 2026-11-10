@@ -1,0 +1,37 @@
+{
+  "status": "PASS_SBX00_ROOT_SD_REMEDIATED",
+  "timestamp_utc": "2026-11-10T03:09:15Z",
+  "sbx00_host": "192.168.86.32",
+  "sbx00_ssh_alias": "sbx00-direct",
+  "sbx00_ssh_port": 2222,
+  "root_device": "/dev/mmcblk0p2",
+  "mount_point": "/",
+  "before_remediation": {
+    "df_b1_raw": "Filesystem       1B-blocks        Used Available Use% Mounted on\n/dev/mmcblk0p2 30802710528 29513736192         0 100% /",
+    "df_h_raw": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/mmcblk0p2   29G   28G     0 100% /",
+    "total_bytes": 30802710528,
+    "used_bytes": 29513736192,
+    "available_bytes": 0,
+    "use_percent": 100
+  },
+  "after_remediation": {
+    "df_b1_raw": "Filesystem       1B-blocks        Used  Available Use% Mounted on\n/dev/mmcblk0p2 30802710528 28235214848 2237022208  93% /",
+    "df_h_raw": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/mmcblk0p2   29G   27G  2.1G  93% /",
+    "total_bytes": 30802710528,
+    "used_bytes": 28235214848,
+    "available_bytes": 2237022208,
+    "available_human": "2.1G",
+    "use_percent": 93
+  },
+  "bytes_recovered_for_users": 2237022208,
+  "blocks_freed_bytes": 1278521344,
+  "remediation_actions_executed": [
+    "Vacuumed systemd journals via `journalctl --vacuum-size=20M` (freed 136.1M of archived journals)",
+    "Cleaned APT package archives and lists (`/var/cache/apt/archives/*.deb`, `/var/lib/apt/lists/*`)",
+    "Pruned unused dangling Docker images and unused local volumes (`docker image prune -f`, `docker volume prune -f`)",
+    "Cleaned rotated/compressed logs in `/home/pxadmin/gitlab/logs` and `/var/log` and truncated oversized >20M log files",
+    "Offloaded non-active static directories (`nocturnaid-orangehrm`, `character_3d_remote`, `/home/pxadmin/SovereignVault`, `perforce_sbx00`, `.npm`, `.cache`) to `/DATA/SovereignVault/sys_offload/` with symlinks",
+    "Adjusted ext4 reserved blocks from 5% to 1% via `tune2fs -m 1 /dev/mmcblk0p2` while preserving ~308MB root safety reserve"
+  ],
+  "services_health_verified": true
+}

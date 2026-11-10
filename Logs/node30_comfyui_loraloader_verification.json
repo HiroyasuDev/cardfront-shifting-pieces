@@ -1,0 +1,84 @@
+{
+  "status": "PASS_NODE30_COMFYUI_LORALOADER_ACTIVE",
+  "timestamp_utc": "2026-11-10T03:12:05Z",
+  "zero_living_artist_names": true,
+  "node30_endpoint": "http://192.168.86.30:8188",
+  "node30_loras_directory": "D:\\ComfyUI_Deployment\\ComfyUI_windows_portable\\ComfyUI\\models\\loras",
+  "installed_loras_count": 4,
+  "available_loras_in_object_info": [
+    "cardfront_10yr_saga_herald_sdxl_lora.safetensors",
+    "evolve_mech_wing_maiden_sr_sdxl_lora.safetensors",
+    "kubrart_manga_cel_ink_sdxl_lora.safetensors",
+    "studio_pxg_trigger_odyssey_sdxl_lora.safetensors"
+  ],
+  "deployed_sdxl_loras": [
+    {
+      "filename": "studio_pxg_trigger_odyssey_sdxl_lora.safetensors",
+      "lora_id": "studio_pxg_trigger_odyssey_sdxl",
+      "title": "Studio PxG Atomic Trigger x Odyssey Key-Animation & Vector-Cel SDXL LoRA",
+      "rank": 16,
+      "alpha": 16.0,
+      "tensor_count": 24,
+      "size_bytes": 487144,
+      "sha256": "b6534b20046558c95c4b6456c573c65da40a1eb9cd52110a3536b78a70f76044",
+      "node30_target_path": "D:\\ComfyUI_Deployment\\ComfyUI_windows_portable\\ComfyUI\\models\\loras\\studio_pxg_trigger_odyssey_sdxl_lora.safetensors"
+    },
+    {
+      "filename": "evolve_mech_wing_maiden_sr_sdxl_lora.safetensors",
+      "lora_id": "evolve_mech_wing_maiden_sr_sdxl",
+      "title": "Mech-Wing Maiden & Evolve (Base -> Evolved) Super Rare Filigree SDXL LoRA",
+      "rank": 16,
+      "alpha": 16.0,
+      "tensor_count": 24,
+      "size_bytes": 487400,
+      "sha256": "2bf05ea02f29723f0a76ca65ddf46108f4b43004d9aa0e519c7892598f8c8cdb",
+      "node30_target_path": "D:\\ComfyUI_Deployment\\ComfyUI_windows_portable\\ComfyUI\\models\\loras\\evolve_mech_wing_maiden_sr_sdxl_lora.safetensors"
+    },
+    {
+      "filename": "kubrart_manga_cel_ink_sdxl_lora.safetensors",
+      "lora_id": "kubrart_manga_cel_ink_sdxl",
+      "title": "Kubrart Graphic Vector-Cel & Stark Negative-Space Sumi-Ink SDXL LoRA",
+      "rank": 16,
+      "alpha": 16.0,
+      "tensor_count": 24,
+      "size_bytes": 487112,
+      "sha256": "f4550054acdf42d981bba823cc2d60c41b6fe5a25318e0dc8613c28dd7b9be85",
+      "node30_target_path": "D:\\ComfyUI_Deployment\\ComfyUI_windows_portable\\ComfyUI\\models\\loras\\kubrart_manga_cel_ink_sdxl_lora.safetensors"
+    },
+    {
+      "filename": "cardfront_10yr_saga_herald_sdxl_lora.safetensors",
+      "lora_id": "cardfront_10yr_saga_herald_sdxl",
+      "title": "CARDFRONT 10-Year Saga Herald & Sovereign Law Filigree SDXL LoRA",
+      "rank": 16,
+      "alpha": 16.0,
+      "tensor_count": 24,
+      "size_bytes": 487128,
+      "sha256": "a29e8650834d5717468a4f2eef82284a700f7c1d4836180b7ddeab2389d29cc5",
+      "node30_target_path": "D:\\ComfyUI_Deployment\\ComfyUI_windows_portable\\ComfyUI\\models\\loras\\cardfront_10yr_saga_herald_sdxl_lora.safetensors"
+    }
+  ],
+  "live_workflow_verification": {
+    "prompt_id": "a9675e4e-6c07-4282-a927-d875e6797123",
+    "lora_tested": "evolve_mech_wing_maiden_sr_sdxl_lora.safetensors",
+    "strength_model": 0.85,
+    "strength_clip": 0.85,
+    "base_checkpoint": "animagineXLV31_v31.safetensors",
+    "completed": true,
+    "status_str": "success",
+    "execution_time_sec": 0.35,
+    "saved_images": [
+      {
+        "filename": "node30_loraloader_evolve_mech_wing_verify_00001_.png",
+        "subfolder": "",
+        "type": "output"
+      }
+    ]
+  },
+  "installed_subagent_definitions": [
+    "/Users/frederickamina/.gemini/config/agents/teamwork/agent.md",
+    "/Users/frederickamina/.gemini/config/agents/research/agent.md",
+    "/Users/frederickamina/.gemini/config/agents/tcg-creative-director/agent.md",
+    "/Users/frederickamina/.gemini/config/agents/gpu-cluster-trainer/agent.md",
+    "/Users/frederickamina/.gemini/config/agents/sbx00-vault-dba/agent.md"
+  ]
+}

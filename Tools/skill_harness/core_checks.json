@@ -1476,12 +1476,42 @@
     "target": "both",
     "method": "playwright",
     "probe": {
-      "expression": "(() => { const eng = window.CardFrontTokonLooterEngine; if (!eng || typeof eng.triggerTokonHyperCutIn !== 'function' || typeof eng.rollLooterCardDrop !== 'function' || typeof eng.spendTokonOverdrive !== 'function') return false; const drop = eng.rollLooterCardDrop('plugin_01_tcg_creative_designer', 4, 20261109); const cut = eng.triggerTokonHyperCutIn('plugin_01_tcg_creative_designer', { styleId: 'ASTRAL_FINISH', comboHits: 3, assistCardId: 'plugin_02_parallel_swarm_orchestrator' }); eng.openTokonLooterModal(); eng.closeTokonLooterModal(); return Boolean(drop && drop.affixes && drop.affixes.length >= 1 && cut && cut.kanji === '一撃必殺' && eng.LOOT_RARITY_TIERS.length === 5 && eng.LOOTER_CARD_AFFIXES.length === 10); })()"
+      "expression": "(() => { const eng = window.CardFrontTokonLooterEngine; if (!eng || typeof eng.triggerTokonHyperCutIn !== 'function' || typeof eng.rollLooterCardDrop !== 'function' || typeof eng.spendTokonOverdrive !== 'function') return false; const drop = eng.rollLooterCardDrop('plugin_01_tcg_creative_designer', 4, 20261109); const cut = eng.triggerTokonHyperCutIn('plugin_01_tcg_creative_designer', { styleId: 'ASTRAL_FINISH', comboHits: 3, assistCardId: 'plugin_02_parallel_swarm_orchestrator' }); eng.openTokonLooterModal(); eng.closeTokonLooterModal(); const ov = document.getElementById('tokon-hyper-cutin-overlay'); if (ov) ov.classList.remove('active'); return Boolean(drop && drop.affixes && drop.affixes.length >= 1 && cut && cut.kanji === '一撃必殺' && eng.LOOT_RARITY_TIERS.length === 5 && eng.LOOTER_CARD_AFFIXES.length === 10); })()"
     },
     "expect": "true",
     "priority": "P0",
     "code_ref": "WebPlayable/modules/tokon_fighter_and_looter_engine.js:1-460",
     "remediation": "Wire WebPlayable/modules/tokon_fighter_and_looter_engine.js and RollLooterTcgCardDrop / TriggerTokonHyperCutInState in CardFrontUnifiedRuntime.cs."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.22",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Decluttered Tabletop UI/UX & 3-Tier Cut-In Escalation Hierarchy (Tier 1 1-Card Capture = 0 Modal Overlays; Tier 2 2-Card Capture = Top-Center Banner Only; Tier 3 3+ Capture = Tokon Diagonal Cut-In Only; Unobstructed Resting Card Portraits & Clean Stone Sockets; Rule-Bending Fighting-Game Loot Affixes & Live EX Overdrive HUD Pill).",
+    "source": "WebPlayable/modules/tokon_fighter_and_looter_engine.js:250",
+    "target": "web",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { startStage(0); const eng = window.CardFrontTokonLooterEngine; if (!eng || eng.VERSION !== '2.0.0' || typeof eng.evaluateCutInTier !== 'function' || typeof eng.handleCaptureEscalation !== 'function' || typeof eng.evaluateBoardLootAffixes !== 'function') return false; const t1 = eng.evaluateCutInTier(1, false, false); const t2 = eng.evaluateCutInTier(2, false, false); const t3 = eng.evaluateCutInTier(3, false, false); eng.handleCaptureEscalation('h_archangel', [{ nr: 0, nc: 1 }], state); const b1 = document.getElementById('boss-cutin-banner'); const o1 = document.getElementById('tokon-hyper-cutin-overlay'); const noModalOnSingle = (!b1 || !b1.classList.contains('active')) && (!o1 || !o1.classList.contains('active')); const openLbl = document.querySelector('.board-slot .socket-open-label'); const teleFx = document.querySelector('.board-slot .card-telegraph-fx'); const exBtn = document.getElementById('tokon-hud-overdrive-btn'); const cleanRest = Boolean(openLbl && parseFloat(getComputedStyle(openLbl).opacity) <= 0.05 && teleFx && parseFloat(getComputedStyle(teleFx).opacity) <= 0.05 && exBtn); return Boolean(t1.tier === 1 && t2.tier === 2 && t3.tier === 3 && noModalOnSingle && cleanRest); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/tokon_fighter_and_looter_engine.js:250-440",
+    "remediation": "Implement 3-tier cut-in escalation (evaluateCutInTier, handleCaptureEscalation), evaluateBoardLootAffixes, #tokon-hud-overdrive-btn, and resting opacity 0 on .socket-open-label and .card-telegraph-fx."
+  },
+  {
+    "id": "core.unity6_tcg_rea_baseline.23",
+    "skill": "tcg-creative-game-designer",
+    "rule": "CardCraftCollectables (C³) Dual-Sided Character Bromide, Studio PxG Signature Crest, Lore Chronicle & Variations Metadata (141 Playable Cards, Left Full-Body Composition with Vertical Name & Studio PxG Crest, Right Blueprint Profile with 機構翼の少女・ローザ(進化前) / Shadowverse EVOLVE / [BP05] Eternal omens / ブースターパック第5弾 永劫なる絶傑 / BP05-110 SR & BP05-P50 Premium SR spec: Foil).",
+    "source": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1",
+    "target": "both",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const c3 = window.CardFrontCollectablesC3; if (!c3 || c3.STUDIO_SIGNATURE !== 'Studio PxG' || typeof c3.getCardC3Record !== 'function') return false; const reg = c3.getRegistry(); const rosa = c3.getCardC3Record('ev_01_base'); const html = c3.renderDualBromideHtml('ev_01_base', 'PREMIUM_FOIL'); c3.openC3CollectablesModal('ev_01_base', 'PREMIUM_FOIL'); c3.closeC3CollectablesModal(); return Boolean(Object.keys(reg).length >= 141 && rosa && rosa.originalTitle === '機構翼の少女・ローザ(進化前)' && rosa.standardEdition.cardNumber === 'BP05-110 SR' && rosa.premiumVariation.cardNumber === 'BP05-P50 Premium SR' && rosa.premiumVariation.spec === 'Foil' && html.includes('Studio PxG') && html.includes('ブースターパック第5弾 永劫なる絶傑')); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1-460",
+    "remediation": "Wire WebPlayable/modules/cardcraft_collectables_c3_engine.js and GetCardCraftCollectableC3Metadata in CardFrontUnifiedRuntime.cs."
   },
   {
     "id": "core.production_upgrades.14",
@@ -1574,5 +1604,36 @@
     "priority": "P0",
     "code_ref": "WebPlayable/modules/dice3d_and_ffta_chibi_units.js:1-360",
     "remediation": "Wire WebPlayable/modules/dice3d_and_ffta_chibi_units.js and #dice3d-ffta-chibi-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+  },
+  {
+    "id": "core.production_upgrades.20",
+    "skill": "tcg-creative-game-designer",
+    "rule": "6-Gap Cluster & Asset Closure: 4 Kohya SDXL LoRAs Installed & Verified on Node 30 (192.168.86.30:8188) ComfyUI LoraLoader, SBX00 (192.168.86.32) Root Boot SD Card Remediated (> 1.5 GB Free), 12-Table SBX00 SQLite Gacha/Collection/ELO Database Synced, 141-Card 4-Frame FFTA Pixel-Chibi Master Atlas (2400x1600), and 16 Bilingual JP/EN Battle Voiceover WAV Clips.",
+    "source": "Logs/node30_comfyui_loraloader_verification.json:1",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "Logs/node30_comfyui_loraloader_verification.json",
+      "expression": "data.get('status') == 'PASS_NODE30_COMFYUI_LORALOADER_ACTIVE' and data.get('installed_loras_count', 0) >= 4 and data.get('zero_living_artist_names') is True"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/deploy_comfyui_sdxl_loras_to_node30.py:1-260",
+    "remediation": "Run python3 Backend/deploy_comfyui_sdxl_loras_to_node30.py, Backend/provision_sbx00_sovereign_franchise_db.py, and Backend/build_141_chibi_atlas_and_bilingual_vo.py."
+  },
+  {
+    "id": "core.production_upgrades.21",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "Real-Time WebGL2 GLSL Holographic Foil & Anisotropic Brushed-Gunmetal Shader (with Heroine Face Protection Mask), 60fps Live2D-Style Portrait Breathing/Wing-Articulation/Eye-Blink Animator, 16 Bilingual (JP/EN) Battle Voiceovers, 141-Card 4-Frame FFTA Chibi Atlas, & Live SBX00 Booster Gacha / K-32 ELO Suite (window.CardFrontWebGLHoloLive2DVoGachaSuite & #webgl-holo-live2d-gacha-modal).",
+    "source": "WebPlayable/modules/webgl_holo_live2d_vo_gacha_suite.js:1",
+    "target": "both",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const s = window.CardFrontWebGLHoloLive2DVoGachaSuite; if (!s || !Array.isArray(s.BILINGUAL_VO_CLIPS_16) || s.BILINGUAL_VO_CLIPS_16.length !== 16 || !Array.isArray(s.CANONICAL_141_CARDS) || s.CANONICAL_141_CARDS.length !== 141 || !Array.isArray(s.CHIBI_4FRAME_ATLAS_141) || s.CHIBI_4FRAME_ATLAS_141.length !== 141) return false; const sh = s.initWebGLHoloFoilShader(); const rig = s.getLive2DRigTelemetry('ev_01_evolved'); const vo = s.playBilingualBattleVO('vo_02_rosalia_evolve_jp'); const pack = s.openSbx00BoosterPack('CF01', { skipRemoteSync: true }); const elo = s.recordSbx00RankedMatch('WIN', 1550, { skipRemoteSync: true }); s.openWebGLHoloLive2DGachaModal('gacha'); s.closeWebGLHoloLive2DGachaModal(); return Boolean(sh && sh.faceProtectionMaskActive === true && rig && rig.fps === 60 && vo && vo.clipId === 'vo_02_rosalia_evolve_jp' && pack && Array.isArray(pack.pulledCards) && pack.pulledCards.length === 8 && elo && elo.kFactor === 32); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/webgl_holo_live2d_vo_gacha_suite.js:1-420",
+    "remediation": "Wire WebPlayable/modules/webgl_holo_live2d_vo_gacha_suite.js and #webgl-holo-live2d-gacha-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
   }
 ]

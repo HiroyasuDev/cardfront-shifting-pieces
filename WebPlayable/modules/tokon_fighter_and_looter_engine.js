@@ -118,74 +118,84 @@
 
   const LOOTER_CARD_AFFIXES = [
     {
-      id: "OVERDRIVE_NORTH_SOUTH",
-      name: "[OVERDRIVE EDGE]",
-      desc: "+2 North & +1 South Pips on clash",
-      neswBonus: [2, 0, 1, 0],
-      hyperGainBonus: 5
+      id: "COMMAND_GRAB",
+      name: "[COMMAND GRAB]",
+      desc: "Unblockable throw: North & South edge ties capture enemy constructs (+1 N/S)",
+      ruleType: "TIE_BREAKER_NS",
+      neswBonus: [1, 0, 1, 0],
+      hyperGainBonus: 12
     },
     {
-      id: "CROSS_COUNTER_EAST_WEST",
-      name: "[CROSS-COUNTER]",
-      desc: "+2 East & +1 West Pips on clash",
-      neswBonus: [0, 2, 0, 1],
-      hyperGainBonus: 5
+      id: "WALL_SPLAT",
+      name: "[WALL SPLAT]",
+      desc: "Corner crush: +2 North & +1 East when deployed on any outer corner socket",
+      ruleType: "CORNER_WALL_SPLAT",
+      neswBonus: [2, 1, 0, 0],
+      hyperGainBonus: 12
     },
     {
-      id: "TAG_ASSIST_LINK",
-      name: "[TAG-ASSIST LINK]",
-      desc: "Calls adjacent ally for +1 All Sides Twin-Strike",
-      neswBonus: [1, 1, 1, 1],
-      hyperGainBonus: 15
+      id: "WHIFF_PUNISH",
+      name: "[WHIFF PUNISH]",
+      desc: "Counter-hit: +2 West & +1 South when deployed adjacent to Boss's last card",
+      ruleType: "ADJACENT_PUNISH",
+      neswBonus: [0, 0, 1, 2],
+      hyperGainBonus: 14
     },
     {
       id: "GUARD_CRUSH",
       name: "[GUARD CRUSH]",
-      desc: "Breaks enemy defense on equal-pip clashes (+1 N/E)",
+      desc: "Shatters Judge Shield & breaks defense on equal-pip clashes (+1 N/E)",
+      ruleType: "SHIELD_CRUSH",
       neswBonus: [1, 1, 0, 0],
       hyperGainBonus: 10
     },
     {
       id: "ROMAN_CANCEL_REFUND",
       name: "[ROMAN CANCEL]",
-      desc: "Refunds +1 Dice Reroll when capturing 2+ cards",
+      desc: "Refunds +1 Dice Nudge & +1 Reroll when capturing 2+ cards",
+      ruleType: "RESOURCE_REFUND",
       neswBonus: [1, 0, 1, 0],
-      hyperGainBonus: 12
+      hyperGainBonus: 15
+    },
+    {
+      id: "TAG_ASSIST_LINK",
+      name: "[TAG-ASSIST LINK]",
+      desc: "Calls adjacent ally for +1 All Sides Twin-Strike synergy",
+      ruleType: "ALLY_ASSIST_ALL",
+      neswBonus: [1, 1, 1, 1],
+      hyperGainBonus: 15
     },
     {
       id: "WALL_BREAK_CASCADE",
       name: "[WALL-BREAK CASCADE]",
-      desc: "+25% Hyper Meter on SAME / PLUS combo cascade",
+      desc: "+25% EX Hyper Meter on SAME / PLUS combo cascade",
+      ruleType: "CASCADE_METER",
       neswBonus: [0, 1, 1, 1],
       hyperGainBonus: 25
     },
     {
       id: "PUNISH_COUNTER",
       name: "[PUNISH COUNTER]",
-      desc: "+2 West & +1 North when punishing enemy corners",
-      neswBonus: [1, 0, 0, 2],
-      hyperGainBonus: 10
+      desc: "+2 East & +1 West when punishing enemy telegraph target tile",
+      ruleType: "TELEGRAPH_PUNISH",
+      neswBonus: [0, 2, 0, 1],
+      hyperGainBonus: 12
     },
     {
       id: "EX_METER_BATTERY",
       name: "[EX METER BATTERY]",
-      desc: "Surges +20% Tokon Hyper Gauge on deploy",
+      desc: "Surges +25% Tokon EX Gauge immediately on deploy",
+      ruleType: "METER_SURGE",
       neswBonus: [0, 1, 0, 1],
-      hyperGainBonus: 20
-    },
-    {
-      id: "AEGIS_SUPER_ARMOR",
-      name: "[SUPER ARMOR]",
-      desc: "+2 South & +1 East fortification",
-      neswBonus: [0, 1, 2, 0],
-      hyperGainBonus: 8
+      hyperGainBonus: 25
     },
     {
       id: "KAGENASHI_FINISHER",
       name: "[KAGENASHI FINISHER]",
-      desc: "+1 All Sides & triggers Tokon Split-Screen Cut-In",
+      desc: "+1 All Sides & upgrades 2-card captures to Tokon Hyper Cut-In",
+      ruleType: "CUTIN_UPGRADE",
       neswBonus: [1, 1, 1, 1],
-      hyperGainBonus: 15
+      hyperGainBonus: 18
     }
   ];
 
@@ -236,11 +246,13 @@
   // 2. STATE INITIALIZATION & PROCEDURAL LOOTER-TCG DROP GENERATOR
   // ==========================================================================
   const tokonState = {
-    hyperMeterPct: 65,
+    hyperMeterPct: 68,
+    bossHyperMeterPct: 35,
     maxComboHits: 3,
     lastComboHits: 0,
     cutInsTriggeredCount: 0,
     lastCutInPayload: null,
+    lastCutInTier: null,
     lootInventory: [],
     equippedLootByCardId: {}
   };
@@ -335,15 +347,198 @@
     return lootItem;
   }
 
-  // Seed 4 starter God-Roll / Epic Looter-TCG cards on boot so the player immediately has exciting rolls
+  // Seed 4 starter God-Roll / Epic Looter-TCG cards on boot
   function seedInitialLooterDrops() {
     if (tokonState.lootInventory.length > 0) return;
     rollLooterCardDrop("plugin_01_tcg_creative_designer", 4, 20261109);
     rollLooterCardDrop("set2_03_sakuga_apex_valkyrie", 3, 20261110);
-    rollLooterCardDrop("h_archangel", 3, 20261111);
+    rollLooterCardDrop("ev_01_base", 3, 20261111);
     rollLooterCardDrop("plugin_02_parallel_swarm_orchestrator", 4, 20261112);
   }
   seedInitialLooterDrops();
+
+  // ==========================================================================
+  // 2B. RULE-BENDING FIGHTING-GAME LOOT AFFIX BOARD RESOLVER & 3-TIER ESCALATION
+  // ==========================================================================
+  function evaluateBoardLootAffixes(cardId, r, c, nesw, owner = "player", stateObj = null) {
+    const baseStats = Array.isArray(nesw) ? nesw.slice() : [7, 7, 7, 7];
+    const loot = tokonState.equippedLootByCardId[cardId] || null;
+    const out = {
+      cardId,
+      hasEquippedLoot: Boolean(loot),
+      rarityId: loot ? loot.rarityId : "STANDARD",
+      effectiveNesw: baseStats.slice(),
+      tieBreaksNorthSouth: false,
+      wallSplatBonus: false,
+      whiffPunishBonus: false,
+      romanCancelRefund: false,
+      guardCrushActive: false,
+      kagenashiUpgrade: false,
+      triggeredAffixes: []
+    };
+    if (!loot || !Array.isArray(loot.affixes) || owner !== "player") {
+      return out;
+    }
+    const isCorner = (r === 0 || r === 2) && (c === 0 || c === 2);
+    const st = stateObj || globalScope.state;
+    let adjacentToEnemy = false;
+    if (st && Array.isArray(st.grid)) {
+      const dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]];
+      for (const [dr, dc] of dirs) {
+        const nr = r + dr, nc = c + dc;
+        if (nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && st.grid[nr] && st.grid[nr][nc] && st.grid[nr][nc].owner === "ai") {
+          adjacentToEnemy = true;
+          break;
+        }
+      }
+    }
+
+    loot.affixes.forEach((af) => {
+      if (af.id === "COMMAND_GRAB") {
+        out.tieBreaksNorthSouth = true;
+        out.effectiveNesw[0] = Math.min(10, out.effectiveNesw[0] + 1);
+        out.effectiveNesw[2] = Math.min(10, out.effectiveNesw[2] + 1);
+        out.triggeredAffixes.push(af.name);
+      } else if (af.id === "WALL_SPLAT" && isCorner) {
+        out.wallSplatBonus = true;
+        out.effectiveNesw[0] = Math.min(10, out.effectiveNesw[0] + 2);
+        out.effectiveNesw[1] = Math.min(10, out.effectiveNesw[1] + 1);
+        out.triggeredAffixes.push(af.name);
+      } else if (af.id === "WHIFF_PUNISH" && adjacentToEnemy) {
+        out.whiffPunishBonus = true;
+        out.effectiveNesw[2] = Math.min(10, out.effectiveNesw[2] + 1);
+        out.effectiveNesw[3] = Math.min(10, out.effectiveNesw[3] + 2);
+        out.triggeredAffixes.push(af.name);
+      } else if (af.id === "GUARD_CRUSH") {
+        out.guardCrushActive = true;
+        out.triggeredAffixes.push(af.name);
+      } else if (af.id === "ROMAN_CANCEL_REFUND") {
+        out.romanCancelRefund = true;
+        out.triggeredAffixes.push(af.name);
+      } else if (af.id === "KAGENASHI_FINISHER") {
+        out.kagenashiUpgrade = true;
+        out.triggeredAffixes.push(af.name);
+      } else if (af.id === "EX_METER_BATTERY") {
+        tokonState.hyperMeterPct = Math.min(100, tokonState.hyperMeterPct + 20);
+        out.triggeredAffixes.push(af.name);
+      }
+    });
+    return out;
+  }
+
+  function evaluateCutInTier(flipsCount, hasCascade = false, isOverdrive = false) {
+    const count = Math.max(0, Number(flipsCount) || 0);
+    if (isOverdrive || count >= 3) {
+      return {
+        tier: 3,
+        tierId: "TIER_3_TOKON_HYPER",
+        label: "Tokon Diagonal Split-Screen Hyper Cut-In",
+        showBossCutInBanner: false,
+        showTokonHyperOverlay: true,
+        showMidMatchToast: true,
+        hitStopMs: 135
+      };
+    }
+    if (count === 2 || hasCascade) {
+      return {
+        tier: 2,
+        tierId: "TIER_2_CORNER_SLASH",
+        label: "Top-Center Sakuga Strip Cut-In Only",
+        showBossCutInBanner: true,
+        showTokonHyperOverlay: false,
+        showMidMatchToast: false,
+        hitStopMs: 105
+      };
+    }
+    return {
+      tier: 1,
+      tierId: "TIER_1_BOARD_SPARK",
+      label: "Board-Level Hit-Stop & Clash Math Pill Only (Zero Modal Clutter)",
+      showBossCutInBanner: false,
+      showTokonHyperOverlay: false,
+      showMidMatchToast: false,
+      hitStopMs: 80
+    };
+  }
+
+  function updateTokonHudPill() {
+    if (typeof document === "undefined") return;
+    const btn = document.getElementById("tokon-hud-overdrive-btn");
+    if (!btn) return;
+    const bars = Math.min(3, Math.floor(tokonState.hyperMeterPct / 33.3));
+    const isMax = bars >= 3;
+    btn.style.borderColor = isMax ? "#FFB800" : bars >= 1 ? "#00E5FF" : "rgba(148,163,184,0.45)";
+    btn.style.boxShadow = isMax ? "0 0 14px rgba(255,184,0,0.65)" : "none";
+    const lbl = document.getElementById("tokon-hud-overdrive-label");
+    if (lbl) {
+      lbl.textContent = isMax ? "EX MAX!" : `EX ${bars}/3`;
+      lbl.style.color = isMax ? "#fde047" : "#e0f2fe";
+    }
+  }
+
+  function advanceBossOverdrive(flipsCount = 1) {
+    tokonState.bossHyperMeterPct = Math.min(100, (tokonState.bossHyperMeterPct || 0) + 18 + flipsCount * 16);
+    return tokonState.bossHyperMeterPct;
+  }
+
+  function handleCaptureEscalation(cardId, flips, stateObj) {
+    ensureTokonStylesAndDom();
+    const flipsArr = Array.isArray(flips) ? flips : [];
+    const flipsCount = flipsArr.length;
+    if (flipsCount <= 0) return null;
+
+    const hasCascade = flipsArr.some((f) => f && f.rule && f.rule !== "HIGH_PIP");
+    const lootEval = evaluateBoardLootAffixes(cardId, 1, 1, [8, 8, 8, 8], "player", stateObj);
+    const tierDecision = evaluateCutInTier(
+      flipsCount,
+      hasCascade,
+      Boolean(lootEval.kagenashiUpgrade && flipsCount >= 2)
+    );
+    tokonState.lastCutInTier = tierDecision;
+
+    // Refund +1 Nudge if [ROMAN CANCEL] triggers on a 2+ card capture
+    const st = stateObj || globalScope.state;
+    if (lootEval.romanCancelRefund && flipsCount >= 2 && st) {
+      st.nudgesLeft = Math.min(3, (st.nudgesLeft || 0) + 1);
+    }
+
+    // Advance EX Gauge on every capture
+    tokonState.hyperMeterPct = Math.min(100, tokonState.hyperMeterPct + 12 + flipsCount * 14);
+    updateTokonHudPill();
+
+    // Silently roll a Looter-TCG drop into the Vault so end-of-match / Vault always has fresh loot
+    rollLooterCardDrop(cardId, flipsCount, Date.now() + flipsCount * 31);
+
+    const bossBanner = typeof document !== "undefined" ? document.getElementById("boss-cutin-banner") : null;
+    const tokonOverlay = typeof document !== "undefined" ? document.getElementById("tokon-hyper-cutin-overlay") : null;
+
+    if (tierDecision.tier === 1) {
+      // Tier 1 (1-Card Capture): Keep the board 100% clean! No full-screen banners or mid-match toasts.
+      if (bossBanner) bossBanner.classList.remove("active");
+      if (tokonOverlay) tokonOverlay.classList.remove("active");
+      return tierDecision;
+    }
+
+    if (tierDecision.tier === 2) {
+      // Tier 2 (2-Card Capture or SAME/PLUS): Show ONLY the top-center Sakuga strip banner.
+      if (tokonOverlay) tokonOverlay.classList.remove("active");
+      if (typeof globalScope.triggerSakugaCardCutIn === "function") {
+        globalScope.triggerSakugaCardCutIn(cardId);
+      }
+      return tierDecision;
+    }
+
+    // Tier 3 (3+ Captures or Overdrive Finisher): Show ONLY the Tokon Diagonal Split-Screen Hyper Cut-In!
+    if (bossBanner) bossBanner.classList.remove("active");
+    const assistId = st && Array.isArray(st.hand) && st.hand.length > 0 ? st.hand[0] : "plugin_02_parallel_swarm_orchestrator";
+    triggerTokonHyperCutIn(cardId, {
+      styleId: hasCascade ? "WALL_BREAK_CASCADE" : "ASTRAL_FINISH",
+      comboHits: flipsCount,
+      assistCardId: assistId,
+      showToast: true
+    });
+    return tierDecision;
+  }
 
   // ==========================================================================
   // 3. TOKON DIAGONAL SPLIT-SCREEN HYPER CUT-IN DOM & CSS INJECTION
@@ -365,22 +560,22 @@
         }
         #tokon-hyper-cutin-overlay.active {
           display: block;
-          animation: tokonOverlayLife 1.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: tokonOverlayLife 0.98s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         @keyframes tokonOverlayLife {
           0%   { opacity: 0; }
-          6%   { opacity: 1; filter: invert(1) contrast(2.4); }
-          12%  { opacity: 1; filter: none; }
-          84%  { opacity: 1; filter: none; }
+          7%   { opacity: 1; filter: invert(1) contrast(2.3); }
+          14%  { opacity: 1; filter: none; }
+          82%  { opacity: 1; filter: none; }
           100% { opacity: 0; }
         }
         .tokon-diagonal-band {
           position: absolute;
-          top: 14%;
+          top: 15%;
           left: -8%;
           width: 116%;
-          height: 220px;
-          transform: rotate(-7deg) skewX(-14deg);
+          height: 204px;
+          transform: rotate(-6deg) skewX(-14deg);
           background: linear-gradient(90deg, rgba(6,10,22,0.98) 0%, rgba(18,28,56,0.97) 48%, rgba(88,16,38,0.96) 100%);
           border-top: 4px solid #FFB800;
           border-bottom: 4px solid #00E5FF;
@@ -405,7 +600,7 @@
           overflow: hidden;
           border-right: 4px solid #FFB800;
           background: #050811;
-          animation: tokonSlideLeft 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: tokonSlideLeft 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .tokon-eyes-strip img {
           width: 135%;
@@ -425,7 +620,7 @@
           position: absolute;
           right: 12px;
           top: -18px;
-          font-size: 76px;
+          font-size: 72px;
           font-weight: 900;
           color: rgba(255, 184, 0, 0.16);
           letter-spacing: -2px;
@@ -439,14 +634,14 @@
           border-radius: 4px;
           background: #FFB800;
           color: #050811;
-          font-size: 11px;
+          font-size: 12px;
           font-weight: 900;
-          letter-spacing: 1.4px;
+          letter-spacing: 1.2px;
           text-transform: uppercase;
           margin-bottom: 6px;
         }
         .tokon-hero-headline {
-          font-size: 28px;
+          font-size: 26px;
           font-weight: 900;
           color: #FFFFFF;
           text-transform: uppercase;
@@ -472,8 +667,8 @@
           background: radial-gradient(circle at center, rgba(255,46,84,0.34), rgba(6,10,22,0.95));
         }
         .tokon-portrait-right img.tokon-main-art {
-          width: 142px;
-          height: 192px;
+          width: 136px;
+          height: 184px;
           object-fit: cover;
           border-radius: 8px;
           border: 2.5px solid #FFB800;
@@ -481,8 +676,8 @@
           transform: rotate(5deg);
         }
         .tokon-portrait-right img.tokon-assist-art {
-          width: 96px;
-          height: 134px;
+          width: 92px;
+          height: 128px;
           object-fit: cover;
           border-radius: 6px;
           border: 2px solid #2EE6D3;
@@ -494,7 +689,7 @@
           100% { transform: translateX(0%); }
         }
 
-        /* TOKON COMBO COUNTER & LOOT DROP TOAST (POINTER-EVENTS: NONE) */
+        /* TOKON COMBO COUNTER & LOOT DROP TOAST (POINTER-EVENTS: NONE, COMPACT) */
         #tokon-combo-loot-hud {
           position: fixed;
           right: 16px;
@@ -504,34 +699,34 @@
           display: flex;
           flex-direction: column;
           align-items: flex-end;
-          gap: 8px;
+          gap: 6px;
         }
         .tokon-combo-badge {
-          background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(127, 29, 29, 0.94));
-          border: 2px solid #FFB800;
+          background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(127, 29, 29, 0.92));
+          border: 1.5px solid #FFB800;
           border-radius: 8px;
-          padding: 6px 14px;
+          padding: 5px 12px;
           transform: skewX(-10deg);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.85), 0 0 18px rgba(255, 46, 84, 0.65);
+          box-shadow: 0 6px 18px rgba(0,0,0,0.82);
           text-align: right;
           opacity: 0;
-          transition: opacity 0.2s ease, transform 0.2s ease;
+          transition: opacity 0.18s ease, transform 0.18s ease;
         }
         .tokon-combo-badge.visible {
           opacity: 1;
-          transform: skewX(-10deg) scale(1.04);
+          transform: skewX(-10deg) scale(1.02);
         }
         .tokon-loot-drop-toast {
-          background: linear-gradient(135deg, rgba(8, 12, 24, 0.97), rgba(30, 18, 56, 0.96));
-          border: 2px solid #00E5FF;
+          background: linear-gradient(135deg, rgba(8, 12, 24, 0.95), rgba(30, 18, 56, 0.94));
+          border: 1.5px solid #00E5FF;
           border-radius: 8px;
-          padding: 7px 12px;
-          box-shadow: 0 8px 24px rgba(0,0,0,0.9), 0 0 22px rgba(0, 229, 255, 0.55);
+          padding: 6px 11px;
+          box-shadow: 0 6px 18px rgba(0,0,0,0.85);
           font-size: 12px;
           color: #F8FAFC;
           opacity: 0;
-          transition: opacity 0.25s ease;
-          max-width: 290px;
+          transition: opacity 0.2s ease;
+          max-width: 260px;
         }
         .tokon-loot-drop-toast.visible {
           opacity: 1;
@@ -552,9 +747,9 @@
           </div>
           <div class="tokon-center-callout">
             <div class="tokon-kanji-watermark" id="tokon-kanji-text">超必殺技</div>
-            <div class="tokon-kicker-pill" id="tokon-kicker-text">TOKON HYPER ARCANUM // 24FPS CUT-IN</div>
+            <div class="tokon-kicker-pill" id="tokon-kicker-text">TOKON HYPER ARCANUM</div>
             <div class="tokon-hero-headline" id="tokon-headline-text">Grand Arcanist Designer</div>
-            <div class="tokon-sub-telegraph" id="tokon-sub-text">Atelier Genesis Decree · +1 Tag-Assist Active</div>
+            <div class="tokon-sub-telegraph" id="tokon-sub-text">Atelier Genesis Decree</div>
           </div>
           <div class="tokon-portrait-right">
             <img id="tokon-main-portrait" class="tokon-main-art" src="./GeneratedArt/AgentDeck/plugin_01_tcg_creative_designer.png" alt="Main Striker" />
@@ -571,8 +766,8 @@
       hud.setAttribute("aria-hidden", "true");
       hud.innerHTML = `
         <div id="tokon-combo-badge" class="tokon-combo-badge">
-          <div id="tokon-combo-num" style="font-size:22px;font-weight:900;color:#FFB800;line-height:1;">3 HIT COMBO!</div>
-          <div id="tokon-combo-label" style="font-size:11px;font-weight:800;color:#00E5FF;letter-spacing:1px;">HYPER GAUGE 85% · TAG LINK</div>
+          <div id="tokon-combo-num" style="font-size:18px;font-weight:900;color:#FFB800;line-height:1;">3 HIT COMBO!</div>
+          <div id="tokon-combo-label" style="font-size:12px;font-weight:800;color:#00E5FF;letter-spacing:0.6px;">EX GAUGE 100%</div>
         </div>
         <div id="tokon-loot-drop-toast" class="tokon-loot-drop-toast"></div>
       `;
@@ -603,8 +798,9 @@
     }
     tokonState.hyperMeterPct = Math.min(100, tokonState.hyperMeterPct + 15 + comboHits * 15);
     tokonState.cutInsTriggeredCount += 1;
+    updateTokonHudPill();
 
-    // Roll a Looter-TCG card drop whenever a cut-in / capture occurs
+    // Roll a Looter-TCG card drop whenever a cut-in occurs
     const lootDrop = rollLooterCardDrop(meta.id, comboHits, Date.now() + tokonState.cutInsTriggeredCount * 97);
 
     const payload = {
@@ -619,6 +815,12 @@
       lootDrop
     };
     tokonState.lastCutInPayload = payload;
+
+    // Never allow #boss-cutin-banner and #tokon-hyper-cutin-overlay to overlap simultaneously
+    const bossBanner = document.getElementById("boss-cutin-banner");
+    if (bossBanner) {
+      bossBanner.classList.remove("active");
+    }
 
     const overlay = document.getElementById("tokon-hyper-cutin-overlay");
     if (overlay) {
@@ -643,13 +845,13 @@
       }
       if (kanjiEl) kanjiEl.textContent = styleDef.kanji;
       if (kickerEl) {
-        kickerEl.textContent = `${styleDef.kicker} · ${comboHits} HIT${comboHits > 1 ? "S" : ""}!`;
+        kickerEl.textContent = `${styleDef.id.replace(/_/g, " ")} · ${comboHits} HIT${comboHits > 1 ? "S" : ""}!`;
         kickerEl.style.background = styleDef.primaryColor;
       }
-      if (headlineEl) headlineEl.textContent = `${meta.name} — ${meta.telegraphName || "HYPER SLASH"}!`;
+      if (headlineEl) headlineEl.textContent = `${meta.name}`;
       if (subEl) {
-        const affixTxt = lootDrop ? lootDrop.affixNames.join(" + ") : "[OVERDRIVE EDGE]";
-        subEl.textContent = `${lootDrop.rarityLabel}: ${affixTxt} · NESW [${lootDrop.effectiveNesw.join("/")}]`;
+        const affixTxt = lootDrop ? lootDrop.affixNames.slice(0, 2).join(" + ") : "[COMMAND GRAB]";
+        subEl.textContent = `${meta.telegraphName || "Hyper Slash"} · ${affixTxt}`;
       }
       if (bandEl) {
         bandEl.style.borderTopColor = styleDef.primaryColor;
@@ -662,34 +864,35 @@
       clearTimeout(cutInHideTimer);
       cutInHideTimer = setTimeout(() => {
         overlay.classList.remove("active");
-      }, 1380);
+      }, 980);
     }
 
-    // Update Combo Counter & Looter Drop Toast
+    // Only show side toast when comboHits >= 3 or explicitly requested
     const comboBadge = document.getElementById("tokon-combo-badge");
     const comboNum = document.getElementById("tokon-combo-num");
     const comboLbl = document.getElementById("tokon-combo-label");
     const lootToast = document.getElementById("tokon-loot-drop-toast");
 
-    if (comboBadge && comboNum && comboLbl) {
-      comboNum.textContent = `${comboHits} HIT ${comboHits >= 3 ? "HYPER " : ""}COMBO! (${styleDef.kanji})`;
-      comboLbl.textContent = `TOKON EX GAUGE: ${tokonState.hyperMeterPct}% (${Math.floor(tokonState.hyperMeterPct / 33.3)}/3 BARS)`;
-      comboBadge.classList.add("visible");
+    if (comboHits >= 3 || options.showToast) {
+      if (comboBadge && comboNum && comboLbl) {
+        comboNum.textContent = `${comboHits} HIT COMBO! (${styleDef.kanji})`;
+        comboLbl.textContent = `EX GAUGE: ${tokonState.hyperMeterPct}% (${Math.floor(tokonState.hyperMeterPct / 33.3)}/3 BARS)`;
+        comboBadge.classList.add("visible");
+      }
+      if (lootToast && lootDrop) {
+        lootToast.style.borderColor = lootDrop.rarityColor;
+        lootToast.innerHTML =
+          `<div style="font-weight:900;color:${lootDrop.rarityColor};font-size:12px;">` +
+          `${icon("loot_beam", 13, "margin-right:4px;")}SPOIL · ${lootDrop.rarityLabel}</div>` +
+          `<div style="font-weight:800;color:#fff;font-size:12px;margin-top:2px;">${lootDrop.cardName} [${lootDrop.effectiveNesw.join("/")}]</div>`;
+        lootToast.classList.add("visible");
+      }
+      clearTimeout(comboHideTimer);
+      comboHideTimer = setTimeout(() => {
+        if (comboBadge) comboBadge.classList.remove("visible");
+        if (lootToast) lootToast.classList.remove("visible");
+      }, 1900);
     }
-    if (lootToast && lootDrop) {
-      lootToast.style.borderColor = lootDrop.rarityColor;
-      lootToast.innerHTML =
-        `<div style="font-weight:900;color:${lootDrop.rarityColor};letter-spacing:0.6px;">` +
-        `${icon("loot_beam", 13, "margin-right:4px;")}LOOT DROP · ${lootDrop.rarityLabel.toUpperCase()}</div>` +
-        `<div style="font-weight:800;color:#fff;margin-top:2px;">${lootDrop.cardName} [${lootDrop.effectiveNesw.join("/")}]</div>` +
-        `<div style="font-size:11px;color:#7dd3fc;">${lootDrop.affixNames.join(" · ")}</div>`;
-      lootToast.classList.add("visible");
-    }
-    clearTimeout(comboHideTimer);
-    comboHideTimer = setTimeout(() => {
-      if (comboBadge) comboBadge.classList.remove("visible");
-      if (lootToast) lootToast.classList.remove("visible");
-    }, 2600);
 
     return payload;
   }
@@ -700,6 +903,7 @@
     }
     const bars = Math.max(1, Math.floor(tokonState.hyperMeterPct / 33.3));
     tokonState.hyperMeterPct = 0;
+    updateTokonHudPill();
 
     // Buff all player cards on the live 3x3 board (+1 per bar spent)
     let buffedCount = 0;
@@ -729,7 +933,8 @@
     return triggerTokonHyperCutIn(leadCardId, {
       styleId: "ASTRAL_FINISH",
       comboHits: Math.max(3, buffedCount + 2),
-      assistCardId
+      assistCardId,
+      showToast: true
     });
   }
 
@@ -745,7 +950,7 @@
         const s = TOKON_CUTIN_STYLES[k];
         return (
           `<button onclick="window.CardFrontTokonLooterEngine.triggerTokonHyperCutIn('plugin_01_tcg_creative_designer',{styleId:'${s.id}',comboHits:3,assistCardId:'plugin_02_parallel_swarm_orchestrator'});window.CardFrontTokonLooterEngine.renderTokonLooterModalContents();" ` +
-          `style="background:linear-gradient(135deg,#0f172a,#1e293b);border:1.5px solid ${s.primaryColor};color:#fff;font-size:11px;font-weight:800;padding:6px 10px;border-radius:6px;cursor:pointer;">` +
+          `style="background:linear-gradient(135deg,#0f172a,#1e293b);border:1.5px solid ${s.primaryColor};color:#fff;font-size:12px;font-weight:800;padding:6px 10px;border-radius:6px;cursor:pointer;">` +
           `${icon("tokon_fist", 13, "margin-right:4px;")}${s.id.replace(/_/g, " ")} (${s.kanji})</button>`
         );
       })
@@ -758,10 +963,10 @@
           `<div style="background:linear-gradient(180deg,rgba(15,23,42,0.96),rgba(6,10,20,0.98));border:2px solid ${item.rarityColor};border-radius:8px;padding:8px 10px;display:flex;gap:10px;align-items:center;">` +
           `<img src="${item.art}" alt="${item.cardName}" style="width:54px;height:72px;object-fit:cover;border-radius:6px;border:1.5px solid ${item.rarityColor};flex-shrink:0;" />` +
           `<div style="flex:1;min-width:0;">` +
-          `<div style="font-size:10px;font-weight:900;color:${item.rarityColor};letter-spacing:0.8px;text-transform:uppercase;">${item.rarityLabel} · PWR ${item.powerScore}</div>` +
+          `<div style="font-size:12px;font-weight:900;color:${item.rarityColor};letter-spacing:0.6px;text-transform:uppercase;">${item.rarityLabel} · PWR ${item.powerScore}</div>` +
           `<div style="font-size:13px;font-weight:900;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.cardName}</div>` +
-          `<div style="font-size:11px;font-weight:800;color:#fde047;margin:2px 0;">NESW: [${item.effectiveNesw.join(" / ")}] (Base [${item.baseNesw.join("/")}])</div>` +
-          `<div style="font-size:11px;color:#7dd3fc;">${item.affixNames.join(" · ")}</div>` +
+          `<div style="font-size:12px;font-weight:800;color:#fde047;margin:2px 0;">NESW: [${item.effectiveNesw.join(" / ")}] (Base [${item.baseNesw.join("/")}])</div>` +
+          `<div style="font-size:12px;color:#7dd3fc;">${item.affixNames.join(" · ")}</div>` +
           `</div>` +
           `</div>`
         );
@@ -771,8 +976,8 @@
     bodyEl.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(15,23,42,0.9);border:1.5px solid #FFB800;border-radius:8px;padding:8px 12px;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
         <div>
-          <div style="font-size:11px;font-weight:900;color:#FFB800;letter-spacing:1px;">TOKON 3-BAR EX OVERDRIVE GAUGE: ${tokonState.hyperMeterPct}%</div>
-          <div style="font-size:12px;color:#cbd5e1;">Max Combo: <b>${tokonState.maxComboHits} Hits</b> · Cut-Ins Unleashed: <b>${tokonState.cutInsTriggeredCount}</b> · Looted Cards: <b>${tokonState.lootInventory.length}</b></div>
+          <div style="font-size:12px;font-weight:900;color:#FFB800;letter-spacing:0.8px;">TOKON 3-BAR EX OVERDRIVE GAUGE: ${tokonState.hyperMeterPct}% · BOSS EX: ${tokonState.bossHyperMeterPct}%</div>
+          <div style="font-size:12px;color:#cbd5e1;">Max Combo: <b>${tokonState.maxComboHits} Hits</b> · Cut-Ins Unleashed: <b>${tokonState.cutInsTriggeredCount}</b> · Vault Spoils: <b>${tokonState.lootInventory.length}</b></div>
         </div>
         <div style="display:flex;gap:8px;">
           <button onclick="window.CardFrontTokonLooterEngine.spendTokonOverdrive();window.CardFrontTokonLooterEngine.renderTokonLooterModalContents();" style="background:linear-gradient(135deg,#dc2626,#991b1b);border:1.5px solid #fde047;color:#fff;font-size:12px;font-weight:900;padding:6px 12px;border-radius:6px;cursor:pointer;">
@@ -783,9 +988,9 @@
           </button>
         </div>
       </div>
-      <div style="font-size:11px;font-weight:900;color:#00E5FF;letter-spacing:1px;margin-bottom:6px;">PREVIEW TOKON DIAGONAL SPLIT-SCREEN HYPER CUT-INS (24FPS KAGENASHI FLASH)</div>
+      <div style="font-size:12px;font-weight:900;color:#00E5FF;letter-spacing:0.8px;margin-bottom:6px;">PREVIEW TOKON DIAGONAL SPLIT-SCREEN HYPER CUT-INS (3-TIER ESCALATION)</div>
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">${styleButtonsHtml}</div>
-      <div style="font-size:11px;font-weight:900;color:#FFB800;letter-spacing:1px;margin-bottom:6px;">LOOTER-DECKBUILDER VAULT · PROCEDURAL AFFIX &amp; RARITY BEAM DROPS</div>
+      <div style="font-size:12px;font-weight:900;color:#FFB800;letter-spacing:0.8px;margin-bottom:6px;">LOOTER-DECKBUILDER VAULT · RULE-BENDING FIGHTING-GAME AFFIXES</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;">${lootCardsHtml}</div>
     `;
   }
@@ -803,8 +1008,8 @@
         <div class="modal-box" style="max-width:780px;width:95%;max-height:86vh;overflow-y:auto;text-align:left;">
           <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2b4478;padding-bottom:8px;margin-bottom:10px;">
             <div>
-              <div style="font-size:11px;font-weight:900;color:#FF2E54;letter-spacing:1.2px;">TOKON FIGHTING SOULS × LOOTER-DECKBUILDER TCG</div>
-              <h3 style="font-size:18px;font-weight:900;color:#fff;margin:2px 0 0 0;">Diagonal Split-Screen Cut-In Studio &amp; Procedural Loot-Roll Vault</h3>
+              <div style="font-size:12px;font-weight:900;color:#FF2E54;letter-spacing:1px;">TOKON FIGHTING SOULS × LOOTER-DECKBUILDER TCG v2.0</div>
+              <h3 style="font-size:18px;font-weight:900;color:#fff;margin:2px 0 0 0;">3-Tier Cut-In Escalation &amp; Rule-Bending Looter Vault</h3>
             </div>
             <button onclick="window.CardFrontTokonLooterEngine.closeTokonLooterModal()">Close</button>
           </div>
@@ -825,49 +1030,43 @@
   }
 
   // ==========================================================================
-  // 6. SEAMLESS HOOK INTO triggerSakugaCardCutIn & STUDIO DRAWER PILL
+  // 6. CLEAN HUD PILL & STUDIO DRAWER HOOKS (NO DOUBLE-CUTIN SPAM)
   // ==========================================================================
   function bindTokonHooks() {
     ensureTokonStylesAndDom();
 
-    // Wrap global triggerSakugaCardCutIn so every capture automatically fires the Tokon Split-Screen Cut-In & Loot Drop!
-    const origCutIn = globalScope.triggerSakugaCardCutIn;
-    if (typeof origCutIn === "function" && !origCutIn.__tokonWrapped) {
-      const wrapped = function triggerSakugaCardCutInWithTokon(cardId) {
-        const res = origCutIn.apply(this, arguments);
-        const st = globalScope.state;
-        const flipsCount = st && Array.isArray(st.lastCaptureEvents) ? Math.max(1, st.lastCaptureEvents.length) : 1;
-        const hasCascade =
-          st &&
-          Array.isArray(st.lastCaptureEvents) &&
-          st.lastCaptureEvents.some((e) => e.rule && e.rule !== "HIGH_PIP");
-        const styleId = hasCascade
-          ? "WALL_BREAK_CASCADE"
-          : flipsCount >= 3
-          ? "ASTRAL_FINISH"
-          : flipsCount === 2
-          ? "TAG_ASSIST_STRIKE"
-          : "HYPER_ARCANUM";
-        const assistId = st && Array.isArray(st.hand) && st.hand.length > 0 ? st.hand[0] : "plugin_02_parallel_swarm_orchestrator";
-        triggerTokonHyperCutIn(cardId, {
-          styleId,
-          comboHits: flipsCount,
-          assistCardId: flipsCount >= 2 ? assistId : null
-        });
-        return res;
+    // Inject compact 3-Bar EX Overdrive Pill into .header-right (font-size >= 12px for XAG legibility)
+    const headerRight = typeof document !== "undefined" ? document.querySelector(".header-right") : null;
+    if (headerRight && !document.getElementById("tokon-hud-overdrive-btn")) {
+      const exBtn = document.createElement("button");
+      exBtn.id = "tokon-hud-overdrive-btn";
+      exBtn.type = "button";
+      exBtn.title = "Click to unleash 3-Bar Tokon EX Overdrive (+1/+2 All Board Cards) · Right-click for Loot Vault";
+      exBtn.style.cssText =
+        "background:rgba(15,23,42,0.94);border:1.5px solid #00E5FF;color:#f8fafc;padding:3px 9px;border-radius:99px;font-size:12px;font-weight:900;display:inline-flex;align-items:center;gap:5px;cursor:pointer;line-height:1.1;";
+      exBtn.innerHTML = `${icon("tokon_fist", 14)}<span id="tokon-hud-overdrive-label" style="font-size:12px;font-weight:900;color:#e0f2fe;">EX 2/3</span>`;
+      exBtn.onclick = () => spendTokonOverdrive();
+      exBtn.oncontextmenu = (e) => {
+        e.preventDefault();
+        openTokonLooterModal();
       };
-      wrapped.__tokonWrapped = true;
-      globalScope.triggerSakugaCardCutIn = wrapped;
+      const gearBtn = headerRight.querySelector(".dev-drawer-toggle");
+      if (gearBtn) {
+        headerRight.insertBefore(exBtn, gearBtn);
+      } else {
+        headerRight.appendChild(exBtn);
+      }
+      updateTokonHudPill();
     }
 
-    // Add a compact "Tokon Cut-In & Loot" button inside #dev-camera-drawer if present
+    // Add a clean "Tokon Cut-In & Loot" button inside #dev-camera-drawer if present
     const drawer = typeof document !== "undefined" ? document.getElementById("dev-camera-drawer") : null;
     if (drawer && !document.getElementById("drawer-tokon-looter-btn")) {
       const btn = document.createElement("button");
       btn.id = "drawer-tokon-looter-btn";
       btn.type = "button";
-      btn.style.cssText = "background:linear-gradient(135deg,#991b1b,#be123c);border-color:#FFB800;color:#fff;font-size:11px;padding:3px 8px;";
-      btn.innerHTML = `${icon("tokon_fist", 13, "margin-right:4px;")}Tōkon Cut-In & Loot`;
+      btn.style.cssText = "background:linear-gradient(135deg,#991b1b,#be123c);border-color:#FFB800;color:#fff;font-size:12px;padding:3px 8px;";
+      btn.innerHTML = `${icon("tokon_fist", 13, "margin-right:4px;")}Tokon Cut-In & Loot`;
       btn.onclick = () => openTokonLooterModal();
       drawer.appendChild(btn);
     }
@@ -882,12 +1081,17 @@
   }
 
   const api = {
-    VERSION: "1.0.0",
+    VERSION: "2.0.0",
     LOOT_RARITY_TIERS,
     LOOTER_CARD_AFFIXES,
     TOKON_CUTIN_STYLES,
     getState: () => tokonState,
     rollLooterCardDrop,
+    evaluateBoardLootAffixes,
+    evaluateCutInTier,
+    handleCaptureEscalation,
+    advanceBossOverdrive,
+    updateTokonHudPill,
     triggerTokonHyperCutIn,
     spendTokonOverdrive,
     openTokonLooterModal,

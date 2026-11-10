@@ -916,10 +916,69 @@ def build_local_sqlite_database(
                 """
             )
 
+        # 10. player_collection_ledger (Seeded with >= 45 starter & unlocked cards)
+        cur.execute(
+            """
+            CREATE TABLE player_collection_ledger (
+                player_id TEXT NOT NULL,
+                card_id TEXT NOT NULL,
+                title TEXT NOT NULL,
+                rarity TEXT NOT NULL,
+                foil_finish TEXT NOT NULL,
+                copies_owned INTEGER NOT NULL DEFAULT 1,
+                is_evolved_unlocked INTEGER NOT NULL DEFAULT 0,
+                chibi_unit_id TEXT NOT NULL,
+                first_acquired_utc TEXT NOT NULL,
+                PRIMARY KEY (player_id, card_id),
+                FOREIGN KEY (card_id) REFERENCES canonical_cards_catalog(card_id)
+            );
+            """
+        )
+
+        # 11. gacha_pack_pulls_history (Seeded with >= 5 historical pack pulls)
+        cur.execute(
+            """
+            CREATE TABLE gacha_pack_pulls_history (
+                pull_id TEXT PRIMARY KEY,
+                player_id TEXT NOT NULL,
+                set_code TEXT NOT NULL,
+                pack_type TEXT NOT NULL,
+                pity_counter_after INTEGER NOT NULL,
+                guaranteed_sr_hit INTEGER NOT NULL,
+                ur_or_evolve_hit INTEGER NOT NULL,
+                pulled_cards_json TEXT NOT NULL,
+                pulled_at_utc TEXT NOT NULL
+            );
+            """
+        )
+
+        # 12. ranked_elo_match_history (Seeded with >= 10 ranked match records)
+        cur.execute(
+            """
+            CREATE TABLE ranked_elo_match_history (
+                match_id TEXT PRIMARY KEY,
+                season_id TEXT NOT NULL,
+                player_id TEXT NOT NULL,
+                opponent_id TEXT NOT NULL,
+                player_elo_before INTEGER NOT NULL,
+                player_elo_after INTEGER NOT NULL,
+                elo_delta INTEGER NOT NULL,
+                winner TEXT NOT NULL,
+                turns_played INTEGER NOT NULL,
+                evolve_triggered INTEGER NOT NULL,
+                board_hash_hex TEXT NOT NULL,
+                played_at_utc TEXT NOT NULL
+            );
+            """
+        )
+
         # Deterministic Indexes
         cur.execute("CREATE INDEX idx_cards_set_faction ON canonical_cards_catalog(set_code, faction);")
         cur.execute("CREATE INDEX idx_sets_era_year ON expansion_sets_10yr(era_id, release_year);")
         cur.execute("CREATE INDEX idx_sakuga_sha256 ON sakuga_cutin_registry(sha256);")
+        cur.execute("CREATE INDEX idx_collection_player ON player_collection_ledger(player_id);")
+        cur.execute("CREATE INDEX idx_gacha_player_utc ON gacha_pack_pulls_history(player_id, pulled_at_utc);")
+        cur.execute("CREATE INDEX idx_elo_player_utc ON ranked_elo_match_history(player_id, played_at_utc);")
 
         # Populate Table 1: franchise_eras
         for era in FRANCHISE_ERAS:
@@ -1145,6 +1204,132 @@ def build_local_sqlite_database(
                     ),
                 )
 
+        # Populate Table 10: player_collection_ledger (55 starter & unlocked cards >= 45 rows)
+        starter_selection = (
+            cards[:25]
+            + cards[60:70]
+            + cards[80:90]
+            + cards[131:141]
+        )
+        for idx_c, sc in enumerate(starter_selection):
+            cid = sc["card_id"]
+            is_ev = 1 if cid.startswith("ev_") else 0
+            if cid.startswith("ev_") or cid.startswith("herald_") or sc["tier"] >= 5:
+                rarity_str = "UR_EVOLVE" if cid.startswith("ev_") else "UR"
+                foil_str = "25D_PARALLAX_GOLD_UR"
+            elif sc["tier"] == 4 or cid.startswith("set2_"):
+                rarity_str = "SR"
+                foil_str = "GUNMETAL_SR_PRISM"
+            elif sc["tier"] == 3:
+                rarity_str = "RARE"
+                foil_str = "ASTRAL_CYAN_FOIL"
+            else:
+                rarity_str = "COMMON"
+                foil_str = "STANDARD_MATTE"
+
+            cur.execute(
+                """
+                INSERT OR REPLACE INTO player_collection_ledger (
+                    player_id, card_id, title, rarity, foil_finish,
+                    copies_owned, is_evolved_unlocked, chibi_unit_id, first_acquired_utc
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+                """,
+                (
+                    "SovereignArchitect",
+                    cid,
+                    sc["name"],
+                    rarity_str,
+                    foil_str,
+                    1 + (idx_c % 3),
+                    is_ev,
+                    f"chibi_{cid}",
+                    now_utc,
+                ),
+            )
+
+        # Populate Table 11: gacha_pack_pulls_history (6 historical pack pulls >= 5 rows)
+        seed_pulls = [
+            ("pull_seed_01", "SET_01", "CRADLE_STANDARD_PACK", 1, 1, 0, cards[0:8]),
+            ("pull_seed_02", "SET_02", "KUBRART_ECLIPSE_PACK", 2, 1, 0, cards[60:68]),
+            ("pull_seed_03", "SET_03", "SOVEREIGN_AGENT_PACK", 0, 1, 1, cards[80:88]),
+            ("pull_seed_04", "SET_04", "STUDIO_PXG_ODYSSEY_PACK", 0, 1, 1, cards[117:125]),
+            ("pull_seed_05", "SET_07", "EVOLVE_SR_COLLECTOR_PACK", 0, 1, 1, cards[125:133]),
+            ("pull_seed_06", "SET_15", "EVOLVE_SR_COLLECTOR_PACK", 0, 1, 1, cards[133:141]),
+        ]
+        for pull_id, s_code, p_type, pity_after, sr_hit, ur_hit, pack_slice in seed_pulls:
+            pack_payload = [
+                {
+                    "slot": i + 1,
+                    "card_id": pc["card_id"],
+                    "name": pc["name"],
+                    "set_code": pc["set_code"],
+                    "faction": pc["faction"],
+                    "cost": pc["cost"],
+                    "nesw": [pc["rank_n"], pc["rank_e"], pc["rank_s"], pc["rank_w"]],
+                }
+                for i, pc in enumerate(pack_slice)
+            ]
+            cur.execute(
+                """
+                INSERT INTO gacha_pack_pulls_history (
+                    pull_id, player_id, set_code, pack_type, pity_counter_after,
+                    guaranteed_sr_hit, ur_or_evolve_hit, pulled_cards_json, pulled_at_utc
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+                """,
+                (
+                    pull_id,
+                    "SovereignArchitect",
+                    s_code,
+                    p_type,
+                    pity_after,
+                    sr_hit,
+                    ur_hit,
+                    json.dumps(pack_payload),
+                    now_utc,
+                ),
+            )
+
+        # Populate Table 12: ranked_elo_match_history (12 ranked match records >= 10 rows)
+        seed_matches = [
+            ("match_seed_01", "GrandDirectorAI", 1500, 1518, 18, "player", 5, 1),
+            ("match_seed_02", "KubrartEclipseArchon", 1518, 1536, 18, "player", 6, 1),
+            ("match_seed_03", "AlphaZeroPUCT_Boss", 1536, 1522, -14, "opponent", 7, 0),
+            ("match_seed_04", "ValkyriaStrikerAI", 1522, 1541, 19, "player", 5, 1),
+            ("match_seed_05", "ChronosLatticeArbiter", 1541, 1560, 19, "player", 5, 1),
+            ("match_seed_06", "SeinenSumiRoninAI", 1560, 1578, 18, "player", 6, 1),
+            ("match_seed_07", "SovranMechanicaPrime", 1578, 1597, 19, "player", 5, 1),
+            ("match_seed_08", "AlphaZeroPUCT_Boss", 1597, 1618, 21, "player", 6, 1),
+            ("match_seed_09", "AbyssalBloodMonolith", 1618, 1605, -13, "opponent", 7, 1),
+            ("match_seed_10", "StudioPxGOdysseyBoss", 1605, 1626, 21, "player", 5, 1),
+            ("match_seed_11", "OmegaTriadConvergence", 1626, 1648, 22, "player", 5, 1),
+            ("match_seed_12", "GrandDirectorAI", 1648, 1668, 20, "player", 5, 1),
+        ]
+        for m_id, opp_id, e_before, e_after, e_delta, win_who, turns_p, ev_trig in seed_matches:
+            b_hash = hashlib.sha256(f"{m_id}:{opp_id}:{e_after}".encode("utf-8")).hexdigest()[:16]
+            cur.execute(
+                """
+                INSERT INTO ranked_elo_match_history (
+                    match_id, season_id, player_id, opponent_id,
+                    player_elo_before, player_elo_after, elo_delta,
+                    winner, turns_played, evolve_triggered, board_hash_hex, played_at_utc
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+                """,
+                (
+                    m_id,
+                    "SEASON_01_CRADLE_ECLIPSE",
+                    "SovereignArchitect",
+                    opp_id,
+                    e_before,
+                    e_after,
+                    e_delta,
+                    win_who,
+                    turns_p,
+                    ev_trig,
+                    b_hash,
+                    now_utc,
+                ),
+            )
+
         conn.commit()
         # Checkpoint WAL into main sqlite3 file so single-file SHA-256 is self-contained & deterministic
         cur.execute("PRAGMA wal_checkpoint(TRUNCATE);")
@@ -1221,7 +1406,9 @@ def sync_and_verify_on_sbx00(local_db_info: Dict[str, Any]) -> Dict[str, Any]:
         "cur = conn.cursor(); "
         "tables = ['franchise_eras','expansion_sets_10yr','canonical_cards_catalog',"
         "'lora_model_zoo','sakuga_cutin_registry','gpu_cluster_nodes',"
-        "'franchise_economy_and_ltv_projections','sbx00_vault_sync_audit','evolve_mech_wing_pairs']; "
+        "'franchise_economy_and_ltv_projections','sbx00_vault_sync_audit',"
+        "'evolve_mech_wing_pairs','player_collection_ledger',"
+        "'gacha_pack_pulls_history','ranked_elo_match_history']; "
         "counts = {t: cur.execute(f'SELECT COUNT(*) FROM {t}').fetchone()[0] for t in tables}; "
         "planned_cards = cur.execute('SELECT SUM(planned_card_count) FROM expansion_sets_10yr').fetchone()[0]; "
         "print(json.dumps({'table_counts': counts, 'total_planned_10yr_cards': planned_cards}))"
@@ -1258,6 +1445,9 @@ def sync_and_verify_on_sbx00(local_db_info: Dict[str, Any]) -> Dict[str, Any]:
     assert table_counts.get("expansion_sets_10yr") == 20, "Expected expansion_sets_10yr == 20"
     assert table_counts.get("canonical_cards_catalog") == 141, "Expected canonical_cards_catalog == 141"
     assert table_counts.get("evolve_mech_wing_pairs") == 5, "Expected evolve_mech_wing_pairs == 5"
+    assert table_counts.get("player_collection_ledger", 0) >= 45, "Expected player_collection_ledger >= 45"
+    assert table_counts.get("gacha_pack_pulls_history", 0) >= 5, "Expected gacha_pack_pulls_history >= 5"
+    assert table_counts.get("ranked_elo_match_history", 0) >= 10, "Expected ranked_elo_match_history >= 10"
     assert table_counts.get("gpu_cluster_nodes") == 4, "Expected gpu_cluster_nodes == 4"
 
     return {
@@ -1266,6 +1456,7 @@ def sync_and_verify_on_sbx00(local_db_info: Dict[str, Any]) -> Dict[str, Any]:
         "remote_sha256": remote_sha256,
         "local_remote_sha256_match": sha_match,
         "remote_table_counts": table_counts,
+        "verified_table_count": len(table_counts),
         "total_planned_10yr_cards": remote_query_data.get("total_planned_10yr_cards", 2400),
         "synced_lora_files_count": len(lora_files),
         "synced_manifest_files_count": len(manifest_paths),

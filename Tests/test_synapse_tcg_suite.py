@@ -2327,6 +2327,104 @@ class TestSynapseTcgSuite(unittest.TestCase):
         self.assertIn("chronicle_map:", html_src)
         self.assertIn("replay_film:", html_src)
 
+    def test_113_python_bilingual_card_identification_catalog(self) -> None:
+        """Verify Bilingual Card Identification Catalog (`synapse_card_identification_catalog.py`), BP05-110 SR Rosa reference archetype, and 154 collector records."""
+        py_path = ROOT_DIR / "Backend" / "synapse_card_identification_catalog.py"
+        cat_path = ROOT_DIR / "Assets" / "Resources" / "Cards" / "card_identification_catalog_v1.json"
+        rep_path = ROOT_DIR / "Logs" / "card_identification_catalog_report.json"
+        set1_path = ROOT_DIR / "Assets" / "Resources" / "Cards" / "set1_60_cards_manifest.json"
+        for p in (py_path, cat_path, rep_path, set1_path):
+            self.assertTrue(p.is_file(), f"Missing {p}")
+        cat = json.loads(cat_path.read_text(encoding="utf-8"))
+        ref = cat.get("reference_archetype_specification", {}).get("unevolved", {})
+        self.assertEqual(ref.get("original_title"), "機構翼の少女・ローザ(進化前)")
+        self.assertEqual(ref.get("card_game_primary"), "Shadowverse EVOLVE")
+        self.assertEqual(ref.get("version"), "[BP05] Eternal omens")
+        self.assertEqual(ref.get("original_version"), "ブースターパック第5弾 永劫なる絶傑")
+        self.assertEqual(ref.get("card_number"), "BP05-110 SR")
+        self.assertEqual(ref.get("rarity"), "SR")
+        self.assertIn("lore_en", ref)
+        self.assertIn("lore_jp", ref)
+        self.assertIn("atelier_art_direction", ref)
+        self.assertIn("collector_provenance", ref)
+        self.assertGreaterEqual(len(cat.get("cards", [])), 75)
+        rep = json.loads(rep_path.read_text(encoding="utf-8"))
+        val = rep.get("validation", rep)
+        self.assertTrue(val.get("passed"))
+        self.assertEqual(val.get("error_count"), 0)
+        self.assertGreaterEqual(val.get("total_catalog_records", 0), 154)
+        set1_data = json.loads(set1_path.read_text(encoding="utf-8"))
+        cards_60 = set1_data.get("cards", [])
+        self.assertEqual(len(cards_60), 60)
+        for c in cards_60:
+            self.assertIn("identification", c)
+            self.assertIn("card_number", c["identification"])
+
+    def test_114_unity_csharp_card_identification_runtime(self) -> None:
+        """Verify Unity 6 C# `SynapseCardIdentificationCatalog.cs`, `CardData.cs`, `CardDataSO.cs`, and `.meta` GUID integrity."""
+        cs_cat = ROOT_DIR / "Assets" / "Scripts" / "Core" / "SynapseCardIdentificationCatalog.cs"
+        cs_meta = ROOT_DIR / "Assets" / "Scripts" / "Core" / "SynapseCardIdentificationCatalog.cs.meta"
+        cd_core = ROOT_DIR / "Assets" / "Scripts" / "Core" / "CardData.cs"
+        cd_so = ROOT_DIR / "Assets" / "Scripts" / "Data" / "CardDataSO.cs"
+        cd_data = ROOT_DIR / "Assets" / "Scripts" / "Data" / "CardData.cs"
+        for p in (cs_cat, cs_meta, cd_core, cd_so, cd_data):
+            self.assertTrue(p.is_file(), f"Missing {p}")
+        src = cs_cat.read_text(encoding="utf-8")
+        self.assertEqual(src.count("{"), src.count("}"))
+        for token in (
+            "namespace Synapse.TcgEngine.Core",
+            "CollectorRarityTier",
+            "CardEvolutionState",
+            "CardCollectorIdentification",
+            "ParseCardNumber",
+            "FormatCollectorTable",
+            "ToEvolvedState",
+            "GetReferenceRosaBp05Entry",
+            "機構翼の少女・ローザ(進化前)",
+            "[BP05] Eternal omens",
+            "ブースターパック第5弾 永劫なる絶傑",
+            "BP05-110 SR",
+        ):
+            self.assertIn(token, src, f"Missing {token} in SynapseCardIdentificationCatalog.cs")
+
+    def test_115_web_playable_card_id_ui_and_collector_svg_emblems(self) -> None:
+        """Verify `card_identification_catalog_ui.js`, 6 bespoke Rarity/Evolution SVGs (42 total SVGs), Full-Bleed Art Appreciation Mode (`鑑賞モード`), and Evolve toggle."""
+        js_path = ROOT_DIR / "WebPlayable" / "modules" / "card_identification_catalog_ui.js"
+        svg_manifest = ROOT_DIR / "WebPlayable" / "GeneratedArt" / "Icons" / "collector_rarity_svg_manifest.json"
+        self.assertTrue(js_path.is_file())
+        self.assertTrue(svg_manifest.is_file())
+        for fname in (
+            "cf_rarity_ur.svg",
+            "cf_rarity_lg.svg",
+            "cf_rarity_sr.svg",
+            "cf_rarity_gr.svg",
+            "cf_rarity_br.svg",
+            "cf_evolve_crest.svg",
+        ):
+            w_svg = ROOT_DIR / "WebPlayable" / "GeneratedArt" / "Icons" / fname
+            u_svg = ROOT_DIR / "Assets" / "Resources" / "UI" / "Icons" / fname
+            self.assertTrue(w_svg.is_file(), f"Missing {w_svg}")
+            self.assertTrue(u_svg.is_file(), f"Missing {u_svg}")
+            self.assertIn('viewBox="0 0 256 256"', w_svg.read_text(encoding="utf-8"))
+        js_src = js_path.read_text(encoding="utf-8")
+        for sym in (
+            "SynapseCardIdCatalog",
+            "機構翼の少女・ローザ(進化前)",
+            "[BP05] Eternal omens",
+            "ブースターパック第5弾 永劫なる絶傑",
+            "BP05-110 SR",
+            "toggleArtAppreciationMode",
+            "evolveCardState",
+            "openCardIdModal",
+            "formatCollectorSpecTable",
+            "鑑賞モード",
+        ):
+            self.assertIn(sym, js_src, f"Missing {sym} in card_identification_catalog_ui.js")
+        html_src = (ROOT_DIR / "WebPlayable" / "cardfront_cradle_of_echoes_playable.html").read_text(encoding="utf-8")
+        self.assertIn("card_identification_catalog_ui.js", html_src)
+        for icon_key in ("rarity_ur:", "rarity_lg:", "rarity_sr:", "rarity_gr:", "rarity_br:", "evolve_crest:"):
+            self.assertIn(icon_key, html_src, f"Missing {icon_key} in playable HTML")
+
 
 
 

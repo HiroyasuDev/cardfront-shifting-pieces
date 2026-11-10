@@ -1,7 +1,7 @@
 {
   "latest_iteration": {
-    "iteration": 377,
-    "timestamp_utc": "2026-11-10T00:11:58Z",
+    "iteration": 423,
+    "timestamp_utc": "2026-11-10T03:12:01Z",
     "video_id": "t13A2XFGoOc",
     "target_model": "gemini-4-argon",
     "active_track": {
@@ -45,11 +45,11 @@
       "drag_e2e_passed": true,
       "autotest_e2e_passed": true,
       "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
-      "total_checks": 174,
+      "total_checks": 178,
       "passed_checks": 173,
-      "failed_checks": 1,
-      "pass_rate_pct": 99.4,
-      "p0_failures": 1,
+      "failed_checks": 5,
+      "pass_rate_pct": 97.2,
+      "p0_failures": 5,
       "p1_failures": 0,
       "check_sources_loaded": [
         "Tools/skill_harness/core_checks.json",
@@ -164,7 +164,6 @@
         "core.production_upgrades.12",
         "core.production_upgrades.13",
         "core.production_upgrades.14",
-        "core.production_upgrades.15",
         "core.production_upgrades.16",
         "core.release_pkg.01",
         "core.sakuga_v100.01",
@@ -210,6 +209,7 @@
         "core.unity6_tcg_rea_baseline.19",
         "core.unity6_tcg_rea_baseline.20",
         "core.unity6_tcg_rea_baseline.21",
+        "core.unity6_tcg_rea_baseline.22",
         "core.unity_so.01",
         "core.unity_so.02",
         "feel_audio_camera_perf.1",
@@ -234,7 +234,11 @@
         "feel_audio_camera_perf.9"
       ],
       "failed_check_ids": [
-        "core.production_upgrades.17"
+        "core.production_upgrades.15",
+        "core.production_upgrades.17",
+        "core.production_upgrades.18",
+        "core.production_upgrades.19",
+        "core.unity6_tcg_rea_baseline.23"
       ]
     },
     "gate_status": "FAIL_P0_BLOCKERS",
@@ -269,12 +273,14 @@
       },
       "disciplines/game-ui-ux": {
         "skill": "disciplines/game-ui-ux",
-        "total": 25,
+        "total": 27,
         "passed": 24,
-        "failed": 1,
-        "pass_rate": 96.0,
+        "failed": 3,
+        "pass_rate": 88.9,
         "failed_ids": [
-          "core.production_upgrades.17"
+          "core.production_upgrades.15",
+          "core.production_upgrades.17",
+          "core.production_upgrades.19"
         ]
       },
       "disciplines/create-game-assets": {
@@ -423,11 +429,14 @@
       },
       "tcg-creative-game-designer": {
         "skill": "tcg-creative-game-designer",
-        "total": 5,
+        "total": 7,
         "passed": 5,
-        "failed": 0,
-        "pass_rate": 100.0,
-        "failed_ids": []
+        "failed": 2,
+        "pass_rate": 71.4,
+        "failed_ids": [
+          "core.unity6_tcg_rea_baseline.23",
+          "core.production_upgrades.18"
+        ]
       },
       "mlx-apple-silicon": {
         "skill": "mlx-apple-silicon",
@@ -506,6 +515,19 @@
       {
         "rank": 1,
         "priority": "P0",
+        "check_id": "core.production_upgrades.15",
+        "skill": "disciplines/game-ui-ux",
+        "skill_source": "WebPlayable/modules/studio_pxg_atomic_director.js:1",
+        "target": "both",
+        "code_ref": "WebPlayable/modules/studio_pxg_atomic_director.js:1-340",
+        "rule": "Live In-Game Studio PxG Atomic Animation & Film-Shot Director (window.StudioPxGAtomicDirector, 24 Atomic Primitives, 8 Original Studio PxG AAA Strikers pxg_s01..pxg_s08, 14mm Fisheye & 2-Frame Monochrome Stencil Impact Shots, #studio-pxg-atomic-modal, & Unity 6 C# Parity).",
+        "observed": false,
+        "expected": "true",
+        "remediation": "Wire WebPlayable/modules/studio_pxg_atomic_director.js and #studio-pxg-atomic-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+      },
+      {
+        "rank": 2,
+        "priority": "P0",
         "check_id": "core.production_upgrades.17",
         "skill": "disciplines/game-ui-ux",
         "skill_source": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1",
@@ -515,6 +537,45 @@
         "observed": false,
         "expected": "true",
         "remediation": "Wire WebPlayable/modules/saga_10year_franchise_and_sbx00.js and #saga-10year-franchise-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+      },
+      {
+        "rank": 3,
+        "priority": "P0",
+        "check_id": "core.production_upgrades.18",
+        "skill": "tcg-creative-game-designer",
+        "skill_source": "WebPlayable/modules/evolve_mech_wing_maiden_engine.js:1",
+        "target": "both",
+        "code_ref": "WebPlayable/modules/evolve_mech_wing_maiden_engine.js:1-360",
+        "rule": "Shadowverse-EVOLVE BP05-110 SR School Mech-Wing Maiden & Chrono-Seraph Collection (5 Paired Base SR \u9032\u5316\u524d & Awakened Evolved UR \u9032\u5316\u5f8c Forms = 10 600x800 RTX 4080 Portraits, V100-32GB LoRA evolve_mech_wing_maiden_sr_v1_lora.safetensors, Luxury Gunmetal-Filigree SR/UR Frame Renderer, Live evolveCardOnBoard 3x3 Transformation, & SBX00 141-Card Sync).",
+        "observed": false,
+        "expected": "true",
+        "remediation": "Wire WebPlayable/modules/evolve_mech_wing_maiden_engine.js and #evolve-maiden-studio-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+      },
+      {
+        "rank": 4,
+        "priority": "P0",
+        "check_id": "core.production_upgrades.19",
+        "skill": "disciplines/game-ui-ux",
+        "skill_source": "WebPlayable/modules/dice3d_and_ffta_chibi_units.js:1",
+        "target": "both",
+        "code_ref": "WebPlayable/modules/dice3d_and_ffta_chibi_units.js:1-360",
+        "rule": "High-Detail 3D Polyhedral Game Dice (12 3D Dice Assets: D6 Faces 1-6, D8, D12, D20 & 8-Frame Tumbling Roll Strips), 4-Layer 2.5D/3D Extruded Parallax Card Slabs, and 24/141 Unique Attached Final Fantasy Tactics Advance (FFTA) Isometric Pixel-Art Chibi Character Units (window.CardFrontDice3DAndChibiUnits, roll3DColumnDie, getUniqueChibiForCard, & #dice3d-ffta-chibi-modal).",
+        "observed": false,
+        "expected": "true",
+        "remediation": "Wire WebPlayable/modules/dice3d_and_ffta_chibi_units.js and #dice3d-ffta-chibi-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+      },
+      {
+        "rank": 5,
+        "priority": "P0",
+        "check_id": "core.unity6_tcg_rea_baseline.23",
+        "skill": "tcg-creative-game-designer",
+        "skill_source": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1",
+        "target": "both",
+        "code_ref": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1-460",
+        "rule": "CardCraftCollectables (C\u00b3) Dual-Sided Character Bromide, Studio PxG Signature Crest, Lore Chronicle & Variations Metadata (141 Playable Cards, Left Full-Body Composition with Vertical Name & Studio PxG Crest, Right Blueprint Profile with \u6a5f\u69cb\u7ffc\u306e\u5c11\u5973\u30fb\u30ed\u30fc\u30b6(\u9032\u5316\u524d) / Shadowverse EVOLVE / [BP05] Eternal omens / \u30d6\u30fc\u30b9\u30bf\u30fc\u30d1\u30c3\u30af\u7b2c5\u5f3e \u6c38\u52ab\u306a\u308b\u7d76\u5091 / BP05-110 SR & BP05-P50 Premium SR spec: Foil).",
+        "observed": false,
+        "expected": "true",
+        "remediation": "Wire WebPlayable/modules/cardcraft_collectables_c3_engine.js and GetCardCraftCollectableC3Metadata in CardFrontUnifiedRuntime.cs."
       }
     ],
     "mirofish_telemetry": {
@@ -663,7 +724,7 @@
       "upstream_gamedev_skills_count": 77,
       "custom_synapse_skills_count": 15
     },
-    "elapsed_ms": 26193.7
+    "elapsed_ms": 27315.94
   },
   "video_and_catalog": {
     "video_analysis": {

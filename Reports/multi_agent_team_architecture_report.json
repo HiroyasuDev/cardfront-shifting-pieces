@@ -1,0 +1,137 @@
+{
+  "timestamp_utc": "2026-11-10T03:14:25Z",
+  "total_agents": 14,
+  "native_swarm_enabled": true,
+  "native_swarm_capabilities": {
+    "tools": [
+      "swarm",
+      "post_message",
+      "read_board",
+      "swarm_wait"
+    ],
+    "builtin_skills": [
+      "native_swarm",
+      "swarm_monitor",
+      "swarm_narrator"
+    ],
+    "synced_directories": [
+      "/Users/frederickamina/.gemini/config/agents",
+      "/Users/frederickamina/Documents/Projects/synapse/.agents/agents"
+    ],
+    "auxiliary_verification_gate": "truth-verifier"
+  },
+  "agents": [
+    {
+      "name": "orchestrator",
+      "description": "Master multi-agent swarm & Apple Silicon MLX / Jev System One orchestrator that decomposes tasks into parallel subagents and gates completion.",
+      "tools_count": 19,
+      "skills_count": 9,
+      "subagents_count": 14,
+      "ownership_domain": "Top-level multi-agent swarm orchestration, task decomposition (think/sequentialthinking), dependency graph tracking (mem), and pre-completion Jev/MLX verification gating"
+    },
+    {
+      "name": "teamwork",
+      "description": "Multi-agent teamwork coordinator, interviewer, parallel workstream dispatcher, and Jev/MLX completion verifier.",
+      "tools_count": 19,
+      "skills_count": 8,
+      "subagents_count": 12,
+      "ownership_domain": "Requirements alignment and interviewing, non-colliding file ownership partitioning across parallel subagents, and Jev/MLX completion verification"
+    },
+    {
+      "name": "teamwork-coordinator",
+      "description": "Multi-agent teamwork & native swarm coordinator that orchestrates parallel specialist subagents (parallel-architect, tcg-creative-director, code-implementer, mlx-local-worker, prime-vision-worker, jev-judge, truth-verifier) and shared swarm boards.",
+      "tools_count": 19,
+      "skills_count": 8,
+      "subagents_count": 9,
+      "ownership_domain": "Native swarm board coordination (swarm, post_message, read_board, swarm_wait) and parallel specialist subagent dispatch"
+    },
+    {
+      "name": "parallel-architect",
+      "description": "Primary swarm and subagent coordinator that decomposes complex tasks into non-overlapping parallel workstreams, dispatches subagents, and synthesizes results.",
+      "tools_count": 19,
+      "skills_count": 8,
+      "subagents_count": 8,
+      "ownership_domain": "Parallel workstream architecture (sequentialthinking), knowledge graph state tracking (mem), and non-colliding subagent execution synthesis"
+    },
+    {
+      "name": "tcg-creative-director",
+      "description": "Master TCG Creative Game Designer, Concept Illustrator, 3x3 Tactical Grid Balance Architect, and SVG Emblem Designer for CARDFRONT: Cradle of Echoes and the Antigravity Agent Deck.",
+      "tools_count": 11,
+      "skills_count": 2,
+      "subagents_count": 0,
+      "ownership_domain": "CARDFRONT 3x3 tactical grid balance, Looter-TCG affixes, 600x800 card & 1200x800 C3 Dual-Sided Bromide art direction, and code-native SVG (viewBox 0 0 256 256) capability emblems"
+    },
+    {
+      "name": "code-implementer",
+      "description": "Autonomous implementation agent designed for parallel execution in isolated git worktrees (Workspace share/branch) with full write and MCP tools.",
+      "tools_count": 11,
+      "skills_count": 0,
+      "subagents_count": 0,
+      "ownership_domain": "Scoped C#/Python/TypeScript source module implementation in isolated git worktrees (Workspace share/branch) and unit/integration test execution"
+    },
+    {
+      "name": "research",
+      "description": "Deep codebase, academic paper, web, and reverse-engineering research specialist.",
+      "tools_count": 7,
+      "skills_count": 2,
+      "subagents_count": 0,
+      "ownership_domain": "Codebase dependency discovery, academic specification extraction, and binary/shader/bundle inspection via rea-reverse-engineer and unity-tcg-headless"
+    },
+    {
+      "name": "gpu-cluster-trainer",
+      "description": "Specialist agent for v100 (192.168.86.116) Tesla V100-32GB PyTorch/LoRA training and node30 (192.168.86.30) RTX 4080 ComfyUI/Ollama batch rendering.",
+      "tools_count": 7,
+      "skills_count": 2,
+      "subagents_count": 0,
+      "ownership_domain": "Tesla V100-32GB (192.168.86.116) PyTorch CUDA FP32/FP16 LoRA/DoRA training and RTX 4080 (192.168.86.30) ComfyUI/Ollama batch rendering (600x800 cards, 1024x768 stages)"
+    },
+    {
+      "name": "sbx00-vault-dba",
+      "description": "Specialist database & storage administrator for SBX00 (192.168.86.32) /DATA/SovereignVault SQLite/MariaDB/MinIO/GitLab with strict / boot SD card protection.",
+      "tools_count": 7,
+      "skills_count": 2,
+      "subagents_count": 0,
+      "ownership_domain": "SBX00 (192.168.86.32) /DATA/SovereignVault SQLite/MariaDB/MinIO/GitLab persistence, SHA-256 artifact registries, and strict / root boot SD card protection"
+    },
+    {
+      "name": "mlx-local-worker",
+      "description": "Specialist agent for local Apple Silicon MLX inference (mlx-lm, mlx-vlm) and single-pass JevMLX constrained decisions (mlx_jev_choose, mlx_jev_judge, mlx_jev_rate, mlx_jev_schema_decide).",
+      "tools_count": 10,
+      "skills_count": 0,
+      "subagents_count": 0,
+      "ownership_domain": "Apple Silicon Metal GPU (Device(gpu, 0)) local inference (mlx-lm, mlx-vlm) and single-pass jevmlx constrained decisions within the 8 GB Unified Memory budget"
+    },
+    {
+      "name": "prime-vision-worker",
+      "description": "Local autonomous coding, RLM/NCM supervisor, and multimodal vision agent powered by Prime Agent and local Ollama models (prime-swarm:latest, prime-vision:latest, granite3.2-vision:latest, qwen2.5vl:3b).",
+      "tools_count": 10,
+      "skills_count": 0,
+      "subagents_count": 0,
+      "ownership_domain": "Local Prime Agent RLM/NCM supervised swarms (run_prime_rlm_supervised_swarm), parallel batch tasks, and multimodal vision inspection via local Ollama models"
+    },
+    {
+      "name": "jev-judge",
+      "description": "Specialist agent for fast Jev System One verification, diff gating (jev_review, jev_gate), prompt-injection screening (jev_screen), and semantic candidate ranking (jev_find, jev_rerank).",
+      "tools_count": 9,
+      "skills_count": 0,
+      "subagents_count": 0,
+      "ownership_domain": "Calibrated System One typed judgments (Choice, Score, Noul), semantic candidate ranking (jev_find, jev_rerank), and diff review/completion gating (jev_review, jev_gate)"
+    },
+    {
+      "name": "browser-operator",
+      "description": "Jev-guided browser automation and web verification agent using jev-browser and fetch MCP tools.",
+      "tools_count": 9,
+      "skills_count": 0,
+      "subagents_count": 0,
+      "ownership_domain": "Web automation, UI flow verification (jev-browser, fetch MCP), and external web content prompt-injection screening"
+    },
+    {
+      "name": "security-screener",
+      "description": "Security and prompt-injection auditor that screens external content, dependencies, and diffs using jev_screen, jev_audit, and local MLX judgments.",
+      "tools_count": 9,
+      "skills_count": 0,
+      "subagents_count": 0,
+      "ownership_domain": "Security auditing of untrusted external inputs, package dependencies, and PR diffs for prompt injection, credential leaks, and unsafe command execution (jev_screen, jev_audit)"
+    }
+  ]
+}
