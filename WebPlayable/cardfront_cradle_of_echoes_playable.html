@@ -986,8 +986,9 @@
     animation: card3DSlamFlip 0.48s cubic-bezier(0.22, 1, 0.36, 1);
   }
   @keyframes card3DSlamFlip {
-    0%   { transform: translateZ(44px) rotateY(180deg) scale(1.08); }
-    100% { transform: translateZ(10px) rotateY(0deg) scale(1.0); }
+    0%   { transform: translateZ(44px) rotateX(14deg) scale(1.08); filter: brightness(1.45); }
+    55%  { transform: translateZ(20px) rotateX(-4deg) scale(1.03); filter: brightness(1.15); }
+    100% { transform: translateZ(10px) rotateX(0deg) scale(1.0); filter: brightness(1.0); }
   }
 
   /* ==========================================================================
@@ -1468,9 +1469,9 @@
     animation: cardFlip180Capture 0.56s cubic-bezier(0.22, 1, 0.36, 1);
   }
   @keyframes cardFlip180Capture {
-    0%   { transform: translateZ(34px) rotateY(180deg) scale(1.12); filter: brightness(1.75) saturate(1.35); }
-    50%  { transform: translateZ(26px) rotateY(90deg) scale(1.16); filter: brightness(2.0); }
-    100% { transform: translateZ(10px) rotateY(0deg) scale(1.0); filter: brightness(1.0); }
+    0%   { transform: translateZ(38px) rotateX(14deg) scale(1.10); filter: brightness(1.65) saturate(1.35); }
+    50%  { transform: translateZ(24px) rotateX(-4deg) scale(1.04); filter: brightness(1.25); }
+    100% { transform: translateZ(10px) rotateX(0deg) scale(1.0); filter: brightness(1.0); }
   }
   .capture-shockwave-ring {
     position: absolute;

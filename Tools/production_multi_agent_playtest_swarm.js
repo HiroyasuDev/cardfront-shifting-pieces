@@ -91,7 +91,7 @@ async function runPlaytestSwarm() {
     };
   });
   personas.push(p1);
-  await page.waitForTimeout(600);
+  await page.waitForTimeout(950);
 
   // =========================================================================
   // PERSONA 2: P2_CASUAL_READABILITY (Zero-Collision Card Faces & Quick Inspector)

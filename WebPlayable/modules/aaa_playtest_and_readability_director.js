@@ -228,6 +228,23 @@
           0 0 22px rgba(0, 229, 255, 0.85),
           inset 0 0 12px rgba(255, 184, 0, 0.45) !important;
       }
+      /* Keep Row 3 of the 3x3 board unobstructed when a hand card is merely selected (not hovered);
+         full card details are shown in #aaa-card-quick-inspector, while hovering still reveals .hand-card-tooltip */
+      .hand-card-wrap.selected:not(:hover) .hand-card-tooltip {
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+      /* Ensure capture flip animation never rotates on Y where front-face text appears mirrored or horizontally foreshortened */
+      @keyframes card3DSlamFlip {
+        0%   { transform: translateZ(44px) rotateX(14deg) scale(1.08); filter: brightness(1.45); }
+        55%  { transform: translateZ(20px) rotateX(-4deg) scale(1.03); filter: brightness(1.15); }
+        100% { transform: translateZ(10px) rotateX(0deg) scale(1.0); filter: brightness(1.0); }
+      }
+      @keyframes cardFlip180Capture {
+        0%   { transform: translateZ(38px) rotateX(14deg) scale(1.10); filter: brightness(1.65) saturate(1.35); }
+        50%  { transform: translateZ(24px) rotateX(-4deg) scale(1.04); filter: brightness(1.25); }
+        100% { transform: translateZ(10px) rotateX(0deg) scale(1.0); filter: brightness(1.0); }
+      }
 
       /* ====================================================================
          2. LIVE ON-BOARD TACTICAL OUTCOME PREVIEW PILL (.aaa-slot-outcome-pill)
@@ -384,11 +401,20 @@
         color: #2EE6D3;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 4px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        justify-content: flex-start;
+        gap: 6px;
+        line-height: 1.25;
+      }
+      .aaa-qi-chibi-svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        border-radius: 4px;
+        background: rgba(8, 13, 26, 0.92);
+        border: 1px solid rgba(46, 230, 211, 0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     `;
     if (doc.head) {
@@ -401,6 +427,14 @@
   // ==========================================================================
   function resolveCardMeta(cardId) {
     const cid = String(cardId || "ev_01_base").trim();
+    if (typeof globalScope.getCardMeta === "function") {
+      try {
+        const gm = globalScope.getCardMeta(cid);
+        if (gm && (gm.title || gm.name)) {
+          return gm;
+        }
+      } catch (_e) {}
+    }
     if (globalScope.CARDS && globalScope.CARDS[cid]) {
       return globalScope.CARDS[cid];
     }
@@ -424,7 +458,11 @@
 
   function computeEffectiveCardStats(cardId, colIndex) {
     const meta = resolveCardMeta(cardId);
-    const rawNesw = Array.isArray(meta.nesw) ? meta.nesw : [meta.top || 6, meta.right || 6, meta.bottom || 5, meta.left || 5];
+    const rawNesw = Array.isArray(meta.nesw)
+      ? meta.nesw
+      : Array.isArray(meta.stats)
+      ? meta.stats
+      : [meta.top || 6, meta.right || 6, meta.bottom || 5, meta.left || 5];
     const st = globalScope.state || {};
     const colDice = Array.isArray(st.colDice) ? st.colDice : [3, 4, 2];
     const cIdx = typeof colIndex === "number" && colIndex >= 0 && colIndex < 3 ? colIndex : 0;
@@ -434,8 +472,8 @@
 
     return {
       cardId: meta.id || cardId,
-      name: meta.name || String(cardId),
-      faction: meta.faction || "Aether",
+      name: meta.title || meta.name || String(cardId),
+      faction: meta.faction || meta.element || "Aether",
       starCost: Number(meta.starCost || meta.cost || 2),
       isEvolved: Boolean(meta.isEvolvedForm || String(cardId).endsWith("_evo")),
       baseStats: {
@@ -453,7 +491,11 @@
       columnIndex: cIdx,
       columnDieValue: dieVal,
       columnBoosted: columnBoosted,
-      telegraphSummary: meta.telegraphDesc || meta.rulesHtml || "Orthogonal edge comparison on the 3x3 grid."
+      telegraphSummary:
+        (meta.abilityTitle ? meta.abilityTitle + ": " + (meta.abilityDesc || "") : "") ||
+        meta.telegraphDesc ||
+        meta.rulesHtml ||
+        "Orthogonal edge comparison on the 3x3 grid."
     };
   }
 
@@ -609,14 +651,18 @@
 
     let chibiJob = "Rosalia Mech-Wing Maiden";
     let chibiWeapon = "astral_lance";
+    let chibiSvgHtml = "";
     if (
       globalScope.CardFrontDice3DAndChibiUnits &&
       typeof globalScope.CardFrontDice3DAndChibiUnits.getUniqueChibiForCard === "function"
     ) {
       const chibi = globalScope.CardFrontDice3DAndChibiUnits.getUniqueChibiForCard(cid);
       if (chibi) {
-        chibiJob = chibi.jobTitle || chibiJob;
+        chibiJob = String(chibi.jobTitle || chibiJob).replace(/\s*#\d+$/, "");
         chibiWeapon = chibi.weaponType || chibiWeapon;
+        if (typeof globalScope.CardFrontDice3DAndChibiUnits.renderChibi24x24Svg === "function") {
+          chibiSvgHtml = globalScope.CardFrontDice3DAndChibiUnits.renderChibi24x24Svg(chibi);
+        }
       }
     }
 
@@ -642,8 +688,11 @@
       '</div>' +
       '<div class="aaa-qi-ability">' + cleanSummary + '</div>' +
       '<div class="aaa-qi-chibi-row">' +
-        '<span>Chibi: ' + chibiJob + '</span>' +
-        '<span>[' + chibiWeapon + ']</span>' +
+        (chibiSvgHtml ? '<div class="aaa-qi-chibi-svg">' + chibiSvgHtml + '</div>' : '') +
+        '<div style="display:flex;flex-direction:column;min-width:0;overflow:hidden;">' +
+          '<span style="color:#E2E8F0;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + chibiJob + '</span>' +
+          '<span style="color:#2EE6D3;font-size:8px;">Weapon: [' + chibiWeapon + ']</span>' +
+        '</div>' +
       '</div>';
 
     return info;

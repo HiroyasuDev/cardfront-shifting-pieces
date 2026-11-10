@@ -1,19 +1,13 @@
 {
   "status": "PASS_ALL_8_PLAYTEST_PERSONAS",
   "targetUrl": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
-  "startedAt": "2026-11-10T07:23:03.865Z",
-  "completedAt": "2026-11-10T07:23:08.521Z",
+  "startedAt": "2026-11-10T08:19:37.109Z",
+  "completedAt": "2026-11-10T08:19:41.920Z",
   "personasTotal": 8,
   "personasPassed": 8,
   "zeroPageErrors": true,
   "pageErrors": [],
-  "consoleErrors": [
-    "Failed to load resource: the server responded with a status of 404 (File not found)",
-    "Failed to load resource: the server responded with a status of 404 (File not found)",
-    "Failed to load resource: the server responded with a status of 503 ()",
-    "Failed to load resource: the server responded with a status of 503 ()",
-    "Failed to load resource: the server responded with a status of 503 ()"
-  ],
+  "consoleErrors": [],
   "personas": [
     {
       "id": "P1_TACTICAL_PRO",
@@ -33,7 +27,7 @@
       "focus": "Zero card-face badge collisions, N/E/S/W contrast, hand card spacing, & Quick Card Inspector",
       "passed": true,
       "metrics": {
-        "auditedCards": 3,
+        "auditedCards": 4,
         "collisionCount": 0,
         "handOverlapCount": 0,
         "quickInspectorPresent": true,
