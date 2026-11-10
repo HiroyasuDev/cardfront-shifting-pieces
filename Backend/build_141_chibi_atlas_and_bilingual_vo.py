@@ -25,14 +25,21 @@ import math
 import os
 import shutil
 import subprocess
+import sys
 import tempfile
 import time
 import wave
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
-import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+try:
+    import numpy as np
+    from PIL import Image, ImageDraw, ImageFont
+except ModuleNotFoundError:
+    mlx_py = Path.home() / ".local" / "share" / "mlx-env" / "bin" / "python3"
+    if mlx_py.exists() and Path(sys.executable).resolve() != mlx_py.resolve():
+        os.execv(str(mlx_py), [str(mlx_py), *sys.argv])
+    raise
 
 BACKEND_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BACKEND_DIR.parent
@@ -704,9 +711,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_01_rosalia_summon_jp",
         "filename": "vo_01_rosalia_summon_jp.wav",
         "lang": "ja_JP",
-        "voice": "Kyoko",
-        "rate": 195,
-        "pitch_semitones": 2.4,
+        "voice": "Kyoko (Japanese (Japan))",
+        "rate": 188,
         "character": "Rosalia, Mech-Wing Sky Maiden",
         "event_trigger": "SUMMON_HERO_ROSALIA",
         "jp_text": "機構翼の天女、ロザリア！推参します！",
@@ -717,9 +723,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_02_rosalia_evolve_jp",
         "filename": "vo_02_rosalia_evolve_jp.wav",
         "lang": "ja_JP",
-        "voice": "Kyoko",
-        "rate": 202,
-        "pitch_semitones": 2.8,
+        "voice": "Kyoko (Japanese (Japan))",
+        "rate": 194,
         "character": "Rosalia, Arch-Seraph Overdrive",
         "event_trigger": "EVOLVE_AWAKENING_ROSALIA",
         "jp_text": "進化覚醒！アークセラフ・オーバードライブ！黄金の翼よ、天を翔けろ！",
@@ -730,9 +735,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_03_celestia_evolve_jp",
         "filename": "vo_03_celestia_evolve_jp.wav",
         "lang": "ja_JP",
-        "voice": "Kyoko",
-        "rate": 188,
-        "pitch_semitones": 1.6,
+        "voice": "Flo (Japanese (Japan))",
+        "rate": 184,
         "character": "Celestia, Chrono Sovereign",
         "event_trigger": "EVOLVE_AWAKENING_CELESTIA",
         "jp_text": "時辰儀の翼よ、永遠の刻を刻め！クロノ・ソヴリン！",
@@ -743,9 +747,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_04_lyra_evolve_jp",
         "filename": "vo_04_lyra_evolve_jp.wav",
         "lang": "ja_JP",
-        "voice": "Kyoko",
-        "rate": 192,
-        "pitch_semitones": 3.2,
+        "voice": "Shelley (Japanese (Japan))",
+        "rate": 188,
         "character": "Lyra, Symphony Seraph",
         "event_trigger": "EVOLVE_AWAKENING_LYRA",
         "jp_text": "響け、天球の交響曲！シンフォニー・セラフ！",
@@ -756,9 +759,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_05_ignia_evolve_jp",
         "filename": "vo_05_ignia_evolve_jp.wav",
         "lang": "ja_JP",
-        "voice": "Kyoko",
-        "rate": 210,
-        "pitch_semitones": 1.1,
+        "voice": "Kyoko (Japanese (Japan))",
+        "rate": 198,
         "character": "Ignia, Solar Phoenix Empress",
         "event_trigger": "EVOLVE_AWAKENING_IGNIA",
         "jp_text": "紅蓮の機甲翼、臨界突破！ソーラー・フェニックス！",
@@ -769,9 +771,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_06_nocturna_evolve_jp",
         "filename": "vo_06_nocturna_evolve_jp.wav",
         "lang": "ja_JP",
-        "voice": "Kyoko",
-        "rate": 182,
-        "pitch_semitones": 0.5,
+        "voice": "Flo (Japanese (Japan))",
+        "rate": 178,
         "character": "Nocturna, Astral Prism Queen",
         "event_trigger": "EVOLVE_AWAKENING_NOCTURNA",
         "jp_text": "皆既日食の聖域よ、闇を照らせ！アストラル・プリズム！",
@@ -782,9 +783,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_07_archangel_summon_en",
         "filename": "vo_07_archangel_summon_en.wav",
         "lang": "en_US",
-        "voice": "Samantha",
-        "rate": 192,
-        "pitch_semitones": 1.8,
+        "voice": "Samantha (English (US))",
+        "rate": 182,
         "character": "Archangel Vanguard",
         "event_trigger": "SUMMON_CENTER_CONDUIT",
         "jp_text": "天界の先陣、展開完了！中央ソケットを死守せよ！",
@@ -795,9 +795,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_08_kubrart_cutin_jp",
         "filename": "vo_08_kubrart_cutin_jp.wav",
         "lang": "ja_JP",
-        "voice": "Kyoko",
-        "rate": 215,
-        "pitch_semitones": -0.6,
+        "voice": "Reed (Japanese (Japan))",
+        "rate": 192,
         "character": "Kubrart Eclipse Vanguard",
         "event_trigger": "SAKUGA_CUTIN_KUBRART",
         "jp_text": "黒曜のGペン一閃！盤面を断ち切る！",
@@ -808,9 +807,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_09_pxg_striker_goal_en",
         "filename": "vo_09_pxg_striker_goal_en.wav",
         "lang": "en_US",
-        "voice": "Samantha",
-        "rate": 205,
-        "pitch_semitones": 2.2,
+        "voice": "Samantha (English (US))",
+        "rate": 190,
         "character": "Studio PxG Atomic Striker",
         "event_trigger": "SAKUGA_CUTIN_PXG_OVERDRIVE",
         "jp_text": "スタジオPxG・アトミック・オーバードライブ！秒間二十四コマの衝撃！",
@@ -821,9 +819,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_10_orthogonal_capture_en",
         "filename": "vo_10_orthogonal_capture_en.wav",
         "lang": "en_US",
-        "voice": "Samantha",
-        "rate": 196,
-        "pitch_semitones": 1.2,
+        "voice": "Daniel",
+        "rate": 185,
         "character": "Tactical Arbiter",
         "event_trigger": "COMBAT_ORTHOGONAL_CAPTURE",
         "jp_text": "直交ランク撃破！ターゲット・コンジットを制圧！",
@@ -834,22 +831,20 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_11_chain_combo_jp",
         "filename": "vo_11_chain_combo_jp.wav",
         "lang": "ja_JP",
-        "voice": "Kyoko",
-        "rate": 208,
-        "pitch_semitones": 2.5,
+        "voice": "Flo (Japanese (Japan))",
+        "rate": 195,
         "character": "Resonance Conduit",
         "event_trigger": "COMBAT_PLUS_COMBO_CHAIN",
         "jp_text": "連撃コンボ発動！プラス・レゾナンス！",
         "en_text": "Chain combo activated! Plus Resonance!",
-        "chime_freqs": [523.25, 659.25, 783.99, 987.77, 1318.51],
+        "chime_freqs": [523.25, 659.25, 783.99, 987.77],
     },
     {
         "id": "vo_12_dice_critical_roll_en",
         "filename": "vo_12_dice_critical_roll_en.wav",
         "lang": "en_US",
-        "voice": "Samantha",
-        "rate": 198,
-        "pitch_semitones": 1.5,
+        "voice": "Reed (English (UK))",
+        "rate": 186,
         "character": "Magicite Dice Oracle",
         "event_trigger": "DICE_CRITICAL_SURGE",
         "jp_text": "多面体魔石サージ発動！カラム共鳴、最大出力！",
@@ -860,9 +855,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_13_saga_herald_summon_en",
         "filename": "vo_13_saga_herald_summon_en.wav",
         "lang": "en_US",
-        "voice": "Samantha",
-        "rate": 186,
-        "pitch_semitones": 0.8,
+        "voice": "Daniel",
+        "rate": 178,
         "character": "10-Year Chronicle Herald",
         "event_trigger": "SUMMON_SAGA_HERALD",
         "jp_text": "年代記の伝令、覚醒！十年の至高律を執行する！",
@@ -873,22 +867,20 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_14_gacha_ur_pull_jp",
         "filename": "vo_14_gacha_ur_pull_jp.wav",
         "lang": "ja_JP",
-        "voice": "Kyoko",
-        "rate": 200,
-        "pitch_semitones": 3.0,
+        "voice": "Kyoko (Japanese (Japan))",
+        "rate": 190,
         "character": "Celestial Gacha Archon",
         "event_trigger": "GACHA_ULTIMATE_RARE_REVEAL",
         "jp_text": "奇跡の輝き！アルティメットレア降臨！",
         "en_text": "Miracle radiance! Ultimate Rare descended!",
-        "chime_freqs": [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98],
+        "chime_freqs": [523.25, 659.25, 783.99, 1046.50],
     },
     {
         "id": "vo_15_match_victory_jp",
         "filename": "vo_15_match_victory_jp.wav",
         "lang": "ja_JP",
-        "voice": "Kyoko",
-        "rate": 196,
-        "pitch_semitones": 2.1,
+        "voice": "Kyoko (Japanese (Japan))",
+        "rate": 186,
         "character": "Rosalia & Studio PxG Captain",
         "event_trigger": "MATCH_VICTORY_JP",
         "jp_text": "勝負あり！これぞスタジオPxGの勝利です！",
@@ -899,9 +891,8 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
         "id": "vo_16_match_victory_en",
         "filename": "vo_16_match_victory_en.wav",
         "lang": "en_US",
-        "voice": "Samantha",
-        "rate": 190,
-        "pitch_semitones": 1.4,
+        "voice": "Daniel",
+        "rate": 182,
         "character": "Sovereign Arbiter",
         "event_trigger": "MATCH_VICTORY_EN",
         "jp_text": "三対三グリッドのチェックメイト！クレイドル・オブ・エコーズ確保完了！",
@@ -911,33 +902,67 @@ BILINGUAL_VO_SPECS: List[Dict[str, Any]] = [
 ]
 
 
+def _karplus_strong_harp_shimmer(freq_hz: float, n_samples: int, seed: int) -> np.ndarray:
+    """Synthesize a gentle Karplus-Strong plucked concert harp note for VO pre-shimmer."""
+    period = max(2, int(round(SAMPLE_RATE / max(freq_hz, 40.0))))
+    rng = np.random.default_rng(seed)
+    phase = np.linspace(0.0, 2.0 * math.pi, period, endpoint=False)
+    buf = (0.70 * np.sin(phase) + 0.30 * rng.uniform(-0.5, 0.5, period)).astype(np.float32)
+    buf -= float(np.mean(buf))
+    out = np.zeros(n_samples, dtype=np.float32)
+    idx = 0
+    prev_val = float(buf[-1])
+    for i in range(n_samples):
+        curr = float(buf[idx])
+        out[i] = curr
+        buf[idx] = 0.993 * (0.55 * curr + 0.45 * prev_val)
+        prev_val = curr
+        idx = (idx + 1) % period
+    return out
+
+
 def _synthesize_and_master_vo_clip(spec: Dict[str, Any], out_wav_path: Path) -> Dict[str, Any]:
     """
-    1. Synthesizes raw speech using macOS `say` (`Kyoko` for JP, `Samantha` for EN) at 44.1kHz 16-bit LE PCM.
-    2. Applies character-specific anime vocal pitch/timbre shift, harmonic exciter, crystalline magicite
-       pre-chime, and studio stereo-to-mono short ambience tail.
+    1. Synthesizes real spoken Japanese/English speech using `/usr/bin/say` to a temp `.aiff` file,
+       then converts via `/usr/bin/afconvert -f WAVE -d LEI16@44100 -c 1` to 44.1kHz 16-bit mono WAV.
+    2. Preserves 100% natural human vocal formants (zero artificial pitch-warping) and mixes a subtle
+       Karplus-Strong acoustic harp shimmer + warm studio hall reverb.
     3. Trims leading/trailing dead air and normalizes integrated loudness to -14.0 LUFS (`44.1 kHz`, `16-bit` mono).
     """
-    spoken_line = spec["jp_text"] if spec["lang"] == "ja_JP" else spec["en_text"]
+    spoken_line = spec["jp_text"] if spec["lang"] in ("ja_JP", "ja-JP") else spec["en_text"]
 
-    with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp_f:
-        tmp_path = Path(tmp_f.name)
+    with tempfile.NamedTemporaryFile(suffix=".aiff", delete=False) as tmp_aiff_f:
+        tmp_aiff_path = Path(tmp_aiff_f.name)
+    with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp_wav_f:
+        tmp_wav_path = Path(tmp_wav_f.name)
 
     try:
-        cmd = [
-            "say",
+        say_cmd = [
+            "/usr/bin/say",
             "-v",
             spec["voice"],
             "-r",
             str(spec["rate"]),
-            "--data-format=LEI16@44100",
             "-o",
-            str(tmp_path),
+            str(tmp_aiff_path),
             spoken_line,
         ]
-        subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(say_cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-        with wave.open(str(tmp_path), "rb") as wf:
+        afconvert_cmd = [
+            "/usr/bin/afconvert",
+            "-f",
+            "WAVE",
+            "-d",
+            "LEI16@44100",
+            "-c",
+            "1",
+            str(tmp_aiff_path),
+            str(tmp_wav_path),
+        ]
+        subprocess.run(afconvert_cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+        with wave.open(str(tmp_wav_path), "rb") as wf:
             n_ch = wf.getnchannels()
             n_frames = wf.getnframes()
             raw_bytes = wf.readframes(n_frames)
@@ -946,54 +971,42 @@ def _synthesize_and_master_vo_clip(spec: Dict[str, Any], out_wav_path: Path) -> 
         if n_ch > 1:
             samples = samples.reshape(-1, n_ch).mean(axis=1)
     finally:
-        if tmp_path.exists():
-            tmp_path.unlink()
+        if tmp_aiff_path.exists():
+            tmp_aiff_path.unlink()
+        if tmp_wav_path.exists():
+            tmp_wav_path.unlink()
 
     # Trim leading & trailing silence below -46 dBFS
     thresh = 10.0 ** (-46.0 / 20.0)
     active = np.where(np.abs(samples) > thresh)[0]
     if len(active) > 100:
-        i0 = max(0, int(active[0]) - int(0.02 * SAMPLE_RATE))
-        i1 = min(len(samples), int(active[-1]) + int(0.05 * SAMPLE_RATE))
+        i0 = max(0, int(active[0]) - int(0.025 * SAMPLE_RATE))
+        i1 = min(len(samples), int(active[-1]) + int(0.06 * SAMPLE_RATE))
         samples = samples[i0:i1]
 
-    # Pitch/timbre shift via high-resolution linear resampling while compensating rate in `say -r`
-    semitones = float(spec.get("pitch_semitones", 0.0))
-    if abs(semitones) > 0.05:
-        pitch_factor = 2.0 ** (semitones / 12.0)
-        new_len = max(1024, int(round(len(samples) / pitch_factor)))
-        x_old = np.linspace(0.0, 1.0, len(samples), endpoint=False)
-        x_new = np.linspace(0.0, 1.0, new_len, endpoint=False)
-        samples = np.interp(x_new, x_old, samples).astype(np.float32)
-
-    # Presence air-band exciter (soft high-pass difference boost + warm tube saturation)
-    diff = np.zeros_like(samples)
-    diff[1:] = samples[1:] - samples[:-1]
-    excited = samples + 0.32 * diff
-    excited = np.tanh(excited * 1.35) / np.tanh(1.35)
-
-    # Synthesize subtle crystalline anime activation chime at start (0.14s) + tail pad (0.08s)
-    chime_freqs = spec.get("chime_freqs", [523.25, 783.99, 1046.50])
-    pre_len = int(0.11 * SAMPLE_RATE)
-    tail_len = int(0.10 * SAMPLE_RATE)
-    total_len = pre_len + len(excited) + tail_len
+    # Pre-roll (80ms) and reverb tail (120ms) around natural spoken voice
+    chime_freqs = spec.get("chime_freqs", [523.25, 659.25, 783.99])
+    pre_len = int(0.08 * SAMPLE_RATE)
+    tail_len = int(0.12 * SAMPLE_RATE)
+    total_len = pre_len + len(samples) + tail_len
     mix = np.zeros(total_len, dtype=np.float32)
-    mix[pre_len : pre_len + len(excited)] = excited
+    mix[pre_len : pre_len + len(samples)] = samples
 
-    # Add shimmering magicite chord chime in the first 0.24s (overlapping speech onset gently)
-    chime_dur = min(total_len, int(0.24 * SAMPLE_RATE))
-    t_c = np.arange(chime_dur, dtype=np.float32) / float(SAMPLE_RATE)
-    chime_wave = np.zeros(chime_dur, dtype=np.float32)
+    # Subtle Karplus-Strong harp shimmer in the first 0.22s
+    shimmer_dur = min(total_len, int(0.22 * SAMPLE_RATE))
+    shimmer_wave = np.zeros(shimmer_dur, dtype=np.float32)
     for c_i, freq in enumerate(chime_freqs):
-        onset = min(chime_dur - 1, int(c_i * 0.025 * SAMPLE_RATE))
-        t_sub = np.arange(chime_dur - onset, dtype=np.float32) / float(SAMPLE_RATE)
-        env = np.exp(-t_sub * 14.0) * (1.0 - np.exp(-t_sub * 180.0))
-        chime_wave[onset:] += 0.045 * np.sin(2.0 * math.pi * freq * t_sub) * env
-    mix[:chime_dur] += chime_wave
+        onset = min(shimmer_dur - 1, int(c_i * 0.028 * SAMPLE_RATE))
+        rem = shimmer_dur - onset
+        if rem > 16:
+            pluck = _karplus_strong_harp_shimmer(freq, rem, seed=700 + c_i)
+            env = np.exp(-np.arange(rem, dtype=np.float32) / (0.11 * SAMPLE_RATE))
+            shimmer_wave[onset:] += 0.028 * pluck * env
+    mix[:shimmer_dur] += shimmer_wave
 
-    # Studio early-reflection hall ambience (3-tap feedback-free delay)
+    # Warm studio hall ambience (multi-tap early reflections low-passed at 2200 Hz)
     reverb = np.zeros_like(mix)
-    for delay_ms, gain in ((19.0, 0.11), (37.0, 0.07), (61.0, 0.04)):
+    for delay_ms, gain in ((23.0, 0.09), (41.0, 0.06), (67.0, 0.035), (103.0, 0.02)):
         d_samp = int(round(delay_ms * 0.001 * SAMPLE_RATE))
         if d_samp < len(mix):
             reverb[d_samp:] += gain * mix[:-d_samp]
@@ -1013,7 +1026,7 @@ def _synthesize_and_master_vo_clip(spec: Dict[str, Any], out_wav_path: Path) -> 
     # Re-boost slightly after tanh compression to hit exact -14.0 LUFS integrated target
     active_post = master[np.abs(master) > 1e-3]
     rms_post = float(np.sqrt(np.mean(active_post**2))) if len(active_post) > 0 else target_rms
-    master = np.clip(master * (target_rms / max(rms_post, 1e-5)), -0.96, 0.96)
+    master = np.clip(master * (target_rms / max(rms_post, 1e-5)), -0.95, 0.95)
 
     # Final metrics
     final_rms = float(np.sqrt(np.mean(master[np.abs(master) > 1e-3] ** 2)))

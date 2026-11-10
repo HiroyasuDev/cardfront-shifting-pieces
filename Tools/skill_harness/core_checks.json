@@ -1514,6 +1514,21 @@
     "remediation": "Wire WebPlayable/modules/cardcraft_collectables_c3_engine.js and GetCardCraftCollectableC3Metadata in CardFrontUnifiedRuntime.cs."
   },
   {
+    "id": "core.unity6_tcg_rea_baseline.24",
+    "skill": "parallel-orchestration",
+    "rule": "14-Agent Multi-Agent Team & C³ v2.0.0 Quick-Inspect (10 1200x800 Dual-Side Bromide Sheets, openCardById Tabletop/Hand Quick-Inspect, & Reports/multi_agent_team_architecture_report.json).",
+    "source": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1",
+    "target": "both",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const c3 = window.CardFrontCollectablesC3; if (!c3 || c3.VERSION !== '2.0.0' || !Array.isArray(c3.FEATURED_CARDS) || c3.FEATURED_CARDS.length < 10 || typeof c3.openCardById !== 'function') return false; const cass = c3.openCardById('ev_03_base', 1); c3.closeC3CollectablesModal(); return Boolean(cass && cass.cardId === 'ev_03_base' && cass.dualBromideSheet && cass.dualBromideSheet.includes('c3_cassandra_bp05_044_sr_dual_bromide.png')); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1-600",
+    "remediation": "Upgrade WebPlayable/modules/cardcraft_collectables_c3_engine.js to v2.0.0 with 10 featured Dual-Side Bromides and openCardById."
+  },
+  {
     "id": "core.production_upgrades.14",
     "skill": "tcg-creative-game-designer",
     "rule": "Studio PxG 24-Primitive Atomic Collective Extraction (Studio Trigger x Odyssey Interactive / Omega Strikers School), 1,200-Record Training Corpus, Rank-32 FP16 LoRA (studio_pxg_trigger_odyssey_atomic_v1.safetensors), 12-Epoch Brutal Unbiased AAA Benchmark (47.99 -> 94.98), & 8 RTX 4080 Studio PxG AAA Striker/Vanguard + 28 8-Frame 1920x160 24fps Sakuga Film-Shot Strips.",
@@ -1537,7 +1552,7 @@
     "target": "both",
     "method": "playwright",
     "probe": {
-      "expression": "(() => { const d = window.StudioPxGAtomicDirector; if (!d || !Array.isArray(d.STUDIO_PXG_ATOMIC_PRIMITIVES) || d.STUDIO_PXG_ATOMIC_PRIMITIVES.length !== 24 || !Array.isArray(d.STUDIO_PXG_AAA_STRIKER_ROSTER) || d.STUDIO_PXG_AAA_STRIKER_ROSTER.length !== 8) return false; const shot = d.triggerStudioPxGFilmShot('FISHEYE_14MM_EXTREME_FORESHORTENING', { cellIndex: 4 }); const audit = d.runStudioPxGBrutalAudit(state); const deck = d.equipStudioPxGStrikerSquadDeck(); d.openStudioPxGAtomicModal('primitives'); d.closeStudioPxGAtomicModal(); return Boolean(shot && audit && audit.zeroLivingArtistNames === true && audit.corpusRecords === 1200 && audit.postFineTuneScore >= 94.0 && deck && deck.deckId === 'deck_studio_pxg_atomic_strikers'); })()"
+      "expression": "(() => { const d = window.StudioPxGAtomicDirector; if (!d || !Array.isArray(d.STUDIO_PXG_ATOMIC_PRIMITIVES) || d.STUDIO_PXG_ATOMIC_PRIMITIVES.length !== 24 || !Array.isArray(d.STUDIO_PXG_AAA_STRIKER_ROSTER) || d.STUDIO_PXG_AAA_STRIKER_ROSTER.length !== 8) return false; const prevDeck = Array.isArray(state.playerDeck) ? state.playerDeck.slice() : null; const shot = d.triggerStudioPxGFilmShot('FISHEYE_14MM_EXTREME_FORESHORTENING', { cellIndex: 4 }); const audit = d.runStudioPxGBrutalAudit(state); const deck = d.equipStudioPxGStrikerSquadDeck(); d.openStudioPxGAtomicModal('primitives'); d.closeStudioPxGAtomicModal(); if (prevDeck) { state.playerDeck = prevDeck; startStage(0); } return Boolean(shot && audit && audit.zeroLivingArtistNames === true && audit.corpusRecords === 1200 && audit.postFineTuneScore >= 94.0 && deck && deck.deckId === 'deck_studio_pxg_atomic_strikers'); })()"
     },
     "expect": "true",
     "priority": "P0",
@@ -1568,7 +1583,7 @@
     "target": "both",
     "method": "playwright",
     "probe": {
-      "expression": "(() => { const s = window.CardFrontSaga10YearFranchise; if (!s || !Array.isArray(s.FRANCHISE_SAGA_3_ERAS) || s.FRANCHISE_SAGA_3_ERAS.length !== 3 || !Array.isArray(s.FRANCHISE_20_EXPANSION_SETS) || s.FRANCHISE_20_EXPANSION_SETS.length !== 20 || !Array.isArray(s.SAGA_10YEAR_HERALD_CARDS) || s.SAGA_10YEAR_HERALD_CARDS.length !== 6) return false; const deck = s.equip10YearSagaHeraldDeck(); const val = s.validateSetRotationAndPowerCreep(deck.playerDeck, 'ECHOES_UNLIMITED_ETERNAL'); const tel = s.getSbx00AndClusterLiveTelemetry(); s.openSaga10YearFranchiseModal('sbx00_cluster'); s.closeSaga10YearFranchiseModal(); return Boolean(deck && deck.deckId === 'deck_10year_saga_heralds' && val && val.valid === true && tel && tel.sbx00Vault && tel.sbx00Vault.vaultRoot === '/DATA/SovereignVault/CARDFRONT_SAGA_VAULT'); })()"
+      "expression": "(() => { const s = window.CardFrontSaga10YearFranchise; if (!s || !Array.isArray(s.FRANCHISE_SAGA_3_ERAS) || s.FRANCHISE_SAGA_3_ERAS.length !== 3 || !Array.isArray(s.FRANCHISE_20_EXPANSION_SETS) || s.FRANCHISE_20_EXPANSION_SETS.length !== 20 || !Array.isArray(s.SAGA_10YEAR_HERALD_CARDS) || s.SAGA_10YEAR_HERALD_CARDS.length !== 6) return false; const prevDeck = Array.isArray(state.playerDeck) ? state.playerDeck.slice() : null; const deck = s.equip10YearSagaHeraldDeck(); const val = s.validateSetRotationAndPowerCreep(deck.playerDeck, 'ECHOES_UNLIMITED_ETERNAL'); const tel = s.getSbx00AndClusterLiveTelemetry(); s.openSaga10YearFranchiseModal('sbx00_cluster'); s.closeSaga10YearFranchiseModal(); if (prevDeck) { state.playerDeck = prevDeck; startStage(0); } return Boolean(deck && deck.deckId === 'deck_10year_saga_heralds' && val && val.valid === true && tel && tel.sbx00Vault && tel.sbx00Vault.vaultRoot === '/DATA/SovereignVault/CARDFRONT_SAGA_VAULT'); })()"
     },
     "expect": "true",
     "priority": "P0",
@@ -1583,7 +1598,7 @@
     "target": "both",
     "method": "playwright",
     "probe": {
-      "expression": "(() => { const e = window.CardFrontEvolveMaidenEngine; if (!e || !Array.isArray(e.EVOLVE_MECH_WING_MAIDEN_PAIRS) || e.EVOLVE_MECH_WING_MAIDEN_PAIRS.length !== 5 || !Array.isArray(e.EVOLVE_MECH_WING_CARDS_10) || e.EVOLVE_MECH_WING_CARDS_10.length !== 10) return false; const html = e.renderEvolveSrCardHtml(e.EVOLVE_MECH_WING_CARDS_10[0], { evolved: false }); const deck = e.equipEvolveMechWingMaidenDeck(); e.openEvolveMaidenStudioModal(); e.closeEvolveMaidenStudioModal(); return Boolean(html && html.includes('cf-evolve-sr-card') && deck && Array.isArray(deck.playerDeck) && deck.playerDeck.length === 15); })()"
+      "expression": "(() => { const e = window.CardFrontEvolveMaidenEngine; if (!e || !Array.isArray(e.EVOLVE_MECH_WING_MAIDEN_PAIRS) || e.EVOLVE_MECH_WING_MAIDEN_PAIRS.length !== 5 || !Array.isArray(e.EVOLVE_MECH_WING_CARDS_10) || e.EVOLVE_MECH_WING_CARDS_10.length !== 10) return false; const prevDeck = Array.isArray(state.playerDeck) ? state.playerDeck.slice() : null; const html = e.renderEvolveSrCardHtml(e.EVOLVE_MECH_WING_CARDS_10[0], { evolved: false }); const deck = e.equipEvolveMechWingMaidenDeck(); e.openEvolveMaidenStudioModal(); e.closeEvolveMaidenStudioModal(); if (prevDeck) { state.playerDeck = prevDeck; startStage(0); } return Boolean(html && html.includes('cf-evolve-sr-card') && deck && Array.isArray(deck.playerDeck) && deck.playerDeck.length === 15); })()"
     },
     "expect": "true",
     "priority": "P0",

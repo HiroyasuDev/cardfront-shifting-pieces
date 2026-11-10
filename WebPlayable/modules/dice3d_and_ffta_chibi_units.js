@@ -21,12 +21,12 @@
   // 1. 12 POLYHEDRAL 3D DICE MODELS & FACE ROTATION MATRICES (D6 & D8)
   // ==========================================================================
   const DICE_3D_FACE_ROTATIONS = {
-    1: { rx: -18, ry: 18, rz: 0 },
-    2: { rx: -18, ry: 198, rz: 0 },
-    3: { rx: -18, ry: -72, rz: 0 },
-    4: { rx: -18, ry: 108, rz: 0 },
-    5: { rx: -108, ry: 0, rz: 18 },
-    6: { rx: 72, ry: 0, rz: -18 }
+    1: { rx: -16, ry: 16, rz: 0 },
+    2: { rx: 16, ry: 196, rz: 0 },
+    3: { rx: -16, ry: -74, rz: 0 },
+    4: { rx: -16, ry: 74, rz: 0 },
+    5: { rx: -76, ry: 14, rz: 0 },
+    6: { rx: 76, ry: 14, rz: 0 }
   };
 
   // Standard opposite-face sum = 7 pip layout on a 3x3 face grid (indices 0..8)
@@ -1106,7 +1106,8 @@
         align-items: center !important;
         justify-content: center !important;
         overflow: hidden;
-        backface-visibility: visible;
+        backface-visibility: hidden !important;
+        -webkit-backface-visibility: hidden !important;
       }
       .cf-poly-die-scene.cf-die3d-boosted .cf-poly-face,
       .col-header-pill.boosted .cf-poly-face,
@@ -1130,7 +1131,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0.42;
+        opacity: 0.92;
         pointer-events: none;
       }
       .cf-d6-pip-grid {
@@ -1278,22 +1279,22 @@
 
       /* ====================================================================
          3. LAYER 3: POP-UP FFTA 24x24 PIXEL-CHIBI CHARACTER UNIT ON CARD SLAB
-            (Unobstructed portraits at rest; visible on attack or Chibi mode)
+            (Active by default on every board and hand card!)
          ==================================================================== */
       .cf-slab-layer-3-chibi {
         position: absolute;
-        right: 5px;
+        right: 4px;
         bottom: 18px;
         width: 44px;
         height: 44px;
-        transform: translateZ(28px) rotateX(-18deg);
+        transform: translateZ(28px) rotateX(-16deg);
         transform-style: preserve-3d;
         pointer-events: none;
         z-index: 9;
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0;
+        opacity: 1;
         filter: drop-shadow(0 5px 6px rgba(0, 0, 0, 0.88));
         transition: opacity 0.18s ease, transform 0.22s cubic-bezier(0.22, 1.35, 0.36, 1);
       }
@@ -1876,6 +1877,10 @@
   // ==========================================================================
   function installRuntimeHooks() {
     ensureStylesInjected();
+    if (typeof globalScope.document !== "undefined" && globalScope.document.body) {
+      globalScope.document.body.setAttribute("data-cf-chibi-overlay", "on");
+      globalScope.document.body.setAttribute("data-cf-slab-depth-mode", DICE3D_RUNTIME_STATE.depthMode || "3d_extruded_hd2d");
+    }
 
     // Hook build3DCardHTML so every newly rendered card automatically includes the 4-layer 2.5D slab & FFTA Chibi unit
     if (typeof globalScope.build3DCardHTML === "function" && !globalScope.build3DCardHTML._cfChibiWrapped) {

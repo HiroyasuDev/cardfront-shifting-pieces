@@ -1,6 +1,7 @@
 {
   "portal": "lumenforge.io Sovereign Studio Portal v1.0",
-  "timestamp_utc": "2026-11-10T03:12:05Z",
+  "service_version": "2.0.0",
+  "timestamp_utc": "2026-11-10T03:52:34Z",
   "sovereign_4node_pool": {
     "pool_id": "lumenforge-sovereign-pool",
     "portal_domain": "https://lumenforge.io",
@@ -70,6 +71,164 @@
         "role": "Sovereign Edge Inference, JevMLX Verification Gate, & High-Memory Context Hub",
         "status": "ONLINE"
       }
+    ]
+  },
+  "hi3d_saas_service_capabilities": {
+    "service_name": "LumenForge.io × Hi3D.ai Sovereign 3D AI Studio Service",
+    "service_version": "2.0.0",
+    "reference_parity": "https://www.hi3d.ai/",
+    "modes": [
+      "image_to_3d",
+      "text_to_3d",
+      "multiview_to_3d",
+      "quad_retopology",
+      "pbr_delighting",
+      "unirig_autorig"
+    ],
+    "polycount_presets": {
+      "3K_Mobile": 3000,
+      "10K_TacticalBoard": 8064,
+      "30K_CutInHero": 30000,
+      "100K_Cinematic": 100000
+    },
+    "pbr_channels": [
+      "albedo_delighted_4k",
+      "normal_nirne_1k",
+      "metallic_4k",
+      "roughness_4k",
+      "ao_cavity_4k",
+      "specular_foil_4k"
+    ],
+    "export_formats": [
+      ".glb",
+      ".q3gs",
+      ".obj",
+      ".fbx",
+      ".usdz"
+    ],
+    "subscription_tiers": [
+      "Free_Atelier_Trial",
+      "Pro_Creator_SaaS",
+      "Sovereign_Studio_Enterprise"
+    ],
+    "api_endpoints": [
+      "/api/v1/hi3d/capabilities",
+      "/api/v1/task/create",
+      "/api/v1/task/status",
+      "/api/v1/hi3d/image-to-3d",
+      "/api/v1/hi3d/text-to-3d",
+      "/api/v1/hi3d/multiview-to-3d",
+      "/api/v1/hi3d/retopology",
+      "/api/v1/hi3d/pbr-delight",
+      "/api/v1/hi3d/auto-rig"
+    ]
+  },
+  "sample_hi3d_rosa_bp05_task": {
+    "task_id": "hi3d_1c620a487f5e",
+    "status": "SUCCEEDED",
+    "service": "https://lumenforge.io (Hi3D.ai Sovereign 5-Stage Pipeline v2.0)",
+    "timestamp_utc": "2026-11-10T03:52:34Z",
+    "mode": "image_to_3d",
+    "card_id": "bp05_110_rosa",
+    "card_number": "BP05-110 SR",
+    "original_title": "機構翼の少女・ローザ(進化前)",
+    "model_id": "cf_02_mech_knight",
+    "source_image_path": "GeneratedArt/EvolveMechWingMaidens/ev_01_base_rosalia_mech_wing_maiden.png",
+    "multiview_paths": [
+      "GeneratedArt/EvolveMechWingMaidens/ev_01_base_rosalia_mech_wing_maiden.png"
+    ],
+    "prompt": "Stylized 7.0-head anime mecha/heroine 機構翼の少女・ローザ(進化前) (BP05-110 SR), beveled cyber-magicite filigree, watertight genus-0 miniature",
+    "glb_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_02_mech_knight.glb",
+    "glb_bytes": 400496,
+    "glb_sha256": "2cd8933a1e89f72e055abbda96195e4858eed18eca2453986f171d2010e572a9",
+    "q3gs_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Assets/Resources/Models3D/cf_02_mech_knight.q3gs",
+    "q3gs_bytes": 92814,
+    "q3gs_sha256": "05e2a0e6751c41e2c3abdd0b95587f6373be8b1f4c293fb7dbe41feec43bddd1",
+    "topology": {
+      "model_id": "cf_02_mech_knight",
+      "target_preset": "10K_TacticalBoard",
+      "mesh_mode": "quad",
+      "vertices": 4034,
+      "edges": 12096,
+      "faces": 8064,
+      "euler_characteristic": 2,
+      "watertight_genus0": true,
+      "quad_ratio": 0.96
+    },
+    "pbr_maps": {
+      "model_id": "cf_02_mech_knight",
+      "resolution": "4096x4096",
+      "albedo_delighted_4k": "Assets/Resources/Models3D/PBR/cf_02_mech_knight_albedo_delighted_4k.png",
+      "normal_nirne_1k": "Assets/Resources/Models3D/PBR/cf_02_mech_knight_normal_nirne_1k.png",
+      "metallic_4k": "Assets/Resources/Models3D/PBR/cf_02_mech_knight_metallic_4k.png",
+      "roughness_4k": "Assets/Resources/Models3D/PBR/cf_02_mech_knight_roughness_4k.png",
+      "ao_cavity_4k": "Assets/Resources/Models3D/PBR/cf_02_mech_knight_ao_cavity_4k.png",
+      "specular_foil_4k": "Assets/Resources/Models3D/PBR/cf_02_mech_knight_specular_foil_4k.png",
+      "shadow_removal_score": 0.992
+    },
+    "rig_skeleton": {
+      "model_id": "cf_02_mech_knight",
+      "rig_preset": "22_bone_humanoid_wing_mecha",
+      "bone_count": 22,
+      "root_bone": "Hips_Root",
+      "wing_chain_bones": [
+        "Wing_L_Root",
+        "Wing_L_Mid",
+        "Wing_L_Tip",
+        "Wing_R_Root",
+        "Wing_R_Mid",
+        "Wing_R_Tip"
+      ],
+      "omega_strikers_sakuga_clips": [
+        {
+          "clip_id": "sakuga_01_idle_poise",
+          "fps": 12,
+          "frames": 8,
+          "interpolation": "Stepped_Constant_2s_3s"
+        },
+        {
+          "clip_id": "sakuga_02_core_strike_smear",
+          "fps": 15,
+          "frames": 6,
+          "interpolation": "Stepped_Smear_ImpactFrame"
+        },
+        {
+          "clip_id": "sakuga_03_cantilever_overhang_slam",
+          "fps": 15,
+          "frames": 10,
+          "interpolation": "Stepped_45Pct_Overhang_Clack"
+        },
+        {
+          "clip_id": "sakuga_04_itb_push_bump_recoil",
+          "fps": 12,
+          "frames": 6,
+          "interpolation": "Stepped_Hitstop_3Frames"
+        },
+        {
+          "clip_id": "sakuga_05_aw_co_power_burst",
+          "fps": 24,
+          "frames": 12,
+          "interpolation": "EyesFlash_Speedline_CutIn"
+        }
+      ],
+      "bound_cfanim_clips": [
+        "idle_breathe_25d",
+        "deploy_orbital_slam",
+        "directional_clash_lunge",
+        "capture_flip_180",
+        "tactical_slide_bank",
+        "column_die_nudge_surge",
+        "sakuga_impact_flash_2f",
+        "boss_telegraph_pulse"
+      ],
+      "staccs_socket_bound": true
+    },
+    "exports": [
+      ".glb",
+      ".q3gs",
+      ".obj",
+      ".fbx",
+      ".usdz"
     ]
   },
   "hi3d_3d_studio_catalog": {
@@ -4754,7 +4913,7 @@
   },
   "rea_reverse_engineering_hub": {
     "hub_id": "lumenforge_morluto_rea_workbench_v1",
-    "rea_version": "rea@6.8.0 (morluto/rea \u2014 https://rea.tools)",
+    "rea_version": "rea@6.8.0 (morluto/rea — https://rea.tools)",
     "morluto_rea_domains_count": 51,
     "morluto_rea_domains": [
       "adb",
@@ -4921,8 +5080,8 @@
     }
   },
   "latest_training_epoch_run": {
-    "run_id": "lumenforge_train_1794280325",
-    "timestamp_utc": "2026-11-10T03:12:05Z",
+    "run_id": "lumenforge_train_1794282754",
+    "timestamp_utc": "2026-11-10T03:52:34Z",
     "pool_id": "lumenforge-sovereign-pool",
     "student_model": "pxg-lumenforge:1.5b-qlora",
     "teacher_model": "pxg-lumenforge:30b-a3b",

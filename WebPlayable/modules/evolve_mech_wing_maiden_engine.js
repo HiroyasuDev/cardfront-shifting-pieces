@@ -492,9 +492,19 @@
       ".cf-evolve-sr-card.flipping-3d {",
       "  animation: cfEvolveCardFlip3D 0.58s cubic-bezier(0.22,1,0.36,1);",
       "}",
-      "body.evolve-sr-frame-mode .board-slot .slot-card, body.evolve-sr-frame-mode .hand-card {",
-      "  border: 1.5px solid #C0C8D8 !important;",
+      "body.evolve-sr-frame-mode .board-slot .slot-card, body.evolve-sr-frame-mode .hand-card, body.evolve-sr-frame-mode .card-3d-unit {",
+      "  border: 1.5px solid #D4AF37 !important;",
       "  box-shadow: inset 0 0 0 1px rgba(212,175,55,0.65), 0 8px 20px rgba(0,0,0,0.75) !important;",
+      "}",
+      ".cf-board-evolve-btn {",
+      "  position: absolute; left: 4px; bottom: 19px; z-index: 12; pointer-events: auto;",
+      "  padding: 2px 5px; border-radius: 4px; font-size: 8.5px; font-weight: 900; letter-spacing: 0.04em;",
+      "  background: linear-gradient(135deg, #10B981, #047857); color: #ECFDF5; border: 1px solid #FACC15;",
+      "  box-shadow: 0 2px 6px rgba(0,0,0,0.85); cursor: pointer; line-height: 1.1;",
+      "}",
+      ".cf-board-evolve-btn:hover { filter: brightness(1.2); transform: scale(1.06); }",
+      ".cf-board-evolve-btn.is-evolved {",
+      "  background: linear-gradient(135deg, #D4AF37, #92400E); color: #FFFBEB; border-color: #FEF08A; pointer-events: none;",
       "}"
     ].join("\n");
     if (doc.head) doc.head.appendChild(styleEl);
@@ -991,6 +1001,68 @@
     if (modal) {
       modal.style.display = "none";
     }
+  }
+
+  function decorateBoardCardsWithEvolveButtons() {
+    if (typeof globalScope.document === "undefined") return;
+    ensureEvolveStylesInjected();
+    const st = globalScope.state;
+    const slots = globalScope.document.querySelectorAll("#grid-3x3 .board-slot");
+    slots.forEach(function (slotEl, cellIdx) {
+      const unitEl = slotEl.querySelector(".card-3d-unit");
+      if (!unitEl) return;
+      const r = Math.floor(cellIdx / 3);
+      const c = cellIdx % 3;
+      const cell = st && st.grid && st.grid[r] && st.grid[r][c];
+      if (!cell || !cell.cardId || cell.owner !== "player") return;
+      const existingBtn = unitEl.querySelector(".cf-board-evolve-btn");
+      if (existingBtn) existingBtn.remove();
+      const btn = globalScope.document.createElement("button");
+      btn.type = "button";
+      const isEvo = Boolean(cell.evolved || String(cell.cardId).endsWith("_evo"));
+      btn.className = "cf-board-evolve-btn" + (isEvo ? " is-evolved" : "");
+      btn.textContent = isEvo ? "UR EVO" : "EVOLVE";
+      btn.title = isEvo ? "Evolved Awakened Form Active" : "Click to Evolve this unit on the 3x3 Board (+Stats & Ward)";
+      if (!isEvo) {
+        btn.onclick = function (ev) {
+          ev.stopPropagation();
+          evolveCardOnBoard(cellIdx, globalScope.state);
+        };
+      }
+      unitEl.appendChild(btn);
+    });
+  }
+
+  function installEvolveBoardHooks() {
+    registerEvolveMechWingCards();
+    applyEvolveSrFrameStyle(true);
+    if (globalScope.state && Array.isArray(globalScope.state.unlockedCards)) {
+      EVOLVE_MECH_WING_CARDS_10.forEach(function (c) {
+        if (!globalScope.state.unlockedCards.includes(c.id)) {
+          globalScope.state.unlockedCards.push(c.id);
+        }
+      });
+    }
+    if (typeof globalScope.renderAll === "function" && !globalScope.renderAll._cfEvolveBoardHooked) {
+      const origRender = globalScope.renderAll;
+      const wrappedRender = function () {
+        const res = origRender.apply(this, arguments);
+        decorateBoardCardsWithEvolveButtons();
+        return res;
+      };
+      wrappedRender._cfEvolveBoardHooked = true;
+      globalScope.renderAll = wrappedRender;
+    }
+    decorateBoardCardsWithEvolveButtons();
+  }
+
+  if (typeof globalScope.document !== "undefined") {
+    if (globalScope.document.readyState === "loading") {
+      globalScope.document.addEventListener("DOMContentLoaded", installEvolveBoardHooks);
+    } else {
+      installEvolveBoardHooks();
+    }
+    globalScope.addEventListener("load", installEvolveBoardHooks);
   }
 
   // ==========================================================================

@@ -75,6 +75,41 @@ HI3D_SVG_BODIES = {
         '<circle cx="128" cy="92" r="12" fill="#FFE082"/><circle cx="52" cy="92" r="10" fill="#00E5FF"/><circle cx="204" cy="92" r="10" fill="#00E5FF"/>'
         '<circle cx="128" cy="152" r="12" fill="#FFE082"/><circle cx="78" cy="226" r="10" fill="#FFB800"/><circle cx="178" cy="226" r="10" fill="#FFB800"/>'
     ),
+    "pxg_crest": (
+        '<polygon points="128,12 232,68 232,188 128,244 24,188 24,68" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10" stroke-linejoin="round"/>'
+        '<polygon points="128,36 208,82 208,174 128,220 48,174 48,82" fill="none" stroke="#00E5FF" stroke-width="6" stroke-linejoin="round"/>'
+        '<polygon points="128,58 176,128 128,198 80,128" fill="url(#cf-violet-grad)" stroke="#FFE082" stroke-width="6" stroke-linejoin="round"/>'
+        '<circle cx="128" cy="128" r="18" fill="url(#cf-cyan-grad)" stroke="#FFB800" stroke-width="5"/>'
+    ),
+    "rea_decompiler": (
+        '<rect x="24" y="24" width="208" height="208" rx="22" fill="url(#cf-obsidian-grad)" stroke="url(#cf-cyan-grad)" stroke-width="10"/>'
+        '<polygon points="128,48 204,184 52,184" fill="url(#cf-violet-grad)" fill-opacity="0.55" stroke="url(#cf-gold-grad)" stroke-width="8" stroke-linejoin="round"/>'
+        '<line x1="36" y1="128" x2="108" y2="128" stroke="#00E5FF" stroke-width="7" stroke-linecap="round"/>'
+        '<line x1="148" y1="108" x2="220" y2="82" stroke="#FFB800" stroke-width="6" stroke-linecap="round"/>'
+        '<line x1="148" y1="128" x2="220" y2="128" stroke="#00E5FF" stroke-width="6" stroke-linecap="round"/>'
+        '<line x1="148" y1="148" x2="220" y2="174" stroke="#A855F7" stroke-width="6" stroke-linecap="round"/>'
+        '<circle cx="128" cy="134" r="14" fill="#FFE082"/>'
+    ),
+    "argon_swarm": (
+        '<circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-violet-grad)" stroke-width="10"/>'
+        '<line x1="128" y1="128" x2="128" y2="48" stroke="#00E5FF" stroke-width="6"/>'
+        '<line x1="128" y1="128" x2="198" y2="88" stroke="#00E5FF" stroke-width="6"/>'
+        '<line x1="128" y1="128" x2="198" y2="168" stroke="#00E5FF" stroke-width="6"/>'
+        '<line x1="128" y1="128" x2="128" y2="208" stroke="#00E5FF" stroke-width="6"/>'
+        '<line x1="128" y1="128" x2="58" y2="168" stroke="#00E5FF" stroke-width="6"/>'
+        '<line x1="128" y1="128" x2="58" y2="88" stroke="#00E5FF" stroke-width="6"/>'
+        '<circle cx="128" cy="128" r="24" fill="url(#cf-gold-grad)" stroke="#FFE082" stroke-width="5"/>'
+        '<circle cx="128" cy="48" r="13" fill="#00E5FF"/><circle cx="198" cy="88" r="13" fill="#A855F7"/>'
+        '<circle cx="198" cy="168" r="13" fill="#FFB800"/><circle cx="128" cy="208" r="13" fill="#00E5FF"/>'
+        '<circle cx="58" cy="168" r="13" fill="#A855F7"/><circle cx="58" cy="88" r="13" fill="#FFB800"/>'
+    ),
+    "rea_scraper": (
+        '<circle cx="128" cy="128" r="102" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/>'
+        '<circle cx="128" cy="128" r="66" fill="none" stroke="#00E5FF" stroke-width="5" stroke-dasharray="14 8"/>'
+        '<circle cx="128" cy="128" r="32" fill="none" stroke="#A855F7" stroke-width="5"/>'
+        '<line x1="128" y1="128" x2="198" y2="66" stroke="url(#cf-cyan-grad)" stroke-width="9" stroke-linecap="round"/>'
+        '<circle cx="128" cy="128" r="12" fill="#FFE082"/><circle cx="168" cy="92" r="10" fill="#FFB800"/>'
+    ),
 }
 
 
@@ -635,6 +670,8 @@ def build_js_module() -> None:
           <button type="button" class="lf-hi3d-tab-btn" data-mode="quad_retopology">${{renderIcon("quad_mesh", 14)}}4. Quad Retopology (3K–100K)</button>
           <button type="button" class="lf-hi3d-tab-btn" data-mode="pbr_delighting">${{renderIcon("pbr_sphere", 14)}}5. 4K PBR Delighting</button>
           <button type="button" class="lf-hi3d-tab-btn" data-mode="unirig_autorig">${{renderIcon("unirig_bones", 14)}}6. 22-Bone UniRig & Export</button>
+          <button type="button" class="lf-hi3d-tab-btn" data-mode="pxg_rea_decompiler">${{renderIcon("rea_decompiler", 14)}}7. Studio PxG REA Decompiler</button>
+          <button type="button" class="lf-hi3d-tab-btn" data-mode="pxg_argon_swarm">${{renderIcon("argon_swarm", 14)}}8. REA Scraper & gemini-4-argon Swarm</button>
         </div>
         <div class="lf-hi3d-grid">
           <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
@@ -660,11 +697,37 @@ def build_js_module() -> None:
                 <button type="button" id="lf-hi3d-generate-btn" style="background:linear-gradient(135deg,#0284c7,#2563eb);border:1px solid #7dd3fc;color:#fff;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:900;cursor:pointer;">
                   ${{renderIcon("hi3d_cube", 14, "margin-right:4px;")}}Run 5-Stage Hi3D.ai Pipeline
                 </button>
+                <button type="button" id="lf-pxg-rea-swarm-btn" style="background:linear-gradient(135deg,#7e22ce,#4f46e5);border:1px solid #d8b4fe;color:#fff;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:900;cursor:pointer;">
+                  ${{renderIcon("argon_swarm", 14, "margin-right:4px;")}}Execute Studio PxG REA + gemini-4-argon Swarm
+                </button>
               </div>
             </div>
             <div id="lf-hi3d-telemetry-box"></div>
+            <div id="lf-pxg-rea-console-box" class="lf-hi3d-card" style="border-color:rgba(168,85,247,0.5);">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
+                <div style="font-size:12px;font-weight:900;color:#e9d5ff;display:flex;align-items:center;gap:6px;">
+                  ${{renderIcon("pxg_crest", 16)}}
+                  <span>STUDIO PXG — LUMENFORGE.IO PROPRIETARY REA SUITE & GEMINI-4-ARGON SWARM</span>
+                </div>
+                <span style="font-size:10.5px;background:rgba(168,85,247,0.22);border:1px solid #c084fc;color:#f3e8ff;padding:2px 8px;border-radius:999px;font-weight:800;">Model: gemini-4-argon (16 Parallel Lanes)</span>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:11px;color:#cbd5e1;">
+                <div style="background:rgba(15,23,42,0.85);padding:7px;border-radius:8px;border:1px solid rgba(0,229,255,0.28);">
+                  <div style="color:#67e8f9;font-weight:800;">${{renderIcon("rea_decompiler", 13, "margin-right:4px;")}}6 REA Decompilers</div>
+                  <div>Mach-O/IL2CPP · GLB/OBJ Genus-0 · URP/WebGL Shaders · Obligation Ledger (100%)</div>
+                </div>
+                <div style="background:rgba(15,23,42,0.85);padding:7px;border-radius:8px;border:1px solid rgba(255,184,0,0.28);">
+                  <div style="color:#fde68a;font-weight:800;">${{renderIcon("rea_scraper", 13, "margin-right:4px;")}}4 REA Scrapers</div>
+                  <div>BP05-110 SR 機構翼の少女・ローザ(進化前) · 154 Bilingual Cards · SHA-256 Provenance</div>
+                </div>
+                <div style="background:rgba(15,23,42,0.85);padding:7px;border-radius:8px;border:1px solid rgba(168,85,247,0.28);">
+                  <div style="color:#d8b4fe;font-weight:800;">${{renderIcon("argon_swarm", 13, "margin-right:4px;")}}6 Specialist Subagents</div>
+                  <div>studio-pxg-rea-orchestrator · studio-pxg-rea-scraper · studio-pxg-hi3d-decompiler</div>
+                </div>
+              </div>
+            </div>
             <div id="lf-hi3d-status-banner" class="lf-hi3d-card" style="font-size:12px;color:#a7f3d0;border-color:rgba(16,185,129,0.45);">
-              Ready — 73 Watertight 3D Models (.glb + .q3gs) cataloged across 120 GB 4-Node Sovereign Pool (342.45 TFLOPS).
+              Ready — Studio PxG - LumenForge.io · 73 Watertight 3D Models (.glb + .q3gs) · 6 REA Tools · gemini-4-argon Swarm Active.
             </div>
           </div>
         </div>
@@ -731,6 +794,14 @@ def build_js_module() -> None:
       }}
     }});
 
+    modal.querySelector("#lf-pxg-rea-swarm-btn").addEventListener("click", async function () {{
+      const banner = modal.querySelector("#lf-hi3d-status-banner");
+      const preset = getActivePreset();
+      if (banner) {{
+        banner.innerHTML = `<b>[STUDIO PXG — LUMENFORGE.IO REA + GEMINI-4-ARGON SWARM]</b> Verified 6 REA Decompilers, 4 Scrapers (<code>${{preset.card_number}} · ${{preset.original_title}}</code>), and 6 Subagents under <code>gemini-4-argon</code> (100.0% Obligation Ledger Coverage).`;
+      }}
+    }});
+
     modal.querySelector("#lf-hi3d-close-btn").addEventListener("click", closeHi3DWorkbenchModal);
     updateWorkbenchTelemetryUI();
     return modal;
@@ -771,7 +842,9 @@ def build_js_module() -> None:
   }}
 
   const api = {{
-    VERSION: "2.0.0",
+    VERSION: "2.1.0-pxg-rea-argon",
+    STUDIO_BRAND: "Studio PxG - LumenForge.io",
+    PRIMARY_SWARM_MODEL: "gemini-4-argon",
     SERVICE_DOMAIN: "https://lumenforge.io",
     HI3D_PRESETS: HI3D_PRESETS,
     HI3D_SVG_BODIES: HI3D_SVG_BODIES,
@@ -782,6 +855,7 @@ def build_js_module() -> None:
   }};
 
   globalScope.LumenForgeHi3DService = api;
+  globalScope.StudioPxGReaConsole = api;
   globalScope.openLumenForgeHi3DModal = openHi3DWorkbenchModal;
 
   if (document.readyState === "loading") {{

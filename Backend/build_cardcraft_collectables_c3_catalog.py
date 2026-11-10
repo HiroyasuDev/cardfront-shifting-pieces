@@ -957,7 +957,8 @@ def main():
         out_p = OUT_ART_DIR / fname
         render_c3_dual_bromide_sheet(catalog[cid], out_p)
         rendered_sheets.append(str(out_p.relative_to(ROOT)))
-        shutil.copy2(out_p, OUT_ROOT_ART_DIR / fname)
+        if out_p.resolve() != (OUT_ROOT_ART_DIR / fname).resolve():
+            shutil.copy2(out_p, OUT_ROOT_ART_DIR / fname)
         if ARTIFACT_DIR.exists():
             shutil.copy2(out_p, ARTIFACT_DIR / fname)
 

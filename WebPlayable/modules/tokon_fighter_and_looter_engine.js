@@ -709,10 +709,12 @@
           transform: skewX(-10deg);
           box-shadow: 0 6px 18px rgba(0,0,0,0.82);
           text-align: right;
+          display: none;
           opacity: 0;
           transition: opacity 0.18s ease, transform 0.18s ease;
         }
         .tokon-combo-badge.visible {
+          display: block;
           opacity: 1;
           transform: skewX(-10deg) scale(1.02);
         }
@@ -724,11 +726,13 @@
           box-shadow: 0 6px 18px rgba(0,0,0,0.85);
           font-size: 12px;
           color: #F8FAFC;
+          display: none;
           opacity: 0;
           transition: opacity 0.2s ease;
           max-width: 260px;
         }
         .tokon-loot-drop-toast.visible {
+          display: block;
           opacity: 1;
         }
       `;
@@ -1059,8 +1063,8 @@
       updateTokonHudPill();
     }
 
-    // Add a clean "Tokon Cut-In & Loot" button inside #dev-camera-drawer if present
-    const drawer = typeof document !== "undefined" ? document.getElementById("dev-camera-drawer") : null;
+    // Add a clean "Tokon Cut-In & Loot" button inside #dev-engineering-tools-tray (or #dev-camera-drawer fallback)
+    const drawer = typeof document !== "undefined" ? (document.getElementById("dev-engineering-tools-tray") || document.getElementById("dev-camera-drawer")) : null;
     if (drawer && !document.getElementById("drawer-tokon-looter-btn")) {
       const btn = document.createElement("button");
       btn.id = "drawer-tokon-looter-btn";

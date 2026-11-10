@@ -112,6 +112,7 @@
       artUrl,
       web_art_url: artUrl,
       dual_bromide_sheet: sheetRel,
+      dualBromideSheet: sheetRel,
       bromideSheetUrl: sheetUrl,
       loreStory: raw.loreStory || raw.lore_story || "",
       lore_story: raw.lore_story || raw.loreStory || "",
@@ -1296,7 +1297,9 @@
     bindCardInspectContextHandlers();
 
     const drawer =
-      typeof document !== "undefined" ? document.getElementById("dev-camera-drawer") : null;
+      typeof document !== "undefined"
+        ? (document.getElementById("dev-engineering-tools-tray") || document.getElementById("dev-camera-drawer"))
+        : null;
     if (drawer && !document.getElementById("drawer-c3-collectables-btn")) {
       const btn = document.createElement("button");
       btn.id = "drawer-c3-collectables-btn";

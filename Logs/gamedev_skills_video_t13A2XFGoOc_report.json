@@ -1,13 +1,13 @@
 {
   "latest_iteration": {
-    "iteration": 423,
-    "timestamp_utc": "2026-11-10T03:12:01Z",
+    "iteration": 438,
+    "timestamp_utc": "2026-11-10T03:52:30Z",
     "video_id": "t13A2XFGoOc",
     "target_model": "gemini-4-argon",
     "active_track": {
-      "track_id": "track_05_save_and_audio",
-      "focus": "Deterministic Save Systems, Seeded Replay RNG & Adaptive Audio Ducking",
-      "prompt": "Implement deterministic save slots with version migration and adaptive audio mixer ducking for our Unity card game"
+      "track_id": "track_04_shaders_and_camera",
+      "focus": "URP Halftone Cel Shader Programming, Camera Orbit Framing & Screen Shake",
+      "prompt": "Tune Unity fragment shader dissolve outline, camera follow orbit framing, and game feel hit-stop juice for a card game"
     },
     "routed_skill_stack": {
       "primary_web_engine": "Custom HTML5/CSS3/JS Tabletop Engine",
@@ -16,8 +16,9 @@
       "selected_skill_names": [
         "unity-scriptableobjects",
         "unity-csharp-scripting",
-        "save-systems",
-        "audio-design",
+        "game-feel",
+        "shader-programming",
+        "camera-systems",
         "card-game"
       ],
       "skill_stack_order": "Engine Fundamentals -> Discipline(s) -> Genre -> Workflow",
@@ -26,11 +27,12 @@
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/router/references/custom-engines.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-scriptableobjects/SKILL.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/unity/unity-csharp-scripting/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/save-systems/SKILL.md",
-        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/audio-design/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/game-feel/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/shader-programming/SKILL.md",
+        "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/camera-systems/SKILL.md",
         "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/genres/card-game/SKILL.md"
       ],
-      "composed_system_prompt_chars": 32441
+      "composed_system_prompt_chars": 31336
     },
     "primary_tcg_stack": {
       "selected_skill_names": [
@@ -44,12 +46,12 @@
     "grounded_verification_summary": {
       "drag_e2e_passed": true,
       "autotest_e2e_passed": true,
-      "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
-      "total_checks": 178,
-      "passed_checks": 173,
-      "failed_checks": 5,
-      "pass_rate_pct": 97.2,
-      "p0_failures": 5,
+      "autotest_title": "TEST_COMPLETE:7-2:SINGLETON=true:IMG=true",
+      "total_checks": 181,
+      "passed_checks": 179,
+      "failed_checks": 2,
+      "pass_rate_pct": 98.9,
+      "p0_failures": 0,
       "p1_failures": 0,
       "check_sources_loaded": [
         "Tools/skill_harness/core_checks.json",
@@ -145,7 +147,6 @@
         "core.next_gen_tabletop.06",
         "core.next_gen_tabletop.07",
         "core.next_gen_tabletop.08",
-        "core.next_gen_tabletop.09",
         "core.next_gen_tabletop.10",
         "core.next_gen_tabletop.11",
         "core.next_gen_tabletop.12",
@@ -164,7 +165,13 @@
         "core.production_upgrades.12",
         "core.production_upgrades.13",
         "core.production_upgrades.14",
+        "core.production_upgrades.15",
         "core.production_upgrades.16",
+        "core.production_upgrades.17",
+        "core.production_upgrades.18",
+        "core.production_upgrades.19",
+        "core.production_upgrades.20",
+        "core.production_upgrades.21",
         "core.release_pkg.01",
         "core.sakuga_v100.01",
         "core.sakuga_v100.02",
@@ -210,10 +217,11 @@
         "core.unity6_tcg_rea_baseline.20",
         "core.unity6_tcg_rea_baseline.21",
         "core.unity6_tcg_rea_baseline.22",
+        "core.unity6_tcg_rea_baseline.23",
+        "core.unity6_tcg_rea_baseline.24",
         "core.unity_so.01",
         "core.unity_so.02",
         "feel_audio_camera_perf.1",
-        "feel_audio_camera_perf.10",
         "feel_audio_camera_perf.11",
         "feel_audio_camera_perf.12",
         "feel_audio_camera_perf.13",
@@ -234,14 +242,11 @@
         "feel_audio_camera_perf.9"
       ],
       "failed_check_ids": [
-        "core.production_upgrades.15",
-        "core.production_upgrades.17",
-        "core.production_upgrades.18",
-        "core.production_upgrades.19",
-        "core.unity6_tcg_rea_baseline.23"
+        "core.next_gen_tabletop.09",
+        "feel_audio_camera_perf.10"
       ]
     },
-    "gate_status": "FAIL_P0_BLOCKERS",
+    "gate_status": "PASS_E2E_WITH_SKILL_BACKLOG",
     "quality_gates": {
       "all_gates_passed": true,
       "card_game_invariants": {
@@ -273,15 +278,11 @@
       },
       "disciplines/game-ui-ux": {
         "skill": "disciplines/game-ui-ux",
-        "total": 27,
-        "passed": 24,
-        "failed": 3,
-        "pass_rate": 88.9,
-        "failed_ids": [
-          "core.production_upgrades.15",
-          "core.production_upgrades.17",
-          "core.production_upgrades.19"
-        ]
+        "total": 28,
+        "passed": 28,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
       },
       "disciplines/create-game-assets": {
         "skill": "disciplines/create-game-assets",
@@ -310,10 +311,13 @@
       "disciplines/audio-design": {
         "skill": "disciplines/audio-design",
         "total": 6,
-        "passed": 6,
-        "failed": 0,
-        "pass_rate": 100.0,
-        "failed_ids": []
+        "passed": 4,
+        "failed": 2,
+        "pass_rate": 66.7,
+        "failed_ids": [
+          "core.next_gen_tabletop.09",
+          "feel_audio_camera_perf.10"
+        ]
       },
       "disciplines/save-systems": {
         "skill": "disciplines/save-systems",
@@ -429,14 +433,11 @@
       },
       "tcg-creative-game-designer": {
         "skill": "tcg-creative-game-designer",
-        "total": 7,
-        "passed": 5,
-        "failed": 2,
-        "pass_rate": 71.4,
-        "failed_ids": [
-          "core.unity6_tcg_rea_baseline.23",
-          "core.production_upgrades.18"
-        ]
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
       },
       "mlx-apple-silicon": {
         "skill": "mlx-apple-silicon",
@@ -464,6 +465,14 @@
       },
       "workflow/ship-to-steam-and-itch": {
         "skill": "workflow/ship-to-steam-and-itch",
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
+      "parallel-orchestration": {
+        "skill": "parallel-orchestration",
         "total": 1,
         "passed": 1,
         "failed": 0,
@@ -514,68 +523,29 @@
     "prioritized_backlog": [
       {
         "rank": 1,
-        "priority": "P0",
-        "check_id": "core.production_upgrades.15",
-        "skill": "disciplines/game-ui-ux",
-        "skill_source": "WebPlayable/modules/studio_pxg_atomic_director.js:1",
-        "target": "both",
-        "code_ref": "WebPlayable/modules/studio_pxg_atomic_director.js:1-340",
-        "rule": "Live In-Game Studio PxG Atomic Animation & Film-Shot Director (window.StudioPxGAtomicDirector, 24 Atomic Primitives, 8 Original Studio PxG AAA Strikers pxg_s01..pxg_s08, 14mm Fisheye & 2-Frame Monochrome Stencil Impact Shots, #studio-pxg-atomic-modal, & Unity 6 C# Parity).",
+        "priority": "P2",
+        "check_id": "core.next_gen_tabletop.09",
+        "skill": "disciplines/audio-design",
+        "skill_source": "skills/disciplines/audio-design/SKILL.md:52",
+        "target": "web",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html:2482-2525",
+        "rule": "Dynamic Boss Phase Stinger & BGM Low-Pass Filter Tension: ProceduralBgm.updateTensionState(imminentTelegraph, openSlotsCount) shifts filter cutoff from 920 Hz to 1680 Hz under high board tension.",
         "observed": false,
         "expected": "true",
-        "remediation": "Wire WebPlayable/modules/studio_pxg_atomic_director.js and #studio-pxg-atomic-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+        "remediation": "Implement ProceduralBgm.updateTensionState(imminentTelegraph, openSlotsCount) modulating cutoffHz between 920 and 1680."
       },
       {
         "rank": 2,
-        "priority": "P0",
-        "check_id": "core.production_upgrades.17",
-        "skill": "disciplines/game-ui-ux",
-        "skill_source": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1",
-        "target": "both",
-        "code_ref": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1-360",
-        "rule": "Live In-Game 10-Year Saga Franchise Hub, 20-Set Rotation & Power-Creep Governor, and SBX00 Cluster Vault Inspector (window.CardFrontSaga10YearFranchise, 3 Eras, 20 Expansion Sets, 6 Era Herald Cards saga_y01..saga_y10, #saga-10year-franchise-modal, /api/saga/sbx00-status, & Unity 6 C# Parity).",
-        "observed": false,
-        "expected": "true",
-        "remediation": "Wire WebPlayable/modules/saga_10year_franchise_and_sbx00.js and #saga-10year-franchise-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
-      },
-      {
-        "rank": 3,
-        "priority": "P0",
-        "check_id": "core.production_upgrades.18",
-        "skill": "tcg-creative-game-designer",
-        "skill_source": "WebPlayable/modules/evolve_mech_wing_maiden_engine.js:1",
-        "target": "both",
-        "code_ref": "WebPlayable/modules/evolve_mech_wing_maiden_engine.js:1-360",
-        "rule": "Shadowverse-EVOLVE BP05-110 SR School Mech-Wing Maiden & Chrono-Seraph Collection (5 Paired Base SR \u9032\u5316\u524d & Awakened Evolved UR \u9032\u5316\u5f8c Forms = 10 600x800 RTX 4080 Portraits, V100-32GB LoRA evolve_mech_wing_maiden_sr_v1_lora.safetensors, Luxury Gunmetal-Filigree SR/UR Frame Renderer, Live evolveCardOnBoard 3x3 Transformation, & SBX00 141-Card Sync).",
-        "observed": false,
-        "expected": "true",
-        "remediation": "Wire WebPlayable/modules/evolve_mech_wing_maiden_engine.js and #evolve-maiden-studio-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
-      },
-      {
-        "rank": 4,
-        "priority": "P0",
-        "check_id": "core.production_upgrades.19",
-        "skill": "disciplines/game-ui-ux",
-        "skill_source": "WebPlayable/modules/dice3d_and_ffta_chibi_units.js:1",
-        "target": "both",
-        "code_ref": "WebPlayable/modules/dice3d_and_ffta_chibi_units.js:1-360",
-        "rule": "High-Detail 3D Polyhedral Game Dice (12 3D Dice Assets: D6 Faces 1-6, D8, D12, D20 & 8-Frame Tumbling Roll Strips), 4-Layer 2.5D/3D Extruded Parallax Card Slabs, and 24/141 Unique Attached Final Fantasy Tactics Advance (FFTA) Isometric Pixel-Art Chibi Character Units (window.CardFrontDice3DAndChibiUnits, roll3DColumnDie, getUniqueChibiForCard, & #dice3d-ffta-chibi-modal).",
-        "observed": false,
-        "expected": "true",
-        "remediation": "Wire WebPlayable/modules/dice3d_and_ffta_chibi_units.js and #dice3d-ffta-chibi-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
-      },
-      {
-        "rank": 5,
-        "priority": "P0",
-        "check_id": "core.unity6_tcg_rea_baseline.23",
-        "skill": "tcg-creative-game-designer",
-        "skill_source": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1",
-        "target": "both",
-        "code_ref": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1-460",
-        "rule": "CardCraftCollectables (C\u00b3) Dual-Sided Character Bromide, Studio PxG Signature Crest, Lore Chronicle & Variations Metadata (141 Playable Cards, Left Full-Body Composition with Vertical Name & Studio PxG Crest, Right Blueprint Profile with \u6a5f\u69cb\u7ffc\u306e\u5c11\u5973\u30fb\u30ed\u30fc\u30b6(\u9032\u5316\u524d) / Shadowverse EVOLVE / [BP05] Eternal omens / \u30d6\u30fc\u30b9\u30bf\u30fc\u30d1\u30c3\u30af\u7b2c5\u5f3e \u6c38\u52ab\u306a\u308b\u7d76\u5091 / BP05-110 SR & BP05-P50 Premium SR spec: Foil).",
-        "observed": false,
-        "expected": "true",
-        "remediation": "Wire WebPlayable/modules/cardcraft_collectables_c3_engine.js and GetCardCraftCollectableC3Metadata in CardFrontUnifiedRuntime.cs."
+        "priority": "P2",
+        "check_id": "feel_audio_camera_perf.10",
+        "skill": "disciplines/audio-design",
+        "skill_source": "/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/audio-design/SKILL.md:48-49, 114-130",
+        "target": "web",
+        "code_ref": "WebPlayable/cardfront_cradle_of_echoes_playable.html",
+        "rule": "SFX variation: repeated UI/card sound effects should apply small random pitch/volume offsets to avoid robotic repetition",
+        "observed": 0,
+        "expected": ">=1 match",
+        "remediation": "Satisfy disciplines/audio-design rule (/Users/frederickamina/.prime/agent/harness/gamedev_skills/skills/disciplines/audio-design/SKILL.md:48-49, 114-130): expected >=1 match in WebPlayable/cardfront_cradle_of_echoes_playable.html."
       }
     ],
     "mirofish_telemetry": {
@@ -724,7 +694,7 @@
       "upstream_gamedev_skills_count": 77,
       "custom_synapse_skills_count": 15
     },
-    "elapsed_ms": 27315.94
+    "elapsed_ms": 37373.71
   },
   "video_and_catalog": {
     "video_analysis": {

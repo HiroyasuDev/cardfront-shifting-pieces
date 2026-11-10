@@ -1,6 +1,6 @@
 {
   "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-  "timestamp": "2026-11-10T03:16:02.336Z",
+  "timestamp": "2026-11-10T03:57:04.571Z",
   "steps": [
     {
       "step": "Initial Stage Load",
@@ -37,15 +37,15 @@
     {
       "step": "Turn 2 Deploy",
       "cardPlayed": "h_kai",
-      "telegraph": "Solid Eye Target Lock",
+      "telegraph": "Crimson Target Lock",
       "socket": [
         1,
         2
       ],
       "immediateCaptures": 1,
       "scoreAfterTurn": {
-        "player": 0,
-        "boss": 5
+        "player": 3,
+        "boss": 2
       }
     },
     {
@@ -58,8 +58,8 @@
       ],
       "immediateCaptures": 1,
       "scoreAfterTurn": {
-        "player": 2,
-        "boss": 5
+        "player": 4,
+        "boss": 3
       }
     },
     {
@@ -72,8 +72,8 @@
       ],
       "immediateCaptures": 2,
       "scoreAfterTurn": {
-        "player": 4,
-        "boss": 5
+        "player": 7,
+        "boss": 2
       }
     }
   ],
@@ -97,8 +97,8 @@
   "tacticalSlideTested": true,
   "modalDisplayed": true,
   "finalScore": {
-    "player": 4,
-    "boss": 5
+    "player": 7,
+    "boss": 2
   },
-  "outcome": "DEFEAT"
+  "outcome": "VICTORY"
 }

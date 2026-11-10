@@ -2425,6 +2425,147 @@ class TestSynapseTcgSuite(unittest.TestCase):
         for icon_key in ("rarity_ur:", "rarity_lg:", "rarity_sr:", "rarity_gr:", "rarity_br:", "evolve_crest:"):
             self.assertIn(icon_key, html_src, f"Missing {icon_key} in playable HTML")
 
+    def test_116_lumenforge_hi3d_saas_service_backend_and_endpoints(self) -> None:
+        """Verify `LumenForgeIoStudioPortal` v2.0 full Hi3D.ai-parity SaaS service methods, capabilities, and task ledger."""
+        from lumenforge_io_studio_portal import LumenForgeIoStudioPortal
+
+        portal = LumenForgeIoStudioPortal()
+        caps = portal.get_hi3d_service_capabilities()
+        self.assertEqual(caps.get("reference_parity"), "https://www.hi3d.ai/")
+        for m in ("image_to_3d", "text_to_3d", "multiview_to_3d", "quad_retopology", "pbr_delighting", "unirig_autorig"):
+            self.assertIn(m, caps.get("modes", []))
+        task = portal.create_hi3d_generation_task(mode="image_to_3d", card_id="bp05_110_rosa", target_faces=8064)
+        self.assertEqual(task.get("status"), "SUCCEEDED")
+        self.assertEqual(task.get("card_number"), "BP05-110 SR")
+        self.assertEqual(task.get("original_title"), "機構翼の少女・ローザ(進化前)")
+        self.assertTrue(task.get("topology", {}).get("watertight_genus0"))
+        self.assertEqual(task.get("topology", {}).get("euler_characteristic"), 2)
+        self.assertEqual(task.get("rig_skeleton", {}).get("bone_count"), 22)
+
+    def test_117_unity_csharp_lumenforge_hi3d_service_client(self) -> None:
+        """Verify Unity 6 C# `LumenForgeHi3DServiceClient.cs` and `.meta` integrity."""
+        cs_path = ROOT_DIR / "Assets" / "Scripts" / "Core" / "LumenForgeHi3DServiceClient.cs"
+        meta_path = ROOT_DIR / "Assets" / "Scripts" / "Core" / "LumenForgeHi3DServiceClient.cs.meta"
+        self.assertTrue(cs_path.is_file())
+        self.assertTrue(meta_path.is_file())
+        src = cs_path.read_text(encoding="utf-8")
+        self.assertEqual(src.count("{"), src.count("}"))
+        for token in (
+            "namespace Synapse.TcgEngine.Core",
+            "Hi3DGenerationMode",
+            "Hi3DPolycountPreset",
+            "LumenForgeHi3DServiceClient",
+            "CreateImageTo3DTask",
+            "CreateTextTo3DTask",
+            "CreateMultiViewTo3DTask",
+            "RunQuadRetopology",
+            "RunPbrDelighting",
+            "RunUniRigAutoRig",
+            "GetCanonicalRosaBp05Hi3DAsset",
+        ):
+            self.assertIn(token, src, f"Missing {token} in LumenForgeHi3DServiceClient.cs")
+
+    def test_118_web_playable_lumenforge_hi3d_workbench_and_46_svg_emblems(self) -> None:
+        """Verify `lumenforge_io_service.html`, `lumenforge_io_hi3d_service_ui.js`, and 4 bespoke Hi3D SVGs (46 total SVGs)."""
+        html_service = ROOT_DIR / "WebPlayable" / "lumenforge_io_service.html"
+        js_service = ROOT_DIR / "WebPlayable" / "modules" / "lumenforge_io_hi3d_service_ui.js"
+        self.assertTrue(html_service.is_file())
+        self.assertTrue(js_service.is_file())
+        for fname in ("cf_hi3d_cube.svg", "cf_quad_mesh.svg", "cf_pbr_sphere.svg", "cf_unirig_bones.svg"):
+            w_svg = ROOT_DIR / "WebPlayable" / "GeneratedArt" / "Icons" / fname
+            u_svg = ROOT_DIR / "Assets" / "Resources" / "UI" / "Icons" / fname
+            self.assertTrue(w_svg.is_file(), f"Missing {w_svg}")
+            self.assertTrue(u_svg.is_file(), f"Missing {u_svg}")
+            self.assertIn('viewBox="0 0 256 256"', w_svg.read_text(encoding="utf-8"))
+        js_src = js_service.read_text(encoding="utf-8")
+        for sym in (
+            "LumenForgeHi3DService",
+            "openHi3DWorkbenchModal",
+            "runGenerationJob",
+            "computePolycountMetrics",
+            "image_to_3d",
+            "text_to_3d",
+            "multiview_to_3d",
+            "quad_retopology",
+            "pbr_delighting",
+            "unirig_autorig",
+        ):
+            self.assertIn(sym, js_src, f"Missing {sym} in lumenforge_io_hi3d_service_ui.js")
+        playable_html = (ROOT_DIR / "WebPlayable" / "cardfront_cradle_of_echoes_playable.html").read_text(encoding="utf-8")
+        self.assertIn("lumenforge_io_hi3d_service_ui.js", playable_html)
+        for icon_key in ("hi3d_cube:", "quad_mesh:", "pbr_sphere:", "unirig_bones:"):
+            self.assertIn(icon_key, playable_html, f"Missing {icon_key} in playable HTML")
+
+    def test_119_studio_pxg_lumenforge_rea_orchestrator_and_gemini4_argon_swarm(self) -> None:
+        """Verify proprietary `StudioPxGLumenForgeReaOrchestrator` v1.0, 6 REA tools, and `gemini-4-argon` swarm routing."""
+        from studio_pxg_lumenforge_rea_orchestrator import StudioPxGLumenForgeReaOrchestrator
+
+        orch = StudioPxGLumenForgeReaOrchestrator()
+        self.assertEqual(orch.STUDIO_BRAND, "Studio PxG - LumenForge.io")
+        self.assertEqual(orch.PRIMARY_SWARM_MODEL, "gemini-4-argon")
+        report = orch.execute_parallel_argon_swarm()
+        self.assertEqual(report.get("overall_status"), "PASS_ALL_REA_OBLIGATIONS")
+        self.assertEqual(len(report.get("proprietary_rea_tools", [])), 6)
+        self.assertEqual(len(report.get("swarm_subagents", [])), 6)
+        ledger = report.get("reconstruction_obligation_ledger", {})
+        self.assertEqual(ledger.get("reconstruction_coverage_pct"), 100.0)
+        self.assertEqual(ledger.get("unresolved_unknowns"), 0)
+
+    def test_120_studio_pxg_rea_scraper_and_provenance_harvester(self) -> None:
+        """Verify `StudioPxGReaScraperHarvester` parallel bilingual TCG catalog, 3D topology, and binary symbol scrapers."""
+        from studio_pxg_rea_scraper import StudioPxGReaScraperHarvester
+
+        scraper = StudioPxGReaScraperHarvester()
+        self.assertEqual(scraper.SWARM_MODEL, "gemini-4-argon")
+        self.assertEqual(scraper.STUDIO_BRAND, "Studio PxG - LumenForge.io")
+        rep = scraper.run_full_scraper_pipeline()
+        tcg_res = rep.get("tcg_catalog_scraper", {})
+        self.assertGreaterEqual(tcg_res.get("total_records_scraped", tcg_res.get("total_cards_scraped", 154)), 154)
+        self.assertIn("BP05-110 SR", json.dumps(tcg_res, ensure_ascii=False))
+        self.assertIn("機構翼の少女・ローザ(進化前)", json.dumps(tcg_res, ensure_ascii=False))
+
+    def test_121_studio_pxg_plugin_manifest_and_unity_csharp_rea_bridge(self) -> None:
+        """Verify `Plugins/studio-pxg-lumenforge-rea/plugin.json` and Unity 6 C# `StudioPxGLumenForgeReaBridge.cs`."""
+        plugin_path = ROOT_DIR / "Plugins" / "studio-pxg-lumenforge-rea" / "plugin.json"
+        self.assertTrue(plugin_path.is_file())
+        p_data = json.loads(plugin_path.read_text(encoding="utf-8"))
+        self.assertEqual(p_data.get("plugin_id"), "studio-pxg-lumenforge-rea")
+        self.assertEqual(p_data.get("studio_brand"), "Studio PxG - LumenForge.io")
+        self.assertEqual(p_data.get("swarm_model_config", {}).get("primary_model"), "gemini-4-argon")
+        self.assertEqual(len(p_data.get("rea_tools", [])), 6)
+
+        cs_path = ROOT_DIR / "Assets" / "Scripts" / "Core" / "StudioPxGLumenForgeReaBridge.cs"
+        meta_path = ROOT_DIR / "Assets" / "Scripts" / "Core" / "StudioPxGLumenForgeReaBridge.cs.meta"
+        self.assertTrue(cs_path.is_file())
+        self.assertTrue(meta_path.is_file())
+        cs_src = cs_path.read_text(encoding="utf-8")
+        self.assertEqual(cs_src.count("{"), cs_src.count("}"))
+        for tok in (
+            "Gemini4ArgonModelTier",
+            "ReaToolKind",
+            "StudioPxGLumenForgeReaBridge",
+            "Studio PxG - LumenForge.io",
+            "gemini-4-argon",
+            "ExecuteReaDecompilation",
+            "ExecuteTcgAnd3DScraperHarvest",
+            "BuildReconstructionObligationLedger",
+        ):
+            self.assertIn(tok, cs_src, f"Missing {tok} in StudioPxGLumenForgeReaBridge.cs")
+
+    def test_122_studio_pxg_50_bespoke_svg_emblems_and_rea_console_ui(self) -> None:
+        """Verify 4 new Studio PxG SVGs (50 total bespoke Atelier SVGs) and `StudioPxGReaConsole` Web UI."""
+        for fname in ("cf_pxg_crest.svg", "cf_rea_decompiler.svg", "cf_argon_swarm.svg", "cf_rea_scraper.svg"):
+            w_svg = ROOT_DIR / "WebPlayable" / "GeneratedArt" / "Icons" / fname
+            u_svg = ROOT_DIR / "Assets" / "Resources" / "UI" / "Icons" / fname
+            self.assertTrue(w_svg.is_file(), f"Missing {w_svg}")
+            self.assertTrue(u_svg.is_file(), f"Missing {u_svg}")
+            self.assertIn('viewBox="0 0 256 256"', w_svg.read_text(encoding="utf-8"))
+        all_web_svgs = list((ROOT_DIR / "WebPlayable" / "GeneratedArt" / "Icons").glob("cf_*.svg"))
+        self.assertGreaterEqual(len(all_web_svgs), 50)
+        js_src = (ROOT_DIR / "WebPlayable" / "modules" / "lumenforge_io_hi3d_service_ui.js").read_text(encoding="utf-8")
+        for sym in ("StudioPxGReaConsole", "Studio PxG - LumenForge.io", "gemini-4-argon", "pxg_crest", "rea_decompiler", "argon_swarm", "rea_scraper"):
+            self.assertIn(sym, js_src, f"Missing {sym} in lumenforge_io_hi3d_service_ui.js")
+
 
 
 

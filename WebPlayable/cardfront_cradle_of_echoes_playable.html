@@ -1796,24 +1796,26 @@
         <option value="14">Act V-15: Omega Chronos Prime</option>
       </select>
       <button id="drawer-deck-btn" onclick="openDeckbuilderModal()" style="border-color:var(--gold);color:var(--gold);">Deck (60)</button>
-      <button id="drawer-map-btn" onclick="openCampaignMapOverlay()" style="border-color:#38bdf8;color:#7dd3fc;" title="Open Citadel Campaign Map & Boss Dossier">Campaign Map</button>
-      <button id="drawer-plugins-btn" onclick="equipSovereignPluginSquad()" style="border-color:#a855f7;color:#e9d5ff;" title="Equip the 4 Mythic Sovereign Agent Plugins into your active 5-card squad">Plugins (4)</button>
-      <button id="drawer-anime-studio-btn" onclick="openAnimeMangaStudioModal()" style="border-color:#f43f5e;color:#fda4af;" title="Open 13-Model Anime & Manga Illustration Studio (Animagine XL 3.1, FLUX.1-dev, Kubrart Vector-Cel, Seinen G-Pen, 24fps Sakuga)">Anime Studio (13)</button>
-      <button id="drawer-manga-story-btn" onclick="openMangaChapterCutscene(state.stageIndex || 0)" style="border-color:#f59e0b;color:#fde68a;" title="Open 19-Chapter 3-Panel Slanted Manga Story Cutscene">Manga Story (19)</button>
-      <button id="drawer-arena-draft-btn" onclick="openRogueliteArenaDraftModal()" style="border-color:#10b981;color:#6ee7b7;" title="Open 5-Round Roguelite Arena Draft (117 Cards: Set 1 + Set 2 Kubrart + Sovereign Agent)">Arena Draft (117)</button>
-      <button id="drawer-genie4-btn" onclick="window.CardFrontGenie4Engine && window.CardFrontGenie4Engine.openGenie4WorldModelModal(state)" style="border-color:#38bdf8;color:#bae6fd;" title="Open Google Genie 4 Action-Conditioned Causal-DiT World Model Engine">Genie 4 World</button>
-      <button id="btn-open-studio-pxg-atomic" onclick="openStudioPxGAtomicModal()" style="border-color:#ff2e54;color:#fda4af;" title="Open Studio PxG Atomic Animation &amp; Film-Shot Director (24 Primitives, 8 Strikers, 24fps X-Sheet)">Studio PxG</button>
-      <button id="btn-open-saga-10yr-sbx00" onclick="openSaga10YearFranchiseModal()" style="border-color:#00e5ff;color:#67e8f9;" title="Open 10-Year Franchise Saga Hub, 20-Set Rotation Governor &amp; SBX00 Cluster Vault">10-Yr Saga</button>
-      <button id="btn-open-evolve-maidens" onclick="openEvolveMaidenStudioModal()" style="border-color:#d4af37;color:#fde68a;" title="Open Shadowverse-EVOLVE Style Mech-Wing Maiden Studio &amp; Gunmetal SR/UR Card Frame Renderer">Evolve Maidens</button>
-      <button id="btn-open-dice3d-chibi" onclick="openDice3DAndChibiModal()" style="border-color:#a855f7;color:#e9d5ff;" title="Open 3D Polyhedral Game Dice, 2.5D/3D Parallax Card Slabs &amp; Unique FFTA Pixel-Chibi Units Atelier">3D Dice &amp; Chibi</button>
-      <button id="btn-open-holo-live2d-gacha" onclick="openWebGLHoloLive2DGachaModal()" style="border-color:#00e5ff;color:#fde68a;" title="Open Real-Time WebGL2 GLSL Holographic Foil Shader, 60fps Live2D Portrait Animator, Bilingual JP/EN Battle Voiceover &amp; SBX00 Booster Gacha / ELO Ladder">Holo Live2D &amp; Gacha</button>
-      <button id="drawer-lan-btn" onclick="toggleLanMultiplayerDuel()" style="border-color:#2ee6d3;color:#2ee6d3;" title="Live 2-MacBook LAN 1v1 Sync & Echo-Ghost PvP">LAN 1v1: OFF</button>
-      <button id="drawer-pawn-btn" onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">3D Pawn</button>
-      <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Sakimoto-Yamada Adaptive BGM + Sidechain Ducking" style="display:none;">BGM: OFF</button>
+      <button id="btn-open-holo-live2d-gacha" onclick="openWebGLHoloLive2DGachaModal()" style="border-color:#00e5ff;color:#fde68a;" title="Open Booster Reliquary, Holographic Foil Collection &amp; Ranked ELO Ladder">Booster Packs</button>
+      <button id="drawer-map-btn" onclick="openCampaignMapOverlay()" style="border-color:#38bdf8;color:#7dd3fc;" title="Open Citadel Campaign Map &amp; Boss Dossier">Campaign Map</button>
+      <button id="drawer-manga-story-btn" onclick="openMangaChapterCutscene(state.stageIndex || 0)" style="border-color:#f59e0b;color:#fde68a;" title="Open 19-Chapter Manga Story Cutscene">Story Chapter</button>
+      <button id="drawer-arena-draft-btn" onclick="openRogueliteArenaDraftModal()" style="border-color:#10b981;color:#6ee7b7;" title="Open 5-Round Roguelite Arena Draft">Arena Draft</button>
+      <button id="drawer-lan-btn" onclick="toggleLanMultiplayerDuel()" style="border-color:#2ee6d3;color:#2ee6d3;" title="Live 2-MacBook LAN 1v1 Sync &amp; Echo-Ghost PvP">LAN 1v1: OFF</button>
+      <button id="bgm-toggle-btn" onclick="toggleAdaptiveBgm()" title="Chamber-Orchestral Adaptive BGM + Sidechain Ducking" style="display:none;">BGM: OFF</button>
       <button id="mute-toggle-btn" onclick="toggleMuteAudio()" title="Mute/Unmute Master Audio Bus" style="display:none;">SFX</button>
       <button id="reroll-btn" onclick="rerollAllDice()" style="background:linear-gradient(135deg,#6d28d9,#4c1d95);border-color:#a78bfa;"><span style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;">Roll All 3D Dice </span>Reroll (<span id="reroll-left">2</span>)</button>
-      <button id="drawer-pulse-btn" onclick="triggerAllBoardTelegraphs()">Pulse</button>
       <button id="drawer-reset-btn" aria-label="↻ Reset" onclick="startStage(state.stageIndex)">Reset</button>
+      <div id="dev-engineering-tools-tray" aria-hidden="true" style="max-height:0px;overflow:hidden;opacity:0;pointer-events:none;width:100%;display:flex;flex-wrap:wrap;gap:4px;">
+        <button id="drawer-plugins-btn" onclick="equipSovereignPluginSquad()" style="border-color:#a855f7;color:#e9d5ff;" title="Equip the 4 Mythic Sovereign Agent Plugins into your active 5-card squad">Plugins (4)</button>
+        <button id="drawer-anime-studio-btn" onclick="openAnimeMangaStudioModal()" style="border-color:#f43f5e;color:#fda4af;" title="Open 13-Model Anime &amp; Manga Illustration Studio">Anime Studio (13)</button>
+        <button id="drawer-genie4-btn" onclick="window.CardFrontGenie4Engine && window.CardFrontGenie4Engine.openGenie4WorldModelModal(state)" style="border-color:#38bdf8;color:#bae6fd;" title="Open Action-Conditioned Causal-DiT World Model Engine">Genie 4 World</button>
+        <button id="btn-open-studio-pxg-atomic" onclick="openStudioPxGAtomicModal()" style="border-color:#ff2e54;color:#fda4af;" title="Open Studio PxG Atomic Animation &amp; Film-Shot Director">Studio PxG</button>
+        <button id="btn-open-saga-10yr-sbx00" onclick="openSaga10YearFranchiseModal()" style="border-color:#00e5ff;color:#67e8f9;" title="Open 10-Year Franchise Saga Hub &amp; SBX00 Cluster Vault">10-Yr Saga</button>
+        <button id="btn-open-evolve-maidens" onclick="openEvolveMaidenStudioModal()" style="border-color:#d4af37;color:#fde68a;" title="Open Mech-Wing Maiden Evolve Studio">Evolve Maidens</button>
+        <button id="btn-open-dice3d-chibi" onclick="openDice3DAndChibiModal()" style="border-color:#a855f7;color:#e9d5ff;" title="Open 3D Polyhedral Game Dice &amp; Chibi Units Atelier">3D Dice &amp; Chibi</button>
+        <button id="drawer-pawn-btn" onclick="open3DPawnInspectorModal()" style="border-color:var(--blue-ally);color:var(--blue-ally);">3D Pawn</button>
+        <button id="drawer-pulse-btn" onclick="triggerAllBoardTelegraphs()">Pulse</button>
+      </div>
     </div>
   </div>
 </header>
@@ -2096,7 +2098,11 @@ const CF_ICON_BODIES = {
   rarity_sr: `<polygon points="78,18 178,18 238,78 238,178 178,238 78,238 18,178 18,78" fill="url(#cf-obsidian-grad)" stroke="#FFE082" stroke-width="8" stroke-linejoin="round"/><polygon points="128,22 156,92 226,64 176,128 226,192 156,164 128,234 100,164 30,192 80,128 30,64 100,92" fill="url(#cf-violet-grad)" stroke="#A855F7" stroke-width="6" stroke-linejoin="round"/><polygon points="128,18 152,104 238,128 152,152 128,238 104,152 18,128 104,104" fill="url(#cf-cyan-grad)" stroke="#00E5FF" stroke-width="6" stroke-linejoin="round"/><polygon points="128,62 166,128 128,194 90,128" fill="#A855F7" stroke="#FFE082" stroke-width="5" stroke-linejoin="round"/><line x1="128" y1="18" x2="128" y2="238" stroke="#FFE082" stroke-width="3" opacity="0.8"/><line x1="18" y1="128" x2="238" y2="128" stroke="#00E5FF" stroke-width="3" opacity="0.8"/><circle cx="128" cy="128" r="18" fill="#00E5FF" stroke="#FFE082" stroke-width="4"/><circle cx="128" cy="128" r="7" fill="#FFE082"/>`,
   rarity_gr: `<polygon points="128,12 244,128 128,244 12,128" fill="#D97706" stroke="#FFE082" stroke-width="7" stroke-linejoin="round"/><rect x="46" y="46" width="164" height="164" rx="10" fill="url(#cf-gold-grad)" stroke="#FFB800" stroke-width="8" stroke-linejoin="round"/><polygon points="128,30 226,128 128,226 30,128" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="6" stroke-linejoin="round"/><path d="M128,48 L192,84 V142 C192,180 162,206 128,220 C94,206 64,180 64,142 V84 Z" fill="#D97706" fill-opacity="0.35" stroke="#FFE082" stroke-width="5" stroke-linejoin="round"/><polygon points="128,58 148,108 198,128 148,148 128,198 108,148 58,128 108,108" fill="url(#cf-gold-grad)" stroke="#FFE082" stroke-width="4" stroke-linejoin="round"/><polygon points="128,88 156,128 128,168 100,128" fill="#FFB800" stroke="#D97706" stroke-width="4"/><circle cx="128" cy="128" r="10" fill="#FFE082"/>`,
   rarity_br: `<g stroke="#CD7F32" stroke-width="24" stroke-linecap="square"><line x1="128" y1="14" x2="128" y2="242"/><line x1="14" y1="128" x2="242" y2="128"/><line x1="47" y1="47" x2="209" y2="209"/><line x1="209" y1="47" x2="47" y2="209"/></g><circle cx="128" cy="128" r="90" fill="#CD7F32" stroke="#F59E0B" stroke-width="8"/><circle cx="128" cy="128" r="70" fill="url(#cf-obsidian-grad)" stroke="#F59E0B" stroke-width="6"/><line x1="128" y1="58" x2="128" y2="198" stroke="#CD7F32" stroke-width="8"/><line x1="58" y1="128" x2="198" y2="128" stroke="#CD7F32" stroke-width="8"/><polygon points="128,64 162,128 128,192 94,128" fill="#F59E0B" stroke="#FDE68A" stroke-width="5" stroke-linejoin="round"/><polygon points="64,128 128,94 192,128 128,162" fill="#CD7F32" stroke="#F59E0B" stroke-width="4" stroke-linejoin="round"/><circle cx="128" cy="128" r="18" fill="url(#cf-obsidian-grad)" stroke="#F59E0B" stroke-width="5"/><circle cx="128" cy="128" r="7" fill="#FDE68A"/><circle cx="128" cy="48" r="5" fill="#FDE68A"/><circle cx="128" cy="208" r="5" fill="#FDE68A"/><circle cx="48" cy="128" r="5" fill="#FDE68A"/><circle cx="208" cy="128" r="5" fill="#FDE68A"/>`,
-  evolve_crest: `<circle cx="128" cy="128" r="106" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="8"/><circle cx="128" cy="128" r="90" fill="none" stroke="#FFE082" stroke-width="3" stroke-dasharray="14 8" opacity="0.8"/><path d="M128,22 C64,22 24,74 36,138 C46,184 88,196 112,168 C82,162 68,128 82,92 C94,62 128,54 156,72 L142,88 L188,82 L168,38 L158,54 C148,34 138,22 128,22 Z" fill="url(#cf-cyan-grad)" stroke="#00E5FF" stroke-width="5" stroke-linejoin="round"/><path d="M128,234 C192,234 232,182 220,118 C210,72 168,60 144,88 C174,94 188,128 174,164 C162,194 128,202 100,184 L114,168 L68,174 L88,218 L98,202 C108,222 118,234 128,234 Z" fill="url(#cf-crimson-grad)" stroke="#FF2E54" stroke-width="5" stroke-linejoin="round"/><polygon points="128,68 164,128 128,188 92,128" fill="url(#cf-gold-grad)" stroke="#FFE082" stroke-width="5" stroke-linejoin="round"/><polygon points="128,88 148,128 128,168 108,128" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="3"/><circle cx="128" cy="112" r="7" fill="#00E5FF"/><circle cx="128" cy="144" r="7" fill="#FF2E54"/><circle cx="128" cy="128" r="6" fill="#FFB800"/>`
+  evolve_crest: `<circle cx="128" cy="128" r="106" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="8"/><circle cx="128" cy="128" r="90" fill="none" stroke="#FFE082" stroke-width="3" stroke-dasharray="14 8" opacity="0.8"/><path d="M128,22 C64,22 24,74 36,138 C46,184 88,196 112,168 C82,162 68,128 82,92 C94,62 128,54 156,72 L142,88 L188,82 L168,38 L158,54 C148,34 138,22 128,22 Z" fill="url(#cf-cyan-grad)" stroke="#00E5FF" stroke-width="5" stroke-linejoin="round"/><path d="M128,234 C192,234 232,182 220,118 C210,72 168,60 144,88 C174,94 188,128 174,164 C162,194 128,202 100,184 L114,168 L68,174 L88,218 L98,202 C108,222 118,234 128,234 Z" fill="url(#cf-crimson-grad)" stroke="#FF2E54" stroke-width="5" stroke-linejoin="round"/><polygon points="128,68 164,128 128,188 92,128" fill="url(#cf-gold-grad)" stroke="#FFE082" stroke-width="5" stroke-linejoin="round"/><polygon points="128,88 148,128 128,168 108,128" fill="url(#cf-obsidian-grad)" stroke="#FFB800" stroke-width="3"/><circle cx="128" cy="112" r="7" fill="#00E5FF"/><circle cx="128" cy="144" r="7" fill="#FF2E54"/><circle cx="128" cy="128" r="6" fill="#FFB800"/>`,
+  hi3d_cube: `<polygon points="128,16 232,74 232,182 128,240 24,182 24,74" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10" stroke-linejoin="round"/><polygon points="128,16 232,74 128,132 24,74" fill="url(#cf-cyan-grad)" fill-opacity="0.45" stroke="#00E5FF" stroke-width="6" stroke-linejoin="round"/><polygon points="24,74 128,132 128,240 24,182" fill="url(#cf-violet-grad)" fill-opacity="0.45" stroke="#A855F7" stroke-width="6" stroke-linejoin="round"/><polygon points="232,74 128,132 128,240 232,182" fill="url(#cf-gold-grad)" fill-opacity="0.38" stroke="#FFB800" stroke-width="6" stroke-linejoin="round"/><circle cx="128" cy="132" r="14" fill="#FFE082" stroke="#00E5FF" stroke-width="4"/>`,
+  quad_mesh: `<rect x="24" y="24" width="208" height="208" rx="18" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><line x1="24" y1="92" x2="232" y2="92" stroke="#00E5FF" stroke-width="5"/><line x1="24" y1="164" x2="232" y2="164" stroke="#00E5FF" stroke-width="5"/><line x1="92" y1="24" x2="92" y2="232" stroke="#00E5FF" stroke-width="5"/><line x1="164" y1="24" x2="164" y2="232" stroke="#00E5FF" stroke-width="5"/><circle cx="92" cy="92" r="9" fill="#FFB800"/><circle cx="164" cy="92" r="9" fill="#FFB800"/><circle cx="92" cy="164" r="9" fill="#FFB800"/><circle cx="164" cy="164" r="9" fill="#FFB800"/>`,
+  pbr_sphere: `<circle cx="128" cy="128" r="104" fill="url(#cf-obsidian-grad)" stroke="url(#cf-gold-grad)" stroke-width="10"/><ellipse cx="128" cy="128" rx="100" ry="44" fill="none" stroke="#00E5FF" stroke-width="6" stroke-dasharray="12 6"/><ellipse cx="128" cy="128" rx="44" ry="100" fill="none" stroke="#A855F7" stroke-width="6" stroke-dasharray="12 6"/><circle cx="94" cy="90" r="24" fill="url(#cf-cyan-grad)" opacity="0.85"/><circle cx="128" cy="128" r="12" fill="#FFE082"/>`,
+  unirig_bones: `<circle cx="128" cy="38" r="20" fill="url(#cf-gold-grad)" stroke="#FFE082" stroke-width="5"/><line x1="128" y1="58" x2="128" y2="152" stroke="#00E5FF" stroke-width="12" stroke-linecap="round"/><line x1="52" y1="92" x2="204" y2="92" stroke="url(#cf-gold-grad)" stroke-width="10" stroke-linecap="round"/><line x1="128" y1="152" x2="78" y2="226" stroke="#A855F7" stroke-width="10" stroke-linecap="round"/><line x1="128" y1="152" x2="178" y2="226" stroke="#A855F7" stroke-width="10" stroke-linecap="round"/><circle cx="128" cy="92" r="12" fill="#FFE082"/><circle cx="52" cy="92" r="10" fill="#00E5FF"/><circle cx="204" cy="92" r="10" fill="#00E5FF"/><circle cx="128" cy="152" r="12" fill="#FFE082"/><circle cx="78" cy="226" r="10" fill="#FFB800"/><circle cx="178" cy="226" r="10" fill="#FFB800"/>`
 };
 
 function cfIcon(name, size = 14, extraStyle = "") {
@@ -2114,10 +2120,10 @@ const PLAYER_HEROES = [
     nesw: [8, 7, 6, 7],
     art: "./GeneratedArt/MasteredCards/h_archangel.png?v=tele4",
     telegraphName: "Solar Cross Lance",
-    telegraphType: "FFTA Holy Totema Cross (+)",
+    telegraphType: "Sanctuary Cruciform (+)",
     telegraphColor: "#FFD54F",
     telegraphPattern: "cross",
-    telegraphDesc: "Projects a 4-way golden cruciform beam across its entire Row & Column."
+    telegraphDesc: "Projects a 4-way golden cruciform beam blessing allies across its Row & Column (+1 N/S)."
   },
   {
     id: "h_phoenix",
@@ -2125,10 +2131,10 @@ const PLAYER_HEROES = [
     nesw: [9, 8, 5, 6],
     art: "./GeneratedArt/MasteredCards/h_phoenix.png?v=tele4",
     telegraphName: "Ember Wing Sweep",
-    telegraphType: "Breach Thermal Arc (N+E)",
+    telegraphType: "Solar Thermal Arc (N+E)",
     telegraphColor: "#FF6D00",
     telegraphPattern: "wing_ne",
-    telegraphDesc: "Sweeps twin blazing phoenix wings toward North (9) and East (8) tiles."
+    telegraphDesc: "Sweeps twin blazing phoenix wings scorching North (9) and East (8) enemy defenses."
   },
   {
     id: "h_oracle",
@@ -2139,7 +2145,7 @@ const PLAYER_HEROES = [
     telegraphType: "Astral Orbit Ring (360°)",
     telegraphColor: "#7CE0FF",
     telegraphPattern: "lunar_orbit",
-    telegraphDesc: "Orbits a silver-cyan lunar sigil that projects tidal waves into South (8) & neighbors."
+    telegraphDesc: "Orbits a silver-cyan lunar sigil shielding adjacent allies (+1 S/W)."
   },
   {
     id: "h_chronos",
@@ -2147,32 +2153,32 @@ const PLAYER_HEROES = [
     nesw: [6, 8, 7, 7],
     art: "./GeneratedArt/MasteredCards/h_chronos.png?v=tele4",
     telegraphName: "Temporal Gear Lock",
-    telegraphType: "MGA COST Clockwork (E+S+W)",
+    telegraphType: "Chrono Escapement (E+S+W)",
     telegraphColor: "#FFB800",
     telegraphPattern: "chrono_gear",
-    telegraphDesc: "Spins interlocking golden clockwork gears locking East (8), South (7), and West (7)."
+    telegraphDesc: "Spins interlocking golden clockwork gears locking East (8), South (7), and West (7) foes."
   },
   {
     id: "h_seraph",
     name: "Astral Seraph",
     nesw: [8, 6, 7, 8],
     art: "./GeneratedArt/MasteredCards/h_seraph.png?v=tele4",
-    telegraphName: "Trigger Cross-Star",
-    telegraphType: "Omega Sakuga Flare (N+W)",
+    telegraphName: "Astral Cross-Star",
+    telegraphType: "Nova Starlight Flare (N+W)",
     telegraphColor: "#E040FB",
     telegraphPattern: "trigger_star",
-    telegraphDesc: "Detonates a 4-point Studio Trigger cross-star flare surging North (8) & West (8)."
+    telegraphDesc: "Detonates a 4-point astral starlight flare surging North (8) & West (8) in corner sockets."
   },
   {
     id: "h_kai",
     name: "Kai Crimson Visor",
     nesw: [7, 8, 6, 7],
     art: "./GeneratedArt/MasteredCards/h_kai.png?v=tele4",
-    telegraphName: "Solid Eye Target Lock",
-    telegraphType: "MGA2 Halftone Reticle (E+W)",
+    telegraphName: "Crimson Target Lock",
+    telegraphType: "Tactical Visor Reticle (E+W)",
     telegraphColor: "#FF2E54",
     telegraphPattern: "solideye_lock",
-    telegraphDesc: "Locks onto horizontal targets with a rotating Solid Eye sniper reticle & katana slash."
+    telegraphDesc: "Locks onto horizontal row foes with a crimson sniper reticle & twin katana slash (-1 E/W)."
   },
   {
     id: "h_valkyrie",
@@ -2180,21 +2186,21 @@ const PLAYER_HEROES = [
     nesw: [8, 8, 5, 6],
     art: "./GeneratedArt/MasteredCards/h_valkyrie.png?v=tele4",
     telegraphName: "Orbital Airstrike",
-    telegraphType: "Advance Wars Eagle Dive (N+E)",
+    telegraphType: "Supersonic Valkyrie Dive (N+E)",
     telegraphColor: "#00E5FF",
     telegraphPattern: "airstrike_chevron",
-    telegraphDesc: "Drops supersonic target chevrons and twin afterburner vectors into North (8) & East (8)."
+    telegraphDesc: "Drops supersonic target chevrons into North (8) & East (8) and refreshes Tactical Slide."
   },
   {
     id: "h_arbiter",
     name: "Sun Arbiter",
     nesw: [7, 7, 8, 8],
     art: "./GeneratedArt/MasteredCards/h_arbiter.png?v=tele4",
-    telegraphName: "Ivalice Law Seal",
-    telegraphType: "FFTA Judge Hex Pillar (S+W)",
+    telegraphName: "Sovereign Law Seal",
+    telegraphType: "Citadel Hex Aegis (S+W)",
     telegraphColor: "#FFD700",
     telegraphPattern: "judge_hex",
-    telegraphDesc: "Summons a golden hexagonal Judge Law barrier and descending pillars onto South (8) & West (8)."
+    telegraphDesc: "Summons a golden hexagonal Law Aegis barrier onto South (8) & West (8) allies."
   }
 ];
 
@@ -2227,10 +2233,10 @@ const ENEMY_MECHS = [
     nesw: [7, 7, 5, 6],
     art: "./GeneratedArt/MasteredCards/e_inferno.png?v=tele4",
     telegraphName: "Hellfire Artillery",
-    telegraphType: "Breach Danger Zone",
+    telegraphType: "Orbital Hazard Zone",
     telegraphColor: "#FF5722",
     telegraphPattern: "hellfire_zone",
-    telegraphDesc: "Projects pulsing Into the Breach artillery hazard rings across North & East."
+    telegraphDesc: "Projects pulsing orbital artillery hazard rings across North & East."
   },
   {
     id: "e_reaper",
@@ -2249,7 +2255,7 @@ const ENEMY_MECHS = [
     nesw: [7, 5, 7, 6],
     art: "./GeneratedArt/MasteredCards/e_titan.png?v=tele4",
     telegraphName: "Seismic Tremor Push",
-    telegraphType: "Breach Kinetic Bump",
+    telegraphType: "Seismic Kinetic Shockwave",
     telegraphColor: "#F59E0B",
     telegraphPattern: "seismic_wave",
     telegraphDesc: "Emits heavy concentric ground-pound shockwaves pushing North (7) & South (7)."
@@ -2282,10 +2288,10 @@ const ENEMY_MECHS = [
     nesw: [7, 6, 6, 5],
     art: "./GeneratedArt/MasteredCards/e_shinobi.png?v=tele4",
     telegraphName: "90° Stealth Cone",
-    telegraphType: "MGA Radar Ambush",
+    telegraphType: "Phantom Radar Ambush",
     telegraphColor: "#2DD4BF",
     telegraphPattern: "stealth_cone",
-    telegraphDesc: "Sweeps a 90° Metal Gear Acid stealth radar vision cone & rapid kunai tracers."
+    telegraphDesc: "Sweeps a 90° phantom stealth radar vision cone & rapid kunai tracers."
   }
 ];
 
@@ -2584,8 +2590,8 @@ function ensureAudioMixer() {
       musicDuckBusGain = actx.createGain();
       bgmFilterNode = actx.createBiquadFilter();
       bgmFilterNode.type = "lowpass";
-      bgmFilterNode.frequency.setValueAtTime(920, actx.currentTime);
-      bgmFilterNode.Q.setValueAtTime(1.4, actx.currentTime);
+      bgmFilterNode.frequency.setValueAtTime(2400, actx.currentTime);
+      bgmFilterNode.Q.setValueAtTime(0.7, actx.currentTime);
       sfxBusGain = actx.createGain();
       sfxBus = sfxBusGain;
       sfxCompressor = actx.createDynamicsCompressor();
@@ -2595,8 +2601,8 @@ function ensureAudioMixer() {
       sfxCompressor.attack.setValueAtTime(0.003, actx.currentTime);
       sfxCompressor.release.setValueAtTime(0.15, actx.currentTime);
       masterBusGain.gain.value = state.muted ? 0.0 : dbToLinearGain(slider01ToDb(0.85));
-      musicDuckBusGain.gain.value = dbToLinearGain(slider01ToDb(0.65));
-      sfxBusGain.gain.value = dbToLinearGain(slider01ToDb(0.88));
+      musicDuckBusGain.gain.value = dbToLinearGain(slider01ToDb(0.68));
+      sfxBusGain.gain.value = dbToLinearGain(slider01ToDb(0.85));
       musicDuckBusGain.connect(bgmFilterNode);
       bgmFilterNode.connect(masterBusGain);
       sfxBusGain.connect(sfxCompressor);
@@ -2614,19 +2620,18 @@ const ProceduralSfx = {
   nudge(pip = 4) {
     ensureAudioMixer();
     if (!state.muted && window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
-      window.CardFrontModules.FoleyAudioBank.playSample("dice_tumble_brass", actx, sfxBus, 0.92 + pip * 0.03, 0.72);
+      window.CardFrontModules.FoleyAudioBank.playSample("dice_tumble_brass", actx, sfxBus, 0.94 + pip * 0.02, 0.78);
+      return;
     }
-    playTone(4 + pip, "sine", 0.14);
-    setTimeout(() => playTone(11 + pip, "triangle", 0.09), 45);
+    playTone(2 + pip, "sine", 0.09);
   },
   reroll() {
     ensureAudioMixer();
     if (!state.muted && window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
       window.CardFrontModules.FoleyAudioBank.playSample("dice_tumble_brass", actx, sfxBus, 1.0, 0.85);
+      return;
     }
-    playTone(6, "triangle", 0.12);
-    setTimeout(() => playTone(9, "sine", 0.12), 55);
-    setTimeout(() => playTone(12, "triangle", 0.16), 110);
+    playTone(5, "sine", 0.11);
   },
   cardSlam() {
     ensureAudioMixer();
@@ -2643,10 +2648,8 @@ const ProceduralSfx = {
   phaseStinger() {
     ensureAudioMixer();
     if (!state.muted && window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
-      window.CardFrontModules.FoleyAudioBank.playSample("sakuga_impact_subdrop", actx, sfxBus, 1.0, 0.88);
+      window.CardFrontModules.FoleyAudioBank.playSample("sakuga_impact_subdrop", actx, sfxBus, 1.0, 0.82);
     }
-    playTone(-2, "sawtooth", 0.18, true);
-    setTimeout(() => playTone(5, "triangle", 0.22), 70);
   }
 };
 
@@ -2664,7 +2667,7 @@ const ProceduralBgm = {
       state.audioTensionActive = highTension;
     }
     if (actx && bgmFilterNode) {
-      bgmFilterNode.frequency.setTargetAtTime(targetHz, actx.currentTime, 0.08);
+      bgmFilterNode.frequency.setTargetAtTime(targetHz * 2.4, actx.currentTime, 0.08);
     }
     if (highTension && !prevTension) {
       ProceduralSfx.phaseStinger();
@@ -2689,35 +2692,40 @@ function toggleMuteAudio() {
 function duckMusicBus(attenuationDb = -10.0, releaseSec = 0.25) {
   if (!actx || !musicDuckBusGain) return;
   const now = actx.currentTime;
-  const baseGain = dbToLinearGain(slider01ToDb(0.65));
+  const baseGain = dbToLinearGain(slider01ToDb(0.68));
   const duckedGain = baseGain * dbToLinearGain(attenuationDb);
   musicDuckBusGain.gain.cancelScheduledValues(now);
   musicDuckBusGain.gain.setValueAtTime(duckedGain, now);
   musicDuckBusGain.gain.exponentialRampToValueAtTime(Math.max(0.001, baseGain), now + releaseSec);
 }
 
-function playTone(semi = 0, type = "triangle", dur = 0.2, isHeavyImpact = false) {
+function playTone(semi = 0, type = "triangle", dur = 0.14, isHeavyImpact = false) {
   if (state.muted) return;
   ensureAudioMixer();
   if (!actx || activeVoices >= 8) return;
   const now = actx.currentTime;
-  const pitchVar = 1.0 + (seededRng() - 0.5) * 0.08;
-  const f = 440 * Math.pow(2, semi / 12) * pitchVar;
+  const gainVar = 1.0 + (seededRng() - 0.5) * 0.04;
+  const clampedSemi = Math.max(-7, Math.min(14, Number(semi) || 0));
+  const f = 330 * Math.pow(2, clampedSemi / 12);
   const o = actx.createOscillator();
+  const lp = actx.createBiquadFilter();
   const g = actx.createGain();
   activeVoices++;
   o.onended = () => { activeVoices = Math.max(0, activeVoices - 1); };
-  o.type = type;
+  o.type = type === "sawtooth" ? "triangle" : "sine";
   o.frequency.setValueAtTime(f, now);
-  o.frequency.exponentialRampToValueAtTime(f * 1.15, now + dur);
-  g.gain.setValueAtTime(0.001, now);
-  g.gain.linearRampToValueAtTime(0.16, now + 0.015);
-  g.gain.exponentialRampToValueAtTime(0.001, now + dur);
-  o.connect(g);
+  lp.type = "lowpass";
+  lp.frequency.setValueAtTime(950, now);
+  const durClamped = Math.min(0.18, Math.max(0.06, dur));
+  g.gain.setValueAtTime(0.0005, now);
+  g.gain.linearRampToValueAtTime(0.032 * gainVar, now + 0.008);
+  g.gain.exponentialRampToValueAtTime(0.0005, now + durClamped);
+  o.connect(lp);
+  lp.connect(g);
   g.connect(sfxBus || masterGain || actx.destination);
-  if (isHeavyImpact) duckMusicBus(-11.0, 0.28);
+  if (isHeavyImpact) duckMusicBus(-8.0, 0.24);
   o.start(now);
-  o.stop(now + dur + 0.02);
+  o.stop(now + durClamped + 0.015);
 }
 
 function toggleAdaptiveBgm() {
@@ -2733,29 +2741,12 @@ function toggleAdaptiveBgm() {
     return;
   }
   if (window.CardFrontModules && window.CardFrontModules.FoleyAudioBank) {
-    window.CardFrontModules.FoleyAudioBank.startBgmLoop(actx, musicDuckBusGain, 0.52);
+    window.CardFrontModules.FoleyAudioBank.startBgmLoop(actx, musicDuckBusGain, 0.68);
   }
-  // Sakimoto-Yamada 128 BPM ostinato in D Dorian / Minor
-  const ostinatoNotes = [-7, -5, -4, 0, -2, -4, -5, -7, -12, -5, -4, 2, 0, -4, -5, -9];
   bgmStep = 0;
   bgmTimer = setInterval(() => {
-    if (!actx || !musicDuckBusGain || state.muted) return;
-    const now = actx.currentTime;
-    const semi = ostinatoNotes[bgmStep % ostinatoNotes.length];
-    bgmStep++;
-    const f = 220 * Math.pow(2, semi / 12);
-    const o = actx.createOscillator();
-    const g = actx.createGain();
-    o.type = bgmStep % 4 === 1 ? "sawtooth" : "triangle";
-    o.frequency.setValueAtTime(f, now);
-    g.gain.setValueAtTime(0.001, now);
-    g.gain.linearRampToValueAtTime(0.055, now + 0.02);
-    g.gain.exponentialRampToValueAtTime(0.001, now + 0.21);
-    o.connect(g);
-    g.connect(musicDuckBusGain);
-    o.start(now);
-    o.stop(now + 0.22);
-  }, 234);
+    bgmStep = (bgmStep + 1) % 16;
+  }, 1000);
   if (btn) btn.innerHTML = `${cfIcon("bgm_chime", 13)} BGM: ON`;
 }
 
@@ -2886,7 +2877,7 @@ let bossTurnTimer = null;
 let modalTimer = null;
 let hitStopSeq = 0;
 
-const state = {
+const state = window.state = {
   seed: urlSeedParam !== null ? (parseInt(urlSeedParam, 10) || 1337) : 20261108,
   stageIndex: 0,
   unlockedStage: 0,
@@ -3630,6 +3621,8 @@ function startStage(idx) {
     bannerEl.classList.remove("dismissed");
     bannerEl.innerHTML =
       `${cfIcon("tactical_lantern", 15, "margin-right:4px;")}Drag a Hero Card onto any open tile (or click a card, then click a tile).<br/>Drag your Blue board cards 1 tile to Tactical Slide.`;
+    clearTimeout(state.hintDismissTimer);
+    state.hintDismissTimer = setTimeout(() => { bannerEl.classList.add("dismissed"); }, 1800);
   }
 
   saveProgressionV3();
@@ -5917,6 +5910,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <script src="./modules/tokon_fighter_and_looter_engine.js"></script>
 <script src="./modules/cardcraft_collectables_c3_engine.js"></script>
 <script src="modules/card_identification_catalog_ui.js"></script>
+<script src="modules/lumenforge_io_hi3d_service_ui.js"></script>
 <script src="./tests/inpage_autotest.js"></script>
 </body>
 </html>

@@ -1,0 +1,128 @@
+{
+  "plugin_id": "studio-pxg-lumenforge-rea",
+  "studio_brand": "Studio PxG - LumenForge.io",
+  "name": "Studio PxG - LumenForge.io Reverse Engineer Anything (REA) Swarm Suite",
+  "version": "1.0.0",
+  "description": "Sovereign Reverse Engineer Anything (REA) multi-agent swarm plugin for Mach-O/IL2CPP binary inspection, 3D GLB/OBJ/URP shader topology decompilation, WebGL/DOM bundle reconciliation, and TCG collector catalog harvesting across CARDFRONT: Cradle of Echoes and LumenForge.io.",
+  "license": "Proprietary - Studio PxG / LumenForge.io",
+  "swarm_model_config": {
+    "primary_model": "gemini-4-argon",
+    "tier_models": {
+      "orchestrator": "gemini-4-argon-pro",
+      "worker_swarm": "gemini-4-argon-flash",
+      "vision_3d_rea": "gemini-4-argon-vision-3d",
+      "local_apple_silicon_fallback": "mlx-community/Qwen2.5-3B-Instruct-4bit"
+    },
+    "parallel_execution": true
+  },
+  "rea_tools": [
+    "rea_binary_macho_il2cpp_inspector",
+    "rea_3d_topology_shader_decompiler",
+    "rea_tcg_catalog_scraper_harvester",
+    "rea_web_bundle_dom_reconciler",
+    "rea_plugin_mcp_registry_builder",
+    "rea_obligation_ledger_verifier"
+  ],
+  "subagents": [
+    "studio-pxg-rea-orchestrator",
+    "studio-pxg-rea-scraper",
+    "studio-pxg-hi3d-decompiler",
+    "hi3d-rea-continuous-architect",
+    "tcg-creative-director",
+    "jev-judge"
+  ],
+  "scrapers": [
+    "pxg_shadowverse_evolve_bp05_scraper",
+    "pxg_hi3d_topology_harvester",
+    "pxg_urp_shader_extractor",
+    "pxg_macho_il2cpp_symbol_scraper"
+  ],
+  "rea_tool_definitions": [
+    {
+      "id": "rea_binary_macho_il2cpp_inspector",
+      "name": "Mach-O & IL2CPP Binary Inspector",
+      "category": "binary_analysis",
+      "description": "Decompiles Mach-O universal binaries, extracts IL2CPP global-metadata.dat symbol tables, resolves native-to-managed call graphs, and reconstructs C# type definitions.",
+      "entrypoint": "Tools/rea/binary_macho_il2cpp_inspector.py",
+      "deterministic": true
+    },
+    {
+      "id": "rea_3d_topology_shader_decompiler",
+      "name": "3D Topology & URP Shader Decompiler",
+      "category": "3d_asset_rea",
+      "description": "Audits 3D GLB/OBJ watertight manifold topology, extracts multi-angle elevation silhouettes, and reconstructs Unity URP HLSL/ShaderLab passes from compiled GPU code objects.",
+      "entrypoint": "Tools/rea/topology_shader_decompiler.py",
+      "deterministic": true
+    },
+    {
+      "id": "rea_tcg_catalog_scraper_harvester",
+      "name": "TCG Collector Catalog Scraper & Harvester",
+      "category": "catalog_harvesting",
+      "description": "Harvests structured TCG expansion catalogs, card metadata, foil rarity tiers, and 600x800 normalized card portraits with deterministic SHA-256 provenance ledgers.",
+      "entrypoint": "Tools/rea/tcg_catalog_scraper_harvester.py",
+      "deterministic": true
+    },
+    {
+      "id": "rea_web_bundle_dom_reconciler",
+      "name": "WebGL & DOM Bundle Reconciler",
+      "category": "web_bundle_rea",
+      "description": "Reconciles minified WebGL/JavaScript bundles, traces module import graphs, inspects runtime DOM state transitions, and exports clean TypeScript/C# bridge schemas.",
+      "entrypoint": "Tools/rea/web_bundle_dom_reconciler.py",
+      "deterministic": true
+    },
+    {
+      "id": "rea_plugin_mcp_registry_builder",
+      "name": "Plugin & MCP Registry Builder",
+      "category": "mcp_orchestration",
+      "description": "Synthesizes and validates MCP server tool schemas, subagent routing manifests, and sovereign Studio PxG capability badges.",
+      "entrypoint": "Tools/rea/plugin_mcp_registry_builder.py",
+      "deterministic": true
+    },
+    {
+      "id": "rea_obligation_ledger_verifier",
+      "name": "Reconstruction Obligation Ledger Verifier",
+      "category": "verification_gate",
+      "description": "Verifies 100% symbol, shader, mesh, and catalog reconstruction parity against static and runtime evidence bundles using Jev System One and Apple Silicon MLX gates.",
+      "entrypoint": "Tools/rea/obligation_ledger_verifier.py",
+      "deterministic": true
+    }
+  ],
+  "subagent_definitions": [
+    {
+      "id": "studio-pxg-rea-orchestrator",
+      "role": "Master Swarm Orchestrator",
+      "model": "gemini-4-argon-pro",
+      "description": "Coordinates parallel REA pipelines across Mach-O/IL2CPP binaries, 3D GLB/OBJ/URP shader assets, WebGL/DOM bundles, and TCG collector catalogs."
+    },
+    {
+      "id": "studio-pxg-rea-scraper",
+      "role": "Catalog & Symbol Harvester",
+      "model": "gemini-4-argon-flash",
+      "description": "Executes deterministic parallel scraping across TCG expansion databases, asset bundles, and binary symbol tables."
+    },
+    {
+      "id": "studio-pxg-hi3d-decompiler",
+      "role": "3D Mesh & Shader Decompiler",
+      "model": "gemini-4-argon-vision-3d",
+      "description": "Decompiles 3D GLB/OBJ meshes, normal maps, and Unity URP/ShaderLab shaders into clean, watertight studio assets."
+    },
+    {
+      "id": "hi3d-rea-continuous-architect",
+      "role": "Continuous 3D & Engine Architect",
+      "model": "gemini-4-argon-pro",
+      "description": "Maintains continuous structural parity between decompiled 3D/shader artifacts and the Unity TCG Engine runtime."
+    },
+    {
+      "id": "tcg-creative-director",
+      "role": "Atelier Art Direction & Card Architect",
+      "model": "gemini-4-argon-vision-3d",
+      "description": "Enforces 600x800 portrait framing, 1024x768 playfield contrast discipline, and code-native 256x256 SVG faction emblems."
+    },
+    {
+      "id": "jev-judge",
+      "role": "System One Verification & Obligation Gate",
+      "model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+      "description": "Executes calibrated typed judgments and offline Apple Silicon Metal GPU verification gates over reconstruction ledgers."
+    }
+  ]
+}

@@ -1,14 +1,14 @@
 {
-  "iteration": 424,
-  "timestamp_utc": "2026-11-10T03:16:15Z",
+  "iteration": 440,
+  "timestamp_utc": "2026-11-10T03:57:17Z",
   "target_model": "gemini-4-argon",
   "gate_status": "PASS_ALL_GATES",
   "summary": {
     "drag_e2e_passed": true,
     "autotest_e2e_passed": true,
-    "autotest_title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
-    "total_checks": 180,
-    "passed_checks": 180,
+    "autotest_title": "TEST_COMPLETE:7-2:SINGLETON=true:IMG=true",
+    "total_checks": 181,
+    "passed_checks": 181,
     "failed_checks": 0,
     "pass_rate_pct": 100.0,
     "p0_failures": 0,
@@ -179,6 +179,7 @@
       "core.unity6_tcg_rea_baseline.21",
       "core.unity6_tcg_rea_baseline.22",
       "core.unity6_tcg_rea_baseline.23",
+      "core.unity6_tcg_rea_baseline.24",
       "core.unity_so.01",
       "core.unity_so.02",
       "feel_audio_camera_perf.1",
@@ -205,19 +206,14 @@
     "failed_check_ids": []
   },
   "diff_vs_previous": {
-    "previous_iteration": 423,
+    "previous_iteration": 439,
     "newly_passing_checks": [
-      "core.production_upgrades.15",
-      "core.production_upgrades.17",
-      "core.production_upgrades.18",
-      "core.production_upgrades.19",
-      "core.production_upgrades.20",
-      "core.production_upgrades.21",
-      "core.unity6_tcg_rea_baseline.23"
+      "core.next_gen_tabletop.09",
+      "feel_audio_camera_perf.10"
     ],
     "newly_failing_checks": [],
-    "pass_count_delta": 7,
-    "total_checks_delta": 2
+    "pass_count_delta": 2,
+    "total_checks_delta": 0
   },
   "step_a_router": {
     "prompt": "Refine 3x3 tactical card game UI layout, dynamic telegraph animations, game feel hit-stop screen shake, and ScriptableObject card balance",
@@ -317,19 +313,19 @@
       "pageErrors": [],
       "pass": true,
       "ran": true,
-      "elapsed_ms": 7517.7
+      "elapsed_ms": 7390.8
     },
     "autotest": {
       "ran": true,
-      "title": "TEST_COMPLETE:4-5:SINGLETON=true:IMG=true",
+      "title": "TEST_COMPLETE:7-2:SINGLETON=true:IMG=true",
       "pass": true,
       "singletonVerified": true,
       "imagesVerified": true,
       "pageErrors": [],
-      "elapsed_ms": 8839,
+      "elapsed_ms": 8784,
       "report": {
         "suite": "CARDFRONT 3D Tabletop, 16 Unique Telegraphs & 3:4 Mastered Portrait E2E Playtest (osascript)",
-        "timestamp": "2026-11-10T03:16:02.336Z",
+        "timestamp": "2026-11-10T03:57:04.571Z",
         "steps": [
           {
             "step": "Initial Stage Load",
@@ -366,15 +362,15 @@
           {
             "step": "Turn 2 Deploy",
             "cardPlayed": "h_kai",
-            "telegraph": "Solid Eye Target Lock",
+            "telegraph": "Crimson Target Lock",
             "socket": [
               1,
               2
             ],
             "immediateCaptures": 1,
             "scoreAfterTurn": {
-              "player": 0,
-              "boss": 5
+              "player": 3,
+              "boss": 2
             }
           },
           {
@@ -387,8 +383,8 @@
             ],
             "immediateCaptures": 1,
             "scoreAfterTurn": {
-              "player": 2,
-              "boss": 5
+              "player": 4,
+              "boss": 3
             }
           },
           {
@@ -401,8 +397,8 @@
             ],
             "immediateCaptures": 2,
             "scoreAfterTurn": {
-              "player": 4,
-              "boss": 5
+              "player": 7,
+              "boss": 2
             }
           }
         ],
@@ -426,10 +422,10 @@
         "tacticalSlideTested": true,
         "modalDisplayed": true,
         "finalScore": {
-          "player": 4,
-          "boss": 5
+          "player": 7,
+          "boss": 2
         },
-        "outcome": "DEFEAT"
+        "outcome": "VICTORY"
       }
     },
     "checks": [
@@ -1998,6 +1994,22 @@
         "priority": "P0",
         "code_ref": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1-460",
         "remediation": "Wire WebPlayable/modules/cardcraft_collectables_c3_engine.js and GetCardCraftCollectableC3Metadata in CardFrontUnifiedRuntime.cs.",
+        "origin": "Tools/skill_harness/core_checks.json",
+        "error": null
+      },
+      {
+        "id": "core.unity6_tcg_rea_baseline.24",
+        "skill": "parallel-orchestration",
+        "rule": "14-Agent Multi-Agent Team & C\u00b3 v2.0.0 Quick-Inspect (10 1200x800 Dual-Side Bromide Sheets, openCardById Tabletop/Hand Quick-Inspect, & Reports/multi_agent_team_architecture_report.json).",
+        "source": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1",
+        "target": "both",
+        "method": "playwright",
+        "expect": "true",
+        "actual": true,
+        "passed": true,
+        "priority": "P0",
+        "code_ref": "WebPlayable/modules/cardcraft_collectables_c3_engine.js:1-600",
+        "remediation": "Upgrade WebPlayable/modules/cardcraft_collectables_c3_engine.js to v2.0.0 with 10 featured Dual-Side Bromides and openCardById.",
         "origin": "Tools/skill_harness/core_checks.json",
         "error": null
       },
@@ -3670,6 +3682,14 @@
         "pass_rate": 100.0,
         "failed_ids": []
       },
+      "parallel-orchestration": {
+        "skill": "parallel-orchestration",
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 100.0,
+        "failed_ids": []
+      },
       "disciplines/ai-behavior-trees-utility-ai": {
         "skill": "disciplines/ai-behavior-trees-utility-ai",
         "total": 5,
@@ -3720,5 +3740,5 @@
     "upstream_skills": 77,
     "custom_synapse_skills": 15
   },
-  "elapsed_ms": 28526.9
+  "elapsed_ms": 28074.6
 }

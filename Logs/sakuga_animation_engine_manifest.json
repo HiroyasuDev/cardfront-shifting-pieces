@@ -2,7 +2,7 @@
   "engine": "Synapse-Sakuga-AnimEngine",
   "version": "1.0",
   "status": "VERIFIED",
-  "generated_at_utc": "2026-11-10T03:10:40.694766+00:00",
+  "generated_at_utc": "2026-11-10T03:50:43.359594+00:00",
   "physics_hz": 120,
   "sakuga_fps": 24,
   "clip_count": 8,
@@ -129,5 +129,5 @@
     ],
     "fnv1a_64_checksum": "0xf0f38c50c243a21b"
   },
-  "fnv1a_64_checksum": "0x7de20eefcf92f556"
+  "fnv1a_64_checksum": "0xe1b3f67bdb2fcd3a"
 }

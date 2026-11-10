@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LumenForge.io × Hi3D.ai — Sovereign AI 3D Generation & Asset Pipeline Service</title>
+<style>
+  body {
+    margin: 0;
+    background: #050914;
+    color: #f8fafc;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+</style>
+</head>
+<body>
+<div class="top-utility-drawer" style="padding:12px 20px;background:#090f20;border-bottom:1px solid rgba(0,229,255,0.35);display:flex;align-items:center;justify-content:space-between;">
+  <div style="font-weight:900;color:#67e8f9;">LUMENFORGE.IO — SOVEREIGN AI 3D STUDIO SERVICE (HI3D.AI FULL-PARITY WORKBENCH)</div>
+</div>
+<script src="./modules/card_identification_catalog_ui.js"></script>
+<script src="./modules/lumenforge_io_hi3d_service_ui.js"></script>
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    if (window.LumenForgeHi3DService) {
+      window.LumenForgeHi3DService.openHi3DWorkbenchModal("image_to_3d");
+    }
+  });
+</script>
+</body>
+</html>

@@ -1970,6 +1970,7 @@
     const parentBar =
       doc.getElementById("aaa-studio-command-pills") ||
       doc.getElementById("sakuga-anim-studio-bar") ||
+      doc.getElementById("dev-engineering-tools-tray") ||
       doc.getElementById("dev-camera-drawer");
     if (!parentBar) return;
 

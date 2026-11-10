@@ -1,0 +1,92 @@
+{
+  "studio_brand": "Studio PxG - LumenForge.io",
+  "swarm_model": "gemini-4-argon",
+  "scraper_version": "1.0.0-pxg-rea-scraper",
+  "timestamp_utc": "2026-11-10T03:50:43.800473+00:00",
+  "parallel_execution_ms": 104.32,
+  "tcg_catalog_scraper": {
+    "scraper_id": "pxg_shadowverse_evolve_bp05_scraper",
+    "studio_brand": "Studio PxG - LumenForge.io",
+    "swarm_model": "gemini-4-argon",
+    "status": "VERIFIED",
+    "total_records_scraped": 154,
+    "total_cards_scraped": 154,
+    "filtered_match_count": 154,
+    "rarity_distribution": {
+      "SR": 52,
+      "LG": 34,
+      "UR": 14,
+      "GR": 36,
+      "SL": 10,
+      "BR": 8
+    },
+    "canonical_bp05_110_rosa": {
+      "original_title": "機構翼の少女・ローザ(進化前)",
+      "card_game": "Shadowverse EVOLVE / CARDFRONT Collector Standard",
+      "version": "[BP05] Eternal omens",
+      "original_version": "ブースターパック第5弾 永劫なる絶傑",
+      "card_number": "BP05-110 SR",
+      "rarity": "SR",
+      "sha256_collector_id": "ee16f5ba0b911307a28e1a3238e96c7ebc06d944caf6d9cfcb6b6eb5a70747e0"
+    },
+    "catalog_sha256": "00e1811fc14dbbe58469b29175703bd535546be913e1d1a6fff103849c086b62"
+  },
+  "topology_and_shader_scraper": {
+    "scraper_id": "pxg_hi3d_topology_harvester",
+    "studio_brand": "Studio PxG - LumenForge.io",
+    "swarm_model": "gemini-4-argon",
+    "status": "VERIFIED",
+    "glb_count": 73,
+    "q3gs_count": 73,
+    "shader_count": 4,
+    "canonical_topology": {
+      "vertices": 4034,
+      "edges": 12096,
+      "faces": 8064,
+      "euler_v_minus_e_plus_f": 2,
+      "watertight_genus0": true,
+      "unirig_bones": 22
+    },
+    "shaders": [
+      {
+        "filename": "SynapseAetherCelOutline.shader",
+        "size_bytes": 12142,
+        "sha256": "ed3fc0d0ff4285ba0bf6f4973bcff8d64bf55b229a09c9735d90be49d177bfdb",
+        "has_parallax_or_foil": true
+      },
+      {
+        "filename": "SynapseHolographicFoil.shader",
+        "size_bytes": 8498,
+        "sha256": "bcc3f6d51f331701b8e0b51f34343c9cf300a4ef830613d2f74b1cb9faed797f",
+        "has_parallax_or_foil": true
+      },
+      {
+        "filename": "SynapseSakugaImpactFrame.shader",
+        "size_bytes": 7356,
+        "sha256": "f774d3c98719b14e133db2c1aff8318b515319d66251a287ed4a4f79db4935b4",
+        "has_parallax_or_foil": true
+      },
+      {
+        "filename": "SynapseHoloCard.shader",
+        "size_bytes": 4933,
+        "sha256": "0b117ad4bff6eb71540bcd97697d1dc330c1e3065143ab4981f908edd9207e83",
+        "has_parallax_or_foil": true
+      }
+    ]
+  },
+  "binary_and_web_symbol_scraper": {
+    "scraper_id": "pxg_macho_il2cpp_symbol_scraper",
+    "studio_brand": "Studio PxG - LumenForge.io",
+    "swarm_model": "gemini-4-argon",
+    "status": "VERIFIED",
+    "macos_executable_present": false,
+    "macos_executable_sha256": "f89eec63e5d3ccae3fc02fec3706655585254407ca6a4e0787b1b210ee9cd44f",
+    "web_js_module_count": 16,
+    "verified_window_exports": [
+      "CardIdCatalog",
+      "LumenForgeHi3DService",
+      "StudioPxGReaConsole"
+    ]
+  },
+  "overall_status": "PASS_ALL_SCRAPERS"
+}
