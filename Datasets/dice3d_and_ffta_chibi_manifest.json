@@ -1,0 +1,1060 @@
+{
+  "schema_version": "1.0.0",
+  "generator": "Backend/render_3d_dice_and_ffta_pixel_chibi_assets.py",
+  "zero_living_artist_names": true,
+  "elapsed_s": 4.38,
+  "rtx4080_master_crystal_dice_sheet": {
+    "filename": "dice3d_rtx4080_master_crystal_sheet.png",
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_rtx4080_master_crystal_sheet.png",
+    "bytes": 978565,
+    "sha256": "b993af7c2708fb05a81ceefcbd1e03efb187ee7fe8a800f29252beaa873b9ffc",
+    "elapsed_s": 0.0,
+    "cached": true,
+    "prompt": "masterpiece, best quality, official game asset illustration of ornate polyhedral magicite game dice D6 D8 D12 D20, beveled sovereign gold filigree edges, translucent astral sapphire crystal and crimson obsidian facets, subsurface internal caustic refraction, glowing cyan and gold engraved pips and runes, crisp anime cel-shaded specular highlights, dark velvet studio backdrop, no text, no watermark"
+  },
+  "dice3d_summary": {
+    "total_dice3d_sprites": 12,
+    "unique_sha256_count": 12,
+    "d6_faces_count": 6,
+    "special_polyhedral_dice_count": 4,
+    "animated_tumble_strips_count": 2,
+    "all_cryptographically_unique": true
+  },
+  "ffta_chibi_summary": {
+    "total_chibi_units": 24,
+    "unique_static_sha256_count": 24,
+    "unique_sheet_sha256_count": 24,
+    "native_resolution": [
+      64,
+      64
+    ],
+    "upscale_factor": 2,
+    "palette_colors": 24,
+    "rtx4080_sdxl_chibi_backed": true,
+    "upscaled_static_resolution": [
+      128,
+      128
+    ],
+    "upscaled_sheet_2f_resolution": [
+      256,
+      128
+    ],
+    "all_24_cryptographically_unique": true
+  },
+  "mirror_sync": {
+    "web_dice3d_accessible": 13,
+    "web_chibi_accessible": 48,
+    "unity_dice3d_mirrored": 13,
+    "unity_chibi_mirrored": 48
+  },
+  "showcase_sheet": {
+    "width": 2400,
+    "height": 1600,
+    "brain_showcase_path": "/Users/frederickamina/.gemini/antigravity-cli/brain/d934b222-0e48-433e-b635-1a692b802f46/dice3d_and_ffta_pixel_chibi_showcase.png",
+    "local_showcase_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/dice3d_and_ffta_pixel_chibi_showcase.png",
+    "sha256": "1135364d6eff94002654ee699dcc0242f142f2dd61d158c12ea2b23fd20a9240",
+    "bytes": 1435778
+  },
+  "dice3d_assets": [
+    {
+      "id": "dice3d_d6_face_1",
+      "filename": "dice3d_d6_face_1.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_d6_face_1.png",
+      "die_type": "D6",
+      "face_value": 1,
+      "visible_faces": [
+        1,
+        2,
+        3
+      ],
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "4dd92025977125a0a2b20d7299f0f93a94e103852146bcd5dc43ae65ce3d2214",
+      "bytes": 71300
+    },
+    {
+      "id": "dice3d_d6_face_2",
+      "filename": "dice3d_d6_face_2.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_d6_face_2.png",
+      "die_type": "D6",
+      "face_value": 2,
+      "visible_faces": [
+        2,
+        4,
+        1
+      ],
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "7f3cf64ef576ef01d567bcabe74130a9ad0e6f84aedfa260bf5725c25223154f",
+      "bytes": 72145
+    },
+    {
+      "id": "dice3d_d6_face_3",
+      "filename": "dice3d_d6_face_3.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_d6_face_3.png",
+      "die_type": "D6",
+      "face_value": 3,
+      "visible_faces": [
+        3,
+        1,
+        5
+      ],
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "3a10eba59ddb1cb16d3b641687edee2b43fb5cba972eab80be2633d2430fded7",
+      "bytes": 72610
+    },
+    {
+      "id": "dice3d_d6_face_4",
+      "filename": "dice3d_d6_face_4.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_d6_face_4.png",
+      "die_type": "D6",
+      "face_value": 4,
+      "visible_faces": [
+        4,
+        6,
+        2
+      ],
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "df4f99397d57129c8239e63ef0d214af681d45e73a21da41c92f71dfefaec411",
+      "bytes": 73619
+    },
+    {
+      "id": "dice3d_d6_face_5",
+      "filename": "dice3d_d6_face_5.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_d6_face_5.png",
+      "die_type": "D6",
+      "face_value": 5,
+      "visible_faces": [
+        5,
+        3,
+        6
+      ],
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "53532387e0da107608f3fb7de5c4a9f9c0f017b9042269aa5b4f55c5100f681d",
+      "bytes": 74578
+    },
+    {
+      "id": "dice3d_d6_face_6",
+      "filename": "dice3d_d6_face_6.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_d6_face_6.png",
+      "die_type": "D6",
+      "face_value": 6,
+      "visible_faces": [
+        6,
+        5,
+        4
+      ],
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "c1dc3fa40ea6692bbdd420edbe4a370031e6a4669571d863d9138852a5635463",
+      "bytes": 74313
+    },
+    {
+      "id": "dice3d_aether_sapphire_d8",
+      "filename": "dice3d_aether_sapphire_d8.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_aether_sapphire_d8.png",
+      "die_type": "D8",
+      "face_value": 8,
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "00ca6ccd8829345af8d355e5cc71d929c7d11ab5f83679e350f296ee70c6a570",
+      "bytes": 36933
+    },
+    {
+      "id": "dice3d_crimson_obsidian_d8",
+      "filename": "dice3d_crimson_obsidian_d8.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_crimson_obsidian_d8.png",
+      "die_type": "D8",
+      "face_value": 8,
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "ee18b630da83a22b01c1e7b9c47430cd646cd7d2777be9b24aa4ab500c72d4c0",
+      "bytes": 36269
+    },
+    {
+      "id": "dice3d_sovereign_gold_d12",
+      "filename": "dice3d_sovereign_gold_d12.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_sovereign_gold_d12.png",
+      "die_type": "D12",
+      "face_value": 12,
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "fc357d47905179c519b9d478d12ccd3906dcda9bd10e088f4863f3120aaf2362",
+      "bytes": 45643
+    },
+    {
+      "id": "dice3d_kubrart_violet_d20",
+      "filename": "dice3d_kubrart_violet_d20.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_kubrart_violet_d20.png",
+      "die_type": "D20",
+      "face_value": 20,
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "c96b2225b3a4b5b7844c57a817a2e6c02f26245dc4e1c3e583f1b73a4c00c752",
+      "bytes": 52754
+    },
+    {
+      "id": "dice3d_tumble_strip_blue",
+      "filename": "dice3d_tumble_strip_blue.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_tumble_strip_blue.png",
+      "die_type": "D6_TUMBLE_STRIP_8F",
+      "frames": 8,
+      "frame_dimensions": [
+        256,
+        256
+      ],
+      "width": 2048,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "f60f5870b5c0da83839c26ad258959d6ae8c7a06ad8bff2a7af89b5214ddeeab",
+      "bytes": 530699
+    },
+    {
+      "id": "dice3d_tumble_strip_red",
+      "filename": "dice3d_tumble_strip_red.png",
+      "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/Dice3D/dice3d_tumble_strip_red.png",
+      "die_type": "D6_TUMBLE_STRIP_8F",
+      "frames": 8,
+      "frame_dimensions": [
+        256,
+        256
+      ],
+      "width": 2048,
+      "height": 256,
+      "mode": "RGBA",
+      "sha256": "a03355ab6c7542ac58943e9d0bdc32c10c9e2c251e4e1e6261d0b9556a696749",
+      "bytes": 502325
+    }
+  ],
+  "ffta_chibi_units": [
+    {
+      "index": 1,
+      "id": "chibi_01_rosalia_mech_wing_maiden",
+      "title": "Rosalia Mech-Wing Maiden",
+      "faction": "Aether",
+      "card_binding": "h_archangel",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_01_rosalia_mech_wing_maiden_rtx4080_768_4080601.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_01_rosalia_mech_wing_maiden.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_01_rosalia_mech_wing_maiden.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "00d7175f96af63b689e6b17d0e1e9ca7eb4024c21bf5b37391b57d60478f2672",
+        "bytes": 2934
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_01_rosalia_mech_wing_maiden_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_01_rosalia_mech_wing_maiden_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "9436661f0756bd9457faaf7fcc69c86825bcffbdb50006fa78d4929b4ca0324b",
+        "bytes": 4195
+      }
+    },
+    {
+      "index": 2,
+      "id": "chibi_02_celestia_clockwork_valkyrie",
+      "title": "Celestia Clockwork Valkyrie",
+      "faction": "Valkyria",
+      "card_binding": "h_valkyrie",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_02_celestia_clockwork_valkyrie_rtx4080_768_4080602.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_02_celestia_clockwork_valkyrie.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_02_celestia_clockwork_valkyrie.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "515be49e60fd03d290e703bdbfcd84b84ca6c5e354429a51b1411cf3633d188c",
+        "bytes": 3315
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_02_celestia_clockwork_valkyrie_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_02_celestia_clockwork_valkyrie_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "b969957f4a101f9a63c147296ae27fa96e9e3a8e856c5bbd5915833a2c18f669",
+        "bytes": 4740
+      }
+    },
+    {
+      "index": 3,
+      "id": "chibi_03_lyra_harmony_automata",
+      "title": "Lyra Harmony Automata",
+      "faction": "Aether",
+      "card_binding": "h_oracle",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_03_lyra_harmony_automata_rtx4080_768_4080603.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_03_lyra_harmony_automata.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_03_lyra_harmony_automata.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "ec2ee5f6479b31ba4769076f6f5240a53c78103a2c157f0ca77188a8c90461b9",
+        "bytes": 3308
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_03_lyra_harmony_automata_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_03_lyra_harmony_automata_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "b179822c888f3f7d137c7d4965f050343ec66352c8a72fbff0a688d397258d5c",
+        "bytes": 4444
+      }
+    },
+    {
+      "index": 4,
+      "id": "chibi_04_ignia_blaze_pinion",
+      "title": "Ignia Blaze Pinion",
+      "faction": "Solaris",
+      "card_binding": "h_phoenix",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_04_ignia_blaze_pinion_rtx4080_768_4080604.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_04_ignia_blaze_pinion.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_04_ignia_blaze_pinion.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "a42ca3aede0571131064f242e5e8642a1fa6bb89d20d619805e338e801de3d9a",
+        "bytes": 2446
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_04_ignia_blaze_pinion_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_04_ignia_blaze_pinion_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "ca660a130d83bd39bacfa21b9944f93ae29c95d7749acac04f07ae5be6d594c4",
+        "bytes": 3577
+      }
+    },
+    {
+      "index": 5,
+      "id": "chibi_05_nocturna_eclipse_saint",
+      "title": "Nocturna Eclipse Saint",
+      "faction": "Abyss",
+      "card_binding": "h_seraph",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_05_nocturna_eclipse_saint_rtx4080_768_4080605.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_05_nocturna_eclipse_saint.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_05_nocturna_eclipse_saint.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "62cc661182f679c537a9fb81d180c5ef21ad0fbf3363a565d194a1e244f842f6",
+        "bytes": 2666
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_05_nocturna_eclipse_saint_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_05_nocturna_eclipse_saint_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "f3807c336481d4014312b75d27fbd36918b473deffbae4c04d43fb5f32db78aa",
+        "bytes": 3520
+      }
+    },
+    {
+      "index": 6,
+      "id": "chibi_06_archangel_paladin",
+      "title": "Archangel Ivalice Paladin",
+      "faction": "Solaris",
+      "card_binding": "cf_03_celestial_guardian",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_06_archangel_paladin_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_06_archangel_paladin.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_06_archangel_paladin.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "67a0c4844351208d59245e406b4d9c4af5b44e603f7dc9dc4e6650665f103ac4",
+        "bytes": 3968
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_06_archangel_paladin_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_06_archangel_paladin_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "acafabb05e3624a14b31186fce1b14b9a02fa50b6d42e33e04781b8a9e4ba9e8",
+        "bytes": 5454
+      }
+    },
+    {
+      "index": 7,
+      "id": "chibi_07_eclipse_assassin",
+      "title": "Eclipse Shadow Assassin",
+      "faction": "Abyss",
+      "card_binding": "e_shinobi",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_07_eclipse_assassin_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_07_eclipse_assassin.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_07_eclipse_assassin.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "bc4c0f057fe1bf6a9022fe227b7b2529fcb858030173d602ad6dc77d0e2ec629",
+        "bytes": 2803
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_07_eclipse_assassin_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_07_eclipse_assassin_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "325f69fade5843aa5fe693fbb5e6205bfc1c40d061e44410e43b618190f0d1e2",
+        "bytes": 4044
+      }
+    },
+    {
+      "index": 8,
+      "id": "chibi_08_kubrart_eclipse_sovereign",
+      "title": "Kubrart Eclipse Sovereign",
+      "faction": "Aether",
+      "card_binding": "e_eclipse",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_08_kubrart_eclipse_sovereign_rtx4080_768_4080608.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_08_kubrart_eclipse_sovereign.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_08_kubrart_eclipse_sovereign.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "73c4bdab9396f987a85e7515eeca14abc30cff36d094ad85ef49481d5076297e",
+        "bytes": 2185
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_08_kubrart_eclipse_sovereign_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_08_kubrart_eclipse_sovereign_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "06dc85f6d9c6c063d47e768bcc07cc7ce3c62d85f5b8539d89b916363dc62614",
+        "bytes": 3338
+      }
+    },
+    {
+      "index": 9,
+      "id": "chibi_09_sumi_ronin_blademaster",
+      "title": "Sumi Ronin Blademaster",
+      "faction": "Abyss",
+      "card_binding": "s1_50_obsidian_ronin",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_09_sumi_ronin_blademaster_rtx4080_768_4080609.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_09_sumi_ronin_blademaster.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_09_sumi_ronin_blademaster.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "3f1c2b30592f3804b7397a44ed6154e4b446b7df69075f4c28bc5b464c933475",
+        "bytes": 2501
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_09_sumi_ronin_blademaster_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_09_sumi_ronin_blademaster_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "e551646fa2e295f87477e5b9ee645b99ea497f57668b910751a11ab8408e24eb",
+        "bytes": 3605
+      }
+    },
+    {
+      "index": 10,
+      "id": "chibi_10_astra_hyper_striker",
+      "title": "Astra Hyper Striker",
+      "faction": "Valkyria",
+      "card_binding": "h_kai",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_10_astra_hyper_striker_rtx4080_768_4080610.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_10_astra_hyper_striker.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_10_astra_hyper_striker.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "497c98b03faa5e379c91b9c58616f7bf82ae4c7fbbc47e4104db84f5dc861a47",
+        "bytes": 3294
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_10_astra_hyper_striker_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_10_astra_hyper_striker_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "952353936d971a6fbe4395ddd1322cd67a5eb446b4b2cc07c40c96d0d9fba323",
+        "bytes": 4430
+      }
+    },
+    {
+      "index": 11,
+      "id": "chibi_11_solaris_obari_mecha",
+      "title": "Solaris SD Mecha Vanguard",
+      "faction": "Valkyria",
+      "card_binding": "e_titan",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_11_solaris_obari_mecha_rtx4080_768_4080611.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_11_solaris_obari_mecha.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_11_solaris_obari_mecha.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "901200994c56a3279287bdb8873b717ee363b3cc39dab77fa670de244cf1f764",
+        "bytes": 3582
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_11_solaris_obari_mecha_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_11_solaris_obari_mecha_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "3e6f6afccc9d58662e16b95a1c0158f28898ad7ad1cc7a0c6fdcef1ca6fb6681",
+        "bytes": 4661
+      }
+    },
+    {
+      "index": 12,
+      "id": "chibi_12_judge_law_arbiter",
+      "title": "Ivalice Judge Law Arbiter",
+      "faction": "Solaris",
+      "card_binding": "h_arbiter",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_12_judge_law_arbiter_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_12_judge_law_arbiter.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_12_judge_law_arbiter.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "16fa16e608658bdd1e4fcc63de13d44bd09d44a0e2f53a87cfc0a7e2ae3d8fcb",
+        "bytes": 4664
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_12_judge_law_arbiter_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_12_judge_law_arbiter_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "446dd033c635b987bf3dee5d8209a85d12233344c983057cc3688a7bf95183ba",
+        "bytes": 6426
+      }
+    },
+    {
+      "index": 13,
+      "id": "chibi_13_time_mage_chrono",
+      "title": "Chronos Time Mage",
+      "faction": "Chronos",
+      "card_binding": "h_chronos",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_13_time_mage_chrono_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_13_time_mage_chrono.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_13_time_mage_chrono.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "6e4589348259a59fd0bfc4069f937e031a70d82c304d795b63baa7cd8e9dfa47",
+        "bytes": 2805
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_13_time_mage_chrono_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_13_time_mage_chrono_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "119d78d3dd2209a46307af3a626dbb74f35940dbe63fa1f53eeb11b1f849771b",
+        "bytes": 3889
+      }
+    },
+    {
+      "index": 14,
+      "id": "chibi_14_white_monk_brawler",
+      "title": "Ivalice White Monk Brawler",
+      "faction": "Chronos",
+      "card_binding": "s1_47_phantom_cqc_operative",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_14_white_monk_brawler_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_14_white_monk_brawler.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_14_white_monk_brawler.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "f04358285a0e82864aa7ed80d029d72e063581b7df8a5f6238a5190c05db4bda",
+        "bytes": 3517
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_14_white_monk_brawler_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_14_white_monk_brawler_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "ce3396d4f7eca5344de6fcfbb32de08d3c971df658f2a0484d3512ba38170c3f",
+        "bytes": 4534
+      }
+    },
+    {
+      "index": 15,
+      "id": "chibi_15_dragoon_sky_lancer",
+      "title": "Dragoon Sky Lancer",
+      "faction": "Valkyria",
+      "card_binding": "s1_16_railgun_dragoon",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_15_dragoon_sky_lancer_rtx4080_768_4080615.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_15_dragoon_sky_lancer.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_15_dragoon_sky_lancer.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "c7443c1a3273b52731f20d11c2a4b6285ddb2b32073674dff97eff45b9914a2f",
+        "bytes": 3034
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_15_dragoon_sky_lancer_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_15_dragoon_sky_lancer_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "7769c06d9393873779d05d72bfbdd6ef0be99125f86d97dea402e5da5be29939",
+        "bytes": 4091
+      }
+    },
+    {
+      "index": 16,
+      "id": "chibi_16_black_mage_pyro",
+      "title": "Ivalice Black Mage Pyro",
+      "faction": "Chronos",
+      "card_binding": "e_inferno",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_16_black_mage_pyro_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_16_black_mage_pyro.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_16_black_mage_pyro.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "5007383149e948e74847f7e3850c9449db9280832acd9470afdb950594fe4af4",
+        "bytes": 2394
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_16_black_mage_pyro_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_16_black_mage_pyro_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "6b1a35a2498dc4f343047198feccc0426d7a173300c82100ef606de1dbf9de95",
+        "bytes": 3565
+      }
+    },
+    {
+      "index": 17,
+      "id": "chibi_17_gunner_moogle_machinist",
+      "title": "Aether Moogle Machinist",
+      "faction": "Chronos",
+      "card_binding": "s1_21_nanoforge_engineer",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_17_gunner_moogle_machinist_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_17_gunner_moogle_machinist.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_17_gunner_moogle_machinist.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "d67b08a4377125832857bccbf9cef3ffd7d2fba97535ba64c234095db634ec84",
+        "bytes": 3414
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_17_gunner_moogle_machinist_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_17_gunner_moogle_machinist_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "4ac2524fb0dc69bca1fd0e2633b731cfb551a6c9d6ca1a475572980fb885967e",
+        "bytes": 4700
+      }
+    },
+    {
+      "index": 18,
+      "id": "chibi_18_illusionist_star_seer",
+      "title": "Illusionist Star Seer",
+      "faction": "Aether",
+      "card_binding": "cf_10_lunar_oracle",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_18_illusionist_star_seer_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_18_illusionist_star_seer.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_18_illusionist_star_seer.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "7a8eaba00583677759a20a21fc2c3fcbe6ec0cf6343359c90e275fabb3a9801f",
+        "bytes": 4499
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_18_illusionist_star_seer_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_18_illusionist_star_seer_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "85b2c01e7c190288151c3b57513156cb5eda88f5a951504817bb3f33661bf5dc",
+        "bytes": 5980
+      }
+    },
+    {
+      "index": 19,
+      "id": "chibi_19_fencer_red_mage",
+      "title": "Fencer Red Mage Duelist",
+      "faction": "Abyss",
+      "card_binding": "s1_29_spellblade_duelist",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_19_fencer_red_mage_rtx4080_768_4080619.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_19_fencer_red_mage.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_19_fencer_red_mage.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "204c7a71dd2f27a77cf445b0d614913ef6fb245e6a8b644e09aba1ad6ab2f3bf",
+        "bytes": 2580
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_19_fencer_red_mage_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_19_fencer_red_mage_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "38d62540a26afe7366bd79cf260c917b050579a64a34edd5fdce443b7c52c0bd",
+        "bytes": 3661
+      }
+    },
+    {
+      "index": 20,
+      "id": "chibi_20_summoner_horn_conduit",
+      "title": "Summoner Horn Conduit",
+      "faction": "Solaris",
+      "card_binding": "cf_05_elemental_sprite",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_20_summoner_horn_conduit_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_20_summoner_horn_conduit.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_20_summoner_horn_conduit.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "d97b4dd9ddae80ca20edbf4bf13741b2c89a0cd7d57477c304b98f08f3cfa1c0",
+        "bytes": 3399
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_20_summoner_horn_conduit_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_20_summoner_horn_conduit_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "cb86799829006cdc65bf5df3fe8b20f1063c51ac3d3408c4a8035eabc05821de",
+        "bytes": 4517
+      }
+    },
+    {
+      "index": 21,
+      "id": "chibi_21_void_golem_construct",
+      "title": "Void Golem Construct",
+      "faction": "Abyss",
+      "card_binding": "e_colossus",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_21_void_golem_construct_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_21_void_golem_construct.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_21_void_golem_construct.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "449e50dcffcac4bf28609a57635a9af8354939adbb5976b1ddd8b2f5f31e12b4",
+        "bytes": 2096
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_21_void_golem_construct_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_21_void_golem_construct_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "a09368db951da77fff460a081fa180a3543e84bfedd79d7eb04b0437c3fa56aa",
+        "bytes": 3161
+      }
+    },
+    {
+      "index": 22,
+      "id": "chibi_22_valkyrie_aegis_shield",
+      "title": "Valkyrie Aegis Shieldmaiden",
+      "faction": "Solaris",
+      "card_binding": "s1_37_radiant_valkyrie",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_22_valkyrie_aegis_shield_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_22_valkyrie_aegis_shield.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_22_valkyrie_aegis_shield.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "51224e7afc2b036be62724606d15f15c40e08141c63e4ca3675c722c7fc35bd0",
+        "bytes": 3769
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_22_valkyrie_aegis_shield_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_22_valkyrie_aegis_shield_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "aa0635c77fca5859e6507e8f37942bc994df00d378e3145f5e5c5ba2c9ba5a3b",
+        "bytes": 5356
+      }
+    },
+    {
+      "index": 23,
+      "id": "chibi_23_necromancer_lich_lord",
+      "title": "Necromancer Lich Archon",
+      "faction": "Abyss",
+      "card_binding": "e_reaper",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_23_necromancer_lich_lord_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_23_necromancer_lich_lord.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_23_necromancer_lich_lord.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "6e5436a12561b9a9e1d19d08f6a39076de3c15a2f8757f9ef31e47cf5a3f8ef3",
+        "bytes": 2649
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_23_necromancer_lich_lord_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_23_necromancer_lich_lord_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "024cd9d886e009ac17b13fb9ab1b7ad0b1e36706bac00753e0e3b14cfc151188",
+        "bytes": 3899
+      }
+    },
+    {
+      "index": 24,
+      "id": "chibi_24_omega_sovereign_captain",
+      "title": "Omega Sovereign Captain",
+      "faction": "Aether",
+      "card_binding": "s1_60_omega_chronos_prime",
+      "rtx4080_raw_512_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/_rtx4080_raw_512/chibi_24_omega_sovereign_captain_rtx4080_512.png",
+      "native_pixel_grid": [
+        64,
+        64
+      ],
+      "palette_colors": 24,
+      "upscale_factor": 2,
+      "upscale_filter": "NEAREST",
+      "static_sprite": {
+        "filename": "chibi_24_omega_sovereign_captain.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_24_omega_sovereign_captain.png",
+        "width": 128,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "734cc4c489e4a8fe517f1041ed15d35580c61053516ee3f61fad4fba59d80fbd",
+        "bytes": 3474
+      },
+      "animated_sheet_2f": {
+        "filename": "chibi_24_omega_sovereign_captain_sheet.png",
+        "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/GeneratedArt/FFAChibiUnits/chibi_24_omega_sovereign_captain_sheet.png",
+        "frames": 2,
+        "width": 256,
+        "height": 128,
+        "mode": "RGBA",
+        "sha256": "f299cdb9e732cd72baec3d8bb3c63290b1685c58f4aa00e1e55524f72d8368f5",
+        "bytes": 4736
+      }
+    }
+  ]
+}

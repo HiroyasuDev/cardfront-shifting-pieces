@@ -1544,5 +1544,35 @@
     "priority": "P0",
     "code_ref": "WebPlayable/modules/saga_10year_franchise_and_sbx00.js:1-360",
     "remediation": "Wire WebPlayable/modules/saga_10year_franchise_and_sbx00.js and #saga-10year-franchise-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+  },
+  {
+    "id": "core.production_upgrades.18",
+    "skill": "tcg-creative-game-designer",
+    "rule": "Shadowverse-EVOLVE BP05-110 SR School Mech-Wing Maiden & Chrono-Seraph Collection (5 Paired Base SR 進化前 & Awakened Evolved UR 進化後 Forms = 10 600x800 RTX 4080 Portraits, V100-32GB LoRA evolve_mech_wing_maiden_sr_v1_lora.safetensors, Luxury Gunmetal-Filigree SR/UR Frame Renderer, Live evolveCardOnBoard 3x3 Transformation, & SBX00 141-Card Sync).",
+    "source": "WebPlayable/modules/evolve_mech_wing_maiden_engine.js:1",
+    "target": "both",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const e = window.CardFrontEvolveMaidenEngine; if (!e || !Array.isArray(e.EVOLVE_MECH_WING_MAIDEN_PAIRS) || e.EVOLVE_MECH_WING_MAIDEN_PAIRS.length !== 5 || !Array.isArray(e.EVOLVE_MECH_WING_CARDS_10) || e.EVOLVE_MECH_WING_CARDS_10.length !== 10) return false; const html = e.renderEvolveSrCardHtml(e.EVOLVE_MECH_WING_CARDS_10[0], { evolved: false }); const deck = e.equipEvolveMechWingMaidenDeck(); e.openEvolveMaidenStudioModal(); e.closeEvolveMaidenStudioModal(); return Boolean(html && html.includes('cf-evolve-sr-card') && deck && Array.isArray(deck.playerDeck) && deck.playerDeck.length === 15); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/evolve_mech_wing_maiden_engine.js:1-360",
+    "remediation": "Wire WebPlayable/modules/evolve_mech_wing_maiden_engine.js and #evolve-maiden-studio-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+  },
+  {
+    "id": "core.production_upgrades.19",
+    "skill": "disciplines/game-ui-ux",
+    "rule": "High-Detail 3D Polyhedral Game Dice (12 3D Dice Assets: D6 Faces 1-6, D8, D12, D20 & 8-Frame Tumbling Roll Strips), 4-Layer 2.5D/3D Extruded Parallax Card Slabs, and 24/141 Unique Attached Final Fantasy Tactics Advance (FFTA) Isometric Pixel-Art Chibi Character Units (window.CardFrontDice3DAndChibiUnits, roll3DColumnDie, getUniqueChibiForCard, & #dice3d-ffta-chibi-modal).",
+    "source": "WebPlayable/modules/dice3d_and_ffta_chibi_units.js:1",
+    "target": "both",
+    "method": "playwright",
+    "probe": {
+      "expression": "(() => { const d = window.CardFrontDice3DAndChibiUnits; if (!d || !Array.isArray(d.POLYHEDRAL_3D_DICE_12) || d.POLYHEDRAL_3D_DICE_12.length !== 12 || !Array.isArray(d.FFTA_PIXEL_CHIBI_ROSTER_24) || d.FFTA_PIXEL_CHIBI_ROSTER_24.length !== 24) return false; const bCount = Object.keys(d.CARD_TO_CHIBI_BINDINGS_141 || {}).length; const ch = d.getUniqueChibiForCard('ev_01_base'); const roll = d.roll3DColumnDie(0, 6); d.openDice3DAndChibiModal(); d.closeDice3DAndChibiModal(); return Boolean(bCount >= 141 && ch && ch.chibiUnitId && roll && roll.value === 6); })()"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "WebPlayable/modules/dice3d_and_ffta_chibi_units.js:1-360",
+    "remediation": "Wire WebPlayable/modules/dice3d_and_ffta_chibi_units.js and #dice3d-ffta-chibi-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
   }
 ]

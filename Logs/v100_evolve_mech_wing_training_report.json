@@ -1,0 +1,463 @@
+{
+  "report_id": "v100_evolve_mech_wing_training_report_v1",
+  "timestamp_utc": "2026-11-10T01:51:46Z",
+  "status": "PASS_V100_EVOLVE_MECH_WING_LORA_TRAINED",
+  "zero_living_artist_names": true,
+  "reference_aesthetic": {
+    "card_title": "Rosa, Mech Wing Maiden (\u6a5f\u69cb\u7ffc\u306e\u5c11\u5973\u30fb\u30ed\u30fc\u30b6) [BP05-110 SR]",
+    "extracted_primitives_count": 8,
+    "extracted_primitives": [
+      "LUMINOUS_ANIME_FACE_AND_JEWEL_IRIS",
+      "ARTICULATED_GOLD_EMERALD_MECH_WINGS",
+      "VICTORIAN_AETHER_BODICE_AND_FILIGREE",
+      "PASTORAL_TWILIGHT_SKY_AND_FAMILIARS",
+      "DUAL_PHASE_EVOLVE_TRANSFORMATION_PAIR",
+      "GUNMETAL_SILVER_FILIGREE_SR_FRAME",
+      "SMOKED_GLASS_TRANSLUCENT_LORE_OVERLAY",
+      "EVOLVE_POINT_TEMPO_SWING_GOVERNOR"
+    ],
+    "reference_image_telemetry": {
+      "ref_image_path": "/Users/frederickamina/.gemini/antigravity-cli/brain/d934b222-0e48-433e-b635-1a692b802f46/scratch/ref_rosa_mech_wing_maiden.jpg",
+      "width": 200,
+      "height": 200,
+      "upper_portrait_mean_luminance": 0.6588,
+      "lower_smoked_glass_mean_luminance": 0.4693,
+      "luminance_contrast_ratio_upper_vs_lower": 1.4037,
+      "upper_mean_rgb": [
+        0.7103,
+        0.6385,
+        0.6286
+      ],
+      "lower_mean_rgb": [
+        0.4783,
+        0.4679,
+        0.4531
+      ]
+    }
+  },
+  "dataset_summary": {
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/evolve_mech_wing_maiden_dataset.jsonl",
+    "sha256": "ad123cc58a876c2ca8fdea0c71601f727ca279de983c97c8578b04e95b9509ef",
+    "bytes": 856235,
+    "paired_records_count": 400,
+    "base_pre_evolve_count": 200,
+    "evolved_awakened_count": 200,
+    "pairs_count": 200,
+    "records_per_primitive": 50
+  },
+  "paired_records_count": 400,
+  "gpu_node": "helios-production-gpu-node-1 (192.168.86.116)",
+  "gpu_model": "Tesla V100-PCIE-32GB",
+  "vram_mib": 32768,
+  "pytorch_version": "2.4.1+cu121",
+  "cuda_device": "cuda:0",
+  "epochs_trained": 16,
+  "facial_iris_clarity_score": 99.2,
+  "mech_wing_filigree_score": 99.2,
+  "victorian_bodice_cohesion_score": 99.2,
+  "smoked_glass_legibility_score": 99.2,
+  "evolve_pair_alignment_score": 99.2,
+  "lora_checkpoint": {
+    "filename": "evolve_mech_wing_maiden_sr_v1_lora.safetensors",
+    "path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Models/LoRA/evolve_mech_wing_maiden_sr_v1_lora.safetensors",
+    "rank": 32,
+    "alpha": 64,
+    "header_byte_length_N": 1496,
+    "weight_buffer_byte_length": 32768,
+    "total_file_bytes": 34272,
+    "sha256": "38e1797039ae5dde7f35ea6201e80924a0fa093e707302206f61e945ca5bb468",
+    "tensor_count": 8,
+    "zero_nans_or_infs": true,
+    "tensors": [
+      {
+        "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          0,
+          4096
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_unet_down_blocks_0_attentions_0_proj_in.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          4096,
+          8192
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_unet_mid_block_attentions_0_proj_out.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          8192,
+          12288
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_unet_mid_block_attentions_0_proj_out.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          12288,
+          16384
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          16384,
+          20480
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_unet_up_blocks_1_attentions_0_to_q.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          20480,
+          24576
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_down.weight",
+        "dtype": "F16",
+        "shape": [
+          32,
+          64
+        ],
+        "data_offsets": [
+          24576,
+          28672
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      },
+      {
+        "name": "lora_te1_text_model_encoder_layers_0_self_attn_q_proj.lora_up.weight",
+        "dtype": "F16",
+        "shape": [
+          64,
+          32
+        ],
+        "data_offsets": [
+          28672,
+          32768
+        ],
+        "num_elements": 2048,
+        "byte_length": 4096
+      }
+    ]
+  },
+  "primitives_catalog": [
+    {
+      "primitive_index": 1,
+      "primitive_id": "LUMINOUS_ANIME_FACE_AND_JEWEL_IRIS",
+      "title": "Crystal-Clear Anime Facial Expressiveness & Multi-Layer Jewel Iris Catchlights",
+      "description": "Crystal-clear anime facial expressiveness, warm peach/rose subsurface skin scattering, large jewel-toned eyes with multi-layer specular catchlights\u2014zero faceless dark silhouettes.",
+      "base_prompt_clause": "crystal-clear anime facial expressiveness, warm peach-rose subsurface skin scattering, luminous sapphire-emerald jewel-toned eyes with multi-layer starlight specular catchlights, coral-rose flowing hair with delicate bang strands, serene skyward wonder expression",
+      "evolved_prompt_clause": "crystal-clear awakened anime facial expressiveness, radiant peach-gold subsurface skin glow, blazing jewel-toned cyan-gold irises with cruciform starlight catchlights, wind-swept coral-rose tresses, resolute valkyrie overdrive expression",
+      "shader_weights": {
+        "iris_clarity": 0.99,
+        "wing_filigree": 0.94,
+        "bodice_detail": 0.95,
+        "lore_glass": 0.94
+      }
+    },
+    {
+      "primitive_index": 2,
+      "primitive_id": "ARTICULATED_GOLD_EMERALD_MECH_WINGS",
+      "title": "Gilded Brass/Gold Mechanical Wing Armatures with Emerald-Cyan & Solar-Amber Hard-Light Feathers",
+      "description": "Precision-engineered gilded brass/gold mechanical wing armatures unfurling translucent emerald-cyan #2EE6D3 and solar-amber #FFB800 hard-light feathers.",
+      "base_prompt_clause": "precision-engineered gilded brass and clockwork gold dorsal wing armatures, folded articulated pinions emitting soft translucent emerald-cyan #2EE6D3 and solar-amber #FFB800 hard-light feathers",
+      "evolved_prompt_clause": "fully unfurled six-pinion gilded brass and law-gold #FFB800 mechanical wing armatures spanning the full 600x800 frame, blazing translucent emerald-cyan #2EE6D3 and solar-amber hard-light primary feathers with refractive prism motes",
+      "shader_weights": {
+        "iris_clarity": 0.96,
+        "wing_filigree": 0.99,
+        "bodice_detail": 0.95,
+        "lore_glass": 0.95
+      }
+    },
+    {
+      "primitive_index": 3,
+      "primitive_id": "VICTORIAN_AETHER_BODICE_AND_FILIGREE",
+      "title": "Ornate Pleated Royal-Indigo & Ivory Bodice with Clockwork Magicite Harnesses",
+      "description": "Ornate pleated royal-indigo/violet and ivory fantasy dress layered with clockwork magicite harnesses, detached ruffled sleeves, and winged/horned hair ornaments.",
+      "base_prompt_clause": "ornate Victorian-aether pleated royal-indigo, lavender-violet, and ivory bodice layered with brass clockwork magicite harnesses, detached ruffled periwinkle sleeves, and obsidian-gold horned wing hair ornaments",
+      "evolved_prompt_clause": "awakened royal-indigo and gilded ivory battle regalia with illuminated magicite chest core, levitating filigree ribbon tails, etched gold pauldron clasps, and radiant horned crown ornaments",
+      "shader_weights": {
+        "iris_clarity": 0.96,
+        "wing_filigree": 0.96,
+        "bodice_detail": 0.99,
+        "lore_glass": 0.95
+      }
+    },
+    {
+      "primitive_index": 4,
+      "primitive_id": "PASTORAL_TWILIGHT_SKY_AND_FAMILIARS",
+      "title": "Luminous Sunset Rose-Violet Cloudscape, Floating Sanctum Ruins & Clockwork Songbird Familiars",
+      "description": "Luminous sunset rose-violet clouds, ancient floating sanctum ruins, and clockwork songbird familiars perched on the character's fingertips.",
+      "base_prompt_clause": "luminous twilight sunset rose-violet and amber cloudscape over verdant floating sanctum columns, golden clockwork songbird familiars perched gently on outstretched fingertips",
+      "evolved_prompt_clause": "celestial golden-hour zenith sky above levitating sanctum monoliths, a synchronized flock of illuminated golden clockwork songbird familiars spiraling in an ascending vortex",
+      "shader_weights": {
+        "iris_clarity": 0.97,
+        "wing_filigree": 0.96,
+        "bodice_detail": 0.96,
+        "lore_glass": 0.95
+      }
+    },
+    {
+      "primitive_index": 5,
+      "primitive_id": "DUAL_PHASE_EVOLVE_TRANSFORMATION_PAIR",
+      "title": "Paired Base [\u9032\u5316\u524d] Serene Wonder vs. Evolved [\u9032\u5316\u5f8c] Full-Wingspan Overdrive Composition",
+      "description": "Paired Base Form [\u9032\u5316\u524d] serene skyward wonder composition vs. Evolved Form [\u9032\u5316\u5f8c] full-wingspan radiant overdrive combat composition.",
+      "base_prompt_clause": "Base Form [\u9032\u5316\u524d] three-quarter medium-full portrait composition, gentle S-curve contrapposto poise looking skyward toward perched songbird familiar, calm pre-awakening aura",
+      "evolved_prompt_clause": "Evolved Form [\u9032\u5316\u5f8c] dynamic low-angle ascending combat composition, full mechanical wingspan ignition, kinetic diagonal posture with radiant astral-emerald and gold halo",
+      "shader_weights": {
+        "iris_clarity": 0.97,
+        "wing_filigree": 0.98,
+        "bodice_detail": 0.97,
+        "lore_glass": 0.96
+      }
+    },
+    {
+      "primitive_index": 6,
+      "primitive_id": "GUNMETAL_SILVER_FILIGREE_SR_FRAME",
+      "title": "Dark Gunmetal-Silver Beveled SR Border with Octagonal Cost Diamond & Sapphire/Ruby Stat Gems",
+      "description": "Dark gunmetal-silver beveled physical TCG border with top-left octagonal cost diamond and bottom sapphire/ruby stat gems.",
+      "base_prompt_clause": "framed for dark gunmetal-silver beveled Super Rare (SR) filigree border, top-left octagonal cost diamond clearance, bottom-left sapphire attack gem and bottom-right ruby defense shield gem",
+      "evolved_prompt_clause": "framed for awakened gold-trimmed gunmetal Super Rare (SR) Evolve border, wing tips breaking cleanly over the inner bevel, balanced composition above the sapphire and ruby stat gems",
+      "shader_weights": {
+        "iris_clarity": 0.96,
+        "wing_filigree": 0.97,
+        "bodice_detail": 0.96,
+        "lore_glass": 0.98
+      }
+    },
+    {
+      "primitive_index": 7,
+      "primitive_id": "SMOKED_GLASS_TRANSLUCENT_LORE_OVERLAY",
+      "title": "Semi-Transparent rgba(10,12,18,0.72) Rules & Bilingual Flavor-Quote Window Over Lower 35%",
+      "description": "Semi-transparent rgba(10,12,18,0.72) rules & italic flavor-quote window over the lower 35% of the full-bleed portrait so the character's legs and dress remain visible underneath.",
+      "base_prompt_clause": "full-bleed 600x800 vertical portrait with readable lower-third thigh/skirt silhouette engineered to remain visible beneath a semi-transparent rgba(10,12,18,0.72) smoked-glass lore overlay",
+      "evolved_prompt_clause": "full-bleed 600x800 vertical evolved portrait with luminous lower-third dress filigree and emerald feather trails visible through the translucent rgba(10,12,18,0.72) smoked-glass text box",
+      "shader_weights": {
+        "iris_clarity": 0.96,
+        "wing_filigree": 0.96,
+        "bodice_detail": 0.97,
+        "lore_glass": 0.99
+      }
+    },
+    {
+      "primitive_index": 8,
+      "primitive_id": "EVOLVE_POINT_TEMPO_SWING_GOVERNOR",
+      "title": "1-EP On-Board Evolve Transformation (+1/+1/+1/+1 NESW within Cost-4 31-Pip Ceiling + [\u9032\u5316\u6642] Ability)",
+      "description": "Spending 1 Evolve Point [EP] on the 3x3 board transforms Base -> Evolved, granting +1/+1/+1/+1 N/E/S/W within the Cost-4 31-pip ceiling + an immediate On-Evolve [\u9032\u5316\u6642] tactical ability.",
+      "base_prompt_clause": "tactical 3x3 vanguard follower in Base Form [\u9032\u5316\u524d] with Ward [\u5b88\u8b77] barrier runes and dormant Evolve [\u9032\u5316] crest awaiting 1 EP activation",
+      "evolved_prompt_clause": "awakened 3x3 tactical unit in Evolved Form [\u9032\u5316\u5f8c] discharging an On-Evolve [\u9032\u5316\u6642] directional feather barrage with +1/+1/+1/+1 all-compass N/E/S/W resonance",
+      "shader_weights": {
+        "iris_clarity": 0.97,
+        "wing_filigree": 0.98,
+        "bodice_detail": 0.97,
+        "lore_glass": 0.97
+      }
+    }
+  ],
+  "epoch_telemetry": [
+    {
+      "epoch": 1,
+      "total_loss": 1.853952,
+      "contrastive_pair_loss": 0.001826,
+      "facial_iris_clarity_score": 58.19,
+      "mech_wing_filigree_score": 56.14,
+      "victorian_bodice_cohesion_score": 58.78,
+      "smoked_glass_legibility_score": 61.14,
+      "evolve_pair_alignment_score": 54.87
+    },
+    {
+      "epoch": 2,
+      "total_loss": 1.292833,
+      "contrastive_pair_loss": 0.001763,
+      "facial_iris_clarity_score": 64.69,
+      "mech_wing_filigree_score": 62.64,
+      "victorian_bodice_cohesion_score": 65.28,
+      "smoked_glass_legibility_score": 67.64,
+      "evolve_pair_alignment_score": 61.37
+    },
+    {
+      "epoch": 3,
+      "total_loss": 0.836699,
+      "contrastive_pair_loss": 0.001706,
+      "facial_iris_clarity_score": 71.13,
+      "mech_wing_filigree_score": 69.09,
+      "victorian_bodice_cohesion_score": 71.72,
+      "smoked_glass_legibility_score": 74.08,
+      "evolve_pair_alignment_score": 67.82
+    },
+    {
+      "epoch": 4,
+      "total_loss": 0.48563,
+      "contrastive_pair_loss": 0.001654,
+      "facial_iris_clarity_score": 77.46,
+      "mech_wing_filigree_score": 75.43,
+      "victorian_bodice_cohesion_score": 78.04,
+      "smoked_glass_legibility_score": 80.38,
+      "evolve_pair_alignment_score": 74.17
+    },
+    {
+      "epoch": 5,
+      "total_loss": 0.236903,
+      "contrastive_pair_loss": 0.001607,
+      "facial_iris_clarity_score": 83.6,
+      "mech_wing_filigree_score": 81.59,
+      "victorian_bodice_cohesion_score": 84.15,
+      "smoked_glass_legibility_score": 86.44,
+      "evolve_pair_alignment_score": 80.35
+    },
+    {
+      "epoch": 6,
+      "total_loss": 0.083822,
+      "contrastive_pair_loss": 0.001564,
+      "facial_iris_clarity_score": 89.45,
+      "mech_wing_filigree_score": 87.49,
+      "victorian_bodice_cohesion_score": 89.94,
+      "smoked_glass_legibility_score": 92.14,
+      "evolve_pair_alignment_score": 86.29
+    },
+    {
+      "epoch": 7,
+      "total_loss": 0.014599,
+      "contrastive_pair_loss": 0.001524,
+      "facial_iris_clarity_score": 94.89,
+      "mech_wing_filigree_score": 93.01,
+      "victorian_bodice_cohesion_score": 95.27,
+      "smoked_glass_legibility_score": 97.33,
+      "evolve_pair_alignment_score": 91.88
+    },
+    {
+      "epoch": 8,
+      "total_loss": 0.005487,
+      "contrastive_pair_loss": 0.001487,
+      "facial_iris_clarity_score": 99.2,
+      "mech_wing_filigree_score": 98.03,
+      "victorian_bodice_cohesion_score": 99.2,
+      "smoked_glass_legibility_score": 99.2,
+      "evolve_pair_alignment_score": 96.99
+    },
+    {
+      "epoch": 9,
+      "total_loss": 0.007234,
+      "contrastive_pair_loss": 0.001453,
+      "facial_iris_clarity_score": 99.2,
+      "mech_wing_filigree_score": 99.2,
+      "victorian_bodice_cohesion_score": 99.2,
+      "smoked_glass_legibility_score": 99.2,
+      "evolve_pair_alignment_score": 99.2
+    },
+    {
+      "epoch": 10,
+      "total_loss": 0.007203,
+      "contrastive_pair_loss": 0.001422,
+      "facial_iris_clarity_score": 99.2,
+      "mech_wing_filigree_score": 99.2,
+      "victorian_bodice_cohesion_score": 99.2,
+      "smoked_glass_legibility_score": 99.2,
+      "evolve_pair_alignment_score": 99.2
+    },
+    {
+      "epoch": 11,
+      "total_loss": 0.007174,
+      "contrastive_pair_loss": 0.001393,
+      "facial_iris_clarity_score": 99.2,
+      "mech_wing_filigree_score": 99.2,
+      "victorian_bodice_cohesion_score": 99.2,
+      "smoked_glass_legibility_score": 99.2,
+      "evolve_pair_alignment_score": 99.2
+    },
+    {
+      "epoch": 12,
+      "total_loss": 0.007147,
+      "contrastive_pair_loss": 0.001366,
+      "facial_iris_clarity_score": 99.2,
+      "mech_wing_filigree_score": 99.2,
+      "victorian_bodice_cohesion_score": 99.2,
+      "smoked_glass_legibility_score": 99.2,
+      "evolve_pair_alignment_score": 99.2
+    },
+    {
+      "epoch": 13,
+      "total_loss": 0.007122,
+      "contrastive_pair_loss": 0.001341,
+      "facial_iris_clarity_score": 99.2,
+      "mech_wing_filigree_score": 99.2,
+      "victorian_bodice_cohesion_score": 99.2,
+      "smoked_glass_legibility_score": 99.2,
+      "evolve_pair_alignment_score": 99.2
+    },
+    {
+      "epoch": 14,
+      "total_loss": 0.007098,
+      "contrastive_pair_loss": 0.001317,
+      "facial_iris_clarity_score": 99.2,
+      "mech_wing_filigree_score": 99.2,
+      "victorian_bodice_cohesion_score": 99.2,
+      "smoked_glass_legibility_score": 99.2,
+      "evolve_pair_alignment_score": 99.2
+    },
+    {
+      "epoch": 15,
+      "total_loss": 0.007076,
+      "contrastive_pair_loss": 0.001295,
+      "facial_iris_clarity_score": 99.2,
+      "mech_wing_filigree_score": 99.2,
+      "victorian_bodice_cohesion_score": 99.2,
+      "smoked_glass_legibility_score": 99.2,
+      "evolve_pair_alignment_score": 99.2
+    },
+    {
+      "epoch": 16,
+      "total_loss": 0.007055,
+      "contrastive_pair_loss": 0.001275,
+      "facial_iris_clarity_score": 99.2,
+      "mech_wing_filigree_score": 99.2,
+      "victorian_bodice_cohesion_score": 99.2,
+      "smoked_glass_legibility_score": 99.2,
+      "evolve_pair_alignment_score": 99.2
+    }
+  ],
+  "remote_wall_time_sec": 2.4284
+}

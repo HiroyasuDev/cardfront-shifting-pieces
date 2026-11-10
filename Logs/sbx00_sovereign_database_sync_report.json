@@ -1,16 +1,16 @@
 {
   "status": "PASS_SBX00_SOVEREIGN_VAULT_SYNCED",
-  "timestamp_utc": "2026-11-10T00:07:40Z",
+  "timestamp_utc": "2026-11-10T01:54:03Z",
   "sbx00_host": "192.168.86.32",
   "sbx00_ssh_alias": "sbx00-direct",
   "sbx00_ssh_port": 2222,
   "sbx00_vault_path": "/DATA/SovereignVault/CARDFRONT_SAGA_VAULT",
   "local_sqlite_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/cardfront_sovereign_franchise_sbx00.sqlite3",
   "remote_sqlite_path": "/DATA/SovereignVault/CARDFRONT_SAGA_VAULT/db/cardfront_sovereign_franchise_sbx00.sqlite3",
-  "local_sha256": "0918bf07f6b5e616ddc4859f33b6e8a4c1d1cb2240781b75ff92f56679fb65ab",
-  "remote_sha256": "0918bf07f6b5e616ddc4859f33b6e8a4c1d1cb2240781b75ff92f56679fb65ab",
+  "local_sha256": "76c8466f7702c21ccb8f85a2e9133068f76368d13565e4f0f60f33c9609b9e66",
+  "remote_sha256": "76c8466f7702c21ccb8f85a2e9133068f76368d13565e4f0f60f33c9609b9e66",
   "local_remote_sha256_match": true,
-  "sqlite_byte_size": 192512,
+  "sqlite_byte_size": 229376,
   "sbx00_storage_guard": {
     "sbx00_host": "192.168.86.32",
     "ssh_alias": "sbx00-direct",
@@ -26,13 +26,16 @@
   "table_row_counts": {
     "franchise_eras": 3,
     "expansion_sets_10yr": 20,
-    "canonical_cards_catalog": 131,
-    "lora_model_zoo": 16,
+    "canonical_cards_catalog": 141,
+    "lora_model_zoo": 17,
     "sakuga_cutin_registry": 109,
     "gpu_cluster_nodes": 4,
     "franchise_economy_and_ltv_projections": 10,
-    "sbx00_vault_sync_audit": 21
+    "sbx00_vault_sync_audit": 22,
+    "evolve_mech_wing_pairs": 5
   },
+  "canonical_cards_catalog": 141,
+  "evolve_mech_wing_pairs": 5,
   "total_planned_10yr_cards": 2400,
   "canonical_cards_breakdown": {
     "set1_cradle_of_echoes": 60,
@@ -40,26 +43,28 @@
     "set3_sovereign_agent_deck": 37,
     "set4_studio_pxg_aaa_strikers": 8,
     "saga_10yr_era_heralds": 6,
-    "total_canonical_playable_cards": 131
+    "evolve_mech_wing_maidens": 10,
+    "total_canonical_playable_cards": 141
   },
   "remote_verification": {
     "remote_db_path": "/DATA/SovereignVault/CARDFRONT_SAGA_VAULT/db/cardfront_sovereign_franchise_sbx00.sqlite3",
-    "remote_ls_lh": "-rw-r--r-- 1 pxadmin pxadmin 188K Nov  9 14:07 /DATA/SovereignVault/CARDFRONT_SAGA_VAULT/db/cardfront_sovereign_franchise_sbx00.sqlite3",
-    "remote_sha256": "0918bf07f6b5e616ddc4859f33b6e8a4c1d1cb2240781b75ff92f56679fb65ab",
+    "remote_ls_lh": "-rw-r--r-- 1 pxadmin pxadmin 224K Nov  9 15:53 /DATA/SovereignVault/CARDFRONT_SAGA_VAULT/db/cardfront_sovereign_franchise_sbx00.sqlite3",
+    "remote_sha256": "76c8466f7702c21ccb8f85a2e9133068f76368d13565e4f0f60f33c9609b9e66",
     "local_remote_sha256_match": true,
     "remote_table_counts": {
       "franchise_eras": 3,
       "expansion_sets_10yr": 20,
-      "canonical_cards_catalog": 131,
-      "lora_model_zoo": 16,
+      "canonical_cards_catalog": 141,
+      "lora_model_zoo": 17,
       "sakuga_cutin_registry": 109,
       "gpu_cluster_nodes": 4,
       "franchise_economy_and_ltv_projections": 10,
-      "sbx00_vault_sync_audit": 21
+      "sbx00_vault_sync_audit": 22,
+      "evolve_mech_wing_pairs": 5
     },
     "total_planned_10yr_cards": 2400,
-    "synced_lora_files_count": 17,
+    "synced_lora_files_count": 18,
     "synced_manifest_files_count": 5
   },
-  "provisioning_wall_time_s": 4.798
+  "provisioning_wall_time_s": 9.942
 }

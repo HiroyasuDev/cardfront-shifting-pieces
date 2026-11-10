@@ -236,6 +236,120 @@ SAGA_ERA_HERALDS_6: List[Tuple[str, str, str, str, int, List[int], str, str]] = 
     ),
 ]
 
+# 5 Mech-Wing Maiden Evolve Pairs (10 Cards: ev_01_base/evo .. ev_05_base/evo)
+EVOLVE_MECH_WING_PAIRS_5: List[Dict[str, Any]] = [
+    {
+        "pair_id": "PAIR_EV_01",
+        "base_card_id": "ev_01_base",
+        "evolved_card_id": "ev_01_evo",
+        "base_name": "Seraphina: Mech-Wing Maiden [進化前]",
+        "evolved_name": "Seraphina: Astral Overdrive Seraph [進化後]",
+        "set_code": "SET_07",
+        "faction": "Divine",
+        "cost": 4,
+        "evolve_cost_ep": 1,
+        "trait": "Angel · Mech / 天使・機械",
+        "frame_style": "SHADOWVERSE_EVOLVE_GUNMETAL_SR_UR",
+        "base_nesw": [7, 7, 5, 6],
+        "evolved_nesw": [9, 9, 7, 8],
+        "base_ability_id": "ab_ev01_aegis_thruster_base",
+        "evolved_ability_id": "ab_ev01_astral_overdrive_evo",
+        "lora_adapter_id": "cyber_mecha_orthographic_cel_v1_lora",
+        "on_evolve_effect": (
+            "【進化時】 Spend 1 EP: Gain +2/+2/+2/+2 NESW, ignite 6-wing cyber-magicite solar feathers, "
+            "and flip up to 2 adjacent orthogonal enemy units with S or W <= 7."
+        ),
+    },
+    {
+        "pair_id": "PAIR_EV_02",
+        "base_card_id": "ev_02_base",
+        "evolved_card_id": "ev_02_evo",
+        "base_name": "Celestia-02: Railgun Valkyrie Maiden [進化前]",
+        "evolved_name": "Celestia-02: Hyper-Velocity Archangel [進化後]",
+        "set_code": "SET_07",
+        "faction": "Tech",
+        "cost": 4,
+        "evolve_cost_ep": 1,
+        "trait": "Angel · Mech / 天使・機械",
+        "frame_style": "SHADOWVERSE_EVOLVE_GUNMETAL_SR_UR",
+        "base_nesw": [8, 6, 5, 7],
+        "evolved_nesw": [10, 8, 7, 9],
+        "base_ability_id": "ab_ev02_railgun_valkyrie_base",
+        "evolved_ability_id": "ab_ev02_hyper_archangel_evo",
+        "lora_adapter_id": "cyber_mecha_orthographic_cel_v1_lora",
+        "on_evolve_effect": (
+            "【進化時】 Spend 1 EP: Gain +2/+2/+2/+2 NESW, fire column-piercing positron lance, "
+            "and set this column's die to 6."
+        ),
+    },
+    {
+        "pair_id": "PAIR_EV_03",
+        "base_card_id": "ev_03_base",
+        "evolved_card_id": "ev_03_evo",
+        "base_name": "Lyra-Zero: Chrono-Pinion Maiden [進化前]",
+        "evolved_name": "Lyra-Zero: Singularity Wing Sovereign [進化後]",
+        "set_code": "SET_09",
+        "faction": "Magic",
+        "cost": 3,
+        "evolve_cost_ep": 1,
+        "trait": "Angel · Mech / 天使・機械",
+        "frame_style": "SHADOWVERSE_EVOLVE_GUNMETAL_SR_UR",
+        "base_nesw": [6, 7, 6, 7],
+        "evolved_nesw": [8, 9, 8, 9],
+        "base_ability_id": "ab_ev03_chrono_pinion_base",
+        "evolved_ability_id": "ab_ev03_singularity_wing_evo",
+        "lora_adapter_id": "anime_sakuga_kagenashi_keyframe_v2_lora",
+        "on_evolve_effect": (
+            "【進化時】 Spend 1 EP: Gain +2/+2/+2/+2 NESW, restore player 1x Tactical Slide charge, "
+            "and trigger SAME/PLUS resonance check."
+        ),
+    },
+    {
+        "pair_id": "PAIR_EV_04",
+        "base_card_id": "ev_04_base",
+        "evolved_card_id": "ev_04_evo",
+        "base_name": "Noctis-VII: Obsidian Feather Maiden [進化前]",
+        "evolved_name": "Noctis-VII: Abyssal Eclipse Seraph [進化後]",
+        "set_code": "SET_08",
+        "faction": "Stealth",
+        "cost": 4,
+        "evolve_cost_ep": 1,
+        "trait": "Angel · Mech / 天使・機械",
+        "frame_style": "SHADOWVERSE_EVOLVE_GUNMETAL_SR_UR",
+        "base_nesw": [7, 8, 6, 5],
+        "evolved_nesw": [9, 10, 8, 7],
+        "base_ability_id": "ab_ev04_obsidian_feather_base",
+        "evolved_ability_id": "ab_ev04_abyssal_seraph_evo",
+        "lora_adapter_id": "kubrart_vector_cel_ink_v1_lora",
+        "on_evolve_effect": (
+            "【進化時】 Spend 1 EP: Gain +2/+2/+2/+2 NESW, drain -1 from all opposing adjacent edges, "
+            "and cloak against enemy slides."
+        ),
+    },
+    {
+        "pair_id": "PAIR_EV_05",
+        "base_card_id": "ev_05_base",
+        "evolved_card_id": "ev_05_evo",
+        "base_name": "Aurelia-Omega: Gunmetal Halo Maiden [進化前]",
+        "evolved_name": "Aurelia-Omega: Sovereign Evolve Archon [進化後]",
+        "set_code": "SET_15",
+        "faction": "Artisan",
+        "cost": 5,
+        "evolve_cost_ep": 1,
+        "trait": "Angel · Mech / 天使・機械",
+        "frame_style": "SHADOWVERSE_EVOLVE_GUNMETAL_SR_UR",
+        "base_nesw": [8, 7, 7, 7],
+        "evolved_nesw": [10, 9, 9, 9],
+        "base_ability_id": "ab_ev05_gunmetal_halo_base",
+        "evolved_ability_id": "ab_ev05_sovereign_archon_evo",
+        "lora_adapter_id": "ties_merged_master_soup_v1",
+        "on_evolve_effect": (
+            "【進化時】 Spend 1 EP: Gain +2/+2/+2/+2 NESW, deploy gunmetal SR/UR holofoil barrier, "
+            "and grant +1 all edges to allied Angel · Mech units."
+        ),
+    },
+]
+
 
 # =============================================================================
 # 4. 4 GPU & STORAGE CLUSTER NODES
@@ -518,6 +632,49 @@ def collect_131_canonical_cards() -> List[Dict[str, Any]]:
             }
         )
 
+    # 6. 10 Evolve Mech-Wing Maiden Cards (5 Pairs: ev_01_base/evo .. ev_05_base/evo)
+    for pair in EVOLVE_MECH_WING_PAIRS_5:
+        b_cid = pair["base_card_id"]
+        b_nesw = pair["base_nesw"]
+        cards.append(
+            {
+                "card_id": b_cid,
+                "name": pair["base_name"],
+                "set_code": pair["set_code"],
+                "faction": pair["faction"],
+                "cost": int(pair["cost"]),
+                "tier": 4,
+                "rank_n": int(b_nesw[0]),
+                "rank_e": int(b_nesw[1]),
+                "rank_s": int(b_nesw[2]),
+                "rank_w": int(b_nesw[3]),
+                "ability_id": pair["base_ability_id"],
+                "portrait_path": f"Assets/Resources/CardFront/Portraits/{b_cid}.png",
+                "sakuga_strip_path": f"GeneratedArt/SakugaCutIns/{b_cid}_strip.png",
+                "lora_adapter_id": pair["lora_adapter_id"],
+            }
+        )
+        e_cid = pair["evolved_card_id"]
+        e_nesw = pair["evolved_nesw"]
+        cards.append(
+            {
+                "card_id": e_cid,
+                "name": pair["evolved_name"],
+                "set_code": pair["set_code"],
+                "faction": pair["faction"],
+                "cost": int(pair["cost"]),
+                "tier": 5,
+                "rank_n": int(e_nesw[0]),
+                "rank_e": int(e_nesw[1]),
+                "rank_s": int(e_nesw[2]),
+                "rank_w": int(e_nesw[3]),
+                "ability_id": pair["evolved_ability_id"],
+                "portrait_path": f"Assets/Resources/CardFront/Portraits/{e_cid}.png",
+                "sakuga_strip_path": f"GeneratedArt/SakugaCutIns/{e_cid}_strip.png",
+                "lora_adapter_id": pair["lora_adapter_id"],
+            }
+        )
+
     return cards
 
 
@@ -737,6 +894,28 @@ def build_local_sqlite_database(
             """
         )
 
+        # 9. evolve_mech_wing_pairs (and evolve_cards_pair_registry alias table)
+        for tbl_name in ("evolve_mech_wing_pairs", "evolve_cards_pair_registry"):
+            cur.execute(
+                f"""
+                CREATE TABLE {tbl_name} (
+                    pair_id TEXT PRIMARY KEY,
+                    base_card_id TEXT NOT NULL UNIQUE,
+                    evolved_card_id TEXT NOT NULL UNIQUE,
+                    base_name TEXT NOT NULL,
+                    evolved_name TEXT NOT NULL,
+                    evolve_cost_ep INTEGER NOT NULL,
+                    trait TEXT NOT NULL,
+                    frame_style TEXT NOT NULL,
+                    base_nesw TEXT NOT NULL,
+                    evolved_nesw TEXT NOT NULL,
+                    on_evolve_effect TEXT NOT NULL,
+                    FOREIGN KEY (base_card_id) REFERENCES canonical_cards_catalog(card_id),
+                    FOREIGN KEY (evolved_card_id) REFERENCES canonical_cards_catalog(card_id)
+                );
+                """
+            )
+
         # Deterministic Indexes
         cur.execute("CREATE INDEX idx_cards_set_faction ON canonical_cards_catalog(set_code, faction);")
         cur.execute("CREATE INDEX idx_sets_era_year ON expansion_sets_10yr(era_id, release_year);")
@@ -941,6 +1120,31 @@ def build_local_sqlite_database(
                     ),
                 )
 
+        # Populate Table 9: evolve_mech_wing_pairs (and evolve_cards_pair_registry)
+        for tbl_name in ("evolve_mech_wing_pairs", "evolve_cards_pair_registry"):
+            for pair in EVOLVE_MECH_WING_PAIRS_5:
+                cur.execute(
+                    f"""
+                    INSERT INTO {tbl_name} (
+                        pair_id, base_card_id, evolved_card_id, base_name, evolved_name,
+                        evolve_cost_ep, trait, frame_style, base_nesw, evolved_nesw, on_evolve_effect
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+                    """,
+                    (
+                        pair["pair_id"],
+                        pair["base_card_id"],
+                        pair["evolved_card_id"],
+                        pair["base_name"],
+                        pair["evolved_name"],
+                        int(pair["evolve_cost_ep"]),
+                        pair["trait"],
+                        pair["frame_style"],
+                        json.dumps(pair["base_nesw"]),
+                        json.dumps(pair["evolved_nesw"]),
+                        pair["on_evolve_effect"],
+                    ),
+                )
+
         conn.commit()
         # Checkpoint WAL into main sqlite3 file so single-file SHA-256 is self-contained & deterministic
         cur.execute("PRAGMA wal_checkpoint(TRUNCATE);")
@@ -1017,7 +1221,7 @@ def sync_and_verify_on_sbx00(local_db_info: Dict[str, Any]) -> Dict[str, Any]:
         "cur = conn.cursor(); "
         "tables = ['franchise_eras','expansion_sets_10yr','canonical_cards_catalog',"
         "'lora_model_zoo','sakuga_cutin_registry','gpu_cluster_nodes',"
-        "'franchise_economy_and_ltv_projections','sbx00_vault_sync_audit']; "
+        "'franchise_economy_and_ltv_projections','sbx00_vault_sync_audit','evolve_mech_wing_pairs']; "
         "counts = {t: cur.execute(f'SELECT COUNT(*) FROM {t}').fetchone()[0] for t in tables}; "
         "planned_cards = cur.execute('SELECT SUM(planned_card_count) FROM expansion_sets_10yr').fetchone()[0]; "
         "print(json.dumps({'table_counts': counts, 'total_planned_10yr_cards': planned_cards}))"
@@ -1052,7 +1256,8 @@ def sync_and_verify_on_sbx00(local_db_info: Dict[str, Any]) -> Dict[str, Any]:
 
     assert table_counts.get("franchise_eras") == 3, "Expected franchise_eras == 3"
     assert table_counts.get("expansion_sets_10yr") == 20, "Expected expansion_sets_10yr == 20"
-    assert table_counts.get("canonical_cards_catalog", 0) >= 131, "Expected canonical_cards_catalog >= 131"
+    assert table_counts.get("canonical_cards_catalog") == 141, "Expected canonical_cards_catalog == 141"
+    assert table_counts.get("evolve_mech_wing_pairs") == 5, "Expected evolve_mech_wing_pairs == 5"
     assert table_counts.get("gpu_cluster_nodes") == 4, "Expected gpu_cluster_nodes == 4"
 
     return {
@@ -1093,6 +1298,8 @@ def main() -> None:
         "sqlite_byte_size": local_db_info["local_byte_size"],
         "sbx00_storage_guard": storage_guard,
         "table_row_counts": remote_sync_info["remote_table_counts"],
+        "canonical_cards_catalog": remote_sync_info["remote_table_counts"].get("canonical_cards_catalog", 141),
+        "evolve_mech_wing_pairs": remote_sync_info["remote_table_counts"].get("evolve_mech_wing_pairs", 5),
         "total_planned_10yr_cards": remote_sync_info["total_planned_10yr_cards"],
         "canonical_cards_breakdown": {
             "set1_cradle_of_echoes": 60,
@@ -1100,6 +1307,7 @@ def main() -> None:
             "set3_sovereign_agent_deck": 37,
             "set4_studio_pxg_aaa_strikers": 8,
             "saga_10yr_era_heralds": 6,
+            "evolve_mech_wing_maidens": 10,
             "total_canonical_playable_cards": len(cards),
         },
         "remote_verification": remote_sync_info,
