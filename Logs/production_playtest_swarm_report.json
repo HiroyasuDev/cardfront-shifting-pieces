@@ -1,0 +1,146 @@
+{
+  "status": "PASS_ALL_8_PLAYTEST_PERSONAS",
+  "targetUrl": "http://127.0.0.1:8096/WebPlayable/cardfront_cradle_of_echoes_playable.html",
+  "startedAt": "2026-11-10T07:23:03.865Z",
+  "completedAt": "2026-11-10T07:23:08.521Z",
+  "personasTotal": 8,
+  "personasPassed": 8,
+  "zeroPageErrors": true,
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 503 ()",
+    "Failed to load resource: the server responded with a status of 503 ()",
+    "Failed to load resource: the server responded with a status of 503 ()"
+  ],
+  "personas": [
+    {
+      "id": "P1_TACTICAL_PRO",
+      "name": "Grandmaster Ivalice Tactician",
+      "focus": "3x3 directional N/E/S/W capture math, elemental resonance, & live combat outcome pills",
+      "passed": true,
+      "metrics": {
+        "previewOk": true,
+        "outcomePillsRendered": 1,
+        "centerSlotOccupiedAfterPlay": true,
+        "centerUnitCardId": "h_kai"
+      }
+    },
+    {
+      "id": "P2_CASUAL_READABILITY",
+      "name": "First-Time Tabletop Onboarding Player",
+      "focus": "Zero card-face badge collisions, N/E/S/W contrast, hand card spacing, & Quick Card Inspector",
+      "passed": true,
+      "metrics": {
+        "auditedCards": 3,
+        "collisionCount": 0,
+        "handOverlapCount": 0,
+        "quickInspectorPresent": true,
+        "inspectorDisjointFromBoard": true
+      }
+    },
+    {
+      "id": "P3_FFTA_CHIBI_COLLECTOR",
+      "name": "FFTA Pixel-Chibi & 3D Dice Collector",
+      "focus": "3D polyhedral D6/D20 tumbler, 2.5D card depth slabs, & 141-card FFTA chibi corner perch",
+      "passed": true,
+      "metrics": {
+        "chibiRosterCount": 141,
+        "renderedChibiBadges": 8,
+        "eastStatDisjointFromChibi": true
+      }
+    },
+    {
+      "id": "P4_GACHA_EVOLVE_WHALE",
+      "name": "Gacha & Wing-Maiden Evolve Theorist",
+      "focus": "10x Gacha banner pull, 15-card custom deckbuilder persistence, & +1/+1/+1/+1 SR Evolve",
+      "passed": true,
+      "metrics": {
+        "gachaPull10xOk": true,
+        "boardEvolveOk": true,
+        "evolvedCardId": "h_kai",
+        "zeroCollisionAfterEvolve": true
+      }
+    },
+    {
+      "id": "P5_AUDIO_FOLEY_CRITIC",
+      "name": "Studio Acoustic & Bilingual VO Director",
+      "focus": "14 mastered 44.1kHz WAV foley cues, 4 harmonic BGM stems, & EN/JP bilingual voice synthesis",
+      "passed": true,
+      "metrics": {
+        "foleyWavCueCount": 14,
+        "bgmWavStemCount": 4,
+        "bilingualVoFunctionActive": true
+      }
+    },
+    {
+      "id": "P6_SPEEDRUNNER_UX",
+      "name": "60fps Frame-Pacing & Input Speedrunner",
+      "focus": "Zero-scroll 100vh lock, Command Drawer [M] toggle latency, & clean 4-action top bar",
+      "passed": true,
+      "metrics": {
+        "drawerToggleLatencyMs": 0,
+        "zeroVerticalScroll": true,
+        "zeroHorizontalScroll": true
+      }
+    },
+    {
+      "id": "P7_MULTI_VIEWPORT_QA",
+      "name": "Multi-Viewport Responsive & Touch QA Specialist",
+      "focus": "5-viewport sweep (1920x1080 .. 1180x820) verifying zero card collisions & zero scroll overflow",
+      "passed": true,
+      "metrics": {
+        "viewportsTested": 5,
+        "viewportsPassed": 5,
+        "viewportMatrix": [
+          {
+            "viewport": "1080p_Desktop",
+            "ok": true,
+            "zeroCardElementCollisions": true,
+            "handSpacingClean": true,
+            "zeroVerticalScroll": true
+          },
+          {
+            "viewport": "MacBook_1440x900",
+            "ok": true,
+            "zeroCardElementCollisions": true,
+            "handSpacingClean": true,
+            "zeroVerticalScroll": true
+          },
+          {
+            "viewport": "Laptop_1408x800",
+            "ok": true,
+            "zeroCardElementCollisions": true,
+            "handSpacingClean": true,
+            "zeroVerticalScroll": true
+          },
+          {
+            "viewport": "SteamDeck_1280x800",
+            "ok": true,
+            "zeroCardElementCollisions": true,
+            "handSpacingClean": true,
+            "zeroVerticalScroll": true
+          },
+          {
+            "viewport": "iPad_Landscape_1180x820",
+            "ok": true,
+            "zeroCardElementCollisions": true,
+            "handSpacingClean": true,
+            "zeroVerticalScroll": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "P8_CHAOS_FUZZ_TESTER",
+      "name": "Chaos Input & Edge-Case Fuzz Tester",
+      "focus": "Rapid hand-card selection cycling, stage reset determinism, & zero uncaught exceptions",
+      "passed": true,
+      "metrics": {
+        "handCountAfterReset": 5,
+        "readabilityAuditOkAfterFuzz": true
+      }
+    }
+  ]
+}

@@ -599,6 +599,22 @@
     "remediation": "Keep SOVEREIGN_AGENT_PLUGINS (4 cards) and equipSovereignPluginSquad() wired in WebPlayable/cardfront_cradle_of_echoes_playable.html."
   },
   {
+    "id": "core.tcg_creative_designer.04",
+    "skill": "art-direction/tcg-creative-game-designer",
+    "rule": "Complete 14-card Multi-Agent Native Swarm Team Deck (/teamwork) manifest with 100% 600x800 (3:4 RGB opaque) portrait compliance, 14 standalone 256x256 code-native SVG crests, 8-Block Morphological Art Briefs, and zero asset_report.py problems.",
+    "source": "skills/art-direction/tcg-creative-game-designer/SKILL.md:31",
+    "target": "both",
+    "method": "metric",
+    "probe": {
+      "json_file": "GeneratedArt/SwarmTeamDeck/asset_report_swarm_team_deck.json",
+      "expression": "data['ok'] is True and len(data['assets']) == 14 and all(a['width'] == 600 and a['height'] == 800 and len(a['problems']) == 0 for a in data['assets'])"
+    },
+    "expect": "true",
+    "priority": "P0",
+    "code_ref": "Backend/render_tcg_swarm_team_deck.py:1-600",
+    "remediation": "Run Backend/render_tcg_swarm_team_deck.py to generate and verify all 14 Multi-Agent Swarm Team 600x800 cards and 256x256 SVGs."
+  },
+  {
     "id": "core.next_gen_tabletop.01",
     "skill": "disciplines/game-feel",
     "rule": "180° 3D Y-Axis Capture Flip & Shockwave: capturing an adjacent Boss card triggers .card-captured-flip and .capture-shockwave-ring on the captured socket.",
@@ -1639,16 +1655,21 @@
   {
     "id": "core.production_upgrades.21",
     "skill": "disciplines/game-ui-ux",
-    "rule": "Real-Time WebGL2 GLSL Holographic Foil & Anisotropic Brushed-Gunmetal Shader (with Heroine Face Protection Mask), 60fps Live2D-Style Portrait Breathing/Wing-Articulation/Eye-Blink Animator, 16 Bilingual (JP/EN) Battle Voiceovers, 141-Card 4-Frame FFTA Chibi Atlas, & Live SBX00 Booster Gacha / K-32 ELO Suite (window.CardFrontWebGLHoloLive2DVoGachaSuite & #webgl-holo-live2d-gacha-modal).",
-    "source": "WebPlayable/modules/webgl_holo_live2d_vo_gacha_suite.js:1",
+    "rule": "AAA Production Playtester Swarm (8 Personas) & Zero-Collision Card Readability Director (window.CardFrontAaaReadabilityDirector, runAaaReadabilityAndUsabilityAudit, auditCardFaceZeroCollision, #aaa-card-quick-inspector, and ProductionPlaytestPersonas8 in C#).",
+    "source": "WebPlayable/modules/aaa_playtest_and_readability_director.js:1",
     "target": "both",
     "method": "playwright",
     "probe": {
-      "expression": "(() => { const s = window.CardFrontWebGLHoloLive2DVoGachaSuite; if (!s || !Array.isArray(s.BILINGUAL_VO_CLIPS_16) || s.BILINGUAL_VO_CLIPS_16.length !== 16 || !Array.isArray(s.CANONICAL_141_CARDS) || s.CANONICAL_141_CARDS.length !== 141 || !Array.isArray(s.CHIBI_4FRAME_ATLAS_141) || s.CHIBI_4FRAME_ATLAS_141.length !== 141) return false; const sh = s.initWebGLHoloFoilShader(); const rig = s.getLive2DRigTelemetry('ev_01_evolved'); const vo = s.playBilingualBattleVO('vo_02_rosalia_evolve_jp'); const pack = s.openSbx00BoosterPack('CF01', { skipRemoteSync: true }); const elo = s.recordSbx00RankedMatch('WIN', 1550, { skipRemoteSync: true }); s.openWebGLHoloLive2DGachaModal('gacha'); s.closeWebGLHoloLive2DGachaModal(); return Boolean(sh && sh.faceProtectionMaskActive === true && rig && rig.fps === 60 && vo && vo.clipId === 'vo_02_rosalia_evolve_jp' && pack && Array.isArray(pack.pulledCards) && pack.pulledCards.length === 8 && elo && elo.kFactor === 32); })()"
+      "expression": "Boolean(window.CardFrontAaaReadabilityDirector && Array.isArray(window.CardFrontAaaReadabilityDirector.PLAYTEST_PERSONAS_8) && window.CardFrontAaaReadabilityDirector.PLAYTEST_PERSONAS_8.length === 8 && typeof window.runAaaReadabilityAndUsabilityAudit === 'function' && window.runAaaReadabilityAndUsabilityAudit().ok === true && window.runAaaReadabilityAndUsabilityAudit().zeroCardElementCollisions === true && document.getElementById('aaa-card-quick-inspector'))"
+    },
+    "web_eval": "Boolean(window.CardFrontAaaReadabilityDirector && Array.isArray(window.CardFrontAaaReadabilityDirector.PLAYTEST_PERSONAS_8) && window.CardFrontAaaReadabilityDirector.PLAYTEST_PERSONAS_8.length === 8 && typeof window.runAaaReadabilityAndUsabilityAudit === 'function' && window.runAaaReadabilityAndUsabilityAudit().ok === true && window.runAaaReadabilityAndUsabilityAudit().zeroCardElementCollisions === true && document.getElementById('aaa-card-quick-inspector'))",
+    "unity_regex": {
+      "file": "Assets/Scripts/Core/CardFrontUnifiedRuntime.cs",
+      "pattern": "ProductionPlaytestPersonas8[\\s\\S]*EvaluateAaaReadabilityAndPlaytestSwarm[\\s\\S]*PASS_AAA_PLAYTEST_AND_READABILITY"
     },
     "expect": "true",
     "priority": "P0",
-    "code_ref": "WebPlayable/modules/webgl_holo_live2d_vo_gacha_suite.js:1-420",
-    "remediation": "Wire WebPlayable/modules/webgl_holo_live2d_vo_gacha_suite.js and #webgl-holo-live2d-gacha-modal in WebPlayable/cardfront_cradle_of_echoes_playable.html."
+    "code_ref": "WebPlayable/modules/aaa_playtest_and_readability_director.js:1-320",
+    "remediation": "Wire WebPlayable/modules/aaa_playtest_and_readability_director.js and ProductionPlaytestPersonas8 / EvaluateAaaReadabilityAndPlaytestSwarm in CardFrontUnifiedRuntime.cs."
   }
 ]

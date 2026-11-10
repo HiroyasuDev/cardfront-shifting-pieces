@@ -1283,30 +1283,34 @@
          ==================================================================== */
       .cf-slab-layer-3-chibi {
         position: absolute;
-        right: 4px;
-        bottom: 18px;
-        width: 44px;
-        height: 44px;
-        transform: translateZ(28px) rotateX(-16deg);
+        right: 23px;
+        bottom: 2px;
+        width: 28px;
+        height: 28px;
+        transform: none;
         transform-style: preserve-3d;
         pointer-events: none;
-        z-index: 9;
+        z-index: 8;
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 1;
-        filter: drop-shadow(0 5px 6px rgba(0, 0, 0, 0.88));
+        filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.88));
         transition: opacity 0.18s ease, transform 0.22s cubic-bezier(0.22, 1.35, 0.36, 1);
+      }
+      .board-slot:hover .cf-slab-layer-3-chibi,
+      .hand-card-wrap:hover .cf-slab-layer-3-chibi {
+        transform: translateZ(18px) rotateX(-10deg) scale(1.05);
       }
       body[data-cf-chibi-overlay="on"] .cf-slab-layer-3-chibi,
       .cf-slab-layer-3-chibi.cf-chibi-attack-active {
         opacity: 1;
       }
       .hand-card-wrap .cf-slab-layer-3-chibi {
-        width: 36px;
-        height: 36px;
-        right: 3px;
-        bottom: 15px;
+        width: 24px;
+        height: 24px;
+        right: 22px;
+        bottom: 2px;
       }
       body[data-cf-chibi-overlay="off"] .cf-slab-layer-3-chibi {
         display: none !important;

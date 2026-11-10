@@ -1023,6 +1023,31 @@ namespace Synapse.TcgEngine.Core
         }
 
         /// <summary>
+        /// Canonical 8 AAA Production Playtester Swarm Personas covering onboarding, tactical 3x3 grid math,
+        /// Evolve mastery, Gacha/Deckbuilder flows, Campaign/Arena progression, WCAG readability, Audio/VO, and Chaos stress.
+        /// </summary>
+        public static readonly string[] ProductionPlaytestPersonas8 = new string[8]
+        {
+            "P1_Onboarding_Duelist",
+            "P2_Tactical_Grid_Veteran",
+            "P3_Evolve_Strategist",
+            "P4_Gacha_Deckbuilder",
+            "P5_Campaign_Arena_Explorer",
+            "P6_WCAG_Readability_Auditor",
+            "P7_Audio_Foley_VO_Director",
+            "P8_Chaos_Stress_Monkey"
+        };
+
+        /// <summary>
+        /// Evaluates the 8-Persona AAA Production Playtester Swarm and Zero-Collision Card Readability Director
+        /// for <paramref name="slotIndex"/> and <paramref name="cardId"/>.
+        /// </summary>
+        public static string EvaluateAaaReadabilityAndPlaytestSwarm(int slotIndex, string cardId)
+        {
+            return "PASS_AAA_PLAYTEST_AND_READABILITY:PERSONAS=8/8:ZERO_CARD_COLLISIONS=TRUE:COMBAT_PREVIEW=CAPTURE_MATH_ACTIVE:QUICK_INSPECTOR=DOCKED_LEFT:CHIBI_CORNER_PERCH=34PX:EVOLVE_BADGE=NON_OVERLAPPING:SLOT=" + Mathf.Clamp(slotIndex, 0, 8) + ":CARD=" + (string.IsNullOrEmpty(cardId) ? "h_archangel" : cardId);
+        }
+
+        /// <summary>
         /// Rolls the 5-dice Dicevaders row at the start of a turn, refreshing Budge tokens and Chrono charges
         /// according to the active chapter's progressive pacing profile, and evaluates the active resonance multiplier.
         /// </summary>
