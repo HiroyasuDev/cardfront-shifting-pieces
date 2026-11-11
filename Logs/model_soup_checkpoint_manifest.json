@@ -4,9 +4,12 @@
   "trim_density_threshold": 0.2,
   "sign_consensus_election": "majority_magnitude_weighted",
   "fleet_training_nodes": {
-    "V100_32GB": "192.168.86.116:11434 (pxg-lumenforge:30b-a3b \u2014 Decomp + QLoRA Soup Coordinator)",
+    "NODE30_70B_TEACHER_COUNCIL": "192.168.86.30:11434 (qwen2.5:72b, deepseek-r1:70b, llama3.3:70b, hermes3:70b \u2014 70B/72B Frontier Teacher Council)",
+    "V100_32GB": "192.168.86.116:11434 & :8090 (pxg-lumenforge:30b-a3b, qwen2.5-coder:32b, pxg-cardfront-master:latest + pxg-unified-soup-v3 QLoRA Coordinator)",
     "RTX_4080_16GB": "192.168.86.30:11434 (pxg-lumenforge:12b-tutor + ComfyUI v0.18.2 \u2014 7 Studio Artist LoRA Soup)",
-    "RTX_2070_8GB": "192.168.86.22:11434 (pxg-lumenforge:7b-tutor \u2014 12 NPC MiroFish Arena Evaluator)"
+    "M1MAX_64GB": "192.168.86.106:11434 (pxg-lumenforge:7b-tutor + pxg-lumenforge:cycle50-qlora \u2014 64GB UMA Long-Context Architect)",
+    "RTX_2070_8GB": "192.168.86.22:11434 -> Standby-Bridged 192.168.86.106:11434 (pxg-lumenforge:7b-tutor \u2014 12 NPC MiroFish Arena Evaluator)",
+    "LOCAL_EDGE_STUDENT": "mlx-community/Qwen2.5-3B-Instruct-4bit (jevmlx Apple Silicon Metal <50ms Constrained Decision Student + pxg-lumenforge:1.5b-qlora Soup v3)"
   },
   "studio_lora_adapter_weights": {
     "ryoma_ito_ffta_ivalice_job_silhouette": 0.2,
@@ -24,5 +27,5 @@
     "staccs_3d_cube_zstack_cantilever": 0.2
   },
   "validation_composite_score": 0.9421,
-  "timestamp_utc": "2026-11-07T08:50:04Z"
+  "timestamp_utc": "2026-11-11T00:27:31Z"
 }

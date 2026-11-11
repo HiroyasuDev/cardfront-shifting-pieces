@@ -39,8 +39,11 @@ FEEDBACK_JSONL_PATH = LOGS_DIR / "miro_strands_simulation_feedback.jsonl"
 SOUP_MANIFEST_PATH = LOGS_DIR / "model_soup_checkpoint_manifest.json"
 
 FLEET_ENDPOINTS = {
+    "NODE30_70B_TEACHER_COUNCIL": "http://192.168.86.30:11434/api/generate",
     "V100_32GB_DECOMP_SOUP": "http://192.168.86.116:11434/api/generate",
+    "V100_8090_POOL_ORCHESTRATOR": "http://192.168.86.116:8090/v1/lumenforge/pool/dispatch",
     "RTX_4080_16GB_STUDIO_ART": "http://192.168.86.30:11434/api/generate",
+    "M1MAX_64GB_ARCHITECT": "http://192.168.86.106:11434/api/generate",
     "RTX_2070_8GB_NPC_SIM": "http://192.168.86.22:11434/api/generate",
 }
 
@@ -275,9 +278,12 @@ def build_ties_model_soup_manifest(studio_agents: List[StudioIllustratorAgentSta
         "trim_density_threshold": 0.20,
         "sign_consensus_election": "majority_magnitude_weighted",
         "fleet_training_nodes": {
-            "V100_32GB": "192.168.86.116:11434 (pxg-lumenforge:30b-a3b — Decomp + QLoRA Soup Coordinator)",
+            "NODE30_70B_TEACHER_COUNCIL": "192.168.86.30:11434 (qwen2.5:72b, deepseek-r1:70b, llama3.3:70b, hermes3:70b — 70B/72B Frontier Teacher Council)",
+            "V100_32GB": "192.168.86.116:11434 & :8090 (pxg-lumenforge:30b-a3b, qwen2.5-coder:32b, pxg-cardfront-master:latest + pxg-unified-soup-v3 QLoRA Coordinator)",
             "RTX_4080_16GB": "192.168.86.30:11434 (pxg-lumenforge:12b-tutor + ComfyUI v0.18.2 — 7 Studio Artist LoRA Soup)",
-            "RTX_2070_8GB": "192.168.86.22:11434 (pxg-lumenforge:7b-tutor — 12 NPC MiroFish Arena Evaluator)",
+            "M1MAX_64GB": "192.168.86.106:11434 (pxg-lumenforge:7b-tutor + pxg-lumenforge:cycle50-qlora — 64GB UMA Long-Context Architect)",
+            "RTX_2070_8GB": "192.168.86.22:11434 -> Standby-Bridged 192.168.86.106:11434 (pxg-lumenforge:7b-tutor — 12 NPC MiroFish Arena Evaluator)",
+            "LOCAL_EDGE_STUDENT": "mlx-community/Qwen2.5-3B-Instruct-4bit (jevmlx Apple Silicon Metal <50ms Constrained Decision Student + pxg-lumenforge:1.5b-qlora Soup v3)",
         },
         "studio_lora_adapter_weights": adapter_weights,
         "tactical_domain_task_vectors": {
@@ -300,13 +306,22 @@ def query_fleet_llm_strands_reflection(prompt: str, endpoint: str, model: str) -
             "options": {"temperature": 0.2, "num_predict": 140},
         }
     ).encode("utf-8")
-    req = urllib.request.Request(endpoint, data=payload, headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=4.5) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            return data.get("response", "").strip()
-    except Exception:
-        return None
+    candidates = [
+        (endpoint, 0.8 if "86.22" in endpoint else 12.0),
+        (FLEET_ENDPOINTS["M1MAX_64GB_ARCHITECT"], 12.0),
+        (FLEET_ENDPOINTS["RTX_4080_16GB_STUDIO_ART"], 12.0),
+    ]
+    for cand_url, tout in candidates:
+        req = urllib.request.Request(cand_url, data=payload, headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=tout) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                txt = data.get("response", "").strip()
+                if txt:
+                    return txt
+        except Exception:
+            continue
+    return None
 
 
 def run_miro_strands_simulation(rounds: int = 30, seed: int = 1337) -> Dict:
