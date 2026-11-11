@@ -1,0 +1,143 @@
+{
+  "status": "PASS_OGDEOP_CDM_V54_BUILT_AND_VERIFIED",
+  "cdm_version": "OGDEOP CDM v5.4 (OMOP-Isomorphic Game Development Common Data Model)",
+  "generated_at_utc": "2026-11-11T01:59:37Z",
+  "sqlite_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/ogdeop_cdm_v54.sqlite3",
+  "sft_jsonl_path": "/Users/frederickamina/Documents/Projects/SYNAPSE/unity-tcg-engine/Datasets/ogdeop_cdm_research_sft.jsonl",
+  "sft_examples_exported": 14,
+  "total_tables": 21,
+  "table_row_counts": {
+    "vocabulary": 11,
+    "domain": 12,
+    "concept_class": 17,
+    "concept": 82,
+    "concept_relationship": 36,
+    "concept_ancestor": 14,
+    "source_to_concept_map": 11,
+    "cdm_source": 1,
+    "studio_site": 4,
+    "game_entity": 4,
+    "development_epoch": 6,
+    "session_occurrence": 12,
+    "defect_occurrence": 6,
+    "intervention_exposure": 8,
+    "pipeline_procedure_occurrence": 9,
+    "hardware_node_exposure": 5,
+    "telemetry_measurement": 18,
+    "playtest_observation": 8,
+    "compute_and_studio_cost": 3,
+    "cohort_definition": 3,
+    "cohort": 6
+  },
+  "total_rows_across_cdm": 276,
+  "standardized_network_studies": {
+    "study_1_cross_engine_ui_collision_eradication": [
+      {
+        "project_name": "CARDFRONT 3D: Cradle of Echoes (Set 1 & Set 2)",
+        "engine_name": "Native Rust / Mach-O + WebGL Hybrid TCG Engine (libcardfront_tcg_engine)",
+        "local_source_code": "UNITY:ERR:RECT_OVERLAP_07",
+        "standardized_defect_concept": "UI/UX Card-Face Sub-Element Bounding-Box Collision",
+        "pre_intervention_collisions": 14.0,
+        "post_intervention_collisions": 0.0,
+        "relative_risk_reduction_pct": 100.0
+      },
+      {
+        "project_name": "Project Aegis: AAA Mecha Tactical Sandbox (Partner UE5)",
+        "engine_name": "Unreal Engine 5.8 C++ / Blueprint Runtime",
+        "local_source_code": "UE5:WARN:UMG_SLOT_CLIP",
+        "standardized_defect_concept": "UI/UX Card-Face Sub-Element Bounding-Box Collision",
+        "pre_intervention_collisions": 9.0,
+        "post_intervention_collisions": 0.0,
+        "relative_risk_reduction_pct": 100.0
+      },
+      {
+        "project_name": "Echoes of Astral Grid: Roguelike Deckbuilder (Partner Godot)",
+        "engine_name": "Godot 4.7 GDScript / Forward+ Runtime",
+        "local_source_code": "GODOT:WARN:CONTROL_RECT_COLLIDE",
+        "standardized_defect_concept": "UI/UX Card-Face Sub-Element Bounding-Box Collision",
+        "pre_intervention_collisions": 6.0,
+        "post_intervention_collisions": 0.0,
+        "relative_risk_reduction_pct": 100.0
+      }
+    ],
+    "study_2_perforce_vs_dice_p4_vcs_outcomes": [
+      {
+        "studio_site_name": "Studio PxG Sovereign Citadel (Honolulu HQ)",
+        "primary_vcs_type": "DICE-P4 + Git Dual-Remote",
+        "baseline_p4_lock_wait_sec": null,
+        "post_dice_p4_sync_sec": 0.42
+      },
+      {
+        "studio_site_name": "Partner AAA Unreal Studio (Pacific Northwest)",
+        "primary_vcs_type": "Perforce Helix Core (p4d 2026.1)",
+        "baseline_p4_lock_wait_sec": 1840.0,
+        "post_dice_p4_sync_sec": 1.45
+      }
+    ],
+    "study_3_cardfront_70b_soup_distillation_and_balance": [
+      {
+        "loinc_code": "LOINC:CF_BBOX_COLLISIONS",
+        "metric_name": "Card-Face Sub-Element Bounding-Box Collision Count",
+        "value": 0.0,
+        "unit": "collisions",
+        "pass_gate": true
+      },
+      {
+        "loinc_code": "LOINC:WCAG_CONTRAST_RATIO",
+        "metric_name": "Directional Stat Badge WCAG Luminance Contrast Ratio",
+        "value": 15.8,
+        "unit": "ratio",
+        "pass_gate": true
+      },
+      {
+        "loinc_code": "LOINC:STAT_FONT_PX",
+        "metric_name": "Directional Stat Badge Typography Font Size (px)",
+        "value": 13.0,
+        "unit": "px",
+        "pass_gate": true
+      },
+      {
+        "loinc_code": "LOINC:META_GINI",
+        "metric_name": "Metagame Win-Rate Gini Coefficient (0.0 = Perfect Balance)",
+        "value": 0.0,
+        "unit": "gini",
+        "pass_gate": true
+      },
+      {
+        "loinc_code": "LOINC:SHANNON_ENTROPY_BITS",
+        "metric_name": "Deck Archetype Shannon Diversity Entropy (bits)",
+        "value": 3.3219,
+        "unit": "bits",
+        "pass_gate": true
+      },
+      {
+        "loinc_code": "LOINC:TELEGRAPH_READABILITY",
+        "metric_name": "1-Second Telegraph Readability Score (0..1)",
+        "value": 0.9529,
+        "unit": "score",
+        "pass_gate": true
+      },
+      {
+        "loinc_code": "LOINC:KD_CE_LOSS",
+        "metric_name": "Continual Distillation Cross-Entropy Loss (nats)",
+        "value": 4.10743,
+        "unit": "nats",
+        "pass_gate": true
+      },
+      {
+        "loinc_code": "LOINC:VCS_LOCK_WAIT_SEC",
+        "metric_name": "VCS Binary Asset Checkout / Merge Wait Latency (seconds)",
+        "value": 0.42,
+        "unit": "seconds",
+        "pass_gate": true
+      },
+      {
+        "loinc_code": "LOINC:GATE_PASS_PCT",
+        "metric_name": "184-Check Automated Verification Gate Pass Rate (%)",
+        "value": 100.0,
+        "unit": "percent",
+        "pass_gate": true
+      }
+    ]
+  }
+}
