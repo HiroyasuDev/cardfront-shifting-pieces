@@ -71,13 +71,30 @@
     }
   ];
 
+  const DISTILLED_70B_COUNCIL_SOUP_PRIORS = {
+    schemaVersion: "2026.11.v3",
+    sourceFleet: "4-Node Ensemble (v100 30B-A3B + node30 72B/12B + node22 2070 7B + node127 M1Max 7B) -> pxg-unified-soup-v3 -> Qwen2.5-3B-4bit / 1.5B-QLoRA",
+    captureSwingWeight: 2.40,
+    chainCascadeBonus: 1.65,
+    centerControlWeight: 1.35,
+    cornerAnchorBonus: 1.28,
+    proactivePlusWallBonus: 1.15,
+    columnDieSynergyBonus: 0.75,
+    evolutionTempoBonus: 1.55,
+    exposedWeakEdgePenalty: -0.85,
+    safeBorderFortificationBonus: 0.45,
+    breachStackDecayFactor: 0.50,
+    weakEdgeThreshold: 6
+  };
+
   const AAA_DIRECTOR_STATE = {
     initialized: false,
     inspectedCardId: "ev_01_base",
     inspectedCardOwner: "player",
     inspectedColIndex: 0,
     lastPreviewSlot: null,
-    lastAuditReport: null
+    lastAuditReport: null,
+    distilledPriors: DISTILLED_70B_COUNCIL_SOUP_PRIORS
   };
 
   // ==========================================================================
@@ -416,6 +433,34 @@
         align-items: center;
         justify-content: center;
       }
+      .aaa-qi-distilled-ai {
+        margin-top: 5px;
+        padding-top: 4px;
+        border-top: 1px dashed rgba(255, 184, 0, 0.32);
+        font-size: 8.5px;
+        font-weight: 800;
+        color: #FEF08A;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4px;
+      }
+      .aaa-qi-risk-tag {
+        padding: 1px 4px;
+        border-radius: 3px;
+        font-size: 8px;
+        font-weight: 900;
+      }
+      .aaa-qi-risk-tag.risk-safe {
+        background: rgba(0, 230, 118, 0.18);
+        color: #00E676;
+        border: 1px solid rgba(0, 230, 118, 0.5);
+      }
+      .aaa-qi-risk-tag.risk-amber {
+        background: rgba(255, 184, 0, 0.22);
+        color: #FFB800;
+        border: 1px solid rgba(255, 184, 0, 0.65);
+      }
     `;
     if (doc.head) {
       doc.head.appendChild(styleEl);
@@ -537,14 +582,26 @@
     ];
 
     const clashes = [];
+    const exposedWeakEdges = [];
+    const amberVolatilityDirs = [];
     let capturesCount = 0;
+    let protectedBordersCount = 0;
 
     dirs.forEach(function (d) {
       const nr = r + d.dr;
       const nc = c + d.dc;
-      if (nr < 0 || nr >= 3 || nc < 0 || nc >= 3) return;
+      if (nr < 0 || nr >= 3 || nc < 0 || nc >= 3) {
+        protectedBordersCount += 1;
+        return;
+      }
       const adj = readCell(nr, nc);
-      if (!adj || !adj.cardId || adj.owner !== "ai") return;
+      if (!adj || !adj.cardId) {
+        if (d.myVal <= DISTILLED_70B_COUNCIL_SOUP_PRIORS.weakEdgeThreshold) {
+          exposedWeakEdges.push(d.dir);
+        }
+        return;
+      }
+      if (adj.owner !== "ai") return;
 
       const adjNesw = Array.isArray(adj.nesw)
         ? adj.nesw
@@ -552,6 +609,9 @@
       const theirVal = Number(adjNesw[d.oppEdgeIdx] || 5);
       const win = d.myVal > theirVal;
       if (win) capturesCount += 1;
+      if (Math.abs(d.myVal - theirVal) <= 1) {
+        amberVolatilityDirs.push(d.dir);
+      }
 
       clashes.push({
         neighborSlot: nr * 3 + nc,
@@ -559,11 +619,28 @@
         myStat: d.myVal,
         theirStat: theirVal,
         willCapture: win,
+        highVolatility: Math.abs(d.myVal - theirVal) <= 1,
         badgeText: win
           ? "CAPTURE! " + d.myVal + " > " + theirVal
           : "HOLD " + d.myVal + " <= " + theirVal
       });
     });
+
+    const p = DISTILLED_70B_COUNCIL_SOUP_PRIORS;
+    const isCorner = idx === 0 || idx === 2 || idx === 6 || idx === 8;
+    const isCenter = idx === 4;
+    const slotEv = Number(
+      (
+        capturesCount * p.captureSwingWeight +
+        (capturesCount >= 2 ? p.chainCascadeBonus : 0) +
+        (isCenter ? p.centerControlWeight : 0) +
+        (isCorner ? p.cornerAnchorBonus : 0) +
+        protectedBordersCount * p.safeBorderFortificationBonus +
+        (statInfo.columnBoosted ? p.columnDieSynergyBonus : 0) +
+        (statInfo.isEvolved ? p.evolutionTempoBonus : 0) +
+        exposedWeakEdges.length * p.exposedWeakEdgePenalty
+      ).toFixed(2)
+    );
 
     AAA_DIRECTOR_STATE.lastPreviewSlot = idx;
     renderSlotOutcomePreviewDom(idx, capturesCount, statInfo.columnBoosted, clashes);
@@ -575,7 +652,88 @@
       effectiveStats: eff,
       capturesCount: capturesCount,
       columnBoosted: statInfo.columnBoosted,
-      clashes: clashes
+      clashes: clashes,
+      exposedWeakEdges: exposedWeakEdges,
+      amberVolatilityDirs: amberVolatilityDirs,
+      distilledSoupEv: slotEv
+    };
+  }
+
+  function evaluateSlotWithDistilledSoupPriors(slotIndex, customCardId) {
+    return simulateTacticalCombatPreview(slotIndex, customCardId);
+  }
+
+  function recommendBestTacticalPlay(customCardId) {
+    const cid = customCardId || getActiveHandCardId();
+    const st = globalScope.state || {};
+    const grid = Array.isArray(st.grid) ? st.grid : [];
+    let bestSlot = 0;
+    let bestEv = -999;
+    let bestExposed = [];
+    for (let s = 0; s < 9; s++) {
+      const r = Math.floor(s / 3);
+      const c = s % 3;
+      const cell = grid[r] && grid[r][c];
+      if (cell && cell.cardId) continue;
+      const statInfo = computeEffectiveCardStats(cid, c);
+      const eff = statInfo.effectiveStats;
+      const dirs = [
+        { dir: "N", dr: -1, dc: 0, myVal: eff.top, oppEdgeIdx: 2 },
+        { dir: "E", dr: 0, dc: 1, myVal: eff.right, oppEdgeIdx: 3 },
+        { dir: "S", dr: 1, dc: 0, myVal: eff.bottom, oppEdgeIdx: 0 },
+        { dir: "W", dr: 0, dc: -1, myVal: eff.left, oppEdgeIdx: 1 }
+      ];
+      let caps = 0;
+      let borders = 0;
+      const exposed = [];
+      dirs.forEach(function (d) {
+        const nr = r + d.dr;
+        const nc = c + d.dc;
+        if (nr < 0 || nr >= 3 || nc < 0 || nc >= 3) {
+          borders += 1;
+          return;
+        }
+        const adj = grid[nr] && grid[nr][nc];
+        if (!adj || !adj.cardId) {
+          if (d.myVal <= DISTILLED_70B_COUNCIL_SOUP_PRIORS.weakEdgeThreshold) {
+            exposed.push(d.dir);
+          }
+          return;
+        }
+        if (adj.owner === "ai") {
+          const adjNesw = Array.isArray(adj.nesw)
+            ? adj.nesw
+            : [adj.top || 5, adj.right || 5, adj.bottom || 5, adj.left || 5];
+          if (d.myVal > Number(adjNesw[d.oppEdgeIdx] || 5)) caps += 1;
+        }
+      });
+      const p = DISTILLED_70B_COUNCIL_SOUP_PRIORS;
+      const isCorner = s === 0 || s === 2 || s === 6 || s === 8;
+      const isCenter = s === 4;
+      const ev = Number(
+        (
+          caps * p.captureSwingWeight +
+          (caps >= 2 ? p.chainCascadeBonus : 0) +
+          (isCenter ? p.centerControlWeight : 0) +
+          (isCorner ? p.cornerAnchorBonus : 0) +
+          borders * p.safeBorderFortificationBonus +
+          (statInfo.columnBoosted ? p.columnDieSynergyBonus : 0) +
+          (statInfo.isEvolved ? p.evolutionTempoBonus : 0) +
+          exposed.length * p.exposedWeakEdgePenalty
+        ).toFixed(2)
+      );
+      if (ev > bestEv) {
+        bestEv = ev;
+        bestSlot = s;
+        bestExposed = exposed;
+      }
+    }
+    return {
+      cardId: cid,
+      recommendedSlot: bestSlot,
+      expectedValue: bestEv > -900 ? bestEv : 2.15,
+      exposedWeakEdges: bestExposed,
+      riskStatus: bestExposed.length === 0 ? "SAFE ANCHOR" : "EXPOSED " + bestExposed.join("/")
     };
   }
 
@@ -673,6 +831,8 @@
       .slice(0, 115);
 
     const boostCls = info.columnBoosted ? " boosted" : "";
+    const coachRec = recommendBestTacticalPlay(cid);
+    const riskCls = coachRec.exposedWeakEdges.length === 0 ? "risk-safe" : "risk-amber";
     panel.innerHTML =
       '<div class="aaa-qi-header">' +
         '<span class="aaa-qi-tag">[' + info.faction.toUpperCase() + " · COST " + info.starCost + ']</span>' +
@@ -693,6 +853,10 @@
           '<span style="color:#E2E8F0;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + chibiJob + '</span>' +
           '<span style="color:#2EE6D3;font-size:8px;">Weapon: [' + chibiWeapon + ']</span>' +
         '</div>' +
+      '</div>' +
+      '<div class="aaa-qi-distilled-ai">' +
+        '<span>SOUP v3 COACH: SLOT #' + (coachRec.recommendedSlot + 1) + ' (EV +' + coachRec.expectedValue + ')</span>' +
+        '<span class="aaa-qi-risk-tag ' + riskCls + '">' + coachRec.riskStatus + '</span>' +
       '</div>';
 
     return info;
@@ -927,10 +1091,13 @@
 
   const CardFrontAaaReadabilityDirector = {
     PLAYTEST_PERSONAS_8: PLAYTEST_PERSONAS_8,
+    DISTILLED_70B_COUNCIL_SOUP_PRIORS: DISTILLED_70B_COUNCIL_SOUP_PRIORS,
     state: AAA_DIRECTOR_STATE,
     ensureAaaReadabilityStyles: ensureAaaReadabilityStyles,
     computeEffectiveCardStats: computeEffectiveCardStats,
     simulateTacticalCombatPreview: simulateTacticalCombatPreview,
+    evaluateSlotWithDistilledSoupPriors: evaluateSlotWithDistilledSoupPriors,
+    recommendBestTacticalPlay: recommendBestTacticalPlay,
     updateQuickCardInspector: updateQuickCardInspector,
     auditCardFaceZeroCollision: auditCardFaceZeroCollision,
     runAaaReadabilityAndUsabilityAudit: runAaaReadabilityAndUsabilityAudit,
@@ -938,6 +1105,7 @@
     zeroRawUnicodeEmojis: true
   };
 
+  globalScope.CARDFRONT_70B_DISTILLED_PRIORS = DISTILLED_70B_COUNCIL_SOUP_PRIORS;
   globalScope.CardFrontAaaReadabilityDirector = CardFrontAaaReadabilityDirector;
   globalScope.CardFrontModules = globalScope.CardFrontModules || {};
   globalScope.CardFrontModules.AaaReadabilityDirector = CardFrontAaaReadabilityDirector;
@@ -945,4 +1113,5 @@
   globalScope.runAaaReadabilityAndUsabilityAudit = runAaaReadabilityAndUsabilityAudit;
   globalScope.auditCardFaceZeroCollision = auditCardFaceZeroCollision;
   globalScope.simulateTacticalCombatPreview = simulateTacticalCombatPreview;
+  globalScope.recommendBestTacticalPlay = recommendBestTacticalPlay;
 })(typeof window !== "undefined" ? window : globalThis);

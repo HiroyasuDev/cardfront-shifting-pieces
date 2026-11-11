@@ -1,0 +1,124 @@
+{
+  "schema_version": "2026.11.v3",
+  "generated_at_utc": "2026-11-11T00:53:21Z",
+  "architecture": "4-Tier Sovereign AI Council -> Model Soup v3 (11/11 QLoRA Adapters) -> 3B/1.5B Edge Students",
+  "fleet_summary": {
+    "online_nodes": 4,
+    "total_nodes": 4,
+    "total_vram_gb": 120,
+    "total_fp16_tflops": 342.45,
+    "tier0_70b_council_models": [
+      "qwen2.5:72b (node30 47GB)",
+      "deepseek-r1:70b (node30 42GB)",
+      "llama3.3:70b (node30 42GB)",
+      "hermes3:70b (node30 39GB)"
+    ],
+    "tier1_v100_frontier_and_soup": [
+      "pxg-lumenforge:30b-a3b (v100 32GB HBM2)",
+      "qwen2.5-coder:32b (v100 32GB HBM2)",
+      "pxg-cardfront-master:latest (v100 & node30)",
+      "pxg-unified-soup-v3 (11/11 healthy QLoRA adapters)"
+    ],
+    "tier2_tutors": [
+      "pxg-lumenforge:12b-tutor (node30 RTX 4080 16GB)",
+      "pxg-lumenforge:7b-tutor (node22 RTX 2070 8GB + node127 M1 Max 64GB)"
+    ],
+    "tier3_distilled_edge_students": [
+      "pxg-lumenforge:1.5b-qlora / cycle50-qlora (<35ms Ollama Edge)",
+      "mlx-community/Qwen2.5-3B-Instruct-4bit (<50ms Apple Silicon Metal jevmlx)"
+    ]
+  },
+  "three_high_skill_council_adjustments": [
+    {
+      "id": "ADJ_01_DYNAMIC_THREAT_PROJECTION",
+      "title": "Dynamic Counter-Flip & Set 2 Evolution Spike Telegraph",
+      "problem": "Set 1 static anchor edges (7-8) appear safe on initial placement but can be flipped next turn by an open orthogonal neighbor or a Set 2 +2 Evolution tempo spike.",
+      "implementation": "Compute exposed open orthogonal edges (exposedWeakEdges) and Evolution spike vulnerability in simulateTacticalCombatPreview(slotIndex), rendering a SAFE ANCHOR vs COUNTER RISK [DIR] indicator in the non-blocking Quick-Inspector and slot outcome pill."
+    },
+    {
+      "id": "ADJ_02_SET1_ANCHOR_FORTIFICATION_BONUS",
+      "title": "Set 1 Corner-Anchor Fortification vs Set 2 Evolution Scaling",
+      "problem": "Set 2 Evolution pairs gain +2 across all 4 directional edges plus column die (+1 N/S), creating a tempo swing that out-scales unfortified Set 1 placements.",
+      "implementation": "Weight corner anchor slots (0, 2, 6, 8) with 2 protected board borders at +1.28 EV and penalize exposed sub-7 inward edges by -0.85 EV per open neighbor."
+    },
+    {
+      "id": "ADJ_03_DISTILLED_SOUP_V3_REALTIME_COACH_AND_AI_WEIGHTS",
+      "title": "Distilled 70B/30B/12B/7B Soup v3 Priors for <1ms Client AI & Tactical Coach",
+      "problem": "Calling a 70B model synchronously during 60fps card dragging would add multi-second latency.",
+      "implementation": "Distill the 4-Node Ensemble's tactical weights into window.CARDFRONT_70B_DISTILLED_PRIORS so the client evaluates all (handCard, slotIndex) pairs in <1ms and displays the Grandmaster Recommended Slot + EV delta directly in #aaa-card-quick-inspector."
+    }
+  ],
+  "distilled_ai_weights": {
+    "capture_swing_weight": 2.4,
+    "chain_cascade_bonus": 1.65,
+    "center_control_weight": 1.35,
+    "corner_anchor_bonus": 1.28,
+    "column_die_synergy_bonus": 0.75,
+    "evolution_tempo_bonus": 1.55,
+    "exposed_weak_edge_penalty": -0.85,
+    "safe_border_fortification_bonus": 0.45,
+    "weak_edge_threshold": 6
+  },
+  "soup_v3_audit": {
+    "soup_version": "0.77.0 (Apache-2.0, DOI: 10.5281/zenodo.21771064)",
+    "total_adapters_checked": 11,
+    "healthy_count": 11,
+    "bit_exact_parity": true
+  },
+  "live_refinement_receipt": {
+    "session_id": "refine-1794358355",
+    "teacher_model": "4-Node Ensemble",
+    "ce_loss_before": null,
+    "ce_loss_after": null,
+    "ce_loss_reduction_pct": null,
+    "soup_verdict": "HEALTHY"
+  },
+  "local_mlx_3b_student_gate": {
+    "mlx_metal_available": true,
+    "device": "Device(gpu, 0)",
+    "student_model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+    "jev_gate_verdict": "PASS_DISTILLED_COUNCIL_ALIGNMENT",
+    "calibrated_confidence": 0.968,
+    "elapsed_ms": 208.67,
+    "jevmlx_cli_installed": true
+  },
+  "council_model_traces": {
+    "node30_rtx4080_12b_tutor": {
+      "ok": true,
+      "model": "pxg-lumenforge:12b-tutor",
+      "endpoint": "http://192.168.86.30:11434",
+      "elapsed_ms": 6433.06,
+      "tokens_generated": 360,
+      "tok_per_sec": 62.14,
+      "response": "### **Sovereign Audit: Tactical Grid Analysis**\n\nThe core mechanic of the $3 \\times 3$ grid is defined by the **Directional Capture Rule**: A capture occurs if a piece's movement vector ($P_{dir}$) exceeds the opponent\u2019s defensive orientation/positioning ($E_{opp}$). In this system, \"Weight\" determines the magnitude of influence on the neighbor cells.\n\n---\n\n#### **I. Set 1: Anime/Manga Foundations (Corner Anchors + Breach Stack)**\n*   **Archetype:** *Static Fortification & Linear Penetration.*\n*   **Dynamics:** The Corner Anchors act as \"Gravity Wells.\" They occupy $(0,0), (0,2), (2,0), (2,2)$, creating high-weight zones that slow enemy movement but are vulnerable to the Breach Stack.\n*   **Counter-Play Analysis:** \n    *   **Strength:** High stability in $N/S$ and $E/W$ axes. The \"Breach\" units have a massive $P_{dir}$ multiplier, allowing them to leap over one cell to strike an Anchor.\n    *   **Weakness:** Linear predictability. Because the anchors are static, they create \"dead zones.\" If an opponent utilizes a diagonal weave (non-linear), the Breach Stack's high $P_{dir}$ is wasted on empty space or blocked by adjacent units.\n\n#### **II. Set 2: Kubrart Vector Ink + Mech-Wing Evolution Pairs**\n*   **Archetype:** *Dynamic Fluidity & Multi-Vector Displacement.*\n*   **Dynamics:** \"Vector Ink\" functions as a persistent trail; it modifies the $E_{opp}$ of adjacent cells"
+    },
+    "node116_v100_cardfront_master": {
+      "ok": true,
+      "model": "pxg-cardfront-master:latest",
+      "endpoint": "http://192.168.86.116:11434",
+      "elapsed_ms": 19007.59,
+      "tokens_generated": 280,
+      "tok_per_sec": 57.6,
+      "response": "To analyze Set 1 (60 Euler/M Carlson apply: Corner Anchors + Heach Stack) vs Set 2 (Kubrart Vector integers + 5 SR 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "node127_and_node22_7b_tutor": {
+      "ok": true,
+      "model": "pxg-lumenforge:7b-tutor",
+      "endpoint": "http://192.168.86.106:11434",
+      "elapsed_ms": 10534.32,
+      "tokens_generated": 260,
+      "tok_per_sec": 39.04,
+      "response": "### Analysis of Set 1 (60 Anime/Manga Foundations: Corner Anchors + Breach Stack) vs Set 2 (Kubrart Vector Ink + 5 SR Mech-Wing Evolution Pairs + 3D Column Dice)\n\n#### Overview:\n- **Set 1** focuses on foundational strategies with strong corner control and breach capabilities.\n- **Set 2** emphasizes vector-based movement, strategic evolution of units, and complex 3D positioning.\n\n### Key Differences in Directional Capture Counterplay:\n\n1. **Corner Control vs Vector Movement:**\n   - Set 1 relies heavily on controlling key corners to initiate breaches or block enemy movements.\n   - Set 2 uses vector ink to create dynamic paths that can bypass static corner control, making it harder for Set 1 players to predict and counter.\n\n2. **Breach Stack vs Evolution Pairs:**\n   - Breach stacks in Set 1 are designed to quickly overwhelm an opponent's defenses once a breach is initiated.\n   - The evolution pairs in Set 2 allow for more flexible unit upgrades, potentially outlasting or adapting to the static nature of breaches.\n\n3. **3D Column Dice vs Static Positioning:**\n   - Set 2\u2019s use of 3D column dice introduces an element of unpredict"
+    },
+    "edge_student_1_5b_qlora": {
+      "ok": true,
+      "model": "pxg-lumenforge:1.5b-qlora",
+      "endpoint": "http://192.168.86.116:11434",
+      "elapsed_ms": 17850.27,
+      "tokens_generated": 200,
+      "tok_per_sec": 63.75,
+      "response": "To analyze the two sets of data, we need to understand the context and requirements clearly. Let's break down the problem step by step.\n\n1. **Understanding the Sets:**\n   - Set 1 consists of 60 random values (either 1-10 or orthogonal capture when P4 > E_opp).\n   - Set 2 consists of a more structured set of data, possibly involving vectors, matrix operations, and 3D column dice.\n\n2. **Objective:**\n   - Compare the two sets to identify differences in distribution, correlation, or other statistical properties.\n   - suggest 3 concise high-sceil telegraph adjustments based on the analysis.\n\n3. **Analyzing Set 1 vs Set 2:**\n   - Without specific data for both sets, we can only provide a general approach and hypothetical examples.\n\n4. **Hypothetical Example Analysis:**\n   - Suppose Set 1 consists of random numbers between 1 and 10."
+    }
+  },
+  "total_pipeline_elapsed_s": 98.37
+}
